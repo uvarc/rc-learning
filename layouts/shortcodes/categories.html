@@ -1,0 +1,77 @@
+{{/*
+	--- shortcode/widgets/tag_cloud.html
+	Credits:
+		This code was inspired by the academic theme.
+		Thanks to: George Cushen
+	Purpose:
+		This function does not take any arguments into account.
+		Read all "tags" and "categories" from the site's taxonomies
+		and create a test cloud which can be used to navigate the site.
+	
+	(c) 2020, Johann Oberdorfer - Engineering Support | CAD | Software
+		www.johann-oberdorfer.eu
+	This source file is distributed under the MIT license.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+	See the MIT License for more details.
+
+	Modified to read only "categories," not including "tags", for UVARC
+*/}}
+
+
+{{ $fontSmall := .Page.Params.design.font_size_min | default 1.0 }}
+{{ $fontBig := .Page.Params.design.font_size_max | default 1.0 }}
+{{ $fontDelta := sub $fontBig $fontSmall }}
+
+{{/* read "categories"... */}}
+{{ $data := .Site.Taxonomies.categories.ByCount }}
+
+{{/* output goes here...  */}}
+
+{{ if ne (len $data) 0 }}
+
+	{{/* Warning:
+			Hugo's `Reverse` function appears to operate in-place,
+			hence the order of performing $max/$min matters.
+	*/}}
+
+	{{ $max := add (len (index $data 0).Pages) 1 }}
+	{{ $min := len (index ($data).Reverse 0).Pages }}
+	{{ $delta := sub $max $min }}
+	{{ $fontStep := div $fontDelta $delta }}
+
+	<div class="row" style="background-color:HoneyDew;padding:5px">
+	<div class="heading text-center" style="margin-top: 5px;">
+
+	<!-- unused for the moment:
+	<div class="heading text-center" style="margin-top: 5px;">
+		<h4><i class="icon-line-flag"></i> Categories: & <i class="icon-tag2"></i> Tags: </h4>
+	</div>
+	-->
+
+	<div class="col-12 text-center">
+
+		<div class="tag-cloud">
+		{{ range $item := (sort $data ".Page.Title" "asc") }}
+
+			{{ $tagCount := len $item.Pages }}
+			{{ $weight := div (sub (math.Log $tagCount) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
+			{{ $fontSize := add $fontSmall (mul (sub $fontBig $fontSmall) $weight) }}
+
+			<!-- class="button button-border button-mini button-border-thin button-blue button-circle" -->
+
+			{{ if ne (upper .Page.Title) "ARCHIVED" }}
+				<a href="{{ .Page.RelPermalink }}" style="font-size:{{ $fontSize }}rem">
+					{{ .Page.Title | upper }}
+					<span style="color: LightGrey; font-size:{{ $fontSmall }}rem"> ({{ $tagCount }}) </span>
+				</a>
+			{{ end }}
+
+		{{ end }}
+		</div>
+
+	</div>
+	</div>
+	</div>
+{{ end }}

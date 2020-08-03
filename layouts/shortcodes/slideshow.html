@@ -1,0 +1,108 @@
+{{ $extension := .Get "ext" }}
+{{ $folder := .Get "folder" }}
+{{ $staticFolder := (delimit (slice "/static" $folder) "/")}}
+{{ $files := readDir $staticFolder}}
+{{ $slideFolder := (delimit (slice "/" $folder) "")}}
+{{ $nofiles := len $files }}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<div class="section" id="carousel">
+  <div class="container" style="margin-top:0px;margin-bottom:150;">
+    <div class="row">
+      <div class="col">
+        <div id="carouselIndicators" class="carousel slide" style="margin-bottom:150px" data-interval="false" data-ride="carousel">
+          <ol class="carousel-indicators">
+            {{ range $key, $value := $files }}
+              {{ $active := "" }}
+              {{ if eq $key 0 }}
+                {{ $active = "active" }}
+              {{ end }}
+              <li data-target="#carouselIndicators" data-slide-to="{{ $key }}" class="{{ $active }}"></li>
+            {{ end }}
+          </ol>
+          <div class="carousel-inner" role="listbox">
+          {{ range $key, $value := $files }}
+            {{ $active := "" }}
+            {{ if eq $key 0 }}
+              {{ $active = "active" }}
+            {{ end }}
+              <div class="carousel-item {{ $active}} ">
+                 {{- $index := add $key 1}}
+                 {{- $file:= ( printf "Slide%d.%s" $index $extension ) }}
+		 <img class="d-block w-100" src="{{ $slideFolder}}/{{ $file }}" alt="Slide {{ $index }}">
+              </div>
+          {{ end }}
+          </div>
+          <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+	    <span><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i></span>
+	    <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+	    <span><i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i></span>
+	    <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.carousel-inner > .item > img,
+.carousel-inner > .item > div,
+.carousel-inner > .item > a > img {
+    width: 85%;
+    margin: auto;
+  }
+
+.carousel-control-prev {
+    width: 7.5%;
+    margin-left: -100px;
+    color: black;
+}
+
+.carousel-control-prev:hover {
+  color:black;
+}
+
+.carousel-control-next {
+    width: 7.5%;
+    margin-right: -100px;
+    color: black;
+}
+
+.carousel-control-next:hover {
+  color:black;
+}
+
+.carousel-indicators li {
+    border-radius: 10px;
+    margin: 1px 5px;
+    height: 10px;
+    max-width: 10px;
+    border: 1px solid #000;
+    background-color: transparent;
+}
+
+.carousel-indicators .active {
+    background-color: #000;
+    border: 1px solid #000;
+    max-width: 12px;
+    width: 12px;
+    margin: 0 0px;
+    height: 12px;
+}
+
+.carousel-indicators {
+    bottom: -150px;
+}
+</style>
+
