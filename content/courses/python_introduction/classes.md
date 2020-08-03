@@ -229,5 +229,5 @@ import dill as pickle
 
 Dill is not included in the base Anaconda must can be installed through _conda_, the Anaconda package manager.  To invoke conda from the Navigator, go to the Environments tab, change the "Installed" dropdown to "Not installed" and wait for the package list to be populated.  Find `dill`, select it (and any other packages you find you might need), then click the green Apply button.
 
-![AnacondaPackageManager](/images/python/AnacondaPackageManager.png)
+![AnacondaPackageManager](/courses/python_introduction/AnacondaPackageManager.png)
 

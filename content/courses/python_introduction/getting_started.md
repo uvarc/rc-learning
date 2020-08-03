@@ -19,19 +19,19 @@ Once you have installed Anaconda, find the Navigator application.  You should se
 
 ### JupyterLab
 
-![AnacondaNavigator](/images/python/AnacondaNavigator.png)
+![AnacondaNavigator](/courses/python_introduction/AnacondaNavigator.png)
 
 We will start with Jupyterlab.  Launching it will cause a tab to open in your Web browser. Select the Jupyterlab icon.  It may take a while to start.  When it opens, you will see a list of your files on the left and three icons to select the mode.  Jupyterlab incorporates a Jupyter notebook server as well as a plain Python console and a simple text editor.  We want to start a Jupyter notebook so click on the top tile.
 
-![JupyterLabSetup](/images/python/JupyterLabSetup.png)
+![JupyterLabSetup](/courses/python_introduction/JupyterLabSetup.png)
 
 A textbox will open.
 
-![JupyterLabInput](/images/python/JupyterLabInput.png)
+![JupyterLabInput](/courses/python_introduction/JupyterLabInput.png)
 
 Your notebook is untitled.  Open the File menu and click Rename.  Name your notebook hello.ipynb then click the Rename button.
 
-![JupyterLabRename](/imags/python/JupyterLabRename.png)
+![JupyterLabRename](/courses/python_introduction/JupyterLabRename.png)
 
 #### Cells
 
@@ -118,7 +118,7 @@ You can export embedded text in your notebook into a script.  First make sure yo
 
 Now we will switch to Spyder.  Spyder is an Integrated Development Environment, or __IDE__, aimed at Python.  It is well suited to developing longer, more modular programs.  To start it, return to the Anaconda Navigator and click on its tile.  It may take a while to open (watch the lower left of the Navigator).  Once it starts, you will see a layout with an editor pane on the left, an explorer pane at the top right, and an iPython console on the lower right.  This arrangement can be customized but we will use the default for our examples. Type code into the editor.  The explorer window can show files, variable values, and other useful information.  The iPython console is a frontend to the Python interpreter itself.  It is comparable to a cell in JupyterLab.
 
-![Spyder](/images/python/Spyder.png)
+![Spyder](/courses/python_introduction/Spyder.png)
 
 If you are using Python 2.7, add the `future` line immediately after the triple-quoted section.
 
@@ -198,7 +198,7 @@ plt.plot(x,y)
 
 You must save a file before you can run it.  Go the File menu, Save As, and name it `sine.py`  Use the project folder you created earlier.  When we run this code, we see the plot appear embedded in the iPython window.  We can right-click on the image to bring up a menu that allows us to save the plot.
 
-![SpyderSine](/images/python/SpyderSine.png)
+![SpyderSine](/courses/python_introduction/SpyderSine.png)
 
 #### The Variable Explorer
 

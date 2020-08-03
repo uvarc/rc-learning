@@ -36,7 +36,7 @@ plt.show()
 ```
 
 This results in
-![SimplePlot.png](/images/python/SimplePlot.png)
+![SimplePlot.png](/courses/python_introduction/SimplePlot.png)
 
 Let us write a more sophisticated example.  This is a scatter plot with points randomly placed according to a normal distribution.
 
@@ -50,7 +50,7 @@ ax.set_title('Scatter Plot')
 plt.show()
 ```
 
-![ScatterPlot.png](/images/python/ScatterPlot.png)
+![ScatterPlot.png](/courses/python_introduction/ScatterPlot.png)
 
 We can place more sophisticated labeling or multiple plots on a graph with `subplot`
 
@@ -72,7 +72,7 @@ plt.ylabel('Undamped')
 plt.show()
 ```
 
-![Subplot.png](/images/python/Subplot.png)
+![Subplot.png](/courses/python_introduction/Subplot.png)
 
 Many other options are available for annotations, legends, and so forth.
 
@@ -140,7 +140,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Streamplotdemo.png](/images/python/Streamplotdemo.png)
+![Streamplotdemo.png](/courses/python_introduction/Streamplotdemo.png)
 
 Matplotlib can also make histograms, pie charts, and so forth.  These are commonly used with Pandas, and Pandas can access them directly, as we will see.
 
@@ -241,7 +241,7 @@ conda install newpackage
 
 Many more options are available.  Conda can also be used to create "sandboxes" called _conda environments_.  Conda's [user guide](https://conda.io/projects/conda/en/latest/user-guide/index.html) describes conda's capabilities.
 
-![Conda.png](/images/python/Conda.png)
+![Conda.png](/courses/python_introduction/Conda.png)
 
 If you have a very large number of packages to update, however, it may be better to uninstall Anaconda and install a new version.
 
@@ -259,7 +259,7 @@ sns.relplot(x="timepoint", y="signal", col="region",
             kind="line", data=fmri);
 ```
 
-![SeabornDemo1.png](/images/python/SeabornDemo1.png)
+![SeabornDemo1.png](/courses/python_introduction/SeabornDemo1.png)
 
 Many other statistical plots are available including boxplots, violin plots, distribution plots, and so forth.  The next example is a heatmap.
 
@@ -277,7 +277,7 @@ f, ax = plt.subplots(figsize=(9, 6))
 sns.heatmap(flights, annot=True, fmt="d", linewidths=.5, ax=ax)
 ```
 
-![SeabornDemo2.png](/images/python/SeabornDemo2.png)
+![SeabornDemo2.png](/courses/python_introduction/SeabornDemo2.png)
 
 The call to `sns.set()` imposes the default Seaborn theme to all Matplotlib plots as well as those using Seaborn.  Seaborn provides a number of methods to modify the appearance of its plots as well as Matplotlib plots created while the settings are in scope.  For many examples see their [tuturial](https://seaborn.pydata.org/tutorial/aesthetics.html#aesthetics-tutorial) on styling plots.
 
