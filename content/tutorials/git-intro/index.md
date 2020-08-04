@@ -1,5 +1,6 @@
 ---
 title: Version Control with Git
+summary: "Learn to use the git version-control system to manage your software projects.  Back up your projects on Github."
 
 Date: "2015-07-23T21:13:14-05:00"
 
@@ -17,4 +18,3 @@ notes: git-intro
 
 ---
 
-Learn to use the git version-control system to manage your software projects.  Back up your projects on Github.

@@ -27,16 +27,16 @@ Also download the labs and sample code for your language (C++ use C):
 <br>
 [heatedplate.c](/files/heatedplate.c)
 <br>
-[heatedplate.cxx](/files/heatedplate.cxx)
+[heatedplate.cxx](/code/heatedplate.cxx)
 <br>
-[heatedplate.f90](/files/heatedplate.f90)
+[heatedplate.f90](/code/heatedplate.f90)
 <br>
-[heatedplate.py](/files/heatedplate.py)
+[heatedplate.py](/code/heatedplate.py)
 
 Some solutions
 <br>
-[Token ring](/files/ring.py)
+[Token ring](/code/ring.py)
 <br>
-[Heated plate in C++](/files/mpiheatedplate.cxx)
+[Heated plate in C++](/code/mpiheatedplate.cxx)
 <br>
-[Heated plate in Python](/files/mpiheatedplate.py)
+[Heated plate in Python](/code/mpiheatedplate.py)

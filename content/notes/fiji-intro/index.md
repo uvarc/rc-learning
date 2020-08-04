@@ -2,7 +2,6 @@
 title: Image Processing with Fiji/ImageJ
 draft: false
 type: docs
-highlight_style: "github"
 toc: true
 
 menu:

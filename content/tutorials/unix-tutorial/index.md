@@ -1,5 +1,6 @@
 ---
 title: Unix Tutorials for Beginners
+summary: "This set of tutorials is an introduction to using the Unix operating system from the command line."
 
 # Schedule page publish date (NOT talk date).
 publishDate: "2017-01-01T00:00:00Z"
@@ -15,4 +16,3 @@ notes: unix-tutorial
 
 ---
 
-This set of tutorials is an introduction to using the Unix operating system from the command line.
