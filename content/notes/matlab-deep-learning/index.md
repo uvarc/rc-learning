@@ -1,5 +1,6 @@
 ---
 title: "Deep Learning with MATLAB"
+type: article
 toc: true
 ---
 

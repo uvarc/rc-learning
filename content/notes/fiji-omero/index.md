@@ -3,12 +3,8 @@ title: Image Processing with Fiji and Omero
 highlight_style: "github"
 date: "2020-06-31T00:00:00"
 toc: true  
-type: docs
+type: article
 draft: false
-menu:
-    fiji-omero:
-       name: Image Processing with Fiji and Omero
-       weight: 1
 ---
 
 # Introduction to OMERO

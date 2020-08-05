@@ -1,11 +1,8 @@
 ---
 title: "Singularity Containers for HPC Environments"
-type: docs 
+type: article 
 toc: true
-menu:
-    singularity:
-       name: Singularity Containers for HPC Environments
-       weight: 1
+
 ---
 
 In this workshop you will learn how to create and use software containers within an HPC environment (Rivanna). We will discuss Docker (briefly) and Singularity (in more depth).

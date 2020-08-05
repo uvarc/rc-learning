@@ -1,13 +1,9 @@
 ---
 title: Image Processing with Fiji/ImageJ
 draft: false
-type: docs
+type: article
 toc: true
 
-menu:
-   fiji-intro:
-      name: Image Processing with Fiji/ImageJ
-      weight: 1
 ---
 
 {{< figure src="/img/fiji.png" >}}

@@ -4,7 +4,7 @@ summary: "This set of tutorials is an introduction to using the Unix operating s
 
 # Schedule page publish date (NOT talk date).
 publishDate: "2017-01-01T00:00:00Z"
-categories: ["Unix","HPC","Research Computing Essentials"]
+categories: ["Unix","HPC"]
 tags: [rivanna,hpc,unix]
 
 # Markdown Slides (optional).

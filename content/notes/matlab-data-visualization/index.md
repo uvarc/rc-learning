@@ -1,6 +1,6 @@
 ---
 title: "MATLAB Data Processing and Visualization"
-type: docs
+type: article
 hightlight_style: "github"
 toc: true
 

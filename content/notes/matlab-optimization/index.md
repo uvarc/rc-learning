@@ -1,5 +1,6 @@
 ---
 title : "Optimization Techniques in MATLAB"
+type: article
 ---
 
 **<a href="https://www.mathworks.com/training-schedule/optimization-techniques-in-matlab.html" target="_blank"><font size="3">Matlab Course: Optimization Techniques in MATLAB<font/></a>**

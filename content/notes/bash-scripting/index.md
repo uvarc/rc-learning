@@ -1,8 +1,8 @@
 ---
 title: "Bash Scripting"
-authors: [uvarc]
+type: article
+toc: true
 # date: 2015-07-23T21:13:14-05:00
-categories: ["Advanced Research Computing"]
 draft: true
 ---
 

@@ -1,5 +1,7 @@
 ---
 title: "Version Control with Git"
+type: article
+toc: true
 ---
 
 ## Introduction
