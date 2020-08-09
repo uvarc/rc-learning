@@ -9,20 +9,12 @@ draft: false
 
 # Introduction to OMERO
 
-OMERO is an image management software package that allows you to organize, vie
-w, annotate, analyze, and
-share your data from a single centralized database. With OMERO, you and your c
-ollaborators
-can access your images from any computer without having to download the images
- directly to
-your machine.
+OMERO is an image management software package that allows you to organize, view, annotate, analyze, and share your data from a single centralized database. With OMERO, you and your collaborators can access your images from any computer without having to download the images directly to your machine.
 
 In this workshop you will learn to view and manipulate images through the Fiji
 /ImageJ software package.
 
-For more details, review the [OMERO tutorial](/tutorials/omero-hands-on) or visit
- the Research Computing website describing the [UVA Omero Database Service](ht
-tps://www.rc.virginia.edu/userinfo/omero/overview/).
+For more details, review the [OMERO tutorial](/tutorials/omero-hands-on) or visit the Research Computing website describing the [UVA Omero Database Service](https://www.rc.virginia.edu/userinfo/omero/overview/).
 
 # Setup for this Workshop
 
