@@ -10,7 +10,7 @@ authors:
 superuser: false
 
 # Role/position
-role: Director of User Services
+role: Research Computing Consultant, Manager of User Services
 
 # Organizations/Affiliations
 organizations:
