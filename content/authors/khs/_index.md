@@ -21,6 +21,7 @@ organizations:
 #bio: 
 
 interests:
+- HPC
 - Biosciences
 - Image Analysis
 - Containers
