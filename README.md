@@ -4,7 +4,7 @@ i[![Build Status](https://travis-ci.com/uvarc/rc-website.svg?branch=master)](htt
 
 | Staging URL   | Production URL |
 | ------------- | ------------- |
-| not set up yet/ | not set up yet  |
+| https://staging.learning.rc.virginia.edu | https://www.learning.rc.virginia.edu  |
 
   * [Developing](#developing)
      * [Using Gitpod](#using-gitpod)
@@ -27,7 +27,7 @@ i[![Build Status](https://travis-ci.com/uvarc/rc-website.svg?branch=master)](htt
 
 ### Local Install
 
-* [Install](https://gohugo.io/overview/installing/) the HUGO binary on your local computer. This has been tested with version 0.70. For more information, see the Hugo GitHub repo: https://github.com/spf13/hugo
+* [Install](https://gohugo.io/overview/installing/) the HUGO binary on your local computer. This has been tested with version 0.70.x-extended. **You need the extended version.** For more information, see the Hugo GitHub repo: https://github.com/spf13/hugo.
 * Clone this website repository: `git clone git@github.com:uvarc/rc-learning.git`.  The `master` branch is protected.  New content has to be pushed to the `staging` branch. Use this command to clone the staging branch only: `git clone --single-branch -b staging git@github.com:uvarc/rc-learning.git`.
 
 - - -
@@ -68,7 +68,7 @@ Content of this website is contained in a series of markdown files within the `c
 
 Metadata for each web page is contained in YAML format at the top of each markdown page. The only required fields are usually TITLE and DATE. Categories and Tags can be as numerous as you find useful.
 
-title: y workshop
+title: my workshop
 draft: false
 type: article
 toc: true
@@ -86,7 +86,7 @@ Using the `date` metadata smartly, you can forward date any post or article. [Au
 ### Publish content
 Simply push `staging` back to GitHub. We're in the process of setting up the S3 buckets for hosting the content. 
 
-TravisCI will handle it from there and publish the content at the staging site, https://staging.learning.rc.virginia.edu. Pushing your content to the production website requires a PULL REQUEST. (NOT IMPLEMENTED YET BUT TARGETED FOR AUG 25).
+TravisCI will handle it from there and publish the content at the staging site, https://staging.learning.rc.virginia.edu. Pushing your content to the production website requires a PULL REQUEST.
 
 > Remember that after pushing your changes back to the `staging` branch, the https://staging.rc.virginia.edu/ website will be updated within 1-2 minutes. Hold down the SHIFT key when reloading your browser to refresh your local cache.
 
