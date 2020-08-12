@@ -410,7 +410,7 @@ Other directories inside the container are owned by `root` and you cannot modify
 **Exercise:** Run `ls -l` for your home directory both inside and outside the container. Verify that you see the same results. To exit the container shell, type `exit`.
 
 <details><summary>Show command</summary>
-<p>
+
 ```
 $ singularity shell lolcow_latest.sif
 Singularity> ls /home/$USER   # or ls ~
@@ -418,7 +418,7 @@ Singularity> ls /home/$USER   # or ls ~
 Singularity> exit
 $ ls /home/$USER              # or ls ~
 ```
-</p>
+
 </details>
 
 <br>
@@ -426,7 +426,7 @@ $ ls /home/$USER              # or ls ~
 **Exercise:** View the content of `/etc/os-release` both inside and outside the container. Are they the same or different? Why?
 
 <details><summary>Show command</summary>
-<p>
+
 ```
 $ singularity shell lolcow_latest.sif
 Singularity> cat /etc/os-release
@@ -460,7 +460,7 @@ CENTOS_MANTISBT_PROJECT_VERSION="7"
 REDHAT_SUPPORT_PRODUCT="centos"
 REDHAT_SUPPORT_PRODUCT_VERSION="7"
 ```
-</p>
+
 </details>
 
 <br>
@@ -483,7 +483,7 @@ Singularity> ls /scratch
 Singularity> exit
 $ ls /scratch/$USER
 ```
-</p>
+
 </details>
 
 <br>
