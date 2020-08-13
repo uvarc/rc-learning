@@ -48,7 +48,7 @@ Content of this website is contained in a series of markdown files within the `c
 * `slides` - Markdown doc will be rendered as slides
 * `tutorials` - self-paced material not associated with particular workshop.
 * `videos` - unused at the moment.
-* `uworkshops` - Systems and information we support: Rivanna, Ivy, Skyline, etc., and detailed user information.
+* `workshops` - Systems and information we support: Rivanna, Ivy, Skyline, etc., and detailed user information.
 
 ### Methods for creating content:
 
