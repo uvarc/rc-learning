@@ -17,3 +17,4 @@ notifications:
     on_failure: always
     recipients:
     - khs3z@virginia.edu
+    - kah3f@virginia.edu
