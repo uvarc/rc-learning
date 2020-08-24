@@ -14,6 +14,9 @@ organizations:
 - name: University of Virginia Research Computing
   url: "https://www.rc.virginia.edu"
 
+interests:
+- UVARC supports all facets of research computing at the University.
+
 ---
 
 The University of Virginia Research Computing learning site is a repository for our online short courses, tutorials, and workshops.
