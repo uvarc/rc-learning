@@ -566,7 +566,7 @@ You can check the status of your jobs by running either one of these commands:
 
 The `squeue` command show all active jobs, either pending or running.  The `sacct` command shows the history of your jobs whether they are pending, running, completed, cancelled or failed.
 
-You can find more detailed about SLURM and job management on our [website](https://rc.virginia.edu/userinfo/rivanna/slurm).
+You can find more detailed about SLURM and job management on our [website](https://www.rc.virginia.edu/userinfo/rivanna/slurm).
 
 <br>
 **Checking the Output File:**
