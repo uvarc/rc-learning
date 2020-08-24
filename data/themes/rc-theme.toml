@@ -1,0 +1,20 @@
+# Theme metadata
+name = "RC-Theme"
+
+# Is theme light or dark?
+light = true
+
+# Primary
+#primary = "#2c3d57"
+primary = "#232d4b"
+
+# Menu
+#menu_primary = "#2c3d57"
+menu_primary = "#232d4b"
+menu_text = "#fff"
+menu_text_active = "#8c9eff" # A100
+menu_title = "#fff"
+
+# Home sections
+home_section_odd = "rgb(255, 255, 255)"
+home_section_even = "rgb(247, 247, 247)"

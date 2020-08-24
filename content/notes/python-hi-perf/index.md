@@ -35,14 +35,15 @@ We recommend the Anaconda distribution (<a href="https://www.anaconda.com/distri
 	* **Password:** Your UVA Netbadge password 
 
 3. Starting Spyder (Anaconda's IDE): Open an terminal window and type
-	```
-	module load anaconda
-	python -V
-	```
-	Python 3.6.6
-	```
-	spyder &
-	```
+ ```
+module load anaconda
+python -V
+```
+Python 3.6.6
+
+```
+spyder &
+```
 <br>
 
 ### Get the example scripts 
@@ -51,7 +52,7 @@ You can copy the example scripts to your Rivanna home directory or download them
 
 
 * **On Rivanna:** Open a terminal window and run this command to copy the examples to your home directory.  Then change to the directory with the scripts:
-```
+```bash
 cp -r /share/resources/tutorials/python-hi-perf ~/
 cd ~/python-hi-perf
 ```

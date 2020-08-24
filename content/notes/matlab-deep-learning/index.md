@@ -4,7 +4,7 @@ type: article
 toc: true
 ---
 
-{{< figure src=/img/matlab-logo.png width=30% height=30% >}}
+{{< figure library=true src=matlab-logo.png width=30% height=30% >}}
 
 If you are using MATLAB on your desktop computer, make sure you have the **Deep Learning Toolbox** and 
 **Deep Learning Toolbox Model for AlexNet Network** installed. You can go to the **Add-On Explorer** to install 

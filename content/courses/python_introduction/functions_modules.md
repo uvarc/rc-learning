@@ -8,7 +8,7 @@ draft: false
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 6
+    weight: 7
 ---
 
 ## Functions
