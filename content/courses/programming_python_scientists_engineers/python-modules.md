@@ -3,9 +3,9 @@ title: "Modules"
 linktitle: "Modules"
 date: 2019-04-29T11:06:47-04:00
 draft: false
-highlight_style: github
 toc: true
 type: docs
+weight: 6
 menu:
     programming_python_scientists_engineers:
         parent: Programming in Python for Scientists and Engineers
@@ -233,6 +233,7 @@ Modules are important concepts in Python. Some good sources include
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`Slots.py`)</summary>
+
 ```python
 """
   Slots simulator
@@ -303,4 +304,5 @@ def main():
 if __name__=="__main__":
     main()
 ```
+
 </details>

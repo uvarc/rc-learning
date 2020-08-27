@@ -3,9 +3,9 @@ title: "Lists and Strings"
 linktitle: Lists and Strings
 date: 2019-04-29T11:06:47-04:00
 draft: false
-highlight_style: github
 toc: true
 type: docs
+weight: 3
 menu:
     programming_python_scientists_engineers:
         parent: Programming in Python for Scientists and Engineers
@@ -212,10 +212,9 @@ Like lists, strings can be indexed and they count from zero. We can extract slic
 ```python
 in_out=message[17:22]
 letter=message[0]
-```
+``` 
 
 We can go backwards in a string:
-
 ```python
 message[7::-2]
 ```
@@ -256,6 +255,7 @@ Strings are a versatile data type and we barely scratched the surface of the str
 
 <details>
 <summary>VIEW EXERCISE SOLUTION</summary>
+
 ```python
 #Type at your console
 
@@ -286,4 +286,5 @@ output
 #note the difference at the console
 print(output)
 ```
+
 </details>

@@ -3,9 +3,9 @@ title: "Variables, Expressions, and Statements"
 linktitle: Variables, Expressions, and Statements
 date: 2019-04-29T11:06:47-04:00
 draft: false
-highlight_style: github
 toc: true
 type: docs
+weight: 2
 menu:
     programming_python_scientists_engineers:
         parent: Programming in Python for Scientists and Engineers
@@ -169,6 +169,7 @@ So far we have studied simple scalar variables. The next topic will be compound 
 
 <details>
 <summary>VIEW EXERCISE SOLUTION</summary>
+
 ```python
 # -*- coding: utf-8 -*-
 """
@@ -195,5 +196,6 @@ print A
 D=math.sqrt(A**2)
 print D, A-D
 #print(D,A-D)
-```python
+```
+
 </details>

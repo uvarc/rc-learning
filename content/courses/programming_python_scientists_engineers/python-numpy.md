@@ -3,9 +3,9 @@ title: "NumPy"
 linktitle: "NumPy"
 date: 2019-04-29T11:06:47-04:00
 draft: false
-highlight_style: github
 toc: true
 type: docs
+weight: 7
 menu:
     programming_python_scientists_engineers:
         parent: Programming in Python for Scientists and Engineers
@@ -251,6 +251,7 @@ to see what the many built-in functions can do.
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`Exercise1.py`)</summary>
+
 ```python
 #This exercise can be done at the console, either through Spyder or the 
 #iPython/Jupyter console.  
@@ -269,10 +270,12 @@ print(M1)
 R=np.random.random((4,3,2))
 print(R)
 ```
+
 </details>
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`Exercise2.py`)</summary>
+
 ```python
 #Exercise 2 can also be carried out at the Spyder or Jupyter iPython console.
 
@@ -330,7 +333,8 @@ print(T)
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`Project.py`)</summary>
-```
+
+```python
 # -*- coding: utf-8 -*-
 """
 Episode 7, Project 
@@ -362,4 +366,5 @@ def main():
 if __name__=="__main__":
     main()
 ```
+
 </details>
