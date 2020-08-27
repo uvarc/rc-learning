@@ -1,10 +1,9 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Matplotlib and Pandas
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 9
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
@@ -210,13 +209,11 @@ for the possibilities.
 
 <details>
 <summary>Exercise 25</summary>
-<p>
+
 1. Type into your choice of Spyder's interpreter pane or a JupyterLab cell the example plotting codes we have seen so far.  These were all taken from the Matplotlib gallery.
-</p>
-<p>
-2. In the contour plot example, change <code>contour</code> to <code>contourf</code> and observe the difference.
-</p>
-</pre>
+
+2. In the contour plot example, change `contour` to `contourf` and observe the difference.
+
 </details>
 
 ## Seaborn

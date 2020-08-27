@@ -1,10 +1,9 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Variables, Expressions, and Statements
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 3
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
@@ -48,13 +47,13 @@ The floating-point standard also defines special values INF (and -INF) and NAN. 
 
 Python supports complex numbers.  A complex number consists of two double-precision real numbers and is expressed in the form
 
-```
+```python
 R+I*1J
 ```
 
 or
 
-```
+```python
 R+I*1j
 ```
 
@@ -70,7 +69,7 @@ Operators are defined on types and return a new value, usually of the same but s
 
 The equal sign (=) is an _assignment operator_ in Python.  It does not indicate equality; rather it assigns a value to a variable.  Since variables represent locations in memory, the assignment tells the interpreter to place the value into that memory location.  This means that a mathematically nonsensical expression like
 
-```
+```python
 x=x+1
 ```
 
@@ -78,13 +77,13 @@ is perfectly correct Python.  The interperter fetches the value of x from memory
 
 Python supports add/assign and similar operators.  Thus
 
-```
+```python
 x+=1
 ```
 
 is the same thing as
 
-```
+```python
 x=x+1
 ```
 
@@ -101,30 +100,30 @@ These operators are also defined on floating-point numbers, but the results may 
 
 _Special note for Python 2.7 users_: In Python 2.7, 2/3=0.  This is because each operand is an integer, so the operator returns an integer.  However, in Version 3 and up, 2/3=0.6666666666666666 (this value is the result of an expression evaluation).  Python 2.7 users who want the newer behavior should begin each file With
 
-```
+```python
 from __future__ import division
 ```
 
 If you'd like the new print function as well, modify this line to
 
-```
+```python
 from __future__ import division, print_function
 ```
 
 <details>
 <summary>Exercise 1</summary>
-<p>Type into your choice of Spyder's interpreter pane or a JupyterLab cell the following assignments.
-<pre>
-<code>
+Type into your choice of Spyder's interpreter pane or a JupyterLab cell the following assignments.
+
+```python
 x=17.
 Xs=11.
 num_1=10
 num_2=14
-</code>
-</pre>
+```
+
 Use expression evaluation to look at the results of the next lines. In JupyterLab each expression must be in its own cell. In the Spyer interpreter pane it will evaluate each expression when you go to the next line.
-<pre>
-<code>
+
+```python
 x
 Xs/x
 Xs//x
@@ -133,12 +132,15 @@ Xs/(x+x)
 x/num_1
 num_1/num_2
 num_2/num_1
-</code>
-</pre>
+```
+
 </details>
 
+<details>
 <summary>Exercise 2</summary>
+
 Use expression evaluation to examine the results of the following:
+
 ```python
 4+2*3
 (4+2)*3
@@ -153,6 +155,7 @@ Use expression evaluation to examine the results of the following:
 11.4%3.5 #?
 11.4-(11.4//3.5)*3.5
 ```
+</details>
 
 ##### Boolean Operators
 
@@ -189,21 +192,21 @@ _Chaining_
 
 In Python we can write an expression like 
 
-```
+```python
 0<a<=1
 ```
 
 just as in the analogous mathematical expression.  An `and` operator is always assumed.  This chain is equivalent to
 
-```
+```python
 0<a and a<=1
 ```
 
 ### Expressions and Statements
 
-#### Expressions
+#### Expressions 
 
-_Expressions_ are combinations of variables, literals, operators on variables, invocations of functions, and so on.  Given values for each variable that appears, it must be possible for the intepreter to evaluate the expression to yield an unambiguous result.
+Expressions are combinations of variables, literals, operators on variables, invocations of functions, and so on.  Given values for each variable that appears, it must be possible for the intepreter to evaluate the expression to yield an unambiguous result.
 
 The interpreter has a strict set of rules it follows to arrive at a unique evaluation.  It does not care what the programmer actually intended so _you_ must adapt to _it_.  If it cannot arrive at an unambiguous result it will reject your code.
 
@@ -217,13 +220,13 @@ Examples
 
 Among the rules for expression evaluation is operator precedence.  If you write
 
-```
+```python
 x*z-w/y+v
 ```
 
 the interpreter must follow a set of rules to evaluate each operation.  Python, as well as most other programming language, carries out the operations from left to right by the priority assigned to each operator.  In Python the ranking for arithmetic operators is, from first to last, \*\*, then (\* /) have equal rank, followed by (+ -) also with equal rank.  So in the expression above, the interpeter first evaluates x\*z, then w/y, then adds those two results together, and finally adds v.  If you want a different grouping you must use parentheses. For example, you may want to add y and v before dividing.
 
-```
+```python
 x*z-w/(y+v)
 ```
 
@@ -236,8 +239,8 @@ All comparison operators have the same precedence relative to each other.  All c
 <details>
 <summary>Exercise 3</summary>
 Examine the results of the following:
-<pre>
-<code>
+
+```python
 a=11.; b=9.; c=45. n=3
 print(a &gt b)
 print(a &lt b and c==n)
@@ -246,15 +249,14 @@ print(a &gt b or c==n and a &lt b)
 print((a &gt b or c==n) and a &lt b)
 is_greater=a &gt b
 print(is_greater,type(is_greater))
-</code>
-</pre>
+```
 </details>
 
 #### Type Conversions
 
 Type conversions, also know as _casts_, are used when it is necessary to change a variable's type from one to another.  Python assigns types to variables by _inference_; that is, it determines from context what the type should be.  If the programmer needs it to be something different, an explicit cast can be used.
 
-```
+```python
 n=int(f)
 f=float(n)
 ```
@@ -274,7 +276,7 @@ The backslash character \\ is the line-continuation marker.  A comma that separa
 
 A statement that does nothing (a _no-op_) is the single word
 
-```
+```python
 pass
 ```
 
@@ -296,7 +298,7 @@ Many editors, including Spyder, will automatically indent the next statement to 
 
 Examples
 
-```
+```python
 def func(z):
     x=99.
     y=1.

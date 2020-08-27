@@ -1,10 +1,9 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Conditionals and Loops
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+sections_weight: 5
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
@@ -38,7 +37,7 @@ else do some default things
 
 Only the `if` is required; the other statements are optional.  The specific syntax in Python is
 
-```
+```python
 if some_condition:
     code block
 elif another_condition:
@@ -51,13 +50,13 @@ Observe the colons and the indentation.  To terminate the conditional, return to
 
 If the "code block" consists of a single statement, it is permissible to write it on the same line as the if or elif
 
-```
+```python
 if x==0: z=0
 ```
 
 Conditionals may be nested 
 
-```
+```python
 if some_condition:
     if another_condition:
         do_something
@@ -70,7 +69,7 @@ elif condition2:
 
 Some languages have a "case" or "switch" statement for a long sequence of options.  Python has no such construct so we use a series of `elif`s.
 
-```
+```python
 if cond1:
     block1
 elif cond2:
@@ -87,16 +86,17 @@ The "condition" must be an expression that evaluates to True or False; that is, 
 
 <details>
 <summary>Exercise 4</summary>
-<pre>
+
 The Body Mass Index is a widely-used number to classify body shapes.  The formula in Imperial units (pounds, inches) is
-<code>
-BMI=weight\*703.1/height**2
-</code>
+
+BMI=weight\*703.1/height\*\*2
+
 In metric units (kg, m) the formula is
-<code>
-BMI=weight/height**2
-</code>
+
+BMI=weight/height\*\*2
+
 The categories are as follows (we have omitted the top two):
+
 Under 18.5: underweight
 18.5 to 25: normal 
 over 25 to 30: overweight
@@ -104,8 +104,9 @@ over 30 to 35: obese class I
 over 35 to 40: obese class II
 over 40 to 45: obese class III
 over 45: obese class IV (morbidly obese)
+
 Using whichever unit system you prefer, write some code to assign the weight and height, compute the number, and determine its classification.  Assign your own weight and height.  Try a few others.  Use an online calculator to check your results.
-</pre>
+
 </details>
 
 ## Loops
@@ -120,7 +121,7 @@ _While loops_ do not start with a predetermined number of iterations.  They term
 
 ### For Loops in iPython
 
-```
+```python
 for item in iterator:
     block1
 else:
@@ -142,29 +143,33 @@ The interval is often called a stride.  If it is present the lower bound must al
 
 <details>
 <summary>Exercise 5</summary>
-<pre>
+
 Execute the following for loop:
-<code>
+
+```python
 for i in range(10):
     print(i)
-</code>
+```
+
 Modify this loop to print the values of i for 
-<code>
+
+```python
 range(10)
 range(1,10)
 range(0,10,2)
 range(1,0,-2)
-</code>
+```
+
 Modify your loop to print the first N integers.  Be sure that N is set to a value before you try to run the loop.
 Write a loop that will sum the first N integers.  Hint: you will need a variable called an <em>accumulator</em> whose value starts outside the loop at 0.
-</pre>
+
 </details>
 
 ##### Enumerate
 
 Sometimes we need both the item and its index.  We can use enumerate for this purpose.
 
-```
+```python
 velocity=[-11.,-3.,-1.,1.,2.3,.4.]
 for i,v in enumerate(velocity):
     print(i,v)
@@ -176,7 +181,7 @@ A _while_ loop uses a conditional to determine when to exit.  The loop must be c
 
 Python syntax
 
-```
+```python
 while conditional:
     block1
 else:  #optional
@@ -185,7 +190,7 @@ else:  #optional
 
 As for the _for_ loop, colons and indentations are required.  The optional _else_ clause is executed if and only if the conditional becomes False, which for a while loop is normal termination.
 
-```
+```python
 x=-20
 y=-10
 while x<0 and y<0:
@@ -212,7 +217,7 @@ Break can exit only from the loop level in which it occurs.  In Python this is t
 
 To skip the rest of the loop instrutions and go to the next cycle, use `continue`. Similarly to `break`, it skips only the rest of the statements at its own level.
 
-```
+```python
 x=1.
 while x>0:
     x+=1.
@@ -224,7 +229,7 @@ while x>0:
 
 Now we can better understand the purpose of the `else` clause.  It can provide a warning for cases where a loop terminating normally may indicate a failure.  For example, if we were iterating on an algorithm that converges to an answer but may go astray, we can set a limit on the maximum number of iterations. In this example, optimize is a function that we invoke.  It may be in another package or it may be something we wrote.  The variable f stands for the function we are optimizing.  Therefore this code fragment is incomplete and cannot be run as is; it is an example of how `else` works.
 
-```
+```python
 max_iter=1000000000
 tol=1.e-14
 iter=0
@@ -242,7 +247,7 @@ else:
 
 A while loop is equivalent to
 
-```
+```python
 while True:
     if not condition:
         break 
@@ -251,7 +256,7 @@ while True:
 
 The while always tests at the _top_ of the loop.  If we wish to test elsewhere we can use break to accomplish this.  If we test at the bottom of the loop, the pattern is often called _repeat/until_.
 
-```
+```python
 while True:
    codeblock
    if condition: break 
@@ -259,7 +264,7 @@ while True:
 
 Example:
 
-```
+```python
 x=1.
 while True:
     z=x-1
@@ -271,7 +276,7 @@ while True:
 
 We can write loops within loops.  The outer loop variable remains fixed while the inner one goes through its iterator; then the outer one takes the next value and the entire inner loop is repeated.
 
-```
+```python
 for i in range(5):
     for j in range(10):
         print(i,j)
@@ -281,7 +286,7 @@ for i in range(5):
 
 In nested loops, if we need to recompute something we often need to reinitialize a variable.  Examine the difference between
 
-```
+```python
 s=0.
 for i in range(10):
     for j in range(15):
@@ -291,7 +296,7 @@ print(s)
 
 and 
 
-```
+```python
 for i in range(10):
     s=0 
     for j in range(10):

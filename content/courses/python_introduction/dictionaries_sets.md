@@ -1,10 +1,9 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Dictionaries
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 6
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
@@ -56,7 +55,7 @@ Quiz:
 
 What is the difference between
 
-```
+```python
 data=[]
 data[0]=12
 data[1]=4
@@ -64,7 +63,7 @@ data[1]=4
 
 and 
 
-```
+```python
 data={}
 data[0]=12
 data[1]=4
@@ -76,25 +75,25 @@ Are both correct? Is either correct?
 
 D[key] alone results in an error if the key is not in the dictionary.  If you must attempt a lookup and do not know whether the key is present, use `get` instead.  
 
-```
+```python
 D.get(key)
 ```
 
 This returns None by default if the key is not found.  It can be set to return a value with an optional argument.
 
-```
+```python
 D.get(key,0)
 ```
 
 The `in` operator may also be used 
 
-```
+```python
 if key in D
 ```
 
 or
 
-```
+```python
 if key not in D
 ```
 
@@ -102,10 +101,10 @@ depending on what you want to do.
 
 <details>
 <summary>Exercise 12</summary>
-<pre>
-<p>
+
 Type into Spyder or Jupyterlab and run
-<code>
+
+```python
 capitals={"Alabama":"Montgomery"}
 capitals\["Alaska"\]="Juneau"
 capitals\["Arizona"\]="Little Rock"
@@ -118,10 +117,8 @@ if newstate not in capitals:
     capitals[newstate]=newcapital
 for key in capitals:
     print("The capital of",key,"is",capitals[key])
-</code>
-</p>
-</pre>
-</p>
+```
+
 </details>
 
 ## Sets
@@ -132,7 +129,7 @@ Create the set with the set() function.  Empty parentheses will not work because
 
 A frequent application of sets is to eliminate duplicates.
 
-```
+```python
 L=[0,0,1,4,8,8,10]
 M=list(set(L))
 print(M)
@@ -153,7 +150,7 @@ Since sets are unordered, the order of `L` is not guaranteed to be preserved.
 
 The `in` operator works even though, strictly speaking, sets are not sequences.
 
-```
+```python
 item in s
 ```
 
@@ -174,20 +171,24 @@ Sets attempt to reproduce most of the properties of mathematical sets.
 
 <details>
 <summary>Exercise 13</summary>
-<pre>
-<p>
+
 Type at the interpeter 
-<code>
+
+```python
 s=set()
 s.update("California")
 print(s)
-</code>
+```
+
 What happened?  Lesson: be careful with strings since they are sequences.
-<code>
+
+```python
 states={"Alabama","Arkansas","California","California"}
-</code>
+```
+
 Initialization with curly braces has been valid since Python 2.6.  Since there are no key-value pairs it will not be construed as a dictionary.
-<code>
+
+```python
 print(states)
 states2=set()
 states2.add("California")
@@ -197,7 +198,7 @@ states-states2
 states&states2
 states^states2
 states|states2
-</code>
-</pre>
+```
+
 </details>
 
