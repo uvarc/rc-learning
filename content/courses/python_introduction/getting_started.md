@@ -1,10 +1,9 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Getting Started
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 2
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
@@ -46,7 +45,7 @@ The symbols surrounding `future` are double underscores.
 
 Type the following lines into a cell.
 
-```
+```python
 Numerals=list(range(1,11))
 print(Numerals[3])
 print(Numerals[:3])
@@ -58,7 +57,7 @@ Run this cell.  Is the result what you expected?
 
 Now add lines
 
-```
+```python
 Numerals.extend(list(range(11,21)))
 Numerals[3]=11
 del Numerals[4]
@@ -70,7 +69,7 @@ len(Numerals)
 
 In a new cell Type
 
-```
+```python
 greeting="Hello World"
 hello=greeting[0:5]
 greeting2=hello+" there"
@@ -79,13 +78,13 @@ output=greeting2+"\n"*2
 
 The symbol `\n` stands for "new line."  Run this cell.  In a new cell type
 
-```
+```python
 output
 ```
 
 Run cell.  then
 
-```
+```python
 print(output)
 ```
 
@@ -95,7 +94,7 @@ When your are working directly at the interpreter, you can type a variable and i
 
 JupyterLab includes a simple text editor you can use to create files.  In the upper left of your JupyterLab tab, click `+` to start the launcher. Choose the text editor. Type
 
-```
+```python
 def hello():
     print("Hello")
     return None
@@ -104,7 +103,7 @@ hello()
 
 Be sure to indent lines exactly as shown, and to return completely to the margin for `hello()`. Select your text. From the Editor menu select Language.  Scroll (far) down to Python.  You will now enable syntax coloring for this file.  From the File menu choose Save As. Name the file `hello_func.py`  By default, files will be saved into the folder in which JupyberLab is working. The default is your "User" directory.  After saving the file, return to your Jupyter notebook page and type
 
-```
+```python
 import hello_func
 ```
 
@@ -124,7 +123,7 @@ If you are using Python 2.7, add the `future` line immediately after the triple-
 
 If you type
 
-```
+```python
 print("Hello World")
 ```
 
@@ -132,7 +131,7 @@ into the editor pane, it is a script and you must run it in order for the comman
 
 You can also type commands directly into the iPython console.  Just as with JupyterLab, if you type an expression its value will be printed.
 
-```
+```python
 In  [1]: x=5
 In  [2]: y=7
 In  [3]: x+y
@@ -141,7 +140,7 @@ Out [3]: 12
 
 This is not the case for expressions typed into the editor pane.
 
-```
+```python
 x=5
 y=7
 x+y
@@ -155,43 +154,43 @@ In the iPython console we can also use up-down arrow keys to screen in our comma
 
 We can see some of these features in action by creating a simple plot. after the green triple quotes in an "untitled" editor tab, type
 
-```
+```python
 import matplotlib.pylab as plt
 ```
 
 First we see a yellow triangle, indicating a syntax problem -- in this case, `plt` is imported but not used.  We ignore this warning since we will be using it.  As we type
 
-```
+```python
 x=plt.
 ```
 
 we see the editor show us our choices from the pylab _package_. We can select one or keep typing.  We type
 
-```
+```python
 x=plt.linsp
 ```
 
 to narrow it down further.  That leads us to
 
-```
+```python
 x=plt.linspace
 ```
 
 The editor then pops up a box with the arguments required by linspace.  Finally we type inside the parentheses
 
-```
+```python
 -1.*plt.pi,plt.pi,100
 ```
 
 for a final result of
 
-```
+```python
 x=plt.linspace(-1.*plt.pi,plt.pi,100)
 ```
 
 After this we type
 
-```
+```python
 y=plt.sin(x)
 plt.plot(x,y)
 ```
@@ -206,7 +205,7 @@ The Variable Explorer allows us to show the values of variables in our programs.
 
 To clear all values in the workspace, type at the iPython console
 
-```
+```python
 %reset
 ```
 
@@ -218,7 +217,7 @@ In JupyterLab, open a new notebook with the `+` icon.  From the Files sidebar, n
 
 You need to add a line
 
-```
+```python
 plt.show()
 ```
 

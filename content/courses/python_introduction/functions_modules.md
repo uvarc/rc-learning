@@ -1,14 +1,13 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Functions and Modules
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 7
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 6
+    weight: 7
 ---
 
 ## Functions
@@ -31,7 +30,7 @@ The keyword is `def` (define) followed by the name of the function.  The functio
 
 Examples 
 
-```
+```python
 def sum_vals(x,y,z):
     "Computes the sum of its input values"
     return x+y+z
@@ -50,10 +49,10 @@ Notice the use of tuple packing in the third example.  An equally valid, but not
 
 <details>
 <summary>Exercise 17</summary>
-<pre>
-<p>
+
 If you have not already done so, type in the three functions from the example.  Run the cell or script.  Then type into the interpeter
-<code>
+
+```python
 sum_vals(1,2,3)
 sum_vals(1.2,3.4,4.5)
 sum_vals("1","2","3")
@@ -62,17 +61,15 @@ make_list([1.,11.],3.,4.)
 sum_diff(3,4)
 s_3=sum_vals(8,8,10)
 s_3
-</code>
-</p>
-</pre>
-</p>
+```
+
 </details>
 
 #### Dummy Parameters
 
 The names of the variables in a function's parameter list are called dummies because they are placeholders.  The function can be called with any variable names in the caller.
 
-```
+```python
 xx=1.; yy=2.; zz=3.
 sum_vals(xx,yy,zz)
 sum_vals(zz,xx,yy)
@@ -97,14 +94,14 @@ Convert your program from Exercise 14 to use a function to compute the BMI.
 
 Arguments whose values are determined from their ordering in the parameter list are called _positional_ variables.  Python supports _optional_ and _keyword_ arguments as well.  Opetional arguments are assigned a default value in the parameter list of the function definition.  If an optional argument is not present in the argument list passed by the caller, it takes on its default value; otherwise it is positional.
 
-```
+```python
 def func(x,y=0,w=3):
     return x+y-w
 ```
 
 We can call this function with
 
-```
+```python
 c=func(x)
 c=func(x,yy)
 c=func(x,yy,zz)
@@ -112,7 +109,7 @@ c=func(x,yy,zz)
 
 In this example the optional arguments are passed by position as usual.  Optional arguments may also be passed by _keyword_, not position.  Any optional/keyword arguments must __follow__ any and all positional arguments in the list; except for that restriction their order does not matter and some may be omitted.
 
-```
+```python
 z=func(x,w=6,y=2)
 val=func(x,w=9)
 ```
@@ -123,7 +120,7 @@ Default values are set only _once_, when the function is first encountered by th
 
 The `return` statement exits immediately with no more statements being executed.  A function may contain multiple return statements, but only the first encountered will be executed.  In conjunction with conditionals, the function can thus return early.
 
-```
+```python
 def sum_vals(x,y,z):
     """A stupid function."""
     if (x==0 and y==0 and z==0):
@@ -139,9 +136,8 @@ Python passes variables in a manner called _assignment_. This means that if an a
 
 <details>
 <summary>Exercise 19</summary>
-<pre>
-<p>
-<code>
+
+```python
 def side_effect(L,x):
     L.append(x)
     return None 
@@ -149,11 +145,10 @@ L=[1,2,3,4]
 side_effect(L,11)
 print(L)
 print(side_effect(L,99))
-</code>
-What is printed in the last line and why?  What is <code>L</code> now?
-</p>
-</pre>
-</p>
+```
+
+What is printed in the last line and why?  What is `L` now?
+
 </details>
 
 ### Variable Scope
@@ -174,10 +169,9 @@ http://localhost:8888/lab?reset
 
 <details>
 <summary>Exercise 20</summary>
-<pre>
 Experiment with the following code (leave in or comment out x=100)
-<p>
-<code>
+
+```python
 def set_x(x):
     print(x)
     x=100
@@ -190,10 +184,8 @@ def set_x(x):
 x=1
 z=set_x(x)
 print(x); print(z)
-</code>
-</p>
-</pre>
-</p>
+```
+
 </details>
 
 ## Functional Programming
@@ -202,7 +194,7 @@ Functional programming is a paradigm in which all aspects of the program are exp
 
 Functional programming makes use of "anonymous" or _lambda_ functions.  In Python we can use a __lambda expression__ to evaluate a function without giving it an explicit definition.  Lambdas must be expressible as a single expression; no statements are allowed.  A tuple of the variable names follows the `lambda` keyword, then a colon, and finally the expression of the variables.
 
-```
+```python
 fsquared=lambda x:x**2
 fsquared(4)
 import math
@@ -229,7 +221,7 @@ One of the most common applications of lambda expressions is to the built-in fun
 
 Examples with lambda expressions (assumes Python 2.7):
 
-```
+```python
 V=[-1,0,1,2,3,4,5]
 L=list(map(lambda x:x**2, V))
 R=functools.reduce(lambda x,y:x+y, V)
@@ -240,26 +232,26 @@ F=list(filter(lambda x:x>0, V))
 
 A list comprehension collapses a loop over a list and, optionally, an if clause.  It can replace at least some functionals like `map` and `filter` if the desired result is a list.
 
-```
+```python
 squares=[x**2 for x in range(10)]
 ```
 
 This is equivalent to
 
-```
+```python
 for x in range(10):
     squares.append(x**2)
 ```
 
 With an option conditional it becomes
 
-```
+```python
 positives=[math.sqrt(x) for x in range(-10,11) if x>0]
 ```
 
 This is equivalent to
 
-```
+```python
 for x in range(-10,11):
     if x>0:
         positives.append(math.sqrt(x))
@@ -269,10 +261,10 @@ List comprehensions are nearly always __much__ faster than the equivalent loop.
 
 <details>
 <summary>Exercise 21</summary>
-<p>
-<pre>
+
 Assuming Python 3
-<code>
+
+```python
 import functools
 z=lambda x,y:x**2-y
 z(4,5)
@@ -282,12 +274,10 @@ squares
 sumsq=functools.reduce(lambda x,y:x\*\*2+y\*\*2,vals)
 sumsq
 small=list(filter(lambda x:x<20,squares))
-</code>
-</p>
-<p>
+```
+
 Write an equivalent list comprehension for the map and filter statements.
-</p>
-</pre>
+
 </details>
 
 ## Modules
@@ -300,7 +290,7 @@ Modules that are not run as the main program must be _imported_ for its contents
 
 Many modules and packages (collections of modules) are available through a base Python installation.  Anaconda provides dozens more, with others available for installation through the Environments tab of the Navigator.  We have already seen a handful of these built-in modules.  
 
-```
+```python
 import math 
 import matplotlib.pyplot
 ```
@@ -311,7 +301,7 @@ When we import a module we bring in its __namespace__.  A namespace is an enviro
 
 With a simple import statement we must refer to the module's components with its native namespace.
 
-```
+```python
 import math 
 import os 
 import numpy 
@@ -323,20 +313,20 @@ A=numpy.zeros(200)
 
 We can select only certain components with `from`
 
-```
+```python
 from modulename import func1, func2
 ```
 
 Now only func1 and func2 can be used, and we do \_not\* precede their names with the native namespace.
 
-```
+```python
 z=func1(x,y)
 w=a+b*func2(z)
 ```
 
 To import __all__ symbols without a prefix use
 
-```
+```python
 from modulename import *
 ```
 
@@ -344,14 +334,14 @@ This statement imports all names that do not begin with a single underscore (\_)
 
 We can also rename individual symbols
 
-```
+```python
 from math import sqrt as squareroot
 w=squareroot(10.)
 ```
 
 One of the most commonly used versions of import changes the name of the namespace, typically to something simpler.
 
-```
+```python
 imoprt numpy as np
 import pandas as pd
 
@@ -363,14 +353,14 @@ data=pd.read_csv("my_data"file)
 
 When you run a script directly through the interpreter, such as by using the Run arrow in Spyder, it is in the "main" namespace.  Your module can also be imported into the interpreter or into another module.  It will still execute everything in the module, including requests for inpout and the like, unless you use the special variables \_\_name\_\_ and \_\_main\_\_ (two underscores on each side).  If you use \_\_main\_\_ you can place all code you want to execute only when run directly after a conditional.  
 
-```
+```python
 if __name__==__main__:
     do_work
 ```
 
 It is customary to include code for the main namespace into a function named `main()`.  
 
-```
+```python
 def main():
     do_work
 
@@ -380,7 +370,7 @@ if __name__==__main__:
 
 Example
 
-```
+```python
 #from __future__ import print_function, division #Python 2.7
 from math import sqrt
 
@@ -409,19 +399,16 @@ if __name__==__main__:
 
 <details>
 <summary>Exercise 22</summary>
-<pre>
+
 Type in the example.  Save it into a file called `rooter.py`.  Type in and save a file `testmain.py`
-<p>
-<code>
+
+```python
 import rooter
 sqrtrt=rooter.MySqrt(11.0)
 print(sqrtrt)
-</code>
-</p>
-<p>
+```
+
 First run rooter.py as a standalone script, then run testmain.py.  What's the difference?
-</p>
-</pre>
-</p>
+
 </details>
 

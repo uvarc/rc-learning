@@ -1,10 +1,9 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Input and Output
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 7
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
@@ -26,7 +25,7 @@ To read input from the console we use the `input()` function (Python 3+).  In Py
 The input (raw_input) function returns \_only_ a string.  If you need to use the values as any other type, you must perform the conversion yourself.
 Example:
 
-```
+```python
 weight=input("Enter your weight in pounds:")
 print(type(weight))
 weight=float(input("Enter your weight in pounds:"))
@@ -45,7 +44,7 @@ The print function
 
 Messages can be added in between variables.
 
-```
+```python
 h=1.45;
 w=62.
 print("Your BMI is",w/ht**2)
@@ -67,7 +66,7 @@ So far we have only considered _list-directed_ input/output.  We leave it to the
 
 Formats are indicated by a pattern
 
-```
+```python
 F.wf
 F.wg
 F.we
@@ -94,7 +93,7 @@ To pad with zeros, write the zero in front of the width specifier.
 
 Examples:
 
-```
+```python
 5d
 05d
 ```
@@ -120,12 +119,13 @@ Empty curly braces result in default formatting and ordering.  In this situation
 
 <details>
 <summary>Exercise 15</summary>
-<pre>
-<p>
+
 Type at the interpeter 
-<code>
+
+```python
 import math
-</code>
+```
+
 Practice printing math.pi
 - Print without any formatting
 - Print using the default f format
@@ -134,11 +134,8 @@ Practice printing math.pi
 - For at least one of the above, add a message
 - Print the number of digits to at least 6 spaces and pad with zeros
 - Print the number with a message that specifies the number of digits, where the number of digits is also to be printed.
-</p>
-</pre>
-</p>
+
 </details>
-</p>
 
 Even more sophisticated formatting is possible.  In the above examples, when printing pi the value of `n` had to be 12 or my output would be inconsistent.  In newer Python versions we can make the width a variable.
 
@@ -150,14 +147,14 @@ For Python 3.6 and up the _formatted string literal_ or f-string was introduced.
 
 Example
 
-```
+```python
 n=12
 print(f"Pi to {n} places is {math.pi:.{n}f}")
 ```
 
 The f-string evaluates the contents of the curly braces when the program is run.  That means that expressions can be used inside the curly braces.
 
-```
+```python
 print(f"Pi to {n//3} places is {math.pi:.{n//3}f}")
 ```
 
@@ -175,7 +172,7 @@ Before anything can be done with a file we must _open_ it.  This attaches the fi
 
 We open a file and associate an identifier with it by means of the `open` statement.
 
-```
+```python
 fp=open("filename")
 fin=open("filename","r")
 fout=open("filename","w")
@@ -198,7 +195,7 @@ Reading commands
 
 We have several options to handle the strings when reading directly from a file.  One option is to use read, then split all the lines on the "\\n" character
 
-```
+```python
 fin=open("filename","r")
 the_file=fin.read()
 file_list=the_file.split("\r\n")
@@ -208,7 +205,7 @@ We can now process through the list using a loop.  Note that we use `\r\n` to ma
 
 Yet another option is to use a Python idiom in which we iterate through the file using the file identifier.  Suppose we have a file with comma-separated values.  We can read the data with
 
-```
+```python
 fin=open("filename")
 for line in fin:
     data=line.rstrip("\r\n").split(",")
@@ -216,7 +213,7 @@ for line in fin:
 
 In the example above, we have not done anything to store the values of the data, so each time through the `data` variable will be overwritten and the previous values lost.  How we handle this will depend on the file and what should be done to its contents.  One common approach is to declare lists to hold the values in advance, then append as we go.
 
-```
+```python
 fin=open("filename")
 x=[]
 y=[]
@@ -235,14 +232,14 @@ We will not go into much detail about reading files since we will later cover pa
 
 To write a file it must have been opened appropriately.  We can use print with the addition of a `file=` argument.
 
-```
+```python
 f=open("myfile")
 print("Format string {:f} {:f}".format(x,y),file=f)
 ```
 
 Corresponding to `read` there is a `write`.  It writes _one_ string to the specified file 
 
-```
+```python
 fout=open("outfile","w")
 fout.write(s)
 ```
@@ -251,7 +248,7 @@ The string can contain newline markers `\n` but `write` will not insert them.  T
 
 Corresponding to `readlines` there is a `writelines`
 
-```
+```python
 fout=open("outfile","w")
 fout.writelines(seq)
 ```
@@ -262,7 +259,7 @@ here `seq` is a sequence, usually a list of strings.  The `writelines` will not 
 
 When you have completed all operations on a file you should close it.
 
-```
+```python
 fin.close()
 fout.close()
 ```
@@ -271,28 +268,34 @@ Files will be automatically closed when your script terminates, but best practic
 
 <details>
 <summary>Exercise 16</summary>
-<pre>
-<p>
+
 Open a file 
-<code>
+
+```python
 data.txt 
-</code>
+```
+
 in write mode.  Write to the file three columns of numbers separated by commas.  These columns should be
-<code>
+
+```python
 n n**2 n**3
-</code>
+```
+
 for n going from 1 to 20.  
 Read back the file.  Store each variable into a list.  Use these values to compute and print 
-<code>
+
+```python
 a+bn+cn<sup>2</sup>+dn<sup>3</sup>
-</code>
+```
+
 for 
-<code>
+
+```python
 a=1., b=2.4, c=5.8, d=0.7
-</code>
+```
+
 Print the results for each n you have.
-</p>
-</pre>
+
 </details>
 
 ## Exceptions
@@ -310,7 +313,7 @@ All these conditions (and many more) are called __exceptions__.  If you do not h
 
 The interpreter _throws_ an exception so we can _catch_ it.  We can do this with a `try except` block.  
 
-```
+```python
 try:
     fin=open("datafile.csv","r")
 except IOError:
@@ -319,7 +322,7 @@ except IOError:
 
 This stops on the named exception `IOError`.  Any other exception will not be caught.  It is not necessary to name exceptions; the following will be executed for any exception.
 
-```
+```python
 try: 
     something
 except: 
@@ -342,7 +345,7 @@ IKeyError
 
 You can provide more than one `except` for the same `try`
 
-```
+```python
 try:
    input=int(input("Please enter an integer:"))
 except EOFError:
@@ -353,7 +356,7 @@ except ValueError:
 
 If you wish to do something particular when the `try` passes, use `else`
 
-```
+```python
 try:
     fout=open("outputfile.csv","w")
 except IOError:
@@ -364,7 +367,7 @@ else:
 
 If you have code that should be executed whether the condition passes or failes use `finally`
 
-```
+```python
 try:
    fin=datafile.read()
 except IOError:
@@ -379,7 +382,7 @@ You cannot use an `else` in any `try` clause with a `finally`.
 
 If properly supported, the `with` and `as` operators can replace the `try/except/finally` block.  This is probably most widely used with files.  The following will close the file whether the operation was successful or not.
 
-```
+```python
 with open('myfile','w') as f:
     for n in range(len(mylines)):
         mystring="whatever"

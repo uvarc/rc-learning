@@ -1,10 +1,9 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Strings
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 5
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
@@ -19,7 +18,7 @@ The length of a string can be dynamically determined when the script is run, but
 
 String literals are indicated by double quotes "a".
 
-```
+```python
 Line_1="The first line of a file\\n"
 ```
 
@@ -27,7 +26,7 @@ The `\n` symbol represents a new line and is treated as a single character.  The
 
 If a string literal is surrounded by triple double quotes """s""" it is verbatim, including newlines typed.
 
-```
+```python
 s="""This string is a
      multiline quote."""
 ```
@@ -51,26 +50,28 @@ Python supplies many string operators and functions.  Among the most commonly us
 
 <details>
 <summary>Exercise 9</summary>
-<pre>
-<code>
+
+```python
 s1="Today \n is a new day."
 s2=r"Today \n is a new day."
 print(s1)
 print(s2)
-</code>
-<p>
-Define variables <code>x=21.0, n=30, s="My new string."</code>.
-Convert <code>n</code> into a float and store the results into a new variable <code>y</code>
-Set a variable <code>the_answer</code> containing the literal string "42." (be sure to include the period). Type
-<code>
+```
+
+Define variables `x=21.0`, `n=30`, `s="My new string."`
+Convert `n` into a float and store the results into a new variable `y`.
+Set a variable `the_answer` containing the literal string "42." (be sure to include the period). Type
+
+```python
 z=int(the_answer)
-</code>
+```
+
 What happened? Try
-<code>
+
+```python
 z=float(the_answer)
-</code>
-</pre>
-</p>
+```
+
 </details>
 
 #### String Comparison Operators
@@ -86,7 +87,7 @@ String comparisons use the familiar symbols but _lexical_ ordering.  This can re
 
 Example
 
-```
+```python
 s1="This is a string."
 s2="That is a string."
 s3="This is a string"  #no period
@@ -96,22 +97,20 @@ print(s1<=s2)
 
 <details>
 <summary>Exercise 10</summary>
-<pre>
-<p>
-<code>
+
+```python
 number_1="10"
 number_2="2"
 print(number_1 &lt number_2)
-</code>
-</pre>
-</p>
+```
+
 </details>
 
 #### Substrings
 
 Although a particular string variable is immutable, it is possible to extract substrings from it.
 
-```
+```python
 sub_string=string[0:3]
 ```
 
@@ -122,8 +121,8 @@ Since strings are immutable we cannot assign values to a substring; that is, the
 <details>
 <summary>Exercise 11</summary>
 Type into the Spyder interpreter pane or a JupyterLab notebook.  Remember that in Jupyter each evaluation expression should be run in its own cell.
-<pre>
-<code>
+
+```python
 title="This is a string."
 subtitle="This is another string."
 len(title)
@@ -133,8 +132,8 @@ len(newtitle)
 newtitle[2:4]="at"  #Error-why?
 x=19.58
 print("The value of x is {:f}".format(x))
-</code>
-</pre>
+```
+
 </details>
 
 ### More Advanced String Handling
@@ -221,7 +220,7 @@ Several methods are available to determine whether a string represents letters o
 
 All of the string operators and methods are available in the base Python installation.  However, there is a package `string` which contains some useful string literals.
 
-```
+```python
 import string 
 string.ascii_letters
 string.ascii_lowercase 
