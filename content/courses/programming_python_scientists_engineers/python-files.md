@@ -2,9 +2,9 @@
 title: "Files"
 date: 2019-04-29T11:06:47-04:00
 draft: false
-highlight_style: "github"
 toc: true
 type: docs
+weight: 9
 menu:
     programming_python_scientists_engineers:
        parent: Programming in Python for Scientists and Engineers
@@ -175,6 +175,7 @@ Pay attention to some differences between Python 2.7 and Python 3.+ in input/out
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`BBS.py`)</summary>
+
 ```python
 # -*- coding: utf-8 -*-
 """
@@ -215,10 +216,12 @@ for i in range(nrows):
         
 output.close()
 ```
+
 </details>
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`BBS2.py`)</summary>
+
 ```python
 # -*- coding: utf-8 -*-
 """
@@ -260,10 +263,12 @@ for i in range(nrows):
         
 output.close()
 ```
+
 </details>
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`BBS3.py`)</summary>
+
 ```python
 # -*- coding: utf-8 -*-
 """
@@ -306,14 +311,14 @@ for i in range(nrows):
         output.write(line)
         
 output.close()
-
 ```
-</details>
 
+</details>
 
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`BBS4.py`)</summary>
+
 ```python
 # -*- coding: utf-8 -*-
 """

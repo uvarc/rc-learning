@@ -3,11 +3,11 @@ title: NumPy and SciPy
 toc: true
 type: docs
 draft: false
-weight: 8
+weight: 9
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 8
+    weight: 9
 ---
 
 ## NumPy

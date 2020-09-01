@@ -3,11 +3,11 @@ title: Matplotlib and Pandas
 toc: true
 type: docs
 draft: false
-weight: 9
+weight: 10
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 9
+    weight: 10
 ---
 
 ## Matplotlib
