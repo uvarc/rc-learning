@@ -19,7 +19,7 @@ The length of a string can be dynamically determined when the script is run, but
 String literals are indicated by double quotes "a".
 
 ```python
-Line_1="The first line of a file\\n"
+Line_1="The first line of a file\n"
 ```
 
 The `\n` symbol represents a new line and is treated as a single character.  The length of the above string is 25; spaces and the newline count.
@@ -46,7 +46,7 @@ Python supplies many string operators and functions.  Among the most commonly us
 * type conversion from string to numerical type.  This must be possible according to the interpreter's rules for the numbers.  In particular, the string "3." does not represent an integer.
   * float(s)
 * raw string: no characters are taken to be special characters.  Sometimes particularly useful on Windows. Either `r` or `R` can be used.
-  * r'This is a string \\ with no special characters \\n'
+  * r'This is a string \ with no special characters \n'
 
 <details>
 <summary>Exercise 9</summary>
@@ -204,13 +204,13 @@ Several methods are available to determine whether a string represents letters o
 #### Splitting and Joining
 
 * Split on string `s`.  Most usually splits on a character.  Splits on whitespace (spaces and tabs) when the delimiter isn't specified.  Returns a list with the delimiter removed, and each separated string an element of the list.
-  * split(\\&lt;s>)
+  * split(\<s>)
     * mystr.split()
     * mystr.split(',')
 * Split on newlines.  Returns a list of the lines, with newline characters stripped.
   * mystr.splitlines()
 * Join a list of strings with a string (usually a single character).  This is the inverse of split.  The syntax is peculiar, for Python.
-  * \\&lt;s>.join(list)
+  * \<s>.join(list)
     * "".join(strlist)
       * joins a list with no spaces or other characters between
     * ",".join(strlist)
