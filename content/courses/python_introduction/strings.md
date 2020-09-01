@@ -16,15 +16,15 @@ The string type is widely used in Python.  A __string__ consists of a sequence o
 
 The length of a string can be dynamically determined when the script is run, but once set, it is fixed because strings are immutable. The string variable can be overwritten, however.
 
-String literals are indicated by double quotes "a".
+String literals are indicated by double quotes `"a"`.
 
 ```python
-Line_1="The first line of a file\\n"
+Line_1="The first line of a file\n"
 ```
 
 The `\n` symbol represents a new line and is treated as a single character.  The length of the above string is 25; spaces and the newline count.
 
-If a string literal is surrounded by triple double quotes """s""" it is verbatim, including newlines typed.
+If a string literal is surrounded by triple double quotes `"""s"""` it is verbatim, including newlines typed.
 
 ```python
 s="""This string is a
@@ -43,10 +43,10 @@ Python supplies many string operators and functions.  Among the most commonly us
   * len(string)
 * type conversion from numerical type to string
   * str(f)
-* type conversion from string to numerical type.  This must be possible according to the interpreter's rules for the numbers.  In particular, the string "3." does not represent an integer.
+* type conversion from string to numerical type.  This must be possible according to the interpreter's rules for the numbers.  In particular, the string `"3."` does not represent an integer.
   * float(s)
 * raw string: no characters are taken to be special characters.  Sometimes particularly useful on Windows. Either `r` or `R` can be used.
-  * r'This is a string \\ with no special characters \\n'
+  * `r'This is a string \ with no special characters \n'`
 
 <details>
 <summary>Exercise 9</summary>
@@ -101,7 +101,7 @@ print(s1<=s2)
 ```python
 number_1="10"
 number_2="2"
-print(number_1 &lt number_2)
+print(number_1 < number_2)
 ```
 
 </details>
@@ -185,9 +185,9 @@ Several methods are available to determine whether a string represents letters o
 
 #### Modifying and Filling
 
-* Remove characters from beginning and end (empty parentheses remove spaces and tabs). The angle brackets indicate an option and are not typed
-  * mystr.strip(\\&lt;;chars>)
-    * mystr.rstrip(\\<chars>), string.lstrip(\\&lt;chars>)
+* Remove characters from beginning and end (empty parentheses remove spaces and tabs). The angle brackets indicate an option and are not typed out.
+  * mystr.strip(\<chars>)
+    * mystr.rstrip(\<chars>), string.lstrip(\<chars>)
 * Replace substring a with b
   * mystr.replace(a,b)
 * Expand tabs 
@@ -204,16 +204,16 @@ Several methods are available to determine whether a string represents letters o
 #### Splitting and Joining
 
 * Split on string `s`.  Most usually splits on a character.  Splits on whitespace (spaces and tabs) when the delimiter isn't specified.  Returns a list with the delimiter removed, and each separated string an element of the list.
-  * split(\\&lt;s>)
+  * split(\<s>)
     * mystr.split()
-    * mystr.split(',')
+    * mystr.split(\',\')
 * Split on newlines.  Returns a list of the lines, with newline characters stripped.
   * mystr.splitlines()
 * Join a list of strings with a string (usually a single character).  This is the inverse of split.  The syntax is peculiar, for Python.
-  * \\&lt;s>.join(list)
-    * "".join(strlist)
+  * \<s>.join(list)
+    * \"\".join(strlist)
       * joins a list with no spaces or other characters between
-    * ",".join(strlist)
+    * \",\".join(strlist)
       * joins a list with commas between
 
 #### String Module
