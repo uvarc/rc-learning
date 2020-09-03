@@ -44,7 +44,7 @@ Sequences either are directly iterators or can be readily converted to an iterat
   * S1\*N replicates the sequence S1 N times.  
 
 <details>
-<summary>Exercise 7</summary>
+<summary>Exercise 4</summary>
 Examine the results of the following:
 
 ```python
@@ -197,7 +197,7 @@ Much more can be done with lists.
   * Lreversed=list(reversed(L))
 
 <details>
-<summary>Exercise 8</summary>
+<summary>Exercise 5</summary>
 
 Type
 

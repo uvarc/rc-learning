@@ -208,7 +208,7 @@ Recent versions of Matplotlib can apply _style sheets_ to change the overall app
 for the possibilities.
 
 <details>
-<summary>Exercise 25</summary>
+<summary>Exercise 24</summary>
 
 1. Type into your choice of Spyder's interpreter pane or a JupyterLab cell the example plotting codes we have seen so far.  These were all taken from the Matplotlib gallery.
 

@@ -87,7 +87,7 @@ print(V)
 ```
 
 <details>
-<summary>Exercise 24</summary>
+<summary>Exercise 23</summary>
 
 Use the zeros function for the following:
 Initialize an array A1 of rank 1 with size 4 and type double.
