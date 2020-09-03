@@ -85,7 +85,7 @@ else:
 The "condition" must be an expression that evaluates to True or False; that is, it must be a Boolean variable or expression.  Boolean expressions are formed from other types of variables with conditional operators.
 
 <details>
-<summary>Exercise 4</summary>
+<summary>Exercise 6</summary>
 
 The Body Mass Index is a widely-used number to classify body shapes.  The formula in Imperial units (pounds, inches) is
 
@@ -142,7 +142,7 @@ The range iterator is used to step over a sequence of numbers.  It takes up to t
 The interval is often called a stride.  If it is present the lower bound must also be present even if it is the default, 0.  Otherwise the lower bound may be omitted.  If the stride is omitted it is 1.  The last value is never reached.
 
 <details>
-<summary>Exercise 5</summary>
+<summary>Exercise 7</summary>
 
 Execute the following for loop:
 
@@ -201,7 +201,7 @@ print(x,y,z)
 ```
 
 <details>
-<summary>Exercise 6</summary>
+<summary>Exercise 8</summary>
 <pre>
 Modify each for loop in the previous exercise to use a while loop instead.
 </pre>

@@ -85,7 +85,7 @@ The arguments in the lists in both caller and callee must agree in _number_ and 
 <summary>Exercise 18</summary>
 <pre>
 <p>
-Convert your program from Exercise 14 to use a function to compute the BMI.
+Convert your program from Exercise 6 to use a function to compute the BMI.
 </pre>
 </p>
 </details>

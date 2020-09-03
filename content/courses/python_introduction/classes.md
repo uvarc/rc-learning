@@ -85,7 +85,7 @@ thing.reset(w,z)
 The constructor \_\_\_init\_\_ is invoked when a new instance is declared.  It need not take any arguments from the caller at all, though it will always include `self` in its parameter list.  Any attributes to be declared should be set to some default value in the constructor.
 
 <details>
-<summary>Exercise 23</summary>
+<summary>Exercise 25</summary>
 
 Type in the example class.  Save it into a file called `mymodule.py`.  Run the file or cell.  In your interpreter window or a new cell, type
 
