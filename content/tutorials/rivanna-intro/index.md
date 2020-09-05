@@ -14,7 +14,9 @@ categories: ["Rivanna","HPC"]
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides: rivanna-intro 
+#slides: rivanna-intro 
+notes: rivanna-intro
+url_slides: slides/rivanna-intro-pptx/IntroductionToRivanna_2020_05_22.pptx
 
 ---
 
