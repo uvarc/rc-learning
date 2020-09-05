@@ -5,7 +5,7 @@ summary: "This tutorial is an introduction to using the Rivanna high-performance
 # Schedule page publish date (NOT talk date).
 publishDate: "2017-01-01T00:00:00Z"
 
-authors: [kah,jmh]
+authors: [jmh,kah]
 tags: [rivanna,hpc]
 categories: ["Rivanna","HPC"]
 
