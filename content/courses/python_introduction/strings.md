@@ -81,9 +81,9 @@ String comparisons use the familiar symbols but _lexical_ ordering.  This can re
 * Equality 
   * ==
 * Lexically greater than or lexically greater than or equal
-  * \> >=
+  * \> \>=
 * Lexically less than or lexically less than or equal 
-  * &lt; &lt;= 
+  * < <=
 
 Example
 
@@ -169,25 +169,31 @@ Several methods are available to determine whether a string represents letters o
 #### Searching and Tests
 
 * Find a character or substring.  Returns location of _first_ occurrence only.
-  * find(s)
+  * find
     * returns -1 if it does not find the substring 
     * mystr.find(s)
   * rfind(s)
     * searches right to left
-* index(s)
+* index
   * throws an exception if the substring is not found 
     * mystr.index(s)
   * rindex(s)
     * searches right to left
-* count(s)
+* count
   * Counts the number of occurrences of substring s.  Case sensitive.
     * mystr.count(s)
+* endswith
+  * Determines whether a string ends with a particular substring
+    * mystr.endswith(s)
+* startswith
+  * Determines whether a string starts with a particular substring
+    * mystr.startswith(s)
 
 #### Modifying and Filling
 
 * Remove characters from beginning and end (empty parentheses remove spaces and tabs). The angle brackets indicate an option and are not typed out.
-  * mystr.strip(\<chars>)
-    * mystr.rstrip(\<chars>), string.lstrip(\<chars>)
+  * mystr.strip(<chars>)
+    * mystr.rstrip(<chars>), string.lstrip(<chars>)
 * Replace substring a with b
   * mystr.replace(a,b)
 * Expand tabs 

@@ -16,7 +16,7 @@ So far the compound types we have studied have been _ordered_.  We access elemen
 
 The key corresponds to a _value_ which may be of any type, including mutable types such as lists. The dictionary consists of all key-value pairs.  Dictionaries themselves are _mutable_ and may be of any length up to the limits of the system.  Dictionaries can be nested, i.e. the value may itself be a dictionary.
 
-Dictionaries are denoted by curly braces (){}).  A key-value pair is separated by a colon (:).
+Dictionaries are denoted by curly braces `{}`.  A key-value pair is separated by a colon `:`.
 
 ### Creating Dictionaries
 
@@ -24,12 +24,12 @@ Dictionaries are denoted by curly braces (){}).  A key-value pair is separated b
   * D={}
   * Note the similarity to an empty list, but we use curly braces.
 * Enumerating the key-value pairs
-  * D={'Alice':'2341', 'Beth':'9102', 'Cecil':'3258'}
+  * D={\"Alice\":\"2341\", \"Beth\":\"9102\", \"Cecil\":\"3258\:}
   * Another option to create a dictionary with initial entries
-    * D=dict([('Alice','2341'),('Beth','9102'),('Cecil','3258')])
+    * D=dict([(\"Alice\",\"2341\"),(\"Beth\",\"9102\"),(\"Cecil\",\"3258\")])
 * Adding an entry
-  * D['Dan']='5837'
-  * If the key 'Dan' is not present, it will be created and the specified value assigned.  If it is present already in the dictionary, the value will be replaced.
+  * D[\"Dan\"]=\"5837\":
+  * If the key \"Dan\" is not present, it will be created and the specified value assigned.  If it is present already in the dictionary, the value will be replaced.
 
 ### Dictionary Operations
 
@@ -106,8 +106,8 @@ Type into Spyder or Jupyterlab and run
 
 ```python
 capitals={"Alabama":"Montgomery"}
-capitals\["Alaska"\]="Juneau"
-capitals\["Arizona"\]="Little Rock"
+capitals["Alaska"]="Juneau"
+capitals["Arizona"]="Little Rock"
 print(capitals.keys())
 print("Virginia" in capitals)
 print("Arkansas" in capitals)
