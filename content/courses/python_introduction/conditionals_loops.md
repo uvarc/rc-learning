@@ -3,7 +3,7 @@ title: Conditionals and Loops
 toc: true
 type: docs
 draft: false
-sections_weight: 5
+weight: 5
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
