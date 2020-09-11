@@ -1,4 +1,4 @@
----
+﻿---
 title: Lists and Tuples
 toc: true
 type: docs
@@ -16,16 +16,16 @@ So far we have examined _primitive_ types.  Each variable stands for one value. 
 
 ### Sequences
 
-A _sequence_ in Python is an ordered group of values that can be represented by a single value. We can address individual elements or subgroups of a sequence with square brackets and possibly a range.  Square brackets hold the index or range.  
+A _sequence_ in Python is an ordered group of values that can be represented by a single value. We can address individual elements or subgroups of a sequence with square brackets and possibly a range.  Square brackets hold the index or range. 
 
 ```python
 A[i]
 A[1:j+k+1]
 ```
 
-Python is _zero based_ (the first element is numbered 0) and the upper bound of _any_ range is always _non_inclusive_.  Python defines several intrinsic sequences: strings, unicode strings, lists, tuples, and a few others that we will not cover.
+Python is _zero based_ (the first element is numbered 0) and the upper bound of _any_ range is always _non_inclusive_.  Python defines several intrinsic sequences: strings, Unicode strings, lists, tuples, and a few others that we will not cover.
 
-Sequences either are directly iterators or can be readily converted to an iterator.
+An _iterator_ is a data type that can be traversed in order.  Sequences either are directly iterators or can be readily converted to iterators.
 
 #### Sequence Operators
 
@@ -112,7 +112,7 @@ myL[1]=4
 print(myL)
 ```
 
-Sublists are obtained must like substrings.  They are often called _slices_.
+Sublists are obtained much like substrings.  They are often called _slices_.
 
 ```python
 subL=L[1:3]
@@ -143,7 +143,7 @@ This extracts elements 1, 3, and 5.
 #### Changing Lists
 
 * Initialize
-  * L=\[]
+  * L=[]
 * Initialize a list of known size (the value can be a variable but must have a value when this statement is executed)
   * L1=[0]\*N
 * Append an element to a list
@@ -153,7 +153,7 @@ This extracts elements 1, 3, and 5.
 
 Appending adds the argument as the new last element exactly as it appears. It takes any type.  Extending requires a list as its argument.  It concatenates that list at the end of the original one.  It is is equivalent to
 
-* L=[1,2,3]+[4,5,6]
+  * L=[1,2,3]+[4,5,6]
 * insert an element
   * L.insert(i,item)
   * This inserts `item` before element `i`. To add an item at the beginning of the list, use
@@ -167,7 +167,7 @@ Shortening lists:
   * L.remove(item)
   * The `item` must match exactly or an error occurs.
 * Remove and return an element
-  * item=L.pop(&lt;i>)
+  * item=L.pop(\<i>)
   * The angle brackets indicate an optional argument.  If it is absent the _last_ element is returned.  If it is present that value is returned.
     * lastVal=L.pop()
     * A_val=L.pop(2)
@@ -193,7 +193,7 @@ Much more can be done with lists.
   * L.reverse()
 * There is no direct function to reverse and return another list, so we use this handy trick
   * Lreversed=L\[::-1]
-* In Python 3, `reversed(L)` returns an _iterator_ and not a list, but you may use 
+* In Python 3, `reversed(L)` returns an iterator and not a list, but you may use 
   * Lreversed=list(reversed(L))
 
 <details>
@@ -285,9 +285,12 @@ Occasionally we need a tuple with one element.  This is not the same thing as a 
 
 #### Lists or Tuples?
 
-A tuple should be used whenever the structure should not be dynamically changed or resized.  
+A tuple should be used whenever the structure should not be dynamically changed or resized. 
 
-Tuples are preferred over lists for returning multiple values from functions.  
+Tuples are preferred over lists for returning multiple values from functions. 
 
 Tuples are often used for heterogenous data, i.e. elements of different types.  List elements are typically homogeneous (all the same type) though this is not a requirement.
 
+### Resources
+
+Lists, tuples, and the range iterator are described [here](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range).

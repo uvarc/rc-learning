@@ -16,5 +16,5 @@ Also download the labs and data
 [Fortran Lab1](/files/Fortran_Lab1.pdf)
 [Fortran Lab2](/files/Fortran_Lab2.pdf)
 [bodyfat.csv](/data/bodyfat.csv)
-[CPI.csv](/data/CPI.csv)
+[cpi.csv](/data/cpi.csv)
 [vabirds.csv](/data/vabirds.csv)
