@@ -10,13 +10,17 @@ menu:
     weight: 5
 ---
 
-### Strings
+The string type is widely used in Python.  A __string__ consists of a sequence of characters, even if the sequence length is 1--Python does not make a distinction between a character and a one-character string.  The string is a compound type and immutable.  The representation of a single character internallly in the computer as a sequence of bits is called the _encoding_.  Individual characters are represented either by the ASCII standard (1 byte per character) or Unicode (2-4 bytes per character).  Strings that are to be treated as Unicode are type `unicode` rather than string, but otherwise behave similarly.  The default encoding may depend on the operating system but in newer Python versions is usually a standard called _utf-8_.  UTF-8 can represent over one hundred thousand characters and can embed different scripts within the same text file.
 
-The string type is widely used in Python.  A __string__ consists of a sequence of characters.  It is a compound type and immutable.  Individual characters are represented either by the ASCII standard (1 byte per character) or Unicode (2-4 bytes per character).  Strings that are to be treated as unicode are type `unicode` rather than string, but otherwise behave similarly.  The representation of a character as a sequence of bits is called the _encoding_.  The default encoding may depend on the operating system but in newer Python versions is usually a standard called _utf-8_.  UTF-8 can represent over one hundred thousand characters and can embed different scripts within the same text file.
+String literals are indicated by double quotes `"a"`.  Unlike some other languages, Python is not too picky about single or double quotes, but double quotes are preferred for multicharacter strings. If a string contains an apostrophe or its own quotes, the surrounding quotes must be of the other type.
+
+```python
+s1="This is a string."
+s2="It's time to go."
+s3='The man said, "Time to go."'
+```
 
 The length of a string can be dynamically determined when the script is run, but once set, it is fixed because strings are immutable. The string variable can be overwritten, however.
-
-String literals are indicated by double quotes `"a"`.
 
 ```python
 Line_1="The first line of a file\n"
@@ -238,3 +242,7 @@ string.punctuation   #(depends on the locale)
 string.printable 
 string.whitespace    #space, tab, linefeed, return, formfeed, and vertical tab.
 ```
+
+### Resources
+
+The official documentation for the string type is [here](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str).  A more complete discussion of built-ins for strings is [here](https://docs.python.org/3/library/stdtypes.html#string-methods), including optional arguments for some of the methods described above.  

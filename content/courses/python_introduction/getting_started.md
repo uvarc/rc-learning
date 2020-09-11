@@ -119,7 +119,7 @@ Now we will switch to Spyder.  Spyder is an Integrated Development Environment, 
 
 ![Spyder](/courses/python_introduction/Spyder.png)
 
-If you are using Python 2.7, add the `future` line immediately after the triple-quoted section.
+If you are using Python 2.7, add the `from future` line immediately after the triple-quoted section.
 
 If you type
 
@@ -222,3 +222,11 @@ plt.show()
 ```
 
 Put this into a new cell and run it.  In the upper cell change `sin` to `cos`.  In the Notebook menu select `Run All Cells`
+
+### Resources
+
+Several tutorials are available for Jupyter and Jupyterlab online.  One good one is [here](https://www.tutorialspoint.com/jupyter/index.htm).
+
+Spyder documentation is [here](https://docs.spyder-ide.org/current/index.html).
+
+When using Anaconda, never install Jupyter/Jupyterlab or Spyder independently; you can upgrade them with the Conda package manager.

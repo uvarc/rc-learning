@@ -91,9 +91,9 @@ Experienced programmers tend to use operator/assignment (+=, -=, \*=, /=) but it
 
 ##### Integer Operators
 
-The arithemetic operators on all numerical types.  Two additional operators work on integers.  
+The arithemetic operators on all numerical types.  Two additional operators work on integers. 
 
-* Integer division // returns the integer part of the division.  For example, 7//2=3.  
+* Integer division // returns the integer part of the division.  For example, 7//2=3. 
 * The mod or modulo operator % returns the remainder of the division, so 7%2=1.
 
 These operators are also defined on floating-point numbers, but the results may not be what you expect!  Also avoid using % with negative numbers, for the same reason.
@@ -162,17 +162,17 @@ Use expression evaluation to examine the results of the following:
 Boolean operators operate on Boolean expressions.  
 
 * Negation
-  * not somevar
+  * `not` somevar
 * AND 
-  * somevar and anothervar
+  * somevar `and` anothervar
   * Example: given two Boolean variables is_present and has_value, 
     * is_present and has_value is True when both are True, otherwise False 
 * OR
-  * somevar or anothervar
+  * somevar `or` anothervar
     * Example: is_zero or is_negative
     * __Warning__: in Python `or` is _nonexclusive_.  The expression is True if _either_ or _both_ are True.
     * This is different from the usual meaning of _or_ in natural languages. "You can have ice cream or cake" usually implies "but not both."  But in Python,
-      * if ice_cream_OK or cake_OK:
+      * `if ice_cream_OK or cake_OK:`
         is true if both are True.  
 
 ##### Comparison operator
@@ -224,7 +224,7 @@ Among the rules for expression evaluation is operator precedence.  If you write
 x*z-w/y+v
 ```
 
-the interpreter must follow a set of rules to evaluate each operation.  Python, as well as most other programming language, carries out the operations from left to right by the priority assigned to each operator.  In Python the ranking for arithmetic operators is, from first to last, \*\*, then (\* /) have equal rank, followed by (+ -) also with equal rank.  So in the expression above, the interpeter first evaluates x\*z, then w/y, then adds those two results together, and finally adds v.  If you want a different grouping you must use parentheses. For example, you may want to add y and v before dividing.
+the interpreter must follow a set of rules to evaluate each operation.  Python, as well as most other programming languages, carries out the operations from left to right by the priority assigned to each operator.  In Python the ranking for arithmetic operators is, from first to last, \*\*, then (\* /) have equal rank, followed by (+ -) also with equal rank.  So in the expression above, the interpeter first evaluates x\*z, then w/y, then adds those two results together, and finally adds v.  If you want a different grouping you must use parentheses. For example, you may want to add y and v before dividing.
 
 ```python
 x*z-w/(y+v)
@@ -242,12 +242,12 @@ Examine the results of the following:
 
 ```python
 a=11.; b=9.; c=45. n=3
-print(a &gt b)
-print(a &lt b and c==n)
-print(a &lt b or c==n)
-print(a &gt b or c==n and a &lt b)
-print((a &gt b or c==n) and a &lt b)
-is_greater=a &gt b
+print(a > b)
+print(a < b and c==n)
+print(a < b or c==n)
+print(a > b or c==n and a < b)
+print((a > b or c==n) and a < b)
+is_greater=a > b
 print(is_greater,type(is_greater))
 ```
 </details>
@@ -324,3 +324,10 @@ Examples
 #### Docstrings
 
 A special type of string literal is surrounded by triple double quotes """a""". When placed at the top of a unit of code, immediately after the declaration of the unit name if present, and indented to the correct level, the interpreter recognizes these as a special type of comment called a _doctring_ (documentation string).  Spyder automatically puts a mostly-empty docstring at the top of each new file.  Docstrings are used to summarize the purpose and usage of the code that follows.
+
+```python
+"""
+   Program: My Program to compute a value
+   Author:  A. Programmer
+"""
+

@@ -10,8 +10,6 @@ menu:
     weight: 7
 ---
 
-## Input/Output
-
 Programs are not very useful if they cannot communicate their results.  They are also not terribly useful if they cannot change their controlling parameters to compute different results.
 
 It is best to make your program read its input parameters, rather than embedding them (hard-coding) them into the program body.  You may want to change the parameters later or run it for many different sets of parameters.  You may give your program to somebody else who will have to modify it.  Always assume your program may later be used for a slightly different purpose, whether by someone else or by you.
@@ -388,3 +386,9 @@ with open('myfile','w') as f:
         mystring="whatever"
         f.write(mystring+'\n')
 ```
+
+### Resources
+
+Full documentation is [here](https://docs.python.org/3/tutorial/inputoutput.html).  Details on format strings is [here](https://docs.python.org/3/library/string.html).
+
+The Tutorialspoint [tutorial](https://www.tutorialspoint.com/python/python_files_io.htm) is helpful, but beware: it is for Python 2.7.  Input/output, especially console IO, is one of the areas with significant differences between Python 2.7 and Python 3.
