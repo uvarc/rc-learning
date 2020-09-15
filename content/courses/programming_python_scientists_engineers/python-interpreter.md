@@ -3,9 +3,9 @@ title: "Using the Interpreter"
 linktitle: Interpreters and IDEs
 date: 2019-04-29T11:06:47-04:00
 draft: false
-highlight_style: "github"
 toc: true
 type: docs
+weight: 1
 menu:
     programming_python_scientists_engineers:
        parent: Programming in Python for Scientists and Engineers
@@ -181,7 +181,7 @@ From the File Explorer we can browse through icons on the menu bar to change to 
 
 We've now learned the basics of working with our chosen Integrated Development 
 Environment. Several others are available for Python, some of which are free and others of 
-which require payment at least for certain features. Popular alternatives to Spyder include PyCharm (“freemium” i.e. you pay for certain features. <www.jetbrains.com>), Rodeo, which is similar to Spyder (<http://blog.yhat.com/posts/introducing-rodeo.html>), and the PyDev plug-in for Eclipse (<www.pydev.org>).
+which require payment at least for certain features. Popular alternatives to Spyder include [PyCharm](https://www.jetbrains.com) (“freemium” i.e. you pay for certain features), Rodeo, which is similar to Spyder (<http://blog.yhat.com/posts/introducing-rodeo.html>), and the PyDev plug-in for Eclipse (<www.pydev.org>). Several general-purpose programming editors also support Python, such as [Geany](https://geany.org) and [VSCode](https://code.visualstudio.com/).
 
 ### Further Resources
 
@@ -189,7 +189,8 @@ Spyder contains its own built-in tutorial. It tends to expect some proficiency w
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`Printing.py`)</summary>
-```
+
+```python
 # -*- coding: utf-8 -*-
 """
     Spyder Editor
@@ -204,11 +205,13 @@ y=11.
 print y
 x+y  #does not print when run as a script
 ```
+
 </details>
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`CosPlot.py`)</summary>
-```
+
+```python
 # -*- coding: utf-8 -*-
 """
     Spyder Editor
@@ -222,5 +225,6 @@ y=plt.cos(x)
 
 plt.plot(x,y)   
 ```
+
 </details>
 

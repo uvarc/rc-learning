@@ -15,6 +15,6 @@ Also download the labs and data files
 [C++ Lab1](/files/C++_Lab1.pdf)
 [C++ Lab2](/files/C++_Lab2.pdf)
 [bodyfat.csv](/data/bodyfat.csv)
-[CPI.csv](/data/CPI.csv)
+[cpi.csv](/data/cpi.csv)
 [vabirds.csv](/data/vabirds.csv)
 

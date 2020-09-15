@@ -1,14 +1,13 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Classes
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 11
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 9
+    weight: 11
 ---
 
 ## Objects and Classes
@@ -25,13 +24,13 @@ A __class__ is a generalized, programmer-defined data type that can contain mult
 
  We have already been using classes in our Python program, since all data types (including the apparently "primitive" types) are actually classes. In Python syntax, an instance is separated from its methods by a period.  So when we invoke
 
-```
+```python
 L=[1,2,3,4]
 ```
 
 we have invoked a constructor (in an unusual format) for the list class.  When we subsequently type
 
-```
+```python
 L.append(5)
 ```
 
@@ -41,7 +40,7 @@ we are calling the _append_ method on the _instance_ L of the _class_ list to ad
 
 Classes are always defined in a module.  Frequently only the class is in the module, though this is not required.  The keyword is `class`.  The class body, including its docstring, is indented starting one level from the margin.  Classes without methods are possible in Python, but normally the class will at least contain a constructor.  Instances are defined with
 
-```
+```python
 new_inst=MyClass()
 ```
 
@@ -51,7 +50,7 @@ As for modules, any variables defined outside of and above the methods are _glob
 
 Example  
 
-```
+```python
 class MyClass:
     """This is my class"""
     i=12345
@@ -76,7 +75,7 @@ Next is a method that acts only upon the instance.  Note that it does _not_ retu
 
 The first argument to all class methods _must_ be the instance variable, which is a placeholder for the instance on which the method was invoked.    This variable is always called `self`.  Unlike some other object-oriented languages such as C++, the instance variable must always be explicitly present in the argument list. It is not used when we invoke the method, but is understood.
 
-```
+```python
 thing=MyClass(x,y)
 thing.reset(w,z)
 ```
@@ -86,11 +85,11 @@ thing.reset(w,z)
 The constructor \_\_\_init\_\_ is invoked when a new instance is declared.  It need not take any arguments from the caller at all, though it will always include `self` in its parameter list.  Any attributes to be declared should be set to some default value in the constructor.
 
 <details>
-<summary>Exercise 23</summary>
-<pre>
+<summary>Exercise 25</summary>
+
 Type in the example class.  Save it into a file called `mymodule.py`.  Run the file or cell.  In your interpreter window or a new cell, type
-<p>
-<code>
+
+```python
 from mymodule import MyClass
 mc=MyClass(12,14)
 x=12
@@ -99,13 +98,13 @@ mc.reset(19,11)
 print(x,mc.x)
 a=mc.addit(13)
 print(a)
-</code>
-</pre>
+```
+
 </details>
 
 In the interpreter you can create new attributes dynamically; they will not, however, be preserved in your class module.
 
-```
+```python
 x=MyClass(11.,13.)
 x.counter=1
 print(x.counter,x.i,x.reset(12,15))
@@ -119,7 +118,7 @@ All symbols beginning, but not ending, in two underscores are not accessible thr
 
 Example 
 
-```
+```python
 class MyClass:
     """This is my class"""
     _i=12345
@@ -142,7 +141,7 @@ class MyClass:
 
 This makes a difference. 
 
-```
+```python
 ac=MyClass(19.,20.)
 ac.addit(30.)
 ac._i
@@ -153,7 +152,7 @@ The last line will result in an AttributeError: MyClass instance has no attribut
 
 However, it is not absolute
 
-```
+```python
 ac._MyClass__redo()   #impolite!
 print(ac.x,ac.y)
 ```
@@ -162,7 +161,7 @@ print(ac.x,ac.y)
 
 To handle "private" or even just "implementation" variables we use methods.  Accessors ("getters") get the value and return it.  Mutators ("setters") change the value.
 
-```
+```python
 class PrivateStuff:
       def __init__(self,x):
           self.__u=11.
@@ -187,7 +186,7 @@ To mark a class method we use `@classmethod` ahead of the `def` statement.  Stat
 
 Here is a code snippet for our example:
 
-```
+```python
 class pData:
     def __init__(self,x,y,z,t)
         set_values
@@ -206,7 +205,7 @@ The alternate constructor must return the new instance in order to invoke the co
 
 Objects may have a more complicated state than the simple variables we have encountered so far.  Saving it correctly could be tedious and error-prone.  Python provides an operation called "pickling" that coverts the state of an instance into a linear stream of bytes that can be stored or read back.
 
-```
+```python
 import pickle
 aclass=MyClass(11)
 f=open("myresults.dat","w")
@@ -215,7 +214,7 @@ pickle.dump(aclass,f)
 
 To restore, use 
 
-```
+```python
 aclass=pickle.load(f)
 ```
 
@@ -223,7 +222,7 @@ aclass=pickle.load(f)
 
 The pickle module is built into Python but it is limited.  It cannot handle several built-in types.  The dill package overcomes these limitations.  For consistency it is even possible to import it as the pickle namespace.
 
-```
+```python
 import dill as pickle
 ```
 

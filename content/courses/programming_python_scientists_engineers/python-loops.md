@@ -3,9 +3,9 @@ title: "Loops and Conditionals"
 linktitle: "Loops and Conditionals"
 date: 2019-04-29T11:06:47-04:00
 draft: false
-highlight_style: github
 toc: true
 type: docs
+weight: 4
 menu:
     programming_python_scientists_engineers:
         parent: Programming in Python for Scientists and Engineers
@@ -205,6 +205,7 @@ A good introduction to loops and conditionals is available at
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`Function_Plotter.py`)</summary>
+
 ```python
 """
     Episode 4, Project 2
@@ -230,10 +231,12 @@ for i in range(1,N):
 plt.plot(x,y)
 plt.show()
 ```
+
 </details>
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`Temperatures.py`)</summary>
+
 ```python
 """
   Episode 4, Project 1
@@ -249,4 +252,5 @@ for i in range(0,61):
 for i in range(len(degC)):
     print(degC[i],degF[i])
 ```
+
 </details>s

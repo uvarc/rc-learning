@@ -1,33 +1,36 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Strings
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 5
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
     weight: 5
 ---
 
-### Strings
+The string type is widely used in Python.  A __string__ consists of a sequence of characters, even if the sequence length is 1--Python does not make a distinction between a character and a one-character string.  The string is a compound type and immutable.  The representation of a single character internallly in the computer as a sequence of bits is called the _encoding_.  Individual characters are represented either by the ASCII standard (1 byte per character) or Unicode (2-4 bytes per character).  Strings that are to be treated as Unicode are type `unicode` rather than string, but otherwise behave similarly.  The default encoding may depend on the operating system but in newer Python versions is usually a standard called _utf-8_.  UTF-8 can represent over one hundred thousand characters and can embed different scripts within the same text file.
 
-The string type is widely used in Python.  A __string__ consists of a sequence of characters.  It is a compound type and immutable.  Individual characters are represented either by the ASCII standard (1 byte per character) or Unicode (2-4 bytes per character).  Strings that are to be treated as unicode are type `unicode` rather than string, but otherwise behave similarly.  The representation of a character as a sequence of bits is called the _encoding_.  The default encoding may depend on the operating system but in newer Python versions is usually a standard called _utf-8_.  UTF-8 can represent over one hundred thousand characters and can embed different scripts within the same text file.
+String literals are indicated by double quotes `"a"`.  Unlike some other languages, Python is not too picky about single or double quotes, but double quotes are preferred for multicharacter strings. If a string contains an apostrophe or its own quotes, the surrounding quotes must be of the other type.
+
+```python
+s1="This is a string."
+s2="It's time to go."
+s3='The man said, "Time to go."'
+```
 
 The length of a string can be dynamically determined when the script is run, but once set, it is fixed because strings are immutable. The string variable can be overwritten, however.
 
-String literals are indicated by double quotes "a".
-
-```
-Line_1="The first line of a file\\n"
+```python
+Line_1="The first line of a file\n"
 ```
 
 The `\n` symbol represents a new line and is treated as a single character.  The length of the above string is 25; spaces and the newline count.
 
-If a string literal is surrounded by triple double quotes """s""" it is verbatim, including newlines typed.
+If a string literal is surrounded by triple double quotes `"""s"""` it is verbatim, including newlines typed.
 
-```
+```python
 s="""This string is a
      multiline quote."""
 ```
@@ -44,33 +47,35 @@ Python supplies many string operators and functions.  Among the most commonly us
   * len(string)
 * type conversion from numerical type to string
   * str(f)
-* type conversion from string to numerical type.  This must be possible according to the interpreter's rules for the numbers.  In particular, the string "3." does not represent an integer.
+* type conversion from string to numerical type.  This must be possible according to the interpreter's rules for the numbers.  In particular, the string `"3."` does not represent an integer.
   * float(s)
 * raw string: no characters are taken to be special characters.  Sometimes particularly useful on Windows. Either `r` or `R` can be used.
-  * r'This is a string \\ with no special characters \\n'
+  * `r'This is a string \ with no special characters \n'`
 
 <details>
 <summary>Exercise 9</summary>
-<pre>
-<code>
+
+```python
 s1="Today \n is a new day."
 s2=r"Today \n is a new day."
 print(s1)
 print(s2)
-</code>
-<p>
-Define variables <code>x=21.0, n=30, s="My new string."</code>.
-Convert <code>n</code> into a float and store the results into a new variable <code>y</code>
-Set a variable <code>the_answer</code> containing the literal string "42." (be sure to include the period). Type
-<code>
+```
+
+Define variables `x=21.0`, `n=30`, `s="My new string."`
+Convert `n` into a float and store the results into a new variable `y`.
+Set a variable `the_answer` containing the literal string "42." (be sure to include the period). Type
+
+```python
 z=int(the_answer)
-</code>
+```
+
 What happened? Try
-<code>
+
+```python
 z=float(the_answer)
-</code>
-</pre>
-</p>
+```
+
 </details>
 
 #### String Comparison Operators
@@ -80,13 +85,13 @@ String comparisons use the familiar symbols but _lexical_ ordering.  This can re
 * Equality 
   * ==
 * Lexically greater than or lexically greater than or equal
-  * \> >=
+  * \> \>=
 * Lexically less than or lexically less than or equal 
-  * &lt; &lt;= 
+  * < <=
 
 Example
 
-```
+```python
 s1="This is a string."
 s2="That is a string."
 s3="This is a string"  #no period
@@ -96,22 +101,20 @@ print(s1<=s2)
 
 <details>
 <summary>Exercise 10</summary>
-<pre>
-<p>
-<code>
+
+```python
 number_1="10"
 number_2="2"
-print(number_1 &lt number_2)
-</code>
-</pre>
-</p>
+print(number_1 < number_2)
+```
+
 </details>
 
 #### Substrings
 
 Although a particular string variable is immutable, it is possible to extract substrings from it.
 
-```
+```python
 sub_string=string[0:3]
 ```
 
@@ -122,8 +125,8 @@ Since strings are immutable we cannot assign values to a substring; that is, the
 <details>
 <summary>Exercise 11</summary>
 Type into the Spyder interpreter pane or a JupyterLab notebook.  Remember that in Jupyter each evaluation expression should be run in its own cell.
-<pre>
-<code>
+
+```python
 title="This is a string."
 subtitle="This is another string."
 len(title)
@@ -133,8 +136,8 @@ len(newtitle)
 newtitle[2:4]="at"  #Error-why?
 x=19.58
 print("The value of x is {:f}".format(x))
-</code>
-</pre>
+```
+
 </details>
 
 ### More Advanced String Handling
@@ -170,25 +173,31 @@ Several methods are available to determine whether a string represents letters o
 #### Searching and Tests
 
 * Find a character or substring.  Returns location of _first_ occurrence only.
-  * find(s)
+  * find
     * returns -1 if it does not find the substring 
     * mystr.find(s)
   * rfind(s)
     * searches right to left
-* index(s)
+* index
   * throws an exception if the substring is not found 
     * mystr.index(s)
   * rindex(s)
     * searches right to left
-* count(s)
+* count
   * Counts the number of occurrences of substring s.  Case sensitive.
     * mystr.count(s)
+* endswith
+  * Determines whether a string ends with a particular substring
+    * mystr.endswith(s)
+* startswith
+  * Determines whether a string starts with a particular substring
+    * mystr.startswith(s)
 
 #### Modifying and Filling
 
-* Remove characters from beginning and end (empty parentheses remove spaces and tabs). The angle brackets indicate an option and are not typed
-  * mystr.strip(\\&lt;;chars>)
-    * mystr.rstrip(\\<chars>), string.lstrip(\\&lt;chars>)
+* Remove characters from beginning and end (empty parentheses remove spaces and tabs). The angle brackets indicate an option and are not typed out.
+  * mystr.strip(<chars>)
+    * mystr.rstrip(<chars>), string.lstrip(<chars>)
 * Replace substring a with b
   * mystr.replace(a,b)
 * Expand tabs 
@@ -205,23 +214,23 @@ Several methods are available to determine whether a string represents letters o
 #### Splitting and Joining
 
 * Split on string `s`.  Most usually splits on a character.  Splits on whitespace (spaces and tabs) when the delimiter isn't specified.  Returns a list with the delimiter removed, and each separated string an element of the list.
-  * split(\\&lt;s>)
+  * split(\<s>)
     * mystr.split()
-    * mystr.split(',')
+    * mystr.split(\',\')
 * Split on newlines.  Returns a list of the lines, with newline characters stripped.
   * mystr.splitlines()
 * Join a list of strings with a string (usually a single character).  This is the inverse of split.  The syntax is peculiar, for Python.
-  * \\&lt;s>.join(list)
-    * "".join(strlist)
+  * \<s>.join(list)
+    * \"\".join(strlist)
       * joins a list with no spaces or other characters between
-    * ",".join(strlist)
+    * \",\".join(strlist)
       * joins a list with commas between
 
 #### String Module
 
 All of the string operators and methods are available in the base Python installation.  However, there is a package `string` which contains some useful string literals.
 
-```
+```python
 import string 
 string.ascii_letters
 string.ascii_lowercase 
@@ -233,3 +242,7 @@ string.punctuation   #(depends on the locale)
 string.printable 
 string.whitespace    #space, tab, linefeed, return, formfeed, and vertical tab.
 ```
+
+### Resources
+
+The official documentation for the string type is [here](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str).  A more complete discussion of built-ins for strings is [here](https://docs.python.org/3/library/stdtypes.html#string-methods), including optional arguments for some of the methods described above.  

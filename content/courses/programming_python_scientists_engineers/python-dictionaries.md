@@ -2,9 +2,9 @@
 title: "Dictionaries and Sets"
 date: 2019-04-29T11:06:47-04:00
 draft: false
-highlight_style: "github"
 toc: true
 type: docs
+weight: 11
 menu:
     programming_python_scientists_engineers:
        parent: Programming in Python for Scientists and Engineers
@@ -361,13 +361,9 @@ s1&s2
 s1|s2
 ```
 
-
-
-
-
-
 <details>
 <summary>VIEW EXERCISE SOLUTION (`Compare.py`)</summary>
+
 ```python
 """
   This program reads a set of gene files, makes a nested dictionary,
@@ -413,65 +409,16 @@ for species in gene:
     sys.stdout.write(species_string)
     printBaseComposition(gene[species])
 ```
+
 </details>
 
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`DNA.py`)</summary>
+
 ```python
 """
-  This program reads a set of gene files, makes a nested dictionary,
-  and prints a comparison of the base counts for different species.
-
-  Author:    A. Programmer
-"""
-import sys
-
-bases='ATCG'
-
-def countBases(DNA):
-    DNAcounts={'A':0,'T':0,'C':0,'G':0}
-    for base in DNA:
-        if base in bases:
-            DNAcounts[base]+=1
-    return DNAcounts
-
-def printBaseComposition(DNAcounts):
-    total=float(DNAcounts['A']+DNAcounts['T']+DNAcounts['C']+DNAcounts['G'])
-
-    outstring_list=[]
-    for base in bases:
-        ratio=DNAcounts[base]/total
-        format_string=" {0:s}:{1:.4f}".format(base,ratio)
-        outstring_list.append(format_string)
-    sys.stdout.write("".join(outstring_list)+"\n")
-
-files=["Homo_sapiens-APC.txt","Canis_lupus-APC.txt","Xenopus_laevis-APC.txt",
-      "Drosophila_melenogaster-APC.txt","Mus_musculus-APC.txt",
-      "Felis_catus-APC.txt"]
-
-gene={}
-for file in files:
-    fin=open(file,'r')
-    species=file.split('-')[0]
-    DNA=fin.read().strip("\n\r")
-    if species not in gene:
-        gene[species]=countBases(DNA)
-
-for species in gene:
-    species_string="{0:<25}->".format(species)
-    sys.stdout.write(species_string)
-    printBaseComposition(gene[species])
-
-```
-</details>
-
-
-<details>
-<summary>VIEW EXERCISE SOLUTION (`DNA.py`)</summary>
-```python
-"""
-  This program reads a gene file and uses it to illustrate properites of sets.
+  This program reads a gene file and uses it to illustrate properties of sets.
 
   Author:    A. Programmer
 """
@@ -498,4 +445,5 @@ print RNA_bases.intersection(DNA_bases)
 print RNA_bases.difference(DNA_bases)
 print RNA_bases.symmetric_difference(DNA_bases)
 ```
+
 </details>

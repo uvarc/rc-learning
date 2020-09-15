@@ -5,7 +5,7 @@ summary: "This tutorial is an introduction to using the Rivanna high-performance
 # Schedule page publish date (NOT talk date).
 publishDate: "2017-01-01T00:00:00Z"
 
-authors: [kah,jmh]
+authors: [jmh,kah]
 tags: [rivanna,hpc]
 categories: ["Rivanna","HPC"]
 
@@ -14,7 +14,9 @@ categories: ["Rivanna","HPC"]
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides: rivanna-intro 
+#slides: rivanna-intro 
+notes: rivanna-intro
+url_slides: slides/rivanna-intro-pptx/IntroductionToRivanna_2020_05_22.pptx
 
 ---
 

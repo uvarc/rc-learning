@@ -10,10 +10,11 @@
 #   Browse built-in themes in `themes/academic/data/themes/`
 #   Browse user installed themes in `data/themes/`
 #theme = "minimal"
-theme = "ocean"
+#theme = "ocean"
+theme = "rc-theme"
 
 # Enable users to switch between day and night mode?
-day_night = true
+day_night = false
 
 # Override the theme's font set (optional).
 #   Latest font sets (may require updating): https://sourcethemes.com/academic/themes/
@@ -54,8 +55,8 @@ description = ""
 # Enable source code highlighting? true/false
 # Documentation: https://sourcethemes.com/academic/docs/writing-markdown-latex/#highlighting-options
 highlight = true
-highlight_languages = ["awk","bash","cmake","c","c++","fortran","dockerfile","java","julia","makefile","matlab","mathematica","maxima","perl","python","r","tex"]  # Add support for highlighting additional languages
-# highlight_style = "github"  # For supported styles, see https://cdnjs.com/libraries/highlight.js/
+highlight_languages = ["awk","bash","cmake","c","c++","fortran","dockerfile","java","julia","makefile","matlab","mathematica","maxima","perl","python","r","sas","scala","tex"]  # Add support for highlighting additional languages
+ highlight_style = "github"  # For supported styles, see https://cdnjs.com/libraries/highlight.js/
 
 # Enable LaTeX math rendering? true/false
 #   If false, you can enable math on a per page basis as needed.
@@ -144,7 +145,7 @@ address_format = "en-us"
 main_menu = {align = "l", show_logo = true}
 
 # Show estimated reading time for posts? (true/false)
-reading_time = true
+reading_time = false
 
 # Display next/previous section pager? (true/false)
 section_pager = false

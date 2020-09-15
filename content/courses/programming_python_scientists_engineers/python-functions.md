@@ -3,9 +3,9 @@ title: "Functions"
 linktitle: "Functions"
 date: 2019-04-29T11:06:47-04:00
 draft: false
-highlight_style: github
 toc: true
 type: docs
+weight: 5
 menu:
     programming_python_scientists_engineers:
         parent: Programming in Python for Scientists and Engineers
@@ -230,6 +230,7 @@ Functions are a core programming construct and there are many tutorials online. 
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`BMI.py`)</summary>
+
 ```python
 """
   Episode 5
@@ -253,10 +254,12 @@ my_bmi=bmi(lb2kg(my_weight),inch2m(my_height))
 
 print("Your BMI is ",my_bmi)
 ```
+
 </details>
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`Temperatures.py`)</summary>
+
 ```python
 """
   Episode 5, Project 1

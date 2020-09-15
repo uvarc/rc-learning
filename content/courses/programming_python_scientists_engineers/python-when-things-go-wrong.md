@@ -4,15 +4,16 @@ date: 2019-04-29T11:06:47-04:00
 draft: false
 toc: true
 type: docs
+weight: 10
 menu:
     programming_python_scientists_engineers:
        parent: Programming in Python for Scientists and Engineers
        weight: 10
 ---
 
-## Episode 10 - When Things Go Wrong
+## Episode 10 - When Things Go Wrong 
 
-{{< youtube w2y-_oUNjwo >}}
+{{< youtube id="w2y-_oUNjwo" >}}
 
 {{% staticref "files/Episode-10-Guide.pdf" "newtab" %}}Download the Episode Guide{{% /staticref %}}
 
@@ -250,6 +251,7 @@ Github Desktop is not an editor; you will create and change your files in an edi
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`BMI.py`)</summary>
+
 ```python
 """This program computes BMI from height and weight for a dataset.
     Author    :  A. Programmer
@@ -328,11 +330,13 @@ def main():
 if __name__=="__main__":
     main()
 ```
+
 </details>
 
 
 <details>
 <summary>VIEW EXERCISE SOLUTION (`DOW_Buggy.py`)</summary>
+
 ```python
 # -*- coding: utf-8 -*-
 """

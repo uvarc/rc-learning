@@ -1,14 +1,13 @@
 ---
-# date: 2019-09-114T10:00:00-00:00
 title: Matplotlib and Pandas
 toc: true
 type: docs
-date: "2019-05-05T00:00:00+01:00"
 draft: false
+weight: 10
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 8
+    weight: 10
 ---
 
 ## Matplotlib
@@ -26,7 +25,7 @@ The Matplotlib [gallery](https://matplotlib.org/gallery.html) provides many exam
 
 Simple example:
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 x=np.linspace(-4.,4.,401)
@@ -40,7 +39,7 @@ This results in
 
 Let us write a more sophisticated example.  This is a scatter plot with points randomly placed according to a normal distribution.
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 fig = plt.figure()
@@ -54,7 +53,7 @@ plt.show()
 
 We can place more sophisticated labeling or multiple plots on a graph with `subplot`
 
-```
+```python
 import numpy as np 
 import matplotlib.pyplot as plt 
 x1 = np.linspace(0.0, 5.0) 
@@ -78,7 +77,7 @@ Many other options are available for annotations, legends, and so forth.
 
 More advanced plots are provided.  The following demonstrates streamlines for vector fields, such as fluid flows.
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
@@ -148,7 +147,7 @@ For higher-dimensional plots we can use `contour`, `contourf`, `surface`, and ot
 
 Contour plot example:
 
-```
+```python
 import matplotlib
 import numpy as np
 import matplotlib.cm as cm
@@ -170,7 +169,7 @@ ax.set_title('Simplest default with labels')
 
 Surface plots require the `mplot3d` package and some additional commands to set views and sometimes lighting.  
 
-```
+```python
 # This import registers the 3D projection, but is otherwise unused.
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
@@ -209,14 +208,12 @@ Recent versions of Matplotlib can apply _style sheets_ to change the overall app
 for the possibilities.
 
 <details>
-<summary>Exercise 25</summary>
-<p>
+<summary>Exercise 24</summary>
+
 1. Type into your choice of Spyder's interpreter pane or a JupyterLab cell the example plotting codes we have seen so far.  These were all taken from the Matplotlib gallery.
-</p>
-<p>
-2. In the contour plot example, change <code>contour</code> to <code>contourf</code> and observe the difference.
-</p>
-</pre>
+
+2. In the contour plot example, change `contour` to `contourf` and observe the difference.
+
 </details>
 
 ## Seaborn
@@ -229,13 +226,13 @@ Before working with seaborn, check that you have at least version 0.9 installed.
 
 If you are updating many packages it may be better to do it through a command line.  From your computer's applications menu, start the Anaconda Prompt.   To upgrade a package type 
 
-```
+```python
 conda update package
 ```
 
 You can also install packages with either the Navigator interface or with the conda command line.
 
-```
+```python
 conda install newpackage
 ```
 
@@ -249,7 +246,7 @@ If you have a very large number of packages to update, however, it may be better
 
 Seaborn 0.9 or later is needed for the "relationship" plot example below:
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -263,7 +260,7 @@ sns.relplot(x="timepoint", y="signal", col="region",
 
 Many other statistical plots are available including boxplots, violin plots, distribution plots, and so forth.  The next example is a heatmap.
 
-```
+```python
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
@@ -285,6 +282,12 @@ The call to `sns.set()` imposes the default Seaborn theme to all Matplotlib plot
 
 [Pandas](pandas.pydata.org) is a Python data analysis library.  It was developed to bring a portion of the statistical capabilities of R into Python.  Pandas accomplishes this by introducing the Series and Dataframe objects to represent data, and incorporating Matplotlib and many features of NumPy into these objects to simplify data representation, analysis, and plotting.  Pandas works with the [statsmodel](http://www.statsmodels.org/stable/index.html) and [scikit-learn](https://scikit-learn.org/stable/) packages for data modeling.  Pandas supports data alignment, missing data, pivoting, grouping, merging and joining of datasets, and many other features for data analysis.
 
+Note that we will adhere to a convention of
+```python
+import pandas as pd
+```
+This naming scheme is not required, but it is very common, much like `np` for NumPy.
+
 ### Series
 
 The Series data structure consists of an index plus data.  It is similar to a dictionary with the differences that 
@@ -296,7 +299,7 @@ Series objects are one-dimensional and can contain any type.  The indices are tr
 
 This simple example loads a Series with normally-distributed random numbers, then prints some of them, prints the basic statistics, and creates a line plot.
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt 
 import pandas as pd
@@ -355,32 +358,36 @@ Remember to print if using Spyder, or to run in the interpreter pane.
 
 The most important data structure in Pandas is the _Dataframe_.  It can be conceptualized as a representation of a spreadsheet.  Dataframes are two-dimensional.  Each column has a name, which can be read from the headers of a spreadsheet, rows are numbered, and datatypes may be different in different columns.  Alternatively, a Dataframe may be regarded as a dictionary with values that can be lists, Ndarrays, dictionaries, or Series.
 
-A grade book is a simple example.
+The Dataframe is _mutable_ type.
 
-| Name           | Year | Grade |
-| -------------- | ---- | ----- |
-| Jim Dandy      | 2    | 85.4  |
-| Betty Boop     | 4    | 91.7  |
-| Minnie Moocher | 1    | 73.2  |
-| Joe Friday     | 2    | 82.3  |
-| Teddy Salad    | 3    | 98.5  |
+We can create a Dataframe by passing a dictionary. Consider a simple grade-book example.
 
-We can instantiate a Dataframe by passing its constructor a dictionary.
-
-```
+```python
 grade_book=pd.DataFrame({"Name":["Jim Dandy","Betty Boop","Minnie Moocher","Joe Friday","Teddy Salad"],
 	"Year":[2,4,1,2,3],"Grade":[85.4,91.7,73.2,82.3,98.5]})
+
+print(grade_book)
 ```
 
-Now we can apply methods to the `grade_book`.
+The result of printing the Dataframe should look like this:
 
-```
+| | Name           | Year | Grade |
+|-|--------------- | ---- | ----- |
+|0| Jim Dandy      | 2    | 85.4  |
+|1| Betty Boop     | 4    | 91.7  |
+|2| Minnie Moocher | 1    | 73.2  |
+|3| Joe Friday     | 2    | 82.3  |
+|4| Teddy Salad    | 3    | 98.5  |
+
+Now we can apply methods to the `grade_book` Dataframe.
+
+```python
 grade_book.describe()
 ```
 
 We can access individual columns by name.  If the name of the column is a valid Python variable name then we may use it as an attribute; otherwise we must refer to it as we would to a dictionary key.
 
-```
+```python
 grade_book.Name 
 grade_book['Name']
 grade_book.Grade.mean()
@@ -388,27 +395,55 @@ grade_book.Grade.mean()
 
 Columns can be deleted
 
-```
+```python
 grade_book.drop(columns='Year')
 ```
 
 A new column can be appended (the number of rows must be the same)
 
-```
+```python
 grade_book["Letter Grade"]=["B","A","C","B","A"]
 ```
 
 Extract values into an Ndarray 
 
-```
+```python
 grades=grade_book["Grade"].values 
 ```
 
 We can directly apply basic Matplotlib commands to Dataframe columns  
 
-```
+```python
 grade_book.Grade.hist()
 grade_book.Grade.plot()
+```
+
+### Accessing Rows and Columns
+
+Pandas Dataframe rows are ordered, so you can call rows by index, just as for lists or NumPy Ndarrays.
+
+```python
+grade_book[2:4]   #returns rows with index 2,3
+```
+Remember that the upper bound is not included, as is usual for Python ranges.
+
+You can use `.iloc` to achieve the same result. The `iloc` method selects rows based on their integer indexes.
+
+```python
+grade_book.iloc[[2,3]]
+```
+
+The `.loc` method is more flexible. It allows you to access row indexes based on the value of a column. `loc` is _label-based_ rather than index-based.  It is used to extract a block of rows and columns by row identifier and column name, or by a Boolean.
+
+```
+first_student= grade_book.loc[0,'Name']
+second_years = grade_book.loc[grade_book['Year'] == 2]
+```
+The `first_student` variable picks out the content of row 0, column Name, which is a string.  The `second_years` object is a new Dataframe containing the information about all the students who are in year 2.
+
+If we wished to extract the students whose grade is 90 or above, we could use
+```python
+top_students=grade_book.loc[grade_book['Grade']>=90]
 ```
 
 ### Reading Files
@@ -480,6 +515,166 @@ new_grades=student_grades.fillna(0.)
 ```
 
 Many other options exist.  
+
+### Combining Pandas and Matplotlib
+
+Pandas relies on Matplotlib for plotting.  We can combine them to work seamlessly with data.  Our example will be based on the American baseball player Mike Trout's statistics, through 2019.
+
+To follow along, download the data [file](/data/MikeTrout.csv).
+
+Start by reading it into a Pandas Dataframe.
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt  
+import matplotlib.ticker as ticker
+
+#read data from the csv file into a Dataframe object called 'df'
+df = pd.read_csv("MikeTroutData.csv")
+
+#extract columns into variables.
+year = df['Year']
+hits = df['H']
+at_bats = df['AB']
+home_runs = df['HR']
+salary = df['Salary']
+```
+Make a simple bar plot showing hits on the Y axis, year on the X axis. If we are willing to accept all the defaults, all that is necessary is to invoke the Matplotlib bar method directly on a subset of the Dataframe.
+
+```python
+df.plot.bar(x="Year",y="H")
+```
+{{< figure src="/courses/python_introduction/pandas_barchart.png" >}}
+
+We can also use Matplotlib directly with our extracted variables.  The figure() method advances to a new plot.
+```python
+plt.figure()
+plt.bar(year, hits)
+```
+{{< figure src="/courses/python_introduction/barplot1.png" >}}
+
+Let's add some labels to make this more readable.
+
+```python
+plt.xlabel('Year')
+plt.ylabel('# of Hits')
+plt.suptitle('Mike Trout Hits per year')
+plt.bar(year, hits)
+```
+{{< figure src="/courses/python_introduction/barplot2.png" >}}
+
+Turn it into a horizontal barchart and change the color of the bars.
+
+```python
+plt.figure()
+plt.xlabel('# of Hits')
+plt.ylabel('Year')
+plt.suptitle('Mike Trout Hits per year')
+plt.barh(year, hits, color='red')
+```
+{{< figure src="/courses/python_introduction/barplot3.png" >}}
+
+Make a line plot using the .plot() function instead of a barchart.
+
+```python
+plt.figure()
+plt.xlabel('Year')
+plt.ylabel('# of Hits')
+plt.grid()
+plt.plot(year, hits)
+```
+
+{{< figure src="/courses/python_introduction/lineplot1.png" >}}
+
+We can superimpose a line and a bar plot. We will represent 'At Bats' by a red line and 'Hits' by blue bars. 
+
+```python
+plt.figure()
+plt.xlabel('Year')
+plt.ylabel('# of Hits')
+plt.plot(year, at_bats, color='red')
+plt.bar(year, hits)
+```
+{{< figure src="/courses/python_introduction/barline1.png" >}}
+
+The y-label we used before is no longer appropriate, so let us add a legend.
+
+```
+plt.figure()
+plt.xlabel('Year')
+plt.plot(year, at_bats, color='red', label='At Bats')
+plt.bar(year, hits, label='Hits')
+plt.legend()        
+```
+{{< figure src="/courses/python_introduction/plotwithlegend1.png" >}}
+
+Without an intervening `figure()` method, plots will be stacked.  We can utilize that to stack the bars.  We are also rotating the x-axis tick marks and labels 45 degrees.
+
+```
+plt.figure()
+plt.xlabel('Year')
+plt.bar(year, hits, label='Hits')
+plt.bar(year, home_runs, label='Home Runs')
+plt.legend()
+
+plt.xlabel('Year')
+plt.xticks(rotation=45)
+plt.xticks(year)                #shows all years in label
+```
+{{< figure src="/courses/python_introduction/stackedbar1.png" >}}
+
+To make a grouped bar chart, do the same as a stacked bar and move the position of one of the bars as shown below. Notice that for the second bar(), the first argument is 'year+.2'. This shifts the position on the x axis .2 units to the right of the default starting point.
+```python
+plt.xlabel('Year')
+plt.xticks(rotation=45)
+plt.xticks(year)                #shows all years in label
+
+plt.bar(year, hits, width=.2, label='Hits')
+plt.bar(year+.2, home_runs, width=.2, label='Home Runs')
+plt.legend()
+```
+{{< figure src="/courses/python_introduction/groupedbar1.png" >}}
+
+Suppose you are interested in exactly how many hits each bar represents. We can iterate over each bar to label it with the corresponding number.
+
+```
+plt.xlabel('Year')
+plt.xticks(rotation=45)
+plt.xticks(year)                #shows all years in label
+
+plt.ylabel('# of Hits')
+plt.suptitle('Mike Trout Hits per year')
+
+for bar in plt.bar(year, hits):
+    plt.text(bar.get_x() + .4,              #x position of label
+             bar.get_height() - 20,         #y position of label
+             bar.get_height(),              #actual value of label
+             ha='center',
+             va='bottom')
+```
+{{< figure src="/courses/python_introduction/barwithlabels.png" >}}
+
+Let's plot how much Mike Trout is paid per home run. 
+
+```python
+cost_per_home_run = salary/home_runs
+
+plt.xlabel('Year')
+plt.xticks(rotation=45)
+plt.xticks(year)
+
+#change Y Axis to show dollar amount
+fig, ax = plt.subplots()
+formatter = ticker.FormatStrFormatter('$%1.0f')
+ax.yaxis.set_major_formatter(formatter)
+
+plt.ylabel('Price')
+plt.suptitle('Mike Trout Yearly Cost Per Home Run')
+plt.bar(year, cost_per_home_run)
+```
+{{< figure src="/courses/python_introduction/Formatter.png" >}}
+
+Many plotting options can be applied directly to the Dataframe object, without the need to extract the variables. See the documentation for the Pandas [plot method](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html).
 
 ### Summary and Exercise
 

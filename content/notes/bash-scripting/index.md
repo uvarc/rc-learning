@@ -12,11 +12,7 @@ be interactive or non-interactive. The most common scripting tool in Linux syste
 can also be written in any other language that can be executed within the shell: C, Python, R, etc.
 </p>
 
-Attendees of this workshop should be familiar with basic CLI and environment resources and commands:
-
-* [Shell variables](https://workshops.somrc.virginia.edu/lesson/command-line/#shell-variables)
-* [Environment variables](https://workshops.somrc.virginia.edu/lesson/command-line/#environment-variables)
-* [Interacting with remote systems](https://workshops.somrc.virginia.edu/lesson/command-line/#interact-with-other-systems)
+Attendees of this workshop should be familiar with basic CLI and environment resources and commands.
 
 ## Shell Scripting
 
@@ -55,8 +51,3 @@ This invokes `bash` to execute your script. Alternatively, you can modify your s
     ./myscript.sh
 
 
-
-## More Information
-
-* SOM Research Computing - https://somrc.virginia.edu/
-* UVA Research Computing FAQ/Knowledgebase - https://discuss.rc.virginia.edu/

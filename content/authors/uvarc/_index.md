@@ -12,7 +12,10 @@ superuser: true
 # Organizations/Affiliations
 organizations:
 - name: University of Virginia Research Computing
-  url: "rc.virginia.edu"
+  url: "https://www.rc.virginia.edu"
+
+interests:
+- UVARC supports all facets of research computing at the University.
 
 ---
 

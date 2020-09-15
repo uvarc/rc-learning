@@ -2,9 +2,9 @@
 title: "Matplotlib, SciPy, and Pandas"
 date: 2019-04-29T11:06:47-04:00
 draft: false
-highlight_style: "github"
 toc: true
 type: docs
+weight: 8
 menu:
     programming_python_scientists_engineers:
        parent: Programming in Python for Scientists and Engineers
@@ -275,8 +275,8 @@ There are a number of Pandas tutorials. The official Pandas site provides a guid
 
 A good introductory tutorial is at
 <http://synesthesiam.com/posts/an-introduction-to-pandas.html>
-<details>
 
+<details>
 <summary>VIEW EXERCISE SOLUTION (`Episode_8_Solution.py`)</summary>
 
 ```python
