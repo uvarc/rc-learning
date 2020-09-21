@@ -27,7 +27,7 @@ i[![Build Status](https://travis-ci.com/uvarc/rc-website.svg?branch=master)](htt
 
 ### Local Install
 
-* [Install](https://gohugo.io/overview/installing/) the HUGO binary on your local computer. This has been tested with version 0.70.x-extended. **You need the extended version.** For more information, see the Hugo GitHub repo: https://github.com/spf13/hugo.
+* [Install](https://gohugo.io/overview/installing/) the HUGO binary on your local computer. This has been tested with version 0.74.x-extended. **You need the extended version.** Binaries for different operating systems can be downloaded from the Hugo GitHub repo: https://github.com/gohugoio/hugo/releases/tag/v0.74.3.
 * Clone this website repository: `git clone git@github.com:uvarc/rc-learning.git`.  The `master` branch is protected.  New content has to be pushed to the `staging` branch. Use this command to clone the staging branch only: `git clone --single-branch -b staging git@github.com:uvarc/rc-learning.git`.
 
 - - -
