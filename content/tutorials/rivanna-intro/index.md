@@ -15,8 +15,9 @@ categories: ["Rivanna","HPC"]
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
 #slides: rivanna-intro 
-notes: rivanna-intro
-url_slides: slides/rivanna-intro-pptx/IntroductionToRivanna_2020_05_22.pptx
+#notes: rivanna-intro
+#url_slides: slides/rivanna-intro-pptx/IntroductionToRivanna_2020_05_22.pptx
+slides: rivanna-intro
 
 ---
 
