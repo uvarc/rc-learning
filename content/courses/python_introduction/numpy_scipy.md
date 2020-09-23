@@ -24,7 +24,7 @@ Essential documentation is at its home [site](https://docs.scipy.org/doc/numpy/i
 
 ### Arrays
 
-An __array__ is an ordered data structure that contains elements all of the same type. NumPy introduces a new Python data type called the __Ndarray__ (n-dimensional array).  Like all ordered structures in Python, each element is addressed by integer _indices_.  An array has one or more _dimensions_, which NumPy generally calls _axes_.  The _bounds_ are the lowest and highest indexes.  The _rank_ is the number of dimentions.  Arrays should be regarded as fixed size once they are set up. NumPy arrays are _mutable_, so elements may be changed in place.
+An __array__ is an ordered data structure that contains elements all of the same type. NumPy introduces a new Python data type called the __Ndarray__ (n-dimensional array).  Like all ordered structures in Python, each element is addressed by integer _indices_.  An array has one or more _dimensions_, which NumPy generally calls _axes_.  The _bounds_ are the lowest and highest indexes.  The _rank_ is the number of dimensions.  Arrays should be regarded as fixed size once they are set up. NumPy arrays are _mutable_, so elements may be changed in place.
 
 ```python
 import numpy 
@@ -100,7 +100,7 @@ Initialize a rank-3 array to arbitrary elements.
 
 ### Array Elements and Slices
 
- Each element can be addressed by its index or indices.  As for other ordered sequences, numbering starts from zero.  Indices are enclosed in square brackets.  The dimensions are usually enclosed in a single set of square brackets.
+Each element can be addressed by its index or indices.  As for other ordered sequences, numbering starts from zero.  Indices are enclosed in square brackets.  The dimensions are usually enclosed in a single set of square brackets.
 
 ```python
 A[i,j,k]
@@ -113,7 +113,7 @@ V[-1]   #last element
 A[0,-2] #first in column 0, next to last in column 1.
 ```
 
-Subarrays, or slices, are indicated by the colon-separated range operator we have seen several times now.   As usual for Python, the upper bound must be one greater than the intended upper bound, i.e. it is _non-inclusive_.  We can omit lower and upper bounds if they are the edges; `\[lb:\]` extends from `lb` to the last element, while `\[:ub\]` extends from the beginning to `ub-1`.  The entire axis is expressed as `\[:\]`.
+Subarrays, or slices, are indicated by the colon-separated range operator we have seen several times now.   As usual for Python, the upper bound must be one greater than the intended upper bound, i.e. it is _non-inclusive_.  We can omit lower and upper bounds if they are the edges; `[lb:]` extends from `lb` to the last element, while `[:ub]` extends from the beginning to `ub-1`.  The entire axis is expressed as `[:]`.
 
 ```python
 import numpy
@@ -301,7 +301,7 @@ s=V.sum()
 
 ## SciPy
 
-SciPy, the \_sci_entific \_py_thon library, builds on NumPy to provide a set of modules and packages that add functions for data analysis and numerical computations.  These include 
+SciPy, the *Sci*entific *Py*thon library, builds on NumPy to provide a set of modules and packages that add functions for data analysis and numerical computations.  These include 
 
 * special functions 
 * optimizations 
@@ -315,13 +315,13 @@ Its homepage at [www.scipy.org](www.scipy.org) has details and documentation.  T
 
 ### Importing SciPy Packages
 
-Importing from scipy alone brings only the base packages, which provide a fairly minimal set of tools.  Individual packages must be imported expliclty.
+Importing from scipy alone brings only the base packages, which provide a fairly minimal set of tools.  Individual packages must be imported explicitly.
 
 ```python
 from scipy import linalg, optimize
 ```
 
-For a loaded package, type `help(name)` to see a summary of available functions.
+For an imported package, type `help(name)` to see a summary of available functions.
 
 ```python
 help(linalg)
