@@ -2,8 +2,9 @@
 title: "Introduction to Rivanna"
 slides:
   theme: "white"
-  highlight_style: "github"
 ---
+
+<section data-background-image="/img/slide-bg.png">
 
 - Rivanna is the university's resource for high-performance computing on non-sensitive data. 
 
@@ -525,8 +526,4 @@ Or, contact us through the forms at:
 
 ---
 
- 
-
-
-
-
+</section>

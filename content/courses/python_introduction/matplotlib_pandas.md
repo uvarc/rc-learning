@@ -462,6 +462,12 @@ The `read_csv` function stores the column headers as the column names and the re
 wdata 
 ```
 
+The `read_excel` method is equivalent for files stored in Excel format (.xls, .xlsx, and similar).
+
+```
+my_data=pd.read_excel('weather.xlsx')
+```
+
 ### Filtering and grouping
 
 Pandas offers a number of ways to reorganize, group, and extract data.  Conditionals are accepted much as for NumPy arrays 
