@@ -526,7 +526,7 @@ Many other options exist.
 
 Pandas relies on Matplotlib for plotting.  We can combine them to work seamlessly with data.  Our example will be based on the American baseball player Mike Trout's statistics, through 2019.
 
-To follow along, download the data [file](/data/MikeTrout.csv).
+To follow along, download the data [file](/data/MikeTroutData.csv).
 
 Start by reading it into a Pandas Dataframe.
 
