@@ -13,7 +13,7 @@ The last link is to a video of using Matlab for data analytics. Next to each sec
 estimate of the of the amount of time it would take to go through the material in the corresponding link.
 
 
-## Matlab Onramp (2 hours)
+## Matlab Onramp (2 hours, for those new to Matlab)
 
 [https://matlabacademy.mathworks.com/R2020a/portal.html?course=gettingstarted](https://matlabacademy.mathworks.com/R2020a/portal.html?course=gettingstarted)
 

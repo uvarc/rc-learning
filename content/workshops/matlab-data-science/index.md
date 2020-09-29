@@ -1,19 +1,37 @@
 ---
 title: "Data Science with MATLAB"
-summary: "This hands-on tutorial introduces the fields of machine learning and deep learning in data science using Matlab. The workshop notes link to online course offerings at the MathWork's site in machine learning and deep learning."
-date: 2020-09-06T21:13:14-05:00
+summary: "This hands-on workshop provides links to the MathWorks online courses in Data Science. It focuses
+on Machine Learning, Deep Learning, and Data Analytics"
+date: 2020-09-08T21:13:14-05:00
 authors: [teh]
-categories: ["MATLAB","Machine Learning","Deep Learning","Data Science"]
+categories: ["MATLAB","Machine Learning","Deep Learning"]
 tags: [matlab,ml,dl]
 
 notes: matlab-data-science
 
-url_slides: "slides/matlab-data-science/DataScience_Matlab.pptx"
-url_videos: "videos/matlab/DeepLearning_Matlab.zip"
-
+url_video: videos/matlab-data-science
 ---
-Deep Learning is a technique that enables machines to learn using multilayered neural
-networks. 
 
-Please download the slides and the zip file containing the sample datasets and scripts in order to follow along.
+The hands-on courses in this workshop cover the use of Matlab for data science applications. They cover the areas
+of machine learning, deep learning, and data analytics.
 
+Highlights of machine learning modules include:
+
+ - Finding Natural Patterns in Data
+ - Classification Methods
+ - Improving Predictive Models
+ - Regression Methods
+ - Neural Networks
+
+Highlights of deep learning modules include:
+
+ - Classifying Images with Convolutional Networks
+ - Interpreting Network Behavior
+ - Creating Networks
+ - Training Networks
+ - Improving Performance
+ - Performing Regression
+ - Using Deep Learning for Computer Vision
+ - Classifying Sequence Data with Recurrent Networks
+
+ A video of using Matlab for data analytics is also included.
