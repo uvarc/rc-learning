@@ -8,8 +8,8 @@ tags: [matlab,ml]
 
 notes: matlab-deep-learning
 
-url_slides: "slides/matlab-deep-learning/DeepLearning_Matlab.pptx"
-url_dataset: "scripts/matlab/DeepLearning_Matlab.zip"
+url_slides: slides/matlab-deep-learning/DeepLearning_Matlab.pptx
+url_code: scripts/matlab-deep-learning/DeepLearning_Matlab.zip
 
 ---
 Deep Learning is a technique that enables machines to learn using multilayered neural
