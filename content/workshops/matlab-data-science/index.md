@@ -1,7 +1,7 @@
 ---
 title: "Data Science with MATLAB"
-summary: "This hands-on workshop provides links to the MathWorks online courses in Data Science. It focuses
-on Machine Learning, Deep Learning, and Data Analytics"
+summary: "This hands-on workshop provides links to the MathWorks online courses in Data Science.
+It focuses on Machine Learning, Deep Learning, and Data Analytics"
 date: 2020-09-08T21:13:14-05:00
 authors: [teh]
 categories: ["MATLAB","Machine Learning","Deep Learning"]
@@ -9,11 +9,11 @@ tags: [matlab,ml,dl]
 
 notes: matlab-data-science
 
-url_video: videos/matlab-data-science
+url_video: videos/matlab-data-science/workshop-intro.mp4
 ---
 
-The hands-on courses in this workshop cover the use of Matlab for data science applications. They cover the areas
-of machine learning, deep learning, and data analytics.
+The hands-on courses in this workshop cover the use of Matlab for data science applications.
+They cover the areas of machine learning, deep learning, and data analytics.
 
 Highlights of machine learning modules include:
 
