@@ -29,7 +29,7 @@ Literals are specific values, as distinct from variables.  Literals also have a 
 
 ### Python Types
 
-Variables always have a __type__ even if you don't declare it.  The __primitive types__ correspond more or less to the types handled directly by the hardware, specifically integers, floating-point numbers, and characters.  Many languages define a number of other simple types including Booleans, strings, complex numbers, and so forth.  Python defines several primitive types and has some built-in _compound types_.
+Variables always have a __type__ even if it is not explicitly declared.  The __primitive types__ correspond more or less to the types handled directly by the hardware, specifically integers, floating-point numbers, and characters.  Many languages define a number of other simple types including Booleans, strings, complex numbers, and so forth.  Python defines several primitive types and has some built-in _compound types_.
 
 #### Integers
 

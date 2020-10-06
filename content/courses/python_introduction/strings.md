@@ -42,13 +42,13 @@ If evaluated as an expression, the string will show the newline.  If the print f
 Python supplies many string operators and functions.  Among the most commonly used are
 
 * concatenation
-  * s1 + s2
+  * `s1 + s2`
 * number of characters
-  * len(string)
+  * `len(string)`
 * type conversion from numerical type to string
-  * str(f)
+  * `str(f)`
 * type conversion from string to numerical type.  This must be possible according to the interpreter's rules for the numbers.  In particular, the string `"3."` does not represent an integer.
-  * float(s)
+  * `float(s)`
 * raw string: no characters are taken to be special characters.  Sometimes particularly useful on Windows. Either `r` or `R` can be used.
   * `r'This is a string \ with no special characters \n'`
 
@@ -83,11 +83,11 @@ z=float(the_answer)
 String comparisons use the familiar symbols but _lexical_ ordering.  This can result in some surprises if the strings represent numbers.  Never forget that strings are a completely different type from the numbers they may seem to represent!  Equality also requires exact equality, including spaces, matching cases, etc. 
 
 * Equality 
-  * ==
+  * `==`
 * Lexically greater than or lexically greater than or equal
-  * \> \>=
+  * `\> \>=`
 * Lexically less than or lexically less than or equal 
-  * < <=
+  * `< <=`
 
 Example
 
@@ -148,83 +148,84 @@ One of Python's strong points is its ability to do many things well, so both num
 
 Several methods are available to determine whether a string represents letters or may be text.  They apply to the entire string.
 
-* isalpha, isdigit, isalnum
+* `isalpha`, `isdigit`, `isalnum`
   * is alphabetic, is a number, is alphanumeric (combination of numbers and other characters)
-    * mystr.isalpha()
-* isupper, islower, istitle
+    * `mystr.isalpha()`
+* `isupper`, `islower`, `istitle`
   * is uppercase, is lowercase, is "title case" (first letter of each word capitalized, all others lower case)
-    * mystr.isupper()
+    *` mystr.isupper()`
 
 #### Manipulating Case
 
 * Switch to all uppercase
-  * upper
-    * mystr.upper()
+  * `upper`
+    * `mystr.upper()`
 * Switch to all lowercase
-  * lower 
-    * mystr.lower()
+  * `lower`
+    * `mystr.lower()`
 * Convert to title case 
-  * title 
-    * mystr.title()
+  * `title`
+    * `mystr.title()`
 * Swap cases 
-  * swapcase
-    * mystr.swapcase()
+  * `swapcase`
+    * `mystr.swapcase()`
 
 #### Searching and Tests
 
 * Find a character or substring.  Returns location of _first_ occurrence only.
-  * find
+  * `find`
     * returns -1 if it does not find the substring 
-    * mystr.find(s)
-  * rfind(s)
+    * `mystr.find(s)`
+  * `rfind(s)`
     * searches right to left
-* index
+* `index`
   * throws an exception if the substring is not found 
-    * mystr.index(s)
-  * rindex(s)
+    * `mystr.index(s)`
+  * `rindex(s)`
     * searches right to left
-* count
+* `count`
   * Counts the number of occurrences of substring s.  Case sensitive.
-    * mystr.count(s)
-* endswith
+    * `mystr.count(s)`
+* `endswith`
   * Determines whether a string ends with a particular substring
-    * mystr.endswith(s)
-* startswith
+    * `mystr.endswith(s)`
+* `startswith`
   * Determines whether a string starts with a particular substring
-    * mystr.startswith(s)
+    * `mystr.startswith(s)`
 
 #### Modifying and Filling
 
-* Remove characters from beginning and end (empty parentheses remove spaces and tabs). The angle brackets indicate an option and are not typed out.
-  * mystr.strip(<chars>)
-    * mystr.rstrip(<chars>), string.lstrip(<chars>)
+* Remove characters from beginning and end (empty parentheses remove spaces and tabs). The angle brackets indicate an option that can be omitted and are not typed out.
+  * `mystr.strip(<chars>)`
+    * `mystr.rstrip(<chars>)`, `string.lstrip(<chars>)`
+    * The default is _whitespace_ (spaces and tabs)
 * Replace substring a with b
-  * mystr.replace(a,b)
+  * `mystr.replace(a,b)`
 * Expand tabs 
   * The default is 8 spaces per tab.  If a different number is required, pass it in the parentheses.
-  * mystr.expandtabs()  #8 spaces 
-  * mystr.expandtabs(4) #4 spaces 
+  * `mystr.expandtabs()`  #8 spaces 
+  * `mystr.expandtabs(4)` #4 spaces 
 * Justify in a field of width n spaces 
-  * mystr.rjust(n), mystr.ljust(n)
+  * `mystr.rjust(n)`, `mystr.ljust(n)`
 * Center in a field of n spaces 
-  * mystr.center(n)
+  * `mystr.center(n)`
 * Fill spaces with zeros in field of width n (mainly used for numbers)
-  * mystr.zfill(n)
+  * `mystr.zfill(n)`
 
 #### Splitting and Joining
 
 * Split on string `s`.  Most usually splits on a character.  Splits on whitespace (spaces and tabs) when the delimiter isn't specified.  Returns a list with the delimiter removed, and each separated string an element of the list.
-  * split(\<s>)
-    * mystr.split()
-    * mystr.split(\',\')
+  * `split(<s>)`
+    * `mystr.split()`
+    * `mystr.split(',')`
 * Split on newlines.  Returns a list of the lines, with newline characters stripped.
-  * mystr.splitlines()
+  * `mystr.splitlines()`
 * Join a list of strings with a string (usually a single character).  This is the inverse of split.  The syntax is peculiar, for Python.
-  * \<s>.join(list)
-    * \"\".join(strlist)
-      * joins a list with no spaces or other characters between
-    * \",\".join(strlist)
-      * joins a list with commas between
+  * `<s>.join(list)`
+    * joins a list with no spaces or other characters between
+       * `"".join(strlist)`
+    * joins a list with commas between
+       * `",".join(strlist)`
 
 #### String Module
 
@@ -246,3 +247,22 @@ string.whitespace    #space, tab, linefeed, return, formfeed, and vertical tab.
 ### Resources
 
 The official documentation for the string type is [here](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str).  A more complete discussion of built-ins for strings is [here](https://docs.python.org/3/library/stdtypes.html#string-methods), including optional arguments for some of the methods described above.  
+
+### Projects
+
+#### Project 1
+In the early 2000’s an “urban legend” circulated that one could read text in which all letters except the first and last were scrambled.  For example:
+
+> Aoccdrnig to rscheearch at an Elingsh uinervtisy, it deosn’t mttaer in waht oredr the ltteers in a wrod are, the olny iprmoetnt tihngis taht the frist and lsat ltteer is at the rghit pclae.
+
+Write a program to scramble a passage input from a file.  Print the result to a file with the same name as the original but a suffix \_scrambled added 
+(so if the original was Example.txt it will be Example_scrambled.txt).
+Look at the scrambled file first—can you read it?
+- First write a scramble_word function, then a scramble_line function, and finally a function that writes the lines to the new file.  
+- Your main() routine will request from the user the name of the input file, then call the printing function, which will call the scramble_line function that will in turn call the scramble_word function.  
+This is an example of how we divide up work into separate “chunks” or 
+“concerns.” Internal punctuation (apostrophes) can be scrambled, but leave any 
+punctuation such as periods, question marks, etc., at the end of a word in 
+place.
+- Hint: since you cannot overwrite strings you will need to convert them to a list and back again. Use [Example.txt](/data/Example.txt) as your sample input.
+- FYI this is an “urban legend” because: firstly, no such research was ever conducted at any university, and secondly it is true only for very practiced readers of English and even then only for familiar words that are easy to recognize in context.

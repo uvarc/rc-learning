@@ -412,3 +412,31 @@ First run rooter.py as a standalone script, then run testmain.py.  What's the di
 
 </details>
 
+### Projects
+
+#### Project 1
+Write a program that obtains the sum of the numbers from 1 to some specified positive (>0) integer N. Request the value of N as console input from the user. 
+Write a function to implement the sum.  Be sure it checks for input that is an
+integer greater than 0.  Do not use the Gauss formula, do this via “brute force.”
+Print the number, its sum as obtained from your work, and the correct answer from the Gauss formula sum(N)=N(N+1)/2.  Test your program with N=1, N=25, N=1000.
+
+#### Project 2
+Modify your program from Project 1 to print a table of the sums of the first M numbers, where now M is read from the user's input.  Check that M is greater than or equal to 1.
+Print a header that indicates the columns are Integer and Sum. Try to line up your output as best you can using f-strings.
+
+#### Project 3
+Write a program that reads the file [bodyfat.csv](/data/bodyfat.csv).  
+
+-  Extract the body fat percentage, weight, and height data from each row (the first, third, and fourth columns).  We do not need the age data for the current project.
+
+- Create a file that contains the function you wrote to compute BMI in Exercise 18.  Write a function that takes a BMI value and returns the category (Underweight, Normal, Overweight, Obese I-III) as an integer.  Add another function that takes a list argument and returns the mean of the list elements. Add another function to compute the standard deviation.  Call this file bmistats.py
+
+- In your bmistats.py file, add a `main` function that runs a test by computing the BMI for a set of heights and weights and returning the category corresponding to that BMI.  Compute the correct results and add code to compare them with your code's results.
+
+- Add the if __name__=="__main__" code so that `main` will be executed only if the file is the main module.  Run your tests.
+
+- Return to your program that reads the file. Import your bmistats module.  Compute the BMI for each entry in the file and store it in a new list.  Plot BMI versus bodyfat percentage.
+
+#### Project 4
+The bodyfat.csv file contains an outlier, probably due to a typo. Add a function to your bmistats file to find outliers.  To simplify coding, you may use a crude criterion that an outlier is 3 or more times the standard deviation away from the mean.  Find the outlier in your list and remove it (don't forget to remove the corresponding bodyfat element).  Plot the corrected data.
+

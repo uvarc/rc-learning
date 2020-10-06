@@ -205,4 +205,22 @@ states|states2
 
 ### Resources
 
-Documentation is [here](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
+Documentation is [here](https://docs.python.org/3/tutorial/datastructures.html#dictionaries).
+
+### Projects
+
+#### Project 1
+Download the file [us-state-capitals.csv](/data/us-state-capitals.csv).  Write a program that will read this file and create a dictionary with the state name as the key and the capital name as the value.  Using your dictionary, print the capitals of Arkansas, Virginia, and Wyoming.
+
+Again using your dictionary, generate a list of all state capitals that begin with the letter 'A'.  Use the list to create a string consisting of these city names separated by a semicolon ;   Open a new file capitals-with-a.txt and write this string to it.
+
+#### Project 2
+Write a program to analyze a DNA sequence file.  The program should contain a function `countBases` which takes a sequence consisting of letters ATCG, with each letter the symbol for a base, and returns a dictionary where the key is the letter and the value is the number of times it appears in the sequence.  
+The program should contain another function `printBaseComposition` which takes the dictionary and prints a table of the proportions of each base, e.g.
+-  A : 0.25
+-  T : 0.25
+-  C : 0.25
+-  G : 0.25
+Use the file [HIV.txt](/data/HIV.txt) to test your program.  You can look at the file in a text editor.  It consists of a label followed by a space followed by a sequence, for each sequence in the file.  
+Hints: read each sequence as a line.  Split the line on whitespace (rstrip first) and throw out the 0th element.  
+Copy the next element of the list into a string, and use substrings to extract each letter.  Build your dictionary as you step through the string.  Repeat for the next line until you have read all the lines.

@@ -30,18 +30,18 @@ An _iterator_ is a data type that can be traversed in order.  Sequences either a
 #### Sequence Operators
 
 * Belonging
-  * in operator.  `x in S` returns True or False if x is or is not an element of the sequence S
+  * `in` operator.  `x in S` returns True or False if x is or is not an element of the sequence S
 * Identity
-  * is operator.  `S1 is S`2 returns True or False if S1 and S2 are exactly the same or different.
-  * is can be negated `S1 is not S2`
+  * `is` operator.  `S1 is S`2 returns True or False if S1 and S2 are exactly the same or different.
+  * `is` can be negated `S1 is not S2`
 * Range extraction
-  * S\[il:ul+1] starts at il and goes to ul.  The colon is here called a range operator.
+  * `S[il:ul+1]` starts at `il` and goes to `ul`.  The colon is here called a range operator.
 * Starting from the end 
-  * S\[-N] is the N-1 element.  Thus S\[-1] is the last element, S\[-2] the next to last, and so forth. 
+  * `S[-N]` is the `N-1` element.  Thus `S[-1]` is the last element, `S[-2]` the next to last, and so forth. 
 * Concatenation
-  * S1+E1
+  * `S1+E1`
 * Repetition
-  * S1\*N replicates the sequence S1 N times.  
+  * `S1*N` replicates the sequence `S1` `N` times.  
 
 <details>
 <summary>Exercise 4</summary>
@@ -89,9 +89,9 @@ Lists are one of the most important data types in Python.  They are flexible and
 Lists are dynamically sized and they are __mutable__.  Unlike most variables in Python, they must be declared in some manner before they can be used.
 
 * Empty List
-  * L=\[]
+  * `L=[]`
 * Return a new list from a built-in function
-  * L=list(range(12))
+  * `L=list(range(12))`
     This returns a list of integers 0,1,..11
 
 As for all ordered types in Python, the indices start at 0.  The upper bound in any range is the limit we _do not_ reach.
@@ -143,58 +143,58 @@ This extracts elements 1, 3, and 5.
 #### Changing Lists
 
 * Initialize
-  * L=[]
+  * `L=[]`
 * Initialize a list of known size (the value can be a variable but must have a value when this statement is executed)
-  * L1=[0]\*N
+  * `L1=[0]*N`
 * Append an element to a list
-  * L1.append("Graham")
+  * `L1.append("Graham")`
 * Extend a list with another list
-  * L1.extend(["Michael","Terry"])
+  * `L1.extend(["Michael","Terry"])`
 
 Appending adds the argument as the new last element exactly as it appears. It takes any type.  Extending requires a list as its argument.  It concatenates that list at the end of the original one.  It is is equivalent to
 
-  * L=[1,2,3]+[4,5,6]
+  * `L=[1,2,3]+[4,5,6]`
 * insert an element
-  * L.insert(i,item)
+  * `L.insert(i,item)`
   * This inserts `item` before element `i`. To add an item at the beginning of the list, use
-    * L.insert(0,item)
+    * `L.insert(0,item)`
 
 Shortening lists:
 
 * Delete an element by its indext
-  * del L[i]
+  * `del L[i]`
 * Delete the first occurrence of a particular element
-  * L.remove(item)
+  * `L.remove(item)`
   * The `item` must match exactly or an error occurs.
 * Remove and return an element
-  * item=L.pop(\<i>)
+  * `item=L.pop(<i>)`
   * The angle brackets indicate an optional argument.  If it is absent the _last_ element is returned.  If it is present that value is returned.
-    * lastVal=L.pop()
-    * A_val=L.pop(2)
-  * Keep in mind that pop shortens the list.
+    * `lastVal=L.pop()`
+    * `A_val=L.pop(2)`
+  * Keep in mind that `pop` shortens the list.
 
 Much more can be done with lists.
 
 * Length
-  * lenL=len(L)
+  * `lenL=len(L)`
 * Maximum or minimum value of the items (if they are the same type)
-  * max(L) min(L)
+  * `max(L) min(L)`
 * Membership test (returns Boolean)
-  * item in list
+  * `item in list`
 * Index of first time item occurs
-  * myIndex=L.index(item)
+  * `myIndex=L.index(item)`
 * Number of times item occurs
-  * numItem=L.count(item)
+  * `numItem=L.count(item)`
 * Sort a list (when possible) in place (overwrites the original)
-  * L.sort()
+  * `L.sort()`
 * Return a sorted list to a new list
-  * Lsorted=sorted(L)
+  * `Lsorted=sorted(L)`
 * Reverse the list in place (overwrites)
-  * L.reverse()
+  * `L.reverse()`
 * There is no direct function to reverse and return another list, so we use this handy trick
-  * Lreversed=L\[::-1]
-* In Python 3, `reversed(L)` returns an iterator and not a list, but you may use 
-  * Lreversed=list(reversed(L))
+  * `Lreversed=L[::-1]`
+* In Python 3, `reversed(L)` returns an iterator and not a list, but you may use
+  * `Lreversed=list(reversed(L))`
 
 <details>
 <summary>Exercise 5</summary>
@@ -243,16 +243,16 @@ D=list(A)
 
 A tuple is a Python ordered sequence object that is similar to a list but is __immutable__.  Tuples are indicated by parentheses (round brackets). Like all ordered sequences, we can refer to individual elements with [n] and slices with [lb:ub].  As for all other ordered sequences, numbering of elements starts at 0 and the upper bound of a range is excluded.
 
-Creation
-  T=tuple((1,2,3))
-Length
-  len(T)
-Concatenation (as for strings, must assign to a new variable)
-  T3=T+T2
-Membership
-  3 in T
-Iteration
-  for i in T: print(i)
+* Creation
+  * `T=tuple((1,2,3))`
+* Length
+  * `len(T)`
+* Concatenation (as for strings, must assign to a new variable)
+  * `T3=T+T2`
+* Membership
+  * `3 in T`
+* Iteration
+  * `for i in T: print(i)`
 
 Although the tuple is immutable, any mutable _elements_ can be changed.
 
@@ -294,3 +294,4 @@ Tuples are often used for heterogenous data, i.e. elements of different types.  
 ### Resources
 
 Lists, tuples, and the range iterator are described [here](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range).
+
