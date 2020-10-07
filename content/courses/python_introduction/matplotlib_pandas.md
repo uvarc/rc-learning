@@ -713,7 +713,7 @@ Download [cville_2017_april.xlsx](/data/cville_2017_april.xlsx), which contains 
 - Plot the number of each weather 'condition'. Plot sunny days, partly cloudy days, and rain days. There are several ways to do this.
 
 #### Project 3
-Create new pandas, with a size of at least 5x3 (5 rows and 3 columns). Populate the dataframe with data of your choice.
+Create a new pandas dataframe, with a size of at least 5x3 (5 rows and 3 columns). Populate the dataframe with data of your choice.
 - Begin by importing pandas
 - Create a new column. If your data allows, the column could be a ratio based on existing columns (ex: pay_per_hour = df['price'] / df['time']). Or it could be something unrelated
 - Rename your columns with a variable name. This is not required but often makes your code more readable. 
