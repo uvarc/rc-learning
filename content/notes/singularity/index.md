@@ -2,6 +2,7 @@
 title: "Singularity Containers for HPC Environments"
 type: article 
 toc: true
+date: 2020-01-22T00:00:00-05:00
 
 ---
 
