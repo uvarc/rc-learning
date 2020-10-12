@@ -81,7 +81,7 @@ This command will install the latest biopython package version in your current A
 module load anaconda
 pip install --user biopython
 ```
-**Note:** You have to use the `--user` flag which instructs the interpreter to install the package in your home directory. Alternativley, create your own custom [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) first an run the `pip install biopython` command in that environment (without `--user` flag) 
+**Note:** You have to use the `--user` flag which instructs the interpreter to install the package in your home directory. Alternativley, create your own custom [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) first and run the `pip install biopython` command in that environment (without `--user` flag) 
 
 ## Testing the Biopython Installation
 
@@ -98,7 +98,7 @@ If the package is installed correctly, the output will show the biopython versio
 
 # Bio Subpackages and Classes
 
-The `Bio` package provides a large number of subpackages providing specific functionality. The Biopyhton website provides a [full list of all subpackages](https://biopython.org/docs/1.78/api/Bio.html#subpackages). 
+The `Bio` package provides a large number of subpackages providing specific functionality. The Biopython website provides a [full list of all subpackages](https://biopython.org/docs/1.78/api/Bio.html#subpackages). 
 
 The following table shows an excerpt of that list relevant for this workshop.
 
@@ -131,6 +131,8 @@ The `Bio` module provides several classes to process output and datasets provide
 
 In this workshop we will explore options to download nucleotide and protein sequences from  [Entrez](https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html) and [ExPASy](https://www.expasy.org).
 
+<br>
+
 ## Accessing NCBI's Entrez Databases
 
 The `Bio.Entrez` submodule provides access to the Entrez databases. When you use this module you need to know the String descriptor of the database you want to query (aka its name).  A list of valid database names is provided in  [column three of this table](https://www.ncbi.nlm.nih.gov/books/NBK25497/table/chapter2.T._entrez_unique_identifiers_ui/?report=objectonly).
@@ -139,7 +141,7 @@ The `Bio.Entrez` submodule provides access to the Entrez databases. When you use
 
 **Basic Steps:**
 
-1. Provide an email address. This is requird! `Entrez.email = "your@somewhere"`.
+1. Provide an email address. This is required! `Entrez.email = "your@somewhere"`.
 2. Use an [E-utility](https://www.ncbi.nlm.nih.gov/books/NBK25497/) to get a __handle__ for the data of interest, e.g. `handle = Entrez.esearch(...)`.
 3. Use __handle__ to read or parse data with `handle.read()` or `handle.parse()`.
 4. Close the __handle__ with `handle.close()`.
@@ -177,7 +179,7 @@ With the ID list in hand, we can now download the sequence records using just a 
 ```python
 # fetch records using id list
 handle = Entrez.efetch(db="protein", rettype="fasta", retmode="text", id=record["IdList"])
-result = handle.read()  # return tryp is simple string
+result = handle.read()  # return type is simple string
 handle.close()
 # remove empty lines
 fastaseq = result.replace("\n\n","\n")
@@ -226,6 +228,8 @@ Find and download the nucelotide sequences for the mouse P53 tumor suppressor. *
 <summary>Solution:</summary>
 </details>
 
+<br>
+
 ## Retrieve Protein Records from the ExPASy Database
 
 **Swiss-Prot**
@@ -268,9 +272,8 @@ handles  = [ExPASy.get_sprot_raw(a) for a in accession_nos]
 records = [SwissProt.read(handle) for h in handles]
 ```
 </details>
-<br>
 
-http://biopython.org/DIST/docs/tutorial/Tutorial.html#sec%3Aexpasy_swissprot
+Learn more about [SwissProt](http://biopython.org/DIST/docs/tutorial/Tutorial.html#sec%3Aexpasy_swissprot).
 
 
 **ScanProsite**
@@ -293,7 +296,8 @@ for (r in result):
     print (r)
 ```
 
-Output:
+**Output:**
+
 ```
 Number of matches: 6
 {'signature_ac': u'PS50948', 'level': u'0', 'stop': 98, 'sequence_ac': u'USERSEQ1', 'start': 16, 'score': u'8.873'}
@@ -310,14 +314,13 @@ You see that each `result` item `r` represents a dictionary describing a specifi
 
 # Working with Sequence Files
 
-**Bioinformatics File Formats**
 
 ## Sequence Objects
 
 The `Seq` object is similar to a string object augmented with methods for nucleotide sequence operations including 
 * `find()`, `count()`
 * `complement()`, `reverse_complement()`
-* `transcribe()`, `back_transcribe()``
+* `transcribe()`, `back_transcribe()`
 * `translate()`
 
 ```python
@@ -392,11 +395,13 @@ Note that the sequence is zero-indexed: the first nucleotide has index 0, the se
 
 **Exercise:**
 
-Create a `Seq` object with a DNA nucleotide sequence of your choice. Find the first putative start codon (ATG), replace all "C"s with a "G", and transcribe and translate the original as well as the modified sequence.
+Create a `Seq` object with a DNA nucleotide sequence of your choice. Find the first putative start codon (ATG), replace each "C" with a "G", and transcribe and translate the original as well as the modified sequence.
 
 <details>
 <summary>Solution:</summary>
 </details> 
+
+<br>
 
 ## Handling Sequence Records
 
@@ -433,6 +438,8 @@ Description: toxic membrane protein, small
 Number of features: 0
 Seq('MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF')
 ```
+
+<br>
 
 ## Sequence File Operations
 
@@ -488,10 +495,11 @@ The later versions of Biopython also include a `Bio.SeqIO.convert()` function.
 # convert GenBank to Fasta
 count = Bio.SeqIO.convert("my_file.gb", "genbank", "my_file.fasta", "fasta")
 ```
+<br>
 
 ## AlignIO: Reading Sequence Alignment Files
 
-The [Bio.AlignIO](https://biopython.org/wiki/AlignIO) class provides functions to handle paired or multiple sequence alignment files. It does not perform the alignemnt but provides tools to read/write alignment files and manipulate alignment objects. `Bio.AlignIO` uses the same set of functions for input and output as in `Bio.SeqIO`, and the same names for the file formats supported.
+The [Bio.AlignIO](https://biopython.org/wiki/AlignIO) class provides functions to handle paired or multiple sequence alignment files. It does not perform the alignment but provides tools to read/write alignment files and manipulate alignment objects. `Bio.AlignIO` uses the same set of functions for input and output as in `Bio.SeqIO`, and the same names are supported for the file formats.
 
 The key functions are:
 * `Bio.AlignIO.read()`: For a file that contains one and only one alignment. The return type is a `Bio.Align.MultipleSeqAlignment` object.
@@ -520,8 +528,8 @@ This will create the `Pax6-multispec-protein.fasta` Fasta file with 8 sequences.
 **Alternatively, create the alignment yourself:**
 1. Visit the [Clustal Omega website](https://www.ebi.ac.uk/Tools/msa/clustalo/) and upload the `Pax6-multispec-protein.fasta` file as input. 
 2. Under **Step 1**, click the **Choose File** button and upload the `Pax6-multispec-protein.fasta` file as input.
-3. Under Step 3, click **Submit**.
-4. When the alignment is done, click the **Alignments**, select the entire alignment output in the window and paste it into a text editor. **Do not Microsoft Word for this, but programs like `Text Edit`, `Notepad++`, `Emacs` or `vim`.**
+3. Under **Step 3**, click **Submit**.
+4. When the alignment is done, click the **Alignments** tab, select the entire alignment output in the window and paste it into a text editor. **Do not use Microsoft Word for this but programs like `Text Edit`, `Notepad++`, `Emacs` or `vim` instead.**
 5. Save the alignment in the text editor as `Pax6-multispec-protein.aln` in your Python script folder that you use for this workshop.
 
 **Parse the alignment file**
@@ -560,14 +568,14 @@ print (alignment)
 **Output:**
 ```bash
 Alignment with 8 rows and 867 columns
-MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQL...PWV H. sapiens: NP_524628.2
----MMLTTEHIMHGHPH-----SSVGQSTLFGCSTAGHSGINQL...--- M. musculus: NP_524638.3
----------------------------------MQNSHSGVNQL...--- X. tropicalis: NP_001006763.1
---------------------------------------------...--- T. rubripes: NP_001355831.1
----------------------------------MQNSHSGVNQL...--- D. rerio: AAH36957.1
---------------------------------MMQNSHSGVNQL...--- D. rerio: XP_029701655.1
-----MPQKEY-Y----N-----RATWESGVASMMQNSHSGVNQL...--- D. melanogaster: NP_571379.1
-----MPQKEY-H----N-----QPTWESGVASMMQNSHSGVNQL...--- D. melanogaster: NP_571716.1
+MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQL...PWV H.sapiens:NP_524628.2
+---MMLTTEHIMHGHPH-----SSVGQSTLFGCSTAGHSGINQL...--- M.musculus:NP_524638.3
+---------------------------------MQNSHSGVNQL...--- X.tropicalis:NP_001006763.1
+--------------------------------------------...--- T.rubripes:NP_001355831.1
+---------------------------------MQNSHSGVNQL...--- D.rerio:AAH36957.1
+--------------------------------MMQNSHSGVNQL...--- D.rerio:XP_029701655.1
+----MPQKEY-Y----N-----RATWESGVASMMQNSHSGVNQL...--- D.melanogaster:NP_571379.1
+----MPQKEY-H----N-----QPTWESGVASMMQNSHSGVNQL...--- D.melanogaster:NP_571716.1
 ```
 
 **Slicing and joining**
@@ -581,12 +589,12 @@ print (subset)
 **Output:**
 ```bash
 Alignment with 6 rows and 50 columns
-MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQLGGVFVG H. sapiens: NP_524628.2
----MMLTTEHIMHGHPH-----SSVGQSTLFGCSTAGHSGINQLGGVYVN M. musculus: NP_524638.3
----------------------------------MQNSHSGVNQLGGVFVN X. tropicalis: NP_001006763.1
--------------------------------------------------- T. rubripes: NP_001355831.1
----------------------------------MQNSHSGVNQLGGVFVN D. rerio: AAH36957.1
---------------------------------MMQNSHSGVNQLGGVFVN D. rerio: XP_029701655.1
+MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQLGGVFVG H.sapiens:NP_524628.2
+---MMLTTEHIMHGHPH-----SSVGQSTLFGCSTAGHSGINQLGGVYVN M.musculus:NP_524638.3
+---------------------------------MQNSHSGVNQLGGVFVN X.tropicalis:NP_001006763.1
+-------------------------------------------------- T.rubripes:NP_001355831.1
+---------------------------------MQNSHSGVNQLGGVFVN D.rerio:AAH36957.1
+--------------------------------MMQNSHSGVNQLGGVFVN D.rerio:XP_029701655.1
 ```
 
 Let's join two alignment blocks:
@@ -598,14 +606,14 @@ print (edited)
 **Output:**
 ```bash
 Alignment with 8 rows and 417 columns
-MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQL...PWV H. sapiens: NP_524628.2
----MMLTTEHIMHGHPH-----SSVGQSTLFGCSTAGHSGINQL...--- M. musculus: NP_524638.3
----------------------------------MQNSHSGVNQL...--- X. tropicalis: NP_001006763.1
---------------------------------------------...--- T. rubripes: NP_001355831.1
----------------------------------MQNSHSGVNQL...--- D. rerio: AAH36957.1
---------------------------------MMQNSHSGVNQL...--- D. rerio: XP_029701655.1
-----MPQKEY-Y----N-----RATWESGVASMMQNSHSGVNQL...--- D. melanogaster: NP_571379.1
-----MPQKEY-H----N-----QPTWESGVASMMQNSHSGVNQL...--- D. melanogaster: NP_571716.1
+MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQL...PWV H.sapiens:NP_524628.2
+---MMLTTEHIMHGHPH-----SSVGQSTLFGCSTAGHSGINQL...--- M.musculus:NP_524638.3
+---------------------------------MQNSHSGVNQL...--- X.tropicalis:NP_001006763.1
+--------------------------------------------...--- T.rubripes:NP_001355831.1
+---------------------------------MQNSHSGVNQL...--- D.rerio:AAH36957.1
+--------------------------------MMQNSHSGVNQL...--- D.rerio:XP_029701655.1
+----MPQKEY-Y----N-----RATWESGVASMMQNSHSGVNQL...--- D.melanogaster:NP_571379.1
+----MPQKEY-H----N-----QPTWESGVASMMQNSHSGVNQL...--- D.melanogaster:NP_571716.1
 ```
 
 **Exporting to other alignment file formats**
