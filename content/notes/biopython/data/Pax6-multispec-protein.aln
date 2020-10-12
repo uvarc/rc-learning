@@ -1,0 +1,152 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+NP_524628.2         MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQLGGVFVGGRPLPDSTRQ	60
+NP_524638.3         ---MMLTTEHIMHGHPH-----SSVGQSTLFGCSTAGHSGINQLGGVYVNGRPLPDSTRQ	52
+NP_001006763.1      ---------------------------------MQNSHSGVNQLGGVFVNGRPLPDSTRQ	27
+NP_001355831.1      ------------------------------------------------------------	0
+AAH36957.1          ---------------------------------MQNSHSGVNQLGGVFVNGRPLPDSTRQ	27
+XP_029701655.1      --------------------------------MMQNSHSGVNQLGGVFVNGRPLPDSTRQ	28
+NP_571379.1         ----MPQKEY-Y----N-----RATWESGVASMMQNSHSGVNQLGGVFVNGRPLPDSTRQ	46
+NP_571716.1         ----MPQKEY-H----N-----QPTWESGVASMMQNSHSGVNQLGGVFVNGRPLPDSTRQ	46
+                                                                                
+
+NP_524628.2         KIVELAHSGARPCDISRILQ--------------VSNGCVSKILGRYYETGSIRPRAIGG	106
+NP_524638.3         KIVELAHSGARPCDISRILQ--------------VSNGCVSKILGRYYETGSIKPRAIGG	98
+NP_001006763.1      KIVELAHSGARPCDISRILQ--------------VSNGCVSKILGRYYETGSIRPRAIGG	73
+NP_001355831.1      ------------------------------------------------------------	0
+AAH36957.1          KIVELAHSGARPCDISRILQ--------------VSNGCVSKILGRYYETGSIRPRAIGG	73
+XP_029701655.1      KIVELAHSGARPCDISRILQTHD--AVQVLDSEKVSNGCVSKILGRYYETGSIRPRAIGG	86
+NP_571379.1         KIVELAHSGARPCDISRILQTHADAKVQVLDNENVSNGCVSKILGRYYETGSIRPRAIGG	106
+NP_571716.1         KIVELAHSGARPCDISRILQ--------------VSNGCVSKILGRYYETGSIRPRAIGG	92
+                                                                                
+
+NP_524628.2         SKPRVATAEVVSKISQYKRECPSIFAWEIRDRLLQENVCTNDNIPSVSSINRVLRNLAAQ	166
+NP_524638.3         SKPRVATTPVVQKIADYKRECPSIFAWEIRDRLLSEQVCNSDNIPSVSSINRVLRNLASQ	158
+NP_001006763.1      SKPRVATPEVVSKIAQYKRECPSIFAWEIRDRLLSEGVCTNDNIPSVSSINRVLRNLASE	133
+NP_001355831.1      ------------------------------------------------------------	0
+AAH36957.1          SKPRVATPEVVSKIAQYKRECPSIFAWEIRDRLLSEGVCTNDNIPSVSSINRVLRNLASE	133
+XP_029701655.1      SKPRVATPEVVAKIAQYKRECPSIFAWEIRDRLLSEGICTNDNIPSVSSINRVLRNLASE	146
+NP_571379.1         SKPRVATPEVVGKIAQYKRECPSIFAWEIRDRLLSEGVCTNDNIPSVSSINRVLRNLASE	166
+NP_571716.1         SKPRVATPEVVGKIAQYKRECPSIFAWEIRDRLLSEGVCTNDNIPSVSSINRVLRNLASE	152
+                                                                                
+
+NP_524628.2         KEQQSTGSGSSSTSAGNSISAKVSVSIGGNVSNVASGSRGTLSSSTDLMQTATPLNSSES	226
+NP_524638.3         KEQQAQQ-----------------------------------------------------	165
+NP_001006763.1      KQQM--------------------------------------------------------	137
+NP_001355831.1      ---M--------------------------------------------------------	1
+AAH36957.1          KQQM--------------------------------------------------------	137
+XP_029701655.1      KQQM--------------------------------------------------------	150
+NP_571379.1         KQQM--------------------------------------------------------	170
+NP_571716.1         KQQM--------------------------------------------------------	156
+                                                                                
+
+NP_524628.2         GGASNSGEGSEQEAIYEKLRLLNTQHAAGPGPLEPARAAPLVGQSPNHLGTRSSHPQLVH	286
+NP_524638.3         ----------QNESVYEKLRMFNGQTG---------------------------------	182
+NP_001006763.1      ----------GADGMYDKLRMLNGQTG---------------------------------	154
+NP_001355831.1      ----------GADGMYDKLRMLNGQTG---------------------------------	18
+AAH36957.1          ----------GADGMYDKLRMLNGQTG---------------------------------	154
+XP_029701655.1      ----------GADGMYDKLRMLNGQTG---------------------------------	167
+NP_571379.1         ----------GADGMYEKLRMLNGQTG---------------------------------	187
+NP_571716.1         ----------GADGMYDKLRMLNGQSG---------------------------------	173
+                                :.:*:***::* * .                                 
+
+NP_524628.2         GNHQALQQHQQQSWPPRHYSGSWYPTSLSEIPISSAPNIASVTAYASGPSLAHSLSPPND	346
+NP_524638.3         ------------GWA-------WYPSNTTTAHLTLPPAASVVT-------------SPAN	210
+NP_001006763.1      ------------TWGT---RPGWYPGTSVPG-----------------------------	170
+NP_001355831.1      ------------SWGT---RPGWYPGTSVPG-----------------------------	34
+AAH36957.1          ------------SWGT---RPGWYPGTSVPG-----------------------------	170
+XP_029701655.1      ------------TWGT---RPGWYPGTSVPG-----------------------------	183
+NP_571379.1         ------------TWGT---RPGWYPGTSVPG-----------------------------	203
+NP_571716.1         ------------TWGT---RPGWYPGTSVPG-----------------------------	189
+                                 *        *** .                                 
+
+NP_524628.2         IESLASIGHQRNCPVATEDIHLKKELDGHQSDETGSGEGENSNGGASNIGNTEDDQARLI	406
+NP_524638.3         LS---GQADRDDVQK--RELQFSVEVS-----HTNSHDSTSDGNSEHNSSGDEDSQMRLR	260
+NP_001006763.1      ------QPAQDGCQP--QEGGG---------------GGENTNSISSNGEDSDEAQMRLQ	207
+NP_001355831.1      ------QPTQDGCQQ--QEGG-----------------GENTNSISSNGEDSDEAQMRLQ	69
+AAH36957.1          ------QPTQDGCQQ--QEGG-----------------GENTNSISSNGEDSDEAQMRLQ	205
+XP_029701655.1      ------QPNQDGCQQ--QDG-----------------AGENTNSISSNGEDSEETQLRLQ	218
+NP_571379.1         ------QPNQDGCQQ--SDG-----------------GGENTNSISSNGEDSDETQMRLQ	238
+NP_571716.1         ------QPNQDGCQQ--QDN-----------------GGENTNSISSNGEDSDETQMRLQ	224
+                             : .      :                   . . ..   *  . :: * ** 
+
+NP_524628.2         LKRKLQRNRTSFTNDQIDSLEKEFERTHYPDVFARERLAGKIGLPEARIQVWFSNRRAKW	466
+NP_524638.3         LKRKLQRNRTSFSNEQIDSLEKEFERTHYPDVFARERLADKIGLPEARIQVWFSNRRAKW	320
+NP_001006763.1      LKRKLQRNRTSFTQEQIEALEKEFERTHYPDVFARERLAAKIDLPEARIQVWFSNRRAKW	267
+NP_001355831.1      LKRKLQRNRTSFTQEQIEALEKEFERTHYPDVFARERLAAKIDLPEARIQVWFSNRRAKW	129
+AAH36957.1          LKRKLQRNRTSFTQEQIEALEKEFERTHYPDVFARERLAAKIDLPEARIQVWFSNRRAKW	265
+XP_029701655.1      LKRKLQRNRTSFTQEQIENLEKEFERTHYPDVFARERLAAKIDLPEARIQVWFSNRRAKW	278
+NP_571379.1         LKRKLQRNRTSFTQEQIEALEKEFERTHYPDVFARERLAAKIDLPEARIQVWFSNRRAKW	298
+NP_571716.1         LKRKLQRNRTSFTQEQIEALEKEFERTHYPDVFARERLAAKIDLPEARIQVWFSNRRAKW	284
+                    ************:::**: ******************** **.*****************
+
+NP_524628.2         RREEKLRNQRRTPNSTGASATSSSTSATASLTDSPNSLSACSSLLSGSAGGPSVSTINGL	526
+NP_524638.3         RREEKMRTQRRSADTVDGSGRTSTAN-------NPSGTTASSSVATSNNST---------	364
+NP_001006763.1      RREEKLRNQRRQASNTPSHIP------------------ISSSFSTSVY-----------	298
+NP_001355831.1      RREEKLRNQRRQASNTPSHIP------------------ISSSFSTSVY-----------	160
+AAH36957.1          RREEKLRNQRRQASNTPSHIP------------------ISSSFSTSVY-----------	296
+XP_029701655.1      RREEKLRNQRRQA-NSSSHIP------------------ISSSFSTSVY-----------	308
+NP_571379.1         RREEKLRNQRRQASNSSSHIP------------------ISSSFSTSVY-----------	329
+NP_571716.1         RREEKLRNQRRQASNSSSHIP------------------ISSSFNTSVY-----------	315
+                    *****:*.***   .  .                      .**. :.             
+
+NP_524628.2         SSPSTLSTNVNAPTLGAGIDSSESPTPIPHIRPSCTSDNDNGRQSEDCRRVCSPCPLGVG	586
+NP_524638.3         --PGIVNSAINVAER---------T--SSALVSNSLPEASN-----------GPTVLGGE	400
+NP_001006763.1      -------QPIPQPTT---------P--VSSFTS-------------------G-SMLGRT	320
+NP_001355831.1      -------QPIPQPTT---------P--VSSFTS-------------------G-SMLGRT	182
+AAH36957.1          -------QPIPQPTT---------P--VSSFTS-------------------G-SMLGRT	318
+XP_029701655.1      -------QAIPQPTT---------P--V-SFTS-------------------G-SMLGRP	329
+NP_571379.1         -------QPIPQPTT---------P--V-SFTS-------------------G-SMLGRS	350
+NP_571716.1         -------QAIPQPTT---------P--V-SFTT-------------------G-SMLGRP	336
+                             :                    :                     .   **  
+
+NP_524628.2         GHQNTHHIQSNGHAQGHALVPAISPRLNFNSGSFGAMYSNMHHTALSMSDSYGAVTPIPS	646
+NP_524638.3         A-NTTH-TSS-----ESPPLQPAAPRLPLNSG-FNTMYSSIPQPIATMAENYNS------	446
+NP_001006763.1      DTALTN-SYS-----ALPPM-----------------------PSFTMGNNL--------	343
+NP_001355831.1      DTALTN-TYS-----ALPPM-----------------------PSFTMANNL--------	205
+AAH36957.1          DTALTN-TYS-----ALPPM-----------------------PSFTMANNL--------	341
+XP_029701655.1      DSALTN-TYS-----ALPPM-----------------------PSFTMANNL--------	352
+NP_571379.1         DTALTN-TYS-----ALPPM-----------------------PSFTMANNL--------	373
+NP_571716.1         DTALTN-TYT-----GLPPM-----------------------PSFTMANNL--------	359
+                        *:   :         :                          :*.:.         
+
+NP_524628.2         FNHSAVGPLAPPSPIPQQGDLTPSSLYPCHMTLRPP----PMAPAHHHIVPGD----GGR	698
+NP_524638.3         ----SLGSMTPS-------CLQQRDAYPYMFHDPLS-LGSPYVSAHHRNTACNPSAAHQQ	494
+NP_001006763.1      -------PMQPP-------VPSQTSSYSCMLPTSPSVNGRSY--------------DTYT	375
+NP_001355831.1      -------PMQPP-------VPSQTSSYSCMLPTSPSVNGRSY--------------DTYT	237
+AAH36957.1          -------PMQPP-------VPSQTSSYSCMLPTSPSVNGRSY--------------DTYT	373
+XP_029701655.1      -------PMQP----------SQTSSYSCMLPTSPPVNGRSY--------------DTYT	381
+NP_571379.1         -------PMQP----------SQTSSYSCMLPTSPSVNGRSY--------------DTYT	402
+NP_571716.1         -------PMQP----------SQTSSYSCMLPSSPSVNGRSF--------------DTYT	388
+                            : *             . *   :                             
+
+NP_524628.2         PAGVG-------LGSGQSANLGASCSGSGYEVLSAYALPPPPMASSSAADSSFSAASSAS	751
+NP_524638.3         PPQHGVYTNSSPM---PSSNTGVISAGVSV---------PVQISTQNVSDLT-------G	535
+NP_001006763.1      PPHMQTHMNSQPMGTSGTASTGLISPGVSV---------PVQVPGS---EPD-------M	416
+NP_001355831.1      PPHMQTHMNSQPMGTSGTTSTGLISPGVSV---------PVQVPGS---EPD-------M	278
+AAH36957.1          PPHMQTHMNSQPMGTSGTTSTGLISPGVSV---------PVQVPGS---EPD-------M	414
+XP_029701655.1      PPHMQAHMNSQSMTTSGTTSTGLISPGVSV---------PVQVPGS---EPD-------M	422
+NP_571379.1         PPHMQAHMNSQSMAASGTTSTGLISPGVSV---------PVQVPGS---EPD-------M	443
+NP_571716.1         PPHMQAHMNSQTMATSGTASTGLISPGVSV---------PVQVPGT---EPD-------M	429
+                    *           :    ::. *  . * .          *  :      :          
+
+NP_524628.2         ANVTPHHTIAQESCPSPCSSASHFGVAHSSGFSSDPISPAVSSYAHMSYNYASSANTMTP	811
+NP_524638.3         SNYWPRLQ----------------------------------------------------	543
+NP_001006763.1      SQYWPRLQ----------------------------------------------------	424
+NP_001355831.1      SQYWPRLQ----------------------------------------------------	286
+AAH36957.1          SQYWPRLQ----------------------------------------------------	422
+XP_029701655.1      SQYWSRLQ----------------------------------------------------	430
+NP_571379.1         SQYWPRLQ----------------------------------------------------	451
+NP_571716.1         SQYWSRLQ----------------------------------------------------	437
+                    ::   :                                                      
+
+NP_524628.2         SSASGTSAHVAPGKQQFFASCFYSPWV	838
+NP_524638.3         ---------------------------	543
+NP_001006763.1      ---------------------------	424
+NP_001355831.1      ---------------------------	286
+AAH36957.1          ---------------------------	422
+XP_029701655.1      ---------------------------	430
+NP_571379.1         ---------------------------	451
+NP_571716.1         ---------------------------	437
+                                               
