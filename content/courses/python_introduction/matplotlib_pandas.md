@@ -21,8 +21,6 @@ Matplotlib is a Python package that can be used to produce high-quality plots si
 * pie charts 
 * contour plots
 
-The Matplotlib [gallery](https://matplotlib.org/gallery.html) provides many examples, with downloadable source files.  Many of our examples are taken directly from this site.
-
 Simple example:
 
 ```python
@@ -139,7 +137,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Streamplotdemo.png](/courses/python_introduction/Streamplotdemo.png)
+![Streamplots.png](/courses/python_introduction/Streamplots.png)
 
 Matplotlib can also make histograms, pie charts, and so forth.  These are commonly used with Pandas, and Pandas can access them directly, as we will see.
 
@@ -682,6 +680,62 @@ plt.bar(year, cost_per_home_run)
 
 Many plotting options can be applied directly to the Dataframe object, without the need to extract the variables. See the documentation for the Pandas [plot method](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html).
 
-### Summary and Exercise
+### Exercise
 
 Download the file [pandas_demo.ipynb](/data/pandas_demo.ipynb) and the data files [eighthr.data](/data/eighthr.data) and [eightr.names](/data/eighthr.names). If you are using Windows, check that it does not append ".txt" to the data files.  You may need to open File Explorer, go to View, and check "File name extensions."  Open the notebook in JupyterLab or Jupyter.  Go through the exercises in each cell.
+
+### Resources
+
+The Matplotlib [gallery](https://matplotlib.org/gallery.html) provides many examples, with downloadable source files.  Many of our examples are taken directly from this site.
+
+Many Pandas tutorials are available online. A good starting point is [here](https://pandas.pydata.org/pandas-docs/stable/getting_started/tutorials.html).
+
+A great repository of pandas projects is [located here](https://www.geeksforgeeks.org/pandas-practice-excercises-questions-and-solutions/)
+
+
+### Projects
+
+#### Project 1
+Download the file [cigarette-smoking-behaviour-2018-census.csv](/data/cigarette-smoking-behaviour-2018-census.csv), which is about cigarette smoking in New Zealand.
+- Read the file into a pandas dataframe
+- Make a bar plot in Matplotlib of types of cigarette smokers ('Regular Smoker', 'Ex-Smoker', etc.) and their count
+- Because we have a total number of respondents, let's make a new column that is a ratio of # of each category / total number of respondents
+ 
+#### Project 2
+Download [cville_2017_april.xlsx](/data/cville_2017_april.xlsx), which contains April 2017 weather data for Charlottesville, VA.
+- Read the file into a pandas dataframe
+- Make a line plot of average wind speed for each day
+- Add main titles, and label axes to be more descriptive
+- Play with the bottom axis (x axis) to make sure all dates are visible
+- Make a bar and line plot showing average wind speed (in bars) and max wind gust (as a line). Add legend to distinguish between the two.
+- Make stacked bar chart of minimum and maximum temperatures for each day
+- Make grouped bar chart of minimum and maximum temperatures for each day
+- Plot the number of each weather 'condition'. Plot sunny days, partly cloudy days, and rain days. There are several ways to do this.
+
+#### Project 3
+Create a new pandas dataframe, with a size of at least 5x3 (5 rows and 3 columns). Populate the dataframe with data of your choice.
+- Begin by importing pandas
+- Create a new column. If your data allows, the column could be a ratio based on existing columns (ex: pay_per_hour = df['price'] / df['time']). Or it could be something unrelated
+- Rename your columns with a variable name. This is not required but often makes your code more readable. 
+- Print a list of all columns. Then print the value counts of all your columns.
+- Split a subset of your dataframe based on some condition. Do it at least twice. Once using .loc and once using .iloc.
+- Use the groupby() method to group your dataframe in some way that makes sense for your data
+
+#### Project 4
+Take the following code block:
+
+```
+import pandas
+
+df1 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
+                    'Names': ['John','Dave','Mary','Sarah','Mohammed','Rohan','Prisha','Vijay','Ananya','Raj'],
+                    'Country': ['USA','USA','USA','UK','India','India','UK','India','UK','India']})
+
+df2 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
+                    'Salary': [50000, 60000, 65000, 53000, 59000, 74000, 86000, 41000, 94000, 66000],
+                    'Age': [24, 46, 51, 29, 33, 38, 70, 46, 49, 35]})
+```
+
+- Join the two dataframe together using the [merge function](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html)
+- How many people come from each country? (Hint: Don't just count them. Which function allows you to see that easily?)
+- Reshape the data and create a pivot table view of people by country using the [pivot_table function](https://www.geeksforgeeks.org/python-pandas-pivot_table/). Also include the name, age, and salary in the results

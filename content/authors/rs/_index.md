@@ -10,7 +10,7 @@ authors:
 superuser: false
 
 # Role/position
-role: Research Computing Consultant
+role: Computational Scientist
 
 # Organizations/Affiliations
 organizations:
