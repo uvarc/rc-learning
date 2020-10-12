@@ -134,10 +134,10 @@ The `else` clause is executed if the loop completes all iterations and is option
 
 The range iterator is used to step over a sequence of numbers.  It takes up to three arguments.
 
-* range(10)  : 0,1,2,3,4,5,6,7,8,9
-* range(1,10) : 1,2,3,4,5,6,7,8,9
-* range(0,10,2) : 0,2,4,6,8
-* range(10,0,-2) : 10,8,6,4,2 (note that zero is __not__ included)
+* `range(10)`  : 0,1,2,3,4,5,6,7,8,9
+* `range(1,10)` : 1,2,3,4,5,6,7,8,9
+* `range(0,10,2)` : 0,2,4,6,8
+* `range(10,0,-2)` : 10,8,6,4,2 (note that zero is __not__ included)
 
 The interval is often called a stride.  If it is present the lower bound must also be present even if it is the default, 0.  Otherwise the lower bound may be omitted.  If the stride is omitted it is 1.  The last value is never reached.
 
@@ -303,3 +303,33 @@ for i in range(10):
         s=s+i+j
 print(s)
 ```
+
+### Projects
+
+#### Project 1
+Write a program that:
+
+- Creates a list of temperatures [0, 10, 20, 30, 40, 50].
+- Prints the number of items in the list.
+- Prints the index of temperature 30.
+- Adds another temperature 60 at the end.
+- Loops through the list of temperatures and converts them from Celsius to
+Fahrenheit, printing each value in degrees C and F (use `print(C,F)`)
+
+#### Project 2
+Write a program that:
+
+- Creates the temperature list 0 through 60 by 10 using a loop rather than by
+typing in all the values.
+- As each degree C value is added, converts it to F and adds the F value to a list
+for the Fahrenheit equivalents.
+- Makes another loop which prints out C and F similarly to Project 1, i.e. both
+on the same line, but does it by indexing into the two lists.
+
+#### Project 3
+Write a program that:
+
+- Generates a list of temperatures from -40 to 100 inclusive by increments of 5 degrees Celsius.
+- Creates another list of the corresponding Fahrenheit temperatures.
+- Creates a list of temperatures in degrees Fahrenheit which are greater than zero but for which the corresponding temperature in Celsius is less than zero. Print the elements of this last list.
+
