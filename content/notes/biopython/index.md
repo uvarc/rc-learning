@@ -23,7 +23,7 @@ Introductions to Python can be found [here](/courses/programming_python_scientis
 
 **Python code examples**
 
-The Python scripts and data files for this workshop can be [dowloaded from here](data/biopython-workshop.zip). On your computer, unzip the downloaded folder and use it as working directory for this workshop.
+The Python scripts and data files for this workshop can be [downloaded from here](data/biopython-workshop.zip). On your computer, unzip the downloaded folder and use it as working directory for this workshop.
 
 **Python programming environment**
 
