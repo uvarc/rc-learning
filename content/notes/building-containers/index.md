@@ -606,7 +606,7 @@ jkrollout /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.sif "tf2.3"
 # Multi-Stage Build
 
 _Minimize image size without loss of functionality_  
-$\rightarrow$ _Up to 99.5% reduction in image size_
+$\rightarrow$ _Up to 99% reduction in image size_
 
 ## "Disk space is cheap so why should I care?"
 - Minimize vulnerabilities/attack surface
@@ -649,11 +649,11 @@ ENTRYPOINT ["binary"]
 ## Case study - LightGBM
 
 - Problems with [official Dockerfile](https://github.com/microsoft/LightGBM/blob/master/docker/gpu/dockerfile.gpu)
-    - `cuda:cudnn-devel` as [base image](https://hub.docker.com/r/nvidia/cuda/tags)  (>2 GB)
+    - `cuda:cudnn-devel` as [base image](https://hub.docker.com/r/nvidia/cuda/tags)  (>1 GB)
     - Clean up in separate `RUN` statements
 - Our [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.3.1/Dockerfile)
     - `opencl:devel` as build; `opencl:runtime` (42 MB) as production [base image](https://hub.docker.com/r/nvidia/cuda/tags) 
-    - Image size 105 MB; 95% reduction
+    - Image size 105 MB; 90% reduction
     - [Benchmark](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation)
     - Same performance
 
@@ -737,7 +737,7 @@ Can you build an image for lolcow from scratch/distroless?
 
 - [More involved Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.3.1/Dockerfile.distroless)
 - Image size: **14 MB**
-- 2 GB $\rightarrow$ 0.1 GB $\rightarrow$ 0.01 GB; overall **99.5%** reduction
+- 1 GB $\rightarrow$ 0.1 GB $\rightarrow$ 0.01 GB; overall **99%** reduction
 - Same performance
 - [PR](https://github.com/microsoft/LightGBM/pull/3408) approved and [merged](https://github.com/microsoft/LightGBM/tree/master/docker/gpu)
 
