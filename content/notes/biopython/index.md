@@ -538,10 +538,29 @@ ATAAGTACACTATAGA
 
 Note that the sequence is zero-indexed: the first nucleotide has index 0, the second has index 1, and so forth. So in this example we're changing the third nucleotide (index 2, G->A).  
 
-**Exercise:** Create a `Seq` object with a DNA nucleotide sequence of your choice. Find the first putative start codon (ATG), replace each "C" with a "G", and transcribe and translate the original as well as the modified sequence.
+**Exercise:** Create a `Seq` object with a DNA nucleotide sequence of your choice. Find the first putative start codon (ATG), replace each "C" with a "G", and transcribe and translate the original as well as the modified sequence. **Hint:** As an intermediary step, convert `Seq` object to a string and use a string method for replacement.
 
 <details>
 <summary>Solution:</summary>
+
+```python
+from Bio.Seq import Seq
+
+seq = Seq("CTGACTGGATGACCATTGGGCAACTACCCATGACTAGTTAAGTAATTTTTAAAAA")
+atg_pos = seq.find("ATG")
+
+cds = seq[atg_pos:]
+peptide = cds.translate(to_stop=True)
+
+mod_seq = Seq(str(seq).replace("C","G"))
+mod_cds = mod_seq[atg_pos:]
+mod_peptide = mod_cds.translate(to_stop=True)
+
+print ("DNA (original):", seq)
+print ("DNA (modified):", mod_seq)
+print ("Peptide (original):", peptide)
+print ("Peptide (modified):", mod_peptide)
+```
 </details> 
 <br>
 
@@ -782,7 +801,7 @@ with open("Pax6-multispec-protein.sth", "w") as outputfile:
     AlignIO.write(alignment, outputfile, "stockholm")
 
 # get alignment as formatted string
-print ("Formatted AlignmentL:")
+print ("Formatted Alignment:")
 print (format(alignment, "clustal"))
 ```
 
@@ -790,7 +809,7 @@ print (format(alignment, "clustal"))
 <summary>Output:</summary>
 
 ```bash
-Formatted AlignmentL:
+Formatted Alignment:
 CLUSTAL X (1.81) multiple sequence alignment
 
 H.sapiens:NP_524628.2               MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQLGGVFVG
@@ -813,7 +832,50 @@ Find the first alignment block that shows no gaps across all 8 aligned sequences
 
 <details>
 <summary>Solution:</summary>
+
+```python
+from Bio import AlignIO
+
+inputfile = open("Pax6-multispec-protein.aln", "r")
+# assuming single alignment in file; use AlignIO.parse for multiple alignments 
+alignment = AlignIO.read(inputfile, "clustal")
+inputfile.close()
+
+length = alignment.get_alignment_length()
+# create boolean list to indicate if all lines in column are wiithout gap
+pattern = [all([a.seq[i] != "-" for a in alignment]) for i in range(length)]
+print ("No gap in column:")
+print (pattern,"\n")
+# create list of column indices without gaps
+full_indices = [i for i in range(length) if pattern[i]]
+print ("Full column indices:")
+print (full_indices,"\n")
+
+# scan consecutive columns for completeness
+firstblock_i = []
+j=0
+start=0
+for i in full_indices[start:]:
+    if j==0 or i==full_indices[start]+j:
+        firstblock_i.append(i)
+    else:
+        break
+    j+=1
+    
+# slice alignment to show first block without gaps
+block1 = alignment[:,firstblock_i[0]:firstblock_i[-1]+1]
+print (block1)
+
+# save
+with open("Pax6-multispec-block1.aln", "w") as outputfile:
+    AlignIO.write(block1, outputfile, "clustal")
+
+# get zebrafish sequence lines
+zebrafish_lines = block1[4:6,:]
+print (zebrafish_lines)
+```
 </details>
+<br>
 
 # Resources
 
