@@ -153,7 +153,9 @@ Also read ["What the heck is a handle?"](http://biopython.org/DIST/docs/tutorial
 
 Let's find the **protein** records associated with the **human Pax6 gene** and download the associated sequences in [FASTA](https://en.wikipedia.org/wiki/FASTA_format) format.
 
-To search the database we use the `Entrez.esearch` function.  We need to specify the database via the `db`, argument and specify a search `term` (provided as a list of Strings). The code is available in the `entrez-fasta.py` file.
+To search the database we use the `Entrez.esearch` function.  We need to specify the database via the `db`, argument and specify a search `term` (provided as a list of Strings). 
+
+The following code is available in the __entrez-fasta.py__ file.
 
 ```python
 from Bio import Entrez
@@ -209,7 +211,9 @@ with open('HsPax6-protein.fasta', 'w') as f:
 
 Alternatively, we can pull individual sequences one at a time and save each sequence into a separate file. To do this we implement a [for loop](https://docs.python.org/3/tutorial/controlflow.html?highlight=loops#for-statements) that iterates over this list and use the `Entrez.efetch` function to retrieve the FASTA sequence record associated with each id.  We wrap this for loop in a [open](https://docs.python.org/3/library/functions.html?highlight=open#open) file operation block to save the retrieved FASTA records into a single .fasta text file.
 
-Let's retrieve the **nucleotide** sequences of our previous top 5 ID hits as **Genbank** files. We specify the database with the `db="nucleotide"` and format with the `rettype="gb"` keyword arguments. The code is provided in the `entrez-genbank.py` file.
+Let's retrieve the **nucleotide** sequences of our previous top 5 ID hits as **GenBank** files. We specify the database with the `db="nucleotide"` and format with the `rettype="gb"` keyword arguments. 
+
+The code is provided in the __entrez-genbank.py__ file.
 
 ```python
 from Bio import Entrez
@@ -375,6 +379,7 @@ The return type of `Prosite.read()` is a [Bio.ExPASy.Prosite.Record](https://bio
 ```
 from Bio import ExPASy
 from Bio.ExPASy import Prodoc
+
 handle = ExPASy.get_prosite_raw("PDOC00001")
 record = Prodoc.read(handle)
 ```
@@ -384,9 +389,17 @@ record = Prodoc.read(handle)
 <summary>Solution</summary>
 
 ```python
+from Bio import ExPASy,SwissProt
+
 accession_nos = ["O23729", "O23730", "O23731"]
 handles  = [ExPASy.get_sprot_raw(a) for a in accession_nos]
-records = [SwissProt.read(handle) for h in handles]
+records = [SwissProt.read(h) for h in handles]
+for record in records:
+    print(record.entry_name)
+    print(",".join(record.accessions))
+    print(record.keywords)
+    print(repr(record.organism))
+    print(record.sequence[:20],"\n")
 ```
 </details>
 <br>
@@ -400,14 +413,14 @@ We can query the Prosite database with protein sequences or motifs to find prote
 
 _Option 1_: Submit protein sequence (use the `seq=` keyword argument)
 * UniProtKB accessions e.g. P98073
-* identifiers e.g. ENTK_HUMAN
+* Identifiers e.g. ENTK_HUMAN
 * PDB identifiers e.g. 4DGJ
-* sequences in FASTA format. 
+* Sequences in FASTA format. 
 
 _Option 2_: Submit motif sequence (use the `sig=` keyword argument)
 * PROSITE accession e.g. PS50240
-* identifier e.g. TRYPSIN_DOM
-* your own pattern e.g. P-x(2)-G-E-S-G(2)-[AS]. 
+* Identifier e.g. TRYPSIN_DOM
+* Your own pattern e.g. P-x(2)-G-E-S-G(2)-[AS]. 
 * Combinations of motifs can also be used.
  
  
@@ -422,7 +435,7 @@ By executing `handle.read()`, you can obtain the search results in raw XML forma
 
 We can now access the found matches like this:
 ```
-print ("Number of matches:", result.n_match)
+print ("Number of matches:", results.n_match)
 for r in results:
     print (r)
 ```
@@ -455,7 +468,11 @@ The `Seq` object is similar to a string object augmented with methods for nucleo
 * `transcribe()`, `back_transcribe()`
 * `translate()`
 
+The following code examples are in the __seq.py__ script.
+
 ```python
+from Bio.Seq import Seq
+
 my_dna = Seq("ATGAGTACACTATAGA")
 print (my_dna)
 # find position of first subsequence
@@ -590,6 +607,8 @@ record = SeqRecord(
 print(record)
 ```
 
+The above code example is in the __seqrecord.py__ script.
+
 <details>
 <summary>Output:</summary>
 
@@ -644,7 +663,7 @@ print (f"Number of sequences (<300 aa): {len(sublist)}")
 ```python
 from Bio import SeqIO
 
-gb_file = 'Hs-pax6-1844139629-nucleotide.gb'
+gb_file = 'HsPax6-1844139629-nucleotide.gb'
 with open(gb_file) as f:
     gb_generator = SeqIO.parse(f, format='gb')
     for entry in gb_generator:
@@ -669,7 +688,7 @@ The key functions are:
 
 **Example:** 
 
-Let's create a Fasta file with Pax6 orthologs from human, mouse, xenopus, pufferfish, zebrafish (2), and fruitfly.
+Let's create a Fasta file with Pax6 orthologs from human, mouse, xenopus, pufferfish, zebrafish (2), and fruitfly.  The following code example is in the __createPax6_fasta.py__ script.
 
 ```python
 from Bio import Entrez
@@ -693,6 +712,8 @@ This will create the `Pax6-multispec-protein.fasta` Fasta file with 8 sequences.
 3. Under **Step 3**, click **Submit**.
 4. When the alignment is done, click the **Alignments** tab, select the entire alignment output in the window and paste it into a text editor. **Do not use Microsoft Word for this but programs like `Text Edit`, `Notepad++`, `Emacs` or `vim` instead.**
 5. Save the alignment in the text editor as `Pax6-multispec-protein.aln` in your Python script folder that you use for this workshop.
+
+The following code examples are in the __alignio-parse_clustal.py__ script.
 
 **Parse the alignment file**
 ```
