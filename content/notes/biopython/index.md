@@ -1,5 +1,6 @@
 ---
 title: Biopython
+author: khs
 highlight_style: "github"
 date: "2020-10-01T00:00:00"
 toc: true  
@@ -75,7 +76,7 @@ This command will install the latest biopython package version in your current A
 
 **On Rivanna (UVA's HPC platform):**
 
-[Rivanna](https://www.rc.virginia.edu/userinfo/rivanna/overview/) offers severalAnaconda distributions with different Python versions. Before you use Python you need to load one of the `anaconda` software modules and then run the `pip install` command. 
+[Rivanna](https://www.rc.virginia.edu/userinfo/rivanna/overview/) offers several Anaconda distributions with different Python versions. Before you use Python you need to load one of the `anaconda` software modules and then run the `pip install` command. 
 
 ```bash
 module load anaconda
@@ -85,7 +86,7 @@ pip install --user biopython
 
 ## Testing the Biopython Installation
 
-Start the Spyder IDE (see [here](#spyder)).  In the `IPython console` pane, type the following command and press `enter/return`:
+Start the Spyder IDE (see [here](#spyder)). In the `IPython console` pane, type the following command and press `enter/return`:
 
 ```
 import Bio
@@ -152,7 +153,8 @@ Also read ["What the heck is a handle?"](http://biopython.org/DIST/docs/tutorial
 
 Let's find the **protein** records associated with the **human Pax6 gene** and download the associated sequences in [FASTA](https://en.wikipedia.org/wiki/FASTA_format) format.
 
-To search the database we use the `Entrez.esearch` function.  We need to specify the database via the `db`, argument and specify a search `term` (provided as a list of Strings). 
+To search the database we use the `Entrez.esearch` function.  We need to specify the database via the `db`, argument and specify a search `term` (provided as a list of Strings). The code is available in the `entrez-fasta.py` file.
+
 ```python
 from Bio import Entrez
 
@@ -165,9 +167,26 @@ for k,v in record.items():
     print (k,v)
 ```
 
-The search results is returned as a [dictionary](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) and we can retrieve the list of unique IDs that match our query via `record["IdList"]`. 
+<details>
+<summary>Output</summary>
 
-**Note:** The `IdList` returned by `esearch` is limited to the top 20 hits by default. There are two workarounds:
+```bash
+Count 88
+RetMax 20
+RetStart 0
+QueryKey 1
+WebEnv MCID_5f87b7433f6876111801786c
+IdList ['1587062735', '1587062729', '1587062727', '1587062721', '1587062719', '1587062717', '1587062715', '1587062713', '1587062710', '1587062708', '1587062706', '1587062703', '1587062701', '1587062699', '1587062697', '1587062695', '1587062690', '1587062688', '1587062686', '1587062684']
+TranslationSet [{'From': 'Homo sapiens[Orgn]', 'To': '"Homo sapiens"[Organism]'}]
+TranslationStack [{'Term': '"Homo sapiens"[Organism]', 'Field': 'Organism', 'Count': '1423829', 'Explode': 'Y'}, {'Term': 'pax6[Gene]', 'Field': 'Gene', 'Count': '2621', 'Explode': 'N'}, 'AND']
+QueryTranslation "Homo sapiens"[Organism] AND pax6[Gene]
+```
+</details>
+<br>
+
+The search results are returned as a [dictionary](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) and we can retrieve the list of unique IDs that match our query via `record["IdList"]`. 
+
+**Note:** The `IdList` returned by `esearch` is limited to the top 20 hits by default (defined by `retmax`). There are two workarounds:
 1. Use the `retmax=<number>` keyword argument to increase the maximum number of retrieved records. The problem is you need to know what a reasonable number is. 
 2. Or better, use the `usehistory='y'` keyword argument. This will save the search results on the remote server and provide `WebEnv` and `QueryKey` entries that can be used with the `eftech` function (see next section) to retrieve all search records (beyond the top 20).
 
@@ -176,6 +195,7 @@ By default the returned IDs reflect the __GI__ numbers. The __accession.version_
 **Download and save sequences as FASTA file:**
 
 With the ID list in hand, we can now download the sequence records using just a few lines of code and save them in a single multi-sequence FASTA file. The `efetch` function is used when you want to retrieve a full record from Entrez. 
+
 ```python
 # fetch records using id list
 handle = Entrez.efetch(db="protein", rettype="fasta", retmode="text", id=record["IdList"])
@@ -189,11 +209,12 @@ with open('HsPax6-protein.fasta', 'w') as f:
 
 Alternatively, we can pull individual sequences one at a time and save each sequence into a separate file. To do this we implement a [for loop](https://docs.python.org/3/tutorial/controlflow.html?highlight=loops#for-statements) that iterates over this list and use the `Entrez.efetch` function to retrieve the FASTA sequence record associated with each id.  We wrap this for loop in a [open](https://docs.python.org/3/library/functions.html?highlight=open#open) file operation block to save the retrieved FASTA records into a single .fasta text file.
 
-Let's retrieve the **nucleotide** sequences of our previous top 5 ID hits as **Genbank** files. We specify the database with the `db="nucleotide""` and format with the `rettype="gb"` keyword arguments.
+Let's retrieve the **nucleotide** sequences of our previous top 5 ID hits as **Genbank** files. We specify the database with the `db="nucleotide"` and format with the `rettype="gb"` keyword arguments. The code is provided in the `entrez-genbank.py` file.
+
 ```python
 from Bio import Entrez
 
-Entrez.email = "YOU@SOMEWHERE.com" # your email address is required
+Entrez.email = "YOU@SOMEWHERE.com" # provide your email address 
 handle = Entrez.esearch(db="nucleotide", term = ["Homo sapiens[Orgn] AND pax6[Gene]"], retmax=5, usehistory="y")
 record = Entrez.read(handle)
 handle.close()
@@ -210,30 +231,82 @@ for seq_id in record["IdList"]:
     # save
     filename = f"HsPax6-{seq_id}-nucleotide.gb"
     print ("Saving to file:", filename)
-    with open(filename, 'w') as fastafile:
+    with open(filename, 'w') as gbfile:
         # append fasta entry
-        fastafile.write(result.rstrip()+"\n")
+        gbfile.write(result.rstrip()+"\n")
 ```
 
-Note that the `record['IdList']` may not represent all the records. Rememeber that the  `record['WebEnv']` and `record['QueryKey']` entries provide access to the search history on the remote server.  So we can use these instead of the `record['IdList']` to get all records.
+<details>
+<summary>Output:</summary>
+
+```bash
+Count 106
+RetMax 5
+RetStart 0
+QueryKey 1
+WebEnv MCID_5f87bb652dd862297e1727ea
+IdList ['1844161464', '1844139642', '1844139635', '1844139631', '1844139629']
+TranslationSet [{'From': 'Homo sapiens[Orgn]', 'To': '"Homo sapiens"[Organism]'}]
+TranslationStack [{'Term': '"Homo sapiens"[Organism]', 'Field': 'Organism', 'Count': '27682287', 'Explode': 'Y'}, {'Term': 'pax6[Gene]', 'Field': 'Gene', 'Count': '3232', 'Explode': 'N'}, 'AND']
+QueryTranslation "Homo sapiens"[Organism] AND pax6[Gene]
+1844161464
+Saving to file: HsPax6-1844161464-nucleotide.gb
+1844139642
+Saving to file: HsPax6-1844139642-nucleotide.gb
+1844139635
+Saving to file: HsPax6-1844139635-nucleotide.gb
+1844139631
+Saving to file: HsPax6-1844139631-nucleotide.gb
+1844139629
+Saving to file: HsPax6-1844139629-nucleotide.gb
+Done
+```
+</details>
+<br>
+
+Note that the `record['IdList']` may not represent all the records. Remember that the  `record['WebEnv']` and `record['QueryKey']` entries provide access to the search history on the remote server.  So we can use these instead of the `record['IdList']` to get all records.
 ```
 # Alternative: fetch all records using search history
 handle = Entrez.efetch(db="protein", rettype="fasta", retmode="text", webenv=record["WebEnv"], query_key=record["QueryKey"])
 ```
 
-**Exercise:**
-Find and download the nucelotide sequences for the mouse P53 tumor suppressor. **Hint:** look up the database descriptor in [this table](https://www.ncbi.nlm.nih.gov/books/NBK25497/table/chapter2.T._entrez_unique_identifiers_ui/?report=objectonly).
+**Exercise:** Find and download the top 10 FASTA EST nucleotide sequences for the mouse (Mus Musculus) TP53 tumor suppressor. **Hint:** look up the EST database descriptor in [this table](https://www.ncbi.nlm.nih.gov/books/NBK25497/table/chapter2.T._entrez_unique_identifiers_ui/?report=objectonly).
 
 <details>
 <summary>Solution:</summary>
+
+```python
+handle = Entrez.esearch(db="nucest", term = ["Mus musculus[Orgn] AND tp53[Gene]"], retmax=10, usehistory="y")
+record = Entrez.read(handle)
+handle.close()
+for k,v in record.items():
+    print (k,v)
+
+# iterate over ids in list
+for seq_id in record["IdList"]:
+    # get entry from Entrez
+    print (seq_id)
+    handle = Entrez.efetch(db="nucest", id=seq_id, rettype="fasta", retmode="text")
+    result = handle.read()
+    handle.close()
+    # save
+    filename = f"MmP53-{seq_id}-est.fasta"
+    print ("Saving to file:", filename)
+    with open(filename, 'w') as fastafile:
+        # append fasta entry
+        fastafile.write(result.rstrip()+"\n")
+```        
 </details>
 
 <br>
 
 ## Retrieve Protein Records from the ExPASy Database
 
+Here are a few examples demonstrating how to access the ExPASy databases Swissport and Prosite. The [Biopython documentation](https://biopython.readthedocs.io/en/latest/chapter_uniprot.html) provides  more details.
+
 **Swiss-Prot**
-```
+
+```python
 from Bio import ExPASy
 from Bio import SwissProt
 
@@ -241,16 +314,62 @@ from Bio import SwissProt
 accession_no = "O23729"
 handle = ExPASy.get_sprot_raw(accession_no)
 record = SwissProt.read(handle)
+print (record.entry_name)
+print (record.sequence_length)
+print (record.data_class)
+print (record.accessions)
+print (record.organism)
+# print first 10 aa
+print (record.sequence[:10]) # string
 ``` 
 
-**Prosite**
+<details>
+<summary>Output:</summary>
+
+```bash
+CHS3_BROFI
+394
+Reviewed
+['O23729']
+Bromheadia finlaysoniana (Orchid).
+MAPAMEEIRQ
 ```
+</details>
+
+<br>
+
+The return type of `SwissProt.read()` is a [Bio.SwissProt.Record](https://biopython.org/docs/1.75/api/Bio.SwissProt.html) object. In the above example we're printing only a subset of its fields.  The `record.sequence` field is a string, but it can easily be converted into a [Bio.Seq](#sequence-objects) object.
+
+**Prosite**
+
+```python
 from Bio import ExPASy
-from Bio import Prosite
+from Bio.ExPASy import Prosite
 
 handle = ExPASy.get_prosite_raw("PS00001")
 record = Prosite.read(handle)
+print (record.name)
+print (record.type) # e.g. PATTERN, MATRIX, or RULE
+print (record.pattern) 
+print (record.rules)
+print (record.matrix)
 ```
+
+<details>
+<summary>Output:</summary>
+
+```bash
+ASN_GLYCOSYLATION
+PATTERN
+N-{P}-[ST]-{P}.
+[]
+[]
+```
+</details>
+<br>
+
+The return type of `Prosite.read()` is a [Bio.ExPASy.Prosite.Record](https://biopython.org/docs/1.75/api/Bio.ExPASy.Prosite.html) object. 
+**Note:** Use the `Bio.ExPASy.Prosite.parse()` function to parse files containing multiple records.
 
 **Prosite Documentation**
 ```
@@ -260,55 +379,68 @@ handle = ExPASy.get_prosite_raw("PDOC00001")
 record = Prodoc.read(handle)
 ```
 
-**Exercise:** 
-
-Retrieve the SwissProt records for proteins with the following IDs: "O23729", "O23730", "O23731". Try to use list comprehension to create a list containing the records for all retrieved proteins.
+**Exercise:** Retrieve the SwissProt records for proteins with the following IDs: "O23729", "O23730", "O23731". Try to use list comprehension to create a list containing the records for all retrieved proteins.
 <details>
 <summary>Solution</summary>
 
-```
+```python
 accession_nos = ["O23729", "O23730", "O23731"]
 handles  = [ExPASy.get_sprot_raw(a) for a in accession_nos]
 records = [SwissProt.read(handle) for h in handles]
 ```
 </details>
+<br>
 
 Learn more about [SwissProt](http://biopython.org/DIST/docs/tutorial/Tutorial.html#sec%3Aexpasy_swissprot).
 
 
 **ScanProsite**
 
-We can query the Prosite database with a sequence string to find proteins with corresponding matches.
+We can query the Prosite database with protein sequences or motifs to find proteins with corresponding matches, see [ScanProsite](https://prosite.expasy.org/scanprosite/scanprosite_doc.html) for details.
+
+_Option 1_: Submit protein sequence (use the `seq=` keyword argument)
+* UniProtKB accessions e.g. P98073
+* identifiers e.g. ENTK_HUMAN
+* PDB identifiers e.g. 4DGJ
+* sequences in FASTA format. 
+
+_Option 2_: Submit motif sequence (use the `sig=` keyword argument)
+* PROSITE accession e.g. PS50240
+* identifier e.g. TRYPSIN_DOM
+* your own pattern e.g. P-x(2)-G-E-S-G(2)-[AS]. 
+* Combinations of motifs can also be used.
  
-```
+ 
+```python
 from Bio.ExPASy import ScanProsite
 
-sequence = "MEHKEVVLLLLLFLKSGQGEPLDDYVNTQGASLFSVTKKQLGAGSIEECAAKCEEDEEFTCRAFQYHSKEQQCVIMAENRKSSIIIRMRDVVLFEKKVYLSECKTGNGKNYRGTMSKTKN"
-handle = ScanProsite.scan(seq=sequence)
-result = ScanProsite.read(handle)
+uniprot_id = "P26367" # human Pax-6
+handle = ScanProsite.scan(seq=uniprot_id)
+results = ScanProsite.read(handle)
 ```
 By executing `handle.read()`, you can obtain the search results in raw XML format. Here we use `Bio.ExPASy.ScanProsite.read` to parse the raw XML into a `Bio.ExPASy.ScanProsite.Record` object which represents a specialized list.
 
 We can now access the found matches like this:
 ```
 print ("Number of matches:", result.n_match)
-for (r in result):
+for r in results:
     print (r)
 ```
 
-**Output:**
+<details>
+<summary>Output:</summary>
 
+```bash
+Number of matches: 4
+{'sequence_ac': 'P26367', 'sequence_id': 'PAX6_HUMAN', 'sequence_db': 'sp', 'start': 4, 'stop': 130, 'signature_ac': 'PS51057', 'signature_id': 'PAIRED_2', 'score': '64.941', 'level': '0'}
+{'sequence_ac': 'P26367', 'sequence_id': 'PAX6_HUMAN', 'sequence_db': 'sp', 'start': 38, 'stop': 54, 'signature_ac': 'PS00034', 'signature_id': 'PAIRED_1', 'level_tag': '(0)'}
+{'sequence_ac': 'P26367', 'sequence_id': 'PAX6_HUMAN', 'sequence_db': 'sp', 'start': 208, 'stop': 268, 'signature_ac': 'PS50071', 'signature_id': 'HOMEOBOX_2', 'score': '20.164', 'level': '0'}
+{'sequence_ac': 'P26367', 'sequence_id': 'PAX6_HUMAN', 'sequence_db': 'sp', 'start': 243, 'stop': 266, 'signature_ac': 'PS00027', 'signature_id': 'HOMEOBOX_1', 'level_tag': '(0)'}
 ```
-Number of matches: 6
-{'signature_ac': u'PS50948', 'level': u'0', 'stop': 98, 'sequence_ac': u'USERSEQ1', 'start': 16, 'score': u'8.873'}
-{'start': 37, 'stop': 39, 'sequence_ac': u'USERSEQ1', 'signature_ac': u'PS00005'}
-{'start': 45, 'stop': 48, 'sequence_ac': u'USERSEQ1', 'signature_ac': u'PS00006'}
-{'start': 60, 'stop': 62, 'sequence_ac': u'USERSEQ1', 'signature_ac': u'PS00005'}
-{'start': 80, 'stop': 83, 'sequence_ac': u'USERSEQ1', 'signature_ac': u'PS00004'}
-{'start': 106, 'stop': 111, 'sequence_ac': u'USERSEQ1', 'signature_ac': u'PS00008'}
-```
+</details>
+<br>
 
-You see that each `result` item `r` represents a dictionary describing a specific match.
+You see that each item `r` represents a dictionary describing a specific match.
 
 ---
 
@@ -337,8 +469,10 @@ print ("AC count:", my_dna.count("AC"))
 print ("AA count:", Seq("AAAA").count("AA")) # non-overlapping
 ```
 
-**Output:**
-```
+<details>
+<summary>Output:</summary>
+
+```bash
 ATGAGTACACTATAGA
 5
 6
@@ -347,6 +481,9 @@ A count: 7
 AC count: 2
 AA count: 2
 ```
+</details>
+<br>
+
 Note the return of `-1` if no sequence match was found.
 
 ```python
@@ -366,14 +503,18 @@ my_peptide = my_dna.translate()
 print ("Peptide:", my_peptide)
 ```
 
-**Output:**
-```
+<details>
+<summary>Output:</summary>
+
+```bash
 original:        ATGAGTACACTATAGA
 complement:      TACTCATGTGATATCT
 rev complement:  TCTATAGTGTACTCAT
 RNA: AUGAGUACACUAUAGA
 Peptide: MSTL*
 ```
+</details>
+<br>
 
 Like Strings, Seq objects are immutable; this means that the sequence is read-only and cannot be modified in place. However, you can convert a `Seq` object into a `MutableSeq` object that allows you to manipulate he sequence after object initialization.
 
@@ -385,22 +526,23 @@ print (my_dna)
 print (mutable_dna)
 ```
 
-**Output:**
-```
+<details>
+<summary>Output:</summary>
+
+```bash
 ATGAGTACACTATAGA
 ATAAGTACACTATAGA
 ```
+</details>
+<br>
 
 Note that the sequence is zero-indexed: the first nucleotide has index 0, the second has index 1, and so forth. So in this example we're changing the third nucleotide (index 2, G->A).  
 
-**Exercise:**
-
-Create a `Seq` object with a DNA nucleotide sequence of your choice. Find the first putative start codon (ATG), replace each "C" with a "G", and transcribe and translate the original as well as the modified sequence.
+**Exercise:** Create a `Seq` object with a DNA nucleotide sequence of your choice. Find the first putative start codon (ATG), replace each "C" with a "G", and transcribe and translate the original as well as the modified sequence.
 
 <details>
 <summary>Solution:</summary>
 </details> 
-
 <br>
 
 ## Handling Sequence Records
@@ -425,20 +567,21 @@ record = SeqRecord(
     Seq("MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF"),
     id="YP_025292.1",
     name="HokC",
-    description="toxic membrane protein, small",
-)
+    description="toxic membrane protein, small")
 print(record)
 ```
 
-**Output:**
-```
+<details>
+<summary>Output:</summary>
+
+```bash
 ID: YP_025292.1
 Name: HokC
 Description: toxic membrane protein, small
 Number of features: 0
 Seq('MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF')
 ```
-
+</details>
 <br>
 
 ## Sequence File Operations
@@ -463,7 +606,7 @@ for entry in fastalist:
     print (f"Sequence={entry.seq}\n")
 ```
 
-**Exercice:**
+**Exercise:** Filter the list of records to only include sequences with less than 300 amino acids.
 
 <details>
 <summary>Solution</summary>
@@ -544,7 +687,9 @@ print ("Alignment length:", alignment.get_alignment_length())
 print (alignment,"\n")
 ```
 
-**Output:**
+<details>
+<summary>Output:</summary>
+
 ```bash
 Alignment with 8 rows and 867 columns
 MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQL...PWV NP_524628.2
@@ -555,7 +700,9 @@ MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQL...PWV NP_524628.2
 --------------------------------MMQNSHSGVNQL...--- XP_029701655.1
 ----MPQKEY-Y----N-----RATWESGVASMMQNSHSGVNQL...--- NP_571379.1
 ----MPQKEY-H----N-----QPTWESGVASMMQNSHSGVNQL...--- NP_571716.1
-```    
+```
+</details>
+<br>
 
 **Update identifier**
 ```python
@@ -565,7 +712,9 @@ for idx,line in enumerate(alignment):
 print (alignment)
 ```
 
-**Output:**
+<details>
+<summary>Output:</summary>
+
 ```bash
 Alignment with 8 rows and 867 columns
 MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQL...PWV H.sapiens:NP_524628.2
@@ -577,6 +726,8 @@ MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQL...PWV H.sapiens:NP_524628.2
 ----MPQKEY-Y----N-----RATWESGVASMMQNSHSGVNQL...--- D.melanogaster:NP_571379.1
 ----MPQKEY-H----N-----QPTWESGVASMMQNSHSGVNQL...--- D.melanogaster:NP_571716.1
 ```
+</details>
+<br>
 
 **Slicing and joining**
 ```python
@@ -586,7 +737,9 @@ subset = alignment[:6,:50]
 print (subset)
 ```
 
-**Output:**
+<details>
+<summary>Output:</summary>
+
 ```bash
 Alignment with 6 rows and 50 columns
 MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQLGGVFVG H.sapiens:NP_524628.2
@@ -596,6 +749,8 @@ MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQLGGVFVG H.sapiens:NP_524628.2
 ---------------------------------MQNSHSGVNQLGGVFVN D.rerio:AAH36957.1
 --------------------------------MMQNSHSGVNQLGGVFVN D.rerio:XP_029701655.1
 ```
+</details>
+<br>
 
 Let's join two alignment blocks:
 ```python
@@ -603,7 +758,9 @@ edited = alignment[:,:50] + alignment[:,500:]
 print (edited)
 ```
 
-**Output:**
+<details>
+<summary>Output:</summary>
+
 ```bash
 Alignment with 8 rows and 417 columns
 MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQL...PWV H.sapiens:NP_524628.2
@@ -615,6 +772,8 @@ MFTLQPTPTAIGTVVPPWSAGTLIERLPSLEDMAHKGHSGVNQL...PWV H.sapiens:NP_524628.2
 ----MPQKEY-Y----N-----RATWESGVASMMQNSHSGVNQL...--- D.melanogaster:NP_571379.1
 ----MPQKEY-H----N-----QPTWESGVASMMQNSHSGVNQL...--- D.melanogaster:NP_571716.1
 ```
+</details>
+<br>
 
 **Exporting to other alignment file formats**
 ```python
@@ -627,7 +786,8 @@ print ("Formatted AlignmentL:")
 print (format(alignment, "clustal"))
 ```
 
-**Output:**
+<details>
+<summary>Output:</summary>
 
 ```bash
 Formatted AlignmentL:
@@ -642,9 +802,11 @@ D.rerio:XP_029701655.1              --------------------------------MMQNSHSGVNQL
 D.melanogaster:NP_571379.1          ----MPQKEY-Y----N-----RATWESGVASMMQNSHSGVNQLGGVFVN
 D.melanogaster:NP_571716.1          ----MPQKEY-H----N-----QPTWESGVASMMQNSHSGVNQLGGVFVN
 ```
+</details>
+<br>
 
 **Exercise:**
-Find the first alignment block that shows no gps across all 8 aligned sequences. 
+Find the first alignment block that shows no gaps across all 8 aligned sequences. 
 1. Print the block.
 2. Save the block as a new clustal formatted text file.
 3. From that block, extract the D. rerio (zebrafish) sequences and print the two sequences 
