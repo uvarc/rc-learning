@@ -8,7 +8,7 @@ toc: true
 These notes are divided into four sections. The first section contains links to
 documentation and tutorials for the Julia programming language. Besides browsing
 through these links, I recommend the Julia Academy courses as well as listening
-to Alan Edelman's talk "The Power of Language" (he is one of the author's of Julia).
+to Alan Edelman's talk "The Power of Language" (he is one of the authors of Julia).
 The next section is on integrated development environments for writing Julia code.
 Juno using the Atom editor is popular and the JuliaPro link includes Julia and Juno
 in one download. More recently, Visual Studio Code (VScode) is gaining adherents
