@@ -1,0 +1,85 @@
+---
+title: "The Julia Programming Language"
+type: article
+toc: true
+---
+
+
+These notes are divided into four sections. The first section contains links to
+documentation and tutorials for the Julia programming language. Besides browsing
+through these links, I recommend the Julia Academy courses as well as listening
+to Alan Edelman's talk "The Power of Language" (he is one of the author's of Julia).
+The next section is on integrated development environments for writing Julia code.
+Juno using the Atom editor is popular and the JuliaPro link includes Julia and Juno
+in one download. More recently, Visual Studio Code (VScode) is gaining adherents
+and I've included links to talks about it from the most recent Julia conference.
+The third section contains links for using Julia in data science and computational
+science. The "Introduction to Computational Thinking" is an ongoing course at MIT
+that uses Julia. The last section includes links to the Julia package repository
+and an extensive set of Julia code examples.
+
+
+## The Julia Language Tutorials
+
+* The Julia Programming Language (Offical site) <br />
+  https://julialang.org/
+
+* Julia 1.5 Documentation <br />
+  https://docs.julialang.org/en/v1/
+
+* Julia Language Research and Development at MIT <br />
+  https://julia.mit.edu/
+
+* Julia Academy Courses <br />
+  https://juliaacademy.com/
+
+* From zero to Julia! <br />
+  https://techytok.com/from-zero-to-julia/
+
+* The Power of Language <br />
+  https://www.youtube.com/watch?v=nwdGsz4rc3Q
+
+## Julia Integrated Development Environments (IDE)
+
+* Juno: A Flexible IDE for Julia <br />
+  https://junolab.org/
+
+* JuliaPro: <br />
+  https://juliacomputing.com/products/juliapro
+
+* Julia for VSCode IDE <br />
+  https://www.julia-vscode.org/
+
+* JuliaCon 2020 | (Juno 1.0) VSCode for Julia 1.0 <br />
+  https://www.youtube.com/watch?v=rQ7D1lXt3GM&list=PLP8iPy9hna6Tl2UHTrm4jnIYrLkIcAROR&index=2
+
+* JuliaCon 2020 | Using VS Code for Julia development | David Anthoff <br />
+  https://www.youtube.com/watch?v=IdhnP00Y1Ks&list=PLP8iPy9hna6Tl2UHTrm4jnIYrLkIcAROR&index=152
+
+* Visual Studio Code <br />
+  https://code.visualstudio.com/
+
+## Julia and Data Science / Computational Science
+
+* Doing Scientific Machine Learning (SciML) With Julia <br />
+  https://live.juliacon.org/talk/C9FGPP
+
+* Julia for Data science <br />
+  https://ucidatascienceinitiative.github.io/IntroToJulia/
+
+* Tutorial to Learn Data Science with Julia <br />
+  https://www.analyticsvidhya.com/blog/2017/10/comprehensive-tutorial-learn-data-science-julia-from-scratch/
+
+* Introduction to Computational Thinking <br />
+  https://computationalthinking.mit.edu/Fall20/
+
+* Julia: A Fresh Approach to Numerical Computing <br />
+  https://julialang.org/assets/research/julia-fresh-approach-BEKS.pdf
+
+## Julia Examples
+
+* JuliaHub: Package Repository <br />
+  https://juliahub.com/ui/Home
+
+* Julia by Example <br />
+  https://juliabyexample.helpmanual.io/
