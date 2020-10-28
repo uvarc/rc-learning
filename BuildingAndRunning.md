@@ -119,7 +119,7 @@ Examples for each compiler:
     - pgfortran --o myprog mycode.f90 
 
 
-**Exercise** 
+Exercise 
 
 On Rivanna, load a compiler module (your choice).  Copy one of the following 
 files from /share/resources/tutorials/compilers to your home directory, or to 
@@ -200,7 +200,7 @@ flags. You can find the paths with
 
 ```
 printenv | grep ROOT 
-```
+``
 
 Most recent modules have an environment variable `NAME_ROOT`, e.g.
 ```
@@ -225,25 +225,25 @@ The following should be typed on a single line:
 gfortran -o myexec -L${NETCDF_ROOT}/lib -I${NETCDF_ROOT}/include mycode.f90 -lnetcdff -lnetcdf 
 ```
 
-**Exercises**
+Exercises
 
 Exercise 1. Multiple files (no C example here)
 
 Copy from `/share/resources/tutorials/compilers` your choice of files
-- Copy `main.cxx` or `main.f90`
-- Copy `sub1.cxx` or `sub1.f90` 
-- Copy `sub2.cxx` or `sub2.f90` 
-- C++ copy `sub1.h` and `sub2.h` as well
+- Copy main.cxx or main.f90
+- Copy sub1.cxx or sub1.f90 
+- Copy sub2.cxx or sub2.f90 
+- C++ copy sub1.h and sub2.h as well
 
 Use these three files to create an executable. 
 
 Exercise 2. External Libraries 
 
 - Load the netcdf module for your choice of compiler suite as indicated above.
-- Copy `simple_xy_wr.c` or `simple_xy_wr.cpp` or `simple_xy_wr.f90` (note the C++ suffix is `cpp` here).
+- Copy `simple_xy_wr.c/.cpp/.f90` (note the C++ suffix is cpp here).
 
 - Compile and link the examples. You will need to add
-    `-I${NETCDF_ROOT}/include` and `-L${NETCDF_ROOT}/lib` to your link command.     For C use `-lnetcdf` for the library. For Fortran use `-lnetcdff -lnetcdf` in that order. For C++ use `-lnetcdf_c++ -lnetcdf` in that order. 
+    `-I${NETCDF_ROOT}/include` and `-L${NETCDF_ROOT}/lib` to your link command.     For C/C++ use `-lnetcdf` for the library. For Fortran use `-lnetcdff -lnetcdf` in that order. For C++ use `-lnetcdf_c++ -lnetcdf` in that order. 
 
 ## Running Your Executable
 
@@ -258,7 +258,7 @@ ls -l
 Make sure you are in the same directory as the executable you want to run. Type
 
 ```
-./myprog 
+./myprog {#myprog .western}
 ```
 Use the name you assigned your executable. `./` means current directory and is necessary because that is not in your default path.
 
@@ -292,22 +292,16 @@ Macros (automatic targets) for rules:
 - `$@` represents the file name of the current target
 - `$<` represents the name of the first prerequisite
 
-Variables, Comments, and Continuations: 
-
+Variables and Comments: 
 We can define variables in makefiles 
 ```
 F90=gfortran
 CC=gcc
 CXX=icpc 
 ```
-We then refer to them as `$(F90)`, `$(CC)`, etc. 
+We then refer to them as i`$(F90)`, `$(CC)`, etc. 
 
 Common variables: F90, CC, CXX, FFLAGS, F90FLAGS, CFLAGS, CXXFLAGS, CPPFLAGS (for the preprocessor), LDFLAGS.
-
-Comments may be inserted into a Makefile.  Anything from a `#` onward is ignored, unless it is a backslash `\`.  
-
-The backslash is the line-continuation marker.  Be sure it is the _last_ character on the line.  If it appears as the last character in a comment line, it allows the comment to be 
-extended over multiple lines.
 
 Suffix Rules:
 If all files with a given suffix (.c, .cxx, .f90, etc.) are to be compiled the same way, we can write a *suffix rule* to handle them. 
@@ -325,30 +319,28 @@ The rule must begin with a tab as usual.
 Pattern Rules:
 This is an extension by Gnu make (gmake), but nearly every make, especially on Linux, is gmake now.  They are similar to suffix rules. 
 
-Gmake contains built-in pattern rules so it can handle common cases if you do not write your own rules.  For example, to compile a C code it will by default use
+Pattern for creating the .o: 
 ```
-%.o : %.c
-        $(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+%.o: %.cxx
+<tab>$(CXX) $(CXXFLAGS) -c $< 
 ```
 
-A pattern rule that is particularly useful for Fortran 90+:
+A pattern rule particularly useful for Fortran 90+:
 ```
 %.mod: %.o 
 ```
 
-This can be helpful because make's default pattern rule for `.mod` is for a programming language called Modula, but Fortran uses `.mod` for compiled module interface files.  Adding this pattern rule overrides the built-in rule for that suffix.
-
 #### Make Options
 
-Files with names other than `makefile` or `Makefile` can be used with the -f option
+Files with other names other than `makefile` or `Makefile` can be used with the -f option
 ```
-make -f Make.linux 
+make --f Make.linux 
 ```
 
 Make creates the first target in the file unless a specific target is specified.(Some Makefiles are written to require a target.). To generate a different target, provide its name on the command line.
 
 ```
-make pw.x 
+make pw.x {#make-pw.x .western style="margin-left: 0in; text-indent: 0in"}
 ```
 
 #### makemake
@@ -369,7 +361,7 @@ options are changed.
 
 Makemake Skeleton: 
 
-```make
+```
 PROG = 
 
 SRCS =  code.cxx file1.cxx file2.cxx 
@@ -425,7 +417,7 @@ clean:
 main.o: code.cxx file1.h file2.h 
 ```
 
-**Exercise**
+Exercise
 
 Copy or move your multi-file program into its own directory. 
 Run makemake in the directory.
@@ -441,28 +433,28 @@ Check that your executable works.
 Configure is a way to generate a Makefile automatically.
 
 We will not discuss creating configure scripts, since they can be quite complex. But much software is distributed with them.
-Configure usually takes many options and they vary by package. To see them, run from its directory 
+configure usually takes many options and they vary by package. To see them, run from its directory 
 
-```make
+```
 ./configure --help
 ```
 
 Most configure scripts assume the software will be installed into /usr or /usr/local. You do not have permission to do this on Rivanna so you will nearly always need to use the `-prefix` option. 
 
-```make
+```
 ./configure -prefix=/home/mst3k/udunits
 ```
 
 Configure should produce a Makefile. 
 When it has completed you can run `make` as usual. This is usually followed by
 
-```make
+```
 make install
 ```
 
 Refer to the documentation for your package for more details.
 
-**Exercise** 
+Exercise 
 
 Copy udunits.tar.gz from /share/resources/tutorials/compilers
 
@@ -498,7 +490,8 @@ module load cmake
 
 CMake usually requires the creation of a separate build directory below the top-level directory of the project. 
 CMake uses -D flags as the equivalents of many options to configure.
-CMake caches your configuration into a file named CMakeCache.txt -- if you make changes you must remove this file or your changes will be ignored. It will be in the build directory if you created one.
+CMake uses a file called CMakeLists.txt to configure code.
+CMake caches your configuration into CMakeCache.txt -- if you make changes you must remove this file. It will be in the build directory if you made one.
 
 #### Useful CMake Flags
 
@@ -529,9 +522,9 @@ Make an installation directory.
 
 Make a build directory. Cd into it.
 
-Load a compiler if you haven't already, for example gcc.
+Load a compiler if you haven't already, for example gcc
 
-Load the cmake module.
+Load the cmake module
 
 Run (type cmake command all on one line) 
 
@@ -550,29 +543,29 @@ This simple example doesn't create an install target, so move the binary to the 
 Programs using shared-memory parallelism must run on a single node. Threads are started by a master process. 
 OpenMP is one popular library for this type of application.
 
-**OpenMP**
+#### OpenMP
 
 OpenMP is a library that is built in to the compiler. It is invoked via compiler and linker flags. 
 
-- gcc 
-      `-fopenmp`
+-  GCC 
+    `-fopenmp`
 
 - Intel
-      `-qopenmp`
+    `-qopenmp`
 
 - PGI
-      `-mp`
+    `-mp`
 
 Generally the default for OpenMP is to create one thread per core in parallel regions.
 This is not permitted on shared, resource-managed systems like Rivanna. The thread number must equal the number of cores requested.
 
 For OpenMP we use the OMP_NUM_THREADS environment variable. 
 In a SLURM script set
-```plaintext
+```
 #SBATCH -c <N> 
 ```
-where `N` is the number of cores you wish to use on the node.  Then in your commands, before you run your code, set 
-```bash
+Then in your commands, before you run your code, set 
+```
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 ```
 
@@ -598,14 +591,14 @@ Add a `-o <name>` flag to your build step if you want a name other than a.out.
 ```
 export OMP_NUM_THREADS=4 
 
-./a.out 
+./a.out {#a.out .western style="margin-left: 0in; text-indent: 0in"}
 ```
 
 #### Distributed memory 
 
 Programs using distributed-memory parallelism can run on multiple nodes.   Independed processes that communicate through a library, usually MPI.
 
-**Building and Running MPI Programs**
+Building and Running MPI Programs 
 
 MPI is an _external_ library.  It must be built for the compiler with which it will be used.
 We provided compiled versions of MPI for GCC and PGI. 
@@ -646,6 +639,7 @@ Use the wrappers
 -  `mpiicc` for C
 -  `mpiicpc` for C++
 -  `mpiifort` for Fortran
+```
 
 Running MPI Programs 
 
@@ -653,16 +647,16 @@ MPI programs must be run under the control of an executor program. Usually thi
 The `mpirun` and `mpiexec` must be told how many processes to start, and if on more than one host the list of host IDs must be provided.
 The SLURM executor `srun` obtains the number of processes and the hostlist directly from the job assignments. Do not specify them on the command line. 
 
-```plaintext
+```
 srun mympicode 
 ```
 
 On our system, mpirun/mpiexec do not communicate with SLURM. Always use srun as the executor in SLURM scripts.  You may use mpirun on the frontend with a small number of processes for very short test runs.
-```plaintext
+```
 mpirun -np 4 mympicode
 ```
 
-**Exercise**
+Exercise
 
 Copy the file mpihello.c or mpihello.f90 from /share/resources/tutorials/compilers.
 C++ programmers please note: the C++ bindings are deprecated in MPI, we just use the C routines.
@@ -699,7 +693,7 @@ Geany is easy to use and excellent for less complicated projects. It provides sy
 It runs on Linux, Windows, and Mac so you can easily install it onto your personal computers. 
 By default it uses gcc/g++/gfortran versions that are in the path (so load the desired gcc module _before_ loading the geany module). 
 You can alter the compiler commands from the Build menu, such as for using the ntel compilers.
-```plaintext
+```
 Build->Set Build Commands
 ```
 Building with Geany:
@@ -707,7 +701,7 @@ Building with Geany:
 For a single-file program, Build-\>Build or the brick icon.
 For a multi-file program, or more than one project, each file must be individually compiled.
 
-```plaintext
+```
 Build->Compile
 ``` 
 or the dropdown next to the brick.
@@ -718,15 +712,11 @@ When complete, you can run the program with Execute if it\'s a short test.
 #### Code::Blocks
 
 Code::Blocks is a somewhat more conventional IDE for C/C++/Fortran.
-The module is codeblocks (no colon)
-```
-module load codeblocks 
-```
-
 It is based on the notion of "projects" rather than individual files.
 It will need to add "project" files to any folders you want to use for your code. It is simplest to start each project from a new folder. 
 Code can be built in two modes: Debug, or Production.  Debug adds a debugging flag `-g` whereas Production adds the optimization flag `-O`.
 
-#### Eclipse
-
-Usage of Eclipse for C/C++/Fortran is more complicated.  Please see the [documentation](http://help.eclipse.org).  
+The module is codeblocks (no colon)
+```
+module load codeblocks 
+```
