@@ -1,0 +1,1196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.4.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.5in 11in; margin: 1in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		h1 { margin-left: 0.2in; text-indent: -0.2in; margin-bottom: 0.08in; color: #000000; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Sans", sans-serif; font-size: 28pt; so-language: en-US }
+		h1.cjk { font-family: "Noto Sans CJK SC"; font-size: 28pt }
+		h1.ctl { font-family: "Lohit Devanagari"; font-size: 14pt }
+		h2 { margin-left: 0.5in; text-indent: -0.2in; margin-bottom: 0.08in; color: #000000; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Sans", sans-serif; font-size: 24pt; so-language: en-US }
+		h2.cjk { font-family: "Noto Sans CJK SC"; font-size: 24pt }
+		h2.ctl { font-family: "Lohit Devanagari"; font-size: 14pt }
+		h3 { margin-left: 0.8in; text-indent: -0.2in; margin-bottom: 0.08in; color: #000000; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Sans", sans-serif; font-size: 20pt; so-language: en-US }
+		h3.cjk { font-family: "Noto Sans CJK SC"; font-size: 20pt }
+		h3.ctl { font-family: "Lohit Devanagari"; font-size: 14pt }
+		h4 { margin-left: 1.1in; text-indent: -0.2in; margin-bottom: 0.08in; color: #000000; background: transparent; page-break-after: avoid }
+		h4.western { font-family: "Liberation Sans", sans-serif; font-size: 14pt; so-language: en-US }
+		h4.cjk { font-family: "Noto Sans CJK SC"; font-size: 14pt }
+		h4.ctl { font-family: "Lohit Devanagari"; font-size: 14pt }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><h1 class="western" style="margin-left: 0in; text-indent: 0in">
+<font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 54pt">Building
+and Running C/C++/Fortran codes on Rivanna</font></font></font></h1>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Compilers
+vs. Interpreters</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Compilers
+	go through a multi-stage process to convert </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>source
+	cod</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">e
+	to an </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>executable</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	(also called a binary).    Binaries are machine language and
+	cannot be read by (most) humans.    </font></font>
+	</h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Binaries
+	are specific to a platform. You cannot run a Windows binary on a
+	Linux system, and vice versa.</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Interpreters
+	execute each line of source.    For this reason, source files
+	for interpreters are often called scripts.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">When
+	running an interpreter, the executable is the interpreter itself. 
+	  Your script cannot be run directly.    </font></font>
+	</h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Some
+	scripts can invoke their own interpreters and run standalone, but
+	they are not themselves binaries.</font></font></h3>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Building
+an Executable</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Creating
+	an executable is a multi-step process.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	compiler first produces an </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>object
+	file </i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">for
+	each </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>source
+	file</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">. 
+	  In Unix these end in </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.o</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Object
+	files are binary (machine language) but cannot be executed.   
+	They must be </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>linked</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	into an executable.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	linker (also called a loader) is nearly always invoked through the
+	compiler, not separately.    The linker links all object files
+	as specified, and if run through the compiler it also links the
+	compiler's </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>runtime
+	libraries</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">. 
+	  These are libraries used to carry out procedures intrinsic to
+	the compiler.    This happens automatically if the compiler
+	matches the language of the main program.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Compilers
+on Rivanna	</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Rivanna
+	has multiple compilers and compiler versions, which we manage
+	through modules.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Gnu
+	Compiler Collection (gcc)</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">gcc
+	is the C compiler</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">g++
+	is the C++ compiler</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">gfortran
+	is the Fortran compiler</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">module
+	spider gcc</font></font></h3>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">-------------------------------------------------------------------
+ gcc:</font></font></h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">-------------------------------------------------------------------</font></font></h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">Description:</font></font></h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in">    
+ <font face="Courier New, serif"><font size="6" style="font-size: 24pt">The
+GNU Compiler Collection includes front ends for C, C++, Objective-C,
+Fortran, Java, and Ada, as well as libraries for these languages
+(libstdc++, libgcj,...).</font></font></h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><br/>
+<br/>
+
+</h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in">    
+<font face="Courier New, serif"><font size="6" style="font-size: 24pt">Versions:</font></font></h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in">    
+   <font face="Courier New, serif"><font size="6" style="font-size: 24pt">gcc/system</font></font></h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in">    
+   <font face="Courier New, serif"><font size="6" style="font-size: 24pt">gcc/5.4.0</font></font></h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in">    
+   <font face="Courier New, serif"><font size="6" style="font-size: 24pt">gcc/7.1.0</font></font></h3>
+<h3 class="western" style="margin-left: 0.5in"><br/>
+<br/>
+
+</h3>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">More
+Compilers</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Intel</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">icc
+	is the C compiler</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">icpc
+	is the C++ compiler</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">ifort
+	is the Fortran compiler</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Intel
+	compilers frequently produce the fastest binaries for Intel
+	architectures</font></font></h3>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">module
+spider intel</font></font></h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">module
+load intel</font></font></h3>
+<h2 class="western" style="margin-left: 0.2in"><br/>
+<br/>
+
+</h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">More
+Compilers</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">PGI</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">We
+	also offer the Portland Group (PGI) compilers but currently have
+	fewer libraries compiled for them.</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">pgcc</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">pgc++</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">pgf90
+	(also pgf77 for very old code)</font></font></h3>
+</ul>
+<h3 class="western" style="margin-left: 0.5in"><br/>
+<br/>
+
+</h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">module
+spider pgi</font></font></h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">module
+load pgi</font></font></h3>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Compiling
+a File</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Suppose
+	your program is short and can be contained within a single file.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">If
+	not told otherwise a compiler will attempt to compile and link the
+	source file(s) it is instructed to compile.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	default name for the executable is </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">a.out</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	option </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">-o</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	is used to name the binary something other than </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">a.out</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0.2in"><br/>
+<br/>
+
+</h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Examples</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Build
+	a C program</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">gcc
+	–o myprog mycode.c</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">icc
+	–o myprog mycode.c</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">pgcc
+	–o myprog mycode.</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">c</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Build
+	a C++ program</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">g++
+	-o myprog mycode.cxx</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">icpc
+	–o myprog mycode.cxx</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">pgc++
+	-o myprog mycode.cxx</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Build
+	a Fortran program</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">gfortran
+	–o myprog mycode.f90</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">ifort
+	–o myprog mycode.f90</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">pgfortran
+	–o myprog mycode.f90</font></font></h3>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Exercise</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Load
+	a compiler module (your choice).</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Copy
+	one of the following files from /share/resources/tutorials/compilers
+	to your home directory, or to a directory you create for the
+	examples.</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">mycode.c</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">mycode.cxx</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">mycode.f90</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Use
+	the appropriate compiler to build your executable.    Choose any
+	name you wish for the executable.</font></font></h2>
+</ul>
+<h3 class="western" style="margin-left: 0.5in"><br/>
+<br/>
+
+</h3>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Compiling
+and Linking Multiple Files</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Most
+	programs consist of multiple files.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">For
+	Unix compilers the </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">-c</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	option suppresses linking.    The compiler must then be run
+	again to build the executable from the object files.</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">g++
+	-c mymain.cxx</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">g++
+	-c mysub1.cxx</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">g++
+	-c mysub2.cxx</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">g++
+	-o myprog mymain.o mysub1.o mysub2.o</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">These
+	compiler flags are similar for all three compiler suites.</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">ifort
+	–c mymain.f90</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">ifort
+	–c mysub1.f90</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">ifort
+	–c mysub2.f90</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">ifort
+	–o myprog mymain.o mysub1.o mysub2.o</font></font></h3>
+</ul>
+<h2 class="western" style="margin-left: 0.2in"><br/>
+<br/>
+
+</h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Linkers
+and Libraries</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">When
+	the executable is created any external libraries must also be
+	linked.    </font></font>
+	</h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	compiler will search a standard path for libraries.    On Unix
+	this is typically </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">/usr/lib,
+	/usr/lib64, /usr/local/lib, /lib</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">If
+	you have others you must give the compiler the path.    </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">-L</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	followed by a path works, then the libraries must be named </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">libfoo.a</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	or </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">libfoo.so
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">and
+	it is referenced </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">-lfoo</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Example:</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"> <font face="Courier New, serif"><font size="6" style="font-size: 22pt">g++
+–o mycode –L/usr/lib64/foolib mymain.o mysub.o –lfoo</font></font></h2>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 26pt">As
+	a general rule, libraries must be compiled by the same compiler as
+	your program.    </font></font>
+	</h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 26pt">For
+	most Unix compilers, </font></font><font face="Arial, serif"><font size="6" style="font-size: 26pt"><i>order
+	matters</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 26pt">! 
+	  The object file containing the code being called must be linked
+	after the object file that uses it.</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0.2in"><br/>
+<br/>
+
+</h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Headers
+and Modules</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Many
+	codes need headers (C/C++) or modules (Fortran) for procedure
+	prototypes, etc.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">As
+	for libraries, there is a system default search path for these
+	&quot;include files.&quot;    </font></font>
+	</h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	compiler flag is </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">–I/path/to/includes</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Fortran
+	module files are usually in the same directory as any files for
+	C/C++ headers, but if not another </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">–I</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	flag can be used.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Library
+Paths on Rivanna</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Many
+	external libraries on Rivanna are accessed through modules.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	modules system on Rivanna is hierarchical.    You first load
+	your choice of compiler.    From there you can type</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">	module
+avail</font></font></h2>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	modules at the top will be for libraries built with that compiler.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">You
+	will generally need to provide paths for these libraries to </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">–L</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	and </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">–I</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	flags.    You can find the paths with</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">	printenv
+| grep EBROOT</font></font></h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Example</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">To
+	build many codes you will need HDF5 or NetCDF.    We will use
+	NetCDF for this example.</font></font></h2>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">module
+	load intel</font></font></h2>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">module
+	load netcdf</font></font></h2>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">printenv
+	| grep EBROOT</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	following should be typed on a single line:</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">gfortran
+–o myexec –L$EBROOTNETCDF/lib –I$EBROOTNETCDF/include
+mycode.f90 </font></font>
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">-lnetcdff
+-lnetcdf</font></font></h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Exercises</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Multiple
+	files (no C example here)</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Copy
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">main.cxx
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">or
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">main.f90</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Copy
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">sub1.cxx
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">or
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">sub1.f90</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Copy
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">sub2.cxx
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">or
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">sub2.f90</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">C++
+	copy</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">
+	sub1.h </font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">and
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">sub2.h</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Use
+	these three files to create another executable.</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">External
+	Libraries</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Load
+	the </font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">netcdf</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">
+	module for your choice of compiler suite.</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Copy
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">simple_xy_wr.c/.cpp/.f90
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">(note
+	the C++ suffix is </font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">cpp</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">
+	here).</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Compile
+	and link the examples.    You will need to add </font></font>
+	</h3>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in">–<font face="Courier New, serif"><font size="6" style="font-size: 22pt">I/$EBROOTNETCDF/include
+</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">and
+</font></font><font face="Courier New, serif"><font size="6" style="font-size: 22pt">–L$EBROOTNETCDF/lib</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">
+</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">to
+your command.    For C/C++ use </font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">–lnetcdf
+</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">for
+the library.    For Fortran use </font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">-lnetcdff
+–lnetcdf </font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">in
+that order. For C++ use –</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">lnetcdf_c++
+-lnetcdf </font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">in
+that order.</font></font></h3>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Running
+Your Executable</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">On
+	a Unix system, an executable must have the right permission.   
+	  Unless something goes very wrong, the compiler/linker will set
+	the &quot;execute bit&quot; for your executable; you should not need
+	to do that yourself.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">In
+	your directory with at least one executable run</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">ls
+	–l</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Make
+	sure you are in the same directory as the executable you want to
+	run.    Type</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">./myprog</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Use
+	the name you assigned your executable.    ./ means current
+	directory and is necessary because that is not in your default path.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Build
+Tools</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">This
+	can all become very difficult to manage when codes have a lot of
+	files.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Various
+	build tools have been developed.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	oldest and still most common is </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">make</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">. 
+	  Even many newer tools like </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">cmake</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	generate a </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">makefile</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">,
+	at least on Unix.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Make
+is a tool to manage builds</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">It
+	has a rigid and peculiar syntax.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">It
+	will look for a </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">makefile</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	first, followed by </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">Makefile</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	(on case-sensitive systems).</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	makefile defines one or more </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>targets</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">. 
+	  The target is the product of one or more </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>rules</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	target is defined with a colon following its name.    If there
+	are </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>dependencies</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	those follow the colon. </font></font>
+	</h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Dependencies
+	are other files that are required to create the current target.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Targets
+and Rules</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Example:</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"> 
+<font face="Courier New, serif">myexec: main.o module.o</font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"> 
+<font face="Courier New, serif">&lt;tab&gt;gfortran -o myexec main.o
+module.o</font></h2>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	tab is </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>required</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	in the rule.    Don’t ask why.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Macros
+	(automatic targets) for rules:</font></font></h2>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">$@</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	the file name of the current target</font></font></h2>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">$&lt;</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	the name of the first prerequisite</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0.2in"><br/>
+<br/>
+
+</h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Variables
+and Comments</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">We
+	can define variables in makefiles </font></font>
+	</h2>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">F90=gfortran</font></font></h2>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">CC=gcc</font></font></h2>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">CXX=icpc</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">We
+	then refer to them as </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">$(F90)</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">,
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">$(CC)</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">,
+	etc.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Common
+	variables: </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">F90,
+	CC, CXX, FFLAGS, F90FLAGS, CFLAGS, CXXFLAGS, CPPFLAGS </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">(for
+	the preprocessor)</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">,
+	LDFLAGS</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Suffix
+Rules</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">If
+	all files with a given suffix (.c, .cxx, .f90, etc.) are to be
+	compiled the same way, we can write a </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>suffix
+	rule</i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	to handle them. </font></font>
+	</h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">It
+	uses a </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt"><i>phony
+	target </i></font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">called
+	.SUFFIXES.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	rule must begin with a tab as usual.</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.SUFFIXES:
+.f90 .o</font></font></h2>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in">  
+<font face="Courier New, serif"><font size="6" style="font-size: 24pt">$(F90)
+$(F90FLAGS) –c $&lt; </font></font>
+</h3>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.SUFFIXES:
+.cxx .cpp .o</font></font></h2>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">	$(CXX)
+–c $(CXXFLAGS) –c &lt;$</font></font></h3>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Pattern
+Rules</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">This
+	is an extension by Gnu make (gmake), but nearly every make,
+	especially on Linux, is gmake now.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Similar
+	to suffix rules.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Pattern
+	for creating the .o:</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">%.o:
+%.cxx</font></font></h2>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"> 
+<font face="Courier New, serif"><font size="6" style="font-size: 24pt">$(CXX)
+$(CXXFLAGS) -c $&lt;</font></font></h3>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+
+</h2>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Useful
+	for Fortran 90+:</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">  
+<font face="Courier New, serif"><font size="6" style="font-size: 28pt">%.mod:
+%.o</font></font></h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Make
+Options</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">make
+	by default first looks for a file called </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">makefile</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">. 
+	  If that is not found, it looks for </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">Makefile</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Files
+	with other names can be used with the </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">–f</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	option</font></font></h2>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"> 
+<font face="Courier New, serif"><font size="6" style="font-size: 24pt">make
+–f Make.linux</font></font></h3>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">make
+	creates the first target in the file unless a specific target is
+	specified.    (Some Makefiles are written to require a target.).
+	To generate a different target, provide its name on the command
+	line.</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">  
+<font face="Courier New, serif"><font size="6" style="font-size: 28pt">make
+pw.x</font></font></h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">makemake</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">On
+	the cluster we provide a script that will create a skeleton
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">Makefile</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">. 
+	  Users will have to edit it to provide names, paths as needed,
+	etc. but it is far easier than starting from scratch.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Create
+	a directory for the source files you wish to build and type</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">	makemake</font></font></h2>
+<ul>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">makemake
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">cannot
+	distinguish files to be in the build versus other files you may have
+	in the directory.    It will pick up all files ending in </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.c</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">,
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.cxx</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">,
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.cpp</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">,
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.f</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">,
+	or </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.f90</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Remove
+	any irrelevant file names from the </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">Makefile.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Edit
+	the </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">Makefile.
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">At
+	minimum you must name your program through the </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">PROG
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">variable. 
+	  You should also specify the name of your compiler explicitly;
+	e.g. </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">gcc</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	not </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">cc</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Makemake
+Skeleton</font></font></font></h1>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">PROG
+=</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">&nbsp;&nbsp;</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">SRCS
+=&nbsp; code.cxx file1.cxx file2.cxx</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">OBJS
+=&nbsp; code.o file1.o file2.o</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">LIBS
+=</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">CC
+= cc</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">CXX
+= c++</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">CFLAGS
+= -O</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">CXXFLAGS
+= -O</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">FC
+= f77</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">FFLAGS
+= -O</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">F90
+= f90</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">F90FLAGS
+= -O</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">LDFLAGS
+=</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">all:
+$(PROG)</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">$(PROG):
+$(OBJS)</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">&nbsp;
+&nbsp; &nbsp; &nbsp; <font face="Courier New, serif"><font size="6" style="font-size: 28pt">$(CXX)
+$(LDFLAGS) -o $@ $(OBJS) $(LIBS)</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.PHONY:
+clean</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">clean:</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">&nbsp;
+&nbsp; &nbsp; &nbsp; <font face="Courier New, serif"><font size="6" style="font-size: 28pt">rm
+-f $(PROG) $(OBJS) *.mod</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.SUFFIXES:
+$(SUFFIXES) .f .f90 .F90 .f95</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.SUFFIXES:
+$(SUFFIXES) .c .cpp .cxx</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.f90.o
+.f95.o .F90.o:</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">&nbsp;
+&nbsp; &nbsp; &nbsp; <font face="Courier New, serif"><font size="6" style="font-size: 28pt">$(F90)
+$(F90FLAGS) -c $&lt;</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.f.o:</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">&nbsp;
+&nbsp; &nbsp; &nbsp; <font face="Courier New, serif"><font size="6" style="font-size: 28pt">$(FC)
+$(FFLAGS) -c $&lt;</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.c.o:</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">&nbsp;
+&nbsp; &nbsp; &nbsp; <font face="Courier New, serif"><font size="6" style="font-size: 28pt">$(CC)
+$(CFLAGS) -c $&lt;</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">.cpp.o
+.cxx.o:</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">&nbsp;
+&nbsp; &nbsp; &nbsp; <font face="Courier New, serif"><font size="6" style="font-size: 28pt">$(CXX)
+$(CXXFLAGS) -c $&lt;</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><br/>
+<br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">main.o:
+code.cxx file1.h file2.h</font></font></h2>
+<h2 class="western" style="margin-left: 0.2in"><br/>
+<br/>
+
+</h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Exercise</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Copy
+	or move your multi-file program into its own directory. </font></font>
+	</h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Run
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">makemake</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	in the directory.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Edit
+	the resulting Makefile appropriately.    You may remove any
+	lines pertaining to languages you aren't using.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Run
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">make</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Check
+	that your executable works. </font></font>
+	</h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Configure</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">configure
+	is a way to generate a Makefile automatically.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">We
+	will not discuss creating configure scripts, since they can be quite
+	complex.    But much software is distributed with them.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">configure
+	usually takes many options and they vary by package. To see them,
+	run from its directory</font></font></h2>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in">
+<font face="Courier New, serif"><font size="6" style="font-size: 24pt">./configure
+–help</font></font></h3>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Most
+	configure scripts assume the software will be installed into /usr or
+	/usr/local.    You do not have permission to do this on Rivanna
+	so you will nearly always need to use the --prefix option.</font></font></h2>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"> 
+<font face="Courier New, serif"><font size="6" style="font-size: 24pt">./configure
+--prefix=/home/mst3k/udunits</font></font></h3>
+<h2 class="western" style="margin-left: 0.2in"><br/>
+<br/>
+
+</h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">After
+Configuring</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Configure
+	should produce a Makefile.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">When
+	it has completed you can run</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">  
+<font face="Courier New, serif"><font size="6" style="font-size: 28pt">make</font></font></h2>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">as
+	usual.    This is usually followed by</font></font></h2>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">make
+install</font></font></h3>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Refer
+	to the documentation for your package for more details.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Exercise</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Copy
+	udunits.tar.gz from /share/resources/tutorials/compilers</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Untar
+	it.    Cd into its directory.    Run </font></font>
+	</h2>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">configure
+--help</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">
+</font></font>
+</h3>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">After
+	examining the options, run it with at least the prefix option.   
+	You may wish to create a new directory for this purpose.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Build
+	the library.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Install
+	the library into the directory prepared for it.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">CMake</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">CMake
+	is a platform-independent build system.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Unlike
+	configure, it can be used on Windows natively.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">On
+	Rivanna, the system cmake is very old.    Newer versions are
+	available through modules.</font></font></h2>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">module
+spider cmake</font></font></h3>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	default module version is 3.12.3 which will build most cmake
+	projects.</font></font></h2>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">module
+load cmake</font></font></h3>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Running
+CMake</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">CMake
+	usually requires the creation of a separate </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">build</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	directory below the top-level directory of the project.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">CMake
+	uses </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">-D</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	flags as the equivalents of many options to configure.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">CMake
+	uses a </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">CMakeLists.txt
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">to
+	configure code.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">CMake
+	caches your configuration into </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">CMakeCache.txt
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">–
+	if you make changes you must remove this file. It will be in the
+	build directory if you made one.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Useful
+CMake Flags</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">You
+	will usually need to add</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">-DCMAKE_INSTALL_PREFIX=/path/to/install/location</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">CMake
+	does not pay (much) attention to your paths.    It has its own
+	means of finding compilers and libraries.</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">You
+	will probably need to add </font></font>
+	</h3>
+	<li><h4 class="western"><font face="Arial, serif"><font size="5" style="font-size: 20pt">-DCMAKE_C_COMPILER=gcc</font></font></h4>
+	<li><h4 class="western"><font face="Arial, serif"><font size="5" style="font-size: 20pt">-DCMAKE_CXX_COMPILER=g++</font></font></h4>
+	<li><h4 class="western"><font face="Arial, serif"><font size="5" style="font-size: 20pt">-DCMAKE_FC_COMPILER=gfortran</font></font></h4>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Cmake
+Example</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">We
+	will use an example prepared by Thom Troy (ttroy50 on github)</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Copy
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">cmake-example.tar.gz
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">from
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">/share/resources/tutorials/compilers</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Extract
+	the tarfile and cd to the directory it creates.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Make
+	an installation directory.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Make
+	a build directory.    Cd into it.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Load
+	a compiler if you haven't already, for example </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">gcc</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Load
+	the </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">cmake</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	module</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Run
+	(type </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">cmake</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	command all on one line)</font></font></h2>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">cmake
+.. –DCMAKE_INSTALL_PREFIX=/home/yourid/yourdir </font></font>
+</h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">-DCMAKE_CXX_COMPILER=g++</font></font></h3>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">make</font></font></h3>
+<ul>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">This
+	simple example doesn't create an </font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">install</font></font><font face="Arial, serif"><font size="6" style="font-size: 24pt">
+	target, so move the binary to the intended location.</font></font></h3>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Building
+and Running Parallel Codes</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Two
+	Types of Parallelism</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Shared
+	memory: must run on a single node.    Threads are started by a
+	master process.    </font></font>
+	</h3>
+	<li><h4 class="western"><font face="Arial, serif"><font size="5" style="font-size: 20pt">OpenMP
+	is a popular library for this.</font></font></h4>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Distributed
+	memory: can run on multiple nodes.    Independed processes that
+	communicate through a library, usually MPI.</font></font></h3>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">OpenMP</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">OpenMP
+	is a library that is built in to the compiler.    It is invoked
+	via compiler and linker flags.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">GCC</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">-fopenmp</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Intel</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">-qopenmp</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">PGI</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">-mp</font></font></h3>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Number
+of Threads</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Generally
+	the default for OpenMP is to create one thread per core in parallel
+	regions.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">This
+	is not permitted on shared, resource-managed systems like Rivanna. 
+	  The thread number must equal the number of cores requested.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">For
+	OpenMP we use the OMP_NUM_THREADS environment variable.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">In
+	a SLURM script set</font></font></h2>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">#SBATCH
+-c &lt;N&gt;</font></font></h3>
+<ul>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Then
+	in your commands, before you run your code, set</font></font></h3>
+</ul>
+<h3 class="western" style="margin-left: 0.3in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">export
+OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}</font></font></h3>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">OpenMP
+Example</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Copy
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">omphello.c</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	or </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">omphello.f90
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">from
+	/share/resources/compilers</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Using
+	your choice of compiler, build an executable</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">gcc
+	–fopenmp omphello.c</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">icc
+	–qopenmp omphello.c</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">pgcc
+	–mp omphello.c</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Or</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">gfortran
+	–fopenmp omphello.f90</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">ifort
+	–qopenmp omphello.f90</font></font></h3>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">pgfortran
+	–mp omphello.c</font></font></h3>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Run
+The OpenMP Program</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Add
+	a </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">–o
+	&lt;name&gt; </font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">flag
+	to your build step if you want a name other than </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">a.out</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">export
+OMP_NUM_THREADS=4</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">./a.out</font></font></h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Building
+and Running MPI Programs</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">MPI
+	is an external library.    It must be built for the compiler
+	with which it will be used.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">We
+	provided versions of MPI for GCC and PGI.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">For
+	Intel we recommend using the vendor's IntelMPI.</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0.2in"><br/>
+<br/>
+
+</h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">OpenMPI
+with GCC and PGI</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">module
+	load gcc</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Or
+	</font></font><font face="Courier New, serif"><font size="6" style="font-size: 24pt">module
+	load pgi</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Follow
+	this by</font></font></h2>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">module
+	load openmpi</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Compile
+	and link your code with the wrappers</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"> 
+<font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpicc</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"> 
+<font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpicxx</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"> 
+<font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpif90</font></font></h2>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	wrappers insert the appropriate header/module paths and library
+	paths, and also the correct libraries to link.    You do not add
+	them explicitly.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">IntelMPI
+with Intel</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Module
+	load intel</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">module
+	load intelmpi</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Use
+	the wrappers</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"> 
+<font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpiicc</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"> 
+<font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpiicpc</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"> 
+<font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpiifort</font></font></h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Running
+MPI Programs</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">MPI
+	programs must be run under the control of an executor program.   
+	Usually this is called </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpirun</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	or </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpiexec</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">,
+	but when submitting to SLURM we must use </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">srun</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">.</font></font></h2>
+	<li><h2 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpirun</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	and </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpiexec</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	must be told how many processes to start, and if on more than one
+	host the list of host IDs must be provided.    </font></font>
+	</h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Srun
+	obtains the number of processes and the hostlist directly from
+	SLURM.    Do not specify them on the command line.</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in"> 
+<font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpirun
+–np 120 –hostfile hfile mympicode</font></font></h2>
+<h2 class="western" style="margin-left: 0in; text-indent: 0in">  <font face="Courier New, serif"><font size="6" style="font-size: 28pt">srun
+mympicode</font></font></h2>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">On
+	our system, </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpirun/mpiexec
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">do
+	not communicate with SLURM.    Always use </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">srun
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">as
+	the executor in SLURM scripts.</font></font></h2>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Exercise</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Copy
+	the file </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpihello.c</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">
+	or </font></font><font face="Courier New, serif"><font size="6" style="font-size: 28pt">mpihello.f90
+	</font></font><font face="Arial, serif"><font size="6" style="font-size: 28pt">from
+	/share/resources/tutorials/compilers</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">C++
+	programmers please note: the C++ bindings are deprecated in MPI, we
+	just use the C routines.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Load
+	the appropriate module for the compiler you are using.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Build
+	the code with the appropriate wrapper.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">You
+	can run a quick test on the frontend with 4 cores.    You do not
+	need a hostfile if all processes are on one node. </font></font>
+	</h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Write
+	a SLURM script using srun to run the program.    Submit to the
+	devel partition for testing.</font></font></h2>
+</ul>
+<h2 class="western" style="margin-left: 0.2in"><br/>
+<br/>
+
+</h2>
+<h2 class="western" style="margin-left: 0.2in"><br/>
+<br/>
+
+</h2>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Integrated
+Development Environments</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">IDEs
+	are a graphical user interface for code development.</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Examples</font></font></h3>
+	<li><h4 class="western"><font face="Arial, serif"><font size="5" style="font-size: 20pt">Microsoft
+	Visual Studio</font></font></h4>
+	<li><h4 class="western"><font face="Arial, serif"><font size="5" style="font-size: 20pt">XCode</font></font></h4>
+	<li><h4 class="western"><font face="Arial, serif"><font size="5" style="font-size: 20pt">Eclipse</font></font></h4>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">IDEs
+	installed on Rivanna</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Geany</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Code::Blocks</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Eclipse</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">IDEs
+	require access to X11.    One means for this is through FastX
+	Web</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">https://rivanna-desktop.hpc.virginia.edu</font></font></h3>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Geany	</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Geany
+	is a programmer's editor that also has some lightweight building
+	capabilities.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Geany
+	is easy to use and excellent for less complicated projects.   
+	It provides syntax coloring for dozens of languages.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">It
+	runs on Linux, Windows, and Mac so you can easily install it onto
+	your personal computers.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">By
+	default it uses gcc/g++/gfortran versions that are in the path (so
+	load the desired gcc module before loading the geany module).</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">You
+	can alter this from the Build menu</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Build-&gt;Set
+	Build Commands</font></font></h3>
+</ul>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Building
+with Geany</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">For
+	a single-file program, Build-&gt;Build or the brick icon</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">For
+	a multi-file program, or more than one project, each file must be
+	individually compiled</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Build-&gt;Compile
+	or the dropdown next to the brick</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">You
+	can use Make but must write the file yourself (you can edit it with
+	Geany)</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">When
+	complete, you can run the program with Execute if it's a short test.</font></font></h2>
+</ul>
+<h1 class="western"><br/>
+<br/>
+
+</h1>
+<h1 class="western" style="margin-left: 0in; text-indent: 0in"><font color="#646b86"><font face="Arial, serif"><font size="7" style="font-size: 40pt">Code::Blocks</font></font></font></h1>
+<ul>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Code::Blocks
+	is a somewhat more conventional IDE for C/C++/Fortran.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">It
+	is based on the notion of &quot;projects&quot; rather than
+	individual files.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">It
+	will need to add &quot;project&quot; files to any folders you want
+	to use for your code.    It is simplest to start from a new
+	folder.</font></font></h2>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">Code
+	can be built in two modes</font></font></h2>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Debug</font></font></h3>
+	<li><h3 class="western"><font face="Arial, serif"><font size="6" style="font-size: 24pt">Production</font></font></h3>
+	<li><h2 class="western"><font face="Arial, serif"><font size="6" style="font-size: 28pt">The
+	module is codeblocks</font></font></h2>
+	<li><h3 class="western"><font face="Courier New, serif"><font size="6" style="font-size: 24pt">module
+	load codeblocks</font></font></h3>
+</ul>
+<h1 class="western"><br/>
+<br/>
+
+</h1>
+</body>
+</html>
