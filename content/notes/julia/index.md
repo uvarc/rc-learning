@@ -39,6 +39,15 @@ and an extensive set of Julia code examples.
 * The Power of Language <br />
   https://www.youtube.com/watch?v=nwdGsz4rc3Q
 
+* A Julia interpreter and debugger <br />
+  https://julialang.org/blog/2019/03/debuggers/
+
+* Introduction to Julia’s Debugger <br />
+  http://webpages.csus.edu/fitzgerald/julia-debugger-tutorial/
+
+* The Julia Language Slack <br />
+  https://julialang.org/slack/
+
 ## Julia Integrated Development Environments (IDE)
 
 * Juno: A Flexible IDE for Julia <br />
@@ -75,6 +84,15 @@ and an extensive set of Julia code examples.
 
 * Julia: A Fresh Approach to Numerical Computing <br />
   https://julialang.org/assets/research/julia-fresh-approach-BEKS.pdf
+
+* JuliaHPC Meeting <br />
+  https://discourse.julialang.org/t/juliahpc-meeting/49093
+
+* JuliaCon 2020 | MPI.jl: Julia meets classic HPC | Simon Byrne
+  https://www.youtube.com/watch?v=pV-8YqfOxQE&list=PLP8iPy9hna6Tl2UHTrm4jnIYrLkIcAROR&index=88
+
+* Parallel Computing in Julia
+  https://docs.julialang.org/en/v1/manual/parallel-computing/
 
 ## Julia Examples
 
