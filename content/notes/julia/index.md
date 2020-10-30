@@ -59,6 +59,9 @@ and an extensive set of Julia code examples.
 * Julia for VSCode IDE <br />
   https://www.julia-vscode.org/
 
+* Debugging Julia in Juno
+  http://docs.junolab.org/latest/man/debugging/
+
 * JuliaCon 2020 | (Juno 1.0) VSCode for Julia 1.0 <br />
   https://www.youtube.com/watch?v=rQ7D1lXt3GM&list=PLP8iPy9hna6Tl2UHTrm4jnIYrLkIcAROR&index=2
 
