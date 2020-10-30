@@ -144,11 +144,11 @@ For K80 you should receive similar results as follows:
 |3| 95 |2.38   |1.26|
 |4| 76 |2.97   |1.35|
 
-{{< figure src="ddp_k80.png"  >}}
+The speedup is plotted below. Notice how the deviation from perfect scaling (light diagonal line) increases with N.
 
-The same benchmark was performed on RTX 2080 Ti (coming soon!)
+{{< figure src="ddp_k80.png" width="400px" >}}
 
-{{< figure src="ddp_rtx.png"  >}}
+The same benchmark was performed on RTX 2080Ti (coming soon to Rivanna!)
 
 |N|Time (s)|Speedup|Relative SU|
 |---|---|---|---|
@@ -163,4 +163,10 @@ The same benchmark was performed on RTX 2080 Ti (coming soon!)
 |9|49|3.49|2.58|
 |10|49|3.49|2.87|
 
-{{< figure src="k80_rtx.png"  >}}
+Notice the plateau beyond N=6 - this implies that you should not request more than 6 GPU devices for this particular task.
+
+{{< figure src="ddp_rtx.png" width="400px" >}}
+
+The performance of K80 vs RTX 2080Ti is compared below. On a single GPU device, the latter is 30% faster. 
+
+{{< figure src="k80_rtx.png" width="400px" >}}
