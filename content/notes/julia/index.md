@@ -88,6 +88,9 @@ and an extensive set of Julia code examples.
 * Julia: A Fresh Approach to Numerical Computing <br />
   https://julialang.org/assets/research/julia-fresh-approach-BEKS.pdf
 
+* Quantitative Economics with Julia <br />
+  https://julia.quantecon.org/index_toc.html
+
 * JuliaHPC Meeting <br />
   https://discourse.julialang.org/t/juliahpc-meeting/49093
 
