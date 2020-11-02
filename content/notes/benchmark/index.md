@@ -11,40 +11,33 @@ date: 2020-10-29T00:00:00-05:00
 # Concepts
 
 ## Definitions
-Denote the number of cores (or nodes or GPU devices) as N and the walltime as t. The basis of comparison is the serial job where N=1 with a walltime of t1.
+Denote the number of cores (or nodes or GPU devices) as $N$ and the walltime as $t$. The basis of comparison is the serial job where $N=1$ with a walltime of $t_1$.
 
-**Speedup** is defined as s=t1/t. For example, a job that finishes in half the time has a speedup factor of 2.
+**Speedup** is defined as $s=t_1/t$. For example, a job that finishes in half the time has a speedup factor of 2.
 
-**Perfect scaling** is achieved when N=s. If you manage to halve the time (s=2) by doubling the resources (N=2), you achieve perfect scaling.
+**Perfect scaling** is achieved when $N=s$. If you manage to halve the time ($s=2$) by doubling the resources ($N=2$), you achieve perfect scaling.
 
 On Rivanna, the **SU** (service unit) charge rate is defined as
-```text
-SU = (#core + 2#gpu) x walltime
-```
+$$SU = (N_{\mathrm{core}} + 2N_{\mathrm{gpu}}) t$$
 
 We can define a **relative SU**, i.e. the SU of a parallel job relative to that of its serial reference.
-```text
-SU     N x t      N
---- = -------- = ---
-SU1    1 x t1     s
-```
-In the case of perfect scaling, N=s and so the relative SU is 1, which means you spend the same amount of SUs for the parallel job as for its serial reference. Since sublinear scaling (s less than N) almost always occurs, the implication is that you need to pay an extra price for parallelization. For example, if you double the amount of cores (N=2) and reduce the walltime by only one-third (s=1.5), then the relative SU is equal to N/s=1.33, which means you spend 33% more SUs than a serial job. Whether this is worth it will of course depend on (1) the actual value of s, (2) the maximum walltime limit for the partition on Rivanna, and (3) your deadline.
+$$\frac{SU}{SU_1} = \frac{Nt}{t_1} = \frac{N}{s}$$
+
+In the case of perfect scaling, $N=s$ and so the relative SU is 1, which means you spend the same amount of SUs for the parallel job as for its serial reference. Since sublinear scaling ($s<N$) almost always occurs, the implication is that you need to pay an extra price for parallelization. For example, if you double the amount of cores ($N=2$) and reduce the walltime by only one-third ($s=1.5$), then the relative SU is equal to $N/s=1.33$, which means you spend 33% more SUs than a serial job. Whether this is worth it will of course depend on (1) the actual value of $s$, (2) the maximum walltime limit for the partition on Rivanna, and (3) your deadline.
 
 ## Amdahl's Law
 
-A portion of a program is called parallel if it can be parallelized. Otherwise it is said to be serial. In this simple model, a program is strictly divided into parallel and serial portions. Denote the parallel portion as p and the serial portion as 1-p (so that the sum equals 1).
+A portion of a program is called parallel if it can be parallelized. Otherwise it is said to be serial. In this simple model, a program is strictly divided into parallel and serial portions. Denote the parallel portion as $p$ ($0 \le p \le 1$) and the serial portion as $1-p$ (so that the sum equals 1).
 
-Suppose the program takes a total execution time of t1 to run completely in serial. Then the execution time of the parallelized program can be expressed as a function of N: `t = [(1-p) + p/N] t1`. The speedup is thus
+Suppose the program takes a total execution time of $t_1$ to run completely in serial. Then the execution time of the parallelized program can be expressed as a function of $N$:
+$$t = \left[(1-p) + \frac{p}{N}\right] t_1$$
 
-```text
-    t1        1
-s = -- = -----------
-    t    (1-p) + p/N
-```
+The speedup is thus
+$$s=\frac{t_1}{t} = \frac{1}{1-p+\frac{p}{N}}$$
 
-As N goes to infinity, s approaches 1/(1-p). This is the theoretical speedup limit.
+As $N\rightarrow\infty$, $s\rightarrow 1/(1-p)$. This is the theoretical speedup limit.
 
-**Exercise:** Find the maximum speedup if 99%, 90%, and 0% of the program is parallelizable.
+**Exercise:** Find the maximum speedup if 99%, 90%, 50%, 10%, and 0% of the program is parallelizable.
 
 # Tools
 
@@ -183,7 +176,7 @@ For K80 you should obtain similar results as follows:
 |3| 95 |2.38   |1.26|
 |4| 76 |2.97   |1.35|
 
-The speedup is plotted below. Notice how the deviation from perfect scaling (light diagonal line) increases with N.
+The speedup is plotted below. Notice how the deviation from perfect scaling (light diagonal line) increases with $N$.
 
 {{< figure src="ddp_k80.png" width="400px" >}}
 
@@ -202,11 +195,11 @@ The same benchmark was performed on RTX 2080Ti (coming soon to Rivanna!)
 |9|49|3.49|2.58|
 |10|49|3.49|2.87|
 
-Notice the plateau beyond N=6 - this implies that you should not request more than 6 GPU devices for this particular task. (A good balance between speed and SU effectiveness may be N=2-4.)
+Notice the plateau beyond $N=6$ - this implies that you should not request more than 6 GPU devices for this particular task. (A good balance between speed and SU effectiveness may be $2\le N \le 4$.)
 
 {{< figure src="ddp_rtx.png" width="400px" >}}
 
-**Exercise:** Deduce the parallel portion p of this program using Amdahl's Law.
+**Exercise:** Deduce the parallel portion $p$ of this program using Amdahl's Law.
 
 The performance of K80 vs RTX 2080Ti is compared below. On a single GPU device, the latter is 30% faster. 
 
