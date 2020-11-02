@@ -8,6 +8,16 @@ date: 2020-10-29T00:00:00-05:00
 
 # Motivation
 
+True or false:
+
+1. "If I use more cores/GPUs, my job will run faster."
+1. "I can save SUs by using more cores/GPUs, since my job will run faster."
+1. "I should always use all cores/GPUs on a node."
+
+The answer will of course depend on your program, but many users implicitly assume that these statements are true. (1) is **not** guaranteed. (2) is false. (3) depends.
+
+The premise of parallel scalability is that the program has to be _parallelizable_. Please read the documentation of your program to determine whether there is any benefit of using multiple cores/GPUs. (Note: A serial program may need more memory than a single core can provide. You will need to request multiple cores, but this is a memory-bound issue and is different from the execution speed.)
+
 # Concepts
 
 ## Definitions
@@ -25,7 +35,7 @@ $$\frac{SU}{SU_1} = \frac{Nt}{t_1} = \frac{N}{s}$$
 
 In the case of perfect scaling, $N=s$ and so the relative SU is 1, which means you spend the same amount of SUs for the parallel job as for its serial reference. Since sublinear scaling ($s<N$) almost always occurs, the implication is that you need to pay an extra price for parallelization. For example, if you double the amount of cores ($N=2$) and reduce the walltime by only one-third ($s=1.5$), then the relative SU is equal to $N/s=1.33$, which means you spend 33% more SUs than a serial job. Whether this is worth it will of course depend on (1) the actual value of $s$, (2) the maximum walltime limit for the partition on Rivanna, and (3) your deadline.
 
-## Amdahl's Law
+## Amdahl's Law (strong scaling)
 
 A portion of a program is called parallel if it can be parallelized. Otherwise it is said to be serial. In this simple model, a program is strictly divided into parallel and serial portions. Denote the parallel portion as $p$ ($0 \le p \le 1$) and the serial portion as $1-p$ (so that the sum equals 1).
 
