@@ -27,18 +27,40 @@ SU     N x t      N
 --- = -------- = ---
 SU1    1 x t1     s
 ```
-In the case of perfect scaling, N=s and so the relative SU is 1, which means you spend the same amount of SUs for the parallel job as for its serial reference. Since superlinear scaling (s>N) almost never occurs, the implication is that you need to pay an extra price for parallelization. For example, if you double the amount of cores (N=2) but only reduced the walltime by one-third (s=1.5), then the relative SU is equal to N/s=1.33, which means you spend 33% more SUs than a serial job. Whether this is worth it will of course depend on the actual value of s (and your deadline).
+In the case of perfect scaling, N=s and so the relative SU is 1, which means you spend the same amount of SUs for the parallel job as for its serial reference. Since sublinear scaling (s less than N) almost always occurs, the implication is that you need to pay an extra price for parallelization. For example, if you double the amount of cores (N=2) and reduce the walltime by only one-third (s=1.5), then the relative SU is equal to N/s=1.33, which means you spend 33% more SUs than a serial job. Whether this is worth it will of course depend on (1) the actual value of s, (2) the maximum walltime limit for the partition on Rivanna, and (3) your deadline.
+
+# Tools
+
+The performance is usually tracked by the execution time.
+
+## `time`
+
+The `time` command is included in most Linux distributions. You can simply prepend it to whatever command you want to time. For example:
+
+```bash
+$ time sleep 5
+
+real    0m5.026s
+user    0m0.001s
+sys     0m0.006s
+```
+
+Notice there are 3 lines of output - real, user, and sys. A good explanation of these can be found [here](https://stackoverflow.com/questions/556405/what-do-real-user-and-sys-mean-in-the-output-of-time1); for this tutorial, it is sufficient to use the real time. (The CPU time is given by user + sys, which in this case is almost 0 because the command is just `sleep`.)
+
+## `perf`
+
+A more dedicated tool for performance measurement is `perf` (not on Rivanna). Advanced users please refer to the official [tutorial](https://perf.wiki.kernel.org/index.php/Tutorial).
 
 # Examples
 
-## PyTorch DistributedDataParallel (DDP)
+## Multi-GPU: PyTorch
 
-PyTorch can make use of multiple GPU devices through DDP. This example is based on [our PyTorch 1.7 container](https://hub.docker.com/r/uvarc/pytorch) using the Python script provided by [PyTorch Lightning](https://pypi.org/project/pytorch-lightning) with minor modifications.
+PyTorch can make use of multiple GPU devices through the DistributedDataParallel (DDP) backend. This example is based on [our PyTorch 1.7 container](https://hub.docker.com/r/uvarc/pytorch) using the Python script provided by [PyTorch Lightning](https://pypi.org/project/pytorch-lightning) with minor modifications. (The container uses CUDA 11 which is compatible with Rivanna hardware after the December 2020 maintenance.)
 
 ### Setup
 
 - Download the container. The following command will create a Singularity container `pytorch_1.7.0.sif`.
-```
+```bash
 module load singularity/3.6.1
 singularity pull docker://uvarc/pytorch:1.7.0
 ```
@@ -98,7 +120,7 @@ trainer = pl.Trainer(max_epochs=1, gpus=1)
 trainer.fit(autoencoder, DataLoader(train), DataLoader(val))
 ```
 
-- Prepare a SLURM script (`job.slurm`) that runs the above Python script. We would like to download the MNIST data files first and exclude the download time from the actual benchmark. (More on this later.) Also fix a GPU type for consistency.
+- Prepare a SLURM script (`job.slurm`) that runs the above Python script. We would like to download the MNIST data files first and exclude the download time from the actual benchmark. (More on this later.) Also specify a GPU type for consistency.
 
 ```
 #!/bin/bash
@@ -116,26 +138,26 @@ time singularity run --nv pytorch_1.7.0.sif example.py
 ```
 
 - Submit the job.
-```
+```bash
 sbatch job.slurm
 ```
 
 ### Benchmark
 Set `download=False` in `example.py`:
-```
+```python
 dataset = MNIST(os.getcwd(), download=False, transform=transforms.ToTensor())
 ```
 
 Resubmit the job to set the reference (N=1, t1). Next, to make use of multiple GPU devices, use the `ddp` backend:
-```
+```python
 trainer = pl.Trainer(max_epochs=1, gpus=2, distributed_backend='ddp')
 ```
-Also add `srun` to your SLURM script:
-```
+For this example, use the same number in `--ntasks-per-node` and `--gres=gpu` in your SLURM script. Also add `srun` (**important**):
+```bash
 time srun singularity run --nv pytorch_1.7.0.sif example.py
 ```
 
-For K80 you should receive similar results as follows:
+For K80 you should obtain similar results as follows:
 
 |N|Time (s)|Speedup|Relative SU|
 |---|---|---|---|
@@ -163,10 +185,14 @@ The same benchmark was performed on RTX 2080Ti (coming soon to Rivanna!)
 |9|49|3.49|2.58|
 |10|49|3.49|2.87|
 
-Notice the plateau beyond N=6 - this implies that you should not request more than 6 GPU devices for this particular task.
+Notice the plateau beyond N=6 - this implies that you should not request more than 6 GPU devices for this particular task. (A good balance between speed and SU effectiveness may be N=2-4.)
 
 {{< figure src="ddp_rtx.png" width="400px" >}}
 
 The performance of K80 vs RTX 2080Ti is compared below. On a single GPU device, the latter is 30% faster. 
 
 {{< figure src="k80_rtx.png" width="400px" >}}
+
+### Remarks
+
+A complete machine learning benchmark would involve such parameters as batch size, learning rate, etc. You may pass a sparse grid to locate a desirable region and, if necessary, use a finer grid in that region to identify the best choice.
