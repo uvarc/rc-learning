@@ -8,8 +8,9 @@ date: 2020-10-29T00:00:00-05:00
 
 # Motivation
 
-# Terms and Implications
+# Concepts
 
+## Definitions
 Denote the number of cores (or nodes or GPU devices) as N and the walltime as t. The basis of comparison is the serial job where N=1 with a walltime of t1.
 
 **Speedup** is defined as s=t1/t. For example, a job that finishes in half the time has a speedup factor of 2.
@@ -28,6 +29,22 @@ SU     N x t      N
 SU1    1 x t1     s
 ```
 In the case of perfect scaling, N=s and so the relative SU is 1, which means you spend the same amount of SUs for the parallel job as for its serial reference. Since sublinear scaling (s less than N) almost always occurs, the implication is that you need to pay an extra price for parallelization. For example, if you double the amount of cores (N=2) and reduce the walltime by only one-third (s=1.5), then the relative SU is equal to N/s=1.33, which means you spend 33% more SUs than a serial job. Whether this is worth it will of course depend on (1) the actual value of s, (2) the maximum walltime limit for the partition on Rivanna, and (3) your deadline.
+
+## Amdahl's Law
+
+A portion of a program is called parallel if it can be parallelized. Otherwise it is said to be serial. In this simple model, a program is strictly divided into parallel and serial portions. Denote the parallel portion as p and the serial portion as 1-p (so that the sum equals 1).
+
+Suppose the program takes a total execution time of t1 to run completely in serial. Then the execution time of the parallelized program can be expressed as a function of N: `t = [(1-p) + p/N] t1`. The speedup is thus
+
+```text
+    t1        1
+s = -- = -----------
+    t    (1-p) + p/N
+```
+
+As N goes to infinity, s approaches 1/(1-p). This is the theoretical speedup limit.
+
+**Exercise:** Find the maximum speedup if 99%, 90%, and 0% of the program is parallelizable.
 
 # Tools
 
@@ -188,6 +205,8 @@ The same benchmark was performed on RTX 2080Ti (coming soon to Rivanna!)
 Notice the plateau beyond N=6 - this implies that you should not request more than 6 GPU devices for this particular task. (A good balance between speed and SU effectiveness may be N=2-4.)
 
 {{< figure src="ddp_rtx.png" width="400px" >}}
+
+**Exercise:** Deduce the parallel portion p of this program using Amdahl's Law.
 
 The performance of K80 vs RTX 2080Ti is compared below. On a single GPU device, the latter is 30% faster. 
 
