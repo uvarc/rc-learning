@@ -231,7 +231,7 @@ time srun singularity run --nv pytorch_1.7.0.sif example.py
 For K80 you should obtain similar results as follows:
 
 |N|Time (s)|Speedup|Relative SU|
-|---|---|---|---|
+|---|---:|---:|---:|
 |1|226 |1.00   |1.00|
 |2|134 |1.69   |1.18|
 |3| 95 |2.38   |1.26|
@@ -244,7 +244,7 @@ The speedup is plotted below. Notice how the deviation from perfect scaling (lig
 The same benchmark was performed on RTX 2080Ti (coming soon to Rivanna!)
 
 |N|Time (s)|Speedup|Relative SU|
-|---|---|---|---|
+|---|---:|---:|---:|
 |1|171|1.00|1.00|
 |2|108|1.58|1.26|
 |3|79|2.16|1.39|
@@ -256,7 +256,7 @@ The same benchmark was performed on RTX 2080Ti (coming soon to Rivanna!)
 |9|49|3.49|2.58|
 |10|49|3.49|2.87|
 
-Notice the plateau beyond $N=6$ - this implies that you should not request more than 6 GPU devices for this particular task. (A good balance between speed and SU effectiveness may be $2\le N \le 4$.)
+Notice the plateau beyond $N=6$, which implies that you should not request more than 6 GPU devices for this particular task. (A good balance between speed and SU effectiveness may be $2\le N \le 4$.)
 
 {{< figure src="ddp_rtx.png" width="400px" >}}
 
