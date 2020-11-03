@@ -76,10 +76,25 @@ $$s=\frac{t_1}{t} = \frac{1}{1-p+\frac{p}{N}}.$$
 
 As $N\rightarrow\infty$, $s\rightarrow 1/(1-p)$. This is the theoretical speedup limit.
 
-**Exercise:** Find the maximum speedup if 99%, 90%, 50%, 10%, and 0% of the program is parallelizable.
+**Exercise:** a) Find the maximum speedup if 99%, 90%, 50%, 10%, and 0% of the program is parallelizable. b) For $N=100$, what is the relative SU in each case?
 
 <details><summary>Show answer</summary>
-100, 10, 2, 1.11, 1.
+a) 100, 10, 2, 1.11, 1.
+
+b) First calculate the actual speedup (not the theoretical limit): 50.25, 9.17, 1.98, 1.11, 1.<br>
+Relative SU: 1.99, 10.9, 50.5, 90.1, 100.<br>
+
+Notice how the wasted SUs increase dramatically.
+</details>
+<br>
+
+**Exercise:** What is the theoretical limit in relative SU?
+$$\lim_{N\rightarrow\infty} \frac{SU}{SU_1}$$
+Hint: Consider cases $s<N$ and $s=N$ separately.
+
+<details><summary>Show answer</summary>
+For perfect scaling, the relative SU is equal to 1 for all values of N.<br>
+Otherwise, no limit/undefined/goes to infinity.
 </details>
 <br>
 
