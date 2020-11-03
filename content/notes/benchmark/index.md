@@ -12,12 +12,12 @@ True or false:
 
 1. "If I use more cores/GPUs, my job will run faster."
 1. "I can save SUs by using more cores/GPUs, since my job will run faster."
-1. "I should always use all cores/GPUs on a node."
+1. "I should request all cores/GPUs on a node."
 
 <details><summary>Show answer</summary>
-1. Not guaranteed.
-1. False.
-1. Depends.
+1. Not guaranteed. <br>
+2. False! <br>
+3. Depends.
 </details>
 
 <br>
