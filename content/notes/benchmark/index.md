@@ -14,40 +14,74 @@ True or false:
 1. "I can save SUs by using more cores/GPUs, since my job will run faster."
 1. "I should always use all cores/GPUs on a node."
 
-The answer will of course depend on your program, but many users implicitly assume that these statements are true. (1) is **not** guaranteed. (2) is false. (3) depends.
+<details><summary>Show answer</summary>
+1. Not guaranteed.
+1. False.
+1. Depends.
+</details>
 
-The premise of parallel scalability is that the program has to be _parallelizable_. Please read the documentation of your program to determine whether there is any benefit of using multiple cores/GPUs. (Note: A serial program may need more memory than a single core can provide. You will need to request multiple cores, but this is a memory-bound issue and is different from the execution speed.)
+<br>
 
-# Concepts
+New HPC users may implicitly assume that these statements are true and request resources that are not well utilized. The disadvantages are:
+
+1. **Wasted SUs.** All requested cores/GPUs count toward the SU charge, even if they are idle. (SU is the "currency" for resource usage on a cluster. The exact definition will be presented later.)
+1. **Long waiting time.** The more resources you request, the longer it is likely to wait in the queue.
+1. **Unpleasant surprise to see little or no performance improvement.**
+
+The premise of parallel scalability is that the program has to be _parallelizable_. Please read the documentation of your program to determine whether there is any benefit of using multiple cores/GPUs. (Exception: A serial program may need more memory than a single core can provide. You will need to request multiple cores, but this is a memory-bound issue and is different from the execution speed. We shall not consider this scenario for the remainder of the tutorial.)
+
+## What is benchmarking? And why/when should I benchmark?
+
+A benchmark is a measurement of performance. We will focus on the execution time of a program for a given task. (This is also known as strong scaling in parallel computing.) However, even for a serial program, a benchmark can still be useful when you run the program on different platforms. For instance, if a certain task takes 1 hour to complete on your laptop and 5 hours on Rivanna, there could be something wrong with how the program was installed on Rivanna.
+
+But doesn't benchmarking cost SUs? Two things. First, the `dev` partition is the perfect choice for benchmarking and debugging purposes, as long as you stay within the [limits](https://www.rc.virginia.edu/userinfo/rivanna/queues/). Remember, you do not need to complete the entire task if it takes too long; a fixed subtask would do. This could be an epoch in machine learning training, a time step in molecular dynamics simulation, a single iteration, etc., instead of reaching full convergence. This way you can perform the benchmark without spending SUs.
+
+Second, if the benchmark cannot be performed on `dev` for whatever reason (e.g. even the smallest subtask would take more than 1 hour, or the job needs more cores than the limit), it is true that you will have to spend SUs for benchmarking, but you may still gain in the long term, especially if you are running many production jobs of a similar nature (high-throughput). If you manage to prevent overspending say 10 SUs per job, then after 10,000 jobs you would have saved 100k SUs, an entire allocation. (Linear term trumps constant, eventually.)
+
+Besides the amount of hardware, sometimes certain parameters of a program can have a huge impact on performance as well (e.g. batch size in machine learning training, NPAR/KPAR in VASP). You will need to find the optimum parameter to achieve the best performance specific to your problem. This may not translate across platforms - what's optimal on one platform can be suboptimal on another, so you must perform a benchmark whenever you use a different platform!
+
+Benchmarking will also help you get a better sense of the scale of your project and how many SUs it entails. Instead of blindly guessing, you will be able to request cores/GPUs/walltime wisely.
+
+# Concepts and Theory
 
 ## Definitions
-Denote the number of cores (or nodes or GPU devices) as $N$ and the walltime as $t$. The basis of comparison is the serial job where $N=1$ with a walltime of $t_1$.
+Denote the number of cores (or GPU devices) as $N$ and the walltime as $t$. The reference for comparison is the job that uses $N=1$ and has a walltime of $t_1$.
 
 **Speedup** is defined as $s=t_1/t$. For example, a job that finishes in half the time has a speedup factor of 2.
 
 **Perfect scaling** is achieved when $N=s$. If you manage to halve the time ($s=2$) by doubling the resources ($N=2$), you achieve perfect scaling.
 
 On Rivanna, the **SU** (service unit) charge rate is defined as
-$$SU = (N_{\mathrm{core}} + 2N_{\mathrm{gpu}}) t$$
+$$SU = (N_{\mathrm{core}} + 2N_{\mathrm{gpu}}) t.$$
 
-We can define a **relative SU**, i.e. the SU of a parallel job relative to that of its serial reference.
-$$\frac{SU}{SU_1} = \frac{Nt}{t_1} = \frac{N}{s}$$
+We can define a **relative SU**, i.e. the SU relative to that of the reference:
+$$\frac{SU}{SU_1} = \frac{Nt}{t_1} = \frac{N}{s}.$$
 
-In the case of perfect scaling, $N=s$ and so the relative SU is 1, which means you spend the same amount of SUs for the parallel job as for its serial reference. Since sublinear scaling ($s<N$) almost always occurs, the implication is that you need to pay an extra price for parallelization. For example, if you double the amount of cores ($N=2$) and reduce the walltime by only one-third ($s=1.5$), then the relative SU is equal to $N/s=1.33$, which means you spend 33% more SUs than a serial job. Whether this is worth it will of course depend on (1) the actual value of $s$, (2) the maximum walltime limit for the partition on Rivanna, and (3) your deadline.
+In the case of perfect scaling, $N=s$ and so the relative SU is 1, which means you spend the same amount of SUs for the parallel job as for its serial reference. Since sublinear scaling ($s<N$) almost always occurs, the implication is that you need to pay an extra price for parallelization. For example, if you use 2 cores ($N=2$) and reduce the walltime by only one-third ($s=1.5$), then the relative SU is equal to $N/s=1.33$, which means you spend 33% more SUs than the serial job reference. Whether this is worth it will of course depend on:
 
-## Amdahl's Law (strong scaling)
+1. the actual value of $s$,
+1. the maximum walltime limit for the partition on Rivanna, and
+1. your deadline.
+
+## Amdahl's Law
 
 A portion of a program is called parallel if it can be parallelized. Otherwise it is said to be serial. In this simple model, a program is strictly divided into parallel and serial portions. Denote the parallel portion as $p$ ($0 \le p \le 1$) and the serial portion as $1-p$ (so that the sum equals 1).
 
 Suppose the program takes a total execution time of $t_1$ to run completely in serial. Then the execution time of the parallelized program can be expressed as a function of $N$:
-$$t = \left[(1-p) + \frac{p}{N}\right] t_1$$
+$$t = \left[(1-p) + \frac{p}{N}\right] t_1,$$
+where the time spent in the serial portion, $(1-p)t_1$, is irrespective of $N$.
 
 The speedup is thus
-$$s=\frac{t_1}{t} = \frac{1}{1-p+\frac{p}{N}}$$
+$$s=\frac{t_1}{t} = \frac{1}{1-p+\frac{p}{N}}.$$
 
 As $N\rightarrow\infty$, $s\rightarrow 1/(1-p)$. This is the theoretical speedup limit.
 
 **Exercise:** Find the maximum speedup if 99%, 90%, 50%, 10%, and 0% of the program is parallelizable.
+
+<details><summary>Show answer</summary>
+100, 10, 2, 1.11, 1.
+</details>
+<br>
 
 # Tools
 
@@ -69,7 +103,9 @@ Notice there are 3 lines of output - real, user, and sys. A good explanation of 
 
 ## `perf`
 
-A more dedicated tool for performance measurement is `perf` (not on Rivanna). Advanced users please refer to the official [tutorial](https://perf.wiki.kernel.org/index.php/Tutorial).
+A more dedicated tool for performance measurement is `perf` (not on Rivanna). Instead of a single measurement, it is more accurate to run a benchmark multiple times and take the average. The `perf` tool contains built-in statistical analysis. Advanced users please refer to the official [tutorial](https://perf.wiki.kernel.org/index.php/Tutorial).
+
+If you just want to get a rough idea with an error bar of say 5-10%, `time` suffices. The task should last significantly longer than 1 second.
 
 # Examples
 
@@ -168,7 +204,7 @@ Set `download=False` in `example.py`:
 dataset = MNIST(os.getcwd(), download=False, transform=transforms.ToTensor())
 ```
 
-Resubmit the job to set the reference (N=1, t1). Next, to make use of multiple GPU devices, use the `ddp` backend:
+Resubmit the job to set the reference ($t_1$). Next, to make use of multiple GPU devices, use the `ddp` backend:
 ```python
 trainer = pl.Trainer(max_epochs=1, gpus=2, distributed_backend='ddp')
 ```
@@ -211,6 +247,11 @@ Notice the plateau beyond $N=6$ - this implies that you should not request more 
 
 **Exercise:** Deduce the parallel portion $p$ of this program using Amdahl's Law.
 
+<details><summary>Show answer</summary>
+Using $s=3.49$ as the theoretical speedup limit, $p=1-1/s=0.71$.
+</details>
+<br>
+
 The performance of K80 vs RTX 2080Ti is compared below. On a single GPU device, the latter is 30% faster. 
 
 {{< figure src="k80_rtx.png" width="400px" >}}
@@ -218,3 +259,5 @@ The performance of K80 vs RTX 2080Ti is compared below. On a single GPU device, 
 ### Remarks
 
 A complete machine learning benchmark would involve such parameters as batch size, learning rate, etc. You may pass a sparse grid to locate a desirable region and, if necessary, use a finer grid in that region to identify the best choice.
+
+**Exercise:** Revisit the true-or-false questions at the beginning of this tutorial and answer them in your own words.
