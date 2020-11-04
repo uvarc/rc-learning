@@ -11,7 +11,7 @@ date: 2020-10-29T00:00:00-05:00
 True or false:
 
 1. "If I use more cores/GPUs, my job will run faster."
-1. "I can save SUs by using more cores/GPUs, since my job will run faster."
+1. "I can save SU by using more cores/GPUs, since my job will run faster."
 1. "I should request all cores/GPUs on a node."
 
 <details><summary>Show answer</summary>
@@ -24,7 +24,7 @@ True or false:
 
 New HPC users may implicitly assume that these statements are true and request resources that are not well utilized. The disadvantages are:
 
-1. **Wasted SUs.** All requested cores/GPUs count toward the SU charge, even if they are idle. (SU is the "currency" for resource usage on a cluster. The exact definition will be presented later.)
+1. **Wasted SU.** All requested cores/GPUs count toward the SU charge, even if they are idle. (SU is the "currency" for resource usage on a cluster. The exact definition will be presented later.)
 1. **Long waiting time.** The more resources you request, the longer it is likely to wait in the queue.
 1. **Unpleasant surprise to see little or no performance improvement.**
 
@@ -34,13 +34,13 @@ The premise of parallel scalability is that the program has to be _parallelizabl
 
 A benchmark is a measurement of performance. We will focus on the execution time of a program for a given task. (This is also known as strong scaling in parallel computing.) However, even for a serial program, a benchmark can still be useful when you run the program on different platforms. For instance, if a certain task takes 1 hour to complete on your laptop and 5 hours on Rivanna, there could be something wrong with how the program was installed on Rivanna.
 
-But doesn't benchmarking cost SUs? Two things. First, the `dev` partition is the perfect choice for benchmarking and debugging purposes, as long as you stay within the [limits](https://www.rc.virginia.edu/userinfo/rivanna/queues/). Remember, you do not need to complete the entire task if it takes too long; a fixed subtask would do. This could be an epoch in machine learning training, a time step in molecular dynamics simulation, a single iteration, etc., instead of reaching full convergence. This way you can perform the benchmark without spending SUs.
+But doesn't benchmarking cost SU? Two things. First, the `dev` partition is the perfect choice for benchmarking and debugging purposes, as long as you stay within the [limits](https://www.rc.virginia.edu/userinfo/rivanna/queues/). Remember, you do not need to complete the entire task if it takes too long; a fixed subtask would do. This could be an epoch in machine learning training, a time step in molecular dynamics simulation, a single iteration, etc., instead of reaching full convergence. This way you can perform the benchmark without spending SU.
 
-Second, if the benchmark cannot be performed on `dev` for whatever reason (e.g. even the smallest subtask would take more than 1 hour, or the job needs more cores than the limit), it is true that you will have to spend SUs for benchmarking, but you may still gain in the long term, especially if you are running many production jobs of a similar nature (high-throughput). If you manage to prevent overspending say 10 SUs per job, then after 10,000 jobs you would have saved 100k SUs, an entire allocation. (Linear term trumps constant, eventually.)
+Second, if the benchmark cannot be performed on `dev` for whatever reason (e.g. even the smallest subtask would take more than 1 hour, or the job needs more cores than the limit), it is true that you will have to spend SU for benchmarking, but you may still gain in the long term, especially if you are running many production jobs of a similar nature (high-throughput). If you manage to prevent overspending say 10 SU per job, then after 10,000 jobs you would have saved 100k SU, an entire allocation. (Linear term trumps constant, eventually.)
 
 Besides the amount of hardware, sometimes certain parameters of a program can have a huge impact on performance as well (e.g. batch size in machine learning training, NPAR/KPAR in VASP). You will need to find the optimum parameter to achieve the best performance specific to your problem. This may not translate across platforms - what's optimal on one platform can be suboptimal on another, so you must perform a benchmark whenever you use a different platform!
 
-Benchmarking will also help you get a better sense of the scale of your project and how many SUs it entails. Instead of blindly guessing, you will be able to request cores/GPUs/walltime wisely.
+Benchmarking will also help you get a better sense of the scale of your project and how many SU it entails. Instead of blindly guessing, you will be able to request cores/GPUs/walltime wisely.
 
 # Concepts and Theory
 
@@ -52,12 +52,13 @@ Denote the number of cores (or GPU devices) as $N$ and the walltime as $t$. The 
 **Perfect scaling** is achieved when $N=s$. If you manage to halve the time ($s=2$) by doubling the resources ($N=2$), you achieve perfect scaling.
 
 On Rivanna, the **SU** (service unit) charge rate is defined as
-$$SU = (N_{\mathrm{core}} + 2N_{\mathrm{gpu}}) t.$$
+$$SU = (N_{\mathrm{core}} + 2N_{\mathrm{gpu}}) t,$$
+where $t$ is in units of hours.
 
 We can define a **relative SU**, i.e. the SU relative to that of the reference:
 $$\frac{SU}{SU_1} = \frac{Nt}{t_1} = \frac{N}{s}.$$
 
-In the case of perfect scaling, $N=s$ and so the relative SU is 1, which means you spend the same amount of SUs for the parallel job as for its serial reference. Since sublinear scaling ($s<N$) almost always occurs, the implication is that you need to pay an extra price for parallelization. For example, if you use 2 cores ($N=2$) and reduce the walltime by only one-third ($s=1.5$), then the relative SU is equal to $N/s=1.33$, which means you spend 33% more SUs than the serial job reference. Whether this is worth it will of course depend on:
+In the case of perfect scaling, $N=s$ and so the relative SU is 1, which means you spend the same amount of SU for the parallel job as for its serial reference. Since sublinear scaling ($s<N$) almost always occurs, the implication is that you need to pay an extra price for parallelization. For example, if you use 2 cores ($N=2$) and reduce the walltime by only one-third ($s=1.5$), then the relative SU is equal to $N/s=1.33$, which means you spend 33% more SU than the serial job reference. Whether this is worth it will of course depend on:
 
 1. the actual value of $s$,
 1. the maximum walltime limit for the partition on Rivanna, and
@@ -84,7 +85,7 @@ a) 100, 10, 2, 1.11, 1.
 b) First calculate the actual speedup (not the theoretical limit): 50.25, 9.17, 1.98, 1.11, 1.<br>
 Relative SU: 1.99, 10.9, 50.5, 90.1, 100.<br>
 
-Notice how the wasted SUs increase dramatically.
+Notice how the wasted SU increases dramatically.
 </details>
 <br>
 
@@ -276,3 +277,46 @@ The performance of K80 vs RTX 2080Ti is compared below. On a single GPU device, 
 A complete machine learning benchmark would involve such parameters as batch size, learning rate, etc. You may pass a sparse grid to locate a desirable region and, if necessary, use a finer grid in that region to identify the best choice.
 
 **Exercise:** Revisit the true-or-false questions at the beginning of this tutorial and answer them in your own words.
+
+**Exercise:** A user performed a benchmark on the `standard` partition and determined that a serial job would take 10 days to complete and that the theoretical speedup limit is 4. The entire project involves 1,000 jobs looping over some variable. Assume that all 1,000 jobs can start running immediately. (The `standard` partition has a walltime limit of 7 days. No job extensions can be granted.)<br>
+a) What is the minimum amount of SU needed to finish the entire project?<br>
+b) The user has a deadline of 3 days. How many cores should the user request per job? How many extra SU will need to be spent compared to the minimum in a)?<br>
+c) Suppose the user did not perform the benchmark and just randomly picked 20 cores per job. How much time and how many SU will the user spend for this project?<br>
+d) Repeat b) but this time the deadline is tomorrow.
+
+<details><summary>Show answer</summary>
+a) Since each job could not finish within the 7-day limit using 1 core, we need to find the smallest $N$ such that $t\le7$ days. On one hand, the restriction is
+$$s=\frac{t_1}{t}\ge \frac{10}{7};$$
+on the other hand, we know $s_{\max}=1/(1-p) = 4$ so $p=0.75$ and that
+$$s= \frac{1}{0.25+\frac{0.75}{N}}.$$
+Combining these two equations:
+$$\frac{1}{0.25 +\frac{0.75}{N}} \ge \frac{10}{7}$$
+$$0.25+\frac{0.75}{N} \le \frac{7}{10}$$
+$$N \ge \frac{0.75}{0.7-0.25} \approx 1.67.$$
+Since $N$ must be an integer, the smallest solution is 2. For $N=2$, we obtain
+$$s= \frac{1}{0.25+\frac{0.75}{2}} = 1.6$$
+and
+$$t= t_1/s = 10\times24/1.6 = 150\ \mathrm{hours}$$
+or 6 days and 6 hours. Hence, each job takes $Nt=2\times 150=300$ SU and the entire project needs 300k SU.
+
+<br>
+
+b) From a) we find
+$$N \ge \frac{0.75}{\frac{3}{10}-0.25} = 15.$$
+The total amount of SU is
+$$15\times(3\times24)\times 1000 = 1.08\mathrm{M}.$$
+Compared to the minimum, the user needs to spend an extra 780k SU. 
+<br>
+
+c) For $N=20$ we obtain
+$$s= \frac{1}{0.25+\frac{0.75}{20}} \approx 3.48$$
+and
+$$t = 10\times24/3.48 = 69\ \mathrm{hours}$$
+or 2 days and 21 hours.
+Each job costs $20\times69=1.38$k SU and the entire project needs 1.38M SU. Compared to b) the project takes 3 hours less but at an additional cost of 300k SU.
+<br>
+
+d) Unfortunately, the user will not be able to meet the deadline, since even with an infinite amount of cores each job would take $10/4=2.5$ days.
+
+</details>
+<br>
