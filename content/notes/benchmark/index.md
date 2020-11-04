@@ -282,7 +282,7 @@ A complete machine learning benchmark would involve such parameters as batch siz
 a) What is the minimum amount of SU needed to finish the entire project?<br>
 b) The user has a deadline of 3 days. How many cores should the user request per job? How many extra SU will need to be spent compared to the minimum in a)?<br>
 c) Suppose the user did not perform the benchmark and just randomly picked 20 cores per job. How much time and how many SU will the user spend for this project?<br>
-d) Repeat b) but this time the deadline is tomorrow.
+d) Repeat b) but this time the deadline is in 50 hours.
 
 <details><summary>Show answer</summary>
 a) Since each job could not finish within the 7-day limit using 1 core, we need to find the smallest $N$ such that $t\le7$ days. On one hand, the restriction is
@@ -316,7 +316,7 @@ or 2 days and 21 hours.
 Each job costs $20\times69=1.38$k SU and the entire project needs 1.38M SU. Compared to b) the project takes 3 hours less but at an additional cost of 300k SU.
 <br>
 
-d) Unfortunately, the user will not be able to meet the deadline, since even with an infinite amount of cores each job would take $10/4=2.5$ days.
+d) Unfortunately, the user will not be able to meet the deadline, since even with an infinite amount of cores each job would take $10\times24/4=60$ hours.
 
 </details>
 <br>
