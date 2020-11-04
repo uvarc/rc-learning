@@ -278,7 +278,7 @@ A complete machine learning benchmark would involve such parameters as batch siz
 
 **Exercise:** Revisit the true-or-false questions at the beginning of this tutorial and answer them in your own words.
 
-**Exercise:** A user performed a benchmark on the `standard` partition and determined that a serial job would take 10 days to complete and that the theoretical speedup limit is 4. The entire project involves 1,000 such jobs looping over some variable. Assume that all 1,000 jobs can start running immediately. (The `standard` partition has a walltime limit of 7 days. No job extensions can be granted.)<br>
+**Exercise:** A user performed a benchmark on the `standard` partition and determined that a serial job would take 10 days to complete and that the theoretical speedup limit is 4. The entire project involves 1,000 such jobs. Assume that all 1,000 jobs can start running immediately. (The `standard` partition has a walltime limit of 7 days. No job extensions can be granted.)<br>
 a) What is the minimum amount of SU needed to finish the entire project?<br>
 b) The user has a deadline of 3 days. How many cores should the user request per job? How many extra SU will need to be spent compared to the minimum in a)?<br>
 c) Suppose the user did not perform the benchmark and just randomly decided to use 20 cores per job. How much time and how many SU will the user spend for this project? Compare your answer with b).<br>
