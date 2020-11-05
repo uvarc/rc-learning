@@ -77,7 +77,7 @@ and an extensive set of Julia code examples.
   https://live.juliacon.org/talk/C9FGPP
 
 * SciML / DifferentialEquations.jl <br />
-  https://github.com/SciML/DifferentialEquations.jl 
+  https://github.com/SciML/DifferentialEquations.jl
 
 * Julia for Data science <br />
   https://ucidatascienceinitiative.github.io/IntroToJulia/
@@ -100,10 +100,10 @@ and an extensive set of Julia code examples.
 * JuliaHPC Meeting <br />
   https://discourse.julialang.org/t/juliahpc-meeting/49093
 
-* JuliaCon 2020 | MPI.jl: Julia meets classic HPC | Simon Byrne
+* JuliaCon 2020 | MPI.jl: Julia meets classic HPC | Simon Byrne <br />
   https://www.youtube.com/watch?v=pV-8YqfOxQE&list=PLP8iPy9hna6Tl2UHTrm4jnIYrLkIcAROR&index=88
 
-* Parallel Computing in Julia
+* Parallel Computing in Julia <br />
   https://docs.julialang.org/en/v1/manual/parallel-computing/
 
 ## Julia Examples
