@@ -76,11 +76,17 @@ and an extensive set of Julia code examples.
 * Doing Scientific Machine Learning (SciML) With Julia <br />
   https://live.juliacon.org/talk/C9FGPP
 
+* SciML / DifferentialEquations.jl <br />
+  https://github.com/SciML/DifferentialEquations.jl 
+
 * Julia for Data science <br />
   https://ucidatascienceinitiative.github.io/IntroToJulia/
 
 * Tutorial to Learn Data Science with Julia <br />
   https://www.analyticsvidhya.com/blog/2017/10/comprehensive-tutorial-learn-data-science-julia-from-scratch/
+
+* Flux: The Julia Machine Learning Library <br />
+  https://fluxml.ai/Flux.jl/stable/
 
 * Introduction to Computational Thinking <br />
   https://computationalthinking.mit.edu/Fall20/
