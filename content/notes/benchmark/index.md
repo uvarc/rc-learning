@@ -125,6 +125,68 @@ If you just want to get a rough idea with an error bar of say 5-10%, `time` suff
 
 # Examples
 
+## Multi-core: Gaussian
+
+Gaussian is a quantum chemistry software package that can run on multiple CPU cores. This example is the open-shell vanilomycin test (#0709) included with the software.
+
+### Setup
+
+First load the module:
+```bash
+module load gaussian
+```
+
+If you are using Gaussian only through a course:
+```bash
+module load gaussian/grads16
+```
+
+Copy the input file:
+```bash
+cp $g16root/g16/tests/com/test0709.com .
+```
+
+Prepare a SLURM script (`job.slurm`):
+```bash
+#!/bin/bash
+#SBATCH -A <my_allocation>
+#SBATCH -p standard
+#SBATCH -t 10:00:00
+#SBATCH -N 1
+#SBATCH -c 1
+
+module purge
+module load gaussian  # or gaussian/grads16
+hostname
+grep -c processor /proc/cpuinfo
+cp $g16root/g16/tests/com/test0709.com .
+g16 -p=$SLURM_CPUS_PER_TASK test0709.com
+```
+
+Note:
+- The number of cores (`#SBATCH -c <num>`) is passed through the `$SLURM_CPUS_PER_TASK` environment variable to Gaussian's `-p` flag. This ensures consistency. 
+- Check that the second line in the output `slurm-*.out` should read 40. If not, please resubmit the job.
+- `$g16root` is an environment variable made available to you after you load the Gaussian module.
+
+Submit the job:
+```bash
+sbatch job.slurm
+```
+
+### Benchmark
+
+Modify the SLURM script to use 4, 8, 16, and 32 cores. Submit these jobs. You should obtain similar results as follows:
+
+|N|Time (s)|Speedup|Relative SU|
+|---|---:|---:|---:|
+|1 |        |1.00   |1.00|
+|4 | 2968.3 |   ||
+|8 | 1528.5 |   ||
+|16|  935.4 |   ||
+|32|  842.2 |   ||
+
+The speedup is plotted below. Notice how the deviation from perfect scaling (light diagonal line) increases with $N$. The scaling performance worsens more noticably beyond 8 cores and drastically beyond 16. This does not mean 8 or 16 is the magic number to use for Gaussian - it only applies to calculations of a similar nature.
+
 ## Multi-GPU: PyTorch
 
 PyTorch can make use of multiple GPU devices through the DistributedDataParallel (DDP) backend. This example is based on [our PyTorch 1.7 container](https://hub.docker.com/r/uvarc/pytorch) using the Python script provided by [PyTorch Lightning](https://pypi.org/project/pytorch-lightning) with minor modifications. (The container uses CUDA 11 which is compatible with Rivanna hardware after the December 2020 maintenance.)
