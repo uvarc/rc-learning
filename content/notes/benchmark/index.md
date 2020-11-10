@@ -193,7 +193,7 @@ You should obtain similar results as follows:
 |16|  935.4 |13.18|1.21|
 |32|  842.2 |14.63|2.19|
 
-The speedup is plotted below. Notice the perfect scaling up to $N=8$. (Don't get excited about the apparent superlinear scaling - it is within the margin of error.) The scaling performance worsens beyond 8 cores and drastically beyond 16. This does not mean 8 is the magic number to use for Gaussian - it only applies to calculations of a similar nature.
+The speedup is plotted below. Notice the perfect scaling up to $N=8$. (Don't get excited about the apparent superlinear scaling - it is within the margin of error.) The scaling performance worsens beyond 8 cores and drastically beyond 16. This does not mean 8 is the magic number to use for all Gaussian jobs - it only applies to calculations of a similar nature.
 
 {{< figure src="gaussian.png" width="500px" >}}
 
