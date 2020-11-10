@@ -1,7 +1,7 @@
 ---
 title: Image Processing with Fiji and Omero
 highlight_style: "github"
-date: 2020-10-22T00:00:00-05:00
+date: 2020-11-09T00:00:00-05:00
 toc: true  
 type: article
 draft: false
@@ -16,6 +16,8 @@ In this workshop you will learn to view and manipulate images through the [Fiji
 
 For more details, review the [OMERO tutorial](/tutorials/omero-hands-on) or visit
  the Research Computing website describing the [UVA Omero Database Service](https://www.rc.virginia.edu/userinfo/omero/overview/).
+
+---
 
 # Setup for this Workshop
 
@@ -42,7 +44,7 @@ For more details, review the [OMERO tutorial](/tutorials/omero-hands-on) or visi
 
 ### Download the Example Scripts
 
-To follow along, you can download the Jython scripts presented in this tutorial through **[this link](/scripts/fiji/fiji-omero-scripts.zip)**.
+To follow along, you can download the Jython scripts presented in this tutorial through [this link](/scripts/fiji/fiji-omero-scripts.zip).
 
 ### Check your OMERO Database Account
 
@@ -180,9 +182,8 @@ Before you begin, you need to know the dataset ID that the image should be linke
 
 3. Go to OMERO webclient (http://omero.hpc.virginia.edu) and look for the uploaded image in `Orphaned Images`.
 
-{{< figure src="/notes/fiji-omero/leaf.png" >}}
-
-{{< figure src="/notes/fiji-omero/fiji-omero-new-export.png" >}}
+	<img src="/notes/fiji-omero/leaf.png" style="float:left;width:40%;height:auto">
+	<img src="/notes/fiji-omero/fiji-omero-new-export.png" style="width:40%;height:auto">
 
 
 <br>
@@ -195,7 +196,7 @@ Before you begin, you need to know the dataset ID that the image should be linke
 
 3. File > Export > OMERO...
 
-**Question:** What happens when you repeatedly upload the same image to Omero
+**Question:** What happens when you repeatedly upload the same image to Omero?
 
 ---
 
@@ -210,15 +211,15 @@ Before you begin, you need to know the dataset ID that the image should be linke
 	a. Go to `Process` > `Filter` > `Median`.  In the popup dialog enter a `Radius` of  `3.0` and click `OK`.  This will smooth out some of the image intrinsic noise without degrading the object outlines.
 
 	b. Go to `Image` > `Adjust Threshold`.  In the popup dialog choose the `Default` thresholding algorithm, uncheck the `Dark Background` box and click `Apply`. The image should have been converted to a binary mask with white objects ona black background.
-{{< figure src="/notes/fiji-omero/fiji-omero-setthreshold.png" >}}
-{{< figure src="/notes/fiji-omero/fiji-omero-blobs-thresholded.png" >}}
-
+			<img src="/notes/fiji-omero/fiji-omero-setthreshold.png" style="float:left;width:47%;height:auto">
+			<img src="/notes/fiji-omero/fiji-omero-blobs-thresholded.png" style="width:40%;height:auto">
+	
+	
 	c. Go to `Analyze` > `Set Measurements...`. In the popup dialog specify the parameters as shown in this screenshot. Click `OK`.
 
 	d. Go to `Analyze` > `Analyze Particles` and set up the parameters as shown. Click `OK`.
-	
-	{{< figure src="/notes/fiji-omero/fiji-omero-setmeasurements.png" >}}
-	{{< figure src="/notes/fiji-omero/fiji-omero-analyzeparticles.png" >}}
+			<img src="/notes/fiji-omero/fiji-omero-setmeasurements.png" style="float:left;width:40%;height:auto">
+			<img src="/notes/fiji-omero/fiji-omero-analyzeparticles.png" style="width:50%;height:auto">
 
     e. These steps should create a `Results` and a `Summary` table.
 
