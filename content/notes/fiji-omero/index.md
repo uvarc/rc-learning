@@ -14,8 +14,7 @@ OMERO is an image management software package that allows you to organize, view,
 In this workshop you will learn to view and manipulate images through the [Fiji
 /ImageJ](https://fiji.sc/) software package.
 
-For more details, review the [OMERO tutorial](/tutorials/omero-hands-on) or visit
- the Research Computing website describing the [UVA Omero Database Service](https://www.rc.virginia.edu/userinfo/omero/overview/).
+For more details, review the [OMERO tutorial](/tutorials/omero-hands-on) or visit the Research Computing website describing the [UVA Omero Database Service](https://www.rc.virginia.edu/userinfo/omero/overview/).
 
 ---
 

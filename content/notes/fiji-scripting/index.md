@@ -1,7 +1,7 @@
 ---
 title: "Fiji / ImageJ: Script development for Image Processing"
 type: article
-toc: True
+toc: true
 ---
 
 {{< figure library="true" src="fiji.png" >}}
