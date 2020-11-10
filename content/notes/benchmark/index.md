@@ -167,6 +167,7 @@ Note:
 - The number of cores (`#SBATCH -c <num>`) is passed through the `$SLURM_CPUS_PER_TASK` environment variable to Gaussian's `-p` flag. This ensures consistency. 
 - Check that the second line in the output `slurm-*.out` should read 40. If not, please resubmit the job.
 - `$g16root` is an environment variable made available to you after you load the Gaussian module.
+- The `time` command is not needed here because Gaussian will time the job automatically.
 
 Submit the job:
 ```bash
@@ -175,17 +176,26 @@ sbatch job.slurm
 
 ### Benchmark
 
-Modify the SLURM script to use 4, 8, 16, and 32 cores. Submit these jobs. You should obtain similar results as follows:
+Modify the SLURM script to use 4, 8, 16, and 32 cores. Submit these jobs. The walltime can be read from the `test0709.log` file.
+
+```bash
+$ grep Elapsed test0709.log
+ Elapsed time:       0 days  0 hours 15 minutes 35.4 seconds.
+```
+
+You should obtain similar results as follows:
 
 |N|Time (s)|Speedup|Relative SU|
 |---|---:|---:|---:|
-|1 |        |1.00   |1.00|
-|4 | 2968.3 |   ||
-|8 | 1528.5 |   ||
-|16|  935.4 |   ||
-|32|  842.2 |   ||
+|1 |12323.9 |1.00 |1.00|
+|4 | 2968.3 |4.15 |0.96|
+|8 | 1528.5 |8.06 |0.99|
+|16|  935.4 |13.18|1.21|
+|32|  842.2 |14.63|2.19|
 
-The speedup is plotted below. Notice how the deviation from perfect scaling (light diagonal line) increases with $N$. The scaling performance worsens more noticably beyond 8 cores and drastically beyond 16. This does not mean 8 or 16 is the magic number to use for Gaussian - it only applies to calculations of a similar nature.
+The speedup is plotted below. Notice the perfect scaling up to $N=8$. (Don't get excited about the apparent superlinear scaling - it is within the margin of error.) The scaling performance worsens beyond 8 cores and drastically beyond 16. This does not mean 8 is the magic number to use for Gaussian - it only applies to calculations of a similar nature.
+
+{{< figure src="gaussian.png" width="500px" >}}
 
 ## Multi-GPU: PyTorch
 
