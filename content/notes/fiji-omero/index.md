@@ -1,7 +1,7 @@
 ---
 title: Image Processing with Fiji and Omero
 highlight_style: "github"
-date: "2020-06-31T00:00:00"
+date: 2020-11-09T00:00:00-05:00
 toc: true  
 type: article
 draft: false
@@ -9,18 +9,20 @@ draft: false
 
 # Introduction to OMERO
 
-OMERO is an image management software package that allows you to organize, view, annotate, analyze, and share your data from a single centralized database. With OMERO, you and your collaborators can access your images from any computer without having to download the images directly to your machine.
+OMERO is an image management software package that allows you to organize, view, annotate, analyze, and share your data from a single centralized database. With OMERO, you and your collaborators can access your images from any computer without having to download the images directly to your computer.
 
-In this workshop you will learn to view and manipulate images through the Fiji
-/ImageJ software package.
+In this workshop you will learn to view and manipulate images through the [Fiji
+/ImageJ](https://fiji.sc/) software package.
 
 For more details, review the [OMERO tutorial](/tutorials/omero-hands-on) or visit the Research Computing website describing the [UVA Omero Database Service](https://www.rc.virginia.edu/userinfo/omero/overview/).
+
+---
 
 # Setup for this Workshop
 
 ### Installation of Fiji and the OMERO Plugin
 
-1. Install the Fiji application on your computer as described in this [tutorial](/tutorials/fiji-intro/intro-fiji).
+1. Install the Fiji application on your computer as described in this [tutorial](/notes/fiji-intro/#fiji-installation).
 
 2. Start Fiji and go to `Help` > `Update`. This starts the updater which looks for plugin updates online.
 
@@ -39,13 +41,15 @@ For more details, review the [OMERO tutorial](/tutorials/omero-hands-on) or visi
 
 6. Restart Fiji.
 
----
+### Download the Example Scripts
+
+To follow along, you can download the Jython scripts presented in this tutorial through [this link](/scripts/fiji/fiji-omero-scripts.zip).
 
 ### Check your OMERO Database Account
 
 1. If you are accessing the OMERO Database from an off-Grounds location, you have to connect through a UVA Virtual Private Network (VPN).  Please follow these [instructions to set up your VPN](https://virginia.service-now.com/its?id=itsweb_kb_article&sys_id=f24e5cdfdb3acb804f32fb671d9619d0).
 
-2. Open a webbrowser and go to http://omero.hpc.virginia.edu. Login to the OMERO web interface is described [here](/lesson/omero/#using-omero-web).
+2. Open a webbrowser and go to http://omero.hpc.virginia.edu. Login to the OMERO web interface is described [here](/notes/omero/#logging-in-with-omeroweb).
 
     * **Username:** Your computing ID
     
@@ -133,7 +137,7 @@ Let's create a new project and dataset through the OMERO web client.
 3. Click on the blue folder icon of your new project and take note of the `Project ID`. We will need this to direct Fiji where to load data from or save data to.  No right click on your blue project folder icon and create a new dataset.  Right click on the dataset icon and take note of the `Dataset ID`.
 
 After the project is generated, your user interface should look like this:
-    ![](/images/fiji-omero/fiji-omero-datasetid.png)
+    ![](/notes/fiji-omero/fiji-omero-datasetid.png)
 
 ---
 
@@ -141,13 +145,13 @@ After the project is generated, your user interface should look like this:
 
 ### Uploading Images with the OMERO.insight client
 
-Here we will demonstrate, the upload of a set of image files via the OMERO.insight client. The import process is described in our [OMERO.insight Import Tutoril](/lesson/omero-hands-on). 
+Here we will demonstrate, the upload of a set of image files via the OMERO.insight client. The import process is described in our [OMERO.insight Import Tutorial](/lesson/omero-hands-on). 
 
 After the upload, the files are located in the following Project and Dataset: 
 
 * **Project:** Fiji Omero Workshop (Project ID: `130`)
 
-* **Dataset:** HeLa Cells (Dataset ID: `265``)
+* **Dataset:** HeLa Cells (Dataset ID: `265`)
 
 **Note that images cannot be uploaded with the web-based OMERO.web client.**
 
@@ -177,9 +181,8 @@ Before you begin, you need to know the dataset ID that the image should be linke
 
 3. Go to OMERO webclient (http://omero.hpc.virginia.edu) and look for the uploaded image in `Orphaned Images`.
 
-{{< figure src="/notes/fiji-omero/leaf.png" >}}
-
-{{< figure src="/notes/fiji-omero/fiji-omero-new-export.png" >}}
+	<img src="/notes/fiji-omero/leaf.png" style="float:left;width:40%;height:auto">
+	<img src="/notes/fiji-omero/fiji-omero-new-export.png" style="width:40%;height:auto">
 
 
 <br>
@@ -192,7 +195,7 @@ Before you begin, you need to know the dataset ID that the image should be linke
 
 3. File > Export > OMERO...
 
-**Question:** What happens when you repeatedly upload the same image to Omero
+**Question:** What happens when you repeatedly upload the same image to Omero?
 
 ---
 
@@ -207,17 +210,17 @@ Before you begin, you need to know the dataset ID that the image should be linke
 	a. Go to `Process` > `Filter` > `Median`.  In the popup dialog enter a `Radius` of  `3.0` and click `OK`.  This will smooth out some of the image intrinsic noise without degrading the object outlines.
 
 	b. Go to `Image` > `Adjust Threshold`.  In the popup dialog choose the `Default` thresholding algorithm, uncheck the `Dark Background` box and click `Apply`. The image should have been converted to a binary mask with white objects ona black background.
-{{< figure src="/notes/fiji-omero/fiji-omero-setthreshold.png" >}}
-{{< figure src="/notes/fiji-omero/fiji-omero-blobs-thresholded.png" >}}
-
+			<img src="/notes/fiji-omero/fiji-omero-setthreshold.png" style="float:left;width:47%;height:auto">
+			<img src="/notes/fiji-omero/fiji-omero-blobs-thresholded.png" style="width:40%;height:auto">
+	
+	
 	c. Go to `Analyze` > `Set Measurements...`. In the popup dialog specify the parameters as shown in this screenshot. Click `OK`.
 
-	d. Go to `Analyze` > `Analyze Particles` and set up the parameters as shown. Click `OK`.  
-	
-{{< figure src="/notes/fiji-omero/fiji-omero-setmeasurements.png" >}}
-{{< figure src="/notes/fiji-omero/fiji-omero-analyzeparticles.png" >}}
-	
-	e. These steps should create a `Results` and a `Summary` table.
+	d. Go to `Analyze` > `Analyze Particles` and set up the parameters as shown. Click `OK`.
+			<img src="/notes/fiji-omero/fiji-omero-setmeasurements.png" style="float:left;width:40%;height:auto">
+			<img src="/notes/fiji-omero/fiji-omero-analyzeparticles.png" style="width:50%;height:auto">
+
+    e. These steps should create a `Results` and a `Summary` table.
 
 3. Go to `File` > `Export` > `OMERO...`.  Enter the dataset ID you chose under step 1 and click `OK`.
 
@@ -241,7 +244,7 @@ Fiji provides convenient programming wrappers for the Fiji/ImageJ and OMERO func
 * BeanShell: Syntax similar to Java, versatile
 * Several others…
 
-Fiji provides a richer programming environment than ImageJ and it is recommended to use Fiji instead of ImageJ for any script development.  Our [Fiji/ImageJ: Script development for Image Processing](/lesson/fiji-scripting/) tutorial provides a more general introduction to this topic.
+Fiji provides a richer programming environment than ImageJ and it is recommended to use Fiji instead of ImageJ for any script development.  Our [Fiji/ImageJ: Script development for Image Processing](/tutorials/fiji-scripting/) tutorial provides a more general introduction to this topic.
 
 ### Example Scripts
 To follow along, you can download the Jython scripts presented in this tutorial through **[this link](/scripts/fiji/fiji-omero-scripts.zip)**.
@@ -289,8 +292,8 @@ In the Fiji menu, go to `Window` > `Console`.
 ### Connecting to OMERO
 In order to get full access to OMERO's programming interface, we will now use a more advanced approach to establish an authenticated connection with the OMERO database.  We need instances of three classes: `LoginCredientials`, `SimpleLogger`, and `Gateway`.  The central one for the configuration is `LoginCredentials` which has to be initialized with user specific credentials and database host information.
 
-Our script would not be very useful or secure if we had to hardcode these values. Fortunately we can use the [SciJava@Parameter](https://imagej.net/Script_Parameters) annotation to prompt the script user for the relevant information
-```
+Our script would not be very useful or secure if we had to hardcode these values. Fortunately we can use the [SciJava@Parameter](https://imagej.net/Script_Parameters) annotation to prompt the script user for the relevant information:
+```python
 #@ String (label="Omero User") username
 #@ String (label="Omero Password", style="password") password
 #@ String (label="Omero Server", value="omero.hpc.virginia.edu") server
@@ -299,7 +302,7 @@ Our script would not be very useful or secure if we had to hardcode these values
 
 These four lines at the top of our scripts are sufficient to create a dialog window that prompts the user for information that will be populated in the `username`, `password`, `host`, and `port` variables. With these variables in place we can now establish a connection to the OMERO database server.
 
-```
+```python
 cred = LoginCredentials()
 if group_id != -1:
     cred.setGroupID(group_id)
@@ -315,7 +318,7 @@ e = gateway.connect(cred)
 The return value of the `connect` method is stored as a boolean value in the variable `e`. If `e==True`, the connection was established; if `e==False`, the connection failed.  We can reuse this code block for most of our OMERO scripts.
 
 It is very important to close the connection to the database at the end of your script, like this:
-```
+```python
 gateway.disconnect()
 ```
 
@@ -329,13 +332,14 @@ OMERO organizes users in groups. Each user can be a member of multiple groups. I
 * the projects and datasets for a particular group (specified via unique grpup ID);
 * and a list of images, organized by project and dataset, that the user has access to in a particular group.
 
-The following script, `Omero_info.py` establishes a connection to the OMERO database and outputs your OMERO group memberships, as well as a list of all of your projects, datasets, and images. The code contains separate functions to connect to the database, retrieve information from the database, and parse the data into a set of tables.  If you're just starting with programming, you may find it helpful to work through our [Fiji Scripting](/lesson/fiji-scripting/) and other tutorials on our [learning portal](/categories/).
+The following script, `Omero_info.py` establishes a connection to the OMERO database and outputs your OMERO group memberships, as well as a list of all of your projects, datasets, and images. The code contains separate functions to connect to the database, retrieve information from the database, and parse the data into a set of tables.  If you're just starting with programming, you may find it helpful to work through our [Fiji Scripting](/tutorials/fiji-scripting/) and other tutorials on our [learning portal](/categories/).
 
 (Click on the black triangle next to **View** to take a look at the script.)
 
 <details>
-<summary>View `Omero_Info.py` script</summary>
-```
+<summary>View <code>Omero_Info.py</code> script</summary>
+
+{{< highlight python "linenos=table,linenostart=1" >}}
 #@ String (label="Omero User") username
 #@ String (label="Omero Password", style="password") password
 #@ String (label="Omero Server", value="omero.hpc.virginia.edu") server
@@ -490,8 +494,9 @@ all_data,_,datasets = get_projects_datasets(gateway)
 show_as_table("Projects and Datasets - Group: %s" % current_group, all_data, order=['Group Id', 'Dataset Id', 'Dataset Name', 'Project Name', 'Project Id'])
 
 gateway.disconnect()	
-```
+{{< /highlight >}}
 </details>
+
 
 ---
 
@@ -501,8 +506,8 @@ Let's try to download images from the database through a script.  The OMERO plug
 
 1. In the OMERO web interface, click on any image in the `Fiji Omero Workshop` project or your `xxx_workshop` project/dataset and note the Image ID displayed in the sidebar on the right side of the webpage. **Image retrieval relies on these unique image identifiers**.
 
-2. Go back to the Fiji Script Editor and open the `Omero_Download_Image.py` script.
-
+2. Go back to the Fiji Script Editor and open the `Omero_Image_Download.py` script.
+	
 3. Run the script. A dialog window will open; enter these values:
 
     * **Omero User:** Your computing ID
@@ -515,10 +520,10 @@ Let's try to download images from the database through a script.  The OMERO plug
 The script consists of the these core blocks:
 
 * Lines 1-6 define user input to connect to OMERO.
-* Lines 11-21 define a `command` variable that specifies OMERO connection and image parameters.
-* Line 22 executes the OMERO importer plugin that retrieves the image.
+* Lines 12-20 define a `command` variable that specifies OMERO connection and image parameters.
+* Line 21 executes the OMERO importer plugin that retrieves the image.
 
-```
+{{< highlight python "linenos=table,linenostart=1" >}}
 # @ String (label="Omero User") user
 # @ String (label="Omero Password", style="password") pwd
 # @ String (label="Omero Server", value="omero.hpc.virginia.edu") server
@@ -540,7 +545,7 @@ if omero_group_id > -1:
 command+="iid=%s] " % image_id
 command+="windowless=true view=\'%s\' " % ImporterOptions.VIEW_HYPERSTACK
 IJ.runPlugIn("loci.plugins.LociImporter", command)
-```
+{{< / highlight >}}
 
 ---
 
@@ -550,14 +555,14 @@ Let's try to upload an image from Fiji to OMERO.
 
 1. Go back to Fiji and then to `File` > `Open Samples` > `Blobs`.
 
-2. Go back to the Fiji Script Editor and open the `Omero_Upload_Image.py file`.
+2. Go back to the Fiji Script Editor and open the `Omero_Image_Upload.py file`.
 
-```
-from ij import IJ
+	{{< highlight python "linenos=table,linenostart=1" >}}
+	from ij import IJ
 
-imp = IJ.getImage()
-IJ.run(imp, "OMERO... ", "")
-```
+	imp = IJ.getImage()
+	IJ.run(imp, "OMERO... ", "")
+	{{< /highlight >}}
 
 3. Run the script. The **Export to OMERO** dialog window will open. Enter the following values:
 
@@ -584,19 +589,22 @@ IJ.run(imp, "OMERO... ", "")
 ### Creating Key:Value Annotations
 
 {{< figure src="/notes/fiji-omero/fiji-omero-keyvalue.png" >}}
-OMERO allows you to link other pieces of information to your Project, Dataset, Screen, Plate or Image objects. This additional information is displayed on the right side in the OMERO web client, labeled under the `General` tab as `Image Details`, `Tags`, `Key-Value Pairs`, `Tables`, `Attachments`, `Comments`, and `Ratings`. In addition, there is the `Acquistion` tab that provides metadata information that was automatically extracted from the image file headers during import.  
+OMERO allows you to link other pieces of information to your Project, Dataset, Screen, Plate or Image objects. This additional information is displayed on the right side in the OMERO web client, labeled under the `General` tab as `Image Details`, `Tags`, `Key-Value Pairs`, `Tables`, `Attachments`, `Comments`, and `Ratings`. In addition, there is the `Acquisition` tab that provides metadata information that was automatically extracted from the image file headers during import.  
 
-For the remainder of this workshop, we will focus on `Key-Value` pairs and `Attachments`.  The key-value pairs are implemented as a dictionary (or HashMaps) that can be used to annotate individul images or whole datasets/project or plates/screens with additional information. Such information may include experimental conditions etc.. Let's look at an example:
+For the remainder of this workshop, we will focus on `Key-Value` pairs and `Attachments`.  The key-value pairs are implemented as a dictionary (or HashMaps) that can be used to annotate individul images or whole datasets/project or plates/screens with additional information. Such information may include experimental conditions etc.. 
+
+Let's look at an example:
 
 1. In the OMERO webclient, expand the `Fiji Omero Workshop` project folder and the `Sample Data` dataset folder inside it. 
 
-2. Click on the `blobs.gif` image.  In the general tab, you will see three entries under the `Key-Value` group. (You may have to clock on the triangle next to the label to expand the tab and see it).
+2. Click on the `blobs.gif` image.  In the general tab, you will see three entries under the `Key-Value` group. (You may have to click on the triangle next to the label to expand the tab and see it).
 
 The values displayed are not particular meaningful, but they illustrate the concept. You can create and modify annotations interactively through the OMERO client.  In addition, you can manipulate key-value pairs (as well as other annotation categories) through Fiji scripts.
    
 <details>
-<summary>View `Omero_Map_Annotation.py` script</summary>
-```
+<summary>View <code>Omero_Map_Annotation.py</code> script</summary>
+
+{{< highlight python "linenos=table" >}}
 #@ String (label="Omero User") username
 #@ String (label="Omero Password", style="password") password
 #@ String (label="Omero Server", value="omero.hpc.virginia.edu") server
@@ -671,9 +679,8 @@ def create_map_annotation(ctx, annotation, target_id, target_type="Project"):
         target_obj = DatasetData(DatasetI(target_id, False))
     elif target_type == "Image":	
         target_obj = ImageData(ImageI(target_id, False))
-    result = dm.attachAnnotation(ctx, data, target_obj);
+    result = dm.attachAnnotation(ctx, data, target_obj)
     return result
-
 
 # Main code
 gateway = connect(group_id, username, password, server, port)
@@ -687,7 +694,8 @@ result = create_map_annotation(ctx, annotation, target_id, target_type=target_ty
 print "Annotation %s exported to Omero." % annotation
 
 gateway.disconnect()
-```
+{{< /highlight >}}
+
 </details>
 
 ---
@@ -696,7 +704,7 @@ gateway.disconnect()
 
 The previous examples demonstrated how to export local images to OMERO, or how to import OMERO images to a local workstation. As the final exercise, let's explore how an entire dataset comprised of many images can be downloaded from the remote OMERO instance, processed and analyzed locally, followed by an upload of the processed images and created results filesback to the OMERO database.
 
-The example script, `Omero_Processing.py`, consists of five key functions:
+The example script, `Omero_Batch_Processing.py`, consists of five key functions:
 
 * **connect:** Establishes a connection to the OMERO server with specific user credentials. It returns an instance of the OMERO  `Gateway` class that is used later to upload processed images to the same OMERO server instance.
 * **get_image_ids:** Gets a list of unique image IDs for a given dataset managed by the remote OMERO instance.
@@ -714,7 +722,7 @@ To test this and see the process in action we will process a set of four images 
 
 1. Go to the OMERO webclient and make note of your `Project ID`, or you cna create a new project if you prefer. Again you need the `ID`.
 
-2. In the Fiji Script Editor, open the `Omero_Processing.py` script and execute it.
+2. In the Fiji Script Editor, open the `Omero_Batch_Processing.py` script and execute it.
 
 3. In the popup window, specify the parameters as follows:
 
@@ -731,8 +739,9 @@ To test this and see the process in action we will process a set of four images 
 5. After the script ru has completed, go to the OMERO webclient and open the Project that you had chosen to collect the output.  Look for the `binary segmentation masks`, the attached `Results.csv` files and the new `Key-Value Pairs` annotations for each image.
 
 <details>
-<summary>View `Omero_Processing_Nuclei.py` script</summary>
-```
+<summary>View <code>Omero_Processing_Nuclei.py</code> script</summary>
+
+{{< highlight python "linenos=table" >}}
 #@ String (label="Omero User") username
 #@ String (label="Omero Password", style="password") password
 #@ String (label="Omero Server", value="omero.hpc.virginia.edu") server
@@ -1036,7 +1045,8 @@ for info in image_info:
 shutil.rmtree(tmp_dir)
 gateway.disconnect()	
 print "Done.\n"
-```
+
+{{< /highlight >}}
 </details>
 
 ---
@@ -1052,11 +1062,13 @@ print "Done.\n"
  
 **Fiji Scripting**
 
-* Tutorial: http://www.ini.uzh.ch/~acardona/fiji-tutorial/index.html
+* RC tutorial [Fiji/ImageJ: Script development for Image Processing](/tutorials/fiji-scripting/)
+* Tutorial: https://syn.mrc-lmb.cam.ac.uk/acardona/fiji-tutorial/
 * Tips for Developers: https://imagej.net/Tips_for_developers
 * API: https://imagej.nih.gov/ij/developer/api/
 * SciJava: https://javadoc.scijava.org/Fiji/
 
-**General Scripting**
+**General Python Programming**
 
-* Python: https://learning.arcs.virginia.edu/pythonvideos
+* [Introduction to Programming in Python](/courses/python_introduction/)
+* [Programming in Python for Scientists and Engineers](/courses/programming_python_scientists_engineers/)
