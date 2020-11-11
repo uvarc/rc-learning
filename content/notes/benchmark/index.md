@@ -199,6 +199,8 @@ The speedup is plotted below. Notice the perfect scaling up to $N=8$. The scalin
 
 {{< figure src="gaussian.png" width="600px" >}}
 
+**Exercise:** Does this obey Amdahl's Law? Why or why not?
+
 ## Multi-GPU: PyTorch
 
 PyTorch can make use of multiple GPU devices through the DistributedDataParallel (DDP) backend. This example is based on [our PyTorch 1.7 container](https://hub.docker.com/r/uvarc/pytorch) using the Python script provided by [PyTorch Lightning](https://pypi.org/project/pytorch-lightning) with minor modifications. (The container uses CUDA 11 which is compatible with Rivanna hardware after the December 2020 maintenance.)
@@ -375,7 +377,7 @@ or 6 days and 6 hours. Hence, each job takes $Nt=2\times 150=300$ SU and the ent
 
 <br>
 
-b) From a) we find
+b) Using the derivation in a) we find
 $$N \ge \frac{0.75}{\frac{3}{10}-0.25} = 15.$$
 The total amount of SU is
 $$15\times(3\times24)\times 1000 = 1.08\mathrm{M}.$$
