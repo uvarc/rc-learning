@@ -17,7 +17,10 @@ categories: ["Rivanna","HPC"]
 #slides: rivanna-intro 
 #notes: rivanna-intro
 #url_slides: slides/rivanna-intro-pptx/IntroductionToRivanna_2020_05_22.pptx
-slides: rivanna-intro
+# slides: rivanna-intro
+
+notes: rivanna-intro
+
 
 ---
 
