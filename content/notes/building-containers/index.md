@@ -191,7 +191,7 @@ docker images | grep lolcow
 
 You should see that there is no difference in the image size. Why?
 
-- Each statment creates an image layer
+- Each statement creates an image layer
 - If you try to remove a file from a previous layer, Docker will make a "whiteout" so that you can't see it, but the file is still there
 - The file can be retrieved
 - Not just a size issue but also a security pitfall
@@ -302,7 +302,7 @@ Then sign in to Docker Hub and push as follows:
 
 ```bash
 docker login
-docker push <user>/lolcow
+docker push <user>/lolcow:latest
 ```
 
 ### Docker Hub interface
@@ -310,7 +310,7 @@ docker push <user>/lolcow
 In your browser, go to `https://hub.docker.com/r/<user>/lolcow`.
 
 - Overview: 
-    - Sync with GitHub to update README.md; or
+    - Sync with GitHub to update `README.md`; or
     - Use [docker-pushrm](https://github.com/christian-korneck/docker-pushrm)
 - Tags:
     - List all versions
@@ -348,7 +348,7 @@ To download a container hosted on a registry, use the `pull` command. Docker ima
 `singularity pull [<SIF>] <URI>`
 
 - `<URI>` (Unified resource identifiers)
-    - `[library|docker|shub]://[<user>/]<repo>[:<tag>]`
+    - `[library|docker|shub]://[<user>/]<repo>[:<tag>] `
     - Default prefix: `library` ([Singularity Library](https://cloud.sylabs.io/library))
     - `user`: optional; may be empty (e.g. `singularity pull ubuntu`)
     - `tag`: optional; default: `latest`
@@ -479,7 +479,7 @@ Copy these files:
 
 ```bash
 cp /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.slurm .
-cp /share/resources/tutorials/singularity_ws/mnist_example.* .
+cp /share/resources/tutorials/singularity_ws/mnist_example.{ipynb,py} * .
 ```
 
 Examine SLURM script:

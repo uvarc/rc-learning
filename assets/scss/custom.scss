@@ -3,6 +3,47 @@
     max-width: 90%;
 }
 
+.docs-article-container {
+  max-width: 75%;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: $sta-font-heading, sans-serif;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  line-height: 1.25;
+  color: #767676;
+  text-rendering: optimizeLegibility;
+
+  /* Ensure long words do not overflow into content. */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+
+  /* Add a hyphen where the word breaks (use `&shy;` to insert a soft-hyphen in a word). */
+  -webkit-hyphens: manual;
+  -ms-hyphens: manual;
+  hyphens: manual;
+}
+h1 {
+  font-size: 2.25rem;
+}
+h2 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+h3 {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+}
+h4, h5, h6 {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+
 html {
 	scroll-behavior: smooth;
 }

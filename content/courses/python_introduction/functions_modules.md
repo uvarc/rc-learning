@@ -153,7 +153,9 @@ What is printed in the last line and why?  What is `L` now?
 
 ### Variable Scope
 
-The __scope__ of a variable is the range over which it has a definted value.  In Python, the scope is the code block in which the variable is first referenced.  Therefore a calling program may have a variable `x`, a function may also have a variable `x`, and if `x` is not an argument to the function then it will be distinct in the two units.  Variables defined above a `def` are global to the functions below it in the same file; that is, they are _in scope_ in the entire file.
+The __scope__ of a variable is the range over which it has a definted value.  In Python, the scope is the code block in which the variable is first referenced.  Therefore a calling program may have a variable `x`, a function may also have a variable `x`, and if `x` is not an argument to the function then it will be distinct in the two units.  
+
+Variables and function names defined at the outermost intentation level are global to the functions in the same file; that is, they are _in scope_ in the entire file.
 
 When working in the interpreter (including running codes through Spyder repeatedly in the same kernal), the interpreter stores all variables with global scope into a workspace.  It may be desirable to reset these variables for new runs.  In an iPython console you can type
 
