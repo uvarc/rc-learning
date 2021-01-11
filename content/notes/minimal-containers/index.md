@@ -1,19 +1,58 @@
 ---
-title: "Building Containers for Rivanna"
+title: "Minimal Containers"
 type: article 
 toc: true
 date: 2021-02-17T00:00:00-05:00
 
 ---
 
-In this workshop you will learn how to build Docker containers and run them on Rivanna. For a general introduction on software containers, please refer to the "Introduction" section in our [Singularity workshop](/workshops/singularity). 
+The industry standard of restricting containers to just the application and its dependencies often results in better security and smaller size. See how the use of multi-stage builds and scratch/distroless base images can reduce the image size by as much as 99% in real applications. This is a continuation of the Building Containers for Rivanna workshop.
 
 # Prerequisites
+- [Building Containers for Rivanna](/workshops/building-containers)
+- Install Docker on your computer
+
+# Review of Best Practices
+
+In the previous workshop, we worked through an example of `lolcow` and saw how following best practices can reduce the image size drastically.
+
+## 0. Package manager cache busting
+```bash
+apt-get update && apt-get install ...
+```
+
+## 1. Clean up
+- `apt`
+```bash
+rm -rf /var/lib/apt/lists/*
+```
+- `conda`
+```bash
+conda clean -ya
+```
+- `pip` (no separate clean up command)
+```bash
+pip install --no-cache-dir ...
+```
+- Must occur in the same `RUN` statement as the installation step
+
+## 2. Only install what's needed
+```bash
+--no-install-recommends
+```
+
+## 3. Base image
+- For OS and common tools (e.g. python/conda, GCC) start from official image
+    - Do not reinvent the wheel
+- Know which variant to use (e.g. `devel` vs `runtime`, `slim`)
+    - Read their overview
+
+## Exercise: QIIME 2
+QIIME 2 is a popular bioinformatics software. Can you suggest any potential improvement to the [Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile)? (Result: We managed to reduce its size by 50%.)
 
 # Multi-Stage Build
 
-_Minimize image size without loss of functionality_  
-$\rightarrow$ _Up to 99% reduction in image size_
+The objective is to minimize image size without loss of functionality. We'll see how to achieve up to 99% reduction in image size using real applications.
 
 ## "Disk space is cheap so why should I care?"
 - Minimize vulnerabilities/attack surface
@@ -86,7 +125,7 @@ ENTRYPOINT ["binary"]
     - Derived from Debian
     - Support for C/C++, Go, Rust, Java, Node.js, Python
 
-### Scratch demo: `fortune`
+## Exercise: `fortune` from scratch
 
 Let's build an image of `fortune` from scratch. The Ubuntu base image shall be our basis of comparison.
 
@@ -109,6 +148,8 @@ Build this image and find the dependencies for `fortune`:
 - fortunes-min [package list](https://packages.ubuntu.com/xenial/all/fortunes-min/filelist)
 
 Having identified the necessary files to copy, add a second stage to your Dockerfile.
+
+<details><summary>Answer</summary>
 
 ```dockerfile
 FROM ubuntu:16.04 AS build
@@ -134,11 +175,13 @@ ENV PATH /usr/games:${PATH}
 ENTRYPOINT ["fortune"]
 ```
 
+</details>
+
 Compare the image size: 130 MB vs 4 MB; 97% reduction.
 
-#### (Trick) Question
+## Exercise: (Trick) Question
 
-Can you build an image for lolcow from scratch/distroless?
+Can you build an image for `lolcow` (equivalent to `fortune|cowsay|lolcat`; see previous workshop for details) from scratch/distroless? 
 
 ### Case study revisited - LightGBM distroless
 
