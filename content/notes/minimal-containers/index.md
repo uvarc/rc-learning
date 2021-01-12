@@ -2,28 +2,28 @@
 title: "Minimal Containers"
 type: article 
 toc: true
-date: 2021-02-24T00:00:00-05:00
+date: 2020-02-24T00:00:00-05:00
 
 ---
 
 The industry standard of restricting containers to just the application and its dependencies often results in better security and smaller size. See how the use of multi-stage builds and scratch/distroless base images can reduce the image size by as much as 99% in real applications. This is a continuation of the Building Containers for Rivanna workshop.
 
-# Prerequisites
+## Prerequisites
 - [Building Containers for Rivanna](/workshops/building-containers)
 - Install Docker on your computer
 
 ---
 
-# Review of Best Practices
+## Review of Best Practices
 
 In the previous workshop, we worked through an example of `lolcow` and saw how following best practices can reduce the image size drastically.
 
-## 0. Package manager cache busting
+### 0. Package manager cache busting
 ```bash
 apt-get update && apt-get install ...
 ```
 
-## 1. Clean up
+### 1. Clean up
 - `apt`
 ```bash
 rm -rf /var/lib/apt/lists/*
@@ -38,32 +38,32 @@ pip install --no-cache-dir ...
 ```
 - Must occur in the same `RUN` statement as the installation step
 
-## 2. Only install what's needed
+### 2. Only install what's needed
 ```bash
 --no-install-recommends
 ```
 
-## 3. Base image
+### 3. Base image
 - For OS and common tools (e.g. python/conda, GCC) start from [official image](https://docs.docker.com/docker-hub/official_images/)
     - Do not reinvent the wheel
 - Know which variant to use (e.g. `devel` vs `runtime`, `slim`)
     - Read their overview
 
-## Exercise: QIIME 2
+### Exercise: QIIME 2
 QIIME 2 is a popular bioinformatics software. Can you suggest any potential improvement to the [Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile)? (Result: We managed to reduce the image size by 50%.)
 
 ---
 
-# Multi-Stage Build
+## Multi-Stage Build
 
 The objective is to minimize image size without loss of functionality. What's needed to build/install an application is not always needed at runtime. By separating the buildtime and runtime stages, we'll see how to achieve up to 99% reduction in image size in real applications.
 
-## "Disk space is cheap so why should I care?"
+### "Disk space is cheap so why should I care?"
 - Minimize vulnerabilities/attack surface
 - Fewer things to maintain
 - Reduce overhead
 
-## Buildtime $\neq$ runtime dependency
+### Buildtime $\neq$ runtime dependency
 
 - Multiple `FROM` statements (each defines a **stage**)
 - Build stage:
@@ -76,7 +76,7 @@ The objective is to minimize image size without loss of functionality. What's ne
 
 Reference: [_Use multi-stage builds_](https://docs.docker.com/develop/develop-images/multistage-build/)
 
-## Multi-stage Dockerfile template
+### Multi-stage Dockerfile template
 
 ```dockerfile
 FROM base1 AS build
@@ -96,7 +96,7 @@ ENTRYPOINT ["binary"]
 - Use `COPY --from=<stage>` to copy from a particular stage
 - You can have more than 2 stages
 
-## Exercise: LightGBM
+### Exercise: LightGBM
 LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is an open source project by Microsoft.
 
 1. Examine the [official Dockerfile](https://github.com/microsoft/LightGBM/blob/master/docker/gpu/dockerfile.gpu). Ignore the "Conda" and "Jupyter" sections. Can you identify any problems?
@@ -108,7 +108,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
 
     </details>
 
-2. Copy and paste the Dockerfile. Remove the "Conda" and "Jupyter" sections. Build the image and note the image size.
+2. Copy the Dockerfile. Remove the "Conda" and "Jupyter" sections. Build the image and note the image size.
 
 3. Rewrite the Dockerfile using a multi-stage build based on [OpenCL](https://hub.docker.com/r/nvidia/cuda/tags).
     - Use `opencl:devel` as the build stage
@@ -130,9 +130,9 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
 
 ---
 
-# Base Images Without OS
+## Base Images Without OS
 
-## Do we really need an operating system?
+### Do we really need an operating system?
 
 - Not always!
 - No `/bin/sh`, `ls`, `cat`, ...
@@ -145,7 +145,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
     - Copy binary and libraries to production stage
     - Build production
 
-## Example base images 
+### Example base images 
 - [Scratch](https://hub.docker.com/_/scratch)
     - Literally start from scratch!
     - A "no-op" in the Dockerfile, meaning no extra layer in image
@@ -157,7 +157,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
 
 ---
 
-## Exercise: `fortune` from scratch
+### Exercise: `fortune` from scratch
 
 This exercise illustrates how we can cherrypick files from the package manager that are essential to the application.
 
@@ -214,11 +214,11 @@ ENTRYPOINT ["fortune"]
 The image size comparison is 130 MB vs 4 MB, a 97% reduction.
 </details>
 
-## Exercise: (Trick) Question
+### Exercise: (Trick) Question
 
 Can you build an image for `lolcow` (equivalent to `fortune|cowsay|lolcat`; see previous workshop for details) from scratch/distroless? 
 
-## Exercise: LightGBM distroless
+### Exercise: LightGBM distroless
 
 Revisit the LightGBM Dockerfile you prepared previously. Use `ldd` to find the libraries needed in the build stage. In the production stage, use `gcr.io/distroless/cc-debian10` as the base image. Do not use any `RUN` statements in the production stage. You must include this line:
 ```dockerfile
@@ -239,7 +239,7 @@ We submitted a [pull request](https://github.com/microsoft/LightGBM/pull/3408) t
 
 ---
 
-## Example: TensorFlow distroless
+### Example: TensorFlow distroless
 
 TensorFlow is a popular platform for machine learning. It is an open source project by Google.
 
@@ -251,9 +251,66 @@ The TF 2.3 container that you used in the previous workshop is actually based on
 
 ---
 
-# Dynamic vs Static Linking
+## Dynamic vs Static Linking
 
 The above procedure, while impressive, may be tedious for the average user. All the examples so far are based on [dynamic linking](https://en.wikipedia.org/wiki/Dynamic_linker), where the shared libraries of an executable are stored separately. If you are compiling code from source, you may choose to build a static binary (e.g. `-static` in GCC) so that all the necessary libraries are built into the binary.
+
+### Exercise: Linking against LibTorch
+LibTorch is the C++ frontend of PyTorch. This exericse is based on the ["Writing a Basic Application"](https://pytorch.org/tutorials/advanced/cpp_frontend.html#writing-a-basic-application) section of the PyTorch tutorial.
+
+1. Copy these two files.
+    - `dcgan.cpp`
+
+    ```
+    #include <torch/torch.h>
+    #include <iostream>
+
+    int main() {
+        torch::Tensor tensor = torch::eye(3);
+        std::cout << tensor << std::endl;
+    }
+    ```
+
+    - `CMakeLists.txt`
+
+    ```
+    cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+    project(dcgan)
+
+    list(APPEND CMAKE_PREFIX_PATH "/opt/libtorch/share/cmake/Torch")
+    find_package(Torch REQUIRED)
+
+    add_executable(dcgan dcgan.cpp)
+    target_link_libraries(dcgan "${TORCH_LIBRARIES}")
+    set_property(TARGET dcgan PROPERTY CXX_STANDARD 14)
+    ```
+
+1. Select an appropriate base image. (Hint: You will be compiling C++ code.)
+
+1. You will need these additional packages:
+    - Build tools: `build-essential cmake`
+    - Download and decompress: `wget ca-certificates unzip`
+
+1. Find the download link for LibTorch under the "Install PyTorch" section at https://pytorch.org/. Select "None" for CUDA. Download the file to `/opt`. In your `wget` command, you may want to rename the output file using `-O libtorch.zip`.
+
+1. Find the necessary libraries and add a second stage from scratch. You may need to include this line if not shown in `ldd`:
+
+    ```dockerfile
+    COPY --from=build /lib64/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2
+    ```
+
+    Compare the image size between the two stages.
+
+    <details><summary>Answer</summary>
+
+    1.98 GB for build stage vs 314 MB for production stage (85% reduction).
+
+    </details>
+    <br>
+
+1. Challenge: Can you build `dcgan` on Rivanna without using a container? Why (not)?
+
+1. Challenge: Can you build a static binary of `dcgan`? Why (not)?
 
 ---
 
@@ -261,7 +318,7 @@ The above procedure, while impressive, may be tedious for the average user. All 
 
 ---
 
-# References
+## References
 
 - [UVA Rivanna-Docker GitHub](https://github.com/uvarc/rivanna-docker)
     - Dockerfiles by UVA Research Computing
