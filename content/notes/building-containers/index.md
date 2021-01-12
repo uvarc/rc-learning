@@ -619,7 +619,4 @@ rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.3.0
     - Dockerfiles by UVA Research Computing
     - [Tips](https://github.com/uvarc/rivanna-docker/wiki/Tips)
 - [_Best practices for writing Dockerfiles_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
-- [_Use multi-stage builds_](https://docs.docker.com/develop/develop-images/multistage-build/)
 - [Natanael Copa, _Small, Simple, and Secure: Alpine Linux under the Microscope_, DockerCon EU (2017)](https://youtu.be/sIG2P9k6EjA)
-- [Google Distroless GitHub](https://github.com/GoogleContainerTools/distroless)
-- [Matthew Moore, _Distroless Docker: Containerizing Apps, not VMs_, swampUP (2017)](https://youtu.be/lviLZFciDv4)

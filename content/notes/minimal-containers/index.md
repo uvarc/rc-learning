@@ -2,7 +2,7 @@
 title: "Minimal Containers"
 type: article 
 toc: true
-date: 2021-02-17T00:00:00-05:00
+date: 2021-01-11T00:00:00-05:00
 
 ---
 
@@ -11,6 +11,8 @@ The industry standard of restricting containers to just the application and its 
 # Prerequisites
 - [Building Containers for Rivanna](/workshops/building-containers)
 - Install Docker on your computer
+
+---
 
 # Review of Best Practices
 
@@ -49,6 +51,8 @@ pip install --no-cache-dir ...
 
 ## Exercise: QIIME 2
 QIIME 2 is a popular bioinformatics software. Can you suggest any potential improvement to the [Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile)? (Result: We managed to reduce the image size by 50%.)
+
+---
 
 # Multi-Stage Build
 
@@ -93,18 +97,20 @@ ENTRYPOINT ["binary"]
 - You can have more than 2 stages
 
 ## Exercise: LightGBM
-LightGBM is a gradient boosting framework that uses tree based learning algorithms by Microsoft.
+LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is an open source project by Microsoft.
 
 1. Examine the [official Dockerfile](https://github.com/microsoft/LightGBM/blob/master/docker/gpu/dockerfile.gpu). Ignore the "Conda" and "Jupyter" sections. Can you identify any problems?
 
-<details><summary>Answer</summary>
-- `cuda:cudnn-devel` as [base image](https://hub.docker.com/r/nvidia/cuda/tags)  (>1 GB)
-- Clean up in separate `RUN` statements
-</details>
+    <details><summary>Answer</summary>
+
+    - `cuda:cudnn-devel` as [base image](https://hub.docker.com/r/nvidia/cuda/tags)  (>1 GB)
+    - Clean up in separate `RUN` statements
+
+    </details>
 
 2. Copy and paste the Dockerfile. Remove the "Conda" and "Jupyter" sections. Build the image and note the image size.
 
-3. Rewrite the Dockerfile using a multi-stage build with [OpenCL base images](https://hub.docker.com/r/nvidia/cuda/tags) 
+3. Rewrite the Dockerfile using a multi-stage build based on [OpenCL](https://hub.docker.com/r/nvidia/cuda/tags).
     - Use `opencl:devel` as the build stage
         - Keep the same dependencies
         - Remember to add an appropriate cleanup command
@@ -116,9 +122,13 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
         - Remember to copy from the build stage
     - Build the image and compare the image size with step 2.
 
-<details><summary>Answer</summary>
-Our [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.3.1/Dockerfile) results in an image size of 105 MB. It has the same performance using a tutorial example as the [benchmark](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation).
-</details>
+    <details><summary>Answer</summary>
+
+    Our [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.3.1/Dockerfile) results in an image size of 105 MB. It has the same performance using a [tutorial example](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation) as the benchmark.
+
+    </details>
+
+---
 
 # Base Images Without OS
 
@@ -139,7 +149,7 @@ Our [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.
 - [Scratch](https://hub.docker.com/_/scratch)
     - Literally start from scratch!
     - A "no-op" in the Dockerfile, meaning no extra layer in image
-    - Build other base images
+    - Build other base images (beyond scope of this workshop)
     - Minimal image with a single application
 - [Distroless](https://github.com/GoogleContainerTools/distroless)
     - Derived from Debian
@@ -168,7 +178,8 @@ ENTRYPOINT ["fortune"]
 2. Find the dependencies for `fortune`:
     - `docker run --rm -it --entrypoint=bash <img>`
     - Find library dependencies: `ldd /usr/games/fortune`
-For your reference, the content of the packages can be found here:
+
+    For your reference, the content of the packages can be found here:
     - fortune-mod [package list](https://packages.ubuntu.com/xenial/all/fortune-mod/filelist)
     - fortunes-min [package list](https://packages.ubuntu.com/xenial/all/fortunes-min/filelist)
 
@@ -217,16 +228,20 @@ COPY --from=build /etc/OpenCL/vendors/nvidia.icd /etc/OpenCL/vendors/nvidia.icd
 Build the image and compare image sizes.
 
 <details><summary>Answer</summary>
+
 [More involved Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.3.1/Dockerfile.distroless)
 
 The image size is merely **14 MB**, only 1% of what we started with. There is no loss in functionality or performance.
-</summary>
+
+</details>
 
 We submitted a [pull request](https://github.com/microsoft/LightGBM/pull/3408) that has been [merged](https://github.com/microsoft/LightGBM/tree/master/docker/gpu).
 
 ---
 
 ## Example: TensorFlow distroless
+
+TensorFlow is a popular platform for machine learning. It is an open source project by Google.
 
 The TF 2.3 container that you used in the previous workshop is actually based on distroless, which is why you were not able to run `ls` inside the container.
 
@@ -253,6 +268,5 @@ The above procedure, while impressive, may be tedious for the average user. All 
     - [Tips](https://github.com/uvarc/rivanna-docker/wiki/Tips)
 - [_Best practices for writing Dockerfiles_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 - [_Use multi-stage builds_](https://docs.docker.com/develop/develop-images/multistage-build/)
-- [Natanael Copa, _Small, Simple, and Secure: Alpine Linux under the Microscope_, DockerCon EU (2017)](https://youtu.be/sIG2P9k6EjA)
 - [Google Distroless GitHub](https://github.com/GoogleContainerTools/distroless)
 - [Matthew Moore, _Distroless Docker: Containerizing Apps, not VMs_, swampUP (2017)](https://youtu.be/lviLZFciDv4)
