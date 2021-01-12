@@ -145,6 +145,8 @@ Our [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.
     - Derived from Debian
     - Support for C/C++, Go, Rust, Java, Node.js, Python
 
+---
+
 ## Exercise: `fortune` from scratch
 
 This exercise illustrates how we can cherrypick files from the package manager that are essential to the application.
@@ -198,7 +200,7 @@ ENV PATH /usr/games:${PATH}
 ENTRYPOINT ["fortune"]
 ```
 
-130 MB vs 4 MB. 97% reduction.
+The image size comparison is 130 MB vs 4 MB, a 97% reduction.
 </details>
 
 ## Exercise: (Trick) Question
@@ -207,18 +209,36 @@ Can you build an image for `lolcow` (equivalent to `fortune|cowsay|lolcat`; see 
 
 ## Exercise: LightGBM distroless
 
-- [More involved Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.3.1/Dockerfile.distroless)
-- Image size: **14 MB**
-- 1 GB $\rightarrow$ 0.1 GB $\rightarrow$ 0.01 GB; overall **99%** reduction
-- Same performance
-- [PR](https://github.com/microsoft/LightGBM/pull/3408) approved and [merged](https://github.com/microsoft/LightGBM/tree/master/docker/gpu)
+Revisit the LightGBM Dockerfile you prepared previously. Use `ldd` to find the libraries needed in the build stage. In the production stage, use `gcr.io/distroless/cc-debian10` as the base image. Do not use any `RUN` statements in the production stage. You must include this line:
+```dockerfile
+COPY --from=build /etc/OpenCL/vendors/nvidia.icd /etc/OpenCL/vendors/nvidia.icd
+```
 
-## TensorFlow distroless
+Build the image and compare image sizes.
 
-- TF 2.3 that you used earlier is actually distroless
+<details><summary>Answer</summary>
+[More involved Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.3.1/Dockerfile.distroless)
+
+The image size is merely **14 MB**, only 1% of what we started with. There is no loss in functionality or performance.
+</summary>
+
+We submitted a [pull request](https://github.com/microsoft/LightGBM/pull/3408) that has been [merged](https://github.com/microsoft/LightGBM/tree/master/docker/gpu).
+
+---
+
+## Example: TensorFlow distroless
+
+The TF 2.3 container that you used in the previous workshop is actually based on distroless, which is why you were not able to run `ls` inside the container.
+
 - [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/tensorflow/2.3.0/Dockerfile.distroless)
 - 18% image size reduction
 - [PR](https://github.com/tensorflow/build/pull/13) approved and [merged](https://github.com/tensorflow/build/tree/master/images#distroless-images)
+
+---
+
+# Dynamic vs Static Linking
+
+The above procedure, while impressive, may be tedious for the average user. All the examples so far are based on [dynamic linking](https://en.wikipedia.org/wiki/Dynamic_linker), where the shared libraries of an executable are stored separately. If you are compiling code from source, you may choose to build a static binary (e.g. `-static` in GCC) so that all the necessary libraries are built into the binary.
 
 ---
 
