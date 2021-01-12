@@ -42,17 +42,17 @@ pip install --no-cache-dir ...
 ```
 
 ## 3. Base image
-- For OS and common tools (e.g. python/conda, GCC) start from official image
+- For OS and common tools (e.g. python/conda, GCC) start from [official image](https://docs.docker.com/docker-hub/official_images/)
     - Do not reinvent the wheel
 - Know which variant to use (e.g. `devel` vs `runtime`, `slim`)
     - Read their overview
 
 ## Exercise: QIIME 2
-QIIME 2 is a popular bioinformatics software. Can you suggest any potential improvement to the [Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile)? (Result: We managed to reduce its size by 50%.)
+QIIME 2 is a popular bioinformatics software. Can you suggest any potential improvement to the [Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile)? (Result: We managed to reduce the image size by 50%.)
 
 # Multi-Stage Build
 
-The objective is to minimize image size without loss of functionality. We'll see how to achieve up to 99% reduction in image size using real applications.
+The objective is to minimize image size without loss of functionality. What's needed to build/install an application is not always needed at runtime. By separating the buildtime and runtime stages, we'll see how to achieve up to 99% reduction in image size in real applications.
 
 ## "Disk space is cheap so why should I care?"
 - Minimize vulnerabilities/attack surface
@@ -80,7 +80,7 @@ FROM base1 AS build
 # install software
 
 FROM base2
-COPY --from=build /path/to/binary /path/to/binary
+COPY --from=build /path/to/file/in/base1 /path/to/file/in/base2
 # install runtime dependencies
 
 ENV PATH /path/to/binary:$PATH
@@ -92,20 +92,37 @@ ENTRYPOINT ["binary"]
 - Use `COPY --from=<stage>` to copy from a particular stage
 - You can have more than 2 stages
 
-## Case study - LightGBM
+## Exercise: LightGBM
+LightGBM is a gradient boosting framework that uses tree based learning algorithms by Microsoft.
 
-- Problems with [official Dockerfile](https://github.com/microsoft/LightGBM/blob/master/docker/gpu/dockerfile.gpu)
-    - `cuda:cudnn-devel` as [base image](https://hub.docker.com/r/nvidia/cuda/tags)  (>1 GB)
-    - Clean up in separate `RUN` statements
-- Our [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.3.1/Dockerfile)
-    - `opencl:devel` as build; `opencl:runtime` (42 MB) as production [base image](https://hub.docker.com/r/nvidia/cuda/tags) 
-    - Image size 105 MB; 90% reduction
-    - [Benchmark](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation)
-    - Same performance
+1. Examine the [official Dockerfile](https://github.com/microsoft/LightGBM/blob/master/docker/gpu/dockerfile.gpu). Ignore the "Conda" and "Jupyter" sections. Can you identify any problems?
 
-## Base images without OS
+<details><summary>Answer</summary>
+- `cuda:cudnn-devel` as [base image](https://hub.docker.com/r/nvidia/cuda/tags)  (>1 GB)
+- Clean up in separate `RUN` statements
+</details>
 
-### Do we really need an operating system?
+2. Copy and paste the Dockerfile. Remove the "Conda" and "Jupyter" sections. Build the image and note the image size.
+
+3. Rewrite the Dockerfile using a multi-stage build with [OpenCL base images](https://hub.docker.com/r/nvidia/cuda/tags) 
+    - Use `opencl:devel` as the build stage
+        - Keep the same dependencies
+        - Remember to add an appropriate cleanup command
+        - Ignore the command under `# Add OpenCL ICD files for LightGBM`
+        - Instead of `mkdir foo && cd foo` use `WORKDIR foo` (see [documentation](https://docs.docker.com/engine/reference/builder/#workdir))
+        - Use the same command to install LightGBM
+    - Use `opencl:runtime` as the production stage
+        - The runtime dependencies are `libxext6 libsm6 libxrender1 libboost-system-dev libboost-filesystem-dev gcc g++`
+        - Remember to copy from the build stage
+    - Build the image and compare the image size with step 2.
+
+<details><summary>Answer</summary>
+Our [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.3.1/Dockerfile) results in an image size of 105 MB. It has the same performance using a tutorial example as the [benchmark](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation).
+</details>
+
+# Base Images Without OS
+
+## Do we really need an operating system?
 
 - Not always!
 - No `/bin/sh`, `ls`, `cat`, ...
@@ -113,21 +130,26 @@ ENTRYPOINT ["binary"]
 - No package manager
 - In production stage, typically there's no `RUN`; just `COPY`
 - Workflow:
-    - Target build: `docker build --target=build .`
+    - Target a specific stage to build: `docker build --target=build .`
     - Find shared libraries of binary: `ldd`
     - Copy binary and libraries to production stage
     - Build production
 
-### Example base images 
+## Example base images 
 - [Scratch](https://hub.docker.com/_/scratch)
     - Literally start from scratch!
+    - A "no-op" in the Dockerfile, meaning no extra layer in image
+    - Build other base images
+    - Minimal image with a single application
 - [Distroless](https://github.com/GoogleContainerTools/distroless)
     - Derived from Debian
     - Support for C/C++, Go, Rust, Java, Node.js, Python
 
 ## Exercise: `fortune` from scratch
 
-Let's build an image of `fortune` from scratch. The Ubuntu base image shall be our basis of comparison.
+This exercise illustrates how we can cherrypick files from the package manager that are essential to the application.
+
+1. The Ubuntu base image shall be our basis of comparison. Copy the Dockerfile and build the image.
 
 ```dockerfile
 FROM ubuntu:16.04
@@ -141,13 +163,14 @@ ENV PATH /usr/games:${PATH}
 ENTRYPOINT ["fortune"]
 ```
 
-Build this image and find the dependencies for `fortune`:
-- `docker run --rm -it --entrypoint=bash <img>`
-- Find library dependencies: `ldd /usr/games/fortune`
-- fortune-mod [package list](https://packages.ubuntu.com/xenial/all/fortune-mod/filelist)
-- fortunes-min [package list](https://packages.ubuntu.com/xenial/all/fortunes-min/filelist)
+2. Find the dependencies for `fortune`:
+    - `docker run --rm -it --entrypoint=bash <img>`
+    - Find library dependencies: `ldd /usr/games/fortune`
+For your reference, the content of the packages can be found here:
+    - fortune-mod [package list](https://packages.ubuntu.com/xenial/all/fortune-mod/filelist)
+    - fortunes-min [package list](https://packages.ubuntu.com/xenial/all/fortunes-min/filelist)
 
-Having identified the necessary files to copy, add a second stage to your Dockerfile.
+3. Having identified the necessary files to copy, add a second stage `FROM scratch` to your Dockerfile. Only `COPY` what's necessary. Build and compare image sizes.
 
 <details><summary>Answer</summary>
 
@@ -175,15 +198,14 @@ ENV PATH /usr/games:${PATH}
 ENTRYPOINT ["fortune"]
 ```
 
+130 MB vs 4 MB. 97% reduction.
 </details>
-
-Compare the image size: 130 MB vs 4 MB; 97% reduction.
 
 ## Exercise: (Trick) Question
 
 Can you build an image for `lolcow` (equivalent to `fortune|cowsay|lolcat`; see previous workshop for details) from scratch/distroless? 
 
-### Case study revisited - LightGBM distroless
+## Exercise: LightGBM distroless
 
 - [More involved Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/lightgbm/2.3.1/Dockerfile.distroless)
 - Image size: **14 MB**
@@ -191,7 +213,7 @@ Can you build an image for `lolcow` (equivalent to `fortune|cowsay|lolcat`; see 
 - Same performance
 - [PR](https://github.com/microsoft/LightGBM/pull/3408) approved and [merged](https://github.com/microsoft/LightGBM/tree/master/docker/gpu)
 
-### TensorFlow distroless
+## TensorFlow distroless
 
 - TF 2.3 that you used earlier is actually distroless
 - [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/tensorflow/2.3.0/Dockerfile.distroless)
