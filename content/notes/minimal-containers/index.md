@@ -2,7 +2,7 @@
 title: "Minimal Containers"
 type: article 
 toc: true
-date: 2021-01-11T00:00:00-05:00
+date: 2021-02-24T00:00:00-05:00
 
 ---
 
