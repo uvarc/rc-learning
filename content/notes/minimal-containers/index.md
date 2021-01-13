@@ -50,7 +50,13 @@ pip install --no-cache-dir ...
     - Read their overview
 
 ### Exercise: QIIME 2
-QIIME 2 is a popular bioinformatics software. Can you suggest any potential improvement to the [Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile)? (Result: We managed to reduce the image size by 50%.)
+QIIME 2 is a popular bioinformatics software. Can you suggest any potential improvement to the [Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile)? 
+
+<details><summary>Answer</summary>
+
+With our [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/qiime2/2020.8/Dockerfile), we managed to reduce the image size by half.
+
+</details>
 
 ---
 
@@ -359,10 +365,6 @@ Revisit the LightGBM Dockerfile you prepared previously. Enter the image layer o
 ```dockerfile
 COPY --from=build /etc/OpenCL/vendors/nvidia.icd /etc/OpenCL/vendors/nvidia.icd
 ```
-You may also need to include this line if not shown in `ldd`:
-```dockerfile
-COPY --from=build /lib64/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2
-```
 
 Build the image and compare image sizes.
 
@@ -450,6 +452,122 @@ The TF 2.3 container that you used in the previous workshop is actually based on
 
 The above procedure, while impressive, may be tedious for the average user. All the examples so far are based on [dynamic linking](https://en.wikipedia.org/wiki/Dynamic_linker), where the shared libraries of an executable are stored separately. If you are compiling code from source, you may choose to build a static binary (e.g. `-static` in GCC) so that all the necessary libraries are built into the binary.
 
+### Exercise: Linking against OpenBLAS
+
+OpenBLAS is a linear algebra library. The code in this exercise is taken from its [user manual](https://github.com/xianyi/OpenBLAS/wiki/User-Manual#code-examples). It is based on `dgemm` which performs the matrix operation:
+
+$$ \alpha A B + \beta C, $$
+
+where $A_{mk}, B_{kn}, C_{mn}$ are matrices and $\alpha, \beta$ are constants. For details please visit the [Intel tutorial page](https://software.intel.com/content/www/us/en/develop/documentation/mkl-tutorial-c/top/multiplying-matrices-using-dgemm.html).
+
+1. Select an appropriate base image. (Hint: You will be compiling C++ code.)
+
+1. Install `libopenblas-dev` via the package manager.
+
+1. Copy the code to the same directory as your Dockerfile.
+
+    ```
+    #include <cblas.h>
+    #include <stdio.h>
+
+    void main()
+    {
+        int i=0;
+        double A[6] = {1.0,2.0,1.0,-3.0,4.0,-1.0};         
+        double B[6] = {1.0,2.0,1.0,-3.0,4.0,-1.0};  
+        double C[9] = {.5,.5,.5,.5,.5,.5,.5,.5,.5}; 
+        cblas_dgemm(CblasColMajor, CblasNoTrans, CblasTrans,3,3,2,1,A, 3, B, 3,2,C,3);c
+
+        for(i=0; i<9; i++)
+            printf("%lf ", C[i]);
+        printf("\n");
+    }
+    ```
+
+    To copy it into the Docker image, add these lines:
+    ```dockerfile
+    WORKDIR /opt
+    COPY cblas_dgemm.c ./
+    ```
+
+1. Compile the code with this command:
+    ```
+    gcc -o cblas_dgemm cblas_dgemm.c -lopenblas -lpthread
+    ```
+
+1. Build the image and note the image size. You should get this output:
+    ```
+    11.000000 -9.000000 5.000000 -9.000000 21.000000 -1.000000 5.000000 -1.000000 3.000000
+    ```
+
+    (Optional) Read the Intel tutorial to figure out what the matrices $A, B, C$ are. Do the math and verify that you get the same result.
+
+1. Find the necessary libraries and add a second stage from scratch. Compare the image size between the two stages.
+
+    <details><summary>Answer</summary>
+
+    ```dockerfile
+    FROM gcc:10.2 AS build
+    RUN apt-get update && apt-get install -y --no-install-recommends libopenblas-dev && \
+        rm -rf /var/lib/apt/lists/*
+
+    WORKDIR /opt
+    COPY cblas_dgemm.c ./
+    RUN gcc -o cblas_dgemm cblas_dgemm.c -lopenblas -lpthread
+
+    FROM scratch
+    COPY --from=build /opt/cblas_dgemm /cblas_dgemm
+
+    COPY --from=build \
+        /lib/x86_64-linux-gnu/libc.so.6 \
+        /lib/x86_64-linux-gnu/libm.so.6 \
+        /lib/x86_64-linux-gnu/libpthread.so.0 \
+        /lib/x86_64-linux-gnu/
+
+    COPY --from=build /usr/lib/x86_64-linux-gnu/libopenblas.so.0 /usr/lib/x86_64-linux-gnu/libopenblas.so.0
+
+    COPY --from=build \
+        /usr/local/lib64/libgcc_s.so.1 \
+        /usr/local/lib64/libquadmath.so.0 \
+        /usr/local/lib64/libgfortran.so.5 \
+        /usr/local/lib64/
+
+    COPY --from=build /lib64/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2
+
+    ENV LD_LIBRARY_PATH /usr/local/lib64:$LD_LIBRARY_PATH
+
+    ENTRYPOINT ["/cblas_dgemm"]
+    ```
+
+    1.29 GB vs 42.9 MB (97% reduction).
+
+    </details>
+    <br>
+
+1. Re-compile the code with static linking by adding a `-static` flag. In the production stage simply copy the binary. Compare image sizes.
+
+    <details><summary>Answer</summary>
+
+    ```dockerfile
+    FROM gcc:10.2 AS build
+    RUN apt-get update && apt-get install -y --no-install-recommends libopenblas-dev && \
+        rm -rf /var/lib/apt/lists/*
+
+    WORKDIR /opt
+    COPY cblas_dgemm.c ./
+    RUN gcc -o cblas_dgemm cblas_dgemm.c -lopenblas -lpthread -static
+
+    FROM scratch
+    COPY --from=build /opt/cblas_dgemm /cblas_dgemm
+    ENTRYPOINT [ "/cblas_dgemm" ]
+    ```
+
+    26.6 MB (98% reduction).
+
+    </details>
+
+This exercise illustrates that it is easier to build a minimal container with a static binary.
+
 ### Exercise: Linking against LibTorch
 LibTorch is the C++ frontend of PyTorch. This exericse is based on the ["Writing a Basic Application"](https://pytorch.org/tutorials/advanced/cpp_frontend.html#writing-a-basic-application) section of the PyTorch tutorial.
 
@@ -504,13 +622,7 @@ LibTorch is the C++ frontend of PyTorch. This exericse is based on the ["Writing
     make
     ```
 
-1. Find the necessary libraries and add a second stage from scratch. You may need to include this line if not shown in `ldd`:
-
-    ```dockerfile
-    COPY --from=build /lib64/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2
-    ```
-
-    Compare the image size between the two stages.
+1. Find the necessary libraries and add a second stage from scratch. Compare the image size between the two stages.
 
     <details><summary>Answer</summary>
 
