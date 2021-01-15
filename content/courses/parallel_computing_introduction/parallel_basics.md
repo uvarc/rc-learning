@@ -18,7 +18,7 @@ Processes may or may not need to communicate with one another while they are run
 The degree of communication required, the type of hardware available, and the organization of the code determines the type of parallelization chosen.  Parallel computing requires at minimum multiple cores on a computer, and may involve
 multiple computers; in most cases it is carried out on large high-performance computing systems.
 
-## Why Do We Need Parallel Computing
+## Why We Need Parallel Computing
 
 Programming in parallel is more difficult than serial coding.  What makes it worth the effort?  To understand this, we must understand a few things about how computers work.
 
@@ -124,7 +124,7 @@ X = X+1
 ```
 However, we now have a flow dependency because X2 must be set before Y can be computed.
 
-The final category of data dependency is the _output dependency_.  This does not necessary refer to printing but to the "output" value of a variable.  In this example we can assume we are mainly interested in some result from `myfunc` other than the return value `X`.
+The final category of data dependency is the _output dependency_.  This does not necessary refer to printing but to the "output" value of a variable.  
 ```plaintext
 X = myfunc(Z)
 X = X+1
