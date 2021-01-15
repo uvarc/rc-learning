@@ -105,16 +105,17 @@ ENTRYPOINT ["binary"]
 ### Exercise: LightGBM
 LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is an open source project by Microsoft.
 
-1. Examine the [official Dockerfile](https://github.com/microsoft/LightGBM/blob/master/docker/gpu/dockerfile.gpu). Ignore the "Conda" and "Jupyter" sections. Can you identify any problems?
+1. Examine the [official Dockerfile](https://github.com/microsoft/LightGBM/blob/master/docker/gpu/dockerfile.gpu). Can you identify any problems?
 
     <details><summary>Answer</summary>
 
-    - `cuda:cudnn-devel` as [base image](https://hub.docker.com/r/nvidia/cuda/tags)  (>1 GB)
+    - `nvidia/cuda:cudnn-devel` as [base image](https://hub.docker.com/r/nvidia/cuda/tags)  (>1 GB)
     - Clean up in separate `RUN` statements
 
     </details>
+    <br>
 
-2. Copy the Dockerfile. Remove the Tini, Conda, Jupyter sections and everything related to python/conda. Build the image and note the image size.
+2. Let's try to build an image of the command line interface (CLI) alone. Copy the Dockerfile. Remove the Tini, Conda, Jupyter sections and everything related to python/conda. Build the image and note the image size.
 
     <details><summary>Answer</summary>
     
@@ -198,6 +199,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
     2.24 GB
 
     </details>
+    <br>
 
 3. Rewrite the Dockerfile using a multi-stage build based on [OpenCL](https://hub.docker.com/r/nvidia/cuda/tags).
     - Use `nvidia/opencl:devel` as the build stage
@@ -266,8 +268,9 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
     374 MB (84% reduction)
 
     </details>
+    <br>
 
-4. Verify that it has the same performance by following the [tutorial example](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation) on Rivanna.
+4. Challenge: Verify that the two containers have the same performance on Rivanna's GPU node. Follow the [tutorial example](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation). Run the same job without using GPU. How much faster is it with GPU?
 
 ---
 
@@ -566,7 +569,7 @@ where $A_{mk}, B_{kn}, C_{mn}$ are matrices and $\alpha, \beta$ are constants. F
 
     </details>
 
-This exercise illustrates that it is easier to build a minimal container with a static binary.
+This exercise illustrates that it is easier to build a minimal container of a static binary.
 
 ### Exercise: Linking against LibTorch
 LibTorch is the C++ frontend of PyTorch. This exericse is based on the ["Writing a Basic Application"](https://pytorch.org/tutorials/advanced/cpp_frontend.html#writing-a-basic-application) section of the PyTorch tutorial.
@@ -629,6 +632,13 @@ LibTorch is the C++ frontend of PyTorch. This exericse is based on the ["Writing
     1.98 GB for build stage vs 314 MB for production stage (85% reduction).
 
     </details>
+    <br>
+
+1. Challenge: The above image cannot make use of GPU. Build an image for GPU. Hints:
+    - You do not need a physical GPU to build an image for GPU.
+    - Pick a `nvidia/cuda` base image. Read their overview page on Docker Hub to decide which flavor to use.
+    - Choose a CUDA version to get the download link for LibTorch on the PyTorch webpage.
+
     <br>
 
 1. Challenge: Can you build `dcgan` on Rivanna without using a container? Why (not)?
