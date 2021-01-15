@@ -3,7 +3,7 @@ slides:
   theme: "white"
 ---
 
-<section data-background-image="/img/slide-bg.png">
+<section data-background-image="/img/slide-bg.png" width=100%>
 
 - Rivanna is the university's resource for high-performance computing on non-sensitive data. 
 

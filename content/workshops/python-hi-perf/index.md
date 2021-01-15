@@ -5,6 +5,8 @@ authors: [kah,khs]
 date: 2020-02-02:06:47-04:00
 draft: false
 categories: ["Python", "Programming", "HPC"]
+tags: ["python","programming","HPC"]
+authors: ["kah"]
 
 notes: python-hi-perf
 
