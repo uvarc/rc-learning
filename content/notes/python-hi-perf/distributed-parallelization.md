@@ -11,11 +11,11 @@ menu:
 
 Nearly all recent computers, including personal laptops, are multicore systems.  The central-processing units (CPUs) of these machines are divided into multiple processor cores.  These cores share the main memory (RAM) of the computer and may share at least some of the faster memory (cache).  This type of system is called a **shared-memory processing** or **symmetric multiprocessing** (SMP) computer.  
 
-{{< figure src="/notes/python-hi-perf/SMP.png caption="Schematic of an SMP system" >}}
+{{< figure src="/notes/python-hi-perf/SMP.png" caption="Schematic of an SMP system" >}}
 
 A computing cluster consists of a group of computers connected by a network.  High-performance clusters nearly always have a network that is faster than the Ethernet used by consumer devices.  Many use a network called InfiniBand.  A cluster is thus a **distributed-memory processor** (DMP).  Each computer, usually called a **node**, is independent of the others and can exchange data only through the network.
 
-{{< figure src="/notes/python-hi-perf/SMP.png caption="Schematic of a DMP system" >}}
+{{< figure src="/notes/python-hi-perf/SMP.png" caption="Schematic of a DMP system" >}}
 
 Multiprocessing works only on a single computer with multiple computing cores (SMP). If you have access to a computing cluster you can use distributed parallelization to run your program on multiple computers (DMP) as well as multiple cores per computer.  This requires a communications library.  The most widely used communications library is MPI, the Message Passing Interface.  
 MPI works on multicore systems as well as multinode, but the programming model is still different from threads.

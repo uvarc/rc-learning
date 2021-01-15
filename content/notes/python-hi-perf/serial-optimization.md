@@ -76,12 +76,11 @@ Since a single repetition of a command in Python may run too quickly to measure 
 ## Serial Optimization Strategies
 
 {{< diagram >}}
-graph TD;
-A(Profile or time your code) --> B(Tune the most time-intensive section)
-B(Tune the most time-intensive section) --> C{Performance increase?}
-C{Performance increase?} --> [Yes] D(Go to second most time-consuming code)
-C{Performance increase?} --> [No]  E(Try a different solution)
-
+graph TD
+    A("Profile or time") --> B("Tune the longest section");
+    B("Tune the longest section") --> C{"Performance increase?"};
+    C --> |Yes| D("Go to second longest section");
+    C --> |No|  E("Try a different solution");
 {{< /diagram >}}
 
 ### Avoid for Loops
