@@ -2,7 +2,7 @@
 title: "Minimal Containers"
 type: article 
 toc: true
-date: 2020-02-24T00:00:00-05:00
+date: 2021-02-24T00:00:00-05:00
 
 ---
 
@@ -321,11 +321,15 @@ This exercise illustrates how we can cherrypick files from the package manager t
 
 2. Find the dependencies for `fortune`:
     - `docker run --rm -it --entrypoint=bash <img>`
-    - Find library dependencies: `ldd /usr/games/fortune`
+    - `ldd /usr/games/fortune`
+
+    <br>
 
     For your reference, the content of the packages can be found here:
     - fortune-mod [package list](https://packages.ubuntu.com/xenial/all/fortune-mod/filelist)
     - fortunes-min [package list](https://packages.ubuntu.com/xenial/all/fortunes-min/filelist)
+
+    <br>
 
 3. Having identified the necessary files to copy, add a second stage `FROM scratch` to your Dockerfile. Only `COPY` what's necessary. Build and compare image sizes.
 
