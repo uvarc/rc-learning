@@ -1,9 +1,16 @@
-title: "Introduction to Rivanna"
+---
+title: Introduction to Rivanna
+summary: An introduction to using the Rivanna system
+authors: [kah]
+tags: [rivanna, hpc]
+categories: [Rivanna]
+date: "2019-02-05T00:00:00Z"
 slides:
-  theme: "white"
+  theme: white
+  highlight_style: github
 ---
 
-<section data-background-image="/img/slide-bg.png" width=100%>
+# Introduction to Rivanna
 
 - Rivanna is the university's resource for high-performance computing on non-sensitive data. 
 
@@ -11,7 +18,7 @@ slides:
 
 ---
 
-Terminology
+## Terminology
 
 - Node
 
@@ -33,11 +40,11 @@ short tasks, and submitting jobs.
 
 ---
 
- Illustrations
+##  Illustrations
  
 ---
  
- Getting Started
+## Getting Started
  
  - Allocations and Accounts
  
@@ -51,7 +58,7 @@ short tasks, and submitting jobs.
  
 ---
  
- ALLOCATIONS
+## ALLOCATIONS
  
 ---
  
@@ -73,7 +80,7 @@ https://www.rc.virginia.edu/userinfo/rivanna/allocations/
 
 ---
 
-CONNECTING TO RIVANNA
+# CONNECTING TO RIVANNA
 
 ---
 
@@ -89,7 +96,7 @@ If you are Off Grounds
 
 ---
 
-Logging In To Rivanna
+## Logging In To Rivanna
 
 UVA RC provides options to log in to a frontends
 
@@ -106,7 +113,7 @@ UVA RC provides options to log in to a frontends
 
 ---
 
-Open OnDemand
+## Open OnDemand
 
 - Authenticate through Netbadge
 
@@ -119,20 +126,17 @@ Open OnDemand
 
 ---
 
-Screenshot
+# Screenshot
 
 ---
 
-Interactive Apps Through OOD
-
-Screenshot
----
+## Interactive Apps Through OOD
 
 Screenshot of Interactive Apps Menu
 
 ---
 
-Example:  JupyterLab
+### Example:  JupyterLab
 
 Start JupyterLab.  Fill in the textboxes with your allocation group name, time, and memory requirements.  Click Submit. 
 Your job will be queued.  When it starts, click the _launch session_ button.
@@ -141,7 +145,7 @@ Screenshot
 
 ---
 
-FastX
+### FastX
 
 FastX requires your _Eservices_ password.  This is _not_ necessarily the same as your Netbadge password.
 
@@ -149,7 +153,7 @@ Screenshot
 
 ---
 
-Starting a Session
+### Starting a Session
 
 - Click on the plus sign
 
@@ -157,7 +161,7 @@ Screenshot
 
 ---
 
-Starting the Desktop
+### Starting the Desktop
 
 Select MATE, then click Launch
 
@@ -165,13 +169,13 @@ Screenshot
 
 ---
 
-FastX Desktop
+### FastX Desktop
 
 Screenshot
 
 ---
 
-SSH
+### SSH
 
 - You need a _client_ program to use SSH.  This must be installed to your computer.
 
@@ -193,7 +197,7 @@ SSH
 
 ---
 
-Connecting to the Cluster
+## Connecting to the Cluster
 
 The generic hostname is
 ```
@@ -211,7 +215,7 @@ You may connect using specific names.
 
 ---
 
-Using the Command Line
+## Using the Command Line
 
 When using a ssh client you will be logged in to the _shell_.  We communicate with the shell through
 a _command line_.
@@ -232,11 +236,11 @@ a _command line_.
  
 ---
  
- The Cluster Environment
+# The Cluster Environment
  
 ---
  
- After Logging In
+##  After Logging In
  
 - You will be in your home directory.
 
@@ -246,7 +250,7 @@ a _command line_.
 
 ---
 
-Checking Your Allocations
+## Checking Your Allocations
 
 To see how many SUs you have available for running jobs, type allocations at the command-line prompt:
 ```
@@ -265,7 +269,7 @@ for more information about a specific allocation, please run:
 
 ---
 
-The /scratch Directory
+## The /scratch Directory
 
 - Each user will have access to 10 TB of temporary storage.
 	It is located in a subdirectory under /scratch, and named with your userID
@@ -280,7 +284,7 @@ Important:
 
 ---
 
-Running Jobs from Scratch
+## Running Jobs from Scratch
 
 We recommend that you run your jobs out of your /scratch directory for two reasons:
 - /scratch is on a Lustre filesystem (a storage system designed specifically for parallel access).
@@ -293,7 +297,7 @@ We also recommend that
 
 ---
 
-Checking Your Storage
+## Checking Your Storage
 
 To see how much disk space you have used in your home and scratch directories, open a Terminal window and 
 type `hdquota` at the command-line prompt:
@@ -302,7 +306,7 @@ Screenshot
 
 ---
 
-Moving Data To and From Rivanna
+## Moving Data To and From Rivanna
 
 You have several options for transferring data onto your home or /scratch directories.
 1. Use the scp command in a terminal window.
@@ -314,11 +318,11 @@ You have several options for transferring data onto your home or /scratch direct
 
 ---
 
-MODULES
+# MODULES
 
 ---
 
-Modules set up your environment to make it easier for you to use software packages.
+## Modules set up your environment to make it easier for you to use software packages.
 
 - Any application software that you want to use will need to be loaded with the `module load` command.  
 For example:
@@ -334,7 +338,7 @@ module load gcc R/3.5.1
 
 ---
 
-More Module Commands
+## More Module Commands
 
 - `module avail` – Lists all available modules and versions.
 
@@ -352,7 +356,7 @@ More Module Commands
 
 ---
 
-Finding Modules
+## Finding Modules
 
 To locate a python module, try the following:
 ```
@@ -371,7 +375,7 @@ The available software is also listed on our website:
 	
 ---
 
-SLURM
+# SLURM
 
 ---
 
@@ -390,7 +394,7 @@ Much more information is available at http://slurm.schedmd.com/documentation.htm
 
 ---
 
-Partitions
+## Partitions
 
 Rivanna has several partitions (or queues) for job submissions.
 You will need to specify a partition when you submit a job.
@@ -413,7 +417,7 @@ knl                 200          180                 0                0         
 
 ---
 
-Compute Node Partitions
+## Compute Node Partitions
 
 Name  | Purpose | Job Time Limit  |  Memory/Node  | Cores/Node  |
 -----------------------------------------------------------------
@@ -424,7 +428,9 @@ largemem | For memory-intensive jobs | 4 days | 1 TB  | 16 |
 dev | To run short test jobs | 1 hour | 128 GB | 4 |
 -----------------------------------------------------------------
 
-SLURM Scripts
+---
+
+## SLURM Scripts
 A SLURM script is a bash script with SLURM directives (#SBATCH) and command-line instructions 
 for running your program.
 ```
@@ -442,7 +448,7 @@ Rscript myProg.R              #command-line execution of my job
 
 ---
 
-Submitting a SLURM Job
+## Submitting a SLURM Job
 
 To submit the SLURM command file to the queue, use the `sbatch` command at the command line prompt.
 
@@ -457,7 +463,7 @@ The system responds with the **job ID** number.
 
 ---
 
-Checking Your Job Status
+## Checking Your Job Status
 
 To display the status of only your active jobs,  type:    
 ``` 
@@ -471,7 +477,7 @@ Typing `squeue -p <partition>` shows jobs in the specified partition.
 
 ---
 
-Job Status Summaries
+## Job Status Summaries
 
 To display the status of all jobs,  type:
 ``` 
@@ -499,7 +505,7 @@ The `sacct` command lists all jobs (pending, running, completed, canceled, faile
 
 ---
 
-Canceling a Job
+## Canceling a Job
 
 To delete a job from the queue, use the scancel command with the job ID number at the command line prompt:
 ```
@@ -513,7 +519,7 @@ To cancel all your jobs, type
 
 ---
 
-Need Help?
+# Need Help?
 
 Research Computing Zoom Office Hours
 Tuesdays:	3 pm – 5 pm
@@ -524,6 +530,3 @@ Or, contact us through the forms at:
 	https://www.rc.virginia.edu/support/
 
 ---
-
-</section>
--->

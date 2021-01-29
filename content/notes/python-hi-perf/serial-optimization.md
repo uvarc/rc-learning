@@ -14,6 +14,8 @@ Python, like most interpreted languages, can be very slow. But there are best pr
 ## Profiling & Timing
 
 The first step is usually to _profile_ the code.  Profiling can help us find a program's bottlenecks by revealing where most of the time is spent.  Keep in mind that most profilers work per function.  If you do not have your code well separated into functions, the information will be less useful.
+Profilers are statistical in nature.  They query the program to find out what it is doing at a snapshot during the run, then compile the results into a kind of frequency chart.  
+
 
 ### Python Profiler in the Spyder IDE
 The Anaconda Spyder IDE provides an integrated Profiler that is easy to use. To profile your Python code follow these steps:
@@ -28,7 +30,7 @@ Open the `fibonacci.py` file and execute it with the Spyder Profiler.  The code 
 
 ![](/notes/python-hi-perf/fibonacci-profiler.png)
 
-Profilers are statistical in nature.  They query the program to find out what it is doing at a snapshot during the run, then compile the results into a kind of frequency chart.  A more detailed description of the Profiler can be found <a href="http://docs.spyder-ide.org/profiler.html" target="_blank">here</a>.
+A more detailed description of the Profiler option for Spyder can be found <a href="http://docs.spyder-ide.org/profiler.html" target="_blank">here</a>.
 
 #### Using the cProfile and pstats Modules in your script
 
@@ -51,6 +53,59 @@ s = pstats.Stats("Profile.result")
 s.strip_dirs().sort_stats("time").print_stats()
 ```
 Note the passing of `{'n':20}` to pass local arguments to the `fib_seq` function. The profiling stats are read from the `Profile.result` file, the path information of the involved Python modules is removed, and the output is sorted by `time` values before it is printed.
+
+**Other Tools**
+
+If you are running on your own system, you can install the `snakeviz` package.  This enables you to view profiler output in a browser window.  First you must generate the profile file.  You can then invoke snakeviz from the command line with
+```
+snakeviz Profile.result
+```
+
+To use snakeviz within an iPython shell, use the "magics"
+```
+%snakeviz code_line
+```
+for a single line, or
+```
+%%snakeviz
+a line
+for i in stuff:
+   more
+```
+for multiple lines.
+
+To use snakeviz from within a Jupyter notebook, first load it
+```
+load_ext snakeviz
+```
+
+Another option in iPython or Jupyter is `prun`.
+```
+%prun
+```
+This runs the Cprofile profiler.
+
+You can also install the `line_profiler` and `mem_profiler` tools.
+The line_profiler tool provides a special version of the Python interpreter, `kernprof` and defines a decorator `@profile`.  To use it from the command line, add the decorator to any function you wish to profile.
+```
+@profile
+def fib(n):
+    # from http://en.literateprograms.org/Fibonacci_numbers_(Python)
+    if n < 2:
+        return n
+    else:
+        return fib(n-1) + fib(n-2)
+
+@profile
+def fib_seq(n):
+    results = [ ]
+    if n > 0:
+        results.extend(fib_seq(n-1))
+    results.append(fib(n))
+    return results
+```
+
+Another popular IDE (integrated development environment) for Python is _Pycharm_ by JetBrains.  The profiler option is only available in the Professional (paid) version, but some UVA departments have a license for this version.
 
 ### Timing
 
