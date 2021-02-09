@@ -126,7 +126,7 @@ FROM ubuntu:16.04
 RUN apt-get update
 RUN apt-get install -y fortune cowsay lolcat
 
-ENV PATH /usr/games:${PATH}
+ENV PATH=/usr/games:${PATH}
 ```
 
 ### Use `ENTRYPOINT` to set default command
@@ -137,7 +137,7 @@ FROM ubuntu:16.04
 RUN apt-get update
 RUN apt-get install -y fortune cowsay lolcat
 
-ENV PATH /usr/games:${PATH}
+ENV PATH=/usr/games:${PATH}
 
 ENTRYPOINT fortune | cowsay | lolcat
 ```
@@ -158,7 +158,7 @@ FROM ubuntu:16.04
 RUN apt-get update && apt-get install -y \
         fortune cowsay lolcat
 
-ENV PATH /usr/games:${PATH}
+ENV PATH=/usr/games:${PATH}
 
 ENTRYPOINT fortune | cowsay | lolcat
 ```
@@ -179,7 +179,7 @@ RUN apt-get update && apt-get install -y \
         fortune cowsay lolcat
 RUN rm -rf /var/lib/apt/lists/*  # clean up command for apt
 
-ENV PATH /usr/games:${PATH}
+ENV PATH=/usr/games:${PATH}
 
 ENTRYPOINT fortune | cowsay | lolcat
 ```
@@ -205,7 +205,7 @@ RUN apt-get update && apt-get install -y \
         fortune cowsay lolcat && \
     rm -rf /var/lib/apt/lists/*
 
-ENV PATH /usr/games:${PATH}
+ENV PATH=/usr/games:${PATH}
 
 ENTRYPOINT fortune | cowsay | lolcat
 ```
@@ -228,7 +228,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         fortune fortunes-min cowsay lolcat && \
     rm -rf /var/lib/apt/lists/*
 
-ENV PATH /usr/games:${PATH}
+ENV PATH=/usr/games:${PATH}
 
 ENTRYPOINT fortune | cowsay | lolcat
 ```
@@ -241,6 +241,7 @@ ENTRYPOINT fortune | cowsay | lolcat
 ### 3. Use a smaller base image
 
 For installation of common packages, you may consider Alpine.
+
     - BusyBox + package manager + musl libc (beware of compatibility issues)
     - [Presentation](https://youtu.be/sIG2P9k6EjA) on Alpine Linux from DockerCon EU 17 
 
@@ -252,10 +253,10 @@ FROM alpine:3.12
 RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk add --no-cache fortune cowsay@testing lolcat@testing
 
-ENV PATH /usr/games:${PATH}
-
 ENTRYPOINT fortune | cowsay | lolcat
 ```
+
+Note: An `ENV` statement is not here because the binaries are installed under `/usr/bin`.
 
 ### Image size comparison
 
@@ -295,7 +296,7 @@ Reference: [_Best practices for writing Dockerfiles_](https://docs.docker.com/de
 You can push your image to Docker Hub easily. First, let's set our lolcow version 3 as the latest.
 
 ```bash
-docker tag <user>/lolcow:3 <user>/lolcow
+docker tag <user>/lolcow:3 <user>/lolcow:latest
 ```
 
 Then sign in to Docker Hub and push as follows:
@@ -479,7 +480,7 @@ Copy these files:
 
 ```bash
 cp /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.slurm .
-cp /share/resources/tutorials/singularity_ws/mnist_example.{ipynb,py} * .
+cp /share/resources/tutorials/singularity_ws/mnist_example.{ipynb,py} .
 ```
 
 Examine SLURM script:
