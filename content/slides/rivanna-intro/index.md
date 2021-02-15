@@ -627,3 +627,16 @@ Or, contact us through the forms at:
 	https://www.rc.virginia.edu/support/
 
 ---
+
+## Test
+
+<div class="twocolumn">
+  <div>
+   This is the first column
+  </div>
+  <div>
+   This is the second column
+  </div>
+</div>
+
+
