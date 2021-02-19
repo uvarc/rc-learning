@@ -64,7 +64,7 @@ slides:
  
 - Time on Rivanna is allocated.
 - An allocation is a pool of CPU time on the compute nodes. 
-- Allocations are measured in **service units** (SUs).  Generally, **one SU=1 core-hour** 
+- Allocations are measured in **service units** (SUs).  Generally, **1 SU = 1 core-hour** 
     - specialty hardware may charge more SUs per core-hour.
 
 ---
@@ -97,7 +97,7 @@ If You Are Off Grounds
 
 ### Logging In To Rivanna
 
-UVA RC provides options to log in to a frontends
+UVA RC provides options to log in to frontends
 
 1. Open OnDemand
 	- Connect to a Web interface through a browser
@@ -154,7 +154,7 @@ FastX requires your _Eservices_ password.  This is _not_ necessarily the same as
 
 ---
 
-##### Starting a Session
+##### Starting a FastX Session
 
 - Click on the plus sign
 
@@ -178,7 +178,7 @@ Select MATE, then click Launch
 
 #### SSH
 
-- You need a _client_ program to use SSH.  This must be installed to your computer.
+- You need a _client_ program to use SSH.  This must be installed on your computer.
 
 - Your options for the client depends on your operating system.
 
@@ -289,7 +289,7 @@ a _command line_.
 
 #### Checking Your Allocations
 
-To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`:
+To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`):
 ```bash
 -bash-4.2$allocations
 
@@ -620,8 +620,8 @@ To cancel all your jobs, type
 ---
 
 Research Computing Zoom Office Hours
-Tuesdays:	3 pm – 5 pm
-Thursdays:	10 am – noon
+- Tuesdays: 3 pm – 5 pm
+- Thursdays: 10 am – noon
 
 Or, contact us through the forms at:
 	https://www.rc.virginia.edu/support/
