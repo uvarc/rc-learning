@@ -396,8 +396,8 @@ Modules set up your environment to make it easier for you to use software packag
 For example:
 ```bash
 module load matlab
-module load anaconda/5.2. 0-py3.6
-module load gcc R/3.5.1
+module load anaconda/5.2.0-py3.6
+module load goolf/7.1.0_3.1.4 R/3.6.3
 ```
 - You will need to load the module any time that you create a new shell
     - Every time that you log out and back in
@@ -529,15 +529,15 @@ pcore          10000                                  550000                    
 A SLURM script is a bash shell script with SLURM directives (#SBATCH) and command-line instructions for running your program.
 ```bash
 #!/bin/bash
-#SBATCH --nodes=1             #total number of nodes for the job
-#SBATCH --ntasks=1            #how many copies of code to run 
-#SBATCH --time=1-12:00:00     #amount of time for the whole job
-#SBATCH --partition=standard  #the queue/partition to run on
-#SBATCH --account=myGroupName #the account/allocation to use
+#SBATCH --nodes=1                 #total number of nodes for the job
+#SBATCH --ntasks=1                #how many copies of code to run 
+#SBATCH --time=1-12:00:00         #amount of time for the whole job
+#SBATCH --partition=standard      #the queue/partition to run on
+#SBATCH --account=myGroupName     #the account/allocation to use
 
 module purge
-module load gcc R             #load modules that my job needs
-Rscript myProg.R              #command-line execution of my job
+module load goolf/7.1.0_3.1.4 R   #load modules that my job needs
+Rscript myProg.R                  #command-line execution of my job
 ```
 
 ---
