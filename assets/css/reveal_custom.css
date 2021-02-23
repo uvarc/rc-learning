@@ -1,16 +1,12 @@
-.reveal .header {
-  position: absolute;
-  top: 1em;
-  left: 1em;
-  font-size: 0.5em;
-  z-index: -15
-}
-.reveal .footer {
-  position: absolute;
-  bottom: 1em;
-  left: 1em;
-  font-size: 0.5em;
-  z-index: -15
+.slideheader {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  overflow: hidden;
+  background:#2c3d57;
+  height: 45; 
+  z-index:100;
 }
 
 .twocolumn {
@@ -19,3 +15,6 @@
    grid-gap: 10px;
    text-align: left;
 }
+
+.reveal .controls {
+  color: #2c3d57; }

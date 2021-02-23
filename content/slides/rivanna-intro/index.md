@@ -1,7 +1,7 @@
 ---
 title: Introduction to Rivanna
 summary: An introduction to using the Rivanna system
-authors: [kah]
+authors: [uvarc]
 tags: [rivanna, hpc]
 categories: [Rivanna]
 date: "2019-02-05T00:00:00Z"
@@ -54,6 +54,7 @@ slides:
 {{< figure src="cluster-sketch.jpg" >}}
 
 ---
+
 {{< slide background-image="/slides/rivanna-intro/racks.jpg" background-opacity=0.3 >}}
  
 ## Allocations
@@ -140,7 +141,12 @@ Start JupyterLab.
 - Click Submit. 
     - Your job will be queued.  When it starts, click the _launch session_ button.
 
+---
+
+#### JupyterLab Setup Page
+
 {{< figure src="OOD_Jupyterlab.png" >}}
+
 ---
 
 #### FastX
@@ -164,7 +170,7 @@ FastX requires your _Eservices_ password.  This is _not_ necessarily the same as
 
 ##### Starting the Desktop
 
-Select MATE, then click Launch
+- Select MATE, then click Launch
 
 {{< figure src="FastX_launch_MATE.png" >}}
 
@@ -192,8 +198,8 @@ Select MATE, then click Launch
 
 ##### Mac and Linux
 
--Mac OSX and Linux ship with a Terminal app.  
-    -Mac users should also install [XQuartz](https://www.xquartz.org/). 
+- Mac OSX and Linux ship with a Terminal app.  
+    - Mac users should also install [XQuartz](https://www.xquartz.org/). 
 
 - The generic hostname is
 ```bash
@@ -216,7 +222,7 @@ ssh -Y mst3k@rivanna.hpc.virginia.edu
 
 ##### Windows
 
-We recommend [MobaXterm](https://mobaxterm.mobatek.net/).  Download the Home Edition, Installer Edition.
+- We recommend [MobaXterm](https://mobaxterm.mobatek.net/).  Download the Home Edition, Installer Edition.
 
 - From the Sessions menu, start an _SSH_ session. Using one of the particular names for a rivanna frontend (rivanna1.hpc.virginia.edu, etc.). as the host name.
 
@@ -241,17 +247,14 @@ We recommend [MobaXterm](https://mobaxterm.mobatek.net/).  Download the Home Edi
 
 ### Restrictions
 
-The frontend nodes are for short "housekeeping" tasks such as
+- The frontend nodes are for short "housekeeping" tasks such as
+   - Writing your programs or scripts
+   - Compiling programs
+   - Submitting jobs
 
-- Writing your programs or scripts
-- Compiling programs
-- Submitting jobs
+- You may run _very short_ test runs with a limited number of cores and amount of memory. Your process will be terminated if it exceeds the time or memory limit.
 
-You may run _very short_ test runs with a limited number of cores and amount of memory.
-
-The time a process can run is limited, and it will be terminated without warning when the time is exceeded.
-
-You may _not_ run multiple processes at once, nor may you run production jobs.
+- You may _not_ run multiple processes at once, nor may you run production jobs.
 
 ---
 
@@ -289,7 +292,7 @@ a _command line_.
 
 #### Checking Your Allocations
 
-To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`:
+- To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`:
 ```bash
 -bash-4.2$allocations
 
@@ -301,7 +304,7 @@ Allocations available to Misty S. Theatre  (mst3k):
  * gypsy: no service-units remaining
 ```
 
-for more information about a specific allocation, represented here by `allocation_name`, please run:
+- For more information about a specific allocation, represented here by `allocation_name`, please run:
 ```bash
 -bash-4.2$allocations -a allocation_name
 ```
@@ -332,14 +335,14 @@ Your scratch directory is NOT backed up.  Deleted files are not recoverable.
 
 #### Running Jobs from Scratch
 
-We recommend that you run your jobs out of your /scratch directory for two reasons:
-- /scratch is on a Lustre filesystem (a storage system designed specifically for parallel access).
-- /scratch is connected to the compute nodes with Infiniband (a very fast network connection). 
+- We recommend that you run your jobs out of your /scratch directory for two reasons:
+   - /scratch is on a Lustre filesystem (a storage system designed specifically for parallel access).
+   - /scratch is connected to the compute nodes with Infiniband (a very fast network connection). 
 
-We also recommend that
-- You keep copies of your programs and data in more permanent locations (e.g., your home directory or leased storage).
+- We also recommend that
+   - You keep copies of your programs and data in more permanent locations (e.g., your home directory or leased storage).
 
-- After your jobs finish, you copy the results to more permanent storage.
+   - After your jobs finish, copy the results to more permanent storage.
 
 ---
 
@@ -353,8 +356,8 @@ Two options are available for a monthly fee.  Access is through groups that may 
 - Value
   - Slower storage
   - No snapshots
----
 
+---
 
 #### Checking Your Storage
 
@@ -379,8 +382,8 @@ Location         Age_Limit(Days) Disk_Limit(GB) Use(GB)  File_Limit   Use
 2. Use a drag-and-drop option with MobaXterm (Windows) or Filezilla (Mac OS).
 3. Use the web browser in the FastX desktop to download data from UVA Box.
 4. Use the git clone command to copy git repositories.
-5. Set up a Globus endpoint on your laptop and use the Globus web interface to transfer files.  
-	(See https://www.rc.virginia.edu/userinfo/globus/ for details)
+5. Set up a Globus endpoint on your laptop and use the Globus web interface to transfer files. 
+   - (See https://www.rc.virginia.edu/userinfo/globus/ for details)
 
 ---
 
@@ -465,9 +468,9 @@ Much more information is available at http://slurm.schedmd.com/documentation.htm
 
 #### Partitions
 
-Rivanna has several partitions (or queues) for job submissions.
-You will need to specify a partition when you submit a job.
-To see the partitions, type `qlist` at the command-line prompt.  Not all users have access to all partitions.
+- Rivanna has several partitions (or queues) for job submissions.
+- You will need to specify a partition when you submit a job.
+- To see the partitions, type `qlist` at the command-line prompt.  Not all users have access to all partitions.
 
 ---
 
@@ -581,7 +584,8 @@ The `sacct` command lists all jobs (pending, running, completed, canceled, faile
 
 ---
 
-Example
+#### Example Summary
+
 ```bash
 -bash-4.2$ sacct –S 2019-01-29
  
@@ -615,28 +619,26 @@ To cancel all your jobs, type
 
 {{< slide background-iframe="https://www.rc.virginia.edu" >}}
 
-## Need Help?
+<h2><span style="color:orange">Need Help?</span></h2>
 
 ---
+
+### Visit Us Online
 
 Research Computing Zoom Office Hours
 Tuesdays:	3 pm – 5 pm
 Thursdays:	10 am – noon
 
-Or, contact us through the forms at:
-	https://www.rc.virginia.edu/support/
+[Contact us](https://www.rc.virginia.edu/support/).
 
 ---
 
-## Test
+## Two Columns
 
-<div class="twocolumn">
-  <div>
-   This is the first column
-  </div>
-  <div>
-   This is the second column
-  </div>
-</div>
-
-
+<div class=twocolumn>
+ <div>
+    This is how you make a slide with two columns.  You can put an image on the other side.
+ </div>
+ <div>
+    <img src="/slides/rivanna-intro/stick_figure_at_laptop.jpg">
+ </div>
