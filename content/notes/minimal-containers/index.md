@@ -93,7 +93,7 @@ FROM base2
 COPY --from=build /path/to/file/in/base1 /path/to/file/in/base2
 # install runtime dependencies
 
-ENV PATH /path/to/binary:$PATH
+ENV PATH=/path/to/binary:$PATH
 ENTRYPOINT ["binary"]
 ```
 
@@ -206,8 +206,8 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
         - Remove everything related to CUDA since it is not relevant
         - Redefine the OpenCL environment variables as:
             ```
-            ENV OPENCL_LIBRARIES /usr/lib/x86_64-linux-gnu
-            ENV OPENCL_INCLUDE_DIR /usr/include/CL
+            ENV OPENCL_LIBRARIES=/usr/lib/x86_64-linux-gnu \
+                OPENCL_INCLUDE_DIR=/usr/include/CL
             ```
         - Keep the same dependencies
         - Remember to clean up at the right place
@@ -226,9 +226,9 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
     FROM nvidia/opencl:devel AS build
     
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+        OPENCL_LIBRARIES=/usr/lib/x86_64-linux-gnu
+        OPENCL_INCLUDE_DIR=/usr/include/CL
     ARG DEBIAN_FRONTEND=noninteractive
-    ENV OPENCL_LIBRARIES /usr/lib/x86_64-linux-gnu
-    ENV OPENCL_INCLUDE_DIR /usr/include/CL
 
     RUN apt-get update && \
         apt-get install -y --no-install-recommends \
@@ -314,7 +314,7 @@ This exercise illustrates how we can cherrypick files from the package manager t
             fortune fortunes-min && \
         rm -rf /var/lib/apt/lists/*
 
-    ENV PATH /usr/games:${PATH}
+    ENV PATH=/usr/games:${PATH}
 
     ENTRYPOINT ["fortune"]
     ```
@@ -354,7 +354,7 @@ This exercise illustrates how we can cherrypick files from the package manager t
     COPY --from=build /usr/share/doc/fortunes-min/ /usr/share/doc/fortunes-min/
     COPY --from=build /usr/share/games/fortunes/ /usr/share/games/fortunes/
 
-    ENV PATH /usr/games:${PATH}
+    ENV PATH=/usr/games:${PATH}
 
     ENTRYPOINT ["fortune"]
     ```
@@ -381,9 +381,9 @@ Build the image and compare image sizes.
 FROM nvidia/opencl:devel AS build
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+    OPENCL_LIBRARIES=/usr/lib/x86_64-linux-gnu
+    OPENCL_INCLUDE_DIR=/usr/include/CL
 ARG DEBIAN_FRONTEND=noninteractive
-ENV OPENCL_LIBRARIES /usr/lib/x86_64-linux-gnu
-ENV OPENCL_INCLUDE_DIR /usr/include/CL
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -541,7 +541,7 @@ where $A_{mk}, B_{kn}, C_{mn}$ are matrices and $\alpha, \beta$ are constants. F
 
     COPY --from=build /lib64/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2
 
-    ENV LD_LIBRARY_PATH /usr/local/lib64:$LD_LIBRARY_PATH
+    ENV LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
 
     ENTRYPOINT ["/cblas_dgemm"]
     ```
