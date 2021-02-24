@@ -16,7 +16,7 @@ From the [official Biopython project website](https://biopython.org):
 
 This workshop assumes a working knowledge of the Python programming language and basic understanding of the concepts of online DNA and Protein sequence repositories.
 
-Introductions to Python can be found [here](/courses/programming_python_scientists_engineers/python-interpreter/) and [here](http://localhost:1313/courses/python_introduction/).
+Introductions to Python can be found [here](/courses/programming_python_scientists_engineers/python-interpreter/) and [here](/courses/python_introduction/).
 
 ---
 
@@ -190,7 +190,7 @@ The search results are returned as a [dictionary](https://docs.python.org/3/tuto
 
 **Note:** The `IdList` returned by `esearch` is limited to the top 20 hits by default (defined by `retmax`). There are two workarounds:
 1. Use the `retmax=<number>` keyword argument to increase the maximum number of retrieved records. The problem is you need to know what a reasonable number is. 
-2. Or better, use the `usehistory='y'` keyword argument. This will save the search results on the remote server and provide `WebEnv` and `QueryKey` entries that can be used with the `eftech` function (see next section) to retrieve all search records (beyond the top 20).
+2. Or better, use the `usehistory='y'` keyword argument. This will save the search results on the remote server and provide `WebEnv` and `QueryKey` entries that can be used with the `efetch` function (see next section) to retrieve all search records (beyond the top 20).
 
 By default the returned IDs reflect the __GI__ numbers. The __accession.version__ numbers can be retrieved instead by passing `idtype='acc'` as an optional keyword argument to the `esearch` function. See the [detailed documentation of the esearch function](https://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.ESearch) here.
 
@@ -343,6 +343,8 @@ MAPAMEEIRQ
 <br>
 
 The return type of `SwissProt.read()` is a [Bio.SwissProt.Record](https://biopython.org/docs/1.75/api/Bio.SwissProt.html) object. In the above example we're printing only a subset of its fields.  The `record.sequence` field is a string, but it can easily be converted into a [Bio.Seq](#sequence-objects) object.
+
+**Tip:** Use `dir(record)` to get a list of all record attribute names.
 
 **Prosite**
 
@@ -663,7 +665,7 @@ print (f"Number of sequences (<300 aa): {len(sublist)}")
 ```python
 from Bio import SeqIO
 
-gb_file = 'HsPax6-1844139629-nucleotide.gb'
+gb_file = 'HsPax6-208879460-nucleotide.gb'
 with open(gb_file) as f:
     gb_generator = SeqIO.parse(f, format='gb')
     for entry in gb_generator:

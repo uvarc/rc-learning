@@ -42,7 +42,9 @@ const keysToCamelCase = function (o) {
 };
 
 // reveal configurations can be included in front matter under slides.reveal
-var pluginOptions = {};
+//var pluginOptions = {};
+var pluginOptions = {width:'100%',height:'100%',margin:'0.2',minScale:'0.2',maxScale:'10'};
+//var pluginOptions = {width:'85%',height:'95%'};
 if (typeof params.slides.reveal_options !== 'undefined') {
   pluginOptions = params.slides.reveal_options;
 }

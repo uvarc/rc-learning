@@ -1,7 +1,7 @@
 ---
 title: Introduction to Rivanna
 summary: An introduction to using the Rivanna system
-authors: [kah]
+authors: [uvarc]
 tags: [rivanna, hpc]
 categories: [Rivanna]
 date: "2019-02-05T00:00:00Z"
@@ -54,6 +54,7 @@ slides:
 {{< figure src="cluster-sketch.jpg" >}}
 
 ---
+
 {{< slide background-image="/slides/rivanna-intro/racks.jpg" background-opacity=0.3 >}}
  
 ## Allocations
@@ -64,7 +65,7 @@ slides:
  
 - Time on Rivanna is allocated.
 - An allocation is a pool of CPU time on the compute nodes. 
-- Allocations are measured in **service units** (SUs).  Generally, **one SU=1 core-hour** 
+- Allocations are measured in **service units** (SUs).  Generally, **1 SU = 1 core-hour** 
     - specialty hardware may charge more SUs per core-hour.
 
 ---
@@ -97,7 +98,7 @@ If You Are Off Grounds
 
 ### Logging In To Rivanna
 
-UVA RC provides options to log in to a frontends
+UVA RC provides options to log in to frontends
 
 1. Open OnDemand
 	- Connect to a Web interface through a browser
@@ -140,7 +141,12 @@ Start JupyterLab.
 - Click Submit. 
     - Your job will be queued.  When it starts, click the _launch session_ button.
 
+---
+
+#### JupyterLab Setup Page
+
 {{< figure src="OOD_Jupyterlab.png" >}}
+
 ---
 
 #### FastX
@@ -154,7 +160,7 @@ FastX requires your _Eservices_ password.  This is _not_ necessarily the same as
 
 ---
 
-##### Starting a Session
+##### Starting a FastX Session
 
 - Click on the plus sign
 
@@ -164,7 +170,7 @@ FastX requires your _Eservices_ password.  This is _not_ necessarily the same as
 
 ##### Starting the Desktop
 
-Select MATE, then click Launch
+- Select MATE, then click Launch
 
 {{< figure src="FastX_launch_MATE.png" >}}
 
@@ -178,7 +184,7 @@ Select MATE, then click Launch
 
 #### SSH
 
-- You need a _client_ program to use SSH.  This must be installed to your computer.
+- You need a _client_ program to use SSH.  This must be installed on your computer.
 
 - Your options for the client depends on your operating system.
 
@@ -192,8 +198,8 @@ Select MATE, then click Launch
 
 ##### Mac and Linux
 
--Mac OSX and Linux ship with a Terminal app.  
-    -Mac users should also install [XQuartz](https://www.xquartz.org/). 
+- Mac OSX and Linux ship with a Terminal app.  
+    - Mac users should also install [XQuartz](https://www.xquartz.org/). 
 
 - The generic hostname is
 ```bash
@@ -216,7 +222,7 @@ ssh -Y mst3k@rivanna.hpc.virginia.edu
 
 ##### Windows
 
-We recommend [MobaXterm](https://mobaxterm.mobatek.net/).  Download the Home Edition, Installer Edition.
+- We recommend [MobaXterm](https://mobaxterm.mobatek.net/).  Download the Home Edition, Installer Edition.
 
 - From the Sessions menu, start an _SSH_ session. Using one of the particular names for a rivanna frontend (rivanna1.hpc.virginia.edu, etc.). as the host name.
 
@@ -241,17 +247,14 @@ We recommend [MobaXterm](https://mobaxterm.mobatek.net/).  Download the Home Edi
 
 ### Restrictions
 
-The frontend nodes are for short "housekeeping" tasks such as
+- The frontend nodes are for short "housekeeping" tasks such as
+   - Writing your programs or scripts
+   - Compiling programs
+   - Submitting jobs
 
-- Writing your programs or scripts
-- Compiling programs
-- Submitting jobs
+- You may run _very short_ test runs with a limited number of cores and amount of memory. Your process will be terminated if it exceeds the time or memory limit.
 
-You may run _very short_ test runs with a limited number of cores and amount of memory.
-
-The time a process can run is limited, and it will be terminated without warning when the time is exceeded.
-
-You may _not_ run multiple processes at once, nor may you run production jobs.
+- You may _not_ run multiple processes at once, nor may you run production jobs.
 
 ---
 
@@ -289,7 +292,9 @@ a _command line_.
 
 #### Checking Your Allocations
 
-To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`:
+- To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`:
+=======
+To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`):
 ```bash
 -bash-4.2$allocations
 
@@ -301,7 +306,7 @@ Allocations available to Misty S. Theatre  (mst3k):
  * gypsy: no service-units remaining
 ```
 
-for more information about a specific allocation, represented here by `allocation_name`, please run:
+- For more information about a specific allocation, represented here by `allocation_name`, please run:
 ```bash
 -bash-4.2$allocations -a allocation_name
 ```
@@ -332,29 +337,29 @@ Your scratch directory is NOT backed up.  Deleted files are not recoverable.
 
 #### Running Jobs from Scratch
 
-We recommend that you run your jobs out of your /scratch directory for two reasons:
-- /scratch is on a Lustre filesystem (a storage system designed specifically for parallel access).
-- /scratch is connected to the compute nodes with Infiniband (a very fast network connection). 
+- We recommend that you run your jobs out of your /scratch directory for two reasons:
+   - /scratch is on a Lustre filesystem (a storage system designed specifically for parallel access).
+   - /scratch is connected to the compute nodes with Infiniband (a very fast network connection). 
 
-We also recommend that
-- You keep copies of your programs and data in more permanent locations (e.g., your home directory or leased storage).
+- We also recommend that
+   - You keep copies of your programs and data in more permanent locations (e.g., your home directory or leased storage).
 
-- After your jobs finish, you copy the results to more permanent storage.
+   - After your jobs finish, copy the results to more permanent storage.
 
 ---
 
 #### Leased Storage
 
-Two options are available for a monthly fee.  Access is through groups that may but are not required to correspond to Rivanna allocation groups. All members of the group can access the storage, but not necessarily individual folders.
+- Two options are available for a monthly fee.  Access is through groups that may but are not required to correspond to Rivanna allocation groups. All members of the group can access the storage, but not necessarily individual folders.
 
-- Project
-  - Fast storage 
-  - Seven-day snapshots
-- Value
-  - Slower storage
-  - No snapshots
+  - Project
+    - Fast storage 
+    - Seven-day snapshots
+  - Value
+    - Slower storage
+    - No snapshots
+
 ---
-
 
 #### Checking Your Storage
 
@@ -377,10 +382,14 @@ Location         Age_Limit(Days) Disk_Limit(GB) Use(GB)  File_Limit   Use
 
 1. Use the scp command in a terminal window (Mac and Linux).
 2. Use a drag-and-drop option with MobaXterm (Windows) or Filezilla (Mac OS).
-3. Use the web browser in the FastX desktop to download data from UVA Box.
-4. Use the git clone command to copy git repositories.
-5. Set up a Globus endpoint on your laptop and use the Globus web interface to transfer files.  
-	(See https://www.rc.virginia.edu/userinfo/globus/ for details)
+   - In MobaXterm, start an SCP session
+3. For small files, use the Upload and Download buttons in the Open OnDemand file manager.
+4. Use the web browser in the FastX desktop to download data from UVA Box.
+5. Use the `git clone` command to copy git repositories.
+6. Set up a Globus endpoint on your laptop and use the Globus web interface to transfer files. 
+   - (See https://www.rc.virginia.edu/userinfo/globus/ for details)
+
+More details are available at https://www.rc.virginia.edu/userinfo/data-transfer/
 
 ---
 
@@ -396,12 +405,12 @@ Modules set up your environment to make it easier for you to use software packag
 For example:
 ```bash
 module load matlab
-module load anaconda/5.2. 0-py3.6
-module load gcc R/3.5.1
+module load anaconda/5.2.0-py3.6
+module load goolf/7.1.0_3.1.4 R/3.6.3
 ```
 - You will need to load the module any time that you create a new shell
-    - Every time that you log out and back in
-    - Every time that you run a batch job on a compute node
+  - Every time that you log out and back in
+  - Every time that you run a batch job on a compute node
 
 ---
 
@@ -431,6 +440,7 @@ To find bioinformatics software packages, try this:
 $ module key bio
 ```
 The available software is also listed on our website:
+<br>
 	https://www.rc.virginia.edu/userinfo/rivanna/software/complete-list/
 	
 ---
@@ -452,7 +462,7 @@ when resources are available.
 
 ---
 
-Frontend Usage
+#### Frontend Usage
 
 - The frontends are for use only for editing, compiling, and very short test runs.  Limits on
 memory and core usage are enforced.
@@ -465,9 +475,9 @@ Much more information is available at http://slurm.schedmd.com/documentation.htm
 
 #### Partitions
 
-Rivanna has several partitions (or queues) for job submissions.
-You will need to specify a partition when you submit a job.
-To see the partitions, type `qlist` at the command-line prompt.  Not all users have access to all partitions.
+- Rivanna has several partitions (or queues) for job submissions.
+- You will need to specify a partition when you submit a job.
+- To see the partitions, type `qlist` at the command-line prompt.  Not all users have access to all partitions.
 
 ---
 
@@ -529,15 +539,15 @@ pcore          10000                                  550000                    
 A SLURM script is a bash shell script with SLURM directives (#SBATCH) and command-line instructions for running your program.
 ```bash
 #!/bin/bash
-#SBATCH --nodes=1             #total number of nodes for the job
-#SBATCH --ntasks=1            #how many copies of code to run 
-#SBATCH --time=1-12:00:00     #amount of time for the whole job
-#SBATCH --partition=standard  #the queue/partition to run on
-#SBATCH --account=myGroupName #the account/allocation to use
+#SBATCH --nodes=1                 #total number of nodes for the job
+#SBATCH --ntasks=1                #how many copies of code to run 
+#SBATCH --time=1-12:00:00         #amount of time for the whole job
+#SBATCH --partition=standard      #the queue/partition to run on
+#SBATCH --account=myGroupName     #the account/allocation to use
 
 module purge
-module load gcc R             #load modules that my job needs
-Rscript myProg.R              #command-line execution of my job
+module load goolf/7.1.0_3.1.4 R   #load modules that my job needs
+Rscript myProg.R                  #command-line execution of my job
 ```
 
 ---
@@ -581,7 +591,8 @@ The `sacct` command lists all jobs (pending, running, completed, canceled, faile
 
 ---
 
-Example
+#### Example Summary
+
 ```bash
 -bash-4.2$ sacct –S 2019-01-29
  
@@ -615,15 +626,14 @@ To cancel all your jobs, type
 
 {{< slide background-iframe="https://www.rc.virginia.edu" >}}
 
-## Need Help?
+<h2><span style="color:orange">Need Help?</span></h2>
 
 ---
+
+### Visit Us Online
 
 Research Computing Zoom Office Hours
-Tuesdays:	3 pm – 5 pm
-Thursdays:	10 am – noon
+- Tuesdays: 3 pm – 5 pm
+- Thursdays: 10 am – noon
 
-Or, contact us through the forms at:
-	https://www.rc.virginia.edu/support/
-
----
+[Contact us](https://www.rc.virginia.edu/support/).
