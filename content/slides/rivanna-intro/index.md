@@ -292,11 +292,9 @@ a _command line_.
 
 #### Checking Your Allocations
 
-<<<<<<< HEAD
 - To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`:
 =======
 To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`):
->>>>>>> e71eec3554b88efb6b9e832958208c03c00db46f
 ```bash
 -bash-4.2$allocations
 
@@ -352,14 +350,14 @@ Your scratch directory is NOT backed up.  Deleted files are not recoverable.
 
 #### Leased Storage
 
-Two options are available for a monthly fee.  Access is through groups that may but are not required to correspond to Rivanna allocation groups. All members of the group can access the storage, but not necessarily individual folders.
+- Two options are available for a monthly fee.  Access is through groups that may but are not required to correspond to Rivanna allocation groups. All members of the group can access the storage, but not necessarily individual folders.
 
-- Project
-  - Fast storage 
-  - Seven-day snapshots
-- Value
-  - Slower storage
-  - No snapshots
+  - Project
+    - Fast storage 
+    - Seven-day snapshots
+  - Value
+    - Slower storage
+    - No snapshots
 
 ---
 
@@ -384,10 +382,14 @@ Location         Age_Limit(Days) Disk_Limit(GB) Use(GB)  File_Limit   Use
 
 1. Use the scp command in a terminal window (Mac and Linux).
 2. Use a drag-and-drop option with MobaXterm (Windows) or Filezilla (Mac OS).
-3. Use the web browser in the FastX desktop to download data from UVA Box.
-4. Use the git clone command to copy git repositories.
-5. Set up a Globus endpoint on your laptop and use the Globus web interface to transfer files. 
+   - In MobaXterm, start an SCP session
+3. For small files, use the Upload and Download buttons in the Open OnDemand file manager.
+4. Use the web browser in the FastX desktop to download data from UVA Box.
+5. Use the `git clone` command to copy git repositories.
+6. Set up a Globus endpoint on your laptop and use the Globus web interface to transfer files. 
    - (See https://www.rc.virginia.edu/userinfo/globus/ for details)
+
+More details are available at https://www.rc.virginia.edu/userinfo/data-transfer/
 
 ---
 
@@ -407,8 +409,8 @@ module load anaconda/5.2.0-py3.6
 module load goolf/7.1.0_3.1.4 R/3.6.3
 ```
 - You will need to load the module any time that you create a new shell
-    - Every time that you log out and back in
-    - Every time that you run a batch job on a compute node
+  - Every time that you log out and back in
+  - Every time that you run a batch job on a compute node
 
 ---
 
@@ -438,6 +440,7 @@ To find bioinformatics software packages, try this:
 $ module key bio
 ```
 The available software is also listed on our website:
+<br>
 	https://www.rc.virginia.edu/userinfo/rivanna/software/complete-list/
 	
 ---
@@ -459,7 +462,7 @@ when resources are available.
 
 ---
 
-Frontend Usage
+#### Frontend Usage
 
 - The frontends are for use only for editing, compiling, and very short test runs.  Limits on
 memory and core usage are enforced.
@@ -634,15 +637,3 @@ Research Computing Zoom Office Hours
 - Thursdays: 10 am – noon
 
 [Contact us](https://www.rc.virginia.edu/support/).
-
----
-
-## Two Columns
-
-<div class=twocolumn>
- <div>
-    This is how you make a slide with two columns.  You can put an image on the other side.
- </div>
- <div>
-    <img src="/slides/rivanna-intro/stick_figure_at_laptop.jpg">
- </div>

@@ -159,6 +159,20 @@ Create `assets/css/reveal_custom.css` with:
 
 ---
 
+## Two Columns
+
+This is a local addition to the features.
+
+<div class=twocolumn>
+ <div>
+    This is how you make a slide with two columns.  You can put an image on the other side.
+ </div>
+ <div>
+    <img src="/img/rotunda_lawn_aerial_old_cabell_fall_ss_01.jpg">
+ </div>
+
+---
+
 # Questions?
 
 [Ask](https://spectrum.chat/academic)
