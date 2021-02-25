@@ -2,7 +2,7 @@
 title: "Minimal Containers"
 type: article 
 toc: true
-date: 2021-02-24T00:00:00-05:00
+date: 2021-02-14T00:00:00-05:00
 
 ---
 
@@ -205,7 +205,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
     - Use `nvidia/opencl:devel` as the build stage
         - Remove everything related to CUDA since it is not relevant
         - Redefine the OpenCL environment variables as:
-            ```
+            ```dockerfile
             ENV OPENCL_LIBRARIES=/usr/lib/x86_64-linux-gnu \
                 OPENCL_INCLUDE_DIR=/usr/include/CL
             ```
@@ -451,7 +451,7 @@ The TF 2.3 container that you used in the previous workshop is actually based on
 
 - [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/tensorflow/2.3.0/Dockerfile.distroless)
 - 18% image size reduction
-- [PR](https://github.com/tensorflow/build/pull/13) approved and [merged](https://github.com/tensorflow/build/tree/master/images#distroless-images)
+- [PR](https://github.com/tensorflow/build/pull/13) approved and [merged](https://github.com/tensorflow/build)
 
 ---
 
@@ -632,6 +632,53 @@ LibTorch is the C++ frontend of PyTorch. This exericse is based on the ["Writing
 1. Find the necessary libraries and add a second stage from scratch. Compare the image size between the two stages.
 
     <details><summary>Answer</summary>
+
+    ```dockerfile
+    FROM gcc:10.2 AS build
+
+    RUN apt-get update && apt-get install -y --no-install-recommends \
+            build-essential cmake \
+            wget ca-certificates unzip && \
+        rm -rf /var/lib/apt/lists/*
+
+    WORKDIR /opt
+
+    RUN wget -q https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.7.1%2Bcpu.zip -O libtorch.zip && \
+        unzip libtorch.zip && rm libtorch.zip
+
+    WORKDIR /opt/dcgan
+    COPY dcgan.cpp CMakeLists.txt ./
+
+    RUN mkdir build && cd build && cmake .. && make
+
+    FROM scratch
+    COPY --from=build /opt/dcgan/build/dcgan /dcgan
+
+    COPY --from=build \
+        /lib/x86_64-linux-gnu/libc.so.6 \
+        /lib/x86_64-linux-gnu/libdl.so.2 \
+        /lib/x86_64-linux-gnu/libm.so.6 \
+        /lib/x86_64-linux-gnu/libpthread.so.0 \
+        /lib/x86_64-linux-gnu/librt.so.1 \
+        /lib/x86_64-linux-gnu/
+
+    COPY --from=build \
+        /opt/libtorch/lib/libc10.so \
+        /opt/libtorch/lib/libgomp-75eea7e8.so.1 \
+        /opt/libtorch/lib/libtorch.so \
+        /opt/libtorch/lib/libtorch_cpu.so \
+        /opt/libtorch/lib/
+
+    COPY --from=build \
+        /usr/local/lib64/libgcc_s.so.1 \
+        /usr/local/lib64/libstdc++.so.6 \
+        /usr/local/lib64/
+
+    COPY --from=build /lib64/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2
+
+    ENV LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
+    ENTRYPOINT ["/dcgan"]
+    ```
 
     1.98 GB for build stage vs 314 MB for production stage (85% reduction).
 
