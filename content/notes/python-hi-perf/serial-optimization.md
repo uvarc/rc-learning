@@ -1,6 +1,6 @@
 ---
 title: "Strategies for Single-Core Optimization"
-type: article
+type: docs
 toc: true
 weight: 2
 menu:
@@ -130,13 +130,18 @@ Since a single repetition of a command in Python may run too quickly to measure 
 
 ## Serial Optimization Strategies
 
+We can represent the optimization process with a flowchart:
+
 {{< diagram >}}
-flowchart TD;
-    A("Profile or time") --> B("Tune the longest section")
-    B("Tune the longest section") --> C{"Performance increase?"}
-    C --> |Yes| D("Go to second longest section")
-    C --> |No|  E("Try a different solution")
+graph TD;
+A(Profile or time) --> B(Tune the slowest section);
+B --> C{Performance increase?};
+C -- Yes --> D(Go to next slowest);
+C -- No --> E(Try a different solution);
+D --> A
 {{< /diagram >}}
+
+There are many approaches to speeding up sections, some specific to Python and some more generic.  In this section we will consider several possibilities.
 
 ### Avoid for Loops
 
@@ -252,10 +257,10 @@ if __name__ == "__main__":
 
 **Results** with Python 3.6.9 on one particular system:
 
-| Program | total time: calculate(a)
-| --- | --- |
-| loops.py | 1.197 sec |
-| aops.py | .211 sec |
+```
+loops.py  1.197 sec 
+aops.py  .211 sec 
+```
 
 **Extreme Example**
 ```python
@@ -361,17 +366,49 @@ if __name__==”__main__”:
 
 ### Wrapping Compiled Code in Python
 
-* If you have Fortran you can use f2py
-* Part of NumPy
-* Can work for C as well
-* Extremely easy to use
-* Can wrap legacy F77 and newer F90+ (with modules)
-* Must be used from the command line
-* A module can be imported as f2py2e
+Function libraries can be written in C/C++/Fortran and converted into Python-callable modules.  
+
+We will illustrate each with a simple (and very incomplete) example of code to work with fractions.
+
+#### Fortran
+
+* If you have Fortran source code you can use f2py
+   * Part of NumPy
+   * Can work for C as well
+   * Extremely easy to use
+   * Can wrap legacy F77 and newer F90+ (with modules)
+   * Must be used from the command line
 
 http://docs.scipy.org/doc/numpy-dev/f2py/
 
-SWIG can work for C/C++; SIP is good for C++
+**Example**
+
+Download the example Fortran code [simplefracs.f90](/simplefracs.f90) to try this yourself.
+
+First create a Python _signature file_.
+```
+f2py simplefracs.f90 -m Fractions -h Fractions.pyf
+```
+We then use the signature file to generate the Python module.
+```
+f2py -c -m Fractions simplefracs.f90 
+```
+
+The original Fortran source consisted of a module Fractions.  Examining the signature file, we see that f2py has lower-cased it and created the Python module Fractions.  Under Linux the module file is called Fractions.cpython-39-x86_64-linux-gnu.so but we can drop everything past the period when we import it.
+```
+>>> from Fractions import fractions
+>>> fractions.adder(1,2,3,4)
+array([10,  8], dtype=int32)
+```
+One significant weakness of f2py is that it does not yet support Fortran types.  James Kermode has extended it in his [f90wrap](https://github.com/jameskermode/f90wrap) package.  Please see its documentation for details.  Another option is to 
+HERE
+
+#### C/C++
+
+[SWIG](http://www.swig.org/) can work for C/C++.  A newer tool for C is [CFFI](https://cffi.readthedocs.io/en/latest/). CFFI is a Python tool and must be installed through `pip` or a similar package manager.  CFFI has four modes but we will show only the "API outline" mode, which is the easiest and most reliable but does require a C compiler to be available.
+
+**Example**
+
 
 ### Cython
 
