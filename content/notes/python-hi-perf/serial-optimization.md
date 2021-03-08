@@ -376,22 +376,22 @@ We will illustrate each with a simple (and very incomplete) example of code to w
    * Part of NumPy
    * Can work for C as well
    * Extremely easy to use
-   * Can wrap legacy F77 and newer F90+ (with modules)
+   * Can wrap legacy F77 and some newer F90+ (modules are supported)
    * Must be used from the command line
 
 http://docs.scipy.org/doc/numpy-dev/f2py/
 
 **Example**
 
-Download the example Fortran code [simplefracs.f90](/simplefracs.f90) to try this yourself.
+Download the example Fortran code [fractions.f90](/fractions.f90) to try this yourself.
 
 First create a Python _signature file_.
 ```
-f2py simplefracs.f90 -m Fractions -h Fractions.pyf
+f2py fractions.f90 -m Fractions -h Fractions.pyf
 ```
 We then use the signature file to generate the Python module.
 ```
-f2py -c -m Fractions simplefracs.f90 
+f2py -c -m Fractions fractions.f90 
 ```
 
 The original Fortran source consisted of a module Fractions.  Examining the signature file, we see that f2py has lower-cased it and created the Python module Fractions.  Under Linux the module file is called Fractions.cpython-39-x86_64-linux-gnu.so but we can drop everything past the period when we import it.
@@ -400,15 +400,90 @@ The original Fortran source consisted of a module Fractions.  Examining the sign
 >>> fractions.adder(1,2,3,4)
 array([10,  8], dtype=int32)
 ```
-One significant weakness of f2py is that it does not yet support Fortran types.  James Kermode has extended it in his [f90wrap](https://github.com/jameskermode/f90wrap) package.  Please see its documentation for details.  Another option is to 
-HERE
+One significant weakness of f2py is limited support of the Fortran90+ standards, particularly derived types.  One option is [f90wrap](https://github.com/jameskermode/f90wrap) package.
 
-#### C/C++
+It is also possible to wrap the Fortran code in C by various means, such as the F2003 ISO C binding features, then to use the Python-C interface packages, such as ctypes and CFFI, for Fortran.  More details are available at `fortran90.org` for interfacing with [C](https://www.fortran90.org/src/best-practices.html#interfacing-with-c) and [Python](https://www.fortran90.org/src/best-practices.html#interfacing-with-python).
 
-[SWIG](http://www.swig.org/) can work for C/C++.  A newer tool for C is [CFFI](https://cffi.readthedocs.io/en/latest/). CFFI is a Python tool and must be installed through `pip` or a similar package manager.  CFFI has four modes but we will show only the "API outline" mode, which is the easiest and most reliable but does require a C compiler to be available.
+#### C
+
+Python provides the [ctypes](https://docs.python.org/3/library/ctypes.html) standard package.  Ctypes wraps C _libraries_ into Python code.  To use it, prepare a shared (dynamic) library of functions.  This requires a C compiler, and the exact steps vary depending on your operating system.  Windows compilers produce a file called a _DLL_, whereas Unix and MacOS shared libraries end in `.so`.  
+
+Much as for f2py, the user must prepare some form of signature for the C functions.  Ctypes types include
+
+| Python | C |
+|--------|---|
+|c_double| double |
+|c_int| int |
+|c_longlong| longlong |
+|c_numpy.ctypeslib.ndpointer(dtype=numpy.float64) | \*double| 
+
+See the [documentation](https://docs.python.org/3/library/ctypes.html#fundamental-data-types) for a complete list.
 
 **Example**
 
+Download the [arith.c](/arithc.c) file, which implements some trivial arithmetic functions.  It must be compiled to a shared library.  Under Unix we execute the commands
+```
+gcc -fPIC -c arith.c 
+gcc -shared arith.o -o arith.so
+```
+We now utilize it from the intepreter as follows:
+```
+>>> import ctypes
+>>> arith.sum.restype = ctypes.c_double
+>>> arith.sum.argtypes = [ctypes.c_double,ctypes.c_double]
+>>> arith.sum(3.,4.)
+7.0
+```
+
+A newer tool for C is [CFFI](https://cffi.readthedocs.io/en/latest/). CFFI is a Python tool and must be installed through `pip` or a similar package manager.  CFFI has four modes but we will show only the "API outline" mode, which is the easiest and most reliable but does require a C compiler to be available.  In this mode, CFFI will use the C source and any header files to generate its own library.
+
+**Example**
+
+We will wrap arith.c with CFFI.  First we must create a build file, which we will call [build_arith.py](/build_arith.py).
+```python
+from cffi import FFI
+ffibuilder = FFI()
+
+#First list all the function prototypes we wish to include in our module.
+ffibuilder.cdef("""
+  double sum(double x, double y);
+  double difference(double x, double y);
+  double product(double x, double y);
+  double division(double x, double y);
+ """)
+
+# set_source() specifies the name of the Python extension module to
+# create, as well as the original C source file.  If we had `arith.h` we
+# would put `include "arith.h"` in the triple quotes.  Conventionally, we
+# name the extension module with a leading underscore.
+ffibuilder.set_source("_arith",
+"""
+  double sum(double x, double y);
+  double difference(double x, double y);
+  double product(double x, double y);
+  double division(double x, double y);
+""",
+ sources = ['arith.c'],
+ library_dirs = [],
+)
+
+ffibuilder.compile()
+```
+
+We can now import our module.  The functions will be available with the namespace `lib`.
+```
+>>> from _arith import lib
+>>> lib.sum(3.,4.)
+7.0
+```
+
+CFFI supports more advanced features.  For example, structs can be wrapped into Python classes.  See [here](https://github.com/wolever/python-cffi-example) for an example.  The CFFI mode we have illustrated also creates static bindings, unlike ctypes (and other modes of CFFI) for which this happens on the fly.
+
+However, neither ctypes nor CIFFI supports C++ directly.  Any C++ must be "C-like" and contain an `extern C` declaration.
+
+#### C++
+
+One of the most popular packages that deals directly with C++ is [PyBind11](https://pybind11.readthedocs.io/en/stable/).  
 
 ### Cython
 
