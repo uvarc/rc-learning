@@ -2,8 +2,8 @@
 title: Introduction to Rivanna
 summary: An introduction to using the Rivanna system
 authors: [uvarc]
-tags: [rivanna, hpc]
-categories: [Rivanna]
+tags: []
+categories: []
 date: "2019-02-05T00:00:00Z"
 slides:
   theme: white
