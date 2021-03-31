@@ -62,11 +62,11 @@ snakeviz Profile.result
 ```
 
 To use snakeviz within an iPython shell, use the "magics"
-```
+```python
 %snakeviz code_line
 ```
 for a single line, or
-```
+```python
 %%snakeviz
 a line
 for i in stuff:
@@ -75,19 +75,19 @@ for i in stuff:
 for multiple lines.
 
 To use snakeviz from within a Jupyter notebook, first load it
-```
+```python
 load_ext snakeviz
 ```
 
 Another option in iPython or Jupyter is `prun`.
-```
+```python
 %prun
 ```
 This runs the Cprofile profiler.
 
 You can also install the `line_profiler` and `mem_profiler` tools.
 The line_profiler tool provides a special version of the Python interpreter, `kernprof` and defines a decorator `@profile`.  To use it from the command line, add the decorator to any function you wish to profile.
-```
+```python
 @profile
 def fib(n):
     # from http://en.literateprograms.org/Fibonacci_numbers_(Python)
@@ -216,44 +216,10 @@ NumPy provides a large library of functions on NumPy arrays that take the place 
 
 **Exercise:** 
 Nested for loops are **very inefficient** (`loops.py`)
-```python
-import numpy as np
-
-def calculate(a):
-    # add 3
-    x,y = a.shape
-    for i in range(x):    
-        for j in range(y):       
-             array[i,j]+=3
-    # calculate sum
-    sum_A=0
-    for i in range(x):    
-        for j in range(y):       
-             sum_A+=array[i,j]
-    return sum_A
-    
-if __name__ == "__main__":
-    array=np.zeros((1024,1024),dtype=int)
-    sum_A = calculate(array)
-    print(sum_A)
-```
+{{% code file="/notes/python-hi-perf/loops.py" lang="python" %}}
 
 Eliminating for loops is **much faster** (`aops.py`)
-```python
-import numpy as np
-
-def calculate(a):
-    # add 3
-    a+=3
-    # calculate sum
-    sum_A=a.sum()
-    return sum_A
-    
-if __name__ == "__main__":
-    array=np.zeros((1024,1024),dtype=int)
-    sum_A = calculate(array)     
-    print(sum_A)
-```
+{{% code file="/notes/python-hi-perf/aops.py" lang="python" %}}
 
 **Results** with Python 3.6.9 on one particular system:
 
@@ -276,45 +242,8 @@ u[1:-1,1:-1]=0.25*(u[2:,1:-1]+u[:-2,1:-1]+u[1:-1,2:]+u[1:-1,:-2]
 
 **Example**
 Our "dummy" function is a ufunc, so we can run a trial with little modification to the previous code.  The "setup" code is not timed by timeit.
-```python
-import random
-import timeit
+{{% code file="/notes/python-hi-perf/replace_forloop.py" lang="python" %}}
 
-values = [random.randrange(100) for _ in range(100000)]
-
-def dummy(x):
-    return x**2+42.
-
-def with_map():
-    return list(map(dummy, values))
-
-def with_comp():
-    return [dummy(x) for x in values]
-
-def with_loop():
-    result = []
-    for x in values:
-        result.append(dummy(x))
-    return result
-
-np_setup="""
-import numpy as np
-import random
-values = [random.randrange(100) for _ in range(100000)]
-xvals = np.array(values)
-"""
-
-np_code="""
-def with_ndarray(x):
-    return x**2+42.
-with_ndarray(xvals)
-"""
-
-print(f'Time for map {timeit.timeit(with_map, number=100):.4f}')
-print(f'Time for comprehension {timeit.timeit(with_comp, number=100):.4f}')
-print(f'Time for loop {timeit.timeit(with_loop, number=100):.4f}')
-print(f'Time for numpy {timeit.timeit(setup=np_setup,stmt=np_code, number=100):.4f}')
-```
 The difference is remarkable.  Remember that times for different runs may vary somewhat even on the same system, but the basic result will be similar.
 ```
 Time for map 5.0804
@@ -350,6 +279,12 @@ Not only does the first version have a for loop, but since strings are immutable
 
 Use dynamically sized objects when appropriate, but do not append if you don’t have to do so.  Especially avoid inserting.
 
+### Simplify Mathematical Expression
+
+Mathematical functions are very slow, in general.  When possible, simplify mathematical expressions.  For example,
+$$ e^a e^b=e^{a+b} $$
+Reducing two exponential evaluations to one can save a significant amount of time, especially if the expression is repeated many times.
+
 ### Use Functions
 
 Due to some quirks of Python, functions are faster than straight code.  
@@ -364,241 +299,8 @@ if __name__==”__main__”:
       main()
 ```
 
-### Wrapping Compiled Code in Python
-
-Function libraries can be written in C/C++/Fortran and converted into Python-callable modules.  
-
-We will illustrate each with a simple (and very incomplete) example of code to work with fractions.
-
-#### Fortran
-
-* If you have Fortran source code you can use f2py
-   * Part of NumPy
-   * Can work for C as well
-   * Extremely easy to use
-   * Can wrap legacy F77 and some newer F90+ (modules are supported)
-   * Must be used from the command line
-
-http://docs.scipy.org/doc/numpy-dev/f2py/
-
-**Example**
-
-Download the example Fortran code [fractions.f90](/fractions.f90) to try this yourself.
-
-First create a Python _signature file_.
-```
-f2py fractions.f90 -m Fractions -h Fractions.pyf
-```
-We then use the signature file to generate the Python module.
-```
-f2py -c -m Fractions fractions.f90 
-```
-
-The original Fortran source consisted of a module Fractions.  Examining the signature file, we see that f2py has lower-cased it and created the Python module Fractions.  Under Linux the module file is called Fractions.cpython-39-x86_64-linux-gnu.so but we can drop everything past the period when we import it.
-```
->>> from Fractions import fractions
->>> fractions.adder(1,2,3,4)
-array([10,  8], dtype=int32)
-```
-One significant weakness of f2py is limited support of the Fortran90+ standards, particularly derived types.  One option is [f90wrap](https://github.com/jameskermode/f90wrap) package.
-
-It is also possible to wrap the Fortran code in C by various means, such as the F2003 ISO C binding features, then to use the Python-C interface packages, such as ctypes and CFFI, for Fortran.  More details are available at `fortran90.org` for interfacing with [C](https://www.fortran90.org/src/best-practices.html#interfacing-with-c) and [Python](https://www.fortran90.org/src/best-practices.html#interfacing-with-python).
-
-#### C
-
-Python provides the [ctypes](https://docs.python.org/3/library/ctypes.html) standard package.  Ctypes wraps C _libraries_ into Python code.  To use it, prepare a shared (dynamic) library of functions.  This requires a C compiler, and the exact steps vary depending on your operating system.  Windows compilers produce a file called a _DLL_, whereas Unix and MacOS shared libraries end in `.so`.  
-
-Much as for f2py, the user must prepare some form of signature for the C functions.  Ctypes types include
-
-| Python | C |
-|--------|---|
-|c_double| double |
-|c_int| int |
-|c_longlong| longlong |
-|c_numpy.ctypeslib.ndpointer(dtype=numpy.float64) | \*double| 
-
-See the [documentation](https://docs.python.org/3/library/ctypes.html#fundamental-data-types) for a complete list.
-
-**Example**
-
-Download the [arith.c](/arithc.c) file, which implements some trivial arithmetic functions.  It must be compiled to a shared library.  Under Unix we execute the commands
-```
-gcc -fPIC -c arith.c 
-gcc -shared arith.o -o arith.so
-```
-We now utilize it from the intepreter as follows:
-```
->>> import ctypes
->>> arith.sum.restype = ctypes.c_double
->>> arith.sum.argtypes = [ctypes.c_double,ctypes.c_double]
->>> arith.sum(3.,4.)
-7.0
-```
-
-A newer tool for C is [CFFI](https://cffi.readthedocs.io/en/latest/). CFFI is a Python tool and must be installed through `pip` or a similar package manager.  CFFI has four modes but we will show only the "API outline" mode, which is the easiest and most reliable but does require a C compiler to be available.  In this mode, CFFI will use the C source and any header files to generate its own library.
-
-**Example**
-
-We will wrap arith.c with CFFI.  First we must create a build file, which we will call [build_arith.py](/build_arith.py).
-```python
-from cffi import FFI
-ffibuilder = FFI()
-
-#First list all the function prototypes we wish to include in our module.
-ffibuilder.cdef("""
-  double sum(double x, double y);
-  double difference(double x, double y);
-  double product(double x, double y);
-  double division(double x, double y);
- """)
-
-# set_source() specifies the name of the Python extension module to
-# create, as well as the original C source file.  If we had `arith.h` we
-# would put `include "arith.h"` in the triple quotes.  Conventionally, we
-# name the extension module with a leading underscore.
-ffibuilder.set_source("_arith",
-"""
-  double sum(double x, double y);
-  double difference(double x, double y);
-  double product(double x, double y);
-  double division(double x, double y);
-""",
- sources = ['arith.c'],
- library_dirs = [],
-)
-
-ffibuilder.compile()
-```
-
-We can now import our module.  The functions will be available with the namespace `lib`.
-```
->>> from _arith import lib
->>> lib.sum(3.,4.)
-7.0
-```
-
-CFFI supports more advanced features.  For example, structs can be wrapped into Python classes.  See [here](https://github.com/wolever/python-cffi-example) for an example.  The CFFI mode we have illustrated also creates static bindings, unlike ctypes (and other modes of CFFI) for which this happens on the fly.
-
-However, neither ctypes nor CIFFI supports C++ directly.  Any C++ must be "C-like" and contain an `extern C` declaration.
-
-#### C++
-
-One of the most popular packages that deals directly with C++ is [PyBind11](https://pybind11.readthedocs.io/en/stable/).  
-
-### Cython
-
-Cython is a package that allows Python code to be compiled into C code.  Some rewriting is required because C requires statically-typed variables.  Cython defines two additional keywords to declare functions, `cdef` and `cpdef`. `cdef` is basically C and can produce the fastest code, but `cdef` declared functions are not visible to Python code that imports the module. `cpdef` is mix of C with dynamic bindings for passing of Python objects which makes it slower than `cdef` (<a href="https://notes-on-cython.readthedocs.io/en/latest/function_declarations.html" target="_blank">read the details</a>).
-
-**Exercise:** `integrate.py` 
-
-Suppose we start with
-```python
-def f(x):
-    return x**2-x
-    
-def integrate_f(a, b, N):
-    s = 0
-    dx = (b-a)/N
-    for i in range(N):
-        s += f(a+i*dx)
-    return s * dx
-```
-
-We can speed this up with
-```python
-cpdef double f(double x):
-    return x**2-x
-
-cpdef double integrate_f(double a, double b, int N):
-    cdef int i
-    cdef double s, dx
-    s = 0
-    dx = (b-a)/N
-    for i in range(N):
-        s += f(a+i*dx)
-    return s*dx
-```
-
-Save the above code as `integrate_cyf.pyx`.  Now create a `setup.py` file:
-```python
-from distutils.core import setup
-from Cython.Build import cythonize
-
-setup(
-	ext_modules = cythonize("integrate_cyf.pyx")
-)	
-```
-
-On the command line run `python setup.py build_ext --inplace` to build the extension.
-
-This will create a file `integrate_cyf.c` in your local directory. In addition you will find a file called `integrate_cyf.so` in unix or `integrate_cyf.pyd` in Windows. Now you can import your module in your Python scripts.
-```python
-import integrate_cyf as icyf
-print(icyf.integrate_f(1.,51.,1000))
-```
-
-More detailed information describing the use of Cython can be found <a href="https://cython.readthedocs.io/en/latest/src/tutorial/cython_tutorial.html" target="_blank">here</a>.
-
-### Numba
-
-Numba is available with the Anaconda Python distribution.   It compiles selected functions using the LLVM compiler.  Numba is accessed through a decorator.  Decorators in Python are wrappers that modify the functions without the need to change the code.
-
-**Exercise:**
-A well-known but slow way to compute pi is by a Monte Carlo method.  Given a circle of unit radius inside a square with side length 2, we can estimate the area inside and outside the circle by throwing “darts” (random locations).  Since the area of the circle is pi and the area of the square is 4, the ratio of hits inside the circle to the total thrown is pi/4.  
-
-Open the `MonteCarloPi.py` script.
-```python
-import sys
-import random
-
-def pi(numPoints):
-    """Throw a series of imaginary darts at an imaginary dartboard of unit
-        radius and count how many land inside the circle."""
-
-    numInside=0
- 
-    for i in range(numPoints):
-        x=random.random()
-        y=random.random()
-        if (x**2+y**2<1):
-            numInside+=1
-
-    pi=4.0*numInside/numPoints
-    return pi
-
-def main():
-    # parse number of points from command line. Try 10^8
-    if (len(sys.argv)>1):
-        try:
-            numPoints=int(float((sys.argv[1])))
-            print('Pi (approximated): {}'.format(pi(numPoints)))
-        except:
-            print("Argument must be an integer.")
-    else:
-        print("USAGE:python MonteCarlo.py numPoints")
-
-
-if __name__=="__main__":
-    main()
-```
-
-Running with 10^9 points takes 6 minutes and 21 seconds on one particular system.
-
-Now add another `import` statement.
-```python
-from numba import jit
-```
-Add the decorator above the pi function:
-```python
-@jit
-def pi(numPoints):
-```
-No other changes are required.  The time is reduced to only 14.7 seconds!
-
 ### Concluding Advice for Serial Optimization
 
 * Do not sacrifice readability for optimization.  Human time is much more expensive than computer time.
-* But be mindful of efficiencies as you code (e.g. think about looping correctly for your language as you go).
-* Do simple optimizations first (such as straightforward loop reordering and mathematical reorganization).  Profile before undertaking extensive optimization efforts.
+* Do simple optimizations first.  Profile before undertaking extensive optimization efforts.
 * Use timing functions to obtain finer-grained information about bottlenecks as needed.
-
