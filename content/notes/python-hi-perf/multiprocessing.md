@@ -2,11 +2,11 @@
 title: "Multiprocessing for Multicore Systems"
 toc: true
 type: docs
-weight: 3
+weight: 4
 menu:
     hp-python:
         parent: High-Performance Python
-        weight: 3
+        weight: 4
 ---
 
 Sometimes you cannot sufficiently speed up your program even with all optimization tricks.  You may be able to take advantage of modern multicore processors to distribute the work across different cores.  One popular programming model for multicore is **threads**.  Threads are subprocesses launched by the initial process (the executable in most cases).  Threads can be created and destroyed.  Each thread should be assigned to its own core.  Threads share a memory space and can also access the global memory of the system.  
@@ -133,74 +133,8 @@ Here is a more realistic example.  Let’s parallelize our Monte Carlo pi solver
 Map requires an iterator for its second argument. We will manually divide the total number of "data throws" into chunks of roughly equal size on each process and store the result into a list _myNumPoints_. The Pool map method will then distribute the elements of the list, one to each cpu.  This is called **load balancing** in parallel computing terms.  Maximum efficiency generally occurs when each process performs approximately the same quantity of work.
 We also do not hard-code the number of processes, but will set an environment variable `NUM_PROCS` outside to select the core count. 
 
-```
-"""
- This program estimates the value of PI by running a Monte Carlo simulation.
+{{% code file="/notes/python-hi-perf/MonteCarloPiMC.py" lang="python" %}}
 
- NOTE:  This is not how one would normally want to calculate PI, but serves
- to illustrate the principle.
-"""
-
-import sys
-import os
-import math
-import random
-import numpy as np
-import time
-from multiprocessing import Pool
-from functools import reduce
-
-def pi(numPoints):
-    """Throw a series of imaginary darts at an imaginary dartboard of unit
-        radius and count how many land inside the circle."""
-
-    numInside=0
-
-    for i in range(numPoints):
-        x=random.random()
-        y=random.random()
-        if (x**2+y**2<1):
-            numInside+=1
-
-    pi=4.0*numInside/numPoints
-    return pi
-
-def main():
-
-    if (len(sys.argv)>1):
-        try:
-            numPoints=int(float((sys.argv[1])))
-        except:
-            print("Argument must be an integer.")
-    else:
-        print("USAGE:python MonteCarlo.py numPoints")
-        exit()
-
-    ncpus=int(os.getenv('NUM_PROCS'))
-    print ('ncpus={}'.format(ncpus))
-    chunks=numPoints%ncpus
-    myNumPoints=[numPoints//ncpus+1]*chunks+[numPoints//ncpus]*(ncpus-chunks)
-    print ('Points:', myNumPoints)
-
-    pool = Pool(processes=ncpus)
-    tic=time.time ()
-    results = pool.map(pi,myNumPoints)
-    ppi=reduce(lambda x,y:x+y,results)/ncpus
-    print(ppi)
-    toc=time.time ()
-    pool.close(); pool.join() #done with pool
-    print("Parallel time on "+str(ncpus)+" cores:"+str(round(toc-tic,4)))
-
-    #For comparison, run in serial
-    tic=time.time()
-    spi=pi(numPoints)
-    print(spi)
-    toc=time.time()
-    print("Serial time:"+str(round(toc-tic,4)))
-
-if __name__=="__main__":
-    main()
-```
 #### Running on a Local Computer
 
 Most modern personal computers, including laptops, are multicore.  If you are running on your own computer, test the code for a fairly small number of "dart throws." You may change ncpus to a fixed integer corresponding to your computer's core count.  Start with 10000 and increase to 100000, then to 1000000.  You may find that for a small number of throws, the serial time is faster than the multicore time.  This is due to _overhead_, which includes the additional time required to set up the multiple processes and communicate between them.  The result on one computer running Linux was
@@ -233,23 +167,7 @@ As we might expect, the time for the serial run increases roughly linearly with 
 
 In order to execute our program on designated compute node(s), we need to write a simple bash script that defines the compute resources we need.  We call this our job script.  For our example, the job script `pimc.sh` looks like this:
 
-```
-#!/bin/bash
-#SBATCH -N 1
-#SBATCH --cpus-per-task=4
-#SBATCH -A rivanna-training
-#SBATCH -p standard
-#SBATCH -t 10:00:00
-
-echo Running on `hostname`
-
-module purge
-module load anaconda/5.2.0-py3.6
-
-# set the NUM_PROCS env variable for the Python script
-export NUM_PROCS=$SLURM_CPUS_PER_TASK
-python MonteCarloPiMC.py 100000000
-```
+{{% code file="/notes/python-hi-perf/pimc.sh" lang="bash" %}}
 
 You can view this script in a text editor on Rivanna.  If you are connected through a FastX Mate session, got to the menu **Applications** -> **Accessories** --> **Pluma Text Editor**.
 
