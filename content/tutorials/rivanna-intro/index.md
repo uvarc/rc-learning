@@ -3,9 +3,9 @@ title: Introduction to Rivanna
 summary: "This tutorial is an introduction to using the Rivanna high-performance computing (HPC) system."
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: "2021-04-13T00:00:00Z"
 
-authors: [jmh,kah]
+authors: [jmh,kah,wtr]
 tags: [rivanna,hpc]
 categories: ["Rivanna","HPC"]
 
