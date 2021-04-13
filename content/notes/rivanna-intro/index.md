@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Rivanna"
-date: "2021-04-13T21:13:14-05:00"
+date: "2021-04-13T00:00:00Z"
 authors: [jmh,kah,wtr]
 ---
 
