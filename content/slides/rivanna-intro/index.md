@@ -2,9 +2,6 @@
 title: Introduction to Rivanna
 summary: An introduction to using the Rivanna system
 authors: [uvarc]
-tags: []
-categories: []
-date: "2019-02-05T00:00:00Z"
 slides:
   theme: white
   highlight_style: github
@@ -67,15 +64,9 @@ slides:
 - An allocation is a pool of CPU time on the compute nodes. 
 - Allocations are measured in **service units** (SUs).  Generally, **1 SU = 1 core-hour** 
     - specialty hardware may charge more SUs per core-hour.
-
----
-
-### Obtaining an Allocation
-
 - Only faculty, postdocs, and research staff may request an allocation.   
     - Students must be sponsored.
     - All individuals on a given allocation share the service units. 
-
 - Allocations may be requested at 
 https://www.rc.virginia.edu/userinfo/rivanna/allocations/
 
@@ -86,7 +77,7 @@ https://www.rc.virginia.edu/userinfo/rivanna/allocations/
 
 ---
 
-If You Are Off Grounds
+### Off Grounds
 
 - Most access requires a VPN
     - Graduate students, faculty, and staff can use the UVA More Secure Network VPN profile
@@ -182,63 +173,23 @@ FastX requires your _Eservices_ password.  This is _not_ necessarily the same as
 
 ---
 
-#### SSH
+##### Terminating FastX
 
-- You need a _client_ program to use SSH.  This must be installed on your computer.
+- You may go to System->Log Out
+   When you confirm logging out, this will terminate your session
 
-- Your options for the client depends on your operating system.
+- You can also go to the FastX login page. Each session should appear as a terminal icon.  Select the session and click the `x` in the upper-right corner.
+Or go to the blue menu icon and select Terminate.
 
-- When off Grounds, you must be connected to the VPN
-
-- Open OnDemand ssh client
-    - The Clusters tab on OOD allows you to access a text shell.  This does not require a VPN.  It does not support graphics, however. 
-    - You can edit files using the built-in OOD text editor.
-
----
-
-##### Mac and Linux
-
-- Mac OSX and Linux ship with a Terminal app.  
-    - Mac users should also install [XQuartz](https://www.xquartz.org/). 
-
-- The generic hostname is
-```bash
-rivanna.hpc.virginia.edu
-```
-- This is an alias for three specific frontends:
-```bash
-rivanna1.hpc.virginia.edu
-rivanna2.hpc.virginia.edu
-rivanna3.hpc.virginia.edu
-```
-You may connect using specific names.  
-
-Connect with (substituting your own user ID)
-```bash
-ssh -Y mst3k@rivanna.hpc.virginia.edu
-```
-
----
-
-##### Windows
-
-- We recommend [MobaXterm](https://mobaxterm.mobatek.net/).  Download the Home Edition, Installer Edition.
-
-- From the Sessions menu, start an _SSH_ session. Using one of the particular names for a rivanna frontend (rivanna1.hpc.virginia.edu, etc.). as the host name.
-
-- If you prefer to type an ssh command, start a local terminal session and enter the same command as is used in the Mac OS or Linux terminal (the -Y option is the default).
-
-- MobaXterm includes an X server for graphics, a simple editor, and other useful tools in addition to ssh and sftp/scp functions.
-
----
+{{< figure src="FastX_terminate.png" >}}
 
 ###  After Logging In
  
-- You will be in your home directory.
+- You will be in your home directory (folder).
 
-- The home directory on Rivanna has 50GB of storage capacity.
+- The home folder on Rivanna has 50GB of storage capacity.
 
-- The home directory is for personal use and is not shareable with other users.
+- The home folder is for personal use and is not shareable with other users.
 
 - "Snapshots" of your files over the last seven days are available.
     - This is the only backup provided.
@@ -262,54 +213,11 @@ ssh -Y mst3k@rivanna.hpc.virginia.edu
  
 ## The Cluster Environment
  
-{{% fragment %}} Working at the Command Line {{% /fragment %}}
-<br>
 {{% fragment %}} Storage Options {{% /fragment %}}
 <br>
-{{% fragment %}} Modules and Partitions {{% /fragment %}}
+{{% fragment %}} Command-Line and Modules {{% /fragment %}}
 <br>
 {{% fragment %}} SLURM and Job Submissions {{% /fragment %}}
-
----
-{{< slide background-image="/slides/rivanna-intro/racks.jpg" background-opacity=0.3 >}}
-
-### Working at the Command Line
-
----
-
-#### The Command Line
-
-When using a ssh client you will be logged in to the _shell_.  We communicate with the shell through
-a _command line_.
-
-- Some familiarity with Unix/Linux commands will be necessary in order to navigate.
-
-- Folders are usually called _directories_ in Unix.
-
-- See https://learning.rc.virginia.edu/notes/unix-tutorial for an introduction to Unix commands.
-
----
-
-#### Checking Your Allocations
-
-- To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`:
-=======
-To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`):
-```bash
--bash-4.2$allocations
-
-Allocations available to Misty S. Theatre  (mst3k):
-
- * robot_build: less than 6,917 service-units remaining.
- * gizmonic-testing: less than 5,000 service-units remaining.
- * crow-lab: less than 2,978 service-units remaining.
- * gypsy: no service-units remaining
-```
-
-- For more information about a specific allocation, represented here by `allocation_name`, please run:
-```bash
--bash-4.2$allocations -a allocation_name
-```
 
 ---
 
@@ -318,31 +226,31 @@ Allocations available to Misty S. Theatre  (mst3k):
 
 ---
 
-#### The /scratch Directory
+#### The /scratch Folder
 
 - Each user will have access to 10 TB of temporary storage.
-  It is located in a subdirectory under /scratch, and named with your userID
+  It is located in a subfolder under /scratch, and named with your userID
 	e.g.,  /scratch/mst3k
 	
-- You are limited to 350,000 files in your scratch directory.
+- You are limited to 350,000 files in your scratch area.
 
-- The /scratch directory is for personal use and is not shareable with other users.
+- Your /scratch folder is for personal use and is not shareable with other users.
 
 **Important**
  /scratch is NOT permanent storage and files that have not been accessed for more than 90 days will be marked for deletion.
 
-Your scratch directory is NOT backed up.  Deleted files are not recoverable.
+Your files on scratch are NOT backed up.  Deleted files are not recoverable.
 
 ---
 
 #### Running Jobs from Scratch
 
-- We recommend that you run your jobs out of your /scratch directory for two reasons:
+- We recommend that you run your jobs out of your /scratch folder for two reasons:
    - /scratch is on a Lustre filesystem (a storage system designed specifically for parallel access).
    - /scratch is connected to the compute nodes with Infiniband (a very fast network connection). 
 
 - We also recommend that
-   - You keep copies of your programs and data in more permanent locations (e.g., your home directory or leased storage).
+   - You keep copies of your programs and data in more permanent locations (e.g., your home folder or leased storage).
 
    - After your jobs finish, copy the results to more permanent storage.
 
@@ -361,35 +269,37 @@ Your scratch directory is NOT backed up.  Deleted files are not recoverable.
 
 ---
 
+#### Moving Data To and From Rivanna
+
+1. Use the scp command in a terminal window (Mac and Linux).
+2. Install a drag-and-drop option. We recommend [MobaXterm](https:https://mobaxterm.mobatek.net/) (Windows) or [Filezilla](https://filezilla-project.org) (MacOS).
+   - In MobaXterm, start an SCP session
+   - In Filezilla, start an SFTP session
+3. For small files, use the Upload and Download buttons in the Open OnDemand file manager.
+4. Use the web browser in the FastX desktop to download data from UVA Box.
+5. Use the `git clone` command to copy git repositories.
+6. Set up a Globus endpoint on your laptop and use the Globus web interface to transfer files. 
+   - (See the [RC Globus page](https://www.rc.virginia.edu/userinfo/globus/) for details)
+
+More details are available at [our data-transfer page]( https://www.rc.virginia.edu/userinfo/data-transfer/)
+
+---
+
 #### Checking Your Storage
 
-To see how much disk space you have used in your home and scratch directories, open a Terminal window and 
+To see how much disk space you have used in your home and scratch directories, open a Terminal window (see next few slides) and
 type `hdquota` at the command-line prompt:
 ```bash
-Type     Location      Name        Size Used Avail Use%          
+Type     Location      Name        Size Used Avail Use%
 ================================================================================
-home      /home       mst3k         50G   45G  5.6G  89%    
-Project   /project    servo_lab    1.8P  1.7P  117T  94%        
-Value     /nv         vol67       1000G   84G  917G   9%        
+home      /home       mst3k         50G   45G  5.6G  89%
+Project   /project    servo_lab    1.8P  1.7P  117T  94%
+Value     /nv         vol67       1000G   84G  917G   9%
 
 Location         Age_Limit(Days) Disk_Limit(GB) Use(GB)  File_Limit   Use
 ================================================================================
 /scratch/mst3k       90              10240        147      350000      28387
 ```
----
-
-#### Moving Data To and From Rivanna
-
-1. Use the scp command in a terminal window (Mac and Linux).
-2. Use a drag-and-drop option with MobaXterm (Windows) or Filezilla (Mac OS).
-   - In MobaXterm, start an SCP session
-3. For small files, use the Upload and Download buttons in the Open OnDemand file manager.
-4. Use the web browser in the FastX desktop to download data from UVA Box.
-5. Use the `git clone` command to copy git repositories.
-6. Set up a Globus endpoint on your laptop and use the Globus web interface to transfer files. 
-   - (See https://www.rc.virginia.edu/userinfo/globus/ for details)
-
-More details are available at https://www.rc.virginia.edu/userinfo/data-transfer/
 
 ---
 
@@ -398,19 +308,64 @@ More details are available at https://www.rc.virginia.edu/userinfo/data-transfer
 
 ---
 
+#### Using a Command Line
+
+Modules and SLURM require that you type a few commands from the command line.
+
+Learning to use the command line and a text editor will make you a more productive user of Rivanna.  Please see our _Using Rivanna from the Command Line_ [tutorial](/slides/rivanna-cli) for an introduction.
+
+In the examples below, the characters up to and included the `$` are the _prompt_.  Do not type them.  The prompt may differ for different users.  It indicates that the system is ready for input.
+
+---
+
+#### Starting a Command-Line Environment
+
+1. From the OOD Dashboard menu, go to Clusters->Rivanna
+   A new tab will open with a prompt.
+2. Log in to FastX Web and start a terminal from the menu 
+   Applications->System Tools->MATE terminal
+   Or click the terminal icon in the taskbar at the top.
+3. For more advanced users, use your local ssh client to log in.
+
+---
+
+#### Editing Files
+
+- In OOD, select a file in the Files tab and click the `Edit` button.
+- In FastX, select Pluma Text Editor from the Applications->Accessories
+  -  You may also use Emacs or Vi Improved
+
+---
+
+#### Checking Your Storage
+
+To see how much disk space you have used in your home and scratch directories, open a Terminal window and
+type `hdquota` at the command-line prompt:
+```bash
+Type     Location      Name        Size Used Avail Use%
+================================================================================
+home      /home       mst3k         50G   45G  5.6G  89%
+Project   /project    servo_lab    1.8P  1.7P  117T  94%
+Value     /nv         vol67       1000G   84G  917G   9%
+
+Location         Age_Limit(Days) Disk_Limit(GB) Use(GB)  File_Limit   Use
+================================================================================
+/scratch/mst3k       90              10240        147      350000      28387
+```
+
 #### Modules Modify Your Environment
 Modules set up your environment to make it easier for you to use software packages.
 
 - Any application software that you want to use will need to be loaded with the `module load` command.  
 For example:
 ```bash
-module load matlab
-module load anaconda/5.2.0-py3.6
-module load goolf/7.1.0_3.1.4 R/3.6.3
+bash-4.2$module load matlab
+bash-4.2$module load anaconda/5.2.0-py3.6
+bash-4.2$module load goolf/7.1.0_3.1.4 R/3.6.3
 ```
-- You will need to load the module any time that you create a new shell
-  - Every time that you log out and back in
-  - Every time that you run a batch job on a compute node
+- You will need to load the module any time that you start a new terminal.
+  - Every time that you log out and back in.
+  - Every time that you run a batch job on a compute node.
 
 ---
 
@@ -431,13 +386,13 @@ module load goolf/7.1.0_3.1.4 R/3.6.3
 
 To locate a python module, try the following:
 ```bash
-$ module avail python
-$ module spider python
-$ module key python
+bash-4.2$ module avail python
+bash-4.2$ module spider python
+bash-4.2$ module key python
 ```
 To find bioinformatics software packages, try this:
 ```bash
-$ module key bio
+bash-4.2$ module key bio
 ```
 The available software is also listed on our website:
 <br>
@@ -460,15 +415,7 @@ a _partition_.
 - The scheduler determines the priority of your job and submits it to a compute node 
 when resources are available.
 
----
-
-#### Frontend Usage
-
-- The frontends are for use only for editing, compiling, and very short test runs.  Limits on
-memory and core usage are enforced.
-- Production jobs are submitted to the compute node through SLURM.
-
-For details please see our SLURM pages at http://www.rc.virginia.edu/userinfo/rivanna/slurm
+For details and sample scripts, please see our SLURM pages at http://www.rc.virginia.edu/userinfo/rivanna/slurm
 Much more information is available at http://slurm.schedmd.com/documentation.html
 
 ---
@@ -484,7 +431,7 @@ Much more information is available at http://slurm.schedmd.com/documentation.htm
 #### Partition (Queue) Properties
 
 ```bash
-$ qlist
+bash-4.2$ qlist
 
 Queue          Total   Free    Jobs    Jobs    Time           SU     
 (partition)    Cores   Cores   Running Pending Limit          Charge 
@@ -517,7 +464,7 @@ pcore          144     44      2       0       infinite       1
 #### Limits on Partitions
 
 ```bash
-$qlimits
+bash-4.2$qlimits
 Queue          Maximum      Maximum      Minimum      Maximum       Maximum       Default       Maximum      Minimum     
 (partition)    Submit       Cores/User   Cores/Job    Mem/Node(MB)  Mem/Core(MB)  Mem/Core(MB)  Nodes/Job    Nodes/Job   
 ========================================================================================================================
@@ -531,6 +478,29 @@ gpu            10000        16                        188000+       32000       
 bii-gpu        10000                                  384000                      8500          8                        
 knl            2000         900          16           180000                      768           8                        
 pcore          10000                                  550000                      2000          16             
+```
+
+---
+
+#### Checking Your Allocations
+
+- To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`:
+=======
+To see how many SUs you have available for running jobs, type `allocations` at the command-line prompt (represented here by `-bash-4.2$`):
+```bash
+bash-4.2$allocations
+
+Allocations available to Misty S. Theatre  (mst3k):
+
+ * robot_build: less than 6,917 service-units remaining.
+ * gizmonic-testing: less than 5,000 service-units remaining.
+ * crow-lab: less than 2,978 service-units remaining.
+ * gypsy: no service-units remaining
+```
+
+- For more information about a specific allocation, represented here by `allocation_name`, please run:
+```bash
+bash-4.2$allocations -a allocation_name
 ```
 
 ---
@@ -559,7 +529,7 @@ To submit the SLURM command file to the queue, use the `sbatch` command at the c
 For example, if the script on the previous slide is in a file named job_script.slurm, we can submit it as
 follows:
 ```bash
--bash-4.2$ sbatch job_script.slurm
+bash-4.2$ sbatch job_script.slurm
 Submitted batch job 18316
 ```
 The system responds with the **job ID** number.  
@@ -570,7 +540,7 @@ The system responds with the **job ID** number.
 
 To display the status of only your active jobs,  type:    
 ```bash 
--bash-4.2$squeue –u <your_user_id>
+bash-4.2$squeue –u <your_user_id>
 ```
 The squeue command will show pending jobs and running jobs, but not failed, canceled or completed jobs.
 
@@ -584,7 +554,7 @@ Typing `squeue -p` <partition> shows jobs in the specified partition.
 
 To display the status of all jobs,  type:
 ```bash
-sacct –S <start_date>
+bash-4.2$sacct –S <start_date>
 ```
 
 The `sacct` command lists all jobs (pending, running, completed, canceled, failed, etc.) since the specified date.
@@ -594,7 +564,7 @@ The `sacct` command lists all jobs (pending, running, completed, canceled, faile
 #### Example Summary
 
 ```bash
--bash-4.2$ sacct –S 2019-01-29
+bash-4.2$ sacct –S 2019-01-29
  
 3104009      RAxML_NoC+   standard  hpc_build         20  COMPLETED      0:0 
 3104009.bat+      batch             hpc_build         20  COMPLETED      0:0 
@@ -614,12 +584,12 @@ The `sacct` command lists all jobs (pending, running, completed, canceled, faile
 
 To delete a job from the queue, use the scancel command with the job ID number at the command line prompt:
 ```bash
--bash-4.2$ scancel 18316
+bash-4.2$ scancel 18316
 ```
 
 To cancel all your jobs, type
 ```bash
--bash-4.2$ scancel –u $USER
+bash-4.2$ scancel –u $USER
 ```
 
 ---

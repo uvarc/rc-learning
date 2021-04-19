@@ -23,11 +23,9 @@ A __class__ is a generalized, programmer-defined data type that can contain mult
 ## Classes in Python
 
  We have already been using classes in our Python program, since all data types (including the apparently "primitive" types) are actually classes. In Python syntax, an instance is separated from its methods by a period.  So when we invoke
-
 ```python
 L=[1,2,3,4]
 ```
-
 we have invoked a constructor (in an unusual format) for the list class.  When we subsequently type
 
 ```python

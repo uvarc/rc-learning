@@ -86,7 +86,7 @@ A newer tool for C is [CFFI](https://cffi.readthedocs.io/en/latest/). CFFI is a 
 
 **Example**
 
-We will wrap arith.c with CFFI.  First we must create a build file, which we will call [build_arith.py](/notes/python-hi-perf/build_arith.py).
+We will wrap arith.c with CFFI.  First we must create and run a build file, which we will call [build_arith.py](/notes/python-hi-perf/build_arith.py).
 
 {{% code file="/notes/python-hi-perf/build_arith.py" lang="python" %}}
 
