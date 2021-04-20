@@ -10,7 +10,7 @@ slides:
 # Introduction to Rivanna
 
 
-<img align="right" width="100" height="100" src="RC_logo.png">
+<img align="right" width="500" height="500" src="RC_logo.png">
 Rivanna is UVA's resource for high-performance computing on non-sensitive data.  Rivanna is a cluster of many compute nodes behind several login nodes (also called frontends).
 
 
