@@ -7,14 +7,9 @@ slides:
   highlight_style: github
 ---
 # Introduction to Rivanna
-<div class=twocolumn>
- <div>
-    - Rivanna is the university's resource for high-performance computing on non-sensitive data. 
-    - Rivanna is a _cluster_ of many _compute nodes_ behind several _login nodes_ (also called frontends).
- </div>
- <div>
-    <img src="RC_logo.png">
- </div>
+- Rivanna is the university's resource for high-performance computing on non-sensitive data.
+- Rivanna is a _cluster_ of many _compute nodes_ behind several _login nodes_ (also called frontends).
+<img align="right" src="RC_logo.png">
 
 ---
 
