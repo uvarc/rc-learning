@@ -81,7 +81,7 @@ slides:
 - Time on Rivanna is allocated
 - An allocation refers to a chunk of CPU time that you use to run your computations
 - Allocations are measured in **Service Units** (SUs)
-    - > Generally, **1 SU = 1 core-hour** 
+    > Generally, **1 SU = 1 core-hour** 
     - specialty hardware may charge more SUs per core-hour
 - Only faculty, postdocs, and research staff may request an allocation   
     - Students must be sponsored
