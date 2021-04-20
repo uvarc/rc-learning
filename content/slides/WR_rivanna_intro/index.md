@@ -1,5 +1,5 @@
 ---
-title: WR Introduction to Rivanna
+title: "WR Introduction to Rivanna"
 summary: An introduction to using the Rivanna system
 authors: [uvarc]
 slides:
