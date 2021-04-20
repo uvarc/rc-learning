@@ -64,7 +64,7 @@ slides:
 
 - A core is an individual processor on a computer.  
 - Each node has multiple cores.  
-    - The number ranges from 20 to 40 depending on the age and model of the node.
+    - Our nodes have between 20-40 cores depending on the age and model of the node
 
 {{< figure src="cluster-sketch.jpg" >}}
 
@@ -78,13 +78,14 @@ slides:
 
 ### What is an Allocation
  
-- Time on Rivanna is allocated.
-- An allocation is a pool of CPU time on the compute nodes. 
-- Allocations are measured in **service units** (SUs).  Generally, **1 SU = 1 core-hour** 
-    - specialty hardware may charge more SUs per core-hour.
-- Only faculty, postdocs, and research staff may request an allocation.   
-    - Students must be sponsored.
-    - All individuals on a given allocation share the service units. 
+- Time on Rivanna is allocated
+- An allocation refers to a chunk of CPU time that you use to run your computations
+- Allocations are measured in **Service Units** (SUs)
+    > Generally, **1 SU = 1 core-hour** 
+    > specialty hardware may charge more SUs per core-hour
+- Only faculty, postdocs, and research staff may request an allocation   
+    - Students must be sponsored
+    - All individuals on a given allocation share the service units 
 - Allocations may be requested at 
 https://www.rc.virginia.edu/userinfo/rivanna/allocations/
 
