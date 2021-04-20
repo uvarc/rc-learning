@@ -14,6 +14,7 @@ slides:
   <ul>
    <li>Rivanna is UVA's resource for high-performance computing on non-sensitive data</li>
    <li>Rivanna is a cluster of many compute nodes behind several login nodes</li>
+  </ul>
  </div>
  <div>
     <img src="RC_logo.png">
@@ -42,7 +43,7 @@ slides:
 
 ---
 
-### Rivanna is made up of nodes
+### Nodes
 
 <div class=twocolumn>
  <div>
@@ -51,6 +52,7 @@ slides:
    <li>Nodes are connected by networks</li>
    <li>Login nodes (head nodes) can be used for logging in, editing files, and submitting jobs</li>
    <li>Compute nodes run jobs</li>
+  </ul>
  </div>
  <div>
     <img src="Rivanna_overview.png">
