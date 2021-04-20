@@ -1,6 +1,6 @@
 ---
 title: "WR Introduction to Rivanna"
-summary: An introduction to using the Rivanna system
+summary: WR An introduction to using the Rivanna system
 authors: [uvarc]
 slides:
   theme: white
