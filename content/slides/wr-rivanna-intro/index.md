@@ -41,10 +41,10 @@ slides:
 <div class=twocolumn>
  <div>
   <ul>
-   <li>A node is a compute server</li>
+   <li>A node is a compute server (think of it as a computer)</li>
    <li>Nodes are connected by networks</li>
-   <li>Compute nodes run jobs for users</li>
    <li>Login nodes (head nodes) can be used for logging in, editing files, and submitting jobs</li>
+   <li>Compute nodes run jobs</li>
  </div>
  <div>
     <img src="Rivanna_overview.png">
