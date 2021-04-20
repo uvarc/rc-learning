@@ -40,10 +40,7 @@ slides:
 
 <div class=twocolumn>
  <div>
-    A node is a compute server<br>
-    Nodes are connected by networks<br>
-    Compute nodes run jobs for users<br>
-    Login nodes (head nodes) can be used for logging in, editing files, and submitting jobs
+    A node is a compute server<br> Nodes are connected by networks<br> Compute nodes run jobs for users<br> Login nodes (head nodes) can be used for logging in, editing files, and submitting jobs
  </div>
  <div>
     <img src="Rivanna_overview.png">
