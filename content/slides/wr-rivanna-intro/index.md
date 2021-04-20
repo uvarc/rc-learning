@@ -10,7 +10,7 @@ slides:
 # Introduction to Rivanna
 
 - Rivanna is UVA's resource for high-performance computing on non-sensitive data.<img align="right" width="500" height="500" src="RC_logo.png">
-- Rivanna is a _cluster_ of many _compute nodes_ behind several _login nodes_ (also called frontends) 
+- Rivanna is a _cluster_ of many _compute nodes_ behind several _login nodes_ (also called head nodes) 
 
 
 
@@ -38,10 +38,16 @@ slides:
 
 ### Nodes
 
-- A node is a compute server.  Each node has its own memory.
-- Nodes are connected by networks.
-- Compute nodes run _jobs_ for users.
-- Login nodes, or head nodes, or frontends, can be used for logging on, editing files and other short tasks, and submitting jobs.
+<div class=twocolumn>
+ <div>
+    A node is a compute server<br>
+    Nodes are connected by networks<br>
+    Compute nodes run jobs for users<br>
+    Login nodes (head nodes) can be used for logging in, editing files, and submitting jobs
+ </div>
+ <div>
+    <img src="Rivanna_overview.png">
+ </div>
 
 ---
 
