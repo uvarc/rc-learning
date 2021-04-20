@@ -30,7 +30,7 @@ slides:
 
 {{% fragment %}} Hardware {{% /fragment %}}
 <br>
-{{% fragment %}} Allocations and Accounts {{% /fragment %}}
+{{% fragment %}} Allocations {{% /fragment %}}
 <br>
 {{% fragment %}} Connecting to the Cluster {{% /fragment %}}
 <br>
@@ -62,8 +62,8 @@ slides:
 
 ### Cores
 
-- A core is an individual processor on a computer.  
-- Each node has multiple cores.  
+- A core is an individual processor on a computer  
+- Each node has multiple cores  
     - Our nodes have between 20-40 cores depending on the age and model of the node
 
 {{< figure src="cluster-sketch.jpg" >}}
@@ -98,17 +98,17 @@ https://www.rc.virginia.edu/userinfo/rivanna/allocations/
 
 ### Off Grounds
 
-- Most access requires a VPN
-    - Graduate students, faculty, and staff can use the UVA More Secure Network VPN profile
-    - Undergraduate students use the UVA Anywhere VPN profile
+- When off grounds, use the VPN
+    - Graduate students, faculty, and staff use: UVA More Secure Network 
+    - Undergraduate students use: UVA Anywhere 
 
-- To install the VPN client on your computer, go to https://in.virginia.edu/vpn and follow the instructions.
+- To install the VPN, go to https://in.virginia.edu/vpn 
 
 ---
 
 ### Logging In To Rivanna
 
-UVA RC provides options to log in to frontends
+There are multiple ways to log in
 
 1. Open OnDemand
 	- Connect to a Web interface through a browser
