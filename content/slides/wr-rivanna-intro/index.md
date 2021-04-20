@@ -36,7 +36,7 @@ slides:
 
 ---
 
-### Nodes
+### Rivanna is made up of nodes
 
 <div class=twocolumn>
  <div>
