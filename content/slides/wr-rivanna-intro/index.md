@@ -156,7 +156,8 @@ There are multiple ways to log in
 - Click submit and your job will be queued as it waits for resources
 - When it starts, click the Launch Session button
 
-<img style="float: right;" src="OOD_Jupyterlab.png">
+<img src="OOD_Jupyterlab.png", style="height:30vh; background-color:white; float:right;"/>
+
 
 
 
