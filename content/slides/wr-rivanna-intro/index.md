@@ -153,17 +153,12 @@ There are multiple ways to log in
 
 Launch JupyterLab
 
-<div class=twocolumn>
- <div>
-  <ul>
-   <li>Fill in the textboxes with your parition, time, memory/core requirements, and allocation</li>
-   <li>Click submit and your job will be queued as it waits for resources</li>
-   <li>When it starts, click the Launch Session button</li>
-  </ul>
- </div>
- <div>
-    <img src="OOD_Jupyterlab.png">
- </div>
+- Fill in the textboxes with your parition, time, memory/core requirements, and allocation</li>
+- Click submit and your job will be queued as it waits for resources</li>
+- When it starts, click the Launch Session button</li>
+
+![jupter_lab]("OOD_Jupyterlab.png")
+
 
 
 ---
