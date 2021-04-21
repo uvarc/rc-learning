@@ -151,12 +151,12 @@ There are multiple ways to log in
 
 ##### Launch JupyterLab
 
+<img src="OOD_Jupyterlab.png", style="height:30vh; background-color:white; float:right;"/>
 
 - Fill in the textboxes with your parition, time, memory/core requirements, and allocation
 - Click submit and your job will be queued as it waits for resources
 - When it starts, click the Launch Session button
 
-<img src="OOD_Jupyterlab.png", style="height:30vh; background-color:white; float:right;"/>
 
 
 
