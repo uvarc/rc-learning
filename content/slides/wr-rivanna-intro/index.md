@@ -119,15 +119,22 @@ There are multiple ways to log in
 
 ---
 
-#### Open OnDemand
+#### OpenOnDemand
 
-- Authenticate through Netbadge
-- Once logged in, you will see the Dashboard.  
-- Examine and manipulate files and submit jobs
-- Access applications such as JupyterLab, RStudio Server, and FastX
-- https://rivanna-portal.hpc.virginia.edu
+<div class=twocolumn>
+ <div>
+  <ul>
+   <li>OpenOnDemand (OOD) can be accessed at: https://rivanna-portal.hpc.virginia.edu</li>
+   <li>Once you authenticate with your Netbadge, you will see the Dashboard</li>
+   <li>OOD allows you to examine and manipulate files, submit jobs, and run interactive applications</li>
+   <li>Interactive applications include: JupyterLab, RStudio Server, Matlab, and FastX</li>
+  </ul>
+ </div>
+ <div>
+    <img src="OOD_dashboard.png">
+ </div>
 
-- The default is for each application to open in a new tab.  Return to the Dashboard as the "home page."
+
 
 ---
 
