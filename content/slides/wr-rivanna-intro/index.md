@@ -149,15 +149,14 @@ There are multiple ways to log in
 
 ---
 
-##### Example:  JupyterLab
+##### Launch JupyterLab
 
-Launch JupyterLab
 
-- Fill in the textboxes with your parition, time, memory/core requirements, and allocation</li>
-- Click submit and your job will be queued as it waits for resources</li>
-- When it starts, click the Launch Session button</li>
+- Fill in the textboxes with your parition, time, memory/core requirements, and allocation
+- Click submit and your job will be queued as it waits for resources
+- When it starts, click the Launch Session button
 
-![jupter_lab]("OOD_Jupyterlab.png")
+<img style="float: right;" src="OOD_Jupyterlab.png">
 
 
 
