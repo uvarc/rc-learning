@@ -151,12 +151,20 @@ There are multiple ways to log in
 
 ##### Example:  JupyterLab
 
-Start JupyterLab.  
-- Fill in the textboxes with your allocation group name, time, and memory requirements.  
--If you are using a GPU you may optionally request a specific architecture.  
-    - If you do not specify one, the first available will be selected.
-- Click Submit. 
-    - Your job will be queued.  When it starts, click the _launch session_ button.
+Launch JupyterLab
+
+<div class=twocolumn>
+ <div>
+  <ul>
+   <li>Fill in the textboxes with your parition, time, memory/core requirements, and allocation</li>
+   <li>Click submit and your job will be queued as it waits for resources</li>
+   <li>When it starts, click the Launch Session button</li>
+  </ul>
+ </div>
+ <div>
+    <img src="OOD_Jupyterlab.png">
+ </div>
+
 
 ---
 
