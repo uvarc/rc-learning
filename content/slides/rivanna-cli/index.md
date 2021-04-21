@@ -114,9 +114,9 @@ Replace `mst3k` with your user ID.
 # Shell Commands
 
 - To determine your shell, at the prompt type
-```bash
+{{< code-snippet >}}
 echo $shell
-```
+{{< /code-snippet >}}
 - Unix in general and the shell in particular is __case-sensitive__ .
    - `ls` and `LS` are different.
 - The syntax of commands is not completely standardized but in general is
@@ -131,9 +131,9 @@ echo $shell
 Let’s run our first command
 
 - Assume a prompt symbol before each command
-```
+{{< code-snippet >}}
 pwd
-```
+{{< /code-snippet >}}
 _p_ rint  _w_ orking  _d_ irectory
 prints working (current) directory
 
@@ -202,14 +202,14 @@ Examples:
 ```
 /
 /home/mst3k  
-/home/mst3k/rivanna-cl_01302  
-/home/mst3k/rivanna-cl_013020/basic_commands
+/home/mst3k/rivanna-cl
+/home/mst3k/rivanna-cl/basic_commands
 ```
 An absolute path will always lead to the location.
 A tilde `~` stands for `/home` so alternatives to the above are
 ```
 ~mst3k
-~mst3k/rivanna-cl_01302
+~mst3k/rivanna-cl
 ```
 
 ---
@@ -282,9 +282,9 @@ Be sure you are starting in the correct location!
 
 # Copy Files for This Tutorial
 
-```
+{{< code-snippet >}}
 cp -r /share/resources/tutorials/rivanna-cl ./
-```
+{{< /code-snippet >}}
 
 Be sure to include a space between `rivanna-cl` and `./`.
 
@@ -349,10 +349,10 @@ ls -l
 
 Change to a tutorial directory.  List the files that are in it.
 
-```
+{{< code-snippet >}}
 cd rivanna-cl/basic_commands
 ls -lh
-```
+{{< /code-snippet >}}
 
 You should see something like
 
