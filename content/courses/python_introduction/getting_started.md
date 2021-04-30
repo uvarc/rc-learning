@@ -16,6 +16,10 @@ The Anaconda environment from [Anaconda Inc.](https://anaconda.com) is widely us
 
 Once you have installed Anaconda, find the Navigator application.  You should see a workspace similar to the screenshot, with several options for working environments, some of which are not installed.  We will use Spyder and Jupyterlab, which should already be installed.  If not, click the button to install the package.
 
+You may also use Anaconda on UVA's high-performance computing cluster, Rivanna.  In-person attendees should have been given temporary accounts in advance; 
+readers working through this short course for self-study who do not already have an account can obtain one through their faculty advisor.
+If you are a new user, please see our [tutorial](/slides/rivanna-intro) for an introction to using Rivanna.
+
 ### JupyterLab
 
 ![AnacondaNavigator](/courses/python_introduction/AnacondaNavigator.png)

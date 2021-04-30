@@ -1,0 +1,15 @@
+{{ $id := delimit (shuffle (seq 1 9)) "" }}
+<div>
+<pre id={{ $id }}><code>{{ .Inner }}</code></pre>
+<button onclick="copyToClipboard({{ $id }})">Copy<i class="fa fa-clipboard"></i></button>
+</div>
+<script>
+function copyToClipboard(target) {
+  const copyText = document.getElementById(target).textContent;
+  const textArea = document.createElement('textarea');
+  textArea.textContent = copyText;
+  document.body.append(textArea);
+  textArea.select();
+  document.execCommand("copy");
+}
+</script>
