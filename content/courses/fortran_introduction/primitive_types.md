@@ -1,8 +1,8 @@
 ---
-title: "Variables"
+title: "Variables and Types"
 toc: true
 type: docs
-weight: 25
+weight: 20
 
 menu:
     fortran_introduction:
@@ -10,8 +10,6 @@ menu:
         weight: 20
 
 ---
-
-# Variables in Fortran
 
 In programming, a _variable_ is similar, but not identical to, the variable familiar from mathematics.  In mathematics, a variable represents an unknown or abstract entity.  In programming, a variable represents a _location in memory_.
 
@@ -22,7 +20,9 @@ _Remember that computers do not use base 10 internally_.
 
 _Precision_ is the number of digits that are accurate, according to the requirements of the IEEE standard.  Please note that compilers will happily output more digits than are accurate if asked to print unformatted values.
 
-# Numeric Types: Integer
+## Numeric Types
+
+### Integer
 
 Integers are quantities with no fractional part.
 They are represented by a _sign bit_ followed by the value in _binary_ (base 2).
@@ -33,7 +33,7 @@ The default integer type has a size of 32 bits.
 
 Nearly all compilers offer an extension to support 64-bit integers. 
 
-# Numeric Types: Floating Point
+### Floating Point
 
 Floating-point numbers are representations of the mathematical real numbers.
 However, due to the inherent finiteness of the computer, they have distinct 
@@ -65,53 +65,47 @@ The IEEE 754 standard also defines several special values.  The ones most freque
 
 The number of bits is _not_ a function of the OS type.  It is specified by the standard.
 
-# Numeric Types: Complex
+### Complex
 
 Fortran supports at least one complex type.  A complex number consists of 2 floating-point numbers enclosed in parentheses.
+The single-precision type is COMPLEX.  It is represented as `z=(r,i)`.
+Most compilers provide the DOUBLE COMPLEX extension as a variable type.
 
-The
-  * Single-precision type isCOMPLEX
-  * z=(r,i)
-  * Most compilers provide the
-  * DOUBLE COMPLEX
-  * extension as a variable type
+## Non-numeric Types
 
-# Non-numeric Types: Logical
+### Logical
 
 Boolean variables represent  "true" or "false."  They are called `logical` in Fortran.
 Their values can be `.true.` or `.false`. The periods are required.
 In some languages Booleans are actually integers; in Fortran that is not necessarily the case; the internal representation is up to the compiler.
 Logicals cannot even be converted to an integer in Fortran.
 
-# Non-numeric Types: Character
+### Character
 
-Characters used in Fortran code are [ASCII](http://www.asciitable.com/). Fortran supports Unicode to a very limited extent; it is available only in comments and printing.
-* Character
-  * 1 byte (8 bits) per single character
-* A character has a fixed length that must be declared at compile time
-* character(len=8) ::mychar
-* In subprograms a character of unspecified length may be passed
-* character(len=*) :: dummy
-  * Fortran 2008 has a variable character length but this is beyond our scope.
-* Note that character in Fortran really means a fixed-length string.  The default length is 1, however.
-* character :: letter
+Characters used in Fortran code are [ASCII](http://www.asciitable.com/). Fortran supports Unicode to a very limited extent; it is available only in comments and printing and uses the [Universal Coded Character Set](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), which does not support all features of Unicode.
+A character has a fixed length that must be declared at compile time
+The default length is 1, representing a single symbol.
+Fortran 2008 has a variable character length but this is beyond our scope.
 
-# Literals
+## Literals
 
-* Literals aka constants
-  * Specified values	e.g.
-  * 3
-  * 3.2
-  * 3.213e0(Fortran single precision)
-  * 3.213d0(Fortran double precision)
-  * 3.213_rk(Determined by kind parameterrk)
-  * "This is a string"
-  * "Isn’t it true?"
-  * 'Isn''t it true?'
-  * .true.
-  * (1.2,3.5)(Fortran complex)
-* Literals have a type but it is determined from the format rather than a declaration.
+_Literals_ are specific values corresponding to a particular type.
 
-In Fortran the default _literal_ is single precision.  Double precision literals _must_ include ad/Dexponent indicator.
-  * Forgetting to write DP literals withDrather thanEoften causes a significant loss of precision that is hard to find.
+Examples:
+| Value    |   Type      |
+|----------|-------------|
+|     3    | Integer     |
+|    3.2   |  Single precision floating point |
+|  3.213e0 | Single precision floating point  |
+|  3.213d0 | Double precision floating point |
+| 3.213_rk | Type determined by `kind` parameter `rk` |
+|  "This is a string" | Character string  |
+|  "Isn’t it true?"  |  Character string  |
+|  'Isn''t it true?' |  Character string  |
+|  .true.  |  Logical  |
+| (1.2,3.5) | Single precision complex  |
+| (1.2d0,3.5d0) | Double precision complex (compiler extension)  |
+
+In Fortran the default floating-point literal is _single precision_.  Double precision literals _must_ include a d/D exponent indicator.  This is different from most languages, included C/C++, for which the default floating-point literal is double precison.
+Forgetting to write double-precision literals with `D` exponent indicator rather than `E` often causes a significant loss of numerical precision that is hard to find.
 

@@ -6,45 +6,10 @@ weight: 10
 
 menu:
     fortran_introduction:
-        name: Setting Up 
+        name: Setting Up Your Environment
         weight: 10
 
 ---
-
-The "traditional" development environment for compiled languages was a text editor and a command line.  Many programmers continue to use these successfully, but modern tools can greatly improve programmer productivity.  Some such tools are especially recommended for the Windows operating system, since it does not support command-line usage as cleanly as Linux or Mac OS.
-
-## Compilers
-
-Compilers are sophisticated software packages.  They must perform a complex analysis of the code, translate it to machine language, and invoke a linker to create an executable.  This "big picture" view and direct machine language output is what enables compiled programs to run generally with much higher performance than interpreted scripts.  Compilers also offer a large number of compile-time options that can significantly impact the performance and sometimes the results of the executable.  
-
-Many compilers are available, but we will focus on those from three vendors.
-
-_Gnu Compiler Collection_
-The [Gnu Compiler Collection](https://gcc.gnu.org/) is a well-established, free and open-source bundle. The base compiler is `gcc` for C.  Several add-on languages are supported, the most widely used of which are `g++` (C++) and `gfortran` (Fortran).  
-
-_NVIDIA HPC SDK_
-The [NVIDIA HPC SDK](https://developer.nvidia.com/hpc-sdk) is another free (though not open-source) compiler suite for C/C++/Fortran.  Formerly the Portland Group compilers, it is a general-purpose package but is oriented toward extensions for programming NVIDIA GPUs.  For example, it provides Fortran bindings to CUDA.  These compilers are `nvcc`, `nvc++`, and `nvfortran`. 
-
-_Intel Compilers_
-The Intel compilers have a reputation for producing the fastest executables on Intel architectures.  Most high-performance computing sites provide the commercial Intel suite `icc`, `icpc`, and `ifort`.  Intel's Parallel Studio package also ships with high-performance Math Kernel Libraries (MKL), MPI (IntelMPI), and threading (tbb).  The Parallel Studio package is available on the UVA HPC system.
-
-Intel has recently released the [oneAPI Toolkits](https://software.intel.com/content/www/us/en/develop/tools/oneapi/all-toolkits.html). They are free but not open source, and are supported only throught a community forum.  
-
-## Integrated Development Environments
-
-An Integrated Development Environment (IDE) combines an editor and a way to compile and run programs in the environment.
-A well-known IDE for Microsoft Windows is Visual Studio. This is available through the Microsoft Store; it is not free for individuals.
-Mac OS uses Xcode as its native IDE. Xcode includes some compilers, particularly for Swift, but it can manage several other languages.  Available at the App Store and free.
-
-A full-featured cross-platform IDE is [Eclipse] (http://www.eclipse.org/).  Free.
-
-A lighter-weight IDE for Windows and Linux is [Code::Blocks] (http://www.codeblocks.org/).  Free.
-
-An increasingly popular IDE is Visual Studio Code ([VSCode](https://code.visualstudio.com/)) from Microsoft. It is also cross-platform, with versions available for Windows, Mac OS, and Linux.  It does not support C, C++, or Fortran by default; extensions must be installed to provide syntax highlighting and debugging for those languages.  C and C++ are installed with one extension that can be found at the top of the list.  To install a Fortran extension, open the extension panel if it is hidden, and type `fortran` in the search bar.  There are several options; the one simply called "fortran" is popular.  Also recommended are the breakpoint extension and fprettify.
-
-In our examples, we will use a very lightweight IDE called Geany since it is free, easy to install and use, and  works on all three platforms.  It is more of a programmer's editor than an IDE, but it does include some build tools.
-
-## Installing Compilers and an IDE
 
 ### Linux
 
@@ -58,7 +23,7 @@ module load geany
 geany&
 ```
 
-For personal use, compilers, Geany, and the other cross-platform IDEs are available for all popular Linux distributions and can be installed through the distribution's package manager or by downloading from the vendor (e.g. the NVIDIA HPC SDK).  Most workstation users do not install modules, so the module command would not be required. 
+For personal use, compilers, Geany, and the other cross-platform IDEs are available for all popular Linux distributions and can be installed through the distribution's package manager or by downloading from the vendor (e.g. the NVIDIA HPC SDK).  Most workstation users do not install environment modules, so the module command would not be required. 
 
 On Mac and Windows, an IDE can be installed in the usual way for those platforms, either through the application "store" or starting at the package's home page.
 
