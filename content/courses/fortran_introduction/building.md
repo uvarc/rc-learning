@@ -1,12 +1,12 @@
 ---
 title: "Compilers and IDEs"
 toc: true
-type: docs
+type: book
 weight: 11
 
 menu:
     fortran_introduction:
-        name: Compilers and IDEs
+        parent: Building and Running Your Programs
         weight: 11
 
 ---
@@ -46,8 +46,9 @@ In our examples, we will use a very lightweight IDE called [Geany](https://www.g
 
 ## Building an Executable
 
-Creating an executable is generally a multi-step process.  
-The compiler first produces an _object file_ for each _source file_ .  In Unix these end in `.o` and `.obj` on Windows.
+Creating an executable is generally a multi-step process.  Of course, the first step is the preparation of a _source file_.  Fortran has two conventions; the older is _fixed format_ and conventionally those source files should end with `.f`.  The newer convention, which we will use for all our examples here, is _free format_ and most compilers expect those files to end in `.f90`, even if the actual standard supported is 2003 or later.
+
+From each source file, the compiler first produces an _object file_.  In Unix these end in `.o`, or `.obj` on Windows.
 This is the _compilation_ step.
 Object files are binary (machine language) but cannot be executed.  They must be _linked_ into an executable by a program called a _linker_ (also called a _loader_).  The linker is normally invoked through the compiler.  The entire process of compiling and linking is called _building_ the executable.
 

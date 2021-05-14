@@ -1,12 +1,12 @@
 ---
 title: "Pure and Elemental Functions"
 toc: true
-type: docs
+type: book
 weight: 67
 
 menu:
     fortran_introduction:
-        name: Pure and Elemental Functions
+        parent: Subprograms
         weight: 67
 
 ---

@@ -1,13 +1,13 @@
 ---
 title: "Variables and Types"
 toc: true
-type: docs
-weight: 20
+type: book
+weight: 21
 
 menu:
-    fortran_introduction:
-        name: Variables and Types
-        weight: 20
+    variables:
+        parent: Basic Programming Constructs
+        weight: 21
 
 ---
 
@@ -82,10 +82,8 @@ Logicals cannot even be converted to an integer in Fortran.
 
 ### Character
 
-Characters used in Fortran code are [ASCII](http://www.asciitable.com/). Fortran supports Unicode to a very limited extent; it is available only in comments and printing and uses the [Universal Coded Character Set](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), which does not support all features of Unicode.
-A character has a fixed length that must be declared at compile time
-The default length is 1, representing a single symbol.
-Fortran 2008 has a variable character length but this is beyond our scope.
+Characters used in Fortran code are [ASCII](http://www.asciitable.com/). Fortran supports Unicode to a very limited extent; it is available only in comments and printing and uses the [Universal Coded Character Set](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), which does not support all features of Unicode, and not all compilers support this.
+The length may be declared at compile time with a default length of 1, representing a single symbol.  The Fortran 2003 standard introduces a variable-length character (string).
 
 ## Literals
 

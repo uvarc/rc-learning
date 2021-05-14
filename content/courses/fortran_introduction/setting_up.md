@@ -1,13 +1,13 @@
 ---
 title: "Setting Up Your Environment"
 toc: true
-type: docs
-weight: 10
+type: book
+weight: 12
 
 menu:
     fortran_introduction:
-        name: Setting Up Your Environment
-        weight: 10
+        parent: Building and Running Your Programs
+        weight: 12
 
 ---
 

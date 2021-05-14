@@ -1,12 +1,12 @@
 ---
 title: "Advanced Array Usage"
 toc: true
-type: docs
+type: book
 weight: 42
 
 menu:
     fortran_introduction:
-        name: Advanced Array Usage
+        parent: Arrays
         weight: 42
 
 ---
@@ -34,10 +34,12 @@ REAL, DIMENSION(100)      :: A
 REAL, DIMENSION(12)       :: B
 INTEGER, DIMENSION(20,10) :: N
 INTEGER, DIMENSION(20)    :: C
-   ! Assign values to A and N...
+   ! Assign values to A and N
    B=A(1:12)
    C=N(:,i)  !ith column of N
 ```
+
+The upper bound of the range is always included. If the first bound is omitted, it starts from 1.  If the second bound is absent, the slice is extracted to the end of the range.  A single colon `:` represents the full range along a dimension.
 
 ## Allocatable Arrays
 

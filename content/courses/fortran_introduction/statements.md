@@ -1,13 +1,13 @@
 ---
 title: "Statements"
 toc: true
-type: docs
-weight: 27
+type: book
+weight: 25
 
 menu:
     fortran_introduction:
-        name: Statements
-        weight: 27
+        parent: Basic Programming Constructs
+        weight: 25
 
 ---
 

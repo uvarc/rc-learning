@@ -1,12 +1,12 @@
 ---
 title: "Subprograms"
 toc: true
-type: docs
+type: book
 weight: 60
 
 menu:
     fortran_introduction:
-        name: Subprograms
+        parent: Subprograms
         weight: 60
 
 ---

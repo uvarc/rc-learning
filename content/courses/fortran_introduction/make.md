@@ -1,13 +1,13 @@
 ---
 title: "Managing Projects with Make"
 toc: true
-type: docs
-weight: 16
+type: book
+weight: 13
 
 menu:
     fortran_introduction:
-        name: Managing Projects with Make
-        weight: 16
+        parent: Building and Running Your Programs
+        weight: 13
 
 ---
 
@@ -22,8 +22,8 @@ Dependencies are other files that are required to create the current target.
 
 Example:
 ```
-myexec:main.omodule.o
-<tab>gfortran-omyexecmain.omodule.o
+myexec:main.o module.o
+<tab>gfortran -o myexecmain.o module.o
 ```
 The tab is _required_ in the rule.  Don’t ask why.
 
@@ -104,8 +104,8 @@ clean:
 	$(F90) $(F90FLAGS) -c $<
 
 stats.o:prec.o
-bmi_calculator.o:csv_file.oprec.o
-bmi_data.o:bmi_calculator.ocsv_file.oprec.ostats.o
+bmi_calculator.o:csv_file.o prec.o
+bmi_data.o:bmi_calculator.o csv_file.o prec.o stats.o
 ```
 In this example, notice that the suffix rule applies the global compiler flags and explicitly includes the `-c` option.  If a particular file does not fit this pattern, a rule can be written for it and it will override the suffix rule.  The link rule includes the loader flags and the `-o` flag.  The compilation suffix rule uses the special symbol for the prequisite; the link rule applies to the current target.
 
@@ -144,3 +144,4 @@ If you have not already done so, download or copy the [example.f90](/courses/for
 Exercise 2:
 If you are working on a system with NetCDF available, download the two files and the completed Makefile into their own folder.  Open Geany and browse to the location of the files.  Open the two source files.  Either select `Make` from the `Build` menu, or from the dropdown arrow next to the brick icon choose `Make All`.
 Build the code using the Makefile.  Execute the result.
+

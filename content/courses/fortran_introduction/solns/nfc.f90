@@ -1,11 +1,11 @@
 program nfc
 implicit none
 
-   logical  :: packers_win, seahawks_win, saints_win
-   logical  :: packers_lose, seahawks_lose, saints_lose
-   logical  :: packers_advance=.false.
-   logical  :: seahawks_advance=.false.
-   logical  :: saints_advance=.false.
+logical  :: packers_win, seahawks_win, saints_win
+logical  :: packers_lose, seahawks_lose, saints_lose
+logical  :: packers_advance=.false.
+logical  :: seahawks_advance=.false.
+logical  :: saints_advance=.false.
 
    packers_win=.false.; packers_lose=.true.
    seahawks_win=.true.; seahawks_lose=.false.

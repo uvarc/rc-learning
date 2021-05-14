@@ -1,12 +1,12 @@
 ---
 title: "Conditionals"
 toc: true
-type: docs
+type: book
 weight: 31
 
 menu:
     fortran_introduction:
-        name: Conditionals
+        parent: Basic Programming Constructs
         weight: 31
 
 ---

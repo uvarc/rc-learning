@@ -1,12 +1,12 @@
 ---
 title: "Variable Scope"
 toc: true
-type: docs
+type: book
 weight: 63
 
 menu:
     fortran_introduction:
-        name: Variable Scope
+        parent: Subprograms
         weight: 63
 
 ---

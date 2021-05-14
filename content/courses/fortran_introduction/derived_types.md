@@ -1,12 +1,12 @@
 ---
 title: "Derived Types"
 toc: true
-type: docs
+type: book
 weight: 70
 
 menu:
     fortran_introduction:
-        name: Derived Types
+        parent: Derived Types
         weight: 70
 
 ---

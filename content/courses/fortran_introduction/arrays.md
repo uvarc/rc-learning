@@ -1,12 +1,12 @@
 ---
-title: "Arrays"
+title: "Introduction to Arrays"
 toc: true
-type: docs
+type: book
 weight: 41
 
 menu:
     fortran_introduction:
-        name: Arrays
+        parent: Arrays
         weight: 41
 
 ---

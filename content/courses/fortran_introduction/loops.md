@@ -1,12 +1,12 @@
 ---
 title: "Loops"
 toc: true
-type: docs
+type: book
 weight: 32
 
 menu:
     fortran_introduction:
-        name: Loops
+        parent: Basic Programming Constructs
         weight: 32
 ---
 

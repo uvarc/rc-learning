@@ -1,13 +1,13 @@
 ---
 title: "Operators, Expressions, and Type Conversions"
 toc: true
-type: docs
-weight: 25
+type: book
+weight: 24
 
 menu:
     fortran_introduction:
-        name: Operators, Expressions, and Type Conversions
-        weight: 25
+        parent: Basic Programming Constructs
+        weight: 24
 
 ---
 

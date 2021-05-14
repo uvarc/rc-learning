@@ -1,12 +1,12 @@
 ---
 title: "Namelist"
 toc: true
-type: docs
+type: book
 weight: 55
 
 menu:
     fortran_introduction:
-        name: Namelist
+        parent: Input/Output
         weight: 55
 
 ---

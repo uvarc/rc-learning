@@ -1,5 +1,5 @@
 ---
-title: "Modules"
+title: "Intrinsic Modules"
 toc: true
 type: book
 weight: 80
