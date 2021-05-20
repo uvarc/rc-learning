@@ -1,6 +1,6 @@
 ---
 date : "2021-04-5T00:00:00-05:00"
-title : "Programming in Fortran"
+title : "Programming in Modern Fortran"
 summary: "An Introduction to programming in modern Fortran."
 authors: [kah]
 categories: ["Programming","Fortran"]
@@ -11,7 +11,7 @@ weight: 1
 
 menu:
     fortran_introduction:
-        name: Starting with Fortran
+        name: Programming in Modern Fortran
         weight: 1
 
 ---

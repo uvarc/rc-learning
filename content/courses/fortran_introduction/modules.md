@@ -2,116 +2,115 @@
 title: "Modules"
 toc: true
 type: book
-weight: 80
+weight: 71
 
 menu:
     fortran_introduction:
-        parent: Modules and Classes
-        weight: 80
+        parent: Modules
+        weight: 71
 
 ---
 
-# Why Use Modules
+Modules are subordinate program units that can contain multiple subprograms as well as associated variables.  
+Modules allow you to organize your code into logically-connected units.  It is a form of _object oriented programming_.
+They should contain coherent _data+procedures_.
+Modules permit _data hiding_.  Variables and subprograms may be kept private from other program units.  This prevents another source of error, by reducing the number of variables an outside program can affect or procedures it can call.
 
-Modules allow you to organize your code into logically-connected units.  It is a form of _object oriented programming_ .
-
-Modules should contain coherent _data+procedures_  _._
-
-Modules permit _data hiding_ .  Variables and subprograms may be kept private from other program units.  This prevents another source of error, by reducing the number of variables an outside program can affect or procedures it can call.
-
-# Fortran Modules
+## Fortran Modules
 
 Each module has a name that must be unique.  A module begins with
-
-modulemodname
-
+```fortran
+MODULE modname
+```
 and ends with
-
-end module
+```fortran
+END MODULE [NAME]
+```
 
 Modules are typically placed into separate files.  The file name does not need to be the same as the module name, but the module will be referenced by its name and not by the file name.
 
-# Using Modules
+## Using Modules
 
-Modules are brought in via theusestatement
+Modules are brought in via the USE statement
+```fortran
+USE mymodule
+```
+All USE statements must be the first nonexecutable statements after the declaration of the program unit (program, function, subroutine), before any IMPLICIT statement and the variable declarations.
 
-usemymodule
+There is no distinct "namespace" for a Fortran module.  Names imported into the USEing unit do not acquire a distinguishing name.
 
-All use statements must be the firstnonexecutablestatements after the declaration of the program unit (program, function, subroutine), beforeimplicit noneand the variable declarations.
+### Variations of USE
 
-There is no distinct namespace for a Fortran module.
-
-# Variations of USE
-
-Only specific routines can be brought in:
-
-USEmymod, ONLY : f1, f2, s4
+Only specified routines can be brought in with ONLY:
+```fortran
+USE mymod, ONLY : f1, f2, s4
+```
 
 Routines can be renamed:
+```fortran
+USE mymod, name-here => name-in-module
+USE stats_lib,sprod=>prod
+```
 
-USEmymod, name-here => name-in-module
+## Module Variables.
 
-USEstats_lib,sprod=>prod
-
-# Module Variables.
-
-IMPLICIT NONEat the top applies throughout the module.
-
-All variables declared or types defined before acontainsstatement are global throughout the module.
+IMPLICIT NONE at the top applies throughout the module.
+All variables declared or types defined before a CONTAINS statement are global throughout the module.
 
 Module symbols (variables and names of routines) can be __private__ .  You may also explicitly declare them __public__ but that is the default.
-
-Theprivateandpublicattributes may be added to the declaration, or they may be specified separately with a list following.
-
+The private and public attributes may be added to the declaration, or they may be specified separately with a list following.
 Private variables are not accessible by program units that use the module.  Only units in the same module can access them.
 
 Example:
-
+```
+module mymod
+use precisions
 real, private  :: x, y, z
-
+real_sp        :: r_fun
+real_dp        :: d_fun
 private        ::r_fun,d_fun
+```
 
-# Subprograms in Modules
+## Subprograms in Modules
 
-Subprograms defined in a module must be within aCONTAINSclause.
+Subprograms defined in a module must follow a CONTAINS.
+The FUNCTION or SUBROUTINE keywords after END are _not_ optional, e.g. END SUBROUTINE is required.  The name of the procedure is still optional and some authors recommend not using it, in case it is changed later or to avoid cut and paste errors.
 
-Variables declared above theCONTAINSare global to all the subprograms.
-
-Thefunctionorsubroutinekeywords afterendare _not_ optional, e.g.end subroutineis required.  The name of the procedure is still optional and some authors do not use it withend, in case it is changed later.
-
-All subprograms in a module have an implicit interface.  You should not write an explicit interface for them (and in fact it’s illegal to do so).
+All subprograms in a module have an implicit interface.  You should not write an explicit interface for them, and in fact it’s illegal to do so.
 
 # Example
-
+```fortran
 modulemymod
-
 implicit none
-
 integer   ::Nmax=100000
 
-contains
+   contains
 
-subroutinemysub(a,x)
+   subroutine mysub(a,x)
+      real, dimension(:), intent(in) :: a
+      real                intent(out):: x
+      real, dimension(Nmax)          :: b
 
-real, dimension(:), intent(in) :: a
+        do stuff
 
-real                intent(out):: x
-
-real, dimension(Nmax)          :: b
-
-do stuff
-
-end subroutinemysub
+      end subroutinemysub
 
 end modulemymod
+```
+
+## Modules and Make
+
+A module must be compiled _before_ any other file that uses it.  This can create a complicated build environment, so `make` or a similar build manager is usually used.
 
 # Exercise
 
-* Type in the modulemymodinto a file mymod.f90
-  * Fortran allows the module and the file to have either the same or a different name, but the name of the module is the name that must appear in the use statement.
-* Fill out the subroutinemysubto set b to 11., then set x to the sum of corresponding elements of a and b.  Hint: you can use x=a(:)+b(:size(a)) to avoid a loop.
-* Write a main program main.f90 that usesmymod, initializes Aallocatable, allocates it to 1000, sets its values to i+3, then passes it tomysub.   Print the value of x that is returned.
-* Copy the exampleMakefile.  Make the appropriate changes to the program name, the names of the sourcefiles,andthe names of the object files.  Make thedepencencyline at the end
-* main.o:main.omymod.o
-* Run amakeproject inGeany.
+1. Type the module `mymod` into a file `mymod.f90`.
+Fortran allows the module and the file to have either the same or a different name, but the name of the module is the name that must appear in the use statement.
+2. Fill out the subroutine `mysub` to set b to 11., then set x to the sum of corresponding elements of a and b.  Hint: you can use x=a(:)+b(:size(a)) to avoid a loop.
+3. Write a main program `main.f90` that uses `mymod`, initializes `A` allocatable, allocates it to 1000, sets its values to `i+3` in a loop, then passes it to `mysub`.   Print the value of `x` that is returned.
+4. Create a Makefile.  If you wish you may copy the example Makefile from the earlier [chapter](/courses/fortran_introdution/make).  Make the appropriate changes to the program name, the names of the source files, and the names of the object files.  Make the dependency line at the end
+```make
+main.o:main.o mymod.o
+```
+Run a make project in Geany or your preferred IDE.
 

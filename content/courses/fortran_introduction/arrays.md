@@ -12,9 +12,9 @@ menu:
 ---
 
 The arrays is one of the most important types in Fortran. It can represent many mathematical entities such as grids, matrices, vectors, and so forth.
+The members of an array are frequently called _elements_.
 From the computational point of view, an  _array_ is a data structure that contains data of the __same type__ with each scalar element addressed by _indexing_ into the array.  Indices must be integers.
 An array has one or more _dimensions_ .  The _bounds_ are the lowest and highest indexes.  The _rank_ is the number of dimensions.  The _size_ of an array is the number of elements.  The _shape_ is a tuple giving the size in each individual dimension.
-The members of an array are frequently called _elements_.
 
 ## Fortran Arrays
 
@@ -38,6 +38,27 @@ A(3)
 X(i,j)
 ```
 Remember that the bounds start at 1 by default.
+
+### Compiler Bounds Checking
+
+One of the _most_ common errors in programming, in all languages that support an array or something like it, is attempting to access an element with values for the indices that are outside the declared bounds.  This frequently happens with loops such as
+```fortran
+! Average nearest neighbors
+do j=1,m
+   do i=1,n
+      A(i,j)=0.25*(B(i+1,j)+B(i,j+1)+B(i-1,j)+B(i,j-1))  !OOPS
+   enddo
+enddo
+```
+Most usually this results in an error such as "Segmentation fault."
+In Fortran, compilers know the size and shape of each array, once allocated, so they are able to check each operation to make sure it is within the bounds.  However, since this can _greatly_ slow down your executable, it must be invoked at compile time.  The name of the option may vary from one compiler to another.  
+For gfortran and Intel they are:
+```
+gfortran -g -fbounds-check mycode.f90
+ifort -g -CB mycode.f90
+ifort -g -check bounds mycode.f90 
+```
+Be sure to remove the options `-g -<array check>` and replace with `-O` once your program is debugged.
 
 ## Array Operations
 

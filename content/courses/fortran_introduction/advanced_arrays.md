@@ -13,7 +13,7 @@ menu:
 
 ## Array Initialization
 
-Arrays can be initialized to the same quantity by an array operation
+Arrays can be initialized to the same quantity by an array operation:
 ```fortran
 A=0.0 !equivalent to A(:)=0.0
 

@@ -1,16 +1,17 @@
 ---
-title: "Formatted IO"
+title: "Formatted Input/Output"
 toc: true
 type: book
-weight: 51
+weight: 52
 
 menu:
     fortran_introduction:
         parent: Input/Output
-        weight: 51
+        weight: 52
 ---
 
-List-direction IO is convenient.  The compiler handles the spacing and other aspects of the appearance of the output.  But that frequently results in sprawling output that is difficult to read. Formatted output is frequently required for legibility.  
+List-directed IO is convenient.  
+But that frequently results in sprawling output that is difficult to read. Formatted output is frequently required for legibility.  
 
 Formatted output in Fortran is similar to other languages (the general layout descends from Fortran, the oldest higher-level programming language).
 
@@ -22,7 +23,7 @@ The edit descriptor modifies how to output the variables.  They are combined int
 ```
 RaF.w
 ```
-where `R` is a repeat count, `a` is the descriptor, `F` is the total field width _including_ space for `+-`, and if requested `+-e` and exponent, and `w` is the number of digits to the right of the decimal point. If you are willing to let the compiler calculate the number of characters to use, then `Ra.w` alone works.  For floating-point numbers, `Ra.0` will print the integer part.
+where `R` is a repeat count, `a` is the descriptor, `F` is the total field width _including_ space for `+-`, and if requested `+-e` and exponent, and `w` is the number of digits to the right of the decimal point. If you are willing to let the compiler calculate the number of characters to use, then `Ra0.w` alone works.  For floating-point numbers, `Ra.0` will print the integer part.
 
 Strings take only `RaF` and do not usually require the `F` since the length will be known to the compiler.
 
@@ -94,53 +95,29 @@ Traditionally the format is placed immediately below the line which refers to it
 # Fortran Non-Advancing IO
 
 * If we’d like to write to and read from standard input on the same line we can use non-advancing IO:
-* write(*,'(a)',advance='no') "Enter input value:"
-* read(*,*) value
-* _Must_ be formatted
+```fortran
+write(*,'(a)',advance='no') "Enter input value:"
+read(*,*) value
+```
+Non-advancing IO _must_ be formatted
   * ‘yes’ for advance is valid also but is the default.
-  * Argument toadvancecan be a character variable so you can decide based on conditionals to advance or not.
-* If you do _not_ want to advance, useadvance='no'
+  * The argument to `advance` can be a character variable so you can decide based on conditionals to advance or not.
+  * If you do _not_ want to advance, use `advance='no'`
 
-# Exercise
+## Exercises
 
-* Write a program that computes pi using a trig identity such asp=4*atan(1)
-* Use kind to switch between real and double precision
-  * integer, parameter ::rk=kind(1.0)  or (1.0d0)
-* Using single precision, print pi in
-  * E format
-  * Scientific notation
-  * Scientific notation with 8 decimal places
-* Repeat for double precision
+1. Write a program that computes pi using a trig identity such as `pi=4*atan(1)`.
+   * Use kind to switch between real and double precision
+     * integer, parameter ::rk=kind(1.0)  or (1.0d0)
+   * Using single precision, print pi in
+     * E format
+     * Scientific notation
+     * Scientific notation with 8 decimal places
+Repeat for double precision.
 
-In an “infinite” while loop:
-
-Request an integer from the user with non-advancing input/output, e.g.
-
-“Please enter an integer:” <then read integer>
-
-If the integer is 1, print “zebra”.  If it is 2, print “kangaroo”.  If it is anything else except for zero, print “not found”.  If it is 0, exit the loop.
-
-
-What would I do if I had one or more header lines?
-
-# Reading from a File
-
-* READ(iunit,*)
-  * For the most part I do not recommend formatted input, but if it is required it is
-  * READ(iunit,'(fmtstr)'))
-  * or
-  * READ(iunit,label)
-  * label FORMAT(fmtstr)
-* EachREADstatement reads one line (unless you provide a format string and insert a forward slash).
-
-# Writing to a File
-
-* WRITE(iunit,*)
-  * List IO
-* WRITE(iunit,'(fmtstr)')
-* or
-* WRITE(iunit,label)
-* label FORMAT(fmtstr)
-* labelmust be an integer
-* Fortran always writes an EOL for eachWRITEstatement; you may add more with the/character but there is seldom a need for this.
-
+2. In an “infinite” while loop:
+ Request an integer from the user with non-advancing input/output, e.g.
+```
+"Please enter an integer:" <then read integer>
+```
+If the integer is 1, print "zebra".  If it is 2, print "kangaroo".  If it is anything else other than zero, print "not found".  If it is 0, exit the loop.
