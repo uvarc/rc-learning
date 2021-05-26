@@ -80,8 +80,8 @@ https://www.rc.virginia.edu/userinfo/rivanna/allocations/
 ### Off Grounds
 
 - Most access requires a VPN
-    - Graduate students, faculty, and staff can use the UVA More Secure Network VPN profile
-    - Undergraduate students use the UVA Anywhere VPN profile
+    - Use UVA More Secure Network VPN (MSVPN) if available (mainly faculty and staff)
+    - Use UVA Anywhere VPN if you do not have access to MSVPN
 
 - To install the VPN client on your computer, go to https://in.virginia.edu/vpn and follow the instructions.
 

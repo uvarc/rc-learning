@@ -1,12 +1,12 @@
 ---
 title: "Updating Old Code"
 toc: true
-type: docs
+type: book
 weight: 100
 
 menu:
     fortran_introduction:
-        name: Updating Old Code
+        parent: Updating Old Code
         weight: 100
 
 ---

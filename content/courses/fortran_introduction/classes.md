@@ -1,12 +1,12 @@
 ---
 title: "Classes"
 toc: true
-type: docs
+type: book
 weight: 90
 
 menu:
     fortran_introduction:
-        name: Classes
+        parent: Modules and Classes
         weight: 90
 ---
 
