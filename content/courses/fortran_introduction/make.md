@@ -71,7 +71,7 @@ Pattern for creating the .o:
 ```
 
 Example:
-{{< code-download file="/courses/fortran_introduction/Makefile" lang="make" >}}
+{{< code-download file="/courses/fortran_introduction/codes/Makefile" lang="make" >}}
 
 In this example, notice that the suffix rule applies the global compiler flags and explicitly includes the `-c` option.  If a particular file does not fit this pattern, a rule can be written for it and it will override the suffix rule.  The link rule includes the loader flags and the `-o` flag.  The compilation suffix rule uses the special symbol for the prequisite; the link rule applies to the current target.
 

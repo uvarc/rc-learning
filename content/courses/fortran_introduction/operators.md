@@ -66,7 +66,7 @@ Points to note:
 `Mod` and `modulo` are defined for negative values and reals, as well as nonnegative integers, but the results, while well-defined mathematically, are not generally what most programmers are expecting.  For this reason they should generally be avoided for arguments other than integers.
 
 Example:
-{{< code-download file="/courses/fortran_introduction/testmod.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/codes/testmod.f90" lang="fortran" >}}
 
 ## Expressions
 

@@ -31,7 +31,7 @@ Even extended ASCII accommodates far too few characters to accommodate more than
 
 Example, from the gfortran [documentation](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gfortran/SELECTED_005fCHAR_005fKIND.html). It may compile only with gfortran.
 
-{{< code file="courses/fortran_introduction/iso.f90" lang="fortran" >}}
+{{< code file="courses/fortran_introduction/codes/iso.f90" lang="fortran" >}}
 
 ## Fixed-Length Strings
 

@@ -100,7 +100,7 @@ $$ F_0 = 0 $$
 $$ F_1 = 1 $$
 $$ F_{N}=F_{N-1}+F_{N-2} $$
 
-{{< code-download file="/courses/fortran_introduction/fibonnaci.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/codes/fibonnaci.f90" lang="fortran" >}}
 
 **Exercise**
 

@@ -26,6 +26,7 @@ The constructor can use the implied do construct:
 ```fortran
 X=[(real(i),i=1,100)]
 ```
+If an array of characters is declared, then each element _must_ be initialized to a string of the specified length.  The compiler will not pad with blanks.
 
 ## Array Slices
 Subarrays, also known as _slices_, may be extracted using the colon operator.
@@ -102,7 +103,7 @@ integer                 :: day
 
 Pulling the array indexing capabilities all together we have a complete program:
 
-{{< code-download file="/courses/fortran_introduction/arrayinds.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/codes/arrayinds.f90" lang="fortran" >}}
 
 This code contains some features, such as string concatenation, that we will study later.
 
