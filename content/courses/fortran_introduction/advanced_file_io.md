@@ -97,7 +97,7 @@ If your input files will always be of known length this isn’t necessary (or ef
 
 Example
 
-{{< code file="/courses/fortran_introduction/fileio.f90" lang="fortran" >}}
+{{< code file="/courses/fortran_introduction/codes/fileio.f90" lang="fortran" >}}
 
 QUIZ
 

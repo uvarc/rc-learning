@@ -65,7 +65,7 @@ In Fortran the PRINT statement always writes an end-of-line marker after all var
 
 Example:
 
-{{< code file="/courses/fortran_introduction/consoleio.f90" lang="fortran" >}}
+{{< code file="/courses/fortran_introduction/codes/consoleio.f90" lang="fortran" >}}
 
 
 ## Reading from the Command Line
@@ -88,7 +88,7 @@ The COMMAND_ARGUMENT_COUNT intrinsic returns the number of command-line options.
 ```
 
 Example:
-{{< code file="/courses/fortran_introduction/clio.f90" lang="fortran" >}}
+{{< code file="/courses/fortran_introduction/codes/clio.f90" lang="fortran" >}}
 
 ## Exercises
 

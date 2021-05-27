@@ -113,9 +113,13 @@ import hello_func
 
 Then run the cell.
 
-#### Exporting
+#### Exporting to a Script
 
 You can export embedded text in your notebook into a script.  First make sure your notebook has a name.  If you have not named your current notebook yet, call it `first_script.ipynb`.  From the Notebook menu find Export To->Executable Script.  Save the script in the usual way from your browser.  If it is in `Downloads` move it to a location of your choice.  You can make a new directory for your Python scripts if you wish.
+
+#### Exporting to Other Formats
+
+If you have installed Anaconda on your local computer, other export options are available to you.  PDF, HTML, and Markdown are popular formats.  These are not all available for Rivanna Open OnDemand users due to the need for certain translation software, but exporting can be done from the command line.  See the [documentation](https://www.rc.virginia.edu/userinfo/howtos/rivanna/convert-jupyter-pdf/) for more information.
 
 ### Spyder
 
