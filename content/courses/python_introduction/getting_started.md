@@ -18,7 +18,17 @@ Once you have installed Anaconda, find the Navigator application.  You should se
 
 You may also use Anaconda on UVA's high-performance computing cluster, Rivanna.  In-person attendees should have been given temporary accounts in advance; 
 readers working through this short course for self-study who do not already have an account can obtain one through their faculty advisor.
-If you are a new user, please see our [tutorial](/slides/rivanna-intro) for an introction to using Rivanna.
+If you are a new user, please see our [tutorial](/slides/rivanna-intro) for an introduction to using Rivanna.  We recommend using [Open OnDemand](https://rivanna-portal.hpc.virginia.edu) (requires Netbadge).  You can use Jupyterlab directly as an Interactive App.  To use Spyder, request a Desktop interactive app.  Please select the `instructional` partition in the drop-down, and fill in `rivanna-training` as the Allocation Group.  If using the Desktop app, once it connects you must start a terminal and type
+```bash
+module load anaconda
+spyder &
+```
+To use Jupyterlab through the Desktop, or to switch back and forth, in another terminal run
+```bash
+module load anaconda
+jupyter-lab &
+```
+Both these applications may be fairly slow to start, so be patient.  Jupyterlab will start an instance of Firefox and run there.  Spyder is a standalone application.
 
 ### JupyterLab
 
