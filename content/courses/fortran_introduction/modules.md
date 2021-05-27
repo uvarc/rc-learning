@@ -27,7 +27,7 @@ and ends with
 END MODULE [NAME]
 ```
 
-Modules are typically placed into separate files.  The file name does not need to be the same as the module name, but the module will be referenced by its name and not by the file name.
+Modules are typically placed into separate files.  The file name does not need to be the same as the module name, but the module will be referenced by its name and not by the file name.  It is acceptable for short, closely-related modules to be in the same file.  If more than one module is in a file, each must be USEd individually.
 
 ## Using Modules
 
@@ -63,12 +63,12 @@ Private variables are not accessible by program units that use the module.  Only
 
 Example:
 ```
-module mymod
-use precisions
-real, private  :: x, y, z
-real_sp        :: r_fun
-real_dp        :: d_fun
-private        ::r_fun,d_fun
+MODULE mymod
+USE precisions
+   REAL, PRIVATE  :: x, y, z
+   REAL_sp        :: r_fun
+   REAL_dp        :: d_fun
+   PRIVATE        ::r_fun,d_fun
 ```
 
 ## Subprograms in Modules
@@ -76,11 +76,11 @@ private        ::r_fun,d_fun
 Subprograms defined in a module must follow a CONTAINS.
 The FUNCTION or SUBROUTINE keywords after END are _not_ optional, e.g. END SUBROUTINE is required.  The name of the procedure is still optional and some authors recommend not using it, in case it is changed later or to avoid cut and paste errors.
 
-All subprograms in a module have an implicit interface.  You should not write an explicit interface for them, and in fact it’s illegal to do so.
+All subprograms in a module have an __implicit interface__.  You should *not* write an explicit interface for them, and in fact it’s illegal to do so.
 
 # Example
 ```fortran
-modulemymod
+module mymod
 implicit none
 integer   ::Nmax=100000
 
@@ -95,7 +95,7 @@ integer   ::Nmax=100000
 
       end subroutinemysub
 
-end modulemymod
+end module
 ```
 
 ## Modules and Make

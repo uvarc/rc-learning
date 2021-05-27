@@ -51,7 +51,7 @@ The Fortran 2008 standard introduced the BLOCK construct.  A BLOCK is a scoping 
 
 IMPLICIT statements cannot appear in a block, but they do affect variables within the block.
 
-{{< code file="/courses/fortran_introduction/blocker.f90" lang="fortran" >}}
+{{< code file="/courses/fortran_introduction/codes/blocker.f90" lang="fortran" >}}
 
 ## CONTAINS and Nested Procedures
 

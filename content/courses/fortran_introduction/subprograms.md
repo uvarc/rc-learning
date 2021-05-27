@@ -88,7 +88,7 @@ Because functions have a type, they must be _declared_ like a variable in any pr
 Subroutines have no return type and cannot be declared.
 
 Example:
-{{< code-download file="/courses/fortran_introduction/subprogs.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/codes/subprogs.f90" lang="fortran" >}}
 
 #### Renaming Function Results 
 
