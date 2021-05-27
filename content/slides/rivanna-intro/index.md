@@ -272,7 +272,7 @@ Your files on scratch are NOT backed up.  Deleted files are not recoverable.
 #### Moving Data To and From Rivanna
 
 1. Use the scp command in a terminal window (Mac and Linux).
-2. Install a drag-and-drop option. We recommend [MobaXterm](https:https://mobaxterm.mobatek.net/) (Windows) or [Filezilla](https://filezilla-project.org) (MacOS).
+2. Install a drag-and-drop option. We recommend [MobaXterm](https://mobaxterm.mobatek.net/) (Windows) or [Filezilla](https://filezilla-project.org) (MacOS).
    - In MobaXterm, start an SCP session
    - In Filezilla, start an SFTP session
 3. For small files, use the Upload and Download buttons in the Open OnDemand file manager.
