@@ -202,6 +202,7 @@ Or go to the blue menu icon and select Terminate.
    - Writing your programs or scripts
    - Compiling programs
    - Submitting jobs
+   - Pulling containers
 
 - You may run _very short_ test runs with a limited number of cores and amount of memory. Your process will be terminated if it exceeds the time or memory limit.
 
