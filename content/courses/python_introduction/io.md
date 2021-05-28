@@ -3,11 +3,11 @@ title: Input and Output
 toc: true
 type: docs
 draft: false
-weight: 7
+weight: 70
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 7
+    weight: 70
 ---
 
 Programs are not very useful if they cannot communicate their results.  They are also not terribly useful if they cannot change their controlling parameters to compute different results.

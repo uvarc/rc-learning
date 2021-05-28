@@ -3,11 +3,11 @@ title: Conditionals and Loops
 toc: true
 type: docs
 draft: false
-weight: 5
+weight: 40
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 5
+    weight: 40
 ---
 
 Now that we understand the basic types, we can begin to study the fundamental programming constructs that all programs will use.  The two most important of these are _conditionals_ and _loops_.

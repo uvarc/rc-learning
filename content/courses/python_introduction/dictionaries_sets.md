@@ -3,11 +3,11 @@ title: Dictionaries
 toc: true
 type: docs
 draft: false
-weight: 6
+weight: 60
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 6
+    weight: 60
 ---
 
 So far the compound types we have studied have been _ordered_.  We access elements by integer _indices_ numbered from 0 to N-1, where N is the total number of elements.  Dictionaries, in contrast, are _unordered_.  Elements are accessed by a _key_ which may be of any immutable type. If a tuple is used as a key, no elements of the tuple may be mutable.  Keys must be _unique_ (no duplication)

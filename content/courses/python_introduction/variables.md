@@ -3,11 +3,11 @@ title: Variables, Expressions, and Statements
 toc: true
 type: docs
 draft: false
-weight: 3
+weight: 20
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 3
+    weight: 20
 ---
 
 ## Variables

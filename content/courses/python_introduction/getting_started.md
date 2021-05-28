@@ -3,11 +3,11 @@ title: Getting Started
 toc: true
 type: docs
 draft: false
-weight: 2
+weight: 10
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 2
+    weight: 10
 ---
 
 ## Setting up Your Environment

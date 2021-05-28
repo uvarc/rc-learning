@@ -3,11 +3,11 @@ title: Functions and Modules
 toc: true
 type: docs
 draft: false
-weight: 8
+weight: 80
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 8
+    weight: 80
 ---
 
 ## Functions
