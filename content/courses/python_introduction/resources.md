@@ -3,11 +3,11 @@ title: Resources
 toc: true
 type: docs
 draft: false
-weight: 12
+weight: 130
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 12
+    weight: 130
 ---
 
 ## Resources

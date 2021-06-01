@@ -3,11 +3,11 @@ title: Classes
 toc: true
 type: docs
 draft: false
-weight: 11
+weight: 110
 menu:
   python_introduction:
     parent: Introduction to Programming in Python
-    weight: 11
+    weight: 110
 ---
 
 ## Objects and Classes
