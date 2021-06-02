@@ -19,6 +19,8 @@ So far we have examined _primitive_ types.  Each variable stands for one value. 
 A _sequence_ in Python is an ordered group of values that can be represented by a single value. We can address individual elements or subgroups of a sequence with square brackets and possibly a range.  Square brackets hold the index or range. 
 
 ```python
+A[0]
+A[2:5]
 A[i]
 A[1:j+k+1]
 ```
