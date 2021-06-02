@@ -74,7 +74,7 @@ Write a program that:
 3. Creates a list of temperatures in degrees Fahrenheit which are greater than zero but for which the corresponding temperature in Celsius is less than zero. Print the elements of this last list.
 
 <details>
-<summary>See a basic solution here:</summary>
+<summary>See a solution here:</summary>
 <pre>
 c_temps = []
 f_temps = []
@@ -93,25 +93,13 @@ print (f"Filtered: {filtered}")
 </pre>
 </details>
 
-<br>
-<details>
-<summary>See an advanced solution here:</summary>
-<pre>
-c_temps = [t for t in range(-40,105,5)]
-f_temps = [t * 1.8 + 32 for t in c_temps]
-temps = zip(c_temps,f_temps)
-filtered = [f for c,f in temps if f>0 and c<0]
-print (f"Filtered: {filtered}")
-</pre>
-</details>
-
 ---
 
 # Intermediate Level
 
 ## Project 4
 
-**A.** Write a program that obtains the sum of the numbers from 1 to some specified positive (>0) integer N. Request the value of N as console input from the user. Your program should catch user inputs that cannot be converted to integers greater than 0.  Do not use the Gauss formula, do this via “brute force.”
+Write a program that obtains the sum of the numbers from 1 to some specified positive (>0) integer N. Request the value of N as console input from the user. Your program should catch user inputs that cannot be converted to integers greater than 0.  Do not use the Gauss formula, do this via “brute force.”
 Print the number, its sum as obtained from your work, and the correct answer from the Gauss formula sum(N)=N(N+1)/2.  Test your program with N=1, N=25, N=1000.
 
 <details>
@@ -126,37 +114,6 @@ try:
         for number in range(1,N+1):
             b_sum = b_sum+number
         print (f"Sum (brute force): {b_sum}, sum (Gaussian method): {N*(N+1)//2}.")
-    else:
-        print ("Please enter an integer number greater than 0.")
-except:
-    print (f"The entered value {n_str} cannot be converted to an integer number")
-</code>
-</pre>
-</details>
-
-**B.** Modify your program to print a table of the sums of the first 25 numbers. Use a function to implement the sum computation. Print a header that indicates the columns are Integer and Sum. Try to line up your output as best you can using f-strings.
-
-<details>
-<summary>See solution here:</summary>
-<pre>
-<code>
-calculate_sum(N):
-    """Calculates the sum 1..N for given integer N."""
-    b_sum = 0
-    for number in range(1,N+1):
-        b_sum = b_sum+number
-    return b_sum    
-
-n_str = input("Please enter integer number N > 0: ")
-try:
-    N = int(n_str)
-    if N >0:
-        header = f"{'N':5} | {'Sum (brute force)':17} | {'Sum (Gaussian method)':17}"
-        print (header)
-        print ("".join(["-"] * len(header)))
-        for n in range(1,N+1):
-            brute_sum = calculate_sum(n)
-            print (f"{n:5} | {brute_sum:17} | {n*(n+1)//2:17}")    
     else:
         print ("Please enter an integer number greater than 0.")
 except:

@@ -117,19 +117,19 @@ print(myL)
 Sublists are obtained much like substrings.  They are often called _slices_.
 
 ```python
-subL=L[1:3]
+subL=myL[1:3]
 ```
 
 Here the colon is again the range operator.  Always remember that the upper bound is excluded, so this slice is elements 1 and 2, which are the second and third elements.
 
 ```python
-subL=L[2:]
+subL=myL[2:]
 ```
 
 This extracts elements from the third to the last.
 
 ```python
-subL=L[:3]
+subL=myL[:3]
 ```
 
 This extracts the elements from the beginning to the third element (index number 2).
@@ -223,7 +223,7 @@ A=[1,2,3,4]
 B=A
 print(A)
 B[2]=9
-print(a)
+print(A)
 ```
 
 B is just an alias (a "nickname") for A.  If B changes so does A.  __This is true for all mutable types.__ Slicing notation creates a _view_ that can make a copy if the entire list is included.
