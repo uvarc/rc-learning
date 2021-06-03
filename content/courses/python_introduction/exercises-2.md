@@ -10,19 +10,53 @@ menu:
     weight: 120
 ---
 
+# Functions & Modules
+
+## Project 7
+Write a program that obtains the sum of the numbers from 1 to some specified positive (>0) integer N. Request the value of N as console input from the user. 
+Write a function to implement the sum.  Be sure it checks for input that is an
+integer greater than 0.  Do not use the Gauss formula, do this via “brute force.”
+Print the number, its sum as obtained from your work, and the correct answer from the Gauss formula sum(N)=N(N+1)/2.  Test your program with N=1, N=25, N=1000.
+
+## Project 8
+Modify your program from Project 1 to print a table of the sums of the first M numbers, where now M is read from the user's input.  Check that M is greater than or equal to 1.
+Print a header that indicates the columns are Integer and Sum. Try to line up your output as best you can using f-strings.
+
+## Project 9
+Write a program that reads the file [bodyfat.csv](/data/bodyfat.csv).  
+
+-  Extract the body fat percentage, weight, and height data from each row (the first, third, and fourth columns).  We do not need the age data for the current project.
+
+- Create a file that contains the function you wrote to compute BMI in Exercise 18.  Write a function that takes a BMI value and returns the category (Underweight, Normal, Overweight, Obese I-III) as an integer.  Add another function that takes a list argument and returns the mean of the list elements. Add another function to compute the standard deviation.  Call this file bmistats.py
+
+- In your bmistats.py file, add a `main` function that runs a test by computing the BMI for a set of heights and weights and returning the category corresponding to that BMI.  Compute the correct results and add code to compare them with your code's results.
+
+- Add the if __name__=="__main__" code so that `main` will be executed only if the file is the main module.  Run your tests.
+
+- Return to your program that reads the file. Import your bmistats module.  Compute the BMI for each entry in the file and store it in a new list.  Plot BMI versus bodyfat percentage.
+
+## Project 10
+The bodyfat.csv file contains an outlier, probably due to a typo. Add a function to your bmistats file to find outliers.  To simplify coding, you may use a crude criterion that an outlier is 3 or more times the standard deviation away from the mean.  Find the outlier in your list and remove it (don't forget to remove the corresponding bodyfat element).  Plot the corrected data.
+
 # NumPy
 
-## Project 1
-Create a new Python script that performs the following operations: 
+Remember that you need to add the `import numpy` (or commonly used `import numpy as np`) statement in your script before you can use the numpy package.
 
-- Create a numpy array, x, of values from 1.0 to 50.0, with step sizes of 0.01.
-- Create a numpy array, y, where y = sin(x) + cos(1.4*x) + 0.1*x.
-- Determine and print the mean y value.
-- Determine and print the x coordinates where y reaches a minimum and where y reaches a maximum in the given interval. **Hint:** Lookup the argmin and argmax functions.
-- Optional: Allow the user to specify the x start, end and stride values.
-- Optional: Plot y as a function of x using the matplotlib package (see below)
+## Project 11 
+Write a Python script that performs the following operations:
+ 
+a) Create a numpy array, x, of values from -1.0 to 1.0 inclusive, with step sizes of 0.01.  Use numpy.pi (or np.pi) for pi. 
 
-Remember you need to add the `import numpy` (or commonly used `import numpy as np`) statement in your script before you can use the numpy package.
+b) Create a numpy array, y, where y = sin(pi*x) + cos(3pi*x/2)
+
+c) Determine and print the mean y value.
+
+d) Determine and print the minimum value of y and the maximum value of y over the range of x.  Also print the corresponding x coordinates where y reaches a minimum and where y reaches a maximum. **Hint:** Look up the argmin and argmax functions.   Pay attention to the difference between index and value.
+
+e) Go back to the first chapter and review how to make a plot of y versus x using 
+Matplotlib.  Add code to plot y as a function of x.
+
+f) Add a line to accept user input to specify the x start, x end, and stride values.  Your finished code should get these values from the user, print the values and x-coordinate of the max and min for y, and display a plot of y versus x. Upload the plot for input values of starting x=-2., ending x=2., stride=.01.
 
 <details>
 <summary>See solution here:</summary>
@@ -40,50 +74,62 @@ print (f"max y:{y[max_index]} at x={x[max_index]}")
 </pre>
 </details> 
 
-## Project 2
-Find the maximum of a 3d surface by “brute force” evaluation of x, y, z values. 
+## Project 12 
+Download the file [cpi.csv](/data/cpi.csv)
 
-![](/courses/python_introduction/exercise-bruteforce.png)
+Please use NumPy arrays for this project, even though lists would work.
 
-- Generate a list of N random values for each of x and y over the above range. Use numpy arrays. For testing you can use N=8,000,000.
-- Write a function that determines the x/y coordinates that define the maximum z value of the 3d surface. Once the code is working, vary N and compare how the x,y,z max values change.
-- Optional: Plot the surface using the matplotlib package (see below).  Be careful, you may want to reduce the number of points to plots while experimenting with the best approach.
-- Optional: Create a module for your z calculating function.  Import that module into a main script.  Use the `__name__ = "__main__":` code block in your calling script.
+This file is the value of $100 from a baseline in January 1913 (the oldest consistent data available) to January 2020, as computed by the US Bureau of Labor Statistics; this gives us the consumer price index. The ratio of any two years is an estimate of the change in cost of living from the one to the other. 
 
-<details>
-<summary>See solution here:</summary>
-<pre>
-import numpy as np
+a) Write a function that takes two years and returns this ratio.  Note that the order will matter.
 
-m1 = np.sqrt(2.)
-m2 = np.sqrt(np.pi)
-s1 = 3.1
-s2 = 1.4
-s1_2x_sqr = 2*(s1**2)
-s2_2x_sqr = 2*(s2**2)
-s1_x_s2_x_sqrt_2x_pi = s1 * s2 * (np.pi * 2) ** 0.5
+The derivative of the CPI is a crude estimate of the inflation rate.  Write a function that takes an array and returns another array using the formula infl\_rate=(cpi[yr+1]-cpi[yr])/12
 
-def calc_z(x,y):
-    """Calculates z value for x/y coordinates.""" 
-    z1 = 0.1 * np.sin(x) * np.sin(x*y)
-    alpha = ((x - m1) ** 2)/ s1_2x_sqr
-    beta = ((y - m2) ** 2)/ s2_2x_sqr
-    z2 = 1 / (np.exp(alpha + beta) * s1_x_s2_x_sqrt_2x_pi) 
-    return z1 + z2
+Note that the returned array will have one fewer element than the original.
 
-N = 8000000
-x = np.random.uniform(-10.0*np.pi, 10.0*np.pi, N)
-y = np.random.uniform(-10.0*np.pi, 10.0*np.pi, N)
-z = calc_z(x,y)
-max_idx = np.argmax(z)
-print (f"Max z @ x={x[max_idx]},y={y[max_idx]}, z={z[max_idx]}")
-</pre>
-</details> 
+b) Write a program that uses your two functions to
+
+read cpi.csv by any means you choose.
+
+Request two years and a price from the user.  Compute the corresponding price for the second year provided by the user. 
+
+Plot the CPI and your approximation to the inflation rate.  
+  Plot inflation rate versus the midpoint of the years (so would start in 
+  June 1913, i.e. 1913.5, and end June 2019, i.e. 2019.5).
+
+c) In 1954 a color TV cost approximately $1295 in that year's dollars.  How much would that be in 2020 (as of January) dollars? 
+
+d) Look at the Matplotlib documentation and find how to use subplots to plot CPI and inflation rate one above the other.
+
+e) Read about exceptions in the Files chapter and add them to your code to test for the existence of the file before attempting to open it.  Add with/as to the reading of the file (you can surround a numpy call with this also).
+
+f) Convert your file with the functions into a module.  Isolate the calls to input/output, including plotting, by using a main() function.  Add the `if __name__=="__main__"` so that it will not be invoked if you import your module.
+
+## Project 13
+Modify your bmistats.py and your main program from Project 3 of the [Functions and Modules](/courses/python_introduction/functions_modules) chapter to use NDarrays rather than lists.  Use a NumPy function to read the data.  Use NumPy intrinsics rather than hand-coding mean and standard deviation.  Use your BMI function as a ufunc to compute all the BMI values at once and return a new array.
+
+If you wrote an outlier detector, modify it to use the `np.percentile(a,m)` function to compute the upper and lower quartiles using the IQR.  See this [example](https://www.dasca.org/world-of-big-data/article/identifying-and-removing-outliers-using-python-packages).  
+
+Admire how much less code and work is required when you use NumPy.
+
+## Project 14  
+Find the maximum of a 3d surface by “brute force” evaluation of x, y, z values.
+
+![bruteforce.png](/courses/python_introduction/exercise-bruteforce.png)
+
+a) Generate a list of N random values for each of x and y over the above range. Use numpy arrays. For testing you can use N=8,000,000.
+
+b) Write a function that determines the x/y coordinates that define the maximum z value of the 3d surface. Once the code is working, vary N and compare how the x,y,z max values change.
+
+c) Optional: Plot the surface using the matplotlib package (see below).  Be careful, you may want to reduce the number of points to plots while experimenting with the best approach.
+
+d) Optional: Create a module for your z calculating function.  Import that module into a main script.  Use the `if __name__ = "__main__":` code block in your calling script.
+
 
 # Pandas 
 These are in generally in order of difficulty, from easiest to most difficult. We have not covered all of these items in our lectures, so feel free to ask questions or better yet, ask Google. Ex: ("python pandas create new dataframe")
 
-## Project 3
+## Project 15
 Create new pandas, with a size of at least 5x3 (5 rows and 3 columns). Populate the dataframe with data of your choice.
 - Begin by importing pandas
 - Create a new column. If your data allows, the column could be a ratio based on existing columns (ex: pay_per_hour = df['price'] / df['time']). Or it could be something unrelated
@@ -144,7 +190,7 @@ first_three_coaches = basketball_coaches.iloc[:3]
 </details>
 
 
-## Project 4
+## Project 16
 Take the following code block:
 ```
 import pandas
@@ -193,13 +239,13 @@ result2 = pd.pivot_table(result, index=['Country', 'Name', 'Age', 'Salary'])
 # Matplotlib
 These examples will be used in conjuction with Pandas, as the two libraries are commonly used together. 
 
-## Project 5
+## Project 17
 Download the file [cigarette-smoking-behaviour-2018-census.csv](/data/cigarette-smoking-behaviour-2018-census.csv), which is about cigarette smoking in New Zealand.
 - Read the file into a pandas dataframe
 - Make a bar plot in Matplotlib of types of cigarette smokers ('Regular Smoker', 'Ex-Smoker', etc.) and their count
 - Because we have a total number of respondents, let's make a new column that is a ratio of # of each category / total number of respondents
  
-## Project 6
+## Project 18
 Download [cville_2017_april.xlsx](/data/cville_2017_april.xlsx), which contains April 2017 weather data for Charlottesville, VA.
 - Read the file into a pandas dataframe
 - Make a line plot of average wind speed for each day
@@ -210,7 +256,7 @@ Download [cville_2017_april.xlsx](/data/cville_2017_april.xlsx), which contains 
 - Make grouped bar chart of minimum and maximum temperatures for each day
 - Plot the number of each weather 'condition'. Plot sunny days, partly cloudy days, and rain days. There are several ways to do this.
 
-## Project 7
+## Project 19
 Create a new pandas dataframe, with a size of at least 5x3 (5 rows and 3 columns). Populate the dataframe with data of your choice.
 - Begin by importing pandas
 - Create a new column. If your data allows, the column could be a ratio based on existing columns (ex: pay_per_hour = df['price'] / df['time']). Or it could be something unrelated
@@ -219,7 +265,7 @@ Create a new pandas dataframe, with a size of at least 5x3 (5 rows and 3 columns
 - Split a subset of your dataframe based on some condition. Do it at least twice. Once using .loc and once using .iloc.
 - Use the groupby() method to group your dataframe in some way that makes sense for your data
 
-## Project 8
+## Project 20
 Take the following code block:
 
 ```
@@ -238,7 +284,6 @@ df2 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
 - How many people come from each country? (Hint: Don't just count them. Which function allows you to see that easily?)
 - Reshape the data and create a pivot table view of people by country using the [pivot_table function](https://www.geeksforgeeks.org/python-pandas-pivot_table/). Also include the name, age, and salary in the results
 
-# More Projects
+## More Projects
 
 Rather than re-inventing the wheel, there are tons of example projects available online. A great repository of pandas projects is [located here](https://www.geeksforgeeks.org/pandas-practice-excercises-questions-and-solutions/).
-

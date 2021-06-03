@@ -693,5 +693,167 @@ Many Pandas tutorials are available online. A good starting point is [here](http
 A great repository of pandas projects is [located here](https://www.geeksforgeeks.org/pandas-practice-excercises-questions-and-solutions/)
 
 
-### Projects
+# Projects
+
+## Pandas 
+These are in generally in order of difficulty, from easiest to most difficult. We have not covered all of these items in our lectures, so feel free to ask questions or better yet, ask Google. Ex: ("python pandas create new dataframe")
+
+### Project 15
+Create new pandas, with a size of at least 5x3 (5 rows and 3 columns). Populate the dataframe with data of your choice.
+- Begin by importing pandas
+- Create a new column. If your data allows, the column could be a ratio based on existing columns (ex: pay_per_hour = df['price'] / df['time']). Or it could be something unrelated
+- Rename your columns with a variable name. This is not required but often makes your code more readable. 
+- Print a list of all columns. Then print the value counts of all your columns.
+- split a subset of your dataframe based on some condition. Do it at least twice. Once using .loc and once using .iloc.
+- use the groupby() method to group your dataframe in some way that makes sense for your data
+
+<details>
+<summary>See an example solution here (Remember, yours could be totally different)</summary>
+<pre>
+<code>
+
+#import pandas
+import pandas as pd 
+
+#create new dataframe
+basketball_coaches = pd.DataFrame({"Name": ['Tony Bennett', 'Roy Williams', 'Mike Krzyzewski', 'Tom Izzo', 'Jim Boeheim'],
+                          "School": ['Virginia', 'North Carolina', 'Duke', 'Michigan State', 'Syracuse'],
+                          "Email": ['tbennett@virginia.edu', 'rwilliams@unc.edu', 'coachk@duke.edu','tizzo@msu.edu', 'jboeheim@syracuse.edu'],
+                          "Career Wins": [346, 871, 1132, 606, 944],
+                          "National Championships": [1, 3, 5, 2, 1]})
+
+
+print(basketball_coaches)
+
+
+#rename columns with a variable name
+name = basketball_coaches['Name']
+school = basketball_coaches['School']
+email = basketball_coaches['Email']
+career_wins = basketball_coaches['Career Wins']
+championships = basketball_coaches['National Championships']
+
+#make new subset of data
+wins_per_championship = career_wins/championships
+
+#or if you want it to be a part of the dataframe
+basketball_coaches['Wins Per Championship'] = basketball_coaches['Career Wins'] / basketball_coaches['National Championships']
+
+
+
+#print a list of all the columns
+print(basketball_coaches.columns.tolist())
+
+
+
+#split a subset of the dataframe based on some condition. Several examples listed here
+uva_coach = basketball_coaches.loc[basketball_coaches['School'] == 'Virginia']
+
+multiple_championships = basketball_coaches.loc[basketball_coaches['National Championships'] > 1]
+
+first_three_coaches = basketball_coaches.iloc[:3]
+
+
+</code>
+</pre>
+</details>
+
+
+### Project 16
+Take the following code block:
+```
+import pandas
+
+df1 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
+                    'Names': ['John','Dave','Mary','Sarah','Mohammed','Rohan','Prisha','Vijay','Ananya','Raj'],
+                    'Country': ['USA','USA','USA','UK','India','India','UK','India','UK','India']})
+
+df2 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
+                    'Salary': [50000, 60000, 65000, 53000, 59000, 74000, 86000, 41000, 94000, 66000],
+                    'Age': [24, 46, 51, 29, 33, 38, 70, 46, 49, 35]})
+```
+
+- Join the two dataframe together using the [merge function](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html)
+- How many people come from each country? (Hint: Don't just count them. Which function allows you to see that easily?)
+- Reshape the data and create a pivot table view of people by country using the [pivot_table function](https://www.geeksforgeeks.org/python-pandas-pivot_table/). Also include the name, age, and salary in the results
+
+<details>
+<summary>See the solution here</summary>
+<pre>
+<code>
+import pandas as pd
+
+
+df1 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
+                    'Name': ['John','Dave','Mary','Sarah','Mohammed','Rohan','Prisha','Vijay','Ananya','Raj'],
+                    'Country': ['USA','USA','USA','UK','India','India','UK','India','UK','India']})
+
+df2 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
+                    'Salary': [50000, 60000, 65000, 53000, 59000, 74000, 86000, 41000, 94000, 66000],
+                    'Age': [24, 46, 51, 29, 33, 38, 70, 46, 49, 35]})
+
+    
+#merge
+result = pd.merge(df1, df2, on="ID #")
+
+#see counts of people by country
+#print(result['Country'].value_counts())
+
+#pivot table reshape
+result2 = pd.pivot_table(result, index=['Country', 'Name', 'Age', 'Salary'])
+</code>
+</pre>
+</details>
+
+## Matplotlib
+These examples will be used in conjuction with Pandas, as the two libraries are commonly used together. 
+
+### Project 17
+Download the file [cigarette-smoking-behaviour-2018-census.csv](/data/cigarette-smoking-behaviour-2018-census.csv), which is about cigarette smoking in New Zealand.
+- Read the file into a pandas dataframe
+- Make a bar plot in Matplotlib of types of cigarette smokers ('Regular Smoker', 'Ex-Smoker', etc.) and their count
+- Because we have a total number of respondents, let's make a new column that is a ratio of # of each category / total number of respondents
+ 
+### Project 18
+Download [cville_2017_april.xlsx](/data/cville_2017_april.xlsx), which contains April 2017 weather data for Charlottesville, VA.
+- Read the file into a pandas dataframe
+- Make a line plot of average wind speed for each day
+- Add main titles, and label axes to be more descriptive
+- Play with the bottom axis (x axis) to make sure all dates are visible
+- Make a bar and line plot showing average wind speed (in bars) and max wind gust (as a line). Add legend to distinguish between the two.
+- Make stacked bar chart of minimum and maximum temperatures for each day
+- Make grouped bar chart of minimum and maximum temperatures for each day
+- Plot the number of each weather 'condition'. Plot sunny days, partly cloudy days, and rain days. There are several ways to do this.
+
+### Project 19
+Create a new pandas dataframe, with a size of at least 5x3 (5 rows and 3 columns). Populate the dataframe with data of your choice.
+- Begin by importing pandas
+- Create a new column. If your data allows, the column could be a ratio based on existing columns (ex: pay_per_hour = df['price'] / df['time']). Or it could be something unrelated
+- Rename your columns with a variable name. This is not required but often makes your code more readable. 
+- Print a list of all columns. Then print the value counts of all your columns.
+- Split a subset of your dataframe based on some condition. Do it at least twice. Once using .loc and once using .iloc.
+- Use the groupby() method to group your dataframe in some way that makes sense for your data
+
+### Project 20
+Take the following code block:
+
+```
+import pandas
+
+df1 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
+                    'Names': ['John','Dave','Mary','Sarah','Mohammed','Rohan','Prisha','Vijay','Ananya','Raj'],
+                    'Country': ['USA','USA','USA','UK','India','India','UK','India','UK','India']})
+
+df2 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
+                    'Salary': [50000, 60000, 65000, 53000, 59000, 74000, 86000, 41000, 94000, 66000],
+                    'Age': [24, 46, 51, 29, 33, 38, 70, 46, 49, 35]})
+```
+
+- Join the two dataframe together using the [merge function](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html)
+- How many people come from each country? (Hint: Don't just count them. Which function allows you to see that easily?)
+- Reshape the data and create a pivot table view of people by country using the [pivot_table function](https://www.geeksforgeeks.org/python-pandas-pivot_table/). Also include the name, age, and salary in the results
+
+### More Projects
+
+Rather than re-inventing the wheel, there are tons of example projects available online. A great repository of pandas projects is [located here](https://www.geeksforgeeks.org/pandas-practice-excercises-questions-and-solutions/).
 

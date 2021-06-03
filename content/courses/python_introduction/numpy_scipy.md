@@ -48,12 +48,16 @@ Unlike most Python data types, arrays must be initialized before they can be add
   * A=numpy.eye(100) 
 * Initialize to all zeros, same shape as a pre-existing array 
   * B=numpy.zeros_like(A)
+* Initialize to random numbers in the half-open interval [0.0, 1.0)
+  * R=numpy.random.random((4,5,7))
 
 There are other functions that can be used to initialize but these are among the most common.
 
 ### Ndarray Types
 
 Python is typed by _inference_, meaning that it uses context to determine type, so normally we do not declare a variable's type, but Ndarrays may and sometimes must be declared with a type.  NumPy supports more types than base Python, including single-precision floating-point (`float32`). Unless otherwise specified, the type will be taken from the type of the initial elements if any are present.  If they are not, the default is float (double precision) but it can be modified with the `dtype` keyword argument to the constructor.
+
+To save some typing, we'll use `import numpy as np` to import numpy and `np` to reference it.
 
 ```python
 import numpy as np
@@ -81,7 +85,7 @@ print(C)
  However, this is not very practical for large arrays.  If we can declare an array as a linear sequence of numbers, we can use the built-in function `arange`.  The syntax is similar to `range` but it can take arguments of any numerical type, and it returns an Ndarray.
 
 ```python
-V=np.arange(10,30,5)
+V=np.arange(10,30,5)  # start,end,stride 
 print(V)
 [10 15 20 25]
 ```
@@ -90,11 +94,12 @@ print(V)
 <summary>Exercise 23</summary>
 
 Use the zeros function for the following:
-Initialize an array A1 of rank 1 with size 4 and type double.
-Initialize an array IU of rank 1 with size 4 and type integer.
-Initialze an array M1 of rank 1 with size 4 and type Boolean.
-Print each of the arrays you just created.
-Initialize a rank-3 array to arbitrary elements.
+
+* Initialize an array A1 of rank 1 with size 4 and type double.
+* Initialize an array IU of rank 1 with size 4 and type integer.
+* Initialze an array M1 of rank 1 with size 4 and type Boolean.
+* Print each of the arrays you just created.
+* Initialize a rank-3 array to arbitrary elements.
 
 </details>
 
@@ -145,11 +150,15 @@ NumPy refers to dimensions as axes.  Many NumPy intrinsic functions take an opti
 
 ```python
 a=np.arange(12).reshape(3,4)
+print(a)
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
 print(a.sum())
  66
-print(a.sum(0))
+print(a.sum(0))  # across rows for ech column
  [12 15 18 21]
-print(a.sum(1))
+print(a.sum(1))  # across columns for each row
  [ 6 22 38]
 ```
 
@@ -176,10 +185,11 @@ dtype('float64')
  An Ndarray can take as its index an integer or Boolean array.
 
 ```python
-A=np.array([-2.,3.,-8.,
-             -11.,12.,12.,45.,19.])
+A=np.array([-2.,3.,-8.,-11.,12.,12.,45.,19.])
 I=np.array([2,4,5])
 valid=A>0
+print(valid)
+[False  True False False  True  True  True  True]
 print(A[I])
 [-8.,12.,12.]
 print(A[valid])
@@ -336,27 +346,33 @@ b = np.array([[5], [6]])
 c=linalg.solve(A, b)
 print(c)
 ```
-### Resources
+## Resources
 
 Essential documentation for NumPy is at its home [site](https://docs.scipy.org/doc/numpy/index.html).  
 
 The SciPy [reference guide](https://docs.scipy.org/doc/scipy/reference/) is an invaluable resource for SciPy usage.
 
-### Projects
+## Projects
 
 Remember that you need to add the `import numpy` (or commonly used `import numpy as np`) statement in your script before you can use the numpy package.
 
-#### Project 1 
+### Project 11 
 Write a Python script that performs the following operations:
  
 a) Create a numpy array, x, of values from -1.0 to 1.0 inclusive, with step sizes of 0.01.  Use numpy.pi (or np.pi) for pi. 
+
 b) Create a numpy array, y, where y = sin(pi*x) + cos(3pi*x/2)
+
 c) Determine and print the mean y value.
+
 d) Determine and print the minimum value of y and the maximum value of y over the range of x.  Also print the corresponding x coordinates where y reaches a minimum and where y reaches a maximum. **Hint:** Look up the argmin and argmax functions.   Pay attention to the difference between index and value.
-e) Go back to the first chapter and review how to make a plot of y versus x using Matplotlib.  Add code to plot y as a function of x.
+
+e) Go back to the first chapter and review how to make a plot of y versus x using 
+Matplotlib.  Add code to plot y as a function of x.
+
 f) Add a line to accept user input to specify the x start, x end, and stride values.  Your finished code should get these values from the user, print the values and x-coordinate of the max and min for y, and display a plot of y versus x. Upload the plot for input values of starting x=-2., ending x=2., stride=.01.
 
-#### Project 2 
+### Project 12 
 Download the file [cpi.csv](/data/cpi.csv)
 
 Please use NumPy arrays for this project, even though lists would work.
@@ -387,14 +403,14 @@ e) Read about exceptions in the Files chapter and add them to your code to test 
 
 f) Convert your file with the functions into a module.  Isolate the calls to input/output, including plotting, by using a main() function.  Add the `if __name__=="__main__"` so that it will not be invoked if you import your module.
 
-#### Project 3
+### Project 13
 Modify your bmistats.py and your main program from Project 3 of the [Functions and Modules](/courses/python_introduction/functions_modules) chapter to use NDarrays rather than lists.  Use a NumPy function to read the data.  Use NumPy intrinsics rather than hand-coding mean and standard deviation.  Use your BMI function as a ufunc to compute all the BMI values at once and return a new array.
 
 If you wrote an outlier detector, modify it to use the `np.percentile(a,m)` function to compute the upper and lower quartiles using the IQR.  See this [example](https://www.dasca.org/world-of-big-data/article/identifying-and-removing-outliers-using-python-packages).  
 
 Admire how much less code and work is required when you use NumPy.
 
-#### Project 4  
+### Project 14  
 Find the maximum of a 3d surface by “brute force” evaluation of x, y, z values.
 
 ![bruteforce.png](/courses/python_introduction/exercise-bruteforce.png)
