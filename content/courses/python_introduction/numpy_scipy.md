@@ -48,12 +48,16 @@ Unlike most Python data types, arrays must be initialized before they can be add
   * A=numpy.eye(100) 
 * Initialize to all zeros, same shape as a pre-existing array 
   * B=numpy.zeros_like(A)
+* Initialize to random numbers in the half-open interval [0.0, 1.0)
+  * R=numpy.random.random((4,5,7))
 
 There are other functions that can be used to initialize but these are among the most common.
 
 ### Ndarray Types
 
 Python is typed by _inference_, meaning that it uses context to determine type, so normally we do not declare a variable's type, but Ndarrays may and sometimes must be declared with a type.  NumPy supports more types than base Python, including single-precision floating-point (`float32`). Unless otherwise specified, the type will be taken from the type of the initial elements if any are present.  If they are not, the default is float (double precision) but it can be modified with the `dtype` keyword argument to the constructor.
+
+To save some typing, we'll use `import numpy as np` to import numpy and `np` to reference it.
 
 ```python
 import numpy as np
@@ -81,7 +85,7 @@ print(C)
  However, this is not very practical for large arrays.  If we can declare an array as a linear sequence of numbers, we can use the built-in function `arange`.  The syntax is similar to `range` but it can take arguments of any numerical type, and it returns an Ndarray.
 
 ```python
-V=np.arange(10,30,5)
+V=np.arange(10,30,5)  # start,end,stride 
 print(V)
 [10 15 20 25]
 ```
@@ -90,11 +94,12 @@ print(V)
 <summary>Exercise 23</summary>
 
 Use the zeros function for the following:
-Initialize an array A1 of rank 1 with size 4 and type double.
-Initialize an array IU of rank 1 with size 4 and type integer.
-Initialze an array M1 of rank 1 with size 4 and type Boolean.
-Print each of the arrays you just created.
-Initialize a rank-3 array to arbitrary elements.
+
+* Initialize an array A1 of rank 1 with size 4 and type double.
+* Initialize an array IU of rank 1 with size 4 and type integer.
+* Initialze an array M1 of rank 1 with size 4 and type Boolean.
+* Print each of the arrays you just created.
+* Initialize a rank-3 array to arbitrary elements.
 
 </details>
 
@@ -145,11 +150,15 @@ NumPy refers to dimensions as axes.  Many NumPy intrinsic functions take an opti
 
 ```python
 a=np.arange(12).reshape(3,4)
+print(a)
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
 print(a.sum())
  66
-print(a.sum(0))
+print(a.sum(0))  # across rows for ech column
  [12 15 18 21]
-print(a.sum(1))
+print(a.sum(1))  # across columns for each row
  [ 6 22 38]
 ```
 
@@ -176,10 +185,11 @@ dtype('float64')
  An Ndarray can take as its index an integer or Boolean array.
 
 ```python
-A=np.array([-2.,3.,-8.,
-             -11.,12.,12.,45.,19.])
+A=np.array([-2.,3.,-8.,-11.,12.,12.,45.,19.])
 I=np.array([2,4,5])
 valid=A>0
+print(valid)
+[False  True False False  True  True  True  True]
 print(A[I])
 [-8.,12.,12.]
 print(A[valid])
