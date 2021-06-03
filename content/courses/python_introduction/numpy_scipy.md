@@ -336,27 +336,33 @@ b = np.array([[5], [6]])
 c=linalg.solve(A, b)
 print(c)
 ```
-### Resources
+## Resources
 
 Essential documentation for NumPy is at its home [site](https://docs.scipy.org/doc/numpy/index.html).  
 
 The SciPy [reference guide](https://docs.scipy.org/doc/scipy/reference/) is an invaluable resource for SciPy usage.
 
-### Projects
+## Projects
 
 Remember that you need to add the `import numpy` (or commonly used `import numpy as np`) statement in your script before you can use the numpy package.
 
-#### Project 1 
+### Project 11 
 Write a Python script that performs the following operations:
  
 a) Create a numpy array, x, of values from -1.0 to 1.0 inclusive, with step sizes of 0.01.  Use numpy.pi (or np.pi) for pi. 
+
 b) Create a numpy array, y, where y = sin(pi*x) + cos(3pi*x/2)
+
 c) Determine and print the mean y value.
+
 d) Determine and print the minimum value of y and the maximum value of y over the range of x.  Also print the corresponding x coordinates where y reaches a minimum and where y reaches a maximum. **Hint:** Look up the argmin and argmax functions.   Pay attention to the difference between index and value.
-e) Go back to the first chapter and review how to make a plot of y versus x using Matplotlib.  Add code to plot y as a function of x.
+
+e) Go back to the first chapter and review how to make a plot of y versus x using 
+Matplotlib.  Add code to plot y as a function of x.
+
 f) Add a line to accept user input to specify the x start, x end, and stride values.  Your finished code should get these values from the user, print the values and x-coordinate of the max and min for y, and display a plot of y versus x. Upload the plot for input values of starting x=-2., ending x=2., stride=.01.
 
-#### Project 2 
+### Project 12 
 Download the file [cpi.csv](/data/cpi.csv)
 
 Please use NumPy arrays for this project, even though lists would work.
@@ -387,14 +393,14 @@ e) Read about exceptions in the Files chapter and add them to your code to test 
 
 f) Convert your file with the functions into a module.  Isolate the calls to input/output, including plotting, by using a main() function.  Add the `if __name__=="__main__"` so that it will not be invoked if you import your module.
 
-#### Project 3
+### Project 13
 Modify your bmistats.py and your main program from Project 3 of the [Functions and Modules](/courses/python_introduction/functions_modules) chapter to use NDarrays rather than lists.  Use a NumPy function to read the data.  Use NumPy intrinsics rather than hand-coding mean and standard deviation.  Use your BMI function as a ufunc to compute all the BMI values at once and return a new array.
 
 If you wrote an outlier detector, modify it to use the `np.percentile(a,m)` function to compute the upper and lower quartiles using the IQR.  See this [example](https://www.dasca.org/world-of-big-data/article/identifying-and-removing-outliers-using-python-packages).  
 
 Admire how much less code and work is required when you use NumPy.
 
-#### Project 4  
+### Project 14  
 Find the maximum of a 3d surface by “brute force” evaluation of x, y, z values.
 
 ![bruteforce.png](/courses/python_introduction/exercise-bruteforce.png)

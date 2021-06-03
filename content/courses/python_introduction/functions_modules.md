@@ -32,16 +32,16 @@ Examples
 
 ```python
 def sum_vals(x,y,z):
-    "Computes the sum of its input values"
+    """Computes the sum of its input values"""
     return x+y+z
 
 def make_list(x,y,z):
-   "Makes a new list"
+    """Makes a new list"""
     new_list=[x,y,z]
     return new_list
 
 def sum_diff(x,y):
-    "Returns the sum and difference of two values"
+    """Returns the sum and difference of two values"""
     return x+y,x-y
 ```
 
@@ -62,8 +62,14 @@ sum_diff(3,4)
 s_3=sum_vals(8,8,10)
 s_3
 ```
-
 </details>
+
+
+If you want to use these functions in a Python script, it is often convenient to store their returned values in a variable and then do something with that variable, e.g. print its value. 
+For example:
+```
+result=sum_values(1,2,3)
+````
 
 #### Dummy Parameters
 
@@ -85,14 +91,16 @@ The arguments in the lists in both caller and callee must agree in _number_ and 
 <summary>Exercise 18</summary>
 <pre>
 <p>
-Convert your program from Exercise 6 to use a function to compute the BMI.
+Convert your program from an earlier exercise to use a function to compute the BMI.
+Remember the formula: 
+BMI = (Weight in Kilograms / (Height in Meters x Height in Meters))
 </pre>
 </p>
 </details>
 
 ### Optional and Keyword Arguments
 
-Arguments whose values are determined from their ordering in the parameter list are called _positional_ variables.  Python supports _optional_ and _keyword_ arguments as well.  Opetional arguments are assigned a default value in the parameter list of the function definition.  If an optional argument is not present in the argument list passed by the caller, it takes on its default value; otherwise it is positional.
+Arguments whose values are determined from their ordering in the parameter list are called _positional_ variables.  Python supports _optional_ and _keyword_ arguments as well.  Optional arguments are assigned a default value in the parameter list of the function definition.  If an optional argument is not present in the argument list passed by the caller, it takes on its default value; otherwise it is positional.
 
 ```python
 def func(x,y=0,w=3):
@@ -185,14 +193,15 @@ def set_x(x):
     return x
 x=1
 z=set_x(x)
-print(x); print(z)
+print(x)
+print(z)
 ```
 
 </details>
 
 ## Functional Programming
 
-Functional programming is a paradigm in which all aspects of the program are expressed as functions, there are no mutable variables, and there are no side effects.  In true functional programming languages such as Haskell, a function is a _first class data structure_.  It can be a _l-value_, which means that the function can appear on the left-hand side of an assignment like a variable in "imperative" langauges.  Functions in this style can also take functions as their arguments.  Python is not a functional language but has some constructs that provide a few of the features of such languages.
+Functional programming is a paradigm in which all aspects of the program are expressed as functions, there are no mutable variables, and there are no side effects.  In true functional programming languages such as Haskell, a function is a _first class data structure_.  It can be a _l-value_, which means that the function can appear on the left-hand side of an assignment like a variable in "imperative" languages.  Functions in this style can also take functions as their arguments.  Python is not a functional language but has some constructs that provide a few of the features of such languages.
 
 Functional programming makes use of "anonymous" or _lambda_ functions.  In Python we can use a __lambda expression__ to evaluate a function without giving it an explicit definition.  Lambdas must be expressible as a single expression; no statements are allowed.  A tuple of the variable names follows the `lambda` keyword, then a colon, and finally the expression of the variables.
 
@@ -414,19 +423,19 @@ First run rooter.py as a standalone script, then run testmain.py.  What's the di
 
 </details>
 
-### Projects
+# Projects
 
-#### Project 1
+## Project 7
 Write a program that obtains the sum of the numbers from 1 to some specified positive (>0) integer N. Request the value of N as console input from the user. 
 Write a function to implement the sum.  Be sure it checks for input that is an
 integer greater than 0.  Do not use the Gauss formula, do this via “brute force.”
 Print the number, its sum as obtained from your work, and the correct answer from the Gauss formula sum(N)=N(N+1)/2.  Test your program with N=1, N=25, N=1000.
 
-#### Project 2
+## Project 8
 Modify your program from Project 1 to print a table of the sums of the first M numbers, where now M is read from the user's input.  Check that M is greater than or equal to 1.
 Print a header that indicates the columns are Integer and Sum. Try to line up your output as best you can using f-strings.
 
-#### Project 3
+## Project 9
 Write a program that reads the file [bodyfat.csv](/data/bodyfat.csv).  
 
 -  Extract the body fat percentage, weight, and height data from each row (the first, third, and fourth columns).  We do not need the age data for the current project.
@@ -439,6 +448,6 @@ Write a program that reads the file [bodyfat.csv](/data/bodyfat.csv).
 
 - Return to your program that reads the file. Import your bmistats module.  Compute the BMI for each entry in the file and store it in a new list.  Plot BMI versus bodyfat percentage.
 
-#### Project 4
+## Project 10
 The bodyfat.csv file contains an outlier, probably due to a typo. Add a function to your bmistats file to find outliers.  To simplify coding, you may use a crude criterion that an outlier is 3 or more times the standard deviation away from the mean.  Find the outlier in your list and remove it (don't forget to remove the corresponding bodyfat element).  Plot the corrected data.
 
