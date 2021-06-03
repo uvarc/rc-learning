@@ -139,7 +139,7 @@ Test your program for N=30 and N=50.
 <details>
 <summary>See solution here:</summary>
 <pre>
-collatz(N):
+def collatz(N):
     """Collatz conjecture algorithm."""
     steps = [N]
     while N>1:
@@ -149,7 +149,6 @@ collatz(N):
             N = N * 3 + 1
         steps.append(N)
     return len(steps),max(steps)
-
 numbers = [30,50]
 for N in numbers:
     print (f"Computing Collatz for N={N}")
@@ -161,6 +160,7 @@ for N in numbers:
         print (f"{n:5}|{stop:15d}|{max_value:10d}")
 </pre>
 </details>
+
 --- 
 
 # Expert Level
@@ -190,7 +190,6 @@ def convert_8(N, base=8):
         N = N // base
         digits.append(str(r))
     return "".join(digits[::-1])
-
 print (f"{'Base 10':>8}|{'Base 8':>8}")
 for n in range(51):
     print (f"{n:8d}|{convert_8(n):>8}")
@@ -213,7 +212,6 @@ def convert(N, alphabet, base=16):
         N = N // base
         digits.append(alphabet[r])
     return "".join(digits[::-1])
-
 base = 8
 alphabet = {i:chr(48+i) for i in range(10)}
 alphabet.update({10+i:chr(65+i) for i in range(6)})

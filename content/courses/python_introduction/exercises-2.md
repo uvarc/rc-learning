@@ -26,7 +26,7 @@ Remember you need to add the `import numpy` (or commonly used `import numpy as n
 
 <details>
 <summary>See solution here:</summary>
-<pre>
+<pre><code>
 import numpy as np
 
 x = np.arange(0.0,50.0,0.01)
@@ -37,7 +37,7 @@ max_index = np.argmax(y) #np.where(y==y.max())
 print (f"mean y:{mean_y}")
 print (f"max y:{y[min_index]} at x={x[min_index]}")
 print (f"max y:{y[max_index]} at x={x[max_index]}")
-</pre>
+</code></pre>
 </details> 
 
 ## Project 2
@@ -52,7 +52,7 @@ Find the maximum of a 3d surface by “brute force” evaluation of x, y, z valu
 
 <details>
 <summary>See solution here:</summary>
-<pre>
+<pre><code>
 import numpy as np
 
 m1 = np.sqrt(2.)
@@ -62,7 +62,9 @@ s2 = 1.4
 s1_2x_sqr = 2*(s1**2)
 s2_2x_sqr = 2*(s2**2)
 s1_x_s2_x_sqrt_2x_pi = s1 * s2 * (np.pi * 2) ** 0.5
-
+</code></pre>
+<br>
+<pre><code>
 def calc_z(x,y):
     """Calculates z value for x/y coordinates.""" 
     z1 = 0.1 * np.sin(x) * np.sin(x*y)
@@ -70,14 +72,16 @@ def calc_z(x,y):
     beta = ((y - m2) ** 2)/ s2_2x_sqr
     z2 = 1 / (np.exp(alpha + beta) * s1_x_s2_x_sqrt_2x_pi) 
     return z1 + z2
-
+</code></pre>
+<br>
+<code><pre>
 N = 8000000
 x = np.random.uniform(-10.0*np.pi, 10.0*np.pi, N)
 y = np.random.uniform(-10.0*np.pi, 10.0*np.pi, N)
 z = calc_z(x,y)
 max_idx = np.argmax(z)
 print (f"Max z @ x={x[max_idx]},y={y[max_idx]}, z={z[max_idx]}")
-</pre>
+</code></pre>
 </details> 
 
 # Pandas 
