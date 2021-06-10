@@ -83,7 +83,7 @@ For further reading about `make`, see the [gmake documentation](https://www.gnu.
 
 Makemake is a Perl script first developed by Michael Wester soon after the introduction of Fortran 90, in order to construct correct makefiles for modern Fortran code.  The version supplied here has been extended.  It is freely licensed but if you use it, please do not remove the credits at the top.
 
-[makemake](/content/courses/fortran_introduction/makemake)
+[makemake](/courses/fortran_introduction/codes/makemake)
 
 This version works reasonably well for Fortran, C, and C++.  It will generate stubs for all languages. You may remove any you are not using.  Also note that the output is a skeleton `Makefile`.  You must at minimum name your executable, and you must fill in any other options and flags you wish to use.  The `makemake` script blindly adds any files ending in the specified suffixes it finds in the current working directory whether they are independently compilable or not, so keep your files organized, and be sure to edit your Makefile if you have files you need but cannot be compiled individually.
 

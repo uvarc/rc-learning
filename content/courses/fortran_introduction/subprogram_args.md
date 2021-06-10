@@ -11,6 +11,26 @@ menu:
 
 ---
 
+## Pass by Reference and INTENT
+
+Unlike most languages, Fortran passes all arguments by _reference_.  This effectively means that what is actually passed is the memory location of the argument.  Consequently, any change to the argument in the subprogram, intended or not, will change the variable outside as well. Changing the value of an argument is called a _side effect_.  Side effects can be legitimate -- subroutines rely on them -- but they should be controlled.  For this reason, Fortran introduced the `INTENT` attribute for subprogram parameters.
+```fortran
+INTENT(IN)   ! Changing the variable in the subprogram throws a fatal error
+INTENT(OUT)  ! Not changing the variable in the subprogram throws a fatal error
+INTENT(INOUT)! Indicates that the programmer intends to overwrite the variable
+```
+Example
+```
+subroutine mysub(x,y,z)
+   real, intent(in)    :: x
+   real, intent(out)   :: y
+   real, intent(inout) :: z
+      y=x-z
+      z=y+x
+end subroutine
+```
+As a general rule, all arguments to a FUNCTION should be INTENT(IN).
+
 ## Saving and Deallocating Subprogram Arguments
 
 According to the standard, the memory used by local variables in a subprogram is freed upon exit from the procedure.

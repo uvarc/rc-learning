@@ -32,8 +32,7 @@ END DO
 The stride can be negative, in which case `L` must be greater than `U`.
 Fortran always starts at the first bound and includes the second bound.
 
-# QUIZ
-
+QUIZ
 The standard requires that loop variables be integers.  How would I implement loop variables that are real?
 <br>
 How might real loop variables be a problem?
@@ -89,7 +88,7 @@ The `EXIT` statement leaves the loop immediately.
 `EXIT` is able to break out of _only_ the loop level _in which it appears_.  It cannot break from an inner loop all the way out of a nested set of loops.  This is a case where `goto` is better than the alternatives. `EXIT` is equivalent to
 `break` of several other languages.
 
-`CYCLE` skips the rest of loop and goes to the next iteration.  It is equivalent `continue` of other languages.  Like `EXIT`, it applies only to the loop level in which it is located.
+`CYCLE` skips the rest of loop and goes to the next iteration.  It is equivalent to `continue` of other languages.  Like `EXIT`, it applies only to the loop level in which it is located.
 
 ```fortran
 x=1.
