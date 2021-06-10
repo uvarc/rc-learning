@@ -13,7 +13,7 @@ menu:
 
 A _conditional_ is a programming construct that implements decisions. 
 * _If_ the weather is good _then_ we will go for a walk, _else_ we will stay inside and watch TV.  
-* _If_ it is cold enough to snow I will wear my heavy coat, else if it is warmer and just rains I will wear my rainjacket.
+* _If_ it is cold enough to snow I will wear my heavy coat, _else if_ it is warmer and just rains I will wear my rainjacket.
 The expression following each _if_ or _else_ must be true or false, i.e. a _logical_ expression (in Fortran terminology).
 
 ## Conditional Operators
@@ -55,7 +55,7 @@ where `a` and `b` are logical expressions.
 Like arithmetic operators, conditional operators have a precedence ordering.
 
 * .NOT. has the highest rank
-* >,>=,<,<= are equal and outrank == or /=
+* \>,>=,<,<= are equal and outrank == or /=
 * ==,/= are equal and outrank .AND.
 * .AND. outranks .OR.
 
@@ -95,6 +95,7 @@ expression that can be evaluated to "value0", "value1", etc.
       CASE DEFAULT    ! Optional
         code
    END SELECT
+```
 "Expression" must be character, integer, or logical.
 Ranges are only applicable for numeric or character expressions.
 `DEFAULT` is for the action, if any, to be taken if the expression does not evaluate to any of the options available.

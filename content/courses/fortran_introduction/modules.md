@@ -66,8 +66,8 @@ Example:
 MODULE mymod
 USE precisions
    REAL, PRIVATE  :: x, y, z
-   REAL_sp        :: r_fun
-   REAL_dp        :: d_fun
+   REAL(sp)       :: r_fun
+   REAL(dp)       :: d_fun
    PRIVATE        ::r_fun,d_fun
 ```
 
@@ -93,7 +93,7 @@ integer   ::Nmax=100000
 
         do stuff
 
-      end subroutinemysub
+      end subroutine
 
 end module
 ```

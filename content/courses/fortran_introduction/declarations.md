@@ -38,11 +38,11 @@ It is _not_ necessary to write keywords, or any source at all, in all capital le
 |------------------|-----------|----------------------------|
 |     INTEGER      |  32-bit integer |  Yes                  |
 |     INTEGER\*8   |  64-bit integer |  No, but nearly universal |
-|     INTEGER_rk   |  Integer specified by kind |  Yes |
+|     INTEGER(ik)  |  Integer specified by KIND |  Yes |
 |     REAL         |  Single precision floating point | Yes  |
 | DOUBLE PRECISION |  Double precision floating point | Yes, but deprecated style |
 | REAL\*8 |  Double precision floating point |  No, but universal |
-| REAL_rk |  Floating point denoted by kind |  Yes |
+| REAL(rk)|  Floating point denoted by KIND |  Yes |
 | LOGICAL |  Logical (Boolean)  |  Yes |
 | COMPLEX  |  Single precision complex  | Yes |
 | COMPLEX\*8 |  Double precision complex  | No, but nearly universal |
@@ -51,7 +51,8 @@ It is _not_ necessary to write keywords, or any source at all, in all capital le
 | CHARACTER\*10  | Character variable with 10 characters | Yes, but deprecated style |
 |     BYTE         |  One byte  | Yes  |
 
-Other types may be specified through [KIND](/courses/fortran_introduction/kind). 
+Other types may be specified through [KIND].
+
 ## Implicit and Explicit Typing
 
 For historical reasons, Fortran used _implicit typing_ for numerical types.  Any variable starting with the letters A-H or O-Z were _floating point_.  Variables beginning with the letters I-N were _integers_.  Note that `IN` are the first two letters of the word "integer."  That is a longstanding mathematical tradition and Fortran was developed to translate mathematical notation (FORmula TRANslation).

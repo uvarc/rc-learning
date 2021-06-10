@@ -106,7 +106,7 @@ s=.3333300000
 Fortran, like most programming languages, also provides means for the programmer to specify when a type conversion should take place.
 Use this explicit casting to be clear, or in circumstances, such as argument lists, where the compiler will not do it.
 
-The new way to cast numbers is via [KIND](/courses/fortran_introduction/kind).  Older conversion functions such as `dble` can still be used and will usually be present in older code.
+The new way to cast numbers is via [KIND](/courses/fortran_introduction/primitive_types).  Older conversion functions such as `dble` can still be used and will usually be present in older code.
 
 Logicals cannot be cast to anything, even though they are usually represented internally by integers.
 
@@ -117,6 +117,11 @@ R=REAL(I)
 I=INT(R)
 Z=CMPLX(r1,r2)
 D=DBLE(R)
+```
+Using KIND (with predetermined parameters)
+```
+R=REAL(I,dp)
+D=REAL(R,dp)
 ```
 
 ### Character/Numeric
