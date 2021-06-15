@@ -209,7 +209,7 @@ PyTorch can make use of multiple GPU devices through the DistributedDataParallel
 
 - Download the container. The following command will create a Singularity container `pytorch_1.7.0.sif`.
 ```bash
-module load singularity/3.6.1
+module load singularity
 singularity pull docker://uvarc/pytorch:1.7.0
 ```
 
@@ -280,7 +280,7 @@ trainer.fit(autoencoder, DataLoader(train), DataLoader(val))
 #SBATCH --gres=gpu:k80:1
 
 module purge
-module load singularity/3.6.1
+module load singularity
 
 time singularity run --nv pytorch_1.7.0.sif example.py
 ```

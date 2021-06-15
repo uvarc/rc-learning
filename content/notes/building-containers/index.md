@@ -361,7 +361,7 @@ To download a container hosted on a registry, use the `pull` command. Docker ima
 
 ```bash
 module spider singularity
-module load singularity/3.6.1
+module load singularity
 singularity pull docker://<user>/lolcow
 ```
 
@@ -497,7 +497,7 @@ Examine SLURM script:
 #SBATCH -e tftest-%A.err              # error file
 
 module purge                          # start with clean environment
-module load singularity/3.6.1
+module load singularity
 
 singularity run --nv \
 /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.sif mnist_example.py
@@ -511,7 +511,7 @@ sbatch tensorflow-2.3.0.slurm
 
 ### What does `--nv` do?
 
-See [Singularity GPU user guide](https://sylabs.io/guides/3.6/user-guide/gpu.html#nvidia-gpus-cuda).
+See [Singularity GPU user guide](https://sylabs.io/guides/3.7/user-guide/gpu.html#nvidia-gpus-cuda).
 
 ```bash
 $ singularity shell tensorflow-2.3.0.sif
@@ -566,7 +566,7 @@ cd $DIR
 
 ```bash
 #!/bin/bash
-module load singularity/3.6.1
+module load singularity
 singularity exec --nv /path/to/sif python -m ipykernel $@
 ```
 
