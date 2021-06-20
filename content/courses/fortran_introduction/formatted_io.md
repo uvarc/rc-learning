@@ -76,6 +76,13 @@ write(*,'(2L)')is_zero,is_finite
 write(*,'(2p,f8.2,0p,f8.2)') var1, var2
 write(*,'(a,f8.2,/,a,i6)') mess1,x,mess2,i
 ```
+A format string may be a variable
+```fortran
+character(len=32) :: formatstr
+   code
+   formt='(f8.3,es15.7)'
+   write(*,formatstr) A, B
+```
 
 ## Format Statements
 
@@ -104,7 +111,7 @@ Non-advancing IO _must_ be formatted
   * The argument to `advance` can be a character variable so you can decide based on conditionals to advance or not.
   * If you do _not_ want to advance, use `advance='no'`
 
-## Exercises
+**Exercises**
 
 1. Write a program that computes pi using a trig identity such as `pi=4*atan(1)`.
    * Use kind to switch between real and double precision
@@ -121,3 +128,22 @@ Repeat for double precision.
 "Please enter an integer:" <then read integer>
 ```
 If the integer is 1, print "zebra".  If it is 2, print "kangaroo".  If it is anything else other than zero, print "not found".  If it is 0, exit the loop.
+
+**Project**
+
+A consultant was given a program that has code to generate a format string dynamically.  In particular, it can print items that might be arrays, with the repeat value generated automatically.  
+For example, given n1=5, n2=1, n3=3 and a pattern '(#e15.8,#i5,#f8.2)' 
+the result would be '(5e15.8,1i5,3f8.2)'. However, it didn’t work if any of the n1, n2, n3 variables were two digits.  
+The algorithm was convoluted and hard to understand.  It did work for two 
+digits if the programmer
+used two hash marks, e.g. ##e15.8, but that required hand-editing the several 
+files with output routines to find every place she wanted to write out more 
+than 9 array elements.  The author of the original code didn’t use any 
+character or string 
+functions other than substrings. This would surely be implemented more 
+generally with better use of strings.  Your task is to come up with a way to 
+do this.  
+If you have time and are particularly clever, come up with a way to handle a 
+0 (i.e. skip printing).
+Test your program carefully.
+

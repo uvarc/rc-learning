@@ -102,6 +102,19 @@ ELSE
 ENDIF
 ```
 
+## Passing Character Variables
+
+Characters declared with a fixed length may be passed to a subprogram using a dummy length.
+```fortran
+character(len=20) :: str
+   call mysub(str)
+end program
+subroutine mysub(str)
+   implicit none
+   character(len=*), intent(in) :: str
+end subroutine
+```
+
 ## Passing a Subprogram Name
 
 The name of a subprogram can be passed to another subprogram.
