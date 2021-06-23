@@ -855,5 +855,5 @@ df2 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
 
 ### More Projects
 
-Rather than re-inventing the wheel, there are tons of example projects available online. A great repository of pandas projects is [located here](https://www.geeksforgeeks.org/pandas-practice-excercises-questions-and-solutions/).
+A great variety of example projects are available online. An excellent repository of pandas projects is [located here](https://www.geeksforgeeks.org/pandas-practice-excercises-questions-and-solutions/).
 

@@ -16,7 +16,7 @@ One must be downloaded, while the others can be USEd and will be supplied by the
 
 ## ISO_VARYING_STRING
 
-Fortran 95 did not support a variable-length string.  A standardized module was defined to support a type VARYING_STRING.  This module was never incorporated into the standard, so compilers do not include it, but an implementation can be found [here](http://www.astro.wisc.edu/~townsend/static.php?ref=iso-varying-string).  This module was mostly obsoleted by the variable-string capabilities of Fortran 2003, but does have a few features still lacking in the standard.  A description is [here](http://numat.net/fortran/is1539-2-99.html).  In addition to defining the standard character intrinsics for VARYING_STRING, it contains some additional functionality, such as GET and PUT to read and write a character from or into a string, REPLACE, SPLIT, and some other useful procedures.
+Fortran 95 did not support a variable-length string.  A standardized module was defined to support a type VARYING_STRING.  This module was never incorporated into the standard, so compilers do not include it, but an implementation can be found [here](http://www.astro.wisc.edu/~townsend/static.php?ref=iso-varying-string).  This module was mostly obsoleted by the variable-string capabilities of Fortran 2003, but does have a few features still lacking in the standard.  A description is [here](http://numat.net/fortran/is1539-2-99.html).  In addition to defining the standard character intrinsics for VARYING_STRING, it contains some additional functionality, such as GET and PUT to read and write a character from or into a string, REMOVE, REPLACE, SPLIT, and some other useful procedures.
 This module should be USEd like a programmer-written module.
 
 ## Intrinsic Modules

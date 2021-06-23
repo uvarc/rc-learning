@@ -99,7 +99,7 @@ x0=0.0
 /
 ```
 
-# Exercise
+# Exercises
 
 1. Write a program that creates a file mydata.txt containing four rows consisting of
 ```
@@ -111,3 +111,16 @@ x0=0.0
 Close the file, then open it again.  Read the data back.  Write a loop to add 1 to each value and print each row to the console.
 
 2. Write a program that reads the `params` namelist and prints the variables to the console.  Create the paramlist.txt file and test your program.
+
+**Project**
+
+Download the [cpi.csv](/data/cpi.csv) file. Write a program to read this file 
+and compute the inflation rate.
+Do not assume you know in advance how many lines the file contains.  Note that the first line of the file is a header.
+The derivative of the CPI will give us a crude estimate of the inflation rate. The CPI data provided is annual so let us use the formula
+$$ I=CPI(yr+1)-CPI(yr)/12.$$
+Notice that you always have one less year of inflation than of CPIs.  Compute the inflation array and write it to a file `inflation.csv`.  Plot the CPI and the inflation using anything you know (Excel, Python, Matlab, etc.).
+
+{{< spoiler text="Sample solution" >}}
+{{< code file="/courses/fortran_introduction/solns/inflation.f90" lang="fortran" >}}
+{{< /spoiler >}}

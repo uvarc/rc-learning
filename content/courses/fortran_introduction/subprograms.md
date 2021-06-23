@@ -112,3 +112,13 @@ statements
 value=whatever
 return        !Optional unless premature
 ```
+
+**Project**
+
+Write a program that evaluates the function
+$$f(x)=\frac{1}{\pi (1+x^2)}$$
+for 401 values of x equally spaced between -4.0 and 4.0 inclusive.  
+Put the values into an array variable `x`.  Use variables for the starting and ending values of x and the number of values.   Use an array operation to fill a variable y.
+Write a function to evaluate f(x) for any given real (scalar) value of x and call it each time through your loop.
+
+Print the values and the corresponding function evaluation to a comma-separated-values (CSV) file.  Use software such as Excel, Python, Matlab, or anything else you know to plot the result.

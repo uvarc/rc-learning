@@ -143,7 +143,12 @@ character or string
 functions other than substrings. This would surely be implemented more 
 generally with better use of strings.  Your task is to come up with a way to 
 do this.  
-If you have time and are particularly clever, come up with a way to handle a 
+If you have time, come up with a way to handle a 
 0 (i.e. skip printing).
 Test your program carefully.
 
+_Hints_.  You do not need to use a variable-length string, but if not, be sure to declare a generously-sized set of strings (32 or even 64 characters, for example).  If using a fixed-length string, remember that you will need to remove blank space.  Test your program for n1=10, n2=2, n3=3.  Try another pattern like 
+'(#es12.4,#i2,#f15.7,#i4)'.  Suggestion: use an allocatable array for the coefficients (both numerical and character).  Use array size to make sure they match.    
+{{< spoiler text="Sample solution" >}}
+{{< code file="/courses/fortran_introduction/solns/formatter.f90" lang="fortran" >}}
+{{< /spoiler >}}

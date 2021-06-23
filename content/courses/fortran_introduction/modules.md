@@ -57,9 +57,12 @@ USE stats_lib,sprod=>prod
 IMPLICIT NONE at the top applies throughout the module.
 All variables declared or types defined before a CONTAINS statement are global throughout the module.
 
-Module symbols (variables and names of routines) can be __private__ .  You may also explicitly declare them __public__ but that is the default.
+Module symbols (variables and names of procedures) can be __private__ .  You may also explicitly declare them __public__ but that is the default.
 The private and public attributes may be added to the declaration, or they may be specified separately with a list following.
-Private variables are not accessible by program units that use the module.  Only units in the same module can access them.
+Private variables are not directly accessible by program units that use the module.  Only procedures in the same module can access them.
+Using PRIVATE or PUBLIC as a separate statement without a list sets or resets the default and may be done only once per module.  Public and private may only be set in the specification (interface) portion of the module, not in the procedure bodies.
+
+We will discuss PUBLIC and PRIVATE in more detail when we cover [classes](/courses/fortran_introduction/more_classes).
 
 Example:
 ```
@@ -70,6 +73,7 @@ USE precisions
    REAL(dp)       :: d_fun
    PRIVATE        ::r_fun,d_fun
 ```
+where we assume the `precisions` module defines the KIND parameters `sp` and `dp`.
 
 ## Subprograms in Modules
 
@@ -78,31 +82,15 @@ The FUNCTION or SUBROUTINE keywords after END are _not_ optional, e.g. END SUBRO
 
 All subprograms in a module have an __implicit interface__.  You should *not* write an explicit interface for them, and in fact it’s illegal to do so.
 
-# Example
-```fortran
-module mymod
-implicit none
-integer   ::Nmax=100000
+Example
 
-   contains
-
-   subroutine mysub(a,x)
-      real, dimension(:), intent(in) :: a
-      real                intent(out):: x
-      real, dimension(Nmax)          :: b
-
-        do stuff
-
-      end subroutine
-
-end module
-```
+{{< code file="/courses/fortran_introduction/codes/module.f90" lang="fortran" >}}
 
 ## Modules and Make
 
 A module must be compiled _before_ any other file that uses it.  This can create a complicated build environment, so `make` or a similar build manager is usually used.
 
-# Exercise
+**Exercises**
 
 1. Type the module `mymod` into a file `mymod.f90`.
 Fortran allows the module and the file to have either the same or a different name, but the name of the module is the name that must appear in the use statement.
@@ -114,3 +102,48 @@ main.o:main.o mymod.o
 ```
 Run a make project in Geany or your preferred IDE.
 
+**Project**
+
+Download the file [bodyfat.csv](/data/bodyfat.csv).  This is a dataset of body fat, age, height, and weight for a set of participants in a study. BMI categories are as follows:
+
+|Severely underweight |  BMI < 16.0 |
+|Underweight          | 16 <= BMI < 18.5 |
+|Normal               | 18.5 <= BMI < 25 |
+|Overweight           | 25 <= BMI < 30 |
+|Obese Class I        | 30 <= BMI < 35 |
+|Obese Class II       | 35 <= BMI < 40 |
+|Obese Class III      | BMI > 40       |
+
+Write a `bmi_calculator` module containing functions/subroutines for the following:
+1. Convert pounds to kilograms.  Use the actual conversion factor, not the approximate one.  Look it up on Google.
+2. Convert feet/inches to meters.  Look up the conversion factor, do not guess at it.   
+3. Compute BMI.
+4. Determine where the user falls in the table supplied and return that informationin an appropriate form. 
+
+Write a module `stats` that implements the following:
+1. Mean of an array 
+2. Standard deviation of an array 
+3. Outlier rejection using Chauvenet’s criterion.  Pseudocode given further down.
+Make as much use of Fortran intrinsics/array operations as you can.
+
+Write a main program that implements the following:
+1. Uses your modules
+2. Reads the input file into appropriate allocatable arrays (use one-dimensional arrays for this project).  Don't assume you know the length of the file (but you can assume the number of header lines is fixed).  
+3. Pass appropriate arrays to a subroutine that computes an array of BMI data based on height and weight and returns the BMI array.
+4. Rejects the outlier(s).  The function should return an array of logicals that you can apply to the original data using WHERE or similar.  Create new arrays with the outlier(s) deleted. 
+
+Write a file that contains the corrected data for bodyfat and BMI.  Use Excel or whatever you normally use to plot BMI as a function of percentage body fat. 
+Be sure to plot it as a scatter plot (points only, no connecting lines).  
+
+Chauvenet’s criterion: It’s not the state of the art but works pretty well.
+1. Compute the mean and standard deviations of the observations.
+2. Compute the absolute values of the deviations, i.e. abs(A-mean(A))/std(A)
+3. Use the tails `devs=devs/sqrt(2.)`
+4. Compute the probabilities `prob=erfc(devs)` : erfc is an intrinsic in any fairly recent Fortran compiler.  
+5. The criterion is that we retain data with `prob>=1./(2*N_obs)` (number of observations).
+
+{{< spoiler text="Example solution" >}}
+{{< code file="/courses/fortran_introduction/solns/stats.f90" lang="fortran" >}}
+{{< code file="/courses/fortran_introduction/solns/bmi_calculator.f90" lang="fortran" >}}
+{{< code file="/courses/fortran_introduction/solns/bmi_data.f90" lang="fortran" >}}
+{{< /spoiler >}}
