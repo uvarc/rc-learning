@@ -5,7 +5,7 @@ type: book
 weight: 11
 
 menu:
-    fortran_introduction:
+    cpp_introduction:
         parent: Building and Running Your Programs
         weight: 11
 
@@ -23,7 +23,7 @@ _Gnu Compiler Collection_
 The [Gnu Compiler Collection](https://gcc.gnu.org/) is a well-established, free and open-source bundle. The base compiler is `gcc` for C.  Several add-on languages are supported, the most widely used of which are `g++` (C++) and `gfortran` (Fortran).  
 
 _NVIDIA HPC SDK_
-The [NVIDIA HPC SDK](https://developer.nvidia.com/hpc-sdk) is another free (though not open-source) compiler suite for C/C++/Fortran.  Formerly the Portland Group compilers, it is a general-purpose package but is oriented toward extensions for programming NVIDIA GPUs.  For example, it provides Fortran bindings to CUDA.  These compilers are `nvcc`, `nvc++`, and `nvfortran`. 
+The [NVIDIA HPC SDK](https://developer.nvidia.com/hpc-sdk) is another free (though not open-source) compiler suite for C/C++/Fortran.  Formerly the Portland Group compilers, it is a general-purpose package but is oriented toward extensions for programming NVIDIA GPUs.  These compilers are `nvcc`, `nvc++`, and `nvfortran`. 
 
 _Intel Compilers_
 The Intel compilers have a reputation for producing the fastest executables on Intel architectures.  Most high-performance computing sites provide the commercial Intel suite `icc`, `icpc`, and `ifort`.  Intel's Parallel Studio package also ships with high-performance Math Kernel Libraries (MKL), MPI (IntelMPI), and threading (tbb).  The Parallel Studio package is available on the UVA HPC system.
@@ -40,13 +40,13 @@ A full-featured cross-platform IDE is [Eclipse] (http://www.eclipse.org/).  Free
 
 A lighter-weight IDE for Windows and Linux is [Code::Blocks] (http://www.codeblocks.org/).  Free.
 
-An increasingly popular IDE is Visual Studio Code ([VSCode](https://code.visualstudio.com/)) from Microsoft. It is also cross-platform, with versions available for Windows, Mac OS, and Linux.  It does not support C, C++, or Fortran by default; extensions must be installed to provide syntax highlighting and debugging for those languages.  C and C++ are installed with one extension that can be found at the top of the list.  To install a Fortran extension, open the extension panel if it is hidden, and type `fortran` in the search bar.  There are several options; the one simply called "fortran" is popular.  Also recommended are the breakpoint extension and fprettify.
+An increasingly popular IDE is Visual Studio Code ([VSCode](https://code.visualstudio.com/)) from Microsoft. It is also cross-platform, with versions available for Windows, Mac OS, and Linux.  It does not support C, C++, or Fortran by default; extensions must be installed to provide syntax highlighting and debugging for those languages.  C and C++ are installed with one extension that can be found at the top of the list.  
 
 In our examples, we will use a very lightweight IDE called [Geany](https://www.geany.org/) since it is free, easy to install and use, and  works on all three platforms.  It is more of a programmer's editor than a full-featured IDE, but it does include some build tools.
 
 ## Building an Executable
 
-Creating an executable is generally a multi-step process.  Of course, the first step is the preparation of a _source file_.  Fortran has two conventions; the older is _fixed format_ and conventionally those source files should end with `.f`.  The newer convention, which we will use for all our examples here, is _free format_ and most compilers expect those files to end in `.f90`, even if the actual standard supported is 2003 or later.
+Creating an executable is generally a multi-step process.  Of course, the first step is the preparation of a _source file_.  The convention for C++ was once a file extension of `.cpp`, but that conflicts with the name of the preprocessor (C PreProcessor) so `.cxx` is increasingly common.  We will use `.cxx` but `.cpp` still works.
 
 From each source file, the compiler first produces an _object file_.  In Unix these end in `.o`, or `.obj` on Windows.
 This is the _compilation_ step.
@@ -55,12 +55,11 @@ Object files are binary (machine language) but cannot be executed.  They must be
 If not told otherwise a compiler will attempt to compile and link the source file(s) it is instructed to compile.  If more than one file is needed to create the executable, linking will not work until all object files are available, so the compiler must be told to skip that step.
 For Unix compilers the `-c` option suppresses linking.  The compiler must then be run again to build the executable from the object files.
 The linker option `-o` is used to name the binary something other than `a.out`.
-Unix and MacOS do not care about file extensions, but Windows will expect an exe
-cutable to end in `.exe`.
+Unix and MacOS do not care about file extensions, but Windows will expect an executable to end in `.exe`.
 
 Example:
 ```
-gfortran -c mymain.f90
-gfortran -c mysub.f90
+g++ -c mymain.cxx
+g++ -c mysub.cxx
 ```
 IDEs generally manage basic compiler options and usually name the executable based on the project name.  Our examples of command line usage will all assume a Unix operating system; there are some differences between Linux and MacOS, with larger differences for Windows.  On MacOS and especially Windows, using an IDE makes code management simpler.  Using Geany as our example, clicking the icon showing a pyramid pointing to a circle will compile the current file without attempting to invoke the linker.  The brick icon builds the current file, so it must be possible to create a standalone executable from a single file.

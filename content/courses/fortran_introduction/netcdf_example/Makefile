@@ -24,4 +24,5 @@ clean:
 .f90.o .f95.o .F90.o:
 	$(F90) $(F90FLAGS) -c $<
 
+check.o:
 simple_xy_wr.o: 

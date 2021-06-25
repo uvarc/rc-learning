@@ -17,7 +17,19 @@ Fortran is (nearly) strongly typed.  Mixed-mode expressions are limited and most
 
 Unlike most languages, Fortran is _not_ case sensitive.  Variables `Mean`, `mean`, and even `mEan` are the same to the compiler.
 
-Variable names may consist of alphanumeric (letter or digit) characters, plus underscores.  No other characters, including spaces, are permitted.  The first character must be an alphabetical character.  The maximum length of a variable name for modern Fortran as of Fortran 95 is 31 characters.  The 6-character limit of Fortran 77 is long gone.  Some compilers permit up to 127 characters as an extension, though excessively long variable names is _not_ a good programming practice.
+Variable names may consist of alphanumeric (letter or digit) characters, plus underscores.  No other characters, including spaces, are permitted.  The first character must be an alphabetical character.  The maximum length of a variable name for modern Fortran as of Fortran 95 is 31 characters.  The 6-character limit of Fortran 77 is long gone.  Some compilers permit up to 127 characters as an extension, though excessively long variable names is _not_ a good programming practice.  
+
+A good descriptive variable name often consists of multiple words or parts of words.  Since Fortran is not case-sensitive, underscores can be used to separate the components.
+```fortran
+is_valid
+start_date
+num_species
+```
+Separation through capitalization is possible with the understanding that different variables cannot be distinguished by "camel case."
+```fortran
+subroutine BioGeoChem
+type myType
+```
 
 Variables are declared by indicating the type followed by a comma-separated list of variables.
 In older code no separator was used.
