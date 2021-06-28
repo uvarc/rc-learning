@@ -55,12 +55,12 @@ Object files are binary (machine language) but cannot be executed.  They must be
 If not told otherwise a compiler will attempt to compile and link the source file(s) it is instructed to compile.  If more than one file is needed to create the executable, linking will not work until all object files are available, so the compiler must be told to skip that step.
 For Unix compilers the `-c` option suppresses linking.  The compiler must then be run again to build the executable from the object files.
 The linker option `-o` is used to name the binary something other than `a.out`.
-Unix and MacOS do not care about file extensions, but Windows will expect an exe
-cutable to end in `.exe`.
+Unix and MacOS do not care about file extensions, but Windows will expect an executable to end in `.exe`.
 
 Example:
 ```
-gfortran -c mymain.f90
+gfortran -c mycode.f90
 gfortran -c mysub.f90
+gfortran -o mycode mycode.o mysub.o
 ```
-IDEs generally manage basic compiler options and usually name the executable based on the project name.  Our examples of command line usage will all assume a Unix operating system; there are some differences between Linux and MacOS, with larger differences for Windows.  On MacOS and especially Windows, using an IDE makes code management simpler.  Using Geany as our example, clicking the icon showing a pyramid pointing to a circle will compile the current file without attempting to invoke the linker.  The brick icon builds the current file, so it must be possible to create a standalone executable from a single file.
+IDEs generally manage basic compiler options and usually name the executable based on the project name.  Our examples of command line usage will all assume a Unix operating system; there are some differences between Linux and MacOS, with larger differences for Windows.  On MacOS and especially Windows, using an IDE makes code management simpler.  Using Geany as our example, clicking the icon showing a pyramid pointing to a circle will compile the current file without attempting to invoke the linker.  The brick icon builds the current file, so it must be possible to create a standalone executable from a single file for that icon to work.

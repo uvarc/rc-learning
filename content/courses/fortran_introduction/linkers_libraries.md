@@ -34,7 +34,17 @@ If the library, or your code, uses modules in addition to or in place of headers
 
 The current working directory is included in the library and header paths, but not its subdirectories.
 
-### Compiling and Linking Multiple Files with an IDE
+## Compiler Libraries
+
+If the compiler is used to invoke the linker, as we have done for all our examples, it will automatically link several libraries, the most important of which for our purposes are the _runtime libraries_.  An executable must be able to start itself, request resources from the operating system, assign values to memory, and perform many other functions that can only be carried out when the executable is run.  The runtime libraries enable it to do this.  As long as all the program files are written in the same language and the corresponding compiler is used for linking, this will be invisible to the programmer.  Sometimes, however, we must link runtime libraries explicitly, such as when we are mixing languages (a main program in Fortran and some low-level routines in C, or a main program in C++ with subroutines from Fortran, for instance).  
+
+Fortran compilers generally include nearly all the language features in their runtime libraries.  Input/output are implemented in the runtime libraries, for example.  This can result in errors such as from the Intel compiler, when it could not read from a file (which was deliberately empty in this illustration):
+```
+forrtl: severe (24): end-of-file during read, unit 10, file /home/mst3k/temp.dat
+```
+In this error, `forrtl` indicates it is a message from the Fortran runtime library.
+
+## Compiling and Linking Multiple Files with an IDE
 
 Our discussion of building your code has assumed the use of a command line on Unix.  An IDE can simplify the process even on that platform.
 We will use Geany for our example; more sophisticated IDEs have more capabilities, but Geany illustrates the basic functions.

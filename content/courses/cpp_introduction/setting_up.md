@@ -90,7 +90,7 @@ We will show Geany and VSCode on Windows.  Both look similar on the other platfo
 Open Geany (or VSCode).  Type in the following
 {{< code file="courses/cpp_introduction/codes/hello.cxx" lang=no-hightlight >}}
 
-{{< figure src="/courses/cpp_introduction/img/Geany1.png"  >}}
+{{< figure src="/courses/cpp_introduction/img/Geany1.png" width=500px  >}}
 Syntax coloring will not be enabled until the file is saved with a file extension that corresponds to the language.  Save this file as `hello.cxx`.  The coloring will appear.
 {{< figure src="/courses/cpp_introduction/img/Geany2.png" width=500px >}}
 

@@ -26,6 +26,8 @@ Moreover, like most compiled languages. C++ is _statically _typed_ .  All variab
 
 C++ is _nearly_ strongly typed.  Mixed-mode expressions are limited and most conversions must be explicit.
 
+### Naming
+
 Variable names must consist of only letters from the Latin alphabet, digits, or underscores.  They must begin with a letter or an underscore.  Spaces and special characters other than the underscore are not permitted.  The number of characters in a name is limited only by the system (compiler and platform) but programmers are advised to choose names that are descriptive but not overlong.
 
 Good descriptive names may consist of several words or parts of words.  Since C++ is case-sensitive, a popular way to distinguish the segments is _camel case_.
@@ -35,8 +37,9 @@ isValid
 startDate
 class Animal
 ```
+Variables and other _identifiers_ may not be the same as the list of _reserved words_ in C++. A list defined by the standard is [here](https://en.cppreference.com/w/cpp/keyword).  Some compilers may define additional keywords.
 
-## Numeric Types
+## Basic Types
 
 ### Integers
 
@@ -49,7 +52,7 @@ C++ supports several categories of integer, differing by the number of bits to r
 The C++ standard does not specify the number of bits in an integer, only the _minimum_ for each category.
 
 |    Declaration    | Minimum Number of Bits   |  Minimum Range  |
-|----------------------------------------------------------------|
+|-------------------|--------------------------|-----------------|
 |    short          |      16              |  -32,768 to 32,767   |
 |  unsigned  short  |      16              |  0 to 65,535         |
 |  int              |      16, usually 32  |  -32,768 to 32,767   |
@@ -108,9 +111,7 @@ The IEEE 754 standard also defines several special values.  The ones most freque
 
 The number of bits is _not_ a function of the OS type.  It is specified by the standard.
 
-## Non-Numeric Types
-
-### Boolean
+## Boolean
 
 Booleans represent truth value.  The name of the type is `bool` and the only permitted values are `true` and `false`.
 
@@ -121,74 +122,17 @@ bool isValid;
 ```
 Since they are integers they can be used in mathematical expressions, though this can become confusing.  
 
-### Character
+## Literals
 
-A `char` variable is 1 byte (8 bits).  It represents a single character.
-A character array has a fixed length that must be declared at compile time, or allocated later.
-```c++
-char[8] mychar;
-```
-The default length is 1 character.
-```c++
-char letter;
-```
+_Literals_ are specific values corresponding to a particular type.  The compiler infers the type from the format.
 
-A char is unsigned.  C++ supports the `unsigned char` type but it is not as commonly used.
+|  Value  |  Type |
+|---------|-------|
+|  3      |  int  |
+| 3.2     | double |
+| 3.213e0 | double |
+| "This is a string" | string |
+| "Isn’t it true?" | string |
+| true    |  bool  |
 
-## Strings
-
-A string is a sequence of characters of variable length.
-
-Requires adding a header
-
-.define <string.h>
-
-The string is a _class_ . which is a little beyond our scope right now.  But you can still use basic functions without understanding the class.
-
-stringstr. str1. str2;
-
-str.size..;  // length of string
-
-str1.str2; // concatenate two strings
-# Literals
-
-* Literals aka constants
-  * Specified values    e.g.
-  * 3
-  * 3.2
-  * 3.213e0
-  * "This is a string"
-  * "Isn’t it true?"
-  * true
-  * Literals have a type but it is determined from the format rather than a declaration.
-
-# Variable Declarations
-
-Variables are declared by indicating the type followed by a comma.separated list of variables followed by a semicolon.
-
-inti.j.k;
-
-float x. y;
-
-# Initializing at Compile Time
-
-Variables can be declared and initialized at the same time:
-
-float x=1.e.8. y=42.;
-
-inti.j.k.counter=0;
-
-# Pointers and References
-
-* A pointer is a variable that points to a location in memory.
-  * C.. has ways to avoid pointers. but they still appear regularly in much code.
-* Pointers are declared with .
-* float .x. y;
-  * x is a pointer. y is a variable.
-* The value of a pointer is obtained explicitly by the _dereference operator_ &
-* y=99.;
-* x=&y; //x now points to location of y
-* cout<<x<<" "<<.x<<" "<<y<<".n";
-* 0x7ffe577a0494 99 99
-
-
+Note that the default type for a floating-point literal is a `double`.

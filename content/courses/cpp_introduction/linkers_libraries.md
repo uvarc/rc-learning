@@ -38,7 +38,27 @@ MacOS is similar to Unix but generally uses different paths for the system libra
 
 Working with libraries on Windows is somewhat more complex.  Dynamic libraries are called DLLs (dynamically linked libraries) and end in `.dll`, but generally code links an "import library" that ends in `.lib`.  Although the underlying DLL is supposed to be universal, these import library files are compiler dependent.  Microsoft Visual Studio will automatically link to the .lib but MingGW uses a more Unix-like format by default and expects a `.a` suffix.  Libraries provided by Windows will be in MSVC (Microsoft Visual C++) format so translation may be required.  MinGW-64 provides the `gendef` tool that can create a definition file from a DLL, which can then be used to produce a MinGW import library.  See the MinGW-64 [documentation](https://sourceforge.net/p/mingw-w64/wiki2/gendef/) for specifics.  The MinGW-64 [FAQ](https://sourceforge.net/p/mingw-w64/wiki2/FAQ/) is also helpful.
 
-### Compiling and Linking Multiple Files with an IDE
+## Compiler Libraries
+
+If the compiler is used to invoke the linker, as we have done for all our examples, it will automatically link several libraries, the most important of which for our purposes are the _runtime libraries_.  An executable must be able to start itself, request resources from the operating system, assign values to memory, and perform many other functions that can only be carried out when the executable is run.  The runtime libraries enable it to do this.  As long as all the program files are written in the same language and the corresponding compiler is used for linking, this will be invisible to the programmer.  Sometimes, however, we must link runtime libraries explicitly, such as when we are mixing languages (a main program in Fortran and some low-level routines in C, or a main program in C++ with subroutines from Fortran, for instance).  
+
+All C++ compilers also provide a set of _standard libraries_ that implement many of the features of the language, such as the data structures defined in the _Standard Template Library_ or **STL**. These libraries generally require _headers_ to define their functions.  We have already been using the `iostream` library but there are many others.
+
+```c++
+#include <iostream>
+#include <stringstream>
+#include <vector>
+```
+Most C++ compilers are also C compilers, and vice versa, and use the C runtime library, which is fairly minimal.  For example, it is possible to use gcc to compile C++ code by linking the standard library.  In the following example the program used `sqrt` so it was necessary to link the math library libm.so explicitly; C++ does not require this.
+```no-highlight
+gcc vardecls.cxx -lstdc++ -lm
+```
+The Gnu C++ standard libraries are in libstdc++.so on Unix.  It is obviously much simpler to type
+```no-highlight
+g++ vardecls.cxx
+```
+
+## Compiling and Linking Multiple Files with an IDE
 
 Our discussion of building your code has assumed the use of a command line on Unix.  An IDE can simplify the process even on that platform.
 We will use Geany for our example; more sophisticated IDEs have more capabilities, but Geany illustrates the basic functions.
