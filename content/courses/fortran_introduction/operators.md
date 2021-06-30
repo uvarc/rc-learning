@@ -6,7 +6,7 @@ weight: 24
 
 menu:
     fortran_introduction:
-        parent: Basic Programming Constructs
+        parent: Operators, Expressions, and Type Conversions
         weight: 24
 
 ---
@@ -25,7 +25,7 @@ These operators are defined on integers, floats, and doubles.
 
 `**` exponentiation
 
-Operators are applied in a particular order.  This is
+Operators are applied in a particular order.  This is called precedence.
 First: ** 
 Second (equal status):  * /
 Third (equal status):  + -
@@ -60,10 +60,10 @@ MODULO(N,M). The `modulo` intrinsic function returns N mod M, which is computed 
 
 Points to note:
   * MOD and MODULO are NOT THE SAME for negative numbers.
-  * MOD is most frequently used though MODULO is closer to other languages `%` operator.  
+  * MOD is most frequently used though MODULO is closer to other languages' `%` operator.  
   * Use for negatives is uncommon in all languages.
 
-`Mod` and `modulo` are defined for negative values and reals, as well as nonnegative integers, but the results, while well-defined mathematically, are not generally what most programmers are expecting.  For this reason they should generally be avoided for arguments other than integers.
+`Mod` and `modulo` are defined for negative values and reals, as well as nonnegative integers, but the results, while well-defined mathematically, are not generally what most programmers are expecting.  For this reason they should generally be avoided for arguments other than nonnegative integers.
 
 Example:
 {{< code-download file="/courses/fortran_introduction/codes/testmod.f90" lang="fortran" >}}
@@ -75,17 +75,17 @@ An _expression_ is a combination of variables, operators, and function invocatio
 Fortran expressions are much like those of other languages.
 ```fortran
 a+3*c
-w=8.d0*real(i,dp)+v**3
-z=phase+cmplx(0.,1.)
+8.d0*real(i,dp)+v**3
+phase+cmplx(0.,1.)
 sqrt(abs(a-b))
 A .or. B
 y > 0.0 .and. y < 1.0
-z=myfunc(x,y)
+myfunc(x,y)
 ```
 
 ## Type Conversions
 
-As we have seen with the example of dividing two integer, operators are defined on specific types and return a specific type.  What if we write `2./3`?  The first operand is a real, whereas the second is a float.  This is called a _mixed expression_.  For consistency, one type must be converted to match the other before the operator is applied.  Type conversion is also called _casting_.
+As we have seen with the example of dividing two integer, operators are defined on specific types and return a specific type.  What if we write `2./3`?  The first operand is a real, whereas the second is an integer.  This is called a _mixed expression_.  For consistency, one type must be converted to match the other before the operator is applied.  Type conversion is also called _casting_.
 
 Most compilers will automatically cast numeric variables in mixed expressions.  The variables are _promoted_ according to their rank.  Lowest to highest rank, the types are integer, real, double, complex.  Therefore, integers will be converted to float if necessary, floats to double precision, then to complex.
 
@@ -96,10 +96,10 @@ double precision :: s
 r=1./3.
 s=r
 ```
-We would find that
+We would find that, in this (artificial) number system,
 ```fortran
 r=.33333
-1.d0/3.d0=.3333333334
+1.d0/3.d0=.3333333333
 s=.3333300000
 ```
 

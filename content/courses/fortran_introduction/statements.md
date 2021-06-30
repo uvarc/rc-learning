@@ -6,7 +6,7 @@ weight: 25
 
 menu:
     fortran_introduction:
-        parent: Basic Programming Constructs
+        parent: Statementns
         weight: 25
 
 ---

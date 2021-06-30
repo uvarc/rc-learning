@@ -6,7 +6,7 @@ weight: 32
 
 menu:
     fortran_introduction:
-        parent: Basic Programming Constructs
+        parent: Loops
         weight: 32
 ---
 

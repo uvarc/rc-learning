@@ -30,19 +30,47 @@ Example:
 ```
 g++ –c –I/usr/lib64/foo/include mymain.f90 
 ```
-If the library, or your code, uses modules in addition to or in place of headers, the `I` flag is also used to specify their location.  We will learn about modules and how they interact with your build system later.
-
 The current working directory is included in the library and header paths, but not its subdirectories.
 
 MacOS is similar to Unix but generally uses different paths for the system libraries.
 
 Working with libraries on Windows is somewhat more complex.  Dynamic libraries are called DLLs (dynamically linked libraries) and end in `.dll`, but generally code links an "import library" that ends in `.lib`.  Although the underlying DLL is supposed to be universal, these import library files are compiler dependent.  Microsoft Visual Studio will automatically link to the .lib but MingGW uses a more Unix-like format by default and expects a `.a` suffix.  Libraries provided by Windows will be in MSVC (Microsoft Visual C++) format so translation may be required.  MinGW-64 provides the `gendef` tool that can create a definition file from a DLL, which can then be used to produce a MinGW import library.  See the MinGW-64 [documentation](https://sourceforge.net/p/mingw-w64/wiki2/gendef/) for specifics.  The MinGW-64 [FAQ](https://sourceforge.net/p/mingw-w64/wiki2/FAQ/) is also helpful.
 
+## Headers and the C Preprocessor
+
+The headers must be made available to your source code, in addition to the bodies of the libraries being linked into the binary.  Indeed, some libraries consist only of headers.  The headers are brought in through the C Preprocessor (CPP).  CPP directives begin with a hash mark `#` in the first column.  
+
+The `include` directive physically copies the referenced file at the specified point into an intermediate text file used by the compiler.  The compiler will have a built-in search path for headers and those headers that are in that path are referenced with angle brackets.
+```c++
+#include <iostream>
+#include <string>
+```
+Any `.h` or `.hpp` suffix is omitted.  C libraries are prefixed with `c` in addition to dropping the suffix.
+```
+#include <cstdio>
+#include <cmath>
+```
+These files are `stdio.h` and `math.h` respectively in C programs.
+
+For local variables, quotation marks tell the preprocessor to start looking in the current directory/folder.
+```c++
+#include "myheader.h"
+```
+Sometimes a longer path is used.  The processor will start looking in its search path (including current working directory).
+```c++
+#include <boost/atomic/atomic.hpp>
+#include "subs/mysubs.h"
+```
+Paths to headers that are not in the default search path nor in the current directory 
+can be specified at compile time with the `-I` flag discussed above.
+
+Many C++ "community" codes use the [CMake](https://cmake.org) build system.  CMake generates a Makefile but uses its own search mechanism for headers and libraries.  See for example this [tutorial](https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/How-To-Find-Libraries).
+
 ## Compiler Libraries
 
 If the compiler is used to invoke the linker, as we have done for all our examples, it will automatically link several libraries, the most important of which for our purposes are the _runtime libraries_.  An executable must be able to start itself, request resources from the operating system, assign values to memory, and perform many other functions that can only be carried out when the executable is run.  The runtime libraries enable it to do this.  As long as all the program files are written in the same language and the corresponding compiler is used for linking, this will be invisible to the programmer.  Sometimes, however, we must link runtime libraries explicitly, such as when we are mixing languages (a main program in Fortran and some low-level routines in C, or a main program in C++ with subroutines from Fortran, for instance).  
 
-All C++ compilers also provide a set of _standard libraries_ that implement many of the features of the language, such as the data structures defined in the _Standard Template Library_ or **STL**. These libraries generally require _headers_ to define their functions.  We have already been using the `iostream` library but there are many others.
+All C++ compilers also provide a set of _standard libraries_ that implement many of the features of the language, such as the data structures defined in the _Standard Template Library_ or **STL**. These libraries generally require headers to define their functions.  We have already been using the `iostream` library but there are many others.
 
 ```c++
 #include <iostream>
@@ -57,7 +85,6 @@ The Gnu C++ standard libraries are in libstdc++.so on Unix.  It is obviously muc
 ```no-highlight
 g++ vardecls.cxx
 ```
-
 ## Compiling and Linking Multiple Files with an IDE
 
 Our discussion of building your code has assumed the use of a command line on Unix.  An IDE can simplify the process even on that platform.

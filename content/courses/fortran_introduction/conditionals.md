@@ -6,7 +6,7 @@ weight: 31
 
 menu:
     fortran_introduction:
-        parent: Basic Programming Constructs
+        parent: Conditionals
         weight: 31
 
 ---
