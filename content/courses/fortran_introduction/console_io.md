@@ -6,7 +6,7 @@ weight: 51
 
 menu:
     fortran_introduction:
-        parent: Input/Output
+        parent: Console Input/Output
         weight: 51
 ---
 

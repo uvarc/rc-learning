@@ -14,8 +14,9 @@ menu:
 ## Linkers and Libraries
 
 When the executable is created any external libraries must also be linked.
-The compiler will search a standard path for libraries.  On Unix this is typically `/usr/lib`, `/usr/lib64`, `/usr/local/lib`, `/lib`.
+The compiler will search a standard path for libraries.  This path is dependent on both the operating system and the compiler, but on Unix this is typically `/usr/lib`, `/usr/lib64`, `/usr/local/lib`, `/lib`.
 If you need libraries in other locations, you must give the compiler the path. `-L` followed by a path works, then each library must be named with the pattern `libfoo.a` or `libfoo.so` and be referenced `-lfoo`.  
+Subdirectories are not included in the library search paths so a `-L` flag is required even when the path begins with a standard location.
 
 Example:
 ```
@@ -24,45 +25,45 @@ g++ –o mycode –L/usr/lib64/foo/lib mymain.o mysub.o -lfoo
 
 A library ending in `.a` is _static_.  Its machine-language code will be physically incorporated into the executable.  If the library ends in `.so` it is _dynamic_.  It will be invoked by the executable at runtime.
 
-Many libraries require _include files_, also called _header_ files.  These must be incorporated at compile time.  As for libraries, there is a standard system search path and if the headers are not located in one of those directories, the user must provide the path to the compiler with the `-I` flag.
-
-Example:
-```
-g++ –c –I/usr/lib64/foo/include mymain.f90 
-```
-The current working directory is included in the library and header paths, but not its subdirectories.
-
 MacOS is similar to Unix but generally uses different paths for the system libraries.
 
-Working with libraries on Windows is somewhat more complex.  Dynamic libraries are called DLLs (dynamically linked libraries) and end in `.dll`, but generally code links an "import library" that ends in `.lib`.  Although the underlying DLL is supposed to be universal, these import library files are compiler dependent.  Microsoft Visual Studio will automatically link to the .lib but MingGW uses a more Unix-like format by default and expects a `.a` suffix.  Libraries provided by Windows will be in MSVC (Microsoft Visual C++) format so translation may be required.  MinGW-64 provides the `gendef` tool that can create a definition file from a DLL, which can then be used to produce a MinGW import library.  See the MinGW-64 [documentation](https://sourceforge.net/p/mingw-w64/wiki2/gendef/) for specifics.  The MinGW-64 [FAQ](https://sourceforge.net/p/mingw-w64/wiki2/FAQ/) is also helpful.
+Working with libraries on Windows is somewhat more complex.  Dynamic libraries are called DLLs (dynamically linked libraries) and end in `.dll`, but generally code links an "import library" that ends in `.lib`.  Although the underlying DLL is supposed to be universal, these import library files are compiler dependent.  Microsoft Visual Studio will automatically link to the .lib but MingGW uses a more Unix-like format by default and expects a `.so` suffix.  Libraries provided by Windows will be in MSVC (Microsoft Visual C++) format so translation may be required.  MinGW-64 provides the `gendef` tool that can create a definition file from a DLL, which can then be used to produce a MinGW import library.  See the MinGW-64 [documentation](https://sourceforge.net/p/mingw-w64/wiki2/gendef/) for specifics.  The MinGW-64 [FAQ](https://sourceforge.net/p/mingw-w64/wiki2/FAQ/) is also helpful.
 
 ## Headers and the C Preprocessor
 
-The headers must be made available to your source code, in addition to the bodies of the libraries being linked into the binary.  Indeed, some libraries consist only of headers.  The headers are brought in through the C Preprocessor (CPP).  CPP directives begin with a hash mark `#` in the first column.  
+Most C and C++ libraries require _include files_, also called _header_ files.
+Indeed, some libraries consist only of headers. 
+The headers must be made available to your source code, in addition to the bodies of the libraries being linked into the binary.  
+The headers are brought in through the C Preprocessor (CPP).  CPP directives begin with a hash mark `#` in the first column.  
 
-The `include` directive physically copies the referenced file at the specified point into an intermediate text file used by the compiler.  The compiler will have a built-in search path for headers and those headers that are in that path are referenced with angle brackets.
+The `#include` directive physically copies the referenced file at the specified point into an intermediate text file used by the compiler.  The processor will have a built-in search path for headers and those headers that are in that path are referenced with angle brackets.
 ```c++
 #include <iostream>
 #include <string>
 ```
-Any `.h` or `.hpp` suffix is omitted.  C libraries are prefixed with `c` in addition to dropping the suffix.
+Any `.h` or `.hpp` suffix is usually omitted.  C libraries are prefixed with `c` in addition to dropping the suffix.
 ```
 #include <cstdio>
 #include <cmath>
 ```
 These files are `stdio.h` and `math.h` respectively in C programs.
 
-For local variables, quotation marks tell the preprocessor to start looking in the current directory/folder.
+For local variables, quotation marks tell the preprocessor to look in the current directory/folder relative to the file that includes the header.  If not found there, most systems will move on to the system folders.
 ```c++
 #include "myheader.h"
 ```
-Sometimes a longer path is used.  The processor will start looking in its search path (including current working directory).
+Sometimes a longer path is used.  The processor will start looking in its search path (system folders or current directory as appropriate).
 ```c++
 #include <boost/atomic/atomic.hpp>
 #include "subs/mysubs.h"
 ```
 Paths to headers that are not in the default search path nor in the current directory 
-can be specified at compile time with the `-I` flag discussed above.
+can be specified at compile time with the `-I` flag.
+
+Example:
+```bash
+g++ –c –I/usr/lib64/foo/include mymain.cxx
+```
 
 Many C++ "community" codes use the [CMake](https://cmake.org) build system.  CMake generates a Makefile but uses its own search mechanism for headers and libraries.  See for example this [tutorial](https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/How-To-Find-Libraries).
 

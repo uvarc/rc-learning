@@ -51,6 +51,44 @@ It is mathematically well-defined for negative integers, but the results for suc
 Example:
 {{< code-download file="/courses/cpp_introduction/codes/testmod.cxx" lang="c++" >}}
 
+## Assignment Operators
+
+The simple assignment of a value to a variable is through the equals sign `=`.
+```c++
+a=b;
+```
+
+C++ supports several compound assignment operators; the first operator specifies the arithmetic or other operation to be performed on the variable on the left-hand side, then the result is assigned back to the _same_ variable.
+```c++
+a+=b;
+//Equivalent to
+a=a+b;
+```
+There is no rule that assignment operators (aside from =) must be used but they save space and typing.
+
+```c++
+a+=b;
+a-=b;
+a*=b;
+a/=b;
+a%=b;
+```
+For the special case of adding or subtracting 1, special increment and decrement operators are defined.
+```c++
+++i;
+--i;
+i++;
+i--;
+```
+Beware when assigning the result of an increment or decrement to another variable.  The "prefix" increment/decrement operators shown here first add or subtract, then change the value of the variable.  They are exactly equivalent to `i+=1` and `i-=1` respectively. The "post" operators `i++` and `i--` do not change the value of the variable before incrementing or decrementing.
+{{< code file="/courses/cpp_introduction/codes/incdec.cxx" lang="c++" >}}
+```no-highlight
+ i is: 3
+ j is: 2
+ i is: 4
+ j is: 4
+```
+
 ## Expressions and Statements
 
 An _expression_ is a combination of variables, operators, and function invocations that can result in a unique evaluation.

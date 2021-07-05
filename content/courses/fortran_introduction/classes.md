@@ -2,12 +2,12 @@
 title: "Classes"
 toc: true
 type: book
-weight: 73
+weight: 75
 
 menu:
     fortran_introduction:
         parent: Classes
-        weight: 73
+        weight: 75
 ---
 
 A _class_ is a data structure that encapsulates both data (variables) and behavior (procedures).  The only difference between a derived type and a class is that a class may contain procedures as well as variables.
@@ -122,16 +122,3 @@ If `mysub` is public it can even be called with
 call mysub(w,x)
 ```
 in which case it is effectively equivalent to a procedure in a module  
-
-**Project**
-
-Modify your `bird_data` type from the "Derived Types" chapter to make it a class.  Make all the methods private.  
-
-You may use the same file_utils.f90 and sorters.f90 as before.  
-
-You may find that you need to declare your allocatable bird_list array to be of type `class`.
-
-{{< spoiler text="Sample solution" >}}
-{{< code file="/courses/fortran_introduction/solns/bird_class.f90" lang="fortran" >}}
-{{< code file="/courses/fortran_introduction/solns/bird_obs_class.f90" lang="fortran" >}}
-{{< /spoiler >}}
