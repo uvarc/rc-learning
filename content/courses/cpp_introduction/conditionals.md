@@ -76,7 +76,7 @@ Only one branch will be executed.  Once any Boolean is determined to be true, th
 
 **Exercise**
 Experiment with various truth values for bool1 and bool2.
-{{< code-download file="/course/cpp_introduction/code/if_demo.cxx" lang="c++" >}}
+{{< code-download file="/courses/cpp_introduction/codes/if_demo.cxx" lang="c++" >}}
 
 ## Switch
 

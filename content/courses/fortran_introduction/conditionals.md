@@ -78,7 +78,7 @@ the corresponding code will be executed and then the flow will proceed beyond th
 
 **Exercise**
 Experiment with various truth values for bool1 and bool2.
-{{< code-download file="/course/fortran_introduction/code/if_demo.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/codes/if_demo.f90" lang="fortran" >}}
 
 ## SELECT CASE
 
@@ -107,7 +107,7 @@ Ranges are only applicable for numeric or character expressions.
 `DEFAULT` is for the action, if any, to be taken if the expression does not evaluate to any of the options available.
 
 Example:
-{{< code-download file="/courses/fortran_introduction/code/selectcase.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/codes/selectcase.f90" lang="fortran" >}}
 
 Exercise:
 
