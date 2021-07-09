@@ -318,7 +318,7 @@ The speedup is plotted below. Notice how the deviation from perfect scaling (lig
 
 {{< figure src="ddp_k80.png" width="400px" >}}
 
-The same benchmark was performed on RTX 2080Ti (coming soon to Rivanna!)
+The same benchmark was performed on RTX 2080Ti:
 
 |N|Time (s)|Speedup|Relative SU|
 |---|---:|---:|---:|
