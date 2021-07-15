@@ -2,12 +2,12 @@
 title: "Loops"
 toc: true
 type: book
-weight: 32
+weight: 33
 
 menu:
     fortran_introduction:
-        parent: Basic Programming Constructs
-        weight: 32
+        parent: Loops
+        weight: 33
 ---
 
 Much computing is repetetive work.  Evaluate an expression many times with different values.  Read lines of a file.  Update a large number of variables.  To accomplish this, we use _loops_.
@@ -66,21 +66,7 @@ END DO
 ```
 
 # Example
-```fortran
-program demo
-implicit none
-    integer  :: x, y, z
-    x=-20
-    y=-10
-    do while (x<0 .and. y<0)
-        x=10-y
-        y=y+1
-        z=0
-    enddo
-    z=1
-    print *, x, y, z
-end program
-```
+{{< code-download file="/courses/fortran_introduction/codes/while_demo.f90" lang="fortran" >}}
 
 ## Exiting Early and Skipping Statements
 
@@ -114,7 +100,7 @@ do
 end do
 ```
 
-One major reason for repeat-until is that a standard `while` loop may not be entered if the condition is false, whereas a repeat-until will always be executed once.
+One major reason for repeat-until is that a standard `while` loop may not be entered if the condition is initially false, whereas a repeat-until will always be executed at least once.
 
 **Example**
 Reading a file of unknown length.  This is _not_ how we usually read a file, since most of the time the length is known, but it is possible to construct a loop to read a file whose length may vary for different runs.

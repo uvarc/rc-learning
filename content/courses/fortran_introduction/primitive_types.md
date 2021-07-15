@@ -29,9 +29,11 @@ They are represented by a _sign bit_ followed by the value in _binary_ (base 2).
 Fortran does not support the unsigned integers of some other languages.
 
 The default integer type has a size of 32 bits.
-  * The maximum integer is $2^{32-1}=2147483648$.
+The range of this type is -2,147,483,648 to 2,147,483,647.  
 
 Nearly all compilers offer an extension to support 64-bit integers. 
+Their range is -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+Integers are represented exactly as long as they fit within the range.
 
 ### Floating Point
 

@@ -92,7 +92,7 @@ We will show Geany and VSCode on Windows.  Both look similar on the other platfo
 Open Geany (or VSCode).  Type in the following
 {{< code file="courses/fortran_introduction/codes/hello.f90" lang=no-hightlight >}}
 
-{{< figure src="/courses/fortran_introduction/img/Geany1.png"  >}}
+{{< figure src="/courses/fortran_introduction/img/Geany1.png" width=500px  >}}
 Syntax coloring will not be enabled until the file is saved with a file extension that corresponds to the language.  Save this file as `hello.f90`.  The coloring will appear.
 {{< figure src="/courses/fortran_introduction/img/Geany2.png" width=500px >}}
 

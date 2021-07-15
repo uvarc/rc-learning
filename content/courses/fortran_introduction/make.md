@@ -2,12 +2,12 @@
 title: "Managing Projects with Make"
 toc: true
 type: book
-weight: 13
+weight: 14
 
 menu:
     fortran_introduction:
-        parent: Building and Running Your Programs
-        weight: 13
+        parent: Managing Project with Make
+        weight: 14
 
 ---
 
@@ -93,7 +93,7 @@ Several other build tools called `makemake` are available, and not all handle Fo
 
 Several IDEs will manage multiple files as a "project" and will generate a Makefile automatically.  Unfortunately, that Makefile is frequently incorrect for Fortran codes that use modules, so you may have to write your own Makefiles.  The `makemake` script or one of the newer build tools described above can help.
 
-We will use the NetCDF library as an example.  Environmental sciences still use Fortran a great deal and this is a popular library for data files.  The example code is taken from their standard examples, modified to place the subroutine into a separate file.  The files are [simple_xy_wr.f90](/courses/fortran_introduction/netcdf_example/simple_xy_wr.f90) and [check.f90](/courses/fortran_introduction/netcdf_example/check.f90).  
+We will use the NetCDF library as an example.  Environmental sciences still use Fortran a great deal and this is a popular library for data files.  The example code is taken from their standard examples, modified to place the subroutine into a separate file.  The file is [simple_xy_wr.f90](/courses/fortran_introduction/netcdf_example/simple_xy_wr.f90).
 
 On our test system, the library is installed in a standard location, but the netcdf module is not, so we need to use the `-I` flag but not the `-L` flag.
 First we run makemake to obtain a skeleton Makefile.

@@ -61,7 +61,7 @@ C  IN Y. THE CORRESPONDING LOCATION SUBSCRIPTS ARE RETURNED IN I AND K.
 ```
 Some of the peculiarities of the first versions of Fortran, such as FORTRAN IV, were due to IBM's use of _punch cards_ as input devices.
 
-{{< figure src="img/PunchCard.jpg" width=500px caption="80-column punch card" >}}
+{{< figure src="/courses/fortran_introduction/img/PunchCard.jpg" width=500px caption="80-column punch card" >}}
 
 Punch cards were prepared on machines called _keypunches_. The character set on a keypunch was limited, so Fortran used all capital letters and few other characters.  There was no opportunity to correct typograpical errors, which may account for early Fortran ignoring spacing within keywords. The layout in Fortran was determined by the physical layout of the cards; this, combined with the need to write a simple, memory-conserving compiler, resulted in a strict column-oriented syntax.  
 This is called _fixed format_.  It required that the first column be reserved for the `C` that introduced a comment.  The next four columns were for numerical statement labels.  Column six was reserved for _continuation_ characters.  Statements began in column 7 and could extend through column 72; anything from column 72 to 80 was ignored by the compiler.  These columns were frequently used to number the cards.

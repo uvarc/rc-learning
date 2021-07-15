@@ -6,7 +6,7 @@ weight: 31
 
 menu:
     fortran_introduction:
-        parent: Basic Programming Constructs
+        parent: Conditionals
         weight: 31
 
 ---
@@ -63,16 +63,22 @@ As always, use parentheses to change grouping or to improve clarity.
 
 ## IF-THEN-ELSE
 
-The `ELSEIF/ELSE IF` and `ELSE` are optional. The parentheses around the conditional are required.
+The `ELSEIF/ELSE IF` and `ELSE` are optional. The parentheses around the logical expression are required.
 ```fortran
-   IF ( comparison ) THEN
+   IF ( logical ) THEN
       code
-   ELSEIF ( comparison) THEN
+   ELSEIF ( logical) THEN
       more code
    ELSE
       yet more code
    ENDIF
 ```
+Only one branch will be executed.  Once any logical expression is determined to be true, 
+the corresponding code will be executed and then the flow will proceed beyond the if block.
+
+**Exercise**
+Experiment with various truth values for bool1 and bool2.
+{{< code-download file="/courses/fortran_introduction/codes/if_demo.f90" lang="fortran" >}}
 
 ## SELECT CASE
 
@@ -100,21 +106,8 @@ expression that can be evaluated to "value0", "value1", etc.
 Ranges are only applicable for numeric or character expressions.
 `DEFAULT` is for the action, if any, to be taken if the expression does not evaluate to any of the options available.
 
-SELECT Example:
-```fortran
-   select case (x)
-      case  (:0)
-         y=-x
-      case (1)
-         y=x+3.
-      case (2:9)
-         y=float(x)/2.
-      case (10:20)
-         y=float(x)/3.
-      case default
-         y=0.
-   end select
-```
+Example:
+{{< code-download file="/courses/fortran_introduction/codes/selectcase.f90" lang="fortran" >}}
 
 Exercise:
 

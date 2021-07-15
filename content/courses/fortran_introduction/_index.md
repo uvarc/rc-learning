@@ -15,13 +15,6 @@ menu:
         weight: 1
 
 ---
-Please download the labs and data
-[Fortran Lab1](/files/Fortran_Lab1.pdf)
-[Fortran Lab2](/files/Fortran_Lab2.pdf)
-[bodyfat.csv](/data/bodyfat.csv)
-[cpi.csv](/data/cpi.csv)
-[vabirds.csv](/data/vabirds.csv)
-
 
 > I do not know what the scientific programming language of the year 2000 will look like but it will be called Fortran.
 <br>
@@ -47,3 +40,4 @@ Due to both legacy codes and ongoing development, many scientific programmers mu
 
 {{< figure src="/courses/fortran_introduction/img/Cray-1.jpg" width=500px caption="The first Cray-1 supercomputer had 1 80-MHz core and a maximum of about 8MB of main memory." >}}
 
+The best way to learn a programming language is to use it.  We strongly urge you to attempt the exercises and projects to practice your coding skills.

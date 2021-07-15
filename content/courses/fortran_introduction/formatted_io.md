@@ -76,6 +76,13 @@ write(*,'(2L)')is_zero,is_finite
 write(*,'(2p,f8.2,0p,f8.2)') var1, var2
 write(*,'(a,f8.2,/,a,i6)') mess1,x,mess2,i
 ```
+A format string may be a variable
+```fortran
+character(len=32) :: formatstr
+   code
+   formt='(f8.3,es15.7)'
+   write(*,formatstr) A, B
+```
 
 ## Format Statements
 
@@ -104,7 +111,7 @@ Non-advancing IO _must_ be formatted
   * The argument to `advance` can be a character variable so you can decide based on conditionals to advance or not.
   * If you do _not_ want to advance, use `advance='no'`
 
-## Exercises
+**Exercises**
 
 1. Write a program that computes pi using a trig identity such as `pi=4*atan(1)`.
    * Use kind to switch between real and double precision

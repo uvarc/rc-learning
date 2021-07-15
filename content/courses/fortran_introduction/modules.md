@@ -57,9 +57,12 @@ USE stats_lib,sprod=>prod
 IMPLICIT NONE at the top applies throughout the module.
 All variables declared or types defined before a CONTAINS statement are global throughout the module.
 
-Module symbols (variables and names of routines) can be __private__ .  You may also explicitly declare them __public__ but that is the default.
+Module symbols (variables and names of procedures) can be __private__ .  You may also explicitly declare them __public__ but that is the default.
 The private and public attributes may be added to the declaration, or they may be specified separately with a list following.
-Private variables are not accessible by program units that use the module.  Only units in the same module can access them.
+Private variables are not directly accessible by program units that use the module.  Only procedures in the same module can access them.
+Using PRIVATE or PUBLIC as a separate statement without a list sets or resets the default and may be done only once per module.  Public and private may only be set in the specification (interface) portion of the module, not in the procedure bodies.
+
+We will discuss PUBLIC and PRIVATE in more detail when we cover [classes](/courses/fortran_introduction/more_classes).
 
 Example:
 ```
@@ -70,6 +73,7 @@ USE precisions
    REAL(dp)       :: d_fun
    PRIVATE        ::r_fun,d_fun
 ```
+where we assume the `precisions` module defines the KIND parameters `sp` and `dp`.
 
 ## Subprograms in Modules
 
@@ -78,31 +82,15 @@ The FUNCTION or SUBROUTINE keywords after END are _not_ optional, e.g. END SUBRO
 
 All subprograms in a module have an __implicit interface__.  You should *not* write an explicit interface for them, and in fact it’s illegal to do so.
 
-# Example
-```fortran
-module mymod
-implicit none
-integer   ::Nmax=100000
+Example
 
-   contains
-
-   subroutine mysub(a,x)
-      real, dimension(:), intent(in) :: a
-      real                intent(out):: x
-      real, dimension(Nmax)          :: b
-
-        do stuff
-
-      end subroutine
-
-end module
-```
+{{< code file="/courses/fortran_introduction/codes/module.f90" lang="fortran" >}}
 
 ## Modules and Make
 
 A module must be compiled _before_ any other file that uses it.  This can create a complicated build environment, so `make` or a similar build manager is usually used.
 
-# Exercise
+**Exercises**
 
 1. Type the module `mymod` into a file `mymod.f90`.
 Fortran allows the module and the file to have either the same or a different name, but the name of the module is the name that must appear in the use statement.

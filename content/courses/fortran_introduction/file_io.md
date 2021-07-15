@@ -6,7 +6,7 @@ weight: 53
 
 menu:
     fortran_introduction:
-        parent: Input/Output
+        parent: File IO
         weight: 53
 ---
 
@@ -99,7 +99,7 @@ x0=0.0
 /
 ```
 
-# Exercise
+# Exercises
 
 1. Write a program that creates a file mydata.txt containing four rows consisting of
 ```

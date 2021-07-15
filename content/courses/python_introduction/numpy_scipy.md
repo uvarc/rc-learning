@@ -374,6 +374,7 @@ f) Add a line to accept user input to specify the x start, x end, and stride val
 
 ### Project 12 
 Download the file [cpi.csv](/data/cpi.csv)
+Examine the file for header lines, layout of data, and so forth.
 
 Please use NumPy arrays for this project, even though lists would work.
 
