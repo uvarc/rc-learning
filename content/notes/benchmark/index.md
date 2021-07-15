@@ -154,6 +154,7 @@ Prepare a SLURM script (`job.slurm`):
 #SBATCH -t 10:00:00
 #SBATCH -N 1
 #SBATCH -c 1
+#SBATCH -C skylake
 
 module purge
 module load gaussian  # or gaussian/grads16
@@ -165,7 +166,6 @@ g16 -p=$SLURM_CPUS_PER_TASK test0709.com
 
 Note:
 - The number of cores (`#SBATCH -c <num>`) is passed through the `$SLURM_CPUS_PER_TASK` environment variable to Gaussian's `-p` flag. This ensures consistency. 
-- Check if the second line in the SLURM output file `slurm-*.out` reads 40. If not, please resubmit the job.
 - `$g16root` is an environment variable made available to you after you load the Gaussian module.
 - The `time` command is not needed here because Gaussian will time the job automatically.
 
