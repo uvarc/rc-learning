@@ -113,7 +113,7 @@ value=whatever
 return        !Optional unless premature
 ```
 
-**Project**
+**Exercise**
 
 Write a program that evaluates the function
 $$f(x)=\frac{1}{\pi (1+x^2)}$$

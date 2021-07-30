@@ -74,7 +74,7 @@ real           :: raise
 
 Types may contain arrays and from F2003 onward, those arrays may be allocatable. At the time of this writing, very few compilers do not support this standard but if one is encountered, the POINTER attribute must be used.  We will not discuss POINTER further but it may be seen in code written before F2003 compilers were widely available.
 
-In Fortran, the array data structure is a _container_.  This means that the elements of an array may be derived types.  
+In Fortran, the array data structure is a _container_ and the elements of an array may be derived types.  
 ```fortran
 TYPE(employee), dimension(:), allocatable :: employees
 ```

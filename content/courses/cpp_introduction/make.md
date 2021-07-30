@@ -100,8 +100,12 @@ We edit it to add the addition information required and to remove unneeded lines
 
 {{< code-download file="/courses/cpp_introduction/netcdf_example/Makefile" lang="make" >}}
 
+#### Make with MinGW/MSYS2 on Windows
+
+The MinGW64/MSYS2 system provides two versions of `make`.  In newer releases, on newer Windows, either should work.  If you do not wish to add an additional path to your PATH [environment variable](/courses/cpp_introduction/setting-up) use `mingw32-make`.  You can change the Geany build commands through its [build tools]() menu.  The mingw32-make tool may not support as many features as the full-fledged Gnu `make` provided by MSYS2. You can use Gnu make by adding the folder `C:\msys64\usr\bin` to your PATH variable.  This would not require changing the build tool on Geany.
+
 Exercise 1:
-If you have not already done so, download or copy the [example.f90](/courses/cpp_introduction/compiler_example/example.f90) and its required [adder.f90](/courses/cpp_introduction/compiler_example/adder.f90).  Place them into a separate folder.  Run `makemake`.  Edit the Makefile appropriately.  Build the project using Geany or your choice of IDE.
+If you have not already done so, download or copy the [example.cxx](/courses/cpp_introduction/compiler_example/example.cxx) and its required [adder.cxx](/courses/cpp_introduction/compiler_example/adder.cxx).  Place them into a separate folder.  Run `makemake`.  Edit the Makefile appropriately.  Build the project using Geany or your choice of IDE.
 
 Exercise 2:
 If you are working on a system with NetCDF available, download the two files and the completed Makefile into their own folder.  Open Geany and browse to the location of the files.  Open the two source files.  Either select `Make` from the `Build` menu, or from the dropdown arrow next to the brick icon choose `Make All`.

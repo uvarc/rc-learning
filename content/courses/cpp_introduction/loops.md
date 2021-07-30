@@ -12,6 +12,8 @@ menu:
 
 Much computing is repetetive work.  Evaluate an expression many times with different values.  Read lines of a file.  Update a large number of variables.  To accomplish this, we use _loops_.
 
+Loops may invoke other loops as part of their bodies.  These are generally called _nested_ loops.  Nested loops can result in many millions of executions of statements, so some care may be required in their construction to avoid unnecessary repetitions.
+
 ## For Loops
 
 The `for` loop executes a fixed number of iterations unless explicitly terminated.
@@ -32,21 +34,21 @@ for (int i=l;i<=u;i+=s) {
 * `i`: Loop variable
 * `l`: Lower bound
 * `u`: Upper bound
-* `s`: Stride, or increment.  Usually we use `++i` for a stride of 1.
-     * `s` can be negative, in which case `l` must be greater than `u`. For an increment of -1 use `--i`.
+* `s`: Stride, or increment.  Usually we use `i++` for a stride of 1.
+     * `s` can be negative, in which case `l` must be greater than `u`. For an increment of -1 use `i--`.
 
 Do not change the loop variable within a loop.  That is, it should not appear on the left-hand side of an assignment.
 
 There is a subtle difference between
 ```c++
 int i;
-for (i=0;i<10;++i) {
+for (i=0;i<10;i++) {
     std::cout<<i<<"\n";
 }
 ```
 versus
 ```c++
-for (int i=0;i<10;++i) {
+for (int i=0;i<10;i++) {
     std::cout<<i<<"\n";
 }
 ```
@@ -58,7 +60,7 @@ Uncomment the line to print `j` after the second loop and try it again.  What ha
 
 We will discuss scope in more detail [later](/courses/cpp_introduction/scope).
 
-### Iterator For Loops
+### Range-Based For Loops
 
 The C++11 standard has introduced a new version of the `for` loop that may be familiar to programmers of Python and similar languages.  This loop steps through an _iterator_.  An iterator is a sequence that can be traversed in a unique order.  The only iterator we have encountered so far is the string.  For example, we can loop over a string and extract each character:
 
@@ -75,8 +77,25 @@ while (boolean expression) {
 }
 ```
 
-# Example
+Example:
 {{< code-download file="/courses/cpp_introduction/codes/while_demo.cxx" lang="c++" >}}
+
+## Do While
+
+The standard `for` and `while` loops test at the _top_.  That is, upon entry to the loop, the termination condition is evaluated.  If it is false, the statements of the loop are executed.  Otherwise the loop is exited.
+With the ability to break out of the loop at will, we can change this pattern.
+C++ provides a `do while` construct for this.
+
+```c++
+do {
+   statement;
+   statement;
+   while (boolean expression);
+}
+```
+A standard `while` loop may not be entered if the condition is initially false, whereas a do-while will always be executed at least once.
+
+{{< code-download file="/courses/cpp_introduction/codes/do_while.cxx" lang="c++" >}}
 
 ## Exiting Early and Skipping Statements
 
@@ -94,24 +113,6 @@ while (x>0.0) {
     x+=20.0;
 }
 ```
-
-## Do While
-
-The standard `for` and `while` loops test at the _top_.  That is, upon entry to the loop, the termination condition is evaluated.  If it is false, the statements of the loop are executed.  Otherwise the loop is exited.
-With the ability to break out of the loop at will, we can change this pattern.
-C++ provides a `do while` construct for this.
-
-```c++
-do {
-   statement;
-   statement;
-   while (boolean expression);
-}
-```
-
-A standard `while` loop may not be entered if the condition is initially false, whereas a do-while will always be executed at least once.
-
-{{< code-download file="/courses/cpp_introduction/codes/do_while.cxx" lang="c++" >}}
 
 **Exercises**
 

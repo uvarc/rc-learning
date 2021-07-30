@@ -34,7 +34,7 @@ The starting index is always 0, so for a 100-element array the items are numbere
 
 ## Orientation
 
-An advantage of arrays is that the elements are _adjacent_ in memory and are arranged linearly no matter how many dimensions you declare.  If you declare a 3x2 array the order in memory is
+Elements of an array are arranged linearly in memory no matter how many dimensions you declare.  If you declare a 3x2 array the order in memory is
 ```no-highlight
 (1,1), (1,2), (2,1), (2,2), (3,1), (3,2)
 ```

@@ -23,7 +23,3 @@ int main() {
    cout<<setprecision(16)<<"Double to float:"<<"\n"<<s<<"\n"<<r<<"\n";
 
 }
-   
-
-
-

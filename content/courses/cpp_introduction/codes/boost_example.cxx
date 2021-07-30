@@ -6,7 +6,6 @@
 //  http://www.boost.org/LICENSE_1_0.txt)
 //
 #include <boost/locale.hpp>
-#include <boost/locale/generator.hpp>
 #include <iostream>
 
 #include <ctime>

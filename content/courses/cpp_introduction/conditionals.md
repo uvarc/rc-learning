@@ -78,6 +78,28 @@ Only one branch will be executed.  Once any Boolean is determined to be true, th
 Experiment with various truth values for bool1 and bool2.
 {{< code-download file="/courses/cpp_introduction/codes/if_demo.cxx" lang="c++" >}}
 
+## The ? Operator
+
+C and C++ support a very succinct operator for cases in which the purpose of the if block is to assign a variable.
+```no-highlight
+expr1 ? expr2 : expr3
+```
+where `expr1` must evaluate to a Boolean.  The expressions `expr2` and `expr3` should evaluate to the same type.
+
+The operation should be read as "IF expr1 THEN expr2 ELSE expr3".  It returns the value of the selected expression.
+```c++
+    float v = (y>=0.0) ? sqrt(y) : 0.0;
+```
+This is equivalent to
+```c++
+   float v;
+   if (y>=0.0) {
+       v=sqrt(y);
+   } else {
+       v=0.0;
+   }
+```
+
 ## Switch
 
 Many "else ifs" can become confusing.  The `switch` construct can simplify the statements, under the right conditions.  
