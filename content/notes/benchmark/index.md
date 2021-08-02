@@ -119,7 +119,7 @@ Notice there are 3 lines of output - real, user, and sys. A good explanation of 
 
 ## `perf`
 
-A more dedicated tool for performance measurement is `perf` (not on Rivanna). Instead of a single measurement, it is more accurate to run a benchmark multiple times and take the average. The `perf` tool contains built-in statistical analysis. Advanced users please refer to the official [tutorial](https://perf.wiki.kernel.org/index.php/Tutorial).
+A more dedicated tool for performance measurement is `perf`. Instead of a single measurement, it is more accurate to run a benchmark multiple times and take the average. The `perf` tool contains built-in statistical analysis. Advanced users please refer to the official [tutorial](https://perf.wiki.kernel.org/index.php/Tutorial). Load the module if you would like to use `perf`: `module load perf`.
 
 If you just want to get a rough idea with an error bar of say 5-10%, `time` suffices. The task should last significantly longer than 1 second.
 
