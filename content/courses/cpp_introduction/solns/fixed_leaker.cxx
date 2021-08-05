@@ -7,8 +7,8 @@ int main() {
 
     float *x;
     for (int i=1;i<=5;++i) {
-        if (x != NULL) delete x;
-        x=(float *) new float[N];
+        if (x != NULL) delete [] x;
+        x= new float[N];
         std::cout<<"New:"<<x<<"\n";
     }
 

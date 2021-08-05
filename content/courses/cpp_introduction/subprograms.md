@@ -57,19 +57,6 @@ A "subroutine" would be declared `void` (so it has no return value).  If it is a
 
 {{< code-download file="/courses/cpp_introduction/codes/printme.cxx" lang="c++" >}}
 
-## Passing by Value and Reference
-
-Internally, the contents of the variables in the argument list must be passed to the function so it can evaluate them.  C++ uses two methods, _pass by value_ and _pass by reference_.  Pass by value is the default for most arguments; a copy is made of the contents of the variable.  The variable in the caller is unaffected by what happens to it inside the function.  
-
-Pass by reference uses the operator `&` to pass a reference to the memory location of the variable.  If a referenced variable is changed in the function, its contents outside will also be changed.
-
-{{< code-download file="/courses/cpp_introduction/codes/subroutine.cxx" lang="c++" >}}
-
-Changing the value of an argument within a function is often called a _side effect_ of the function.  
-
-C++ can also pass by _pointer_, which is very similar to passing by reference but has a few subtle distinctions.  A pointer is an actual variable whose value is the memory address to which it points; a reference is an object that holds the memory address of the variable it references.  A pointer can have the value NULL; a reference cannot.  Arithmetic can be carried out with pointers but not with references.
-{{< code-download file="/courses/cpp_introduction/codes/pointer_pass.cxx" lang="c++" >}}
-
 ## Default (Optional) Arguments
 
 The programmer can provide default values for dummy arguments in a function.  If not passed, these take their default values.

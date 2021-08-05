@@ -119,6 +119,17 @@ For `new` use `delete`
 {{< code file="/courses/cpp_introduction/codes/better_new.cxx" lang="c++" >}}
 As for `malloc` and `new`, `free` is a function while `delete` is an operator.
 
+If an array is created with `new` the correct form of delete places square brackets before the name of the pointer:
+```c++
+   float *x =new float[N];
+   delete [] x;
+```
+Otherwise use delete without square brackets.
+```c++
+   float *x = new float;
+   delete x;
+```
+
 **Exercise**
 Correct the memory-leaking example.  Leave the multiple `new` statements (even though they have no consequences) and fix the code as is.  Is there a way to tell whether the fix was successful?
 
