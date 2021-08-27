@@ -4,11 +4,6 @@ toc: true
 type: book
 weight: 13
 
-menu:
-    cpp_introduction:
-        parent: Building and Running Your Programs
-        weight: 13
-
 ---
 
 ## Linkers and Libraries

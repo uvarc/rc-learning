@@ -4,11 +4,6 @@ toc: true
 type: book
 weight: 22
 
-menu:
-    cpp_introduction:
-        parent: Variable Declarations 
-        weight: 22
-
 ---
 
 Like most compiled languages, C++ is _statically_  _typed_ .  All variables must be _declared_ to be of a specific type before they can be used.  A variable’s type cannot be changed once it is declared.

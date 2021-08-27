@@ -2,12 +2,8 @@
 title: "File Input/Output"
 toc: true
 type: book
-weight: 52
+weight: 62
 
-menu:
-    cpp_introduction:
-        parent: File Input/Output
-        weight: 52
 ---
 
 

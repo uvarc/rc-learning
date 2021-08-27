@@ -2,12 +2,8 @@
 title: "Advanced Input/Output"
 toc: true
 type: book
-weight: 53
+weight: 63
 
-menu:
-    cpp_introduction:
-        parent: Advanced Input/Output
-        weight: 53
 ---
 
 Simple stream input/output covers much of what we need for basic programs, but as we move to more sophisticated codes we may find that we need more control, especially for reading files.

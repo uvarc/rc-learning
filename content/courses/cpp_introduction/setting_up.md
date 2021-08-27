@@ -4,11 +4,6 @@ toc: true
 type: book
 weight: 12
 
-menu:
-    cpp_introduction:
-        parent: Building and Running Your Programs
-        weight: 12
-
 ---
 
 ### Linux

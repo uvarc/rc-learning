@@ -2,12 +2,8 @@
 title: "Console Input/Output"
 toc: true
 type: book
-weight: 51
+weight: 61
 
-menu:
-    cpp_introduction:
-        parent: Console Input/Output
-        weight: 51
 ---
 
 Most operating systems have some type of _console_.  Output written to the console appears as text on a terminal or equivalent.  Geany opens a window for console output when a program is executed.

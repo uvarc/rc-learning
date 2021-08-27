@@ -4,10 +4,6 @@ toc: true
 type: book
 weight: 23
 
-menu:
-    cpp_introduction:
-        parent: Characters and Strings
-        weight: 23
 ---
 
 ## Character Variables

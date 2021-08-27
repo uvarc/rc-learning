@@ -2,12 +2,7 @@
 title: "Subprograms"
 toc: true
 type: book
-weight: 61
-
-menu:
-    cpp_introduction:
-        parent: Subprograms
-        weight: 61
+weight: 71
 
 ---
 
@@ -79,12 +74,14 @@ Default arguments may be set in either the declaration (prototype) or the defini
 
 C++ does not support what other languages call "keyword" arguments. They must be kept in position and may not be rearranged or skipped.
 
-**Exercise**
+**Exercises**
 
-Write a program that evaluates the function
+1. Write a program that evaluates the function
 $$f(x)=\frac{1}{\pi (1+x^2)}$$
 for 401 values of x equally spaced between -4.0 and 4.0 inclusive.  
 Put the values into an array or vector variable `x`.  Use variables for the starting and ending values of x and the number of values.  
 Write a function to evaluate f(x) for any given real (scalar) value of x and call it each time through your loop.
 
 Print the values and the corresponding function evaluation to a comma-separated-values (CSV) file.  Use software such as Excel, Python, Matlab, or anything else you know to plot the result.
+
+2. Modify your program from Exercise 1 to use a prototype in a header file, with the implementation in a `.cpp` or `.cxx` file.  Refer to the chapter on [linking](/courses/cpp_introduction/linkers_libraries) if you need a refresher on building with multiple files.  This simple example probably does not require a Makefile.

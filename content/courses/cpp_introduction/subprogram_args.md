@@ -2,12 +2,7 @@
 title: "Subprogram Arguments"
 toc: true
 type: book
-weight: 62
-
-menu:
-    cpp_introduction:
-        parent: Subprogram Arguments
-        weight: 62
+weight: 72
 
 ---
 

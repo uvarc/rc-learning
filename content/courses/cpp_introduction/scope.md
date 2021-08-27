@@ -2,12 +2,7 @@
 title: "Variable Scope and Namespaces"
 toc: true
 type: book
-weight: 66
-
-menu:
-    fortran_introduction:
-        parent: Variable Scope and Namespaces
-        weight: 66
+weight: 76
 
 ---
 

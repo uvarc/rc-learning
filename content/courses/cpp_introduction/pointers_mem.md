@@ -2,12 +2,8 @@
 title: "Pointers and Memory Management"
 toc: true
 type: book
-weight: 43
+weight: 53
 
-menu:
-    cpp_introduction:
-        parent: Pointers and Memory Management
-        weight: 43
 ---
 
 We have learned that variables are "nicknames" for the contents of a specific location in memory.  In many languages, including C++, we can also define variable that contain the actual address of a memory location.  These variables are called _pointers_ because they "point to" memory directly.

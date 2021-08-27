@@ -4,11 +4,6 @@ toc: true
 type: book
 weight: 14
 
-menu:
-    cpp_introduction:
-        parent: Managing Projects with Make
-        weight: 14
-
 ---
 
 `make` is a tool to manage builds, especially with multiple files.

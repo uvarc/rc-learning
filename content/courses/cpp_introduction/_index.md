@@ -9,11 +9,6 @@ toc: true
 type: book
 weight: 1
 
-menu:
-    fortran_introduction:
-        name: Programming in C++
-        weight: 1
-
 ---
 
 This short course is an introduction to programming in C++.  Experience programming in some other language is helpful but not required.  

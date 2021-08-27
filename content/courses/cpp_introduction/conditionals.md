@@ -2,12 +2,7 @@
 title: "Conditionals"
 toc: true
 type: book
-weight: 31
-
-menu:
-    cpp_introduction:
-        parent: Conditionals
-        weight: 31
+weight: 41
 
 ---
 

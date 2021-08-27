@@ -2,15 +2,11 @@
 title: "Loops"
 toc: true
 type: book
-weight: 33
+weight: 43
 
-menu:
-    cpp_introduction:
-        parent: Loops
-        weight: 33
 ---
 
-Much computing is repetetive work.  Evaluate an expression many times with different values.  Read lines of a file.  Update a large number of variables.  To accomplish this, we use _loops_.
+Much computing is repetitive work.  Evaluate an expression many times with different values.  Read lines of a file.  Update a large number of variables.  To accomplish this, we use _loops_.
 
 Loops may invoke other loops as part of their bodies.  These are generally called _nested_ loops.  Nested loops can result in many millions of executions of statements, so some care may be required in their construction to avoid unnecessary repetitions.
 

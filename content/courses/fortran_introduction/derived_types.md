@@ -10,7 +10,7 @@ menu:
         weight: 73
 
 ---
-## Programmer-defined Datatypes
+## Programmer-Defined Datatypes
 
 So far we have used only the predefined types available in the Fortran standard.  However, an important principle of modern software engineering is _encapsulation_.  We would like for related data to be connected.  This also allows the programmer to control the _interface_, the way in which other parts of the program interact with the data.
 
@@ -23,7 +23,7 @@ integer,            dimension(:), allocatable:: employee_ID
 character(len=128), dimension(:), allocatable:: employee_name
 character(len=128), dimension(:), allocatable:: employee_manager
 character(len=128), dimension(:), allocatable:: employee_dept
-real,               dimension(:), allocatable:: employee_ID
+real,               dimension(:), allocatable:: employee_salary
 ```
 We need a different type of data structure.  Programmer-defined datatypes allow the programmer to define a new type containing the representations of a group of related data items.
 For example, some languages define _dataframes_, which are essentially representations of spreadsheets with each column defined as something like an array. This would be an example of a defined datatype, since it must be described relative to basic types available in the language.  This is perhaps easier in languages that use _inferred typing_, where the interpreter or compiler makes its best guess as to the type of data, as opposed to statically typed languages like Fortran or C++.  But conceptually it is a good example of a programmer-defined datatype.

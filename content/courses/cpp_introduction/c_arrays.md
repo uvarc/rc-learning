@@ -2,12 +2,8 @@
 title: "C-Style Arrays"
 toc: true
 type: book
-weight: 42
+weight: 52
 
-menu:
-    cpp_introduction:
-        parent: C-Style Arrays
-        weight: 42
 ---
 
 One of the most common data structures, especially for scientific and numerical programming, is a group of variables all of the same type.  This is frequently called an _array_.
