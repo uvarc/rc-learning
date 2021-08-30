@@ -4,11 +4,6 @@ toc: true
 type: book
 weight: 25
 
-menu:
-    cpp_introduction:
-        parent: Type Conversions
-        weight: 25
-
 ---
 
 ## Type Conversions

@@ -4,11 +4,6 @@ toc: true
 type: book
 weight: 12
 
-menu:
-    cpp_introduction:
-        parent: Building and Running Your Programs
-        weight: 12
-
 ---
 
 ### Linux
@@ -104,3 +99,8 @@ In Geany, click the `Build` icon (a brick wall).  A message confirming a success
 Now click the `Execute` button.  A new window will open and the message will be printed.
 
 {{< figure src="/courses/cpp_introduction/img/Geany4.png" width=500px caption="Executing the Hello World program" >}}
+
+### Build Commands in Geany
+
+If you wish to use a different compiler suite from the default GCC with Geany, or if you need to change the compiling or linking commands for any other reason, you can modify the build commands through the Build->Set Build Commands dialogue.
+{{< figure src="/courses/cpp_introduction/img/GeanyBuildTools.png" width=500px caption="Edit the build commands Geany will use" >}}

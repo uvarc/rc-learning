@@ -1,0 +1,76 @@
+---
+title: "User-Defined Types: Enums"
+toc: true
+type: book
+weight: 83
+
+---
+
+The predefined types available in C++ are not sufficient for most non-trivial programming requirements.  
+In C++ terminology, nearly any type that is not a native type is said to be _user-defined_.  Arrays, pointers, and references fall into this category.
+We have already discussed those types and will focus here on more advanced user-defined types.
+
+## Enumerations
+
+
+One of the simplest user-defined types is the enumeration or _enum_.
+An enumeration associates integers with names.  By default, the integers begin at 0 and increment by 1 until each name has been assigned a value.
+
+### Unscoped Enums
+
+For compatibility with C, C++ supports _unscoped enums_.  These are in scope
+throughout the unit in which they are declared.
+
+```c++
+enum WeekDays { Sun, Mon, Tue, Wed, Thu, Fri, Sat };
+```
+Quotes are not used for the enum names because these are not literal strings.
+
+Variables can be declared of an enum type.
+```
+WeekDays today;
+```
+The possible values of an enum variable are restricted to the integers declared in the enum.
+```c++
+today=Fri
+std::cout<<today<<"\n";
+```
+Enums can start at a value other than 0.
+```c++
+enum Spring { Mar=3, Apr, May };
+```
+If a value is specified and subsequent ones are not, the rule of incrementing by one is followed.
+```c++
+enum Cards { Diamonds, Spades=4, Clubs, Hearts };
+```
+Diamonds=0, Spades=4, Clubs=5, and Hearts=6.
+
+Specific values may be given to each name.  The same value may be reused, though this is usually not a good idea.
+```c++
+enum MonthDays { Jan=31, Feb=28, Mar=31, Apr=30, May=31};
+```
+
+### Scoped Enums
+
+Unscoped enums can result in conflicts.  Consider the example of
+```c++
+enum color {red, yellow, orange};
+enum fruit {apple, orange, pear};
+```
+The compiler does not allow this, because "orange" has already been declared when it sees the second enum.  
+
+To handle this, C++11 introduced the _scoped enum_ or _class enum_.  This uses the keyword `class`.
+```c++
+enum class color {red, yellow, orange};
+enum class fruit {apple, orange, pear};
+```
+We then use the scope-resolution operator to refer to the names in the enum.
+```c++
+color paint == color::red;
+```
+
+An enum is a _type_ and therefore converting its values to another type generally requires a cast.  Unscoped enums can be cast to int implicitly, but a scoped enum must use an explicit case.  
+{{< code-download file="/courses/cpp_introduction/codes/enum.cxx" lang="c++" >}}
+
+The `static_cast` is a cast that occurs at compile time.  For native types it is essentially the same thing as the ordinary cast.  It can also be used for user-defined types, as we have illustrated for the enum in the above example.  It takes a templated type in angle brackets as the indicator to which it should cast its argument. 
+

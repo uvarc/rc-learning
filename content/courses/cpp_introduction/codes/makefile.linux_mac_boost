@@ -1,0 +1,16 @@
+PROG = boost_example
+OBJS =  boost_example.o
+CXXFLAGS = -Wall -g
+CXX = g++
+INCLUDES = 
+LDFLAGS = 
+LIBS = -lboost_locale
+
+$(PROG):$(OBJS)
+	$(CXX) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+
+
+.SUFFIXES: .cxx 
+
+.cxx.o:
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $<

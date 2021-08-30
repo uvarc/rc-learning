@@ -2,12 +2,8 @@
 title: "C-Style Arrays"
 toc: true
 type: book
-weight: 42
+weight: 52
 
-menu:
-    cpp_introduction:
-        parent: C-Style Arrays
-        weight: 42
 ---
 
 One of the most common data structures, especially for scientific and numerical programming, is a group of variables all of the same type.  This is frequently called an _array_.
@@ -34,7 +30,7 @@ The starting index is always 0, so for a 100-element array the items are numbere
 
 ## Orientation
 
-An advantage of arrays is that the elements are _adjacent_ in memory and are arranged linearly no matter how many dimensions you declare.  If you declare a 3x2 array the order in memory is
+Elements of an array are arranged linearly in memory no matter how many dimensions you declare.  If you declare a 3x2 array the order in memory is
 ```no-highlight
 (1,1), (1,2), (2,1), (2,2), (3,1), (3,2)
 ```
