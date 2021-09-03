@@ -12,7 +12,7 @@ menu:
 ---
 ## Programmer-Defined Datatypes
 
-So far we have used only the predefined types available in the Fortran standard.  However, an important principle of modern software engineering is _encapsulation_.  We would like for related data to be connected.  This also allows the programmer to control the _interface_, the way in which other parts of the program interact with the data.
+So far we have used only the predefined types available in the Fortran standard.  However, an important principle of modern software engineering is _separation of concerns_ and _encapsulation_.  We would like for related data to be connected, and we want each program unit to implement a well-defined set of actions, its "concern."  This also allows the programmer to control the _interface_, the way in which other parts of the program interact with the data.
 
 For example, consider a program to update employee information.  We can define several variables relevant for an employee; for example we might use salary, name of manager, name of department, employee ID number, and so forth.  Each of these is potentially a different type.  Salary would be floating point, the names would be strings, and the ID number would generally be an integer.  We have more than one employee to handle, so we must use some form of list or array.  In most languages we cannot define a single array to accommodate all these _fields_.  
 This leads to the need for a way to keep all the information about one employee coordinated.

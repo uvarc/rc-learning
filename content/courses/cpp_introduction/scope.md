@@ -29,7 +29,7 @@ Global variables are "in scope" within the file where they are declared.  To mak
 ```c++
 extern float myglobal;
 ```
-As a general rule, globals over multiple files should be avoided.  Defining them in a [class](/courses/cpp_introduction/classes) would be preferable.  C++20 and up will add _modules_, which would be the most appropriate structure for this type of use.  Modules are familiar to Python and Fortran programmers, to name two languages that support them; they are a programming construct that _encapsulates_ code, separating it into a separately compiled bundle, from which other program units can import its variables and functions.
+As a general rule, globals over multiple files should be avoided.  Defining them in a [class](/courses/cpp_introduction/classes) would be preferable.  C++20 and up will add _modules_, which would be the most appropriate structure for this type of use.  Modules are familiar to Python and Fortran programmers, to name two languages that support them; they are a programming construct that isolates a unit of code, separating it into a separately compiled bundle, from which other program units can import its variables and functions.
 
 Within a scoping unit, if a local variable is defined with the same name as a global variable, the local variable takes precedence.  The global variable can be accessed with the _scope resolution_ operator `::`.
 
