@@ -11,48 +11,6 @@ A _conditional_ is a programming construct that implements decisions.
 * _If_ it is cold enough to snow I will wear my heavy coat, _else if_ it is warmer and just rains I will wear my rainjacket.
 The expression following each _if_ or _else_ must be true or false, i.e. a _logical_ expression (in Fortran terminology).
 
-## Conditional Operators
-
-### Comparison Operators
-
-These are used to compare numerical values.  They can also compare character and string variables; ordering is determined by the character encoding.  They return a Boolean value.  
-
-|   Symbols   |   Meaning  |
-|-------------|------------|
-|   ==        |  Equality  |
-|   !=        | Not equal  |
-|    <        | Less than  |
-|    <=       | Less than or equal  |
-|    >        | Greater than  |
-|    >=       | Greater than or equal to  |
-
-### Boolean Operators
-
-|   Operator    |   Meaning   |
-|---------------|-------------|
-|   !           |   Negation of what follows |
-|   &&          |     and     |
-|   ||          |     or      |
-
-It is important to note that `||` is an _inclusive_ or.  It evaluates to `true` if either operand is true.  This is different from many human languages, for which "or" is generally, though not always, _exclusive_.  An exclusive "or" is true only if exactly one of the conditions is true.
-   You can have cake or ice cream (but not both).
-An exclusive or can be constructed with 
-```c++
-(a && !b) || ( a && b)
-```
-where `a` and `b` are Boolean expressions.  An exclusive "or" operator is directly available only for bitwise comparisons.
-
-## Conditional Operator Precedence
-
-Like arithmetic operators, conditional operators have a precedence ordering.
-
-* ! has the highest rank
-* \>,>=,<,<= are equal and outrank == or !=
-* ==,!= are equal and outrank &&
-* && outranks ||
-
-As always, use parentheses to change grouping or to improve clarity.
-
 ## If - Else If - Else
 
 The `else if` and `else` are optional. The parentheses around the Boolean expression are required.

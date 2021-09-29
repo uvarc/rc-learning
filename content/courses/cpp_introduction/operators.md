@@ -10,7 +10,7 @@ Operators are characters or groupings of characters that take some number of var
 
 ## Arithmetic Operations
 
-Arithmetic perators are defined on integers, floats, and doubles.
+Arithmetic operators are defined on integers, floats, and doubles.
 
 `+ -` add, subtract
 
@@ -83,3 +83,64 @@ Beware when assigning the result of an increment or decrement to another variabl
  i is: 4
  j is: 4
 ```
+
+## Conditional Operators
+
+### Comparison Operators
+
+These are used to compare numerical values.  They can also compare character and string variables; ordering is determined by the character encoding.  They return a Boolean value.
+
+|   Symbols   |   Meaning  |
+|-------------|------------|
+|   ==        |  Equality  |
+|   !=        | Not equal  |
+|    <        | Less than  |
+|    <=       | Less than or equal  |
+|    >        | Greater than  |
+|    >=       | Greater than or equal to  |
+
+### Boolean Operators
+
+|   Operator    |   Meaning   |
+|---------------|-------------|
+|   !           |   Negation of what follows |
+|   &&          |     and     |
+|   ||          |     or      |
+
+It is important to note that `||` is an _inclusive_ or.  It evaluates to `true` if either operand is true.  This is different from many human languages, for which "or" is generally, though not always, _exclusive_.  An exclusive "or" is true only if exactly one of the conditions is true.
+   You can have cake or ice cream (but not both).
+An exclusive or can be constructed with
+```c++
+(a && !b) || ( a && b)
+```
+where `a` and `b` are Boolean expressions.  
+
+"Truth tables" define the outcome of Boolean operators.  This example is for "and."
+
+|   Operator    |   Operand 1   | Operand 2 |  Result |
+|---------------|---------------|-----------|---------|
+|     &&        |   true        |  true     |  true   |
+|     &&        |   false       |  true     |  false  |
+|     &&        |   true        |  false    |  false  |
+|     &&        |   false       |  false    |  false  |
+
+## Conditional Operator Precedence
+
+Like arithmetic operators, conditional operators have a precedence ordering.
+
+* ! has the highest rank
+* \>,>=,<,<= are equal and outrank == or !=
+* ==,!= are equal and outrank &&
+* && outranks ||
+
+## Bitwise Operators
+
+Bitwise operators are defined for "integer type" variables, e.g. `int`, `short i
+nt`, `unsigned int`, `char`, `unsigned char` etc.  They return another "integer type" variable.
+
+|   Operator    |   Meaning   |
+|---------------|-------------|
+|   &           |     bitwise and     |
+|   |          |     bitwise or      |
+|   ^          |     bitwise xor (exclusive or)      |
+

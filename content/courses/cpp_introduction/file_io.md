@@ -126,4 +126,4 @@ Write a program that creates a file mydata.txt containing four rows consisting o
 4, 5, 6
 7, 8, 9
 10, 11, 12
-Either rewind or reopen the file and read the data back.  Write a loop to add 1 to each value and print each row to the console.  Note that if you rewind, the file will have to be opened read/write.  If you close it and reopen it, it will have to be reopened in write mode.
+Either rewind or reopen the file and read the data back.  Write a loop to add 1 to each value and print each row to the console.  Note that if you choose to rewind, the file will have to be opened read/write.  If you close it and reopen it, it will have to be reopened in write mode.
