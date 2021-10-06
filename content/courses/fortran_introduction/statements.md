@@ -6,7 +6,7 @@ weight: 25
 
 menu:
     fortran_introduction:
-        parent: Basic Programming Constructs
+        parent: Statementns
         weight: 25
 
 ---
@@ -31,6 +31,7 @@ _Comments_ are ignored by the compiler.  They are for the benefit of human reade
 
 Fixed format comment:
   * `C` or `c` in the first column meant the entire line was a comment.
+
 Free format comment:
   * Anything from `!` to the end of the line is ignored.
 
@@ -38,6 +39,7 @@ Due to its record-oriented history, Fortran uses the end-of-line marker to termi
 
 Fixed format continuation:
   * A number or printable character in the 6th column.
+
 Free format continuation:
   * Ampersand `&` at the end of the line to be continued.
 
@@ -56,7 +58,7 @@ END PROGRAM <name>
 Use of the longer, more descriptive forms is strongly recommended.
 
 Execution may be terminated with the `STOP` statement. `STOP` is required only for abnormal termination.  It can optionally be followed by a message, which it will print to the console.
-``
+```
 STOP "Attempt to divide by zero."
 ```
 

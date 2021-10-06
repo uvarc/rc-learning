@@ -1,0 +1,16 @@
+PROG = boost_example.exe
+OBJS =  boost_example.o
+CXXFLAGS = -Wall -g
+CXX = g++
+INCLUDES = -I"C:\Program Files\boost\include"
+LDFLAGS = -L"C:\Program Files\boost\lib"
+LIBS = -lboost_locale-mgw10-mt-sd-x64-1_76 -liconv
+
+$(PROG):$(OBJS)
+	$(CXX) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+
+
+.SUFFIXES: .cxx 
+
+.cxx.o:
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $<

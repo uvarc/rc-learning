@@ -29,9 +29,11 @@ They are represented by a _sign bit_ followed by the value in _binary_ (base 2).
 Fortran does not support the unsigned integers of some other languages.
 
 The default integer type has a size of 32 bits.
-  * The maximum integer is $2^{32-1}=2147483648$.
+The range of this type is -2,147,483,648 to 2,147,483,647.  
 
 Nearly all compilers offer an extension to support 64-bit integers. 
+Their range is -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+Integers are represented exactly as long as they fit within the range.
 
 ### Floating Point
 
@@ -106,4 +108,32 @@ Examples:
 
 In Fortran the default floating-point literal is _single precision_.  Double precision literals _must_ include a d/D exponent indicator.  This is different from most languages, included C/C++, for which the default floating-point literal is double precison.
 Forgetting to write double-precision literals with `D` exponent indicator rather than `E` often causes a significant loss of numerical precision that is hard to find.
+
+## KIND
+
+Before the IEEE standard was universally adopted, some computer systems used a 64-bit floating-point number for REAL and included hardware for 128-bit DOUBLE PRECISION, while other systems used 32-bit REALs and 64-bit DOUBLE PRECISION.  This made porting codes back and forth problematic.  KIND was developed to solve this problem.  Rather than requesting REAL or DOUBLE PRECISION, the programmer could specify the minimum precision (for floating point) or range (for integer).  This motivation was mooted with the move to IEEE 754, but KIND remains useful as an abstract way to specify the desired type.  Put simply, an integer can be associated with the different precisions and ranges that are possible for primitive types.  A given compiler does not need to support all possibilities but should return an indication that it does not support a requested type.
+
+The intrinsics SELECTED_REAL_KIND and SELECTED_INT_KIND can be used to specify KIND.  For compilers that support an additional character set, SELECTED_CHARACTER_KIND can be used to print most Unicode characters.
+```
+SELECTED_REAL_KIND(P,R)
+```
+requests a REAL with a decimal precision of at least P digits and an exponent range of at least R.  Fortran 2008 allows an additional argument RADIX to select the base for the other options.
+```
+SELECTED_INT_KIND(R)
+```
+requests an INTEGER with a range at least 10<sup>-R</sup> to 10<sup>R</sup>.
+Both of these intrinsics should return negative values if the request cannot be accommodated.
+The value returned must be declared INTEGER, PARAMETER to be used in [variable declarations](/courses/fortran_introduction/declarations).
+An [intrinsic module](/courses/fortran_introduction/intrinsic_modules) can be used to obtain the KIND parameters.
+
+The KIND intrinsic can be used to return the KIND of a particular variable or literal.  This can also be used to set KIND parameters.
+```
+KIND(v)
+```
+For example
+```
+INTEGER, PARAMETER :: dp=KIND(1.0d0)
+REAL(dp)           :: x
+```
+See the [Intel documentation](https://software.intel.com/content/www/us/en/develop/documentation/fortran-compiler-oneapi-dev-guide-and-reference/top/language-reference/data-types-constants-and-variables/intrinsic-data-types.html#intrinsic-data-types) for examples for their compiler.
 

@@ -119,7 +119,7 @@ Notice there are 3 lines of output - real, user, and sys. A good explanation of 
 
 ## `perf`
 
-A more dedicated tool for performance measurement is `perf` (not on Rivanna). Instead of a single measurement, it is more accurate to run a benchmark multiple times and take the average. The `perf` tool contains built-in statistical analysis. Advanced users please refer to the official [tutorial](https://perf.wiki.kernel.org/index.php/Tutorial).
+A more dedicated tool for performance measurement is `perf`. Instead of a single measurement, it is more accurate to run a benchmark multiple times and take the average. The `perf` tool contains built-in statistical analysis. Advanced users please refer to the official [tutorial](https://perf.wiki.kernel.org/index.php/Tutorial). Load the module if you would like to use `perf`: `module load perf`.
 
 If you just want to get a rough idea with an error bar of say 5-10%, `time` suffices. The task should last significantly longer than 1 second.
 
@@ -154,6 +154,7 @@ Prepare a SLURM script (`job.slurm`):
 #SBATCH -t 10:00:00
 #SBATCH -N 1
 #SBATCH -c 1
+#SBATCH -C skylake
 
 module purge
 module load gaussian  # or gaussian/grads16
@@ -165,7 +166,6 @@ g16 -p=$SLURM_CPUS_PER_TASK test0709.com
 
 Note:
 - The number of cores (`#SBATCH -c <num>`) is passed through the `$SLURM_CPUS_PER_TASK` environment variable to Gaussian's `-p` flag. This ensures consistency. 
-- Check if the second line in the SLURM output file `slurm-*.out` reads 40. If not, please resubmit the job.
 - `$g16root` is an environment variable made available to you after you load the Gaussian module.
 - The `time` command is not needed here because Gaussian will time the job automatically.
 
@@ -209,7 +209,7 @@ PyTorch can make use of multiple GPU devices through the DistributedDataParallel
 
 - Download the container. The following command will create a Singularity container `pytorch_1.7.0.sif`.
 ```bash
-module load singularity/3.6.1
+module load singularity
 singularity pull docker://uvarc/pytorch:1.7.0
 ```
 
@@ -280,7 +280,7 @@ trainer.fit(autoencoder, DataLoader(train), DataLoader(val))
 #SBATCH --gres=gpu:k80:1
 
 module purge
-module load singularity/3.6.1
+module load singularity
 
 time singularity run --nv pytorch_1.7.0.sif example.py
 ```
@@ -318,7 +318,7 @@ The speedup is plotted below. Notice how the deviation from perfect scaling (lig
 
 {{< figure src="ddp_k80.png" width="400px" >}}
 
-The same benchmark was performed on RTX 2080Ti (coming soon to Rivanna!)
+The same benchmark was performed on RTX 2080Ti:
 
 |N|Time (s)|Speedup|Relative SU|
 |---|---:|---:|---:|

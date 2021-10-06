@@ -17,7 +17,7 @@ Subprograms are essential to good coding practice.  Among other benefits, they a
   * Easier to test and debug than a large, catch-all unit.
   * Effective at reducing errors such as cut and paste mistakes.
 
-Other general names for subprograms are _routines_,_procedures_, and _methods_. The word "method" is generally reserved for procedures defined within an _object_, but it is not conceptionally different from any other subprogram. 
+Other general names for subprograms are _routines_, _procedures_, and _methods_. The word "method" is generally reserved for procedures defined within an _object_, but it is not conceptionally different from any other subprogram. 
 
 Subprograms must be invoked or _called_ in order for any of their code to be executed.  
 
@@ -112,3 +112,13 @@ statements
 value=whatever
 return        !Optional unless premature
 ```
+
+**Exercise**
+
+Write a program that evaluates the function
+$$f(x)=\frac{1}{\pi (1+x^2)}$$
+for 401 values of x equally spaced between -4.0 and 4.0 inclusive.  
+Put the values into an array variable `x`.  Use variables for the starting and ending values of x and the number of values.   Use an array operation to fill a variable y.
+Write a function to evaluate f(x) for any given real (scalar) value of x and call it each time through your loop.
+
+Print the values and the corresponding function evaluation to a comma-separated-values (CSV) file.  Use software such as Excel, Python, Matlab, or anything else you know to plot the result.

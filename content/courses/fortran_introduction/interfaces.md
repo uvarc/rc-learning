@@ -36,8 +36,8 @@ INTERFACE
      use precisions
      use mymod
      implicit none
-     real    :: x
-     real_dp ::y,z
+     real     :: x
+     real(dp) ::y,z
   END SUBROUTINE mysub
 END INTERFACE
 ```

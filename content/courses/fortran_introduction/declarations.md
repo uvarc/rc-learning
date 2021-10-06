@@ -17,7 +17,19 @@ Fortran is (nearly) strongly typed.  Mixed-mode expressions are limited and most
 
 Unlike most languages, Fortran is _not_ case sensitive.  Variables `Mean`, `mean`, and even `mEan` are the same to the compiler.
 
-Variable names may consist of alphanumeric (letter or digit) characters, plus underscores.  No other characters, including spaces, are permitted.  The first character must be an alphabetical character.  The maximum length of a variable name for modern Fortran as of Fortran 95 is 31 characters.  The 6-character limit of Fortran 77 is long gone.  Some compilers permit up to 127 characters as an extension, though excessively long variable names is _not_ a good programming practice.
+Variable names may consist of alphanumeric (letter or digit) characters, plus underscores.  No other characters, including spaces, are permitted.  The first character must be an alphabetical character.  The maximum length of a variable name for modern Fortran as of Fortran 95 is 31 characters.  The 6-character limit of Fortran 77 is long gone.  Some compilers permit up to 127 characters as an extension, though excessively long variable names is _not_ a good programming practice.  
+
+A good descriptive variable name often consists of multiple words or parts of words.  Since Fortran is not case-sensitive, underscores can be used to separate the components.
+```fortran
+is_valid
+start_date
+num_species
+```
+Separation through capitalization is possible with the understanding that different variables cannot be distinguished by "camel case."
+```fortran
+subroutine BioGeoChem
+type myType
+```
 
 Variables are declared by indicating the type followed by a comma-separated list of variables.
 In older code no separator was used.
@@ -38,11 +50,11 @@ It is _not_ necessary to write keywords, or any source at all, in all capital le
 |------------------|-----------|----------------------------|
 |     INTEGER      |  32-bit integer |  Yes                  |
 |     INTEGER\*8   |  64-bit integer |  No, but nearly universal |
-|     INTEGER_rk   |  Integer specified by kind |  Yes |
+|     INTEGER(ik)  |  Integer specified by KIND |  Yes |
 |     REAL         |  Single precision floating point | Yes  |
 | DOUBLE PRECISION |  Double precision floating point | Yes, but deprecated style |
 | REAL\*8 |  Double precision floating point |  No, but universal |
-| REAL_rk |  Floating point denoted by kind |  Yes |
+| REAL(rk)|  Floating point denoted by KIND |  Yes |
 | LOGICAL |  Logical (Boolean)  |  Yes |
 | COMPLEX  |  Single precision complex  | Yes |
 | COMPLEX\*8 |  Double precision complex  | No, but nearly universal |
@@ -51,7 +63,8 @@ It is _not_ necessary to write keywords, or any source at all, in all capital le
 | CHARACTER\*10  | Character variable with 10 characters | Yes, but deprecated style |
 |     BYTE         |  One byte  | Yes  |
 
-Other types may be specified through [KIND](/courses/fortran_introduction/kind). 
+Other types may be specified through [KIND].
+
 ## Implicit and Explicit Typing
 
 For historical reasons, Fortran used _implicit typing_ for numerical types.  Any variable starting with the letters A-H or O-Z were _floating point_.  Variables beginning with the letters I-N were _integers_.  Note that `IN` are the first two letters of the word "integer."  That is a longstanding mathematical tradition and Fortran was developed to translate mathematical notation (FORmula TRANslation).
