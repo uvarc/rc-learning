@@ -1,18 +1,14 @@
 ---
 title: Dictionaries
 toc: true
-type: docs
+type: book
 draft: false
 weight: 60
-menu:
-  python_introduction:
-    parent: Introduction to Programming in Python
-    weight: 60
 ---
 
 So far the compound types we have studied have been _ordered_.  We access elements by integer _indices_ numbered from 0 to N-1, where N is the total number of elements.  Dictionaries, in contrast, are _unordered_.  Elements are accessed by a _key_ which may be of any immutable type. If a tuple is used as a key, no elements of the tuple may be mutable.  Keys must be _unique_ (no duplication)
 
-The key corresponds to a _value_ which may be of any type, including mutable types such as lists. The dictionary consists of all key-value pairs.  Dictionaries themselves are _mutable_ and may be of any length up to the limits of the system.  Dictionaries can be nested, i.e. the value may itself be a dictionary.
+The key corresponds to a _value_.  The value may be of any type, including mutable types such as lists. The dictionary consists of all key-value pairs.  Dictionaries themselves are _mutable_ and may be of any length up to the limits of the system.  Dictionaries can be nested, i.e. the value may itself be a dictionary.
 
 Dictionaries are denoted by curly braces `{}`.  A key-value pair is separated by a colon `:`.
 
@@ -22,11 +18,11 @@ Dictionaries are denoted by curly braces `{}`.  A key-value pair is separated by
   * D={}
   * Note the similarity to an empty list, but we use curly braces.
 * Enumerating the key-value pairs
-  * D={\"Alice\":\"2341\", \"Beth\":\"9102\", \"Cecil\":\"3258\:}
+  * D={\"Alice\":\"2341\", \"Beth\":\"9102\", \"Cecil\":\"3258\"}
   * Another option to create a dictionary with initial entries
     * D=dict([(\"Alice\",\"2341\"),(\"Beth\",\"9102\"),(\"Cecil\",\"3258\")])
 * Adding an entry
-  * D[\"Dan\"]=\"5837\":
+  * D[\"Dan\"]=\"5837\"
   * If the key \"Dan\" is not present, it will be created and the specified value assigned.  If it is present already in the dictionary, the value will be replaced.
 
 ### Dictionary Operations
@@ -42,7 +38,7 @@ Dictionaries are denoted by curly braces `{}`.  A key-value pair is separated by
   * keys=list(D.keys())
   * Omit the list constructor if all you need is an interator.
     * for k in D.keys():
-    * In a `for` loop the keys() can be omitted:
+    * In a `for` loop the keys() can be omitted
       * for k in D:
 * Generate an iterator of values
   * D.values()
@@ -105,20 +101,7 @@ depending on what you want to do.
 
 Type into Spyder or Jupyterlab and run
 
-```python
-capitals={"Alabama":"Montgomery"}
-capitals["Alaska"]="Juneau"
-capitals["Arizona"]="Little Rock"
-print(capitals.keys())
-print("Virginia" in capitals)
-print("Arkansas" in capitals)
-newstate="Connecticut"
-newcapital="Hartford"
-if newstate not in capitals:
-    capitals[newstate]=newcapital
-for key in capitals:
-    print("The capital of",key,"is",capitals[key])
-```
+{{< code-download file="/courses/python_introduction/scripts/exercise12.py" lang="python" >}}
 
 </details>
 
@@ -206,21 +189,3 @@ states|states2
 ### Resources
 
 Documentation is [here](https://docs.python.org/3/tutorial/datastructures.html#dictionaries).
-
-### Projects
-
-#### Project 1
-Download the file [us-state-capitals.csv](/data/us-state-capitals.csv).  Write a program that will read this file and create a dictionary with the state name as the key and the capital name as the value.  Using your dictionary, print the capitals of Arkansas, Virginia, and Wyoming.
-
-Again using your dictionary, generate a list of all state capitals that begin with the letter 'A'.  Use the list to create a string consisting of these city names separated by a semicolon ;   Open a new file capitals-with-a.txt and write this string to it.
-
-#### Project 2
-Write a program to analyze a DNA sequence file.  The program should contain a function `countBases` which takes a sequence consisting of letters ATCG, with each letter the symbol for a base, and returns a dictionary where the key is the letter and the value is the number of times it appears in the sequence.  
-The program should contain another function `printBaseComposition` which takes the dictionary and prints a table of the proportions of each base, e.g.
--  A : 0.25
--  T : 0.25
--  C : 0.25
--  G : 0.25
-Use the file [HIV.txt](/data/HIV.txt) to test your program.  You can look at the file in a text editor.  It consists of a label followed by a space followed by a sequence, for each sequence in the file.  
-Hints: read each sequence as a line.  Split the line on whitespace (rstrip first) and throw out the 0th element.  
-Copy the next element of the list into a string, and use substrings to extract each letter.  Build your dictionary as you step through the string.  Repeat for the next line until you have read all the lines.

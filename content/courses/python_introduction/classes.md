@@ -1,13 +1,9 @@
 ---
 title: Classes
 toc: true
-type: docs
+type: book
 draft: false
-weight: 110
-menu:
-  python_introduction:
-    parent: Introduction to Programming in Python
-    weight: 110
+weight: 200
 ---
 
 ## Objects and Classes

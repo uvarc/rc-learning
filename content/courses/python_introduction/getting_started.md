@@ -1,13 +1,9 @@
 ---
 title: Getting Started
 toc: true
-type: docs
+type: book
 draft: false
 weight: 10
-menu:
-  python_introduction:
-    parent: Introduction to Programming in Python
-    weight: 10
 ---
 
 ## Setting up Your Environment
