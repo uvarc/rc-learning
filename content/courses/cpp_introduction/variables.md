@@ -8,7 +8,8 @@ weight: 21
 
 In programming, a _variable_ is similar, but not identical to, the variable familiar from mathematics.  In mathematics, a variable represents an unknown or abstract entity.  In programming, a variable represents a _location in memory_.
 
-Computer memory consists of individual elements called _bits_, for _bi_nary dig_it_.  Each bit is "off" or "on", represented by 0 and 1.  Bits are usually grouped into units of 8, called a _byte_.  The bytes are organized into _words_.  The number of bits in a word determines whether the computer is "32 bits" or "64 bits".  Nearly all modern hardware is 64 bits, meaning that each word of memory consists of 8 bytes.  Words are numbered, starting from 0.
+Computer memory consists of individual elements called _bits_, for 
+*bi*nary dig*it*.  Each bit is "off" or "on", represented by 0 and 1.  Bits are usually grouped into units of 8, called a _byte_.  The bytes are organized into _words_.  The number of bits in a word determines whether the computer is "32 bits" or "64 bits".  Nearly all modern hardware is 64 bits, meaning that each word of memory consists of 8 bytes.  Words are numbered, starting from 0.
 
 Each variable has a _type_.  Types are a way of representing values as patterns of bits.  Some of these types, particularly those that represent numeric values, are defined by hardware operations in the computer's CPU.  Others can be defined by the programmer, but even these derived types are represented as combinations of the _primitive types_.
 _Remember that computers do not use base 10 internally_.
@@ -17,7 +18,7 @@ _Precision_ is the number of digits that are accurate, according to the requirem
 
 Like most programming languages, C++ is _case sensitive_.  Variables `Mean` and `mean` and even `mEan` are different to the compiler.  
 
-Moreover, like most compiled languages. C++ is _statically _typed_ .  All variables must be _declared_ to be of a specific type before they can be used.  A variable’s type cannot be changed once it is declared.
+Moreover, like most compiled languages. C++ is _statically typed_ .  All variables must be _declared_ to be of a specific type before they can be used.  A variable’s type cannot be changed once it is declared.
 
 C++ is _nearly_ strongly typed.  Mixed-mode expressions are limited and most conversions must be explicit.
 

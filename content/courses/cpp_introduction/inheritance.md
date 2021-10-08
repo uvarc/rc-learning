@@ -5,7 +5,7 @@ type: book
 weight: 93
 ---
 
-One of the foundations of object-oriented programming is _inheritance_.  Often, two objects are related and we can save coding by reusing code from one object in another.  Rather than retyping or cutting and pasting, we can simply pass down the members of one object to another.  This can continue in an _inheritance chain_ indefinitely, though it would be poor practice to set up more than a few links in the chain.   
+One of the foundations of object-oriented programming is _inheritance_.  Often, two objects are related and we can save coding by reusing code from one object in another.  Rather than retyping or cutting and pasting, we can simply pass down the members of one object to another.  
 The lower-level link is called the _base class_ (or _parent_) and the subsequent one is called the _derived class_ (or _child_).  
 
 Inheritance should reflect an IS-A relationship between the two objects.  A cat _is-a_ animal.  A rectangle _is-a_ shape.  
@@ -30,9 +30,27 @@ The `access-mode` specifier for the base class affects how the members of that c
 
 {{< code-download file="/courses/cpp_introduction/codes/inheritance.cxx" lang="c++" >}}
 
-The child inherits the constructor and `getName` accessor from the parent.
-But `age` does not refer back to the parent, since that variable occurs only in the child, so it must be explicitly declared.
-The constructor for the Child class invokes the Parent constructor and then sets the age.  
+Notice that an antelope _is-a_ animal and a reptile _is-a_ animal, but an antelope is *not* a reptile.  So derived classes do not need to have a direct relationship with one another aside from their inheritance.
+
+We could introduce another level of derivations since "Reptile" is a broader category than "Antelope."  For example, we could declare class Mammal
+```c++
+class Mammal: public Animal {
+   protected:
+      string furColor;
+      string order;
+      string getOrder();
+};
+```
+
+We could then derive Antelope from Mammal.  Further subdivisions would be possible (`class Ungulate` and so forth).
+Derived classes can continue like this in an _inheritance chain_ indefinitely, though it would be poor practice to set up more than a few links in the chain.   
+
+{{< diagram >}}
+graph TD;
+A(Animal) --> B(Reptile)
+A(Animal) --> C(Mammal)
+C(Mammal) --> D(Antelope)
+{{< /diagram >}}
 
 ## Constructors
 
@@ -40,3 +58,43 @@ Constructors, destructors, and friend classes are not inherited from the base cl
 
 {{< code-download file="/courses/cpp_introduction/codes/child_constructor.cxx" lang="c++" >}}
 
+In this example, the child inherits the `getName` accessor from the parent.
+But `age` does not refer back to the parent, since that variable occurs only in the child, so it must be explicitly declared.
+The constructor for the Child class invokes the Parent constructor and then sets the age.  
+
+In C++11 the `using` keyword may be employed to bring in the base constructor.
+```c++
+class Child: public Parent {
+    private:
+        int age;
+    public:
+        using Parent::Parent;
+        void setAge();
+        int getAge();
+};
+```
+
+The Parent constructor cannot be used to set the new member `age`, so a mutator would be defined.  For this reason, some software engineers recommend keeping the older parent constructor syntax if the derived class defines its own constructor.
+
+**Exercises**
+
+1. Add a new class Mammal as sketched above.  Derive Antelope from that. Add an attibute `scaleColor` to the Reptile class.
+
+{{< spoiler text="Example solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/inherit_chain.cxx" lang="c++" >}}
+{{< /spoiler >}}
+
+2. Create a constructor for Animal that sets the name, food, foodQuantity, and vocalization.  Pass it through to the descendant classes and in each one, add the attributes new to that class.  Remove functions made unnecessary by the constructor.  Optionally implement the `using` syntax in the Antelope class.  Depending on your compiler version, you may need to add a flag `-std=c++11` or equivalent.
+
+{{< spoiler text="Example solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/constructor_chain.cxx" lang="c++" >}}
+{{< /spoiler >}}
+
+*Extra Exercises*
+Clean up the solution to Example 2 by declaring attributes private or protected and implementing all required accessors and mutators.  
+
+Optionally, implement Animal in its own interface and implementation files.  Include its implementation header into the source with 
+```c++
+#include "animal.h"
+```
+You will need to compile your source files separately and link `animal.o` appropriately.

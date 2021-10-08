@@ -1,13 +1,9 @@
 ---
 title: Strings
 toc: true
-type: docs
+type: book
 draft: false
 weight: 50
-menu:
-  python_introduction:
-    parent: Introduction to Programming in Python
-    weight: 50
 ---
 
 The string type is widely used in Python.  A __string__ consists of a sequence of characters, even if the sequence length is 1--Python does not make a distinction between a character and a one-character string.  The string is a compound type and immutable.  The representation of a single character internallly in the computer as a sequence of bits is called the _encoding_.  Individual characters are represented either by the ASCII standard (1 byte per character) or Unicode (2-4 bytes per character).  Strings that are to be treated as Unicode are type `unicode` rather than string, but otherwise behave similarly.  The default encoding may depend on the operating system but in newer Python versions is usually a standard called _utf-8_.  UTF-8 can represent over one hundred thousand characters and can embed different scripts within the same text file.
@@ -248,21 +244,3 @@ string.whitespace    #space, tab, linefeed, return, formfeed, and vertical tab.
 
 The official documentation for the string type is [here](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str).  A more complete discussion of built-ins for strings is [here](https://docs.python.org/3/library/stdtypes.html#string-methods), including optional arguments for some of the methods described above.  
 
-### Projects
-
-#### Project 1
-In the early 2000’s an “urban legend” circulated that one could read text in which all letters except the first and last were scrambled.  For example:
-
-> Aoccdrnig to rscheearch at an Elingsh uinervtisy, it deosn’t mttaer in waht oredr the ltteers in a wrod are, the olny iprmoetnt tihngis taht the frist and lsat ltteer is at the rghit pclae.
-
-Write a program to scramble a passage input from a file.  Print the result to a file with the same name as the original but a suffix \_scrambled added 
-(so if the original was Example.txt it will be Example_scrambled.txt).
-Look at the scrambled file first—can you read it?
-- First write a scramble_word function, then a scramble_line function, and finally a function that writes the lines to the new file.  
-- Your main() routine will request from the user the name of the input file, then call the printing function, which will call the scramble_line function that will in turn call the scramble_word function.  
-This is an example of how we divide up work into separate “chunks” or 
-“concerns.” Internal punctuation (apostrophes) can be scrambled, but leave any 
-punctuation such as periods, question marks, etc., at the end of a word in 
-place.
-- Hint: since you cannot overwrite strings you will need to convert them to a list and back again. Use [Example.txt](/data/Example.txt) as your sample input.
-- FYI this is an “urban legend” because: firstly, no such research was ever conducted at any university, and secondly it is true only for very practiced readers of English and even then only for familiar words that are easy to recognize in context.

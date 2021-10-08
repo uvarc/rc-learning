@@ -1,13 +1,9 @@
 ---
 title: Resources
 toc: true
-type: docs
+type: book
 draft: false
-weight: 130
-menu:
-  python_introduction:
-    parent: Introduction to Programming in Python
-    weight: 130
+weight: 300
 ---
 
 ## Resources

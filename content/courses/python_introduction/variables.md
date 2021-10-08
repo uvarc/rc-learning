@@ -1,13 +1,9 @@
 ---
 title: Variables, Expressions, and Statements
 toc: true
-type: docs
+type: book
 draft: false
 weight: 20
-menu:
-  python_introduction:
-    parent: Introduction to Programming in Python
-    weight: 20
 ---
 
 ## Variables
@@ -20,12 +16,12 @@ Names of variables are chosen by the programmer.  Python is case sensitive, so `
 
 Literals are specific values, as distinct from variables.  Literals also have a type, which is determined by their format.  Examples:
 
-* 3 (integer)
-* 3.2 (floating point)
-* 1.234e-25 (floating point, exponential notation)
-* "This is a string" (Python string)
-* True (Python Boolean)
-* 1.0+2J (Python complex)
+* `3` (integer)
+* `3.2` (floating point)
+* `1.234e-25` (floating point, exponential notation)
+* `"This is a string"` (Python string)
+* `True` (Python Boolean)
+* `1.0+2J` (Python complex)
 
 ### Python Types
 
@@ -37,9 +33,9 @@ Integers are whole numbers and are not written with a decimal point.  In Python 
 
 #### Floating-Point Numbers
 
-Floating-point numbers are represented internally by a variant of scientific notation, to base 2, with one bit for the sign and the rest for the mantissa and the exponent.  In most languages there are two types of floating-point numbers, single precision and double precision.  Single precision numbers are 32 bits long in total.  Double precision numbers occupy 64 bits.  Most of the time a Python floating-point variable is double precision.  Only in a few packages, mainly NumPy, is a single-precision floating-point number available.
+Floating-point numbers are represented internally by a variant of scientific notation, in base 2, with one bit for the sign and the rest for the _significand_ and the _exponent_.  In most languages there are two types of floating-point numbers, single precision and double precision.  Single precision numbers are 32 bits long in total.  Double precision numbers occupy 64 bits.  Most of the time a Python floating-point variable is double precision.  Only in a few packages, mainly NumPy, is a single-precision floating-point number available.
 
-A double-precision floating-point number has an exponent range, in base 10, of approximately 10<sup>-308</sup> to 10<sup>308</sup> and a decimal precision of about 15-16 digits.  The first thing to note is that this is _finite_.  The number of mathematical real numbers is infinite, and they must all be represented by the finite number of floating-point values.  It should be obvious, then, that infinitely many real numbers will map to the same floating-point number.  It also follows that only integers or terminating rational numbers can be exactly represented at all.  All other numbers are approximated.  Some numbers that are terminating in base 10 are not terminating in base 2 and vice versa.  Floating-point numbers do not obey all the rules of mathematical real numbers; in particular, they are commutative (so a+b = b+a) but are not necessarily associative (i.e. a + (b+c) may not equal (a + b) + c) and they are generally not distributive (so a x (b-c) is not necessarily equal to a x b-a x c).  For most work these properties of floating-point numbers do not matter, but for some types of scientific programs this behavior can be important.
+A double-precision floating-point number has an exponent range, in base 10, of approximately 10<sup>-308</sup> to 10<sup>308</sup> and a decimal precision of about 15-16 digits.  The first thing to note is that this is _finite_.  The number of mathematical real numbers is infinite, and they must all be represented by the finite number of floating-point values.  It should be obvious, then, that infinitely many real numbers will map to the same floating-point number.  It also follows that only integers or terminating rational numbers can be exactly represented at all.  All other numbers are approximated.  Some numbers that are terminating in base 10 are not terminating in base 2 and vice versa.  Floating-point numbers do not obey all the rules of mathematical real numbers; in particular, they are commutative (so $a+b = b+a$) but are not necessarily associative (i.e. $a + (b+c)$ may not equal $(a + b) + c$) and they are generally not distributive (so $a \times (b-c)$ is not necessarily equal to $a \times b-a \times c$).  For most work these properties of floating-point numbers do not matter, but for some types of scientific programs this behavior can be important.
 
 The floating-point standard also defines special values INF (and -INF) and NAN.  INF or -INF means the absolute value of the number is too large to be represented.  NAN stands for "Not a Number" and is returned when a program attempts to perform a mathematically illegal operation, such as dividing by zero.  It is also frequently used in some Python packages to represent missing data.
 
@@ -93,12 +89,12 @@ Experienced programmers tend to use operator/assignment (+=, -=, \*=, /=) but it
 
 The arithemetic operators on all numerical types.  Two additional operators work on integers. 
 
-* Integer division // returns the integer part of the division.  For example, 7//2=3. 
-* The mod or modulo operator % returns the remainder of the division, so 7%2=1.
+* Integer division // returns the integer part of the division.  For example, `7//2=3`. 
+* The mod or modulo operator % returns the remainder of the division, so `7%2=1`.
 
-These operators are also defined on floating-point numbers, but the results may not be what you expect!  Also avoid using % with negative numbers, for the same reason.
+These operators are also defined on floating-point numbers, but the results may not be what you expect!  Also avoid using `%` with negative numbers, for the same reason.
 
-_Special note for Python 2.7 users_: In Python 2.7, 2/3=0.  This is because each operand is an integer, so the operator returns an integer.  However, in Version 3 and up, 2/3=0.6666666666666666 (this value is the result of an expression evaluation).  Python 2.7 users who want the newer behavior should begin each file With
+_Special note for Python 2.7 users_: In Python 2.7, `2/3=0`.  This is because each operand is an integer, so the operator returns an integer.  However, in Version 3 and up, `2/3=0.6666666666666666` (this value is the result of an expression evaluation).  Python 2.7 users who want the newer behavior should begin each file With
 
 ```python
 from __future__ import division

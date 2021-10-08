@@ -1,13 +1,9 @@
 ---
 title: NumPy and SciPy
 toc: true
-type: docs
+type: book
 draft: false
-weight: 90
-menu:
-  python_introduction:
-    parent: Introduction to Programming in Python
-    weight: 90
+weight: 100
 ---
 
 ## NumPy

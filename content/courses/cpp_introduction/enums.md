@@ -1,5 +1,5 @@
 ---
-title: "User-Defined Types: Enums"
+title: "User-Defined Types: Enums and Typedef"
 toc: true
 type: book
 weight: 83
@@ -69,8 +69,48 @@ We then use the scope-resolution operator to refer to the names in the enum.
 color paint == color::red;
 ```
 
-An enum is a _type_ and therefore converting its values to another type generally requires a cast.  Unscoped enums can be cast to int implicitly, but a scoped enum must use an explicit case.  
+An enum is a _type_ and therefore converting its values to another type generally requires a cast.  Unscoped enums can be cast to int implicitly, but a scoped enum must use an explicit cast.  
 {{< code-download file="/courses/cpp_introduction/codes/enum.cxx" lang="c++" >}}
 
 The `static_cast` is a cast that occurs at compile time.  For native types it is essentially the same thing as the ordinary cast.  It can also be used for user-defined types, as we have illustrated for the enum in the above example.  It takes a templated type in angle brackets as the indicator to which it should cast its argument. 
 
+## Typedef
+
+It may be convenient to name a new user-defined type, or to rename an existing type, so that new variables can be declared by name.  We use `typedef` to create a new name for our type.  The syntax is
+```no-highlight
+typedef existing newname
+```
+We can then declare variables of `newname` type.
+
+Examples:
+
+```c++
+typedef float real;
+typedef boost::multi_array<double,2> Array2D;
+
+   real x;
+   Array2D gridArray(boost::extents[nrows][ncols]);
+```
+
+Typdef is particularly useful when working with templated types whose declarations may be long and awkward, as in the Boost array example above.  Unlike user-defined types such as [structs](/courses/cpp_introduction/structs) the new "type" is merely an synonym for an existing type.
+
+Typedefs are very common in C code, because C requires using the `struct` keyword to declare variables of that type.
+```c
+struct myStruct {
+   int myvar;
+   float anothervar;
+};
+
+struct myStruct var1;
+```
+This would commonly be declared with
+```c
+typedef struct myStruct {
+   int myvar;
+   float anothervar;
+} aStruct;
+
+aStruct var1;
+```
+
+In contrast to C, the `enum`, `struct`, and `class` keywords are not required in variable declarations, as long as there is no ambiguity.  Programmers are advised to avoid creating this ambiguity, but some libraries may not adhere to this principle.  Ambiguity can commonly occur when a struct contains a member with the same name as a typedef.
