@@ -2,6 +2,7 @@
 title: "Fiji / ImageJ: Script development for Image Processing"
 type: article
 toc: true
+date: 2021-10-14T00:00:00-05:00
 ---
 
 {{< figure library="true" src="fiji.png" >}}
@@ -242,7 +243,7 @@ Just like Python, Jython provides an easy way to get access to classes and funct
 * The `import` statement specifies the names of external packages, classes and functions your script wants to use (the `namespace`).
 * The [ImageJ API documentation][imagej-api] provides the Java package names and classes.
 
-Here's an example. Let's say we want to use the [ImageProcessor][imageprocessor] class in our Jython script.  The `ImageProcessor` class is defined in the `ij.process` Java package so the equivalent Jython `import` statement would look like this:
+Here's an example. Let's say we want to use the [ImageProcessor]() class in our Jython script.  The `ImageProcessor` class is defined in the `ij.process` Java package so the equivalent Jython `import` statement would look like this:
 
 ```
 from ij.process import ImageProcessor
@@ -1169,20 +1170,20 @@ for frame_no in range(1, imp.getNFrames() + 1):
 * Python: https://learning.rc.virginia.edu/courses/programming_python_scientists_engineers/
 
 
-[imageplus]: https://imagej.nih.gov/ij/developer/api/ij/ImagePlus.html
-[imageprocessor]: https://imagej.nih.gov/ij/developer/api/ij/process/ImageProcessor.html
-[imagestack]: https://imagej.nih.gov/ij/developer/api/ij/ImageStack.html
-[byteprocessor]: https://imagej.nih.gov/ij/developer/api/ij/process/ByteProcessor.html
-[shortprocessor]: https://imagej.nih.gov/ij/developer/api/ij/process/ShortProcessor.html
-[floatprocessor]: https://imagej.nih.gov/ij/developer/api/ij/process/FloatProcessor.html
-[colorprocessor]: https://imagej.nih.gov/ij/developer/api/ij/process/ColorProcessor.html
+[imageplus]: https://imagej.nih.gov/ij/developer/api/ij/ij/ImagePlus.html
+[imageprocessor]: https://imagej.nih.gov/ij/developer/api/ij/ij/process/ImageProcessor.html
+[imagestack]: https://imagej.nih.gov/ij/developer/api/ij/ij/ImageStack.html
+[byteprocessor]: https://imagej.nih.gov/ij/developer/api/ij/ij/process/ByteProcessor.html
+[shortprocessor]: https://imagej.nih.gov/ij/developer/api/ij/ij/process/ShortProcessor.html
+[floatprocessor]: https://imagej.nih.gov/ij/developer/api/ij/ij/process/FloatProcessor.html
+[colorprocessor]: https://imagej.nih.gov/ij/developer/api/ij/ij/process/ColorProcessor.html
 [ospath]: https://docs.python.org/2/library/os.path.html
 [imagej-api]: https://imagej.nih.gov/ij/developer/api/index.html
 [bioformats]: https://www.openmicroscopy.org/bio-formats/
-[roi]: https://imagej.nih.gov/ij/developer/api/ij/gui/Roi.html
+[roi]: https://imagej.nih.gov/ij/developer/api/ij/ij/gui/Roi.html
 [color]: https://docs.oracle.com/javase/7/docs/api/java/awt/Color.html
-[roi-manager]: https://imagej.nih.gov/ij/developer/api/ij/plugin/frame/RoiManager.html
-[imagestats]: https://imagej.nih.gov/ij/developer/api/ij/process/ImageStatistics.html
-[resultstable]: https://imagej.nih.gov/ij/developer/api/ij/measure/ResultsTable.html
-[duplicator]: https://imagej.nih.gov/ij/developer/api/ij/plugin/Duplicator.html
+[roi-manager]: https://imagej.nih.gov/ij/developer/api/ij/ij/plugin/frame/RoiManager.html
+[imagestats]: https://imagej.nih.gov/ij/developer/api/ij/ij/process/ImageStatistics.html
+[resultstable]: https://imagej.nih.gov/ij/developer/api/ij/ij/measure/ResultsTable.html
+[duplicator]: https://imagej.nih.gov/ij/developer/api/ij/ij/plugin/Duplicator.html
 [scijava-params]: https://imagej.net/Script_Parameters
