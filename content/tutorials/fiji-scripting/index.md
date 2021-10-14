@@ -4,6 +4,7 @@ summary : "This tutorial is an introduction to the scripting interface of the Fi
 authors : [khs]
 categories : ["Image Processing"]
 tags : ["imaging","fiji"]
+date: 2021-10-14T00:00:00-05:00
 
 url_code : /scripts/fiji/fiji-example-scripts.zip
 notes: fiji-scripting
