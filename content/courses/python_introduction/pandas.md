@@ -3,7 +3,7 @@ title: Pandas
 toc: true
 type: book
 draft: false
-weight: 110
+weight: 120
 ---
 
 [Pandas](pandas.pydata.org) is a Python data analysis library.  It was developed to bring a portion of the statistical capabilities of R into Python.  Pandas accomplishes this by introducing the Series and Dataframe objects to represent data, and incorporating Matplotlib and many features of NumPy into these objects to simplify data representation, analysis, and plotting.  Pandas works with the [statsmodel](http://www.statsmodels.org/stable/index.html) and [scikit-learn](https://scikit-learn.org/stable/) packages for data modeling.  Pandas supports data alignment, missing data, pivoting, grouping, merging and joining of datasets, and many other features for data analysis.
@@ -276,14 +276,14 @@ Make a simple bar plot showing hits on the Y axis, year on the X axis. If we are
 ```python
 df.plot.bar(x="Year",y="H")
 ```
-{{< figure src="/courses/python_introduction/pandas_barchart.png" >}}
+{{< figure src="/courses/python_introduction/imgs/pandas_barchart.png" >}}
 
 We can also use Matplotlib directly with our extracted variables.  The figure() method advances to a new plot.
 ```python
 plt.figure()
 plt.bar(year, hits)
 ```
-{{< figure src="/courses/python_introduction/barplot1.png" >}}
+{{< figure src="/courses/python_introduction/imgs/barplot1.png" >}}
 
 Let's add some labels to make this more readable.
 
@@ -293,7 +293,7 @@ plt.ylabel('# of Hits')
 plt.suptitle('Mike Trout Hits per year')
 plt.bar(year, hits)
 ```
-{{< figure src="/courses/python_introduction/barplot2.png" >}}
+{{< figure src="/courses/python_introduction/imgs/barplot2.png" >}}
 
 Turn it into a horizontal barchart and change the color of the bars.
 
@@ -304,7 +304,7 @@ plt.ylabel('Year')
 plt.suptitle('Mike Trout Hits per year')
 plt.barh(year, hits, color='red')
 ```
-{{< figure src="/courses/python_introduction/barplot3.png" >}}
+{{< figure src="/courses/python_introduction/imgs/barplot3.png" >}}
 
 Make a line plot using the .plot() function instead of a barchart.
 
@@ -316,7 +316,7 @@ plt.grid()
 plt.plot(year, hits)
 ```
 
-{{< figure src="/courses/python_introduction/lineplot1.png" >}}
+{{< figure src="/courses/python_introduction/imgs/lineplot1.png" >}}
 
 We can superimpose a line and a bar plot. We will represent 'At Bats' by a red line and 'Hits' by blue bars. 
 
@@ -327,7 +327,7 @@ plt.ylabel('# of Hits')
 plt.plot(year, at_bats, color='red')
 plt.bar(year, hits)
 ```
-{{< figure src="/courses/python_introduction/barline1.png" >}}
+{{< figure src="/courses/python_introduction/imgs/barline1.png" >}}
 
 The y-label we used before is no longer appropriate, so let us add a legend.
 
@@ -338,7 +338,7 @@ plt.plot(year, at_bats, color='red', label='At Bats')
 plt.bar(year, hits, label='Hits')
 plt.legend()        
 ```
-{{< figure src="/courses/python_introduction/plotwithlegend1.png" >}}
+{{< figure src="/courses/python_introduction/imgs/plotwithlegend1.png" >}}
 
 Without an intervening `figure()` method, plots will be stacked.  We can utilize that to stack the bars.  We are also rotating the x-axis tick marks and labels 45 degrees.
 
@@ -353,7 +353,7 @@ plt.xlabel('Year')
 plt.xticks(rotation=45)
 plt.xticks(year)                #shows all years in label
 ```
-{{< figure src="/courses/python_introduction/stackedbar1.png" >}}
+{{< figure src="/courses/python_introduction/imgs/stackedbar1.png" >}}
 
 To make a grouped bar chart, do the same as a stacked bar and move the position of one of the bars as shown below. Notice that for the second bar(), the first argument is 'year+.2'. This shifts the position on the x axis .2 units to the right of the default starting point.
 ```python
@@ -365,7 +365,7 @@ plt.bar(year, hits, width=.2, label='Hits')
 plt.bar(year+.2, home_runs, width=.2, label='Home Runs')
 plt.legend()
 ```
-{{< figure src="/courses/python_introduction/groupedbar1.png" >}}
+{{< figure src="/courses/python_introduction/imgs/groupedbar1.png" >}}
 
 Suppose you are interested in exactly how many hits each bar represents. We can iterate over each bar to label it with the corresponding number.
 
@@ -384,7 +384,7 @@ for bar in plt.bar(year, hits):
              ha='center',
              va='bottom')
 ```
-{{< figure src="/courses/python_introduction/barwithlabels.png" >}}
+{{< figure src="/courses/python_introduction/imgs/barwithlabels.png" >}}
 
 Let's plot how much Mike Trout is paid per home run. 
 
@@ -404,7 +404,7 @@ plt.ylabel('Price')
 plt.suptitle('Mike Trout Yearly Cost Per Home Run')
 plt.bar(year, cost_per_home_run)
 ```
-{{< figure src="/courses/python_introduction/Formatter.png" >}}
+{{< figure src="/courses/python_introduction/imgs/Formatter.png" >}}
 
 Many plotting options can be applied directly to the Dataframe object, without the need to extract the variables. See the documentation for the Pandas [plot method](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html).
 

@@ -73,7 +73,7 @@ f) (More advanced) Convert your file with the functions into a module.  Isolate 
 ## Project 12  
 Find the maximum of a 3d surface by “brute force” evaluation of x, y, z values.
 
-![bruteforce.png](/courses/python_introduction/exercise-bruteforce.png)
+![bruteforce.png](/courses/python_introduction/imgs/exercise-bruteforce.png)
 
 a) Generate a list of N random values for each of x and y over the above range. Use numpy arrays. For testing you can use N=8,000,000.
 

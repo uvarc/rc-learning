@@ -6,8 +6,6 @@ draft: false
 weight: 71
 ---
 
-## File IO
-
 Most of the time we read or write from a file rather than from the console.  File input/output can be complicated in Python and we will later see some built-in means of reading particular types of files, particularly comma-separated-values (CSV) text files.
 
 Before anything can be done with a file we must _open_ it.  This attaches the file name to the program through some form of _file descriptor_, which is like an identifier for the file.  Once opened we do not refer to the file by its name anymore, but only via the ID.
@@ -70,6 +68,20 @@ for line in fin:
 
 When we have completed this loop x will contain the values from the first column and y will contain values from the third column.  In this example we are not interested in the other columns.  We also convert on the fly to float.  This example assumes that our data file has one line of text header, which we use `readline` to skip.
 
+**Example**
+Read the following file and store the values into two lists x and y.  You may choose any name for the file but make the file extension be `.csv`.  Print the values for the 4th row after reading in the data.
+{{< code-snippet >}}
+x,y
+11.3,14.6
+9.2,7.56
+10.9,8.1
+4.8,12.8
+15.7,9.9
+{{< /code-snippet >}}
+Make sure there is no blank line at the beginning of your data file.
+
+{{< code-download file="/courses/python_introduction/scripts/read_file_ex.py" lang="python" >}}
+
 We will not go into much detail about reading files since we will later cover packages that offer more convenient ways to read the most common formats.  
 
 ### Writing Files
@@ -77,7 +89,7 @@ We will not go into much detail about reading files since we will later cover pa
 To write a file it must have been opened appropriately.  We can use print with the addition of a `file=` argument.
 
 ```python
-f=open("myfile")
+f=open("myfile","w")
 print("Format string {:f} {:f}".format(x,y),file=f)
 ```
 
