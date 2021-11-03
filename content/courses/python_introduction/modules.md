@@ -21,7 +21,7 @@ import matplotlib.pyplot
 
 When we import a module we bring in its __namespace__.  A namespace is an environment that holds a group of identifiers, such as variable and function names.  In Python the namespaces take the name of the module in which they are defined.  Namespaces can be renamed when the module is imported, but __not__ afterward.
 
-### Importing Modules
+## Importing Modules
 
 With a simple import statement we must refer to the module's components with its native namespace.
 
@@ -73,7 +73,7 @@ z=np.zeros(200)
 data=pd.read_csv("my_data.txt")
 ```
 
-### Main Modules
+## Main Modules
 
 When you run a script directly through the interpreter, such as by using the Run arrow in Spyder, it is in the "main" namespace.  Your module can also be imported into the interpreter or into another module.  It will still execute everything in the module, including requests for inpout and the like, unless you use the special variables \_\_name\_\_ and \_\_main\_\_ (two underscores on each side).  If you use \_\_main\_\_ you can place all code you want to execute only when run directly after a conditional.  
 
@@ -97,7 +97,7 @@ Example
 {{< code-download file="/courses/python_introduction/scripts/rooter.py" lang="python" >}}
 
 <details>
-<summary>Exercise 22</summary>
+<summary>Exercise 24</summary>
 
 Type in the example.  Save it into a file called `rooter.py`.  Type in and save a file `testmain.py`
 

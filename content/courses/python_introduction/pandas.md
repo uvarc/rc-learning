@@ -14,7 +14,7 @@ import pandas as pd
 ```
 This naming scheme is not required, but it is very common, much like `np` for NumPy.
 
-### Series
+## Series
 
 The Series data structure consists of an index plus data.  It is similar to a dictionary with the differences that 
 
@@ -25,18 +25,7 @@ Series objects are one-dimensional and can contain any type.  The indices are tr
 
 This simple example loads a Series with normally-distributed random numbers, then prints some of them, prints the basic statistics, and creates a line plot.
 
-```python
-import numpy as np
-import matplotlib.pyplot as plt 
-import pandas as pd
-randns=pd.Series(np.random.randn(1000))
-randns.head()
-randns.tail()
-randns.describe()
-randns.plot()
-```
-
-If using Spyder, be sure to print(rands.head()), etc.  
+{{< code-download file="/courses/python_introduction/scripts/pandas_series.py" lang="python" >}}
 
 Series can be sliced
 
@@ -80,7 +69,7 @@ scores.loc['Cubs']
 
 Remember to print if using Spyder, or to run in the interpreter pane.
 
-### Dataframes
+## Dataframes
 
 The most important data structure in Pandas is the _Dataframe_.  It can be conceptualized as a representation of a spreadsheet.  Dataframes are two-dimensional.  Each column has a name, which can be read from the headers of a spreadsheet, rows are numbered, and datatypes may be different in different columns.  Alternatively, a Dataframe may be regarded as a dictionary with values that can be lists, Ndarrays, dictionaries, or Series.
 
@@ -89,8 +78,9 @@ The Dataframe is _mutable_ type.
 We can create a Dataframe by passing a dictionary. Consider a simple grade-book example.
 
 ```python
-grade_book=pd.DataFrame({"Name":["Jim Dandy","Betty Boop","Minnie Moocher","Joe Friday","Teddy Salad"],
-	"Year":[2,4,1,2,3],"Grade":[85.4,91.7,73.2,82.3,98.5]})
+grade_book=pd.DataFrame({"Name":["Jim Dandy","Betty Boop","Minnie Moocher",
+                                 "Joe Friday","Teddy Salad"],
+                         "Year":[2,4,1,2,3],"Grade":[85.4,91.7,73.2,82.3,98.5]})
 
 print(grade_book)
 ```
@@ -119,10 +109,10 @@ grade_book['Name']
 grade_book.Grade.mean()
 ```
 
-Columns can be deleted
+Columns can be deleted. This does not change the original dataframe; it returns a new dataframe.  To overwrite the dataframe, add an option `inplace=True`.
 
 ```python
-grade_book.drop(columns='Year')
+grades_only=grade_book.drop(columns='Year')
 ```
 
 A new column can be appended (the number of rows must be the same)
@@ -172,7 +162,7 @@ If we wished to extract the students whose grade is 90 or above, we could use
 top_students=grade_book.loc[grade_book['Grade']>=90]
 ```
 
-### Reading Files
+## Reading Files
 
 Pandas easily reads files in CSV (comma separated values) format.  The separator does not have to be a comma, but anything else must be specified through the `sep` keyword argument.
 
@@ -207,6 +197,7 @@ Conditionals may be compounded
 ```
 cold_days=wdata[(data.max_temp<=0.) & (data.max_temp>-10.)]
 ```
+The ampersand `&` indicates `and`. Use the pipe symbol `|` for `or`.  The parentheses are generally required when creating a compound conditional.
 
 Groups can be created with `groupby`
 
@@ -248,173 +239,15 @@ new_grades=student_grades.fillna(0.)
 
 Many other options exist.  
 
-### Combining Pandas and Matplotlib
+<details>
+<summary> Exercise 28 </summary>
+Return to the [bodyfat.csv](/data/bodyfat.csv) file from a previous exercise.
+Use Pandas to read the data into a Dataframe.  Use your BMI ufuncs from Exercise
+26 to compute BMI for each row.  Add a new column for BMI.  Plot BMI versus body fat percentage.  Look up the documentation for `pandas.plot.scatter` for this plot.  Does one value seem out of place?
 
-Pandas relies on Matplotlib for plotting.  We can combine them to work seamlessly with data.  Our example will be based on the American baseball player Mike Trout's statistics, through 2019.
-
-To follow along, download the data [file](/data/MikeTroutData.csv).
-
-Start by reading it into a Pandas Dataframe.
-
-```python
-import pandas as pd
-import matplotlib.pyplot as plt  
-import matplotlib.ticker as ticker
-
-#read data from the csv file into a Dataframe object called 'df'
-df = pd.read_csv("MikeTroutData.csv")
-
-#extract columns into variables.
-year = df['Year']
-hits = df['H']
-at_bats = df['AB']
-home_runs = df['HR']
-salary = df['Salary']
-```
-Make a simple bar plot showing hits on the Y axis, year on the X axis. If we are willing to accept all the defaults, all that is necessary is to invoke the Matplotlib bar method directly on a subset of the Dataframe.
-
-```python
-df.plot.bar(x="Year",y="H")
-```
-{{< figure src="/courses/python_introduction/imgs/pandas_barchart.png" >}}
-
-We can also use Matplotlib directly with our extracted variables.  The figure() method advances to a new plot.
-```python
-plt.figure()
-plt.bar(year, hits)
-```
-{{< figure src="/courses/python_introduction/imgs/barplot1.png" >}}
-
-Let's add some labels to make this more readable.
-
-```python
-plt.xlabel('Year')
-plt.ylabel('# of Hits')
-plt.suptitle('Mike Trout Hits per year')
-plt.bar(year, hits)
-```
-{{< figure src="/courses/python_introduction/imgs/barplot2.png" >}}
-
-Turn it into a horizontal barchart and change the color of the bars.
-
-```python
-plt.figure()
-plt.xlabel('# of Hits')
-plt.ylabel('Year')
-plt.suptitle('Mike Trout Hits per year')
-plt.barh(year, hits, color='red')
-```
-{{< figure src="/courses/python_introduction/imgs/barplot3.png" >}}
-
-Make a line plot using the .plot() function instead of a barchart.
-
-```python
-plt.figure()
-plt.xlabel('Year')
-plt.ylabel('# of Hits')
-plt.grid()
-plt.plot(year, hits)
-```
-
-{{< figure src="/courses/python_introduction/imgs/lineplot1.png" >}}
-
-We can superimpose a line and a bar plot. We will represent 'At Bats' by a red line and 'Hits' by blue bars. 
-
-```python
-plt.figure()
-plt.xlabel('Year')
-plt.ylabel('# of Hits')
-plt.plot(year, at_bats, color='red')
-plt.bar(year, hits)
-```
-{{< figure src="/courses/python_introduction/imgs/barline1.png" >}}
-
-The y-label we used before is no longer appropriate, so let us add a legend.
-
-```
-plt.figure()
-plt.xlabel('Year')
-plt.plot(year, at_bats, color='red', label='At Bats')
-plt.bar(year, hits, label='Hits')
-plt.legend()        
-```
-{{< figure src="/courses/python_introduction/imgs/plotwithlegend1.png" >}}
-
-Without an intervening `figure()` method, plots will be stacked.  We can utilize that to stack the bars.  We are also rotating the x-axis tick marks and labels 45 degrees.
-
-```
-plt.figure()
-plt.xlabel('Year')
-plt.bar(year, hits, label='Hits')
-plt.bar(year, home_runs, label='Home Runs')
-plt.legend()
-
-plt.xlabel('Year')
-plt.xticks(rotation=45)
-plt.xticks(year)                #shows all years in label
-```
-{{< figure src="/courses/python_introduction/imgs/stackedbar1.png" >}}
-
-To make a grouped bar chart, do the same as a stacked bar and move the position of one of the bars as shown below. Notice that for the second bar(), the first argument is 'year+.2'. This shifts the position on the x axis .2 units to the right of the default starting point.
-```python
-plt.xlabel('Year')
-plt.xticks(rotation=45)
-plt.xticks(year)                #shows all years in label
-
-plt.bar(year, hits, width=.2, label='Hits')
-plt.bar(year+.2, home_runs, width=.2, label='Home Runs')
-plt.legend()
-```
-{{< figure src="/courses/python_introduction/imgs/groupedbar1.png" >}}
-
-Suppose you are interested in exactly how many hits each bar represents. We can iterate over each bar to label it with the corresponding number.
-
-```
-plt.xlabel('Year')
-plt.xticks(rotation=45)
-plt.xticks(year)                #shows all years in label
-
-plt.ylabel('# of Hits')
-plt.suptitle('Mike Trout Hits per year')
-
-for bar in plt.bar(year, hits):
-    plt.text(bar.get_x() + .4,              #x position of label
-             bar.get_height() - 20,         #y position of label
-             bar.get_height(),              #actual value of label
-             ha='center',
-             va='bottom')
-```
-{{< figure src="/courses/python_introduction/imgs/barwithlabels.png" >}}
-
-Let's plot how much Mike Trout is paid per home run. 
-
-```python
-cost_per_home_run = salary/home_runs
-
-plt.xlabel('Year')
-plt.xticks(rotation=45)
-plt.xticks(year)
-
-#change Y Axis to show dollar amount
-fig, ax = plt.subplots()
-formatter = ticker.FormatStrFormatter('$%1.0f')
-ax.yaxis.set_major_formatter(formatter)
-
-plt.ylabel('Price')
-plt.suptitle('Mike Trout Yearly Cost Per Home Run')
-plt.bar(year, cost_per_home_run)
-```
-{{< figure src="/courses/python_introduction/imgs/Formatter.png" >}}
-
-Many plotting options can be applied directly to the Dataframe object, without the need to extract the variables. See the documentation for the Pandas [plot method](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html).
-
-### Exercise
-
-Download the file [pandas_demo.ipynb](/data/pandas_demo.ipynb) and the data files [eighthr.data](/data/eighthr.data) and [eightr.names](/data/eighthr.names). If you are using Windows, check that it does not append ".txt" to the data files.  You may need to open File Explorer, go to View, and check "File name extensions."  Open the notebook in JupyterLab or Jupyter.  Go through the exercises in each cell.
+One way to remove outliers is to compute the 25% and 75% quantiles, take the difference QIF=quantile(75)-quantile(25), then use 1.5*QIF as the threshold, i.e. anything less than quantile(25)-1.5*QIF or quantile(75)+1.5*QIF is rejected.
 
 ### Resources
-
-The Matplotlib [gallery](https://matplotlib.org/gallery.html) provides many examples, with downloadable source files.  Many of our examples are taken directly from this site.
 
 Many Pandas tutorials are available online. A good starting point is [here](https://pandas.pydata.org/pandas-docs/stable/getting_started/tutorials.html).
 
