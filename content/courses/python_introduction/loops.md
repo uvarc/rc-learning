@@ -14,7 +14,7 @@ _For loops_ execute for a fixed number of iterations.  It is possible to exit ea
 
 _While loops_ do not start with a predetermined number of iterations.  They terminate when some condition becomes False.
 
-### For Loops in iPython
+## For Loops in iPython
 
 ```python
 for item in iterator:
@@ -25,7 +25,7 @@ else:
 
 The `else` clause is executed if the loop completes all iterations and is optional.  The colons are required as indicated.  Code blocks must be indented.  The `item` is a variable which successively takes on the values in the `iterator`.  An iterator is a data structure through which we can step, item by item.  Until we study some more general examples, let's look at the __range__ iterator. 
 
-##### Range
+### Range
 
 The range iterator is used to step over a sequence of numbers.  It takes up to three arguments.
 
@@ -35,6 +35,11 @@ The range iterator is used to step over a sequence of numbers.  It takes up to t
 * `range(10,0,-2)` : 10,8,6,4,2 (note that zero is __not__ included)
 
 The interval is often called a stride.  If it is present the lower bound must also be present even if it is the default, 0.  Otherwise the lower bound may be omitted.  If the stride is omitted it is 1.  The last value is never reached.
+
+In Python 3 the range function returns an iterator object and is not directly accessible.  To see the values, convert it to a list
+```python
+print(list(range(10)))
+```
 
 <details>
 <summary>Exercise 7</summary>
@@ -56,11 +61,16 @@ range(1,0,-2)
 ```
 
 Modify your loop to print the first N integers.  Be sure that N is set to a value before you try to run the loop.
+
 Write a loop that will sum the first N integers.  Hint: you will need a variable called an <em>accumulator</em> whose value is assigned outside the loop to 0.
+
+{{< spoiler text="Example solution" >}}
+{{< code-download file="/courses/python_introduction/solns/exercise7.py" lang="python" >}}
+{{< /spoiler >}}
 
 </details>
 
-##### Enumerate
+### Enumerate
 
 Sometimes we need both the item and its index.  We can use enumerate for this purpose.
 
@@ -85,7 +95,7 @@ else:  #optional
 
 As for the _for_ loop, colons and indentations are required.  The optional _else_ clause is executed if and only if the conditional becomes False, which for a while loop is normal termination.
 
-```python
+{{< code-snippet >}}
 x=-20
 y=-10
 while x<0 and y<0:
@@ -93,12 +103,17 @@ while x<0 and y<0:
     y=y+1
     z=0
 print(x,y,z)
-```
+{{< /code-snippet >}}
 
 <details>
 <summary>Exercise 8</summary>
 <pre>
 Modify each for loop in the previous exercise to use a while loop instead.
+
+{{< spoiler text="Example solution" >}}
+{{< code-download file="/courses/python_introduction/solns/exercise8.py" lang="python" >}}
+{{< /spoiler >}}
+
 </pre>
 </details>
 
@@ -110,7 +125,7 @@ If `break` is executed, any `else` clause will _not_ be executed.
 
 Break can exit only from the loop level in which it occurs.  In Python this is the indentation level.
 
-To skip the rest of the loop instrutions and go to the next cycle, use `continue`. Similarly to `break`, it skips only the rest of the statements at its own level.
+To skip the rest of the loop instructions and go to the next cycle, use `continue`. Similarly to `break`, it skips only the rest of the statements at its own level.
 
 ```python
 x=1.
@@ -122,7 +137,7 @@ while x>0:
     print(x)
 ```
 
-Now we can better understand the purpose of the `else` clause.  It can provide a warning for cases where a loop terminating normally may indicate a failure.  For example, if we were iterating on an algorithm that converges to an answer but may go astray, we can set a limit on the maximum number of iterations. In this example, optimize is a function that we invoke.  It may be in another package or it may be something we wrote.  The variable `f` stands for the function we are optimizing.  Therefore this code fragment is incomplete and cannot be run as is; it is an example of how `else` works.
+Now we can better understand the purpose of the `else` clause.  One application could be to provide a warning for cases where a loop terminating normally may indicate a failure.  For example, if we were iterating on an algorithm that converges to an answer but may go astray, we can set a limit on the maximum number of iterations. In this example, optimize is a function that we invoke.  It may be in another package or it may be something we wrote.  The variable `f` stands for the function we are optimizing.  Therefore this code fragment is incomplete and cannot be run as is; it is an example of how `else` works.
 
 ```python
 max_iter=1000000000
@@ -181,20 +196,53 @@ for i in range(5):
 
 In nested loops, if we need to recompute something we often need to reinitialize a variable.  Examine the difference between
 
-```python
+{{< code-snippet >}}
 s=0.
 for i in range(10):
     for j in range(15):
         s=s+i+j
 print(s)
-```
+{{< /code-snippet >}}
 
 and 
 
-```python
+{{< code-snippet >}}
 for i in range(10):
     s=0 
     for j in range(10):
         s=s+i+j
 print(s)
+{{< /code-snippet >}}
+
+
+## List Comprehensions
+
+A list comprehension collapses a loop over a list and, optionally, an if clause.
+
+```python
+squares=[x**2 for x in range(10)]
 ```
+
+This is equivalent to
+
+```python
+for x in range(10):
+    squares.append(x**2)
+```
+
+With an optional conditional it becomes
+
+```python
+positives=[math.sqrt(x) for x in range(-10,11) if x>0]
+```
+
+This is equivalent to
+
+```python
+for x in range(-10,11):
+    if x>0:
+        positives.append(math.sqrt(x))
+```
+
+List comprehensions are nearly always __much__ faster than the equivalent loop.
+It is good practice to replace a short, simple loop with a comprehension whenever possible.

@@ -38,16 +38,16 @@ except:
 More processing is usually required, of course.
 
 The interpreter provides a large number of built-in exceptions.  (See the documentation for a complete list.)  Some of the more commonly encountered are 
-\_EOFError
-\_IOError
-\_KeyboardInterrupt
-\_IndexError
-IKeyError
-\_NameError
-\_NotImplementedError
-\_TypeError
-\_ValueError
-\*ZeroDivisionError
+* EOFError
+* IOError
+* KeyboardInterrupt
+* IndexError
+* IKeyError
+* NameError
+* NotImplementedError
+* TypeError
+* ValueError
+* ZeroDivisionError
 
 You can provide more than one `except` for the same `try`
 

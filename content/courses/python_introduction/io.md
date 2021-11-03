@@ -45,10 +45,10 @@ print("Your BMI is",w/ht**2)
 ```
 
 <details>
-<summary>Exercise 14</summary>
+<summary>Exercise 15</summary>
 <pre>
 <p>
-Use Spyder to write a <em>complete</em> program to compute BMI from weight and height input from a user.  First request the user's choice of units.  We have not spent much time with strings yet so you may use a digit to indicate the user's choice. Then request weight and height.  Remember that you will need to convert from strings.  Compute the BMI using the appropriate units and print the result to the console.   
+Use Spyder to write a <em>complete</em> program to compute BMI from weight and height input from a user.  First request the user's choice of units.  We have not spent much time with strings yet so you may use a digit to indicate the user's choice, but remember it will still be a string on input. Then request weight and height.  You will need to convert these from strings. Look up the correct conversion factors for Imperial to metric units. Compute the BMI and print the result to the console.   
 </p>
 </pre>
 </p>
@@ -81,7 +81,7 @@ Examples:
 
 Strings are specified with the letter `s`. They do not take a field width but can be adjusted or zero padded by using more advanced operations on the string to be printed.
 
-Integers are specified by `d` (this stands for decimal, as in base-10 number) with an optional field width.  If the field width is wider than the integer, it will be padded with blanks by default.  If it is narrower it will be ignored.  If omitted the intepreter will use the width of the integer.  
+Integers are specified by `d` (this stands for decimal, as in base-10 number) with an optional field width.  If the field width is wider than the integer, it will be padded with blanks by default.  If it is narrower it will be ignored.  If omitted the interpreter will use the width of the integer.  
 
 To pad with zeros, write the zero in front of the width specifier.
 
@@ -112,9 +112,9 @@ Empty curly braces result in default formatting and ordering.  In this situation
 * print("I have {} books to read by {}".format(12,"tomorrow"))
 
 <details>
-<summary>Exercise 15</summary>
+<summary>Exercise 16</summary>
 
-Type at the interpeter 
+Type at the interpreter 
 
 ```python
 import math
@@ -131,7 +131,7 @@ Practice printing math.pi
 
 </details>
 
-Even more sophisticated formatting is possible.  In the above examples, when printing pi the value of `n` had to be 12 or my output would be inconsistent.  In newer Python versions we can make the width a variable.
+Even more sophisticated formatting is possible.  In the above examples, when printing pi the value of `n` had to be 12 or the output would be inconsistent.  In newer Python versions we can make the width a variable.
 
 * print("Pi to {} digits is .{dec}f}".format(math.pi,dec=n))
 
@@ -154,7 +154,7 @@ print(f"Pi to {n//3} places is {math.pi:.{n//3}f}")
 
 In this example, the integer division is required because the result of the expression must be an integer.
 
-If quotation marks are needed inside an f-string (such as for a dictionary key) they must be single quotes.  In addition, the backslash () cannot be a character within an f-string, so if a character such as the newline (\\n) is needed, it must be assigned to a variable.
+If quotation marks are needed inside an f-string (such as for a dictionary key) they must be single quotes.  In addition, the backslash `\` cannot be a character within an f-string, so if a character such as the newline `\n` is needed, it must be assigned to a variable.
 
 ### Resources
 
