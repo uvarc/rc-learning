@@ -96,9 +96,9 @@ print (cv2.__version__)
 
 If the package is installed correctly, the output will show the openCV version number.
 
-# Loading & Saving Images
+# Loading, Displaying and Saving Images
 
-The `imread` function is used to read images from files. Images are represented as a multi-dimensional NumPy arrays. The multi-dimensional propeties are stored in an image's `shape` attribute, e.g no. of rows (height) x no. of columns (width) x no. of channels (depth).
+The `imread` function is used to read images from files. Images are represented as a multi-dimensional NumPy arrays. The multi-dimensional properties are stored in an image's `shape` attribute, e.g no. of rows (height) x no. of columns (width) x no. of channels (depth).
 
 
 ```
@@ -108,24 +108,32 @@ import cv2
 image = cv2.imread("clown.png")
 (h, w, d) = image.shape
 print('width={}, height={}, depth={}'.format(w, h, d))
-
-# display the image to our screen -- we will need to click the window
-# open by OpenCV and press a key on our keyboard to continue execution
-cv2.imshow('Image', image)
-cv2.waitKey(0)
 ```
-
 
 **Output:**
 ```
 width=320, height=200, depth=3
 ```
 
+We can use an openCV function to display the image to our screen. 
+```
+# open with OpenCV and press a key on our keyboard to continue execution
+cv2.imshow('Image', image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
 ![](clown.png)
 
-The `cv2.imshow()` method displays the image on our screen. The `cv2.waitKey()` function waits for a key to be pressed. This is important otherwise our image would display and disappear faster than we’d even see the image.
+The `cv2.imshow()` method displays the image on our screen. The `cv2.waitKey()` function waits for a key to be pressed. This is important otherwise our image would display and disappear faster than we’d even see the image. The call of `destroyAllWindows()` should be placed at the end of any script that uses the `imshow` function.
 
->**Note:** You need to actually click the active window opened by OpenCV and press a key on your keyboard to advance the script. OpenCV cannot monitor your terminal for input so if you a press a key in the terminal OpenCV will not notice.
+>**Note:** Before you run the code through the Spyder IDE, go to `Run` > `Run configuration per file` and select `Execute in dedicated console` first. Then, when you run the code uyou need to actually click the image window opened by OpenCV and press a key on your keyboard to advance the script. OpenCV cannot monitor your terminal for input so if you a press a key in the terminal OpenCV will not notice.  
+
+Alternatively, we can use the `matplotlib` package to display an image.
+
+```
+plt.imshow(cv2.cvtColor(R,cv2.COLOR_BGR2RGB))
+```
 
 We can use the imwrite() function to save images.  For example:
 ```
@@ -151,6 +159,8 @@ red=184, green=35, blue=15
 
 >Note that the channels of an RGB image are stored in Blue, Green, Red order.  
 
+
+
 # Image Slicing and Cropping
 
 It is also very easy to extract a rectangular region of interest from of an image and storing it as a cropped copy. Let's extract the pixels for 60<=x<160 and 320<=y<420 from our original image. The resulting cropped image has a width and height of 100x100 pixels.
@@ -165,34 +175,55 @@ cv2.waitKey(0)
 
 ```
 resized = cv2.resize(image,(500,500))
-cv2.imshow('Resized (fixed)', resized)
-cv2.waitKey(0)
 ```
 
-Note that we're _forcing_ the resized image into a square 200x200 pixel fromat.  To avoid distortion of the resized image, we can calculate the x/y aspect ratio of the original image and use it to calculate the new height based on the oroginal width * aspect ratio (or new width based on original height / aspect ratio). 
+Note that we are _forcing_ the resized image into a square 500x500 pixel format. To avoid distortion of the resized image, we can calculate the width/height aspect ratio of the original image and use it to calculate the new height based on the original width * aspect ratio (or new width based on original height / aspect ratio). 
 
 ```
+# resize width while preserving height proportions
 width = image.shape[0]
 height = image.shape[1]
 aspect = width/height
 new_width = 500
 new_height = int(new_width * aspect)
-resized2 = cv2.resize(image,(new_width,new_height))
-cv2.imshow('Resized (proportional)', resized2)
-cv2.waitKey(0)
+resized2 = cv2.resize(image,(new_width, new_height))
 ```
+
+```
+# display the two resized images
+_,ax = plt.subplots(1,2)
+ax[0].imshow(cv2.cvtColor(resized, cv2.COLOR_BGR2RGB))
+ax[0].axis('off')
+ax[1].imshow(cv2.cvtColor(resized2, cv2.COLOR_BGR2RGB))
+ax[1].axis('off')
+```
+
+
 
 ![](clown-resized.png)
 
 # Splitting and Merging of Color Channels
 
 ```
+# Split color channels
 (B, G, R) = cv2.split(image)
+# create 2x2 grid for displaying images
+_, axarr = plt.subplots(2,2)
+axarr[0,0].imshow(R, cmap='gray')
+axarr[0,0].axis('off')
+axarr[0,0].set_title('red')
 
-cv2.imshow('Red', R)
-cv2.imshow('Green', G)
-cv2.imshow('Blue', B)
-cv2.waitKey(0)
+axarr[0,1].imshow(G, cmap='gray')
+axarr[0,1].axis('off')
+axarr[0,1].set_title('green')
+
+axarr[1,0].imshow(B, cmap='gray')
+axarr[1,0].axis('off')
+axarr[1,0].set_title('blue')
+
+axarr[1,1].imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+axarr[1,1].axis('off')
+axarr[1,1].set_title('RGB')
 ```
 
 ![](clown-split.png)
@@ -201,18 +232,67 @@ Let's take the blue and green channel only and merge them back into a new RGB im
 
 ```
 import numpy as np
-# create blank channel (8-bit) 
 zeros = np.zeros((image.shape[0], image.shape[1]), dtype=np.uint8)
+print (B.shape, zeros.shape)
 merged = cv2.merge([B, G, zeros])
-cv2.imshow("Merged", merged)
-cv2.waitKey(0)
+_,ax = plt.subplots(1,1)
+ax.imshow(cv2.cvtColor(merged, cv2.COLOR_BGR2RGB))
+ax.axis('off')
 ```
 
 ![](clown-merged.png)
 
 ## Exercise 1
 
-# Morphological Filters
+# Filters
+
+## Morphological Filters
+
+## Denoising
+
+OpenCV provide four simple to use denoising tools
+
+1. `cv2.fastNlMeansDenoising()` - works with a single grayscale images
+2. `cv2.fastNlMeansDenoisingColored()` - works with a color image.
+3. `cv2.fastNlMeansDenoisingMulti()` - works with image sequence captured in short period of time (grayscale images)
+4. `cv2.fastNlMeansDenoisingColoredMulti()` - same as above, but for color images.
+
+Common arguments are:
+* `h`: parameter deciding filter strength. Higher h value removes noise better, but removes details of image also. (10 may be a good starting point)
+* `hForColorComponents`: same as h, but for color images only. (normally same as h)
+* `templateWindowSize`: should be odd. (recommended 7)
+* `searchWindowSize`: should be odd. (recommended 21)
+
+Let's try this with a noisy version of the clown image. This is a color RGB image and so we'll try the `cv2.fastNlMeansDenoisingColored()` filter.  This is the noisy input image `clown-noisy.png`.
+
+![](clown-noisy.png)
+
+And here's a simple script to demonstrate how it works.
+
+```
+import numpy as np
+import cv2
+from matplotlib import pyplot as plt
+
+noisy = cv2.imread('clown-noisy.png')
+
+# define denoising parameters
+h = 15  
+hColor = 15
+templateWindowSize = 7
+searchWindowSize = 21
+
+# denoise and save
+denoised = cv2.fastNlMeansDenoisingColored(noisy,None,h,hColor,templateWindowSize,searchWindowSize)
+cv2.imwrite('clown-denoised.png', denoised)
+
+# display
+plt.subplot(121),plt.imshow(cv2.cvtColor(noisy, cv2.COLOR_BGR2RGB), interpolation=None)
+plt.subplot(122),plt.imshow(cv2.cvtColor(denoised, cv2.COLOR_BGR2RGB), interpolation=None)
+plt.show()
+```
+
+![](clown-noisy-denoised.png)
 
 ## Exercise 2
 
