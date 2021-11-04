@@ -61,9 +61,9 @@ Now we will switch to Spyder. Spyder is an Integrated Development Environment, o
 
 ![AnacondaNavigator](/notes/biopython/anaconda-spyder.png)
 
-## Installation of the OpenCV package
+## Installation of OpenCV
 
-It is recommended to install the `opencv-python` package from PyPI using the `pip install` command. Detailed instructions are available [here](https://biopython.org/wiki/Download).
+It is recommended to install the `opencv-python` package from PyPI using the `pip install` command. 
 
 **On your own computer:**
 Start the `Anaconda Prompt` command line tool following the instructions for your operating system.
@@ -73,7 +73,7 @@ Start the `Anaconda Prompt` command line tool following the instructions for you
 
 At the prompt, type the following command and press enter/return:
 ```bash
-pip install opencv-python matplotlib
+pip install opencv-python matplotlib scikit-image pandas
 ```
 This command will install the latest `opencv-python` package version in your current Anaconda Python environment.  The `matplotlib` package is used for plotting and image display. It is part of the Anaconda default packages.
 
@@ -96,7 +96,9 @@ print (cv2.__version__)
 
 If the package is installed correctly, the output will show the openCV version number.
 
-# Loading, Displaying and Saving Images
+# Basic Operations
+
+## Loading Images
 
 The `imread` function is used to read images from files. Images are represented as a multi-dimensional NumPy arrays. The multi-dimensional properties are stored in an image's `shape` attribute, e.g no. of rows (height) x no. of columns (width) x no. of channels (depth).
 
@@ -114,6 +116,8 @@ print('width={}, height={}, depth={}'.format(w, h, d))
 ```
 width=320, height=200, depth=3
 ```
+
+## Displaying Images
 
 We can use an openCV function to display the image to our screen. 
 ```
@@ -135,13 +139,16 @@ Alternatively, we can use the `matplotlib` package to display an image.
 plt.imshow(cv2.cvtColor(R,cv2.COLOR_BGR2RGB))
 ```
 
-We can use the imwrite() function to save images.  For example:
+## Saving Images
+
+We can use the imwrite() function to save images. For example:
+
 ```
 filename = 'clown.png'
 cv2.imwrite(image, filename)
 ```
 
-# Accessing Image Pixels
+## Accessing Image Pixels
 
 Since an image's underlying pixel information is stored in multi-dimensional numpy arrays, we can use common numpy operations to slice and dice image regions, including the images channels.
 
@@ -161,7 +168,7 @@ red=184, green=35, blue=15
 
 
 
-# Image Slicing and Cropping
+## Slicing and Cropping
 
 It is also very easy to extract a rectangular region of interest from of an image and storing it as a cropped copy. Let's extract the pixels for 60<=x<160 and 320<=y<420 from our original image. The resulting cropped image has a width and height of 100x100 pixels.
 
@@ -171,7 +178,7 @@ cv2.imshow('ROI', roi)
 cv2.waitKey(0)
 ````
 
-# Resizing Images
+## Resizing
 
 ```
 resized = cv2.resize(image,(500,500))
@@ -202,7 +209,7 @@ ax[1].axis('off')
 
 ![](clown-resized.png)
 
-# Splitting and Merging of Color Channels
+## Splitting and Merging of Color Channels
 
 ```
 # Split color channels
@@ -242,11 +249,11 @@ ax.axis('off')
 
 ![](clown-merged.png)
 
-## Exercise 1
+# Exercise 1
+
+---
 
 # Filters
-
-## Morphological Filters
 
 ## Denoising
 
@@ -294,16 +301,220 @@ plt.show()
 
 ![](clown-noisy-denoised.png)
 
-## Exercise 2
+## Morphological Filters
 
-# Thresholding & Segmentation
+Morphological filters are used for smoothing or edge detection or extraction of other features. The principal inputs are an image and a structuring element also called a kernel.
 
-## Exercise 3
+The two most basic operations are dilation and erosion on binary images (pixels have value 1 or 0). The kernel slides through the image (as in 2D convolution). 
 
-# Image Quantification
+* During _dilation_, a pixel in the original image (either 1 or 0) will be considered 1 **if at least one pixel** under the kernel is 1. The dilation operation is implemented as  `cv2.dilate(image,kernel,iterations = n)`.
+* During _erosion_, a pixel in the original image (either 1 or 0) will be considered 1 only **if all the pixels** under the kernel is 1, otherwise it is eroded (set to zero). The erosion operation is implemented as  `cv2.erode(image,kernel,iterations = n)`. 
 
-## Exercise 4
+```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+image = cv2.imread('morph-input.png',0)
+# create square shaped 7x7 pixel kernel
+kernel = np.ones((7,7),np.uint8)
+
+# dilate, erode and save results
+dilated = cv2.dilate(image,kernel,iterations = 1)
+eroded = cv2.erode(image,kernel,iterations = 1)
+cv2.imwrite('morph-dilated.png', dilated)
+cv2.imwrite('morph-eroded.png', eroded)
+
+# display results
+_,ax = plt.subplots(1,3)
+ax[0].imshow(image, cmap='gray')
+ax[0].axis('off')
+ax[1].imshow(dilated, cmap='gray')
+ax[1].axis('off')
+ax[2].imshow(eroded, cmap='gray')
+ax[2].axis('off')
+```
+
+Original             | Dilation               | Erosion
+:-------------------:|:----------------------:|:----------------------:
+![](morph-input.png) | ![](morph-dilated.png) | ![](morph-eroded.png) |
+
+Elementary morphological filters may be chained together to define composite operations.
+
+**Opening** is just another name of erosion followed by dilation. It is useful in removing noise. 
+
+```
+opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+```
+
+**Closing** is reverse of opening, i.e. dilation followed by erosion. It is useful in closing small holes inside the foreground objects, or small black points on the object.
+
+```
+closing = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
+```
+
+Original             | Opening               | Closing
+:-------------------:|:----------------------:|:----------------------:
+![](morph-input.png) | ![](morph-opened.png) | ![](morph-closed.png) |
+
+**Morphological Gradients** can be calculated as the difference between dilation and erosion of an image.  It is used to reveal object's edges.
+
+```
+kernel = np.ones((2,2),np.uint8)
+gradient = cv2.morphologyEx(image, cv2.MORPH_GRADIENT, kernel)
+```
+
+Original             | Gradient (edges)
+:-------------------:|:----------------------:
+![](morph-input.png) | ![](morph-gradient.png)
+
+# Exercise 2
+
+--- 
+
+# Segmentation & Quantification
+
+Image Segmentation is the process that groups related pixels to define higher level objects. The following techniques are commonly used to accomplish this task:
+
+1. Thresholding - conversion of input image into binary image
+2. Edge detection - see above
+3. Region based - expand/shrink/merge object boundaries from object seed points
+4. Clustering  - use statistal analysis of proximity to group pixels as objects
+5. Watershed - separates touching objects
+6. Artificial Neural Networks - train object recognition from examples
+
+Let's try to identify and measure the area of the nuclei in this image with fluorescently labeled cells. We will explore the use of morphology filters, thresholding and watershed to accomplish this.
+
+![](fluorescent-cells.png)
+
+## Preprocessing
+
+First, we load the image and extract the blue channel which contains the labeling of the nuclei. Since OpenCV reads RGB images in BGR order, the blue channel is at index position 0 of the third images axis.
+
+```
+import cv2
+
+image = cv2.imread('fluorescent-cells.png')
+nuclei = image[:,:,0] # get blue channel
+```
+
+![](nuclei.png)
+
+To eliminate noise, we apply a Gaussian filter, then apply the Otsu thresholding alogorithm. The thresholding converts the grayscale intensity image into a black and white binary image. White pixels represent nulcei, black pixel represent background. 
+
+```
+# apply Gaussian filter to smoothen image, then apply Otsu threshold
+blurred = cv2.GaussianBlur(nuclei, (3, 3), 0)
+ret, thresh = cv2.threshold(blurred,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+```
+
+Next, we'll apply an opening operation to exclude small non-nuclear particles in the binary image. Furthermore we use scikit's `clear_border()` function to exclude objects (nuclei) touching the edge of the image. 
+
+```
+# fill small holes
+import numpy as np
+from skimage.segmentation import clear_border
+
+kernel = np.ones((3,3),np.uint8)
+opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN,kernel, iterations=7)
+
+# remove image border touching objects
+opening = clear_border(opening)
+```
+
+The resulting image looks like this.
+
+![](nuclei-opening.png)
+
+A tricky issue is that some of the nuclei masks are touching each other.  We need to find a way to break this clumps up. We do this in several steps. First, we will dilate the binary nuclei mask. The black areas in the resulting image represent pixels that certainly do not contain any nuclear components. 
+```
+# sure background area
+sure_bg = cv2.dilate(opening,kernel,iterations=10)
+```
+
+![](nuclei-sure_bg.png)
+
+The nuclei are all fully contained inside the white pixel area. The next step is to find estimates for the center of each nucleus--some of the white regions may contain more than one nucleus and we need to separate the joined ones. We calculate the distance transform to do this.
+
+> The result of the distance transform is a graylevel image that looks similar to the input image, except that the graylevel intensities of points inside foreground regions are changed to show the distance to the closest boundary from each point.
+
+```
+dist_transform = cv2.distanceTransform(opening,cv2.DIST_L2,5)
+ret, sure_fg = cv2.threshold(dist_transform,0.6*dist_transform.max(),255,0)
+```
+
+We can use the intensity peaks in the distance transform map (a grayscale image) as proxies and seeds for the individual nuclei. We isolate the peaks by applying a simple threshold.
+
+```
+# sure_fg is float32, convert to uint8 and find unknown region
+sure_fg = np.uint8(sure_fg)
+unknown = cv2.subtract(sure_bg,sure_fg)
+```
+
+Distance Transform               | Sure Foreground (nuclei seeds)
+:-------------------------------:|:------------------------:
+| ![](nuclei-dist_transform.png) | ![](nuclei-sure_fg.png) |
+
+
+By subtracting the sure foreground regions from the sure background regions we can identify the regions of unknown association, i.e. the pixels that we have not assigned to be either nuclei or background.
+
+Sure Background         | Sure Foreground (nuclei seeds)  | Unknown
+:----------------------:|:-------------------------------:|:-----------------------:
+![](nuclei-sure_bg.png) | ![](nuclei-sure_fg.png)         | ![](nuclei-unknown.png) |
+
+
+## Watershed
+
+Now we can come back to the sure foreground and create markers to label individual nuclei. First, we use OpenCV's `connectedComponents` function to create different color labels for the set of regions in the `sure_fg` image. Then we add 1 to each color value. The pixels that are part of the `unknown` region are set to zero in the `markers` image. This is critical for the next step, the `watershed` function that separates connected nuclei regions based on the set of markers 
+
+```
+# label markers 
+ret, markers = cv2.connectedComponents(sure_fg)
+
+# add one to all labels so that sure background is not 0, but 1
+markers = markers + 1
+
+# mark the region of unknown with zero
+markers[unknown==255] = 0
+markers = cv2.watershed(image,markers)
+```
+
+Lastly, we overlay a yellow outline to the original image for all identified nuclei.
+
+```
+image[markers == -1] = [0,255,255]
+```
+
+The resulting `markers` (pseudo-colored) and input image with segmentation overlay look like this:
+
+Markers                 | Segmentation
+:----------------------:|:-------------------------:
+![](nuclei-markers.png) | ![](image-segmented.png) |
+
+
+## Measure
+
+With the markers in hand, it is very easy to extract pixel and object information for each identified object. We use the `scikit-image` package (`skimage`) for the data extraction and `pandas` for storing the data in csv format.
+
+```
+from skimage import measure, color
+import pandas as pd
+
+# compute image properties and return them as a pandas-compatible table
+p = ['label', 'area', 'equivalent_diameter', 'mean_intensity', 'perimeter']
+props = measure.regionprops_table(markers, nuclei, properties=p)
+df = pd.DataFrame(props)
+
+# print data to screen and save
+print (df)
+df.to_csv('nuclei-data.csv')
+```
+
+# Exercise 3
+
+---
 
 # Resources
 
 * [Introduction to OpenCV](https://docs.opencv.org/master/d1/dfb/intro.html)
+* [OpenCV Python Tutorial](https://opencv24-python-tutorials.readthedocs.io/en/latest/index.html)
