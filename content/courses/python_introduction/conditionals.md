@@ -6,28 +6,17 @@ draft: false
 weight: 40
 ---
 
-Now that we understand the basic types, we can begin to study the fundamental programming constructs that all programs will use.  The two most important of these are _conditionals_ and _loops_.
+Now that we understand the basic data types, we can begin to study the fundamental programming constructs that all programs will use.  The two most important of these are _conditionals_ and _loops_.
 
-## Conditionals
-
-Computer programs really can't do all that many things.  They can
-
-* assign values to variables (memory locations)
-* make decisions based on comparisons
-* repeat a sequence of instructions over and over
-* call subprograms
-
-Decisions (conditionals) are one of these basic constructs.
-
-### Branching
+## Branching
 
 When a program makes a decision, it is said to _branch_.  A program may be regarded as a tree with one root and many branches.  Executing the program causes the branches to be followed in a particular order.
 
-##### Python If/Else
+### Python If/Else
 
 Most languages branch with some variant of 
 
-if (something that evalutes to True or False) do something
+if (something that evaluates to True or False) do something
 else if (comparison) do some other things
 else do some default things
 
@@ -44,7 +33,7 @@ else:
 
 Observe the colons and the indentation.  To terminate the conditional, return to the same indentation level as the initial `if`.
 
-If the "code block" consists of a single statement, it is permissible to write it on the same line as the if or elif
+If the "code block" consists of a single statement, it is permissible to write it on the same line as the `if` or `elif`
 
 ```python
 if x==0: z=0
@@ -102,6 +91,8 @@ over 40 to 45: obese class III
 over 45: obese class IV (morbidly obese)
 
 Using whichever unit system you prefer, write some code to assign the weight and height, compute the number, and determine its classification.  Assign your own weight and height.  Try a few others.  Use an online calculator to check your results.
+
+For Imperial units you may wish to include a conversion from feet+inches to inches, since the formula requires inches only.
 
 </details>
 

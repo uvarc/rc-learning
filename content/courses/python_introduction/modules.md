@@ -21,7 +21,7 @@ import matplotlib.pyplot
 
 When we import a module we bring in its __namespace__.  A namespace is an environment that holds a group of identifiers, such as variable and function names.  In Python the namespaces take the name of the module in which they are defined.  Namespaces can be renamed when the module is imported, but __not__ afterward.
 
-### Importing Modules
+## Importing Modules
 
 With a simple import statement we must refer to the module's components with its native namespace.
 
@@ -70,15 +70,15 @@ imoprt numpy as np
 import pandas as pd
 
 z=np.zeros(200)
-data=pd.read_csv("my_data"file)
+data=pd.read_csv("my_data.txt")
 ```
 
-### Main Modules
+## Main Modules
 
 When you run a script directly through the interpreter, such as by using the Run arrow in Spyder, it is in the "main" namespace.  Your module can also be imported into the interpreter or into another module.  It will still execute everything in the module, including requests for inpout and the like, unless you use the special variables \_\_name\_\_ and \_\_main\_\_ (two underscores on each side).  If you use \_\_main\_\_ you can place all code you want to execute only when run directly after a conditional.  
 
 ```python
-if __name__==__main__:
+if __name__=="__main__":
     do_work
 ```
 
@@ -88,41 +88,16 @@ It is customary to include code for the main namespace into a function named `ma
 def main():
     do_work
 
-if __name__==__main__:
+if __name__=="__main__:"
     main()
 ```
 
 Example
 
-```python
-#from __future__ import print_function, division #Python 2.7
-from math import sqrt
-
-def MySqrt(x):    
-    """Babylonian method."""    
-    my_sqrt=x/2.    
-    tol=1.e-12    
-    while abs(my_sqrt-s0)>tol:        
-        s0=my_sqrt        
-        my_sqrt=0.5*(my_sqrt+x/my_sqrt)    
-    return my_sqrt
-
-def relerr(x1,x2):    
-    return abs((x2-x1)/x2)
-
-def main():
-    print("{:s}{:s}{:s}".format("x".center(20),"sqrt".center(10),"rel_error".rjust(14)))    
-    N=5    
-    for i in range(-N,N+1):        
-        x=10.0**(-i)        
-        print("{:14.3e}{:14.3e}{:15.7e}".format(x,sqrt(x),relerr(MySqrt(x),sqrt(x))))
-
-if __name__==__main__:
-    main()
-```
+{{< code-download file="/courses/python_introduction/scripts/rooter.py" lang="python" >}}
 
 <details>
-<summary>Exercise 22</summary>
+<summary>Exercise 24</summary>
 
 Type in the example.  Save it into a file called `rooter.py`.  Type in and save a file `testmain.py`
 

@@ -3,10 +3,10 @@ title: Project Set 2
 toc: true
 type: book
 draft: false
-weight: 120
+weight: 140
 ---
 
-## Project 9
+### Project 9
 
 **A** Write a program that obtains the sum of the numbers from 1 to some specified positive (>0) integer N. Request the value of N as console input from the user. 
 Write a function to implement the sum.  Be sure it checks for input that is an
@@ -15,11 +15,12 @@ Print the number, its sum as obtained from your work, and the correct answer fro
 
 **B** Modify your program to print a table of the sums of the first M numbers, where now M is read from the user's input.  Check that M is greater than or equal to 1.
 Print a header that indicates the columns are Integer and Sum. Try to line up your output as best you can using f-strings.
-# NumPy
+
+## NumPy
 
 Remember that you need to add the `import numpy` (or commonly used `import numpy as np`) statement in your script before you can use the numpy package.
 
-## Project 10 
+### Project 10 
 Write a Python script that performs the following operations:
  
 a) Create a numpy array, x, of values from -1.0 to 1.0 inclusive, with step sizes of 0.01.  Use numpy.pi (or np.pi) for pi. 
@@ -39,7 +40,7 @@ f) Add a line to accept user input to specify the x start, x end, and stride val
 {{< code-download file="/courses/python_introduction/solns/set2_proj10.py" lang="python" >}}
 {{< /spoiler >}}
 
-## Project 11 
+### Project 11 
 
 You may use your choice of lists or NumPy arrays for this project.
 
@@ -70,10 +71,10 @@ e) (More advanced) Read about exceptions in the Files chapter and add them to yo
 
 f) (More advanced) Convert your file with the functions into a module.  Isolate the calls to input/output, including plotting, by using a main() function.  Add the `if __name__=="__main__"` so that it will not be invoked if you import your module.
 
-## Project 12  
+### Project 12  
 Find the maximum of a 3d surface by “brute force” evaluation of x, y, z values.
 
-![bruteforce.png](/courses/python_introduction/exercise-bruteforce.png)
+![bruteforce.png](/courses/python_introduction/imgs/exercise-bruteforce.png)
 
 a) Generate a list of N random values for each of x and y over the above range. Use numpy arrays. For testing you can use N=8,000,000.
 
@@ -83,7 +84,7 @@ c) Optional: Plot the surface using the matplotlib package (see below).  Be care
 
 d) Optional: Create a module for your z calculating function.  Import that module into a main script.  Use the `if __name__ = "__main__":` code block in your calling script.
 
-## Project 13
+### Project 13
 Write a program that reads the file [bodyfat.csv](/data/bodyfat.csv).  
 
 -  Extract the body fat percentage, weight, and height data from each row (the first, third, and fourth columns).  We do not need the age data for the current project.
@@ -100,10 +101,10 @@ The bodyfat.csv file contains an outlier, probably due to a typo. Add a function
 You may use the `np.percentile(a,m)` function to compute the upper and lower quartiles using the IQR.  See this [example](https://www.dasca.org/world-of-big-data/article/identifying-and-removing-outliers-using-python-packages).  
 Plot the corrected data.
 
-# Pandas 
+## Pandas 
 These are in generally in order of difficulty, from easiest to most difficult. We have not covered all of these items in our lectures. There are many good resources online, e.g. you can Google: "python pandas create new dataframe".
 
-## Project 14
+### Project 14
 Create a new dataframe, with a size of at least 5x3 (5 rows and 3 columns). Populate the dataframe with data of your choice.
 - Begin by importing pandas
 - Create a new column. If your data allows, the column could be a ratio based on existing columns (ex: pay_per_hour = df['price'] / df['time']). Or it could be something unrelated
@@ -116,7 +117,7 @@ Create a new dataframe, with a size of at least 5x3 (5 rows and 3 columns). Popu
 {{< code-download file="/courses/python_introduction/solns/set2_proj14.py" lang="python" >}}
 {{< /spoiler >}}
 
-## Project 15
+### Project 15
 Take the following code block:
 ```
 import pandas
@@ -141,13 +142,13 @@ df2 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
 # Matplotlib
 These examples will be used in conjuction with Pandas, as the two libraries are commonly used together. 
 
-## Project 16
+### Project 16
 Download the file [cigarette-smoking-behaviour-2018-census.csv](/data/cigarette-smoking-behaviour-2018-census.csv), which is about cigarette smoking in New Zealand.
 - Read the file into a pandas dataframe
 - Make a bar plot in Matplotlib of types of cigarette smokers ('Regular Smoker', 'Ex-Smoker', etc.) and their count
 - Because we have a total number of respondents, let's make a new column that is a ratio of # of each category / total number of respondents
  
-## Project 17
+### Project 17
 Download [cville_2017_april.xlsx](/data/cville_2017_april.xlsx), which contains April 2017 weather data for Charlottesville, VA.
 - Read the file into a pandas dataframe
 - Make a line plot of average wind speed for each day
@@ -158,7 +159,7 @@ Download [cville_2017_april.xlsx](/data/cville_2017_april.xlsx), which contains 
 - Make grouped bar chart of minimum and maximum temperatures for each day
 - Plot the number of each weather 'condition'. Plot sunny days, partly cloudy days, and rain days. There are several ways to do this.
 
-## Project 18
+### Project 18
 Take the following code block:
 
 ```
@@ -176,7 +177,3 @@ df2 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
 - Join the two dataframes together using the [merge function](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html)
 - How many people come from each country? (Hint: Don't just count them. Which function allows you to see that easily?)
 - Reshape the data and create a pivot table view of people by country using the [pivot_table function](https://www.geeksforgeeks.org/python-pandas-pivot_table/). Also include the name, age, and salary in the results.
-
-## More Projects
-
-Many example projects available online. A great repository of pandas projects is located [here](https://www.geeksforgeeks.org/pandas-practice-excercises-questions-and-solutions/).

@@ -6,9 +6,9 @@ draft: false
 weight: 50
 ---
 
-The string type is widely used in Python.  A __string__ consists of a sequence of characters, even if the sequence length is 1--Python does not make a distinction between a character and a one-character string.  The string is a compound type and immutable.  The representation of a single character internallly in the computer as a sequence of bits is called the _encoding_.  Individual characters are represented either by the ASCII standard (1 byte per character) or Unicode (2-4 bytes per character).  Strings that are to be treated as Unicode are type `unicode` rather than string, but otherwise behave similarly.  The default encoding may depend on the operating system but in newer Python versions is usually a standard called _utf-8_.  UTF-8 can represent over one hundred thousand characters and can embed different scripts within the same text file.
+The string type is widely used in Python.  A __string__ consists of a sequence of characters, even if the sequence length is 1--Python does not make a distinction between a character and a one-character string.  The string is a compound type and immutable.  The representation of a single character internally in the computer as a sequence of bits is called the _encoding_.  Individual characters are represented either by the ASCII standard (1 byte per character) or Unicode (2-4 bytes per character).  Strings that are to be treated as Unicode are type `unicode` rather than string, but otherwise behave similarly.  The default encoding may depend on the operating system but in newer Python versions is usually a standard called _utf-8_.  UTF-8 can represent over one hundred thousand characters and can embed different scripts within the same text file.
 
-String literals are indicated by double quotes `"a"`.  Unlike some other languages, Python is not too picky about single or double quotes, but double quotes are preferred for multicharacter strings. If a string contains an apostrophe or its own quotes, the surrounding quotes must be of the other type.
+String literals are indicated by double quotes `"a"`.  Unlike some other languages, Python is not too picky about single or double quotes to indicate strings, but double quotes are usually preferred for multicharacter strings. If a string contains an apostrophe or its own quotes, the surrounding quotes must be of the other type.
 
 ```python
 s1="This is a string."
@@ -33,7 +33,7 @@ s="""This string is a
 
 If evaluated as an expression, the string will show the newline.  If the print function is used, it will print exactly as typed.
 
-### String Operators
+## String Operators
 
 Python supplies many string operators and functions.  Among the most commonly used are
 
@@ -74,7 +74,7 @@ z=float(the_answer)
 
 </details>
 
-#### String Comparison Operators
+### String Comparison Operators
 
 String comparisons use the familiar symbols but _lexical_ ordering.  This can result in some surprises if the strings represent numbers.  Never forget that strings are a completely different type from the numbers they may seem to represent!  Equality also requires exact equality, including spaces, matching cases, etc. 
 
@@ -106,7 +106,7 @@ print(number_1 < number_2)
 
 </details>
 
-#### Substrings
+## Substrings
 
 Although a particular string variable is immutable, it is possible to extract substrings from it.
 
@@ -114,7 +114,7 @@ Although a particular string variable is immutable, it is possible to extract su
 sub_string=string[0:3]
 ```
 
-In this context the colon (:) is called the _range operator_.  For all ordered types, Python counts _from zero_.  So the first character is numbered 0, the second is 1, and so forth.  The upper bound is always _exclusive_ in Python. Thus the sub_string consists of characters 0, 1, and 2.
+In this context the colon (:) is called the _range operator_.  For all ordered types, Python counts _from zero_.  So the first character is numbered 0, the second is 1, and so forth.  As we have seen before, the upper bound is always _exclusive_ in Python. Thus the variable `sub_string` consists of characters 0, 1, and 2.
 
 Since strings are immutable we cannot assign values to a substring; that is, they cannot appear on the left-hand sign of an assignment = statement.
 
@@ -136,11 +136,11 @@ print("The value of x is {:f}".format(x))
 
 </details>
 
-### More Advanced String Handling
+## More Advanced String Handling
 
-One of Python's strong points is its ability to do many things well, so both numerical and textual analysis can be done with the same language.  We will look at some of the many ways we can manipulate strings in Python.  It is important to distinguish between string _functions_, which take a string as an argument, e.g. `sfunc(mystring)`, and string _methods_ that follow the string variable, e.g. `mystr.amethod()`.  Both perform operations on the string.  Later, when we have studied classes, we will better understand why the syntax differs.
+One of Python's strong points is its ability to do many things well, so both numerical and textual analysis can be done with the same language.  We will look at some of the many ways we can manipulate strings in Python.  It is important to distinguish between string _functions_, which take a string as an argument, e.g. `sfunc(mystring)`, and string _methods_ that follow the string variable, e.g. `mystr.amethod()`.  Both perform operations on the string.  The [classes](/courses/python_introduction/classes) chapter will make clear why the syntax differs.
 
-#### Categorization
+### Categorization
 
 Several methods are available to determine whether a string represents letters or may be text.  They apply to the entire string.
 
@@ -166,7 +166,7 @@ Several methods are available to determine whether a string represents letters o
   * `swapcase`
     * `mystr.swapcase()`
 
-#### Searching and Tests
+### Searching and Tests
 
 * Find a character or substring.  Returns location of _first_ occurrence only.
   * `find`
@@ -189,7 +189,7 @@ Several methods are available to determine whether a string represents letters o
   * Determines whether a string starts with a particular substring
     * `mystr.startswith(s)`
 
-#### Modifying and Filling
+### Modifying and Filling
 
 * Remove characters from beginning and end (empty parentheses remove spaces and tabs). The angle brackets indicate an option that can be omitted and are not typed out.
   * `mystr.strip(<chars>)`
@@ -208,7 +208,7 @@ Several methods are available to determine whether a string represents letters o
 * Fill spaces with zeros in field of width n (mainly used for numbers)
   * `mystr.zfill(n)`
 
-#### Splitting and Joining
+### Splitting and Joining
 
 * Split on string `s`.  Most usually splits on a character.  Splits on whitespace (spaces and tabs) when the delimiter isn't specified.  Returns a list with the delimiter removed, and each separated string an element of the list.
   * `split(<s>)`
@@ -223,7 +223,7 @@ Several methods are available to determine whether a string represents letters o
     * joins a list with commas between
        * `",".join(strlist)`
 
-#### String Module
+### String Module
 
 All of the string operators and methods are available in the base Python installation.  However, there is a package `string` which contains some useful string literals.
 
