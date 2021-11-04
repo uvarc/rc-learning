@@ -15,7 +15,7 @@ draft: false
 
 From the [OpenCV project documentation](https://docs.opencv.org/master/d1/dfb/intro.html):
 
-> OpenCV (Open Source Computer Vision Library: http://opencv.org) is an open-source library that includes several hundreds of computer vision algorithms. The document describes the so-called OpenCV 2.x API, which is essentially a C++ API, as opposed to the C-based OpenCV 1.x API (C API is deprecated and not tested with "C" compiler since OpenCV 2.4 releases)
+> OpenCV (Open Source Computer Vision Library: http://opencv.org) is an open-source library that includes several hundreds of computer vision algorithms.
 
 This workshop assumes a working knowledge of the Python programming language and basic understanding of image processing concepts.
 
@@ -27,7 +27,7 @@ Introductions to Python can be found [here](/courses/programming_python_scientis
 
 **Python code examples**
 
-The Python scripts and data files for this workshop can be [downloaded from here](data/opencv-workshop.zip). On your computer, unzip the downloaded folder and use it as working directory for this workshop.
+The Python scripts and data files for this workshop can be [downloaded from here](/notes/opencv/data/opencv-examples.zip). On your computer, unzip the downloaded folder and use it as working directory for this workshop.
 
 **Python programming environment**
 
@@ -98,7 +98,7 @@ If the package is installed correctly, the output will show the openCV version n
 
 ## Example scripts and images
 
-Download the example scripts and images from [this link](http://localhost:1313/notes/opencv/data/opencv-examples.zip). Unzip the downloaded file and start your Python IDE, e.g Spyder. Open the `basic.py` file from the unzipped `opencv-examples` folder.
+Download the example scripts and images from [this link](/notes/opencv/data/opencv-examples.zip). Unzip the downloaded file and start your Python IDE, e.g Spyder. Open the `basic.py` file from the unzipped `opencv-examples` folder.
 
 ---
 
@@ -260,7 +260,7 @@ ax.axis('off')
 
 ![](clown-merged.png)
 
-# Exercise
+# Exercises
 
 1. In the clown.png image, inspect the pixel value for x=300, y=25.
 2. Crop the clown.png image to a centered rectangle with half the width and half the height of the original.
@@ -394,7 +394,7 @@ Original             | Gradient (edges)
 :-------------------:|:----------------------:
 ![](morph-input.png) | ![](morph-gradient.png)
 
-# Exercise
+# Exercises
 
 1. Experiment with different kernel sizes an number of iterations. What do you observe?
 
@@ -572,7 +572,7 @@ df.to_csv('nuclei-data.csv')
 ```
 
 
-# Exercise 3
+# Exercises
 
 1. Experiment with different kernel sizes during the preprocessing step.
 2. Experiment with different iteration numbers for the opening and dilation operation. 
