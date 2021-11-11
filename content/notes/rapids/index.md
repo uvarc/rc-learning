@@ -2,7 +2,7 @@
 title: "RAPIDS"
 type: article 
 toc: true
-date: 2020-11-07T00:00:00-05:00
+date: 2021-11-07T00:00:00-05:00
 
 ---
 
@@ -65,8 +65,23 @@ A clone of <https://github.com/rapidsai/notebooks> is located at `/project/apps_
 cp -r /project/apps_data/rapids/notebooks/repos/{cudf,cuml} ~
 ```
 
-We have also prepared a notebook under `/project/apps_data/rapids`. 
+We have also prepared a notebook `cudf.ipynb` under `/project/apps_data/rapids`. 
 
+1. In `cudf.ipynb`, compare the performance of `pandas` and `cudf` starting from `N = 100`. Explore the behavior by varying `N`. Beyond which order of magnitude does `cudf` outperform `pandas`?
+
+1. Which method's relative performance remains fairly constant? In other words, the ratio of the `pandas` execution time to the `cudf` execution time does not change much with respect to `N`.
+
+1. Which method has the highest performance boost using `cudf`?
+
+1. Repeat all of the above for other data types.
+
+1. In `cuml/notebook/kmeans_demo.ipynb`, compare the performance of `scikit-learn` and `cuml` by varying `N`. Beyond which order of magnitude does `cuml` outperform `scikit-learn`?
+
+1. There is a cell that checks the accuracy of `cuml` versus `scikit-learn`. Is this necessary?
+
+1. Feel free to explore other notebooks.
+
+1. General question: Why does the performance of RAPIDS depend on `N`? Why does the CPU API outperform RAPIDS when `N` is not big enough?
 
 # Remark: JupyterLab vs batch job
 
@@ -80,6 +95,8 @@ The following command will convert your notebook `mynotebook.ipynb` into `mynote
 module load anaconda
 jupyter nbconvert --to script mynotebook.ipynb
 ```
+
+You may need to comment out Jupyter magic commands (e.g. `%%time`) before converting.
 
 ## Batch job
 
@@ -103,3 +120,10 @@ singularity run --nv $CONTAINERDIR/rapidsai-x.y.sif mynotebook.py
 ```
 
 Submit the job via `sbatch job.slurm`.
+
+---
+
+# References and further reading
+
+- [Official documentation](https://docs.rapids.ai/)
+- [Workshop: High Performance Programming in Python](/workshops/python-hi-perf/)
