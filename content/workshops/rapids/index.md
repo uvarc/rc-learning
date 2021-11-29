@@ -10,3 +10,6 @@ notes: rapids
 
 ---
 
+Accelerate your data science pipeline with RAPIDS on NVIDIA GPUs.
+
+Prerequisites: Python data science/machine learning experience (especially Pandas and Scikit-Learn).
