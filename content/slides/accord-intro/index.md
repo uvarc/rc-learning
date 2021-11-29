@@ -23,9 +23,9 @@ slides:
 
 ---
 
-![](img/ACCORD_Intro_202110222.jpg)
+### Overview
 
-ACCORD is a web\-accessible secure platform which allows researchers from Virginia public universities to analyze their sensitive data in a central location
+ACCORD is a web-accessible secure platform which allows researchers from Virginia public universities to analyze their sensitive data in a central location
 
 ![](img/ACCORD_Intro_202110225.jpg)
 
@@ -40,7 +40,7 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
       <ul>
       <li>Investigators can have multiple projects</li>
         <ul>
-          <li>Example: One for a grant on kidney research, and another for an RNA-seq study</li>
+          <li>Example: kidney research and an RNA-seq study</li>
         </ul>
       <li>Projects are isolated, you cannot transfer or access data between them</li>
       </ul>
@@ -53,6 +53,7 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
  <div>
     <img src="img/project.jpeg">
  </div>
+
 ---
 
 ### Storage on ACCORD
@@ -61,11 +62,12 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
  <div>
  <ul>
  <br>
-   <li>ACCORD projects come with a default of:</li>
+   <li>ACCORD projects come with:</li>
      <ul>
      <br>
        <li>Home directory of 50GB</li>
-       <li>Project directory of 1TB</li?
+       <li>Project directory of 1TB</li>
+       <li>Additional storage can be purchased. Please submit a request <a href="https://www.rc.virginia.edu/form/accord/">here</a></li>
      </ul>
  </ul>
  </div>
@@ -87,7 +89,8 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
        <li>Business Confidential</li>
        <li>Other types of sensitive data</li>
      </ul>
-   <li>ACCORD _does not_ support:</li>
+     <br>
+   <li>ACCORD <b>does not</b> support:</li>
      <ul>
        <li>Identifiable HIPAA</li>
        <li>CUI</li>
@@ -98,28 +101,36 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
  <div>
     <img src="img/ACCORD_Intro_2021102210.jpg">
     <br>
-    If you have a question about whether your data is suitable for ACCORD, please submit a support ticket <a href="https://www.rc.virginia.edu/form/accord/">here</a>
+    Questions about whether your data is suitable for ACCORD? Submit a support ticket <a href="https://www.rc.virginia.edu/form/accord/">here</a>
  </div>
 
 ---
 
-### Data retention slide
+### Data retention
 
-- How long do we keep data?
+<img src="img/data.jpeg">
+
+- Data is stored on the system for 6 months.
+- To extend your project, please fill out a <a href="https://www.rc.virginia.edu/form/accord/">request</a>
 
 ---
 
-### Globus data transfer slide
+### Globus data transfer
+
+<img src="img/globus.png">
+
+- Data transfer is processed through Research Computing staff for the time being.
+- Please fill out a request <a href="https://www.rc.virginia.edu/form/accord/">here</a> for data transfer
 
 ---
 
 ### Requirements to access ACCORD
 
-- To access ACCORD, you will need the following:
-	- A modern web browser such as Chrome, Firefox, Safari, or Edge.
+- To access ACCORD, you need:
+	- A modern web browser such as Chrome, Firefox, Safari, or Edge
 	- You must be logged into your institution’s VPN
 		- If you have a sponsored account or are a UVA researcher, you will need the HSVPN
-	- Install and register OPSWAT, a posture-checking client.
+	- Install and register OPSWAT, a posture-checking client
 
 ![](img/ACCORD_Intro_2021102211.png)
 
@@ -129,9 +140,9 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
 
 <br>
 
-  * ACCORD can be accessed via:[https://accord\-portal\.uvarc\.io/home](https://accord-portal.uvarc.io/home)
+  * ACCORD can be accessed via:[https://accord.uvarc.io/](https://accord.uvarc.io/)
 <br>
-  * This link can also be found on our website\, along with a User Guide\, FAQs\, and additional documentation:[https://www\.rc\.virginia\.edu/userinfo/accord](https://www.rc.virginia.edu/userinfo/accord)
+  * The ACCORD website has a User Guide, FAQ, and additional documentation:[https://www.rc.virginia.edu/userinfo/accord/overview/](https://www.rc.virginia.edu/userinfo/accord/overview)
 
 ![](img/ACCORD_Intro_202110222.jpg)
 
@@ -145,7 +156,7 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
  </div>
  <div>
     <ul>
-      <li>To access ACCORD, you will need to login through InCommon</li>
+      <li>To access ACCORD, you need to login through InCommon</li>
 <br>
       <li>Select your home institution from the dropdown menu (or UVA if you have a sponsored account)</li>
     </ul>
@@ -161,9 +172,9 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
  </div>
  <div>
     <ul>
-      <li>This will prompt you to login through your home institution’s credentials</li>
+      <li>Login using your home institution’s credentials</li>
 <br>
-      <li>In this example, UVA will ask you to login usingNetBadge. If you're from another institution, this will be different</li>
+      <li>In this example, UVA will ask you to login using NetBadge. If you're from another institution, this will be different</li>
     </ul>
  </div>
 
@@ -171,8 +182,8 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
 
 ### ACCORD dashboard
 
-  * Once you login\, you will see the ACCORD dashboard\.
-  * Your name will appear in the top right corner\, along with any recent or currently running sessions
+  * Once you login, you will see the ACCORD dashboard
+  * Your name will appear in the top right corner, along with any recent or currently running sessions
 
 ![](img/ACCORD_Intro_2021102215.png)
 
@@ -180,8 +191,8 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
 
 ### Start a new session
 
-  * A session is an individual instance running one of the available containers \(RStudio\,JupyterLab\, etc\.\)
-  * To create a new session\, click on the ”Start A New Session” button in the top right
+  * A session is an individual instance running one of the available containers (RStudio, JupyterLab, etc.)
+  * To create a new session, click on the "*Start A New Session*” button in the top right
 
 ![](img/ACCORD_Intro_2021102216.png)
 
@@ -191,8 +202,8 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
 
 ![](img/ACCORD_Intro_2021102217.png)
 
-  * To create a new session\, you will need to select a project\.
-  * Projects are isolated\, so you will only be able to access data you’ve uploaded to the project you’ve selected
+  * To create a new session, you need to select a project
+  * Projects are isolated. You can only access data you’ve uploaded to the project you’ve selected
 
 ---
 
@@ -200,8 +211,8 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
 
 ![](img/ACCORD_Intro_2021102218.png)
 
-  * After selecting a project\, you will select the environment you want to use
-  * To start your new environment\, click on the “Start” button for the environment you want to use
+  * After selecting a project, select the environment you want to use
+  * To start your new environment, click on the “*Start*” button
 
 ---
 
@@ -209,20 +220,9 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
 
 ![](img/ACCORD_Intro_2021102219.png)
 
-  * Once you start your session\, you will be redirected back to the dashboard
-  * You will see your new session in the “Current Sessions” section
-  * __Note:__ Your session could show pending as the system waits for resources to become available
-  * Once you session is ready\, the “Connect” button will appear
-  * Click “Connect” to launch your session\, which will open in a new tab
-
----
-
-### Working in a session
-
-![](img/ACCORD_Intro_2021102220.png)
-
-  * If aJupyterenvironment was selected\, you will be taken to the Notebook interface
-  * Once you’re finished working with a session\, you can close the tab and return to the dashboard
+  * Your new session will be in the “*Current Sessions*” section
+  * __Note:__ Your session may show pending as the system waits for resources to become available
+  * Once you session is ready, click the “*Connect*” button to launch your session
 
 ---
 
@@ -230,8 +230,8 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
 
 ![](img/ACCORD_Intro_2021102221.png)
 
-  * When you’re done working in a session\, __always__ click on the “Stop” button to delete it\. This will free up more resources for the system
-  * If you leave your sessions running\, this could slow down the system and cause long wait times for researchers
+  * When you’re finished working in a session, __always__ click on the “**Stop**” button to delete it. This will free up resources for the system
+  * Failing to delete sessions will slow down the system and create long wait times for researchers
 
 ---
 
@@ -239,16 +239,16 @@ ACCORD is a web\-accessible secure platform which allows researchers from Virgin
 
 ![](img/ACCORD_Intro_2021102222.png)
 
-  * Once you stop a session\, it will be moved into the “Recent Session” section\. You can re\-launch any of these sessions by clicking the “Launch” button
-  * You can also start a new session\. The recent sessions are just a shortcut to save you time
+  * After stopping a session, it will be moved to the “*Recent Sessions*” section
+  * You can re-launch any session by clicking the “*Launch*” button
 
 ---
 
 ### Want to learn more?
 <br>
 
-* The ACCORD website has additional documentation\, FAQs\, and a user guide:
-  * [https://www\.rc\.virginia\.edu/userinfo/accord/overview/](https://www.rc.virginia.edu/userinfo/accord/overview/)
+* The ACCORD website has additional documentation, FAQs, and a user guide:
+  * [https://www.rc.virginia.edu/userinfo/accord/overview/](https://www.rc.virginia.edu/userinfo/accord/overview/)
 * Have issues or questions? Fill out a support ticket <a href="https://www.rc.virginia.edu/form/accord/">here</a>
 
 ![](img/ACCORD_Intro_2021102223.jpg)
