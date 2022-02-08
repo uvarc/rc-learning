@@ -35,11 +35,33 @@ The Anaconda environment from [Anaconda Inc.](https://anaconda.com/) is widely u
 
 **Note: We are using Python 3 for this workshop.**
 
+## Option 1: Using the UVA HPC platform
+
+If you have a Rivanna account, you can work through this tutorial using an [Open OnDemand](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/) Desktop session.
+
+1. Go to https://rivanna-portal.hpc.virginia.edu.
+
+2. Log in with your UVA credentials.
+
+3. Go to `Interactive Apps` > `Desktop`
+
+4. On the next screen, specify resources as shown in this screenshot: 
+
+    ![](ood-resources.png)
+
+    >**Note:** Workshop participants may specify `rivanna-training` in the `Allocation (SUs)` field. Alternatively, you may use any other Rivanna allocation that you are a member of.  
+
+5. Click `Launch` at the bottom of the screen. Your dekstop session will be queued up -- this may take a few minutes until the requested resources become available.
+
+## Option 2 - Use your own computer
+
 1. Visit the [Anaconda download website](https://www.anaconda.com/products/individual#Downloads) and download the installer for Python 3 for your operating system (Windows, Mac OSX, or Linux). We recommend to use the graphical installer for ease of use.
 
 2. Launch the downloaded installer, follow the onscreen prompts and install the Anaconda distribution on your local hard drive.
 
 The [Anaconda Documentation](https://docs.anaconda.com/anaconda/user-guide/getting-started/) provides an introduction to the Ananconda environment and bundled applications. For the purpose of this workshop we focus on the `Anaconda Navigator` and `Spyder`. 
+
+# Using Anaconda
 
 ## Navigator
 
@@ -79,7 +101,7 @@ This command will install the latest `opencv-python` package version in your cur
 
 **On Rivanna (UVA's HPC platform):**
 
-[Rivanna](https://www.rc.virginia.edu/userinfo/rivanna/overview/) offers several Anaconda distributions with different Python versions. Before you use Python you need to load one of the `anaconda` software modules and then run the `pip install` command. 
+[Rivanna](https://www.rc.virginia.edu/userinfo/rivanna/overview/) offers several Anaconda distributions with different Python versions. Before you use Python you need to load one of the **Anaconda** software modules and then run the `pip install` command in a terminal. 
 
 ```bash
 module load anaconda
@@ -87,7 +109,11 @@ pip install --user opencv-python matplotlib scikit-image pandas
 ```
 > **Note:** You have to use the `--user` flag which instructs the interpreter to install the package in your home directory. Alternativley, create your own custom [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) first and run the `pip install opencv-python matplotlib` command in that environment (without the `--user` flag) 
 
-To confirm successful package installation, start the Spyder IDE (see [here](#spyder)). In the `IPython console` pane, type the following command and press `enter/return`:
+To confirm successful package installation, start the **Spyder IDE** by typing the following command in the terminal:
+```bash
+spyder &
+```
+In the **Spyder IDE**, go to the `IPython console` pane, type the following command and press `enter/return`:
 
 ```python:
 import cv2
@@ -98,7 +124,12 @@ If the package is installed correctly, the output will show the openCV version n
 
 ## Example scripts and images
 
-Download the example scripts and images from [this link](/notes/opencv/data/opencv-examples.zip). Unzip the downloaded file and start your Python IDE, e.g Spyder. Open the `basic.py` file from the unzipped `opencv-examples` folder.
+Download the example scripts and images from [this link](/notes/opencv/data/opencv-examples.zip). Unzip the downloaded file and start your Python IDE, e.g Spyder.
+
+If you are on Rivanna, run the following command to copy the examples to your home directory:
+```bash
+cp -R /share/resources/tutorials/opencv-examples ~/
+```
 
 ---
 
@@ -155,7 +186,7 @@ We can use the `imwrite()` function to save images. For example:
 
 ```python:
 filename = 'clown-copy.png'
-cv2.imwrite(image, filename)
+cv2.imwrite(filename, image)
 ```
 
 ## Accessing Image Pixels
