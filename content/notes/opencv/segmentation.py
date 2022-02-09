@@ -48,6 +48,7 @@ markers[unknown==255] = 0
 markers = cv2.watershed(image,markers)
 image[markers == -1] = [0,255,255]
 
+
 # compute image properties and return them as a pandas-compatible table
 p = ['label', 'area', 'equivalent_diameter', 'mean_intensity', 'perimeter']
 props = measure.regionprops_table(markers, nuclei, properties=p)
