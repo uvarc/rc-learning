@@ -228,12 +228,12 @@ Note that we are _forcing_ the resized image into a square 500x500 pixel format.
 
 ```
 # resize width while preserving height proportions
-width = image.shape[0]
-height = image.shape[1]
-aspect = width/height
-new_width = 500
+height = image.shape[0]
+width = image.shape[1]
+aspect = height/width
+new_width = 640
 new_height = int(new_width * aspect)
-resized2 = cv2.resize(image,(new_width, new_height))
+resized2 = cv2.resize(image,(new_width,new_height))
 ```
 
 ```
