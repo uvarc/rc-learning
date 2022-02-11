@@ -1,22 +1,24 @@
 ---
-title: "Project 7"
+title: Project 7
 toc: true
 type: book
-weight: 76
-
-menu:
-    fortran_introduction:
-        parent: Project 7
-        weight: 76
+draft: false
+weight: 220
 ---
 
-Modify your `bird_data` type from [Project 6](/courses/fortran_introduction/project6) to make it a class.  Make all the methods private.  
+1. Write a Fraction class that implements a representation of a fraction, where each instance consists of a numerator and a denominator. Overload addition, subtraction, and multiplication for this class.  Write a method to format each fraction in the form
+```no-highlight
+5/7
+```
+For your first attempt it is not necessary to reduce the fraction, i.e. it is acceptable to have fractions like 6/8. Be sure to check for division by zero in your division procedure.
 
-You may use the same file_utils.f90 and sorters.f90 as before.  
+2. Add a reduce method that finds the [least common multiple](https://en.wikipedia.org/wiki/Least_common_multiple) to obtain the lowest common denominatorand reduce the fraction.
 
-You may find that you need to declare your allocatable bird_list array to be of type `class`.
+3. Set fractions with a denominator of 0 to 0/0 (this is arbitrary).
 
-{{< spoiler text="Sample solution" >}}
-{{< code file="/courses/fortran_introduction/solns/bird_class.f90" lang="fortran" >}}
-{{< code file="/courses/fortran_introduction/solns/bird_obs_class.f90" lang="fortran" >}}
+4. Write a driver to test all your procedures.
+
+{{< spoiler text="Example solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/fractions.f90" lang="fortran" >}}
 {{< /spoiler >}}
+

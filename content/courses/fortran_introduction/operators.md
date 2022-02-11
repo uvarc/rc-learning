@@ -59,13 +59,13 @@ MOD(N,M).  The `mod` intrinsic function returns the remainder of a division.  It
 MODULO(N,M). The `modulo` intrinsic function returns N mod M, which is computed as `N-FLOOR(N/M)*M`. 
 
 Points to note:
-  * MOD and MODULO are NOT THE SAME for negative numbers.
+  * MOD and MODULO are _not the same_ for negative numbers.
   * MOD is most frequently used though MODULO is closer to other languages' `%` operator.  
   * Use for negatives is uncommon in all languages.
 
 `Mod` and `modulo` are defined for negative values and reals, as well as nonnegative integers, but the results, while well-defined mathematically, are not generally what most programmers are expecting.  For this reason they should generally be avoided for arguments other than nonnegative integers.
 
-Example:
+**Example**
 {{< code-download file="/courses/fortran_introduction/codes/testmod.f90" lang="fortran" >}}
 
 ## Expressions
@@ -110,7 +110,7 @@ The new way to cast numbers is via [KIND](/courses/fortran_introduction/primitiv
 
 Logicals cannot be cast to anything, even though they are usually represented internally by integers.
 
-Examples:
+**Examples**
 Explicit casting among numeric types, default kind.
 ```
 R=REAL(I)

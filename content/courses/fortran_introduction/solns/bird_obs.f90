@@ -119,7 +119,7 @@ subroutine read_data(bird_list,filename,years)
      
   do n=1,nbirds
      read(inunit,*) species, obs
-     call constructor(bird_list(n),species,obs,nobs)
+     call constructor(bird_list(n),species,obs)
   end do
 
 end subroutine read_data

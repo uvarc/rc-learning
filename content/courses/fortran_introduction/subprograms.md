@@ -87,7 +87,7 @@ Because functions have a type, they must be _declared_ like a variable in any pr
 
 Subroutines have no return type and cannot be declared.
 
-Example:
+**Example**
 {{< code-download file="/courses/fortran_introduction/codes/subprogs.f90" lang="fortran" >}}
 
 #### Renaming Function Results 
@@ -100,7 +100,7 @@ FUNCTION summit(x,y) RESULT(s)
 This is especially useful for recursive functions; it is required in this case until the F2008 standard, and not all compilers support F2008 in full yet.
 When using RESULT we declare the type of the name of the RESULT rather than the name of the function.  The caller must still declare the function, however (or use an [interface](/courses/fortran_introduction/interfaces).
 
-Example
+**Example**
 ```fortran
 FUNCTION myfunc(param1,param2) RESULT value
 <type>             :: value
@@ -122,3 +122,8 @@ Put the values into an array variable `x`.  Use variables for the starting and e
 Write a function to evaluate f(x) for any given real (scalar) value of x and call it each time through your loop.
 
 Print the values and the corresponding function evaluation to a comma-separated-values (CSV) file.  Use software such as Excel, Python, Matlab, or anything else you know to plot the result.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/func.f90" lang="fortran" >}}
+{{< /spoiler >}}
+

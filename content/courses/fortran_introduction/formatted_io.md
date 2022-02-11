@@ -38,12 +38,15 @@ As usual, they are not case sensitive.
 I  !integer
 F  !real (decimal output)
 E  !real (exponential output)
+ES !like E but use scientific notation.  
 G  !general 
 D  !double precision (prints D rather than E for exponent)
 A  !character (does not require a field width in most cases)
 X  !space
+/  !write an EOL and go to the next line (record) within the format
 ```
 The real descriptors `F`, `E`, `G`, and `D` all work for both single and double precision. `G` allows the compiler to choose whether to use decimal or exponential format.
+The default exponential format writes in machine normalization, with the leading digit between 0 and 1. `ES` causes it to write with the leading digit between 1 and 9, which is what most humans can read most easily.  `ES` ignores `p` on output.
 
 ### Modifiers
 
@@ -51,13 +54,13 @@ Some modifiers can change the appearance of the output.
 ```fortran
 p  !multiply by 10
 kp !multiply by 10k
-/  !write an EOL and go to the next line (record) within the format
 ```
-Applies till the next scale factor is encountered.
+The `p` descriptor applies till the next scale factor is encountered.
+
+Fill an integer field with zeros
 ```fortran
-ES !use scientific notation.  
+I4.4
 ```
-The default exponential format writes in machine normalization, with the leading digit between 0 and 1. `ES` causes it to write with the leading digit between 1 and 9, which is what most humans can read most easily.  Ignores `p` on output.
 
 ## Format Strings
 
@@ -65,8 +68,8 @@ The format string is constructed as a list of how to output the variables.  Unli
 The format string can be placed directly into the `write` statement or it can be in a separate `format` statement. In the `write` it is enclosed in parentheses and quotes.
 For most purposes it is best to put the format string into the write statement.  The format statement is older and will be in old code, but it is usually harder to see what is happening.  It is useful for particularly long strings, however.
 
-# Examples
-```
+**Examples**
+```fortran
 write(*,'(i5,2x,i6)') i1,i2
 write(*,'(i5,a,i6)')) i1,"  ",i2
 write(*,'(a,i4,es15.7)') "row",n,var
@@ -91,7 +94,7 @@ FORMAT is non-executable but can appear anywhere in the source.  It is the only 
 It can still be useful for a particularly complex format (to keep the write statement short and readable) or for formats that are repeated in many write statements.
 The second parameter to the write is then an integer statement label.  The label marks the format statement.
 
-Format Example
+**Example**
 ```fortran
     write(*,100)x,y,z
 100 format(3e15.8)
@@ -99,7 +102,7 @@ Format Example
 
 Traditionally the format is placed immediately below the line which refers to it, or else all format statements are grouped together just before the end statement of their program unit.
 
-# Fortran Non-Advancing IO
+## Fortran Non-Advancing IO
 
 * If we’d like to write to and read from standard input on the same line we can use non-advancing IO:
 ```fortran
@@ -122,9 +125,19 @@ Non-advancing IO _must_ be formatted
      * Scientific notation with 8 decimal places
 Repeat for double precision.
 
+{{< spoiler text="Solution with variable strings." >}}
+{{< code file="courses/fortran_introduction/solns/print_pi.f90" lang="fortran" >}}
+{{< /spoiler >}}
+
+
 2. In an “infinite” while loop:
  Request an integer from the user with non-advancing input/output, e.g.
 ```
 "Please enter an integer:" <then read integer>
 ```
-If the integer is 1, print "zebra".  If it is 2, print "kangaroo".  If it is anything else other than zero, print "not found".  If it is 0, exit the loop.
+If the integer is 1, print "zebra".  If it is 2, print "kangaroo".  If it is anything else other than zero, print "not found".  If it is 0, exit the loop. This requires only a simple change to a previous program.
+
+{{< spoiler text="Solution with variable strings." >}}
+{{< code file="courses/fortran_introduction/solns/non_advance.f90" lang="fortran" >}}
+{{< /spoiler >}}
+

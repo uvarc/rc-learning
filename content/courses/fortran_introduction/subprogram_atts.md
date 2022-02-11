@@ -107,3 +107,8 @@ $$ F_{N}=F_{N-1}+F_{N-2} $$
 1. Write an elemental function that accepts a single parameter as an angle in degrees and converts it to radians.
 
 2. Write a program that computes the radian equivalent of 0 to 90 degrees in increments of 5 degrees.  Print the output.  Do it with a loop, and then by creating a one-dimensional array of angles and passing it to the function.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/deg_rad.f90" lang="fortran" >}}
+{{< /spoiler >}}
+

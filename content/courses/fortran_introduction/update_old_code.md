@@ -38,7 +38,7 @@ Variable names are important–choose variable names that communicate some meani
 We do not use green-and-white striped fanfold paper anymore to separate lines visually.  
 Insert blank lines between logical chunks of code
 
-### Example
+**Example**
 
 **Before**
 The obsolete DATA statement was used to initialize variables.  The old code below is written in Fortran 77, so still used fixed format, but some newer constructs such as END DO were available.

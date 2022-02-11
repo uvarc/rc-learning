@@ -25,7 +25,7 @@ Since Fortran passes _all_ variables by reference, i.e. by passing a pointer, th
   * Only the rank is given, with an appropriate number of colons.
   * Assumed-shape arrays require an interface.
 
-# Examples
+**Examples**
 We will show examples for subroutines but the rules are the same for functions.
 Static:
 ```fortran
@@ -64,7 +64,7 @@ real, dimension(:) :: A   ! in sub
 
 Though the dimensions need not be known for assumed-shape arrays, the rank must match.
 
-Example:
+**Example**
 {{< code-download file="courses/fortran_introduction/codes/pass_arrays.f90" lang="fortran" >}}
 
 ### Allocating Arrays in a Subprogram

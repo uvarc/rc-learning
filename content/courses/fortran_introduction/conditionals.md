@@ -106,7 +106,7 @@ expression that can be evaluated to "value0", "value1", etc.
 Ranges are only applicable for numeric or character expressions.
 `DEFAULT` is for the action, if any, to be taken if the expression does not evaluate to any of the options available.
 
-Example:
+**Example**
 {{< code-download file="/courses/fortran_introduction/codes/selectcase.f90" lang="fortran" >}}
 
 Exercise:

@@ -62,7 +62,7 @@ A contained subprogram can access _all_ the variables in the container except th
 The interface is implicit and should not be made explicit.
 Only one level of nesting is permitted.
 
-Example
+**Example**
 ```
 PROGRAM myprog
 IMPLICIT NONE

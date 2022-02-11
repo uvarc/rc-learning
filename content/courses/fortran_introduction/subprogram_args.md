@@ -19,7 +19,8 @@ INTENT(IN)   ! Changing the variable in the subprogram throws a fatal error
 INTENT(OUT)  ! Not changing the variable in the subprogram throws a fatal error
 INTENT(INOUT)! Indicates that the programmer intends to overwrite the variable
 ```
-Example
+
+**Example**
 ```
 subroutine mysub(x,y,z)
    real, intent(in)    :: x
@@ -83,7 +84,7 @@ dummy=actual
 ```
 where `dummy` is its name in the program unit where it is defined, and the `actual` argument is its name in the calling program unit.
 
-Example:
+**Example**
 ```
 callmysub(aa,bb,w=d)
 ```
@@ -93,7 +94,7 @@ Positional (non-optional) arguments must appear before any optional or keyword a
 
 The PRESENT() intrinsic function tests whether a particular optional argument is present in the argument list of the caller.   If it is not present, defaults can be set or other action taken.
 
-Example:
+**Example**
 ```fortran
 IF (PRESENT(w)) THEN
    dd=w
@@ -118,7 +119,8 @@ end subroutine
 ## Passing a Subprogram Name
 
 The name of a subprogram can be passed to another subprogram.
-Example: a numerical-integration subroutine needs the function to be integrated.
+**Example**
+a numerical-integration subroutine needs the function to be integrated.
 ```
 subroutine trap(f,a,b)
 ```
@@ -126,3 +128,16 @@ where f is a function.
 
 The unit in which the subprogram receiving the name is called must have an interface for the subprogram to be passed.
 
+
+**Exercise**
+
+Write a program for comparing Euclidean distances.  The program should implement a function that takes the coordinates of two points and returns their distance.  Implement a subroutine that invokes this function for three points to determine which of the first two is closer.  Use interfaces.
+Each calling unit must have an interface for every subprogram it calls. 
+
+Use intent and implicit none.  Remember that implicit none must be declared in each unit.
+You may use arrays to represent the points.
+
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/euclid.f90" lang="fortran" >}}
+{{< /spoiler >}}

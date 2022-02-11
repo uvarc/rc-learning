@@ -104,18 +104,24 @@ end program
 **Exercise**
 * Write a program that will set variables as indicated and will print the expressions indicated.  Use `print *` as shown above to print to the console. Invoke 
 `implicit none` and declare all your variables.
-```
+```fortran
 x=17.
 Xs=11.
 num_1=10
 num_2=14
-print *, x
-print *,Xs/x
-print *,int(Xs/x)
-print *,int(Xs)/int(x)
-print *,Xs/x + x
-print *,Xs/(x+x)
-print *, x/num_1
-print *, num_1/num_2
-print *, num_2/num_1
+! Print the following expressions (remove comment marker)
+!x
+!Xs/x
+!int(Xs/x)
+!int(Xs)/int(x)
+!Xs/x + x
+!Xs/(x+x)
+!x/num_1
+!num_1/num_2
+!num_2/num_1
 ```
+
+{{< spoiler text="Example Solution" >}}
+{{< code file="courses/fortran_introduction/solns/statements.f90" lang="fortran" >}}
+{{< /spoiler >}}
+

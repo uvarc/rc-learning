@@ -71,12 +71,12 @@ But billy%my_int does not refer back to the parent, since that variable occurs o
 When a class is extended, not only the components but the procedures are inherited.
 {{< code-download file="/courses/fortran_introduction/codes/clinherit.f90" lang="fortran" >}}
 
-# Exercise
+**Exercise**
 
 * Write a class Atom that contains the following attributes:
   * Element symbol
   * Element name
-  * Atomic mass
+  * Isotopic mass (mass of a single isotope, not the "atomic weight" averaged over a mix of isotopes)
   * Atomic number
 * The method should be
   * Compute and return the number of neutrons from the mass and number (n=mass-number)

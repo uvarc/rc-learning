@@ -17,7 +17,7 @@ When the executable is created any external libraries must also be linked.
 The compiler will search a standard path for libraries.  On Unix this is typically `/usr/lib`, `/usr/lib64`, `/usr/local/lib`, `/lib`.
 If you need libraries in other locations, you must give the compiler the path. `-L` followed by a path works, then each library must be named with the pattern `libfoo.a` or `libfoo.so` and be referenced `-lfoo`.
 
-Example:
+**Example**
 ```
 gfortran –o mycode –L/usr/lib64/foo/lib mymain.o mysub.o -lfoo
 ```
@@ -26,7 +26,7 @@ A library ending in `.a` is _static_.  Its machine-language code will be physica
 
 Many libraries require _include files_, also called _header_ files.  These must be incorporated at compile time.  As for libraries, there is a standard system search path and if the headers are not located in one of those directories, the user must provide the path to the compiler with the `-I` flag.
 
-Example:
+**Example**
 ```
 gfortran –c –I/usr/lib64/foo/include mymain.f90
 ```

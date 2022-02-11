@@ -61,10 +61,4 @@ INTERFACE
     declarations
   end subroutine
 END INTERFACE
-
-# Exercise
-
-Correct your previous exercise with Euclidean distance function and subroutine to use an interface.  Each calling unit must have an interface for every subprogram it calls.
-
-The interface _replaces_ declarations of the type of the function name.
-
+```

@@ -57,7 +57,7 @@ For Unix compilers the `-c` option suppresses linking.  The compiler must then b
 The linker option `-o` is used to name the binary something other than `a.out`.
 Unix and MacOS do not care about file extensions, but Windows will expect an executable to end in `.exe`.
 
-Example:
+**Example**
 ```
 gfortran -c mycode.f90
 gfortran -c mysub.f90
