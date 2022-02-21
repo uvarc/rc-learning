@@ -14,15 +14,19 @@ In this workshop you will learn how to build Docker containers and run them on R
 
 2. Install Docker
 
-    To follow along on your own computer, please make sure to install Docker Desktop and register for a free account on Docker Hub. Both can be found [here](https://www.docker.com/get-started).
-    - Windows: Choose the default "Docker Desktop for Windows" or the WSL 2 backend. (If you don't know what the latter option means, don't worry about it.) https://docs.docker.com/docker-for-windows/install/
-    - Mac: This should be straightforward. https://docs.docker.com/docker-for-mac/install/
+    To follow along on your own computer, please install Docker Desktop and register for a free account on Docker Hub. Both can be found [here](https://www.docker.com/get-started).
+    - Windows: https://docs.docker.com/docker-for-windows/install/
+    - Mac: https://docs.docker.com/docker-for-mac/install/
     - Linux: Install "Docker Engine" https://docs.docker.com/engine/
       Depending on your distro, you may be able to install it from the package manager.
 
     After the installation, open a terminal ("cmd" on Windows) and make sure you can execute the command `docker run hello-world` successfully.
 
 ---
+
+# Introduction to Containers
+
+<https://www.docker.com/resources/what-container>
 
 # Building Containers
 
