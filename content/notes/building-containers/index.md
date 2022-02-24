@@ -22,6 +22,8 @@ In this workshop you will learn how to build Docker containers and run them on R
 
     After the installation, open a terminal ("cmd" on Windows) and make sure you can execute the command `docker run hello-world` successfully.
 
+3. Set `BUILDKIT_PROGRESS=plain` for plain output (or remember to run `docker build --progress=plain ...`).
+
 ---
 
 # Introduction to Containers
@@ -117,7 +119,7 @@ But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't see
     - Use `--rm` to remove container after it exits
     - Use `-it` for interactive processes (e.g. shell)
 - Problems:
-    - User needs to know path to binary
+    - User needs to know path to executable
     - User just wants to run "lolcow"
 
 ### Use `ENV` to set environment variable
@@ -238,7 +240,7 @@ ENTRYPOINT fortune | cowsay | lolcat
 ```
 
 - You may need to specify extra packages
-    - `fortune` itself provides the binary without the message database
+    - `fortune` itself provides the executable without the message database
     - `fortunes-min` contains the message database
 - See [how Ubuntu reduced image size by 60%](https://ubuntu.com/blog/we-reduced-our-docker-images-by-60-with-no-install-recommends)
 
@@ -246,8 +248,8 @@ ENTRYPOINT fortune | cowsay | lolcat
 
 For installation of common packages, you may consider Alpine.
 
-    - BusyBox + package manager + musl libc (beware of compatibility issues)
-    - [Presentation](https://youtu.be/sIG2P9k6EjA) on Alpine Linux from DockerCon EU 17 
+- BusyBox + package manager + musl libc (beware of compatibility issues)
+- [Presentation](https://youtu.be/sIG2P9k6EjA) on Alpine Linux from DockerCon EU 17 
 
 Look for `slim` variants (e.g. `debian:buster-slim`) of a base image, if any.
 
@@ -260,7 +262,7 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
 ENTRYPOINT fortune | cowsay | lolcat
 ```
 
-Note: An `ENV` statement is not here because the binaries are installed under `/usr/bin`.
+Note: An `ENV` statement is not here because the executables are installed under `/usr/bin`.
 
 ### Image size comparison
 
@@ -414,7 +416,7 @@ GPU: `singularity run --nv <SIF>` (later)
 ./lolcow_latest.sif
 ```
 
-Treat container like a binary:
+Treat container like an executable:
 
 ```bash
 singularity pull lolcow docker://<user>/lolcow
@@ -464,7 +466,7 @@ singularity run|shell|exec -B <host_path>[:<container_path>] <SIF>
 
 ## Exercises
 
-1. For each of the 3 binaries `fortune`, `cowsay`, `lolcat`, run `which` both inside and outside the container.
+1. For each of the 3 executables `fortune`, `cowsay`, `lolcat`, run `which` both inside and outside the container.
 1. a) Run `ls -l` for your home directory both inside and outside the container. Verify that you get the same result. b) To disable all bind mounting, use `run|shell|exec -c`. Verify that `$HOME` is now empty.
 1. View the content of `/etc/os-release` both inside and outside the container. Are they the same or different? Why?
 1. (Advanced) Let's see if we can run the host `gcc` inside the lolcow container. First load the module: `module load gcc`
