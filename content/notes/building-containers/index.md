@@ -93,7 +93,7 @@ RUN apt-get update
 RUN apt-get install fortune cowsay lolcat
 ```
 
-This time it still failed due to the prompt for installation. To disable the prompt, add `-y`.
+This time it still failed due to the prompt for confirmation. To pass "yes" automatically, add `-y`.
 
 ```dockerfile
 FROM ubuntu:16.04
@@ -124,7 +124,7 @@ But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't see
 
 ### Use `ENV` to set environment variable
 
-This is equivalent to `export PATH=/usr/games:${PATH}` which is preserved at runtime. By doing so we can execute `fortune`, `cowsay`, and `lolcat` directly without specifying the full path.
+This is equivalent to `export PATH=/usr/games:${PATH}` but it is preserved at runtime. In doing so we can execute `fortune`, `cowsay`, and `lolcat` directly without specifying the full path.
 
 ```dockerfile
 FROM ubuntu:16.04
@@ -152,7 +152,7 @@ Finally, we can simply run `docker run --rm -it <img>` to get the desired behavi
 
 ## 4 Best Practices
 
-While our container is functional, there is a lot of room for improvement. We shall take a look at some important best practices for writing Dockerfiles.
+While our container is functional, there is a lot of room for improvement. We shall look at some important best practices for writing Dockerfiles.
 
 ### 0. Package manager cache busting
 
@@ -176,7 +176,7 @@ ENTRYPOINT fortune | cowsay | lolcat
 
 ### 1. Clean up
 
-Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache, but in another `RUN` statement.
+Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache in a separate `RUN` statement.
 
 ```dockerfile
 FROM ubuntu:16.04
@@ -197,12 +197,12 @@ docker images | grep lolcow
 
 You should see that there is no difference in the image size. Why?
 
-- Each statement creates an image layer
-- If you try to remove a file from a previous layer, Docker will make a "whiteout" so that you can't see it, but the file is still there
-- The file can be retrieved
-- Not just a size issue but also a security pitfall
+- Each statement creates an image layer.
+- If you try to remove a file from a previous layer, Docker will make a "whiteout" so that you can't see it, but the file is still there.
+- The file can be retrieved.
+- This is not just a size issue but also a security pitfall.
 
-**Very important!** You must remove files in the same `RUN` statement.
+**Very important!** You must remove files in the same `RUN` statement as they are added.
 
 ```dockerfile
 FROM ubuntu:16.04
@@ -262,7 +262,7 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
 ENTRYPOINT fortune | cowsay | lolcat
 ```
 
-Note: An `ENV` statement is not here because the executables are installed under `/usr/bin`.
+Note: An `ENV` statement is not needed here because the executables are installed under `/usr/bin`.
 
 ### Image size comparison
 
@@ -477,19 +477,19 @@ singularity run|shell|exec -B <host_path>[:<container_path>] <SIF>
 
 ---
 
-## TensorFlow on GPU through SLURM
+## TensorFlow on GPU through Slurm
 
 - Computationally intensive tasks must be performed on compute nodes
-- Job submission to Simple Linux Utility Resource Manger (SLURM)
+- Job submission to Slurm
 
 Copy these files:
 
 ```bash
 cp /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.slurm .
 cp /share/resources/tutorials/singularity_ws/mnist_example.{ipynb,py} .
-```
 
-Examine SLURM script:
+
+Examine Slurm script:
 
 ```bash
 #!/bin/bash
