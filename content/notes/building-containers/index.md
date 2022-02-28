@@ -268,11 +268,11 @@ Note: An `ENV` statement is not needed here because the executables are installe
 
 ```bash
 $ docker images | grep lolcow | sort -nk 2 | awk '{print $1, $2, $NF}'
-<user>/lolcow    0      233MB
-<user>/lolcow    0.5    233MB
-<user>/lolcow    1      206MB
-<user>/lolcow    2      188MB
-<user>/lolcow    3      43.3MB
+<user>/lolcow    0      242MB
+<user>/lolcow    0.5    242MB
+<user>/lolcow    1      211MB
+<user>/lolcow    2      193MB
+<user>/lolcow    3       43MB
 ```
 
 <style scoped>table { font-size: 65%; }</style>
@@ -280,11 +280,11 @@ $ docker images | grep lolcow | sort -nk 2 | awk '{print $1, $2, $NF}'
 | Version | Description | Reduction (MB) | % |
 |---|---|---:|---:|
 |0  |(Basis of comparison) | - | - |
-|0.5|Clean up in separate `RUN`  | 0 | 0.0 |
-|1  |Clean up in same `RUN`      |27 | 11.6 |
-|-  |Install only what's needed  |18 | 7.7 |
-|2  |Combination of previous two |45 | 19.3 |
-|3  |Alpine base image           |190| 81.5 |
+|0.5|Clean up in separate `RUN`  | 0 | 0 |
+|1  |Clean up in same `RUN`      |31 | 13 |
+|-  |Install only what's needed  |18 | 7 |
+|2  |Combination of previous two |49 | 20 |
+|3  |Alpine base image           |199| 82 |
 
 Reference: [_Best practices for writing Dockerfiles_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
