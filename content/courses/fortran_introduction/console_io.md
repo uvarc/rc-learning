@@ -61,12 +61,11 @@ The PRINT statement always writes to the console (standard output for Unix).  Th
 PRINT *, var1,var2,var3
 ```
 
-In Fortran the PRINT statement always writes an end-of-line marker after all variables have been output.  The WRITE statement does as well, unless told otherwise. This is the _opposite_ of write in most other languages.
+In Fortran the PRINT statement always writes an end-of-line marker after all variables have been output.  The WRITE statement does as well, unless told otherwise. This is the _opposite_ of the behavior of `write` in most other languages.
 
-Example:
+**Example**
 
 {{< code file="/courses/fortran_introduction/codes/consoleio.f90" lang="fortran" >}}
-
 
 ## Reading from the Command Line
 
@@ -97,8 +96,12 @@ Request an integer from the user with non-advancing input/output, e.g.
 “Please enter an integer:” <then read integer>
 If the integer is 1, print “zebra”.  If it is 2, print “kangaroo”.  If it is anything else except for zero, print “not found”.  If it is 0, exit the loop.
 
-2. Write a program that takes a string as the command-line argument.  Print the
-string to standard output.  Use `trim` or any other string operators or function
-s to make the output neat.  If you read a string from the command line you do no
-t have to do any conversion of the variable.
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/console_io.f90" lang="fortran" >}}
+{{< /spoiler >}}
 
+2. Write a program that takes a string as the command-line argument.  Print the string to standard output.  Use `trim` or any other string operators or function s to make the output neat.  If you read a string from the command line you do not have to do any conversion of the variable.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/command_line.f90" lang="fortran" >}}
+{{< /spoiler >}}

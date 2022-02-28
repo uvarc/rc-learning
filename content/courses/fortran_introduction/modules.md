@@ -64,7 +64,7 @@ Using PRIVATE or PUBLIC as a separate statement without a list sets or resets th
 
 We will discuss PUBLIC and PRIVATE in more detail when we cover [classes](/courses/fortran_introduction/more_classes).
 
-Example:
+**Example**
 ```
 MODULE mymod
 USE precisions
@@ -82,7 +82,7 @@ The FUNCTION or SUBROUTINE keywords after END are _not_ optional, e.g. END SUBRO
 
 All subprograms in a module have an __implicit interface__.  You should *not* write an explicit interface for them, and in fact it’s illegal to do so.
 
-Example
+**Example**
 
 {{< code file="/courses/fortran_introduction/codes/module.f90" lang="fortran" >}}
 

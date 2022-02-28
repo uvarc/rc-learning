@@ -72,7 +72,7 @@ real           :: raise
 
 ## Arrays and Types
 
-Types may contain arrays and from F2003 onward, those arrays may be allocatable. At the time of this writing, very few compilers do not support this standard but if one is encountered, the POINTER attribute must be used.  We will not discuss POINTER further but it may be seen in code written before F2003 compilers were widely available.
+Types may contain arrays and from F2003 onward, those arrays may be allocatable. Very few compilers do not support this standard but if one is encountered, the POINTER attribute must be used.  We will not discuss POINTER further but it may be seen in code written before F2003 compilers were widely available.
 
 In Fortran, the array data structure is a _container_ and the elements of an array may be derived types.  
 ```fortran
@@ -86,10 +86,12 @@ allocate(employees(num_employees))
 
 ## Arrays and Modules
 
-We nearly  always  put derived  types  into modules; the module will  define procedures that operate on the type. The module must _not_ have the same name as the derived  type, which can be somewhat inconvenient.  Call your module bird_dat.
+We nearly  always  put derived  types  into modules; the module will  define procedures that operate on the type. The module must _not_ have the same name as the derived  type, which can be somewhat inconvenient. 
+
+A derived type may need to be initialized explicitly.
 For example, if you need to allocate memory, say for an allocatable array, to create a variable of a given type, this will _not_ happen automatically. You must write a _constructor_ to allocate the memory.
 ```
-Example:
+**Example**
 This type is a set of observations for birds denoted by their common name.
 ```fortran
 TYPE bird_data
@@ -108,7 +110,7 @@ END TYPE
 
    CONTAINS
 
-   SUBROUTINE init_bird(bird,species,obs)
+   SUBROUTINE constructor(bird,species,obs)
       TYPE(bird_data),       INTENT(INOUT) :: bird
       CHARACTER(LEN=50),     INTENT(IN)    :: species
       INTEGER, DIMENSION(:), INTENT(IN)    :: obs
@@ -121,14 +123,18 @@ END MODULE
 ```
 It is important to understand that the `species` that is a member of the type is _not_ the same as the `species` that is passed in to `init_bird`.  In Fortran we can easily distinguish them since we _must_ use the instance variable, `bird` in this case, as a prefix; not all languages require that.  In C++ we would need to use `this->species` (`this` is the "invisible" instance variable in that language) if an attibute has the same name as a dummy parameter.
 
-**Exercises**
+**Exercise**
 
-1. Consider how you might create a "dataframe" type in Fortran.  One way to do this is to remember that a type may contain other types, so you could first define a "column" type.  This would be similar to the approach by the Pandas package for Python, in which a dataframe is a composite of "Series" objects.  You may assume that you will be writing this for a program that will use the same data layout (number of columns, datatype in each column, etc.) but for different data values and different lengths.
-
-2. Write a main program to use the bird_dat module.  Assume you will read the bird data from a CSV (comma-separated values) file with each row consisting of a string for the species and then 10 numbers for observations over 10 years.  Create a file 
+Write a main program to use the bird_dat module.  Assume you will read the bird data from a CSV (comma-separated values) file with each row consisting of a string for the species and then 10 numbers for observations over 10 years.  Create a file 
 ```
+"Species",2000,2001,2002,2003,2004,2005,2006,2007,2008,2009
 "BlueJay", 24, 23, 27, 19, 22, 26, 28, 27, 24, 30
 "Cardinal", 11, 15, 18, 18, 19, 17, 20, 21, 20, 19
 ```
 Use this file to test your program.
+
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/bird_reader.f90" lang="fortran" >}}
+{{< /spoiler >}}
 

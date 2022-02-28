@@ -2,21 +2,15 @@
 title: "Project 3"
 toc: true
 type: book
-weight: 54
-
-menu:
-    fortran_introduction:
-        parent: Project 3
-        weight: 54
+weight: 56
 ---
 
-Download the [cpi.csv](/data/cpi.csv) file. Write a program to read this file 
-and compute the inflation rate.
-Do not assume you know in advance how many lines the file contains.  Note that the first line of the file is a header.
-The derivative of the CPI will give us a crude estimate of the inflation rate. The CPI data provided is annual so let us use the formula
-$$ I=CPI(yr+1)-CPI(yr)/12.$$
-Notice that you always have one less year of inflation than of CPIs.  Compute the inflation array and write it to a file `inflation.csv`.  Plot the CPI and the inflation using anything you know (Excel, Python, Matlab, etc.).
+Using the [cpi.csv](/data/cpi.csv) data, write a program that will read from the command line the name of a file. Read this file into your program.  Request from the user a year (use non-advancing IO). Do not assume you know in advance how many lines the file contains. Check that you have enough command line input. Stop with a message if you don’t have enough command line values. Use the inquire statement to check that the file exists before you attempt to open it. You can add a message to stop, e.g. stop “Invalid file”.  Test that the file can be opened as part of your open statement.
+
+The ratio of any two years is an estimate of the change in the cost of living.  Compute the change in the cost of living from the year you specify to 2020. Print it out neatly with some informative text. Do not print more than 2 decimal pla
+
+In 1954 a color television cost $1295. From your result how much would that be in 2020 dollars?
 
 {{< spoiler text="Sample solution" >}}
-{{< code file="/courses/fortran_introduction/solns/inflation.f90" lang="fortran" >}}
+{{< code file="/courses/fortran_introduction/solns/cpi.f90" lang="fortran" >}}
 {{< /spoiler >}}

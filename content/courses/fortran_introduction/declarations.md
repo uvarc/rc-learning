@@ -81,7 +81,7 @@ IMPLICIT NONE
 ```
 negates implicit typing.  It must be the first line after a unit declaration unless a [USE](/courses/fortran_introduction/modules) is present.
 
-Example:
+**Example**
 ```fortran
 PROGRAM simple
 IMPLICIT NONE
@@ -112,7 +112,7 @@ In Fortran 2003 it became possible to initialize using intrinsic functions:
 real  :: pi = 4.0*atan(1.0)
 ```
 
-Example:
+**Example**
 
 Start your choice of IDE or editor.  Type
 ```fortran

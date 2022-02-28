@@ -45,7 +45,7 @@ The _implied do_ is used in a few circumstances, specifically input/output and a
 ```
 The parentheses are required.
 
-Example:
+**Example**
 ```fortran
 (a(i),i=1,20)
 ```
@@ -65,7 +65,7 @@ DO WHILE (<logical expression>)
 END DO
 ```
 
-# Example
+**Example**
 {{< code-download file="/courses/fortran_introduction/codes/while_demo.f90" lang="fortran" >}}
 
 ## Exiting Early and Skipping Statements
@@ -92,7 +92,7 @@ The standard `DO` and `WHILE` loops test at the _top_.  That is, upon entry to t
 With the ability to break out of the loop at will, we can change this pattern.
 One particularly common pattern is called `repeat until`.
 
-``fortran
+```fortran
 do
    statement
    statement
@@ -117,12 +117,16 @@ Reading a file of unknown length.  This is _not_ how we usually read a file, sin
 
 1 Loop from 0 to 20 by increments of 2.  Make sure that 20 is included.  Print the loop variable at each iteration.
 2 Start a variable n at 1.  As long as n is less than 121, do the following:
-    * If n is even, add 3
-    * If n is odd, add 5
-    * Print n for each iteration.  Why do you get the last value?
-3 Set a real value x=0. Loop from 1 to N inclusive by 1.
-  * If the loop variable is less than M, add 11. to x.
-  * If x > w and x < z, skip the iteration.
-  * If x > 100., exit the loop.
-  * Experiment with different values for the variables.  Start with N=50, M=25, w=9., z=13.
+  - If n is even, add 3
+  - If n is odd, add 5
+  - Print n for each iteration.  Why do you get the last value?
+3 Set a real value x=0. Loop from 1 to L inclusive by 1.
+  - If the loop variable is less than M, add 11. to x.
+  - If x > w and x < z, skip the iteration.
+  - If x > 100., exit the loop.
+  - Print the final value of x.
+  - Experiment with different values for the variables.  Start with L=50, M=25, w=9., z=13.
 
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/loops.f90" lang="fortran" >}}
+{{< /spoiler >}}

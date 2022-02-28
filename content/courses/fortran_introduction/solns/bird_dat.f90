@@ -8,14 +8,13 @@ end type bird_data
 
 contains
    
-subroutine constructor(bird,species,dat,n)
+subroutine constructor(bird,species,dat)
       type(bird_data),         intent(inout)          :: bird
-      character(len=*),       intent(in)             :: species
-      integer,                 intent(in)             :: n
-      integer, dimension(n),   intent(in)             :: dat
+      character(len=*),        intent(in)             :: species
+      integer, dimension(:),   intent(in)             :: dat
 
       bird%species=species
-      allocate(bird%obs(n))
+      allocate(bird%obs(size(dat)))
       bird%obs=dat
 end subroutine
 

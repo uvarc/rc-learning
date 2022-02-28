@@ -91,7 +91,7 @@ The length may be declared at compile time with a default length of 1, represent
 
 _Literals_ are specific values corresponding to a particular type.
 
-Examples:
+**Examples**
 | Value    |   Type      |
 |----------|-------------|
 |     3    | Integer     |

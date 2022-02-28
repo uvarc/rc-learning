@@ -34,7 +34,7 @@ UNPACK(VECTOR,MASK,FIELD)
 !   rank n, result has rank n+1
 SPREAD(SOURCE,DIM,NCOPIES)
 ```
-Example:
+**Example**
 ```fortran
 mask=A<0
 merge(A,0,mask)
@@ -92,7 +92,7 @@ MAXVAL(A [,dim] [,MASK])
 SUM(A [,DIM] [,MASK])
 PRODUCT(A [,DIM] [,MASK])
 ```
-Example:
+**Example**
 A has shape(4,5,6). Then
 `SUM(A,2)` has shape (4,6) and elements `SUM(A(i,:,j))`.
 
@@ -110,7 +110,7 @@ ALL(MASK [,DIM])
 ANY(MASK [,DIM])
 COUNT(MASK)
 ```
-Example:
+**Example**
 ```fortran
 print *, count(A)
 if all(A>0) then 

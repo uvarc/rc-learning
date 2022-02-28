@@ -15,12 +15,6 @@ implicit none
    logical                            :: file_exists
    logical                            :: check_year
 
-   interface 
-      function unit_number()
-          integer               :: unit_number
-      end function unit_number
-   end interface
-
    nargs=command_argument_count()
    if (nargs .lt. 2) then
       stop "No data file or year specified"
@@ -36,7 +30,7 @@ implicit none
    inquire(file=infile,exist=file_exists)
 
    if (file_exists) then
-      inunit=unit_number()
+      inunit=10
       open(inunit,file=infile,iostat=ios)
       if ( ios .ne. 0 ) then
          stop "Unable to open data file"
@@ -82,19 +76,3 @@ implicit none
 1  format(a,f8.2,a,f8.2,a)
 
 end program
-
-
-function unit_number()
-   integer               :: unit_number
-   integer               :: base_unit=10
-   logical               :: first=.true.
-
-   if ( first ) then
-       unit_number=base_unit
-       first=.false.
-   else
-       unit_number=unit_number+1
-   endif
-
-end function unit_number
-

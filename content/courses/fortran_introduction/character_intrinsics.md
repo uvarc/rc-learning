@@ -54,7 +54,7 @@ ADJUSTL(STR)
 ! Adjust right by removing trailing spaces. Pad front if necessary.
 ADJUSTR(STR)
 ```
-Example
+**Example**
 ```fortran
 character(len=15) :: lang
 lang="Fortran"
@@ -79,7 +79,7 @@ SCAN(STR, SET[, BACK [, KIND]])
    of a character _not_ in SET, or zero if all are present.
 ! VERIFY(STR, SET[, BACK [, KIND]])
 ```
-Example
+**Example**
 ```fortran
 character(len=15) :: lang
 character(len=5) :: ort
@@ -95,7 +95,7 @@ print *, verify(lang, ort)
 
 Strings can be compared to one another. 
 These operators use _lexical ordering_, which is based on the ordering in the _character set_ along with rules for comparing multiple-character strings one 
-character at a time.  The usual operators `==`,`/=`,`<`,`<=`,`>`,`>=` may be used, as well as the functions below.  The standard operators use ASCII ordering, whereas the functions use the character set on a particular platform, which not use ASCII ordering.
+character at a time.  The usual operators `==`,`/=`,`<`,`<=`,`>`,`>=` may be used, as well as the functions below.  The standard operators use ASCII ordering, whereas the functions use the character set on a particular platform, which may not use ASCII ordering.
 
 String comparisons _are_ case sensitive.
 
@@ -111,7 +111,7 @@ LLE(STRINGA,STRINGB)
 ! Lexically less than string B 
 LLT(STRINGA,STRINGB)
 ```
-Example
+**Example**
 ```fortran
 print *, lang=="Fortran"
 print *, lang=="fortran"

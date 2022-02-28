@@ -20,7 +20,7 @@ Dependencies are other files that are required to create the current target.
 
 ### Targets and Rules
 
-Example:
+**Example**
 ```
 myexec:main.o module.o
 <tab>gfortran -o myexecmain.o module.o
@@ -70,7 +70,7 @@ Pattern for creating the .o:
 	$(F90) $(F90FLAGS) -c $<
 ```
 
-Example:
+**Example**
 {{< code-download file="/courses/fortran_introduction/codes/Makefile" lang="make" >}}
 
 In this example, notice that the suffix rule applies the global compiler flags and explicitly includes the `-c` option.  If a particular file does not fit this pattern, a rule can be written for it and it will override the suffix rule.  The link rule includes the loader flags and the `-o` flag.  The compilation suffix rule uses the special symbol for the prequisite; the link rule applies to the current target.

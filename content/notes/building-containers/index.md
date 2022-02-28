@@ -14,15 +14,21 @@ In this workshop you will learn how to build Docker containers and run them on R
 
 2. Install Docker
 
-    To follow along on your own computer, please make sure to install Docker Desktop and register for a free account on Docker Hub. Both can be found [here](https://www.docker.com/get-started).
-    - Windows: Choose the default "Docker Desktop for Windows" or the WSL 2 backend. (If you don't know what the latter option means, don't worry about it.) https://docs.docker.com/docker-for-windows/install/
-    - Mac: This should be straightforward. https://docs.docker.com/docker-for-mac/install/
+    To follow along on your own computer, please install Docker Desktop and register for a free account on Docker Hub. Both can be found [here](https://www.docker.com/get-started).
+    - Windows: https://docs.docker.com/docker-for-windows/install/
+    - Mac: https://docs.docker.com/docker-for-mac/install/
     - Linux: Install "Docker Engine" https://docs.docker.com/engine/
       Depending on your distro, you may be able to install it from the package manager.
 
     After the installation, open a terminal ("cmd" on Windows) and make sure you can execute the command `docker run hello-world` successfully.
 
+3. Set `BUILDKIT_PROGRESS=plain` for plain output (or remember to run `docker build --progress=plain ...`).
+
 ---
+
+# Introduction to Containers
+
+<https://www.docker.com/resources/what-container>
 
 # Building Containers
 
@@ -87,7 +93,7 @@ RUN apt-get update
 RUN apt-get install fortune cowsay lolcat
 ```
 
-This time it still failed due to the prompt for installation. To disable the prompt, add `-y`.
+This time it still failed due to the prompt for confirmation. To pass "yes" automatically, add `-y`.
 
 ```dockerfile
 FROM ubuntu:16.04
@@ -113,12 +119,12 @@ But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't see
     - Use `--rm` to remove container after it exits
     - Use `-it` for interactive processes (e.g. shell)
 - Problems:
-    - User needs to know path to binary
+    - User needs to know path to executable
     - User just wants to run "lolcow"
 
 ### Use `ENV` to set environment variable
 
-This is equivalent to `export PATH=/usr/games:${PATH}` which is preserved at runtime. By doing so we can execute `fortune`, `cowsay`, and `lolcat` directly without specifying the full path.
+This is equivalent to `export PATH=/usr/games:${PATH}` but it is preserved at runtime. In doing so we can execute `fortune`, `cowsay`, and `lolcat` directly without specifying the full path.
 
 ```dockerfile
 FROM ubuntu:16.04
@@ -146,7 +152,7 @@ Finally, we can simply run `docker run --rm -it <img>` to get the desired behavi
 
 ## 4 Best Practices
 
-While our container is functional, there is a lot of room for improvement. We shall take a look at some important best practices for writing Dockerfiles.
+While our container is functional, there is a lot of room for improvement. We shall look at some important best practices for writing Dockerfiles.
 
 ### 0. Package manager cache busting
 
@@ -170,7 +176,7 @@ ENTRYPOINT fortune | cowsay | lolcat
 
 ### 1. Clean up
 
-Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache, but in another `RUN` statement.
+Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache in a separate `RUN` statement.
 
 ```dockerfile
 FROM ubuntu:16.04
@@ -191,12 +197,12 @@ docker images | grep lolcow
 
 You should see that there is no difference in the image size. Why?
 
-- Each statement creates an image layer
-- If you try to remove a file from a previous layer, Docker will make a "whiteout" so that you can't see it, but the file is still there
-- The file can be retrieved
-- Not just a size issue but also a security pitfall
+- Each statement creates an image layer.
+- If you try to remove a file from a previous layer, Docker will make a "whiteout" so that you can't see it, but the file is still there.
+- The file can be retrieved.
+- This is not just a size issue but also a security pitfall.
 
-**Very important!** You must remove files in the same `RUN` statement.
+**Very important!** You must remove files in the same `RUN` statement as they are added.
 
 ```dockerfile
 FROM ubuntu:16.04
@@ -234,7 +240,7 @@ ENTRYPOINT fortune | cowsay | lolcat
 ```
 
 - You may need to specify extra packages
-    - `fortune` itself provides the binary without the message database
+    - `fortune` itself provides the executable without the message database
     - `fortunes-min` contains the message database
 - See [how Ubuntu reduced image size by 60%](https://ubuntu.com/blog/we-reduced-our-docker-images-by-60-with-no-install-recommends)
 
@@ -242,8 +248,8 @@ ENTRYPOINT fortune | cowsay | lolcat
 
 For installation of common packages, you may consider Alpine.
 
-    - BusyBox + package manager + musl libc (beware of compatibility issues)
-    - [Presentation](https://youtu.be/sIG2P9k6EjA) on Alpine Linux from DockerCon EU 17 
+- BusyBox + package manager + musl libc (beware of compatibility issues)
+- [Presentation](https://youtu.be/sIG2P9k6EjA) on Alpine Linux from DockerCon EU 17 
 
 Look for `slim` variants (e.g. `debian:buster-slim`) of a base image, if any.
 
@@ -256,17 +262,17 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
 ENTRYPOINT fortune | cowsay | lolcat
 ```
 
-Note: An `ENV` statement is not here because the binaries are installed under `/usr/bin`.
+Note: An `ENV` statement is not needed here because the executables are installed under `/usr/bin`.
 
 ### Image size comparison
 
 ```bash
 $ docker images | grep lolcow | sort -nk 2 | awk '{print $1, $2, $NF}'
-<user>/lolcow    0      233MB
-<user>/lolcow    0.5    233MB
-<user>/lolcow    1      206MB
-<user>/lolcow    2      188MB
-<user>/lolcow    3      43.3MB
+<user>/lolcow    0      242MB
+<user>/lolcow    0.5    242MB
+<user>/lolcow    1      211MB
+<user>/lolcow    2      193MB
+<user>/lolcow    3       43MB
 ```
 
 <style scoped>table { font-size: 65%; }</style>
@@ -274,11 +280,11 @@ $ docker images | grep lolcow | sort -nk 2 | awk '{print $1, $2, $NF}'
 | Version | Description | Reduction (MB) | % |
 |---|---|---:|---:|
 |0  |(Basis of comparison) | - | - |
-|0.5|Clean up in separate `RUN`  | 0 | 0.0 |
-|1  |Clean up in same `RUN`      |27 | 11.6 |
-|-  |Install only what's needed  |18 | 7.7 |
-|2  |Combination of previous two |45 | 19.3 |
-|3  |Alpine base image           |190| 81.5 |
+|0.5|Clean up in separate `RUN`  | 0 | 0 |
+|1  |Clean up in same `RUN`      |31 | 13 |
+|-  |Install only what's needed  |18 | 7 |
+|2  |Combination of previous two |49 | 20 |
+|3  |Alpine base image           |199| 82 |
 
 Reference: [_Best practices for writing Dockerfiles_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
@@ -410,7 +416,7 @@ GPU: `singularity run --nv <SIF>` (later)
 ./lolcow_latest.sif
 ```
 
-Treat container like a binary:
+Treat container like an executable:
 
 ```bash
 singularity pull lolcow docker://<user>/lolcow
@@ -460,7 +466,7 @@ singularity run|shell|exec -B <host_path>[:<container_path>] <SIF>
 
 ## Exercises
 
-1. For each of the 3 binaries `fortune`, `cowsay`, `lolcat`, run `which` both inside and outside the container.
+1. For each of the 3 executables `fortune`, `cowsay`, `lolcat`, run `which` both inside and outside the container.
 1. a) Run `ls -l` for your home directory both inside and outside the container. Verify that you get the same result. b) To disable all bind mounting, use `run|shell|exec -c`. Verify that `$HOME` is now empty.
 1. View the content of `/etc/os-release` both inside and outside the container. Are they the same or different? Why?
 1. (Advanced) Let's see if we can run the host `gcc` inside the lolcow container. First load the module: `module load gcc`
@@ -471,19 +477,19 @@ singularity run|shell|exec -B <host_path>[:<container_path>] <SIF>
 
 ---
 
-## TensorFlow on GPU through SLURM
+## TensorFlow on GPU through Slurm
 
 - Computationally intensive tasks must be performed on compute nodes
-- Job submission to Simple Linux Utility Resource Manger (SLURM)
+- Job submission to Slurm
 
 Copy these files:
 
 ```bash
 cp /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.slurm .
 cp /share/resources/tutorials/singularity_ws/mnist_example.{ipynb,py} .
-```
 
-Examine SLURM script:
+
+Examine Slurm script:
 
 ```bash
 #!/bin/bash

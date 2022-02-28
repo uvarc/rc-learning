@@ -95,7 +95,7 @@ REWIND is convenient if the program must handle files whose lengths may vary.  R
 
 If your input files will always be of known length this isn’t necessary (or efficient), but often file length could vary with different data.
 
-Example
+**Example**
 
 {{< code file="/courses/fortran_introduction/codes/fileio.f90" lang="fortran" >}}
 
@@ -108,15 +108,10 @@ What would I do if I had one or more header lines?
 I need to wait until the line has been successfully read before I count it. Consider an empty file (zero lines).  I will immediately encounter end of file, so I want to exit then.  For a one-line file, it reads the first line and I count that, then next time around it hits end of file and exits.  Nlines=1 then, which is correct.  The rest follows by induction.  For the second question, if I have header lines then I must use one READ per line to move through them before entering the loop to read data.  I can ignore the contents of the line if they are unneeded by providing no variable to store the data.
 {{< /spoiler >}}
 
-**Exercises**
+**Exercise**
 
-1. Write a program that creates a file mydata.txt containing four rows consisting of
-```
-1, 2, 3
-4, 5, 6
-7, 8, 9
-10, 11, 12
-```
-Rewind the file and read the data back.  Write a loop to add 1 to each value and print each row to the console.
+Read the mydata.txt file but don't assume you know how long it is.  Inquire whether it is present, then read it through just to count the number of lines.  Rewind the file to read the data.  
 
-2. Write a program that reads the name of a file from the command line.  Use inquire to check that the file exists.  Open the file.  Read the first line into a character string (make sure to declare it sufficient lenght).  Write it back out to the console.  Choose any file you have handy and copy it to the same folder as your program.  Test your program using this file. 
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/rewind.f90" lang="fortran" >}}
+{{< /spoiler >}}

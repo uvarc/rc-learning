@@ -82,7 +82,7 @@ or `&end`.  Also, in Fortran 77 there may be rules about in which column the `&`
 
 Namelist was established as part of the standard in Fortran 90. According to the standard, the namelist is terminated with a forward slash `/`.
 
-Example:
+**Example**
 In the program
 ```fortran
 NAMELIST /params/ rho,eps, x0
@@ -99,7 +99,7 @@ x0=0.0
 /
 ```
 
-# Exercises
+**Exercises**
 
 1. Write a program that creates a file mydata.txt containing four rows consisting of
 ```
@@ -110,4 +110,12 @@ x0=0.0
 ```
 Close the file, then open it again.  Read the data back.  Write a loop to add 1 to each value and print each row to the console.
 
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/reopen.f90" lang="fortran" >}}
+{{< /spoiler >}}
+
 2. Write a program that reads the `params` namelist and prints the variables to the console.  Create the paramlist.txt file and test your program.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/fortran_introduction/solns/nlist.f90" lang="fortran" >}}
+{{< /spoiler >}}

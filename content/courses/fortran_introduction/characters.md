@@ -29,7 +29,8 @@ ASCII now uses 8 bits (extended ASCII) which doubles the number of available cha
 
 Even extended ASCII accommodates far too few characters to accommodate more than a handful of alphabets, much less other writing systems.  [Unicode](https://en.wikipedia.org/wiki/Unicode) was created to address this.  The first 128 codes are still the 7-bit ASCII codes even with the millions available through Unicode.  Fortran supports a version of Unicode called [ISO_10646](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set) for comments and output, though not all compilers implement it yet.
 
-Example, from the gfortran [documentation](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gfortran/SELECTED_005fCHAR_005fKIND.html). It may compile only with gfortran.
+**Example** 
+from the gfortran [documentation](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gfortran/SELECTED_005fCHAR_005fKIND.html). It may compile only with gfortran.
 
 {{< code file="courses/fortran_introduction/codes/iso.f90" lang="fortran" >}}
 
