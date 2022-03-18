@@ -42,7 +42,7 @@ for (int i=0; i<10; i++)
    // code
 }
 
-int(x) = i;
+x = (float)i;
 ```
 Old code tends to persist so programmers may encounter this. The solution is to declare `i` outside.
 ```c++
@@ -52,7 +52,7 @@ for (i=0; i<10; i++)
    // code
 }
 
-int(x) = i;
+x = (float)i;
 ```
 
 ## Namespaces

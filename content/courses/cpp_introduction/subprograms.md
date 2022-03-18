@@ -72,7 +72,7 @@ Since they are not required, default arguments are also said to be _optional_.  
 Default arguments may be set in either the declaration (prototype) or the definition of the function, but not both.  The values are set at compile time.
 {{< code-download file="/courses/cpp_introduction/codes/default_args.cxx" lang="c++" >}}
 
-C++ does not support what other languages call "keyword" arguments. They must be kept in position and may not be rearranged or skipped.
+C++ does not support what other languages call "keyword" arguments. Optional arguments must be kept in position and may not be rearranged or skipped.
 
 **Exercises**
 
@@ -82,6 +82,15 @@ for 401 values of x equally spaced between -4.0 and 4.0 inclusive.
 Put the values into an array or vector variable `x`.  Use variables for the starting and ending values of x and the number of values.  
 Write a function to evaluate f(x) for any given real (scalar) value of x and call it each time through your loop.
 
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/function1.cxx" lang="c++" >}}
+{{< /spoiler >}}
+
 Print the values and the corresponding function evaluation to a comma-separated-values (CSV) file.  Use software such as Excel, Python, Matlab, or anything else you know to plot the result.
 
-2. Modify your program from Exercise 1 to use a prototype in a header file, with the implementation in a `.cpp` or `.cxx` file.  Refer to the chapter on [linking](/courses/cpp_introduction/linkers_libraries) if you need a refresher on building with multiple files.  This simple example probably does not require a Makefile.
+2. Modify your program from Exercise 1 to use a prototype in a header file ending in `.h`, with the implementation in a `.cpp` or `.cxx` file.  Refer to the chapter on [linking](/courses/cpp_introduction/linkers_libraries) if you need a refresher on building with multiple files.  This simple example probably does not require a Makefile.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/function2.h" lang="c++" >}}
+{{< code-download file="/courses/cpp_introduction/solns/function2.cxx" lang="c++" >}}
+{{< /spoiler >}}

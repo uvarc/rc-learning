@@ -13,6 +13,8 @@ We have been using console output via `std::cout` up till now without learning m
 
 C++ handles input and output through a concept called _streams_.  A stream is an abstraction of a device (a keyboard, a monitor, in the past possibly a tape device, and so forth) to which characters can be printed or from which characters can be read.
 
+A stream may be _buffered_; that is, the messages are accumulated in memory until the buffer is filled, when they are _flushed_ (written) to output.  
+
 The standard streams are incorporated with the header
 ```c++
 #include <iostream>
@@ -26,8 +28,10 @@ The iostream library is part of the C++ standard libraries set and contains _str
 
 The `cin` object is for input; it is a member of the _istream_ (input stream) class.  If a console is attached the others all output is to the same device (the screen).  They are members of the _ostream_ (output stream) class.  
 Unix and Mac OS shells can redirect standard output and standard error to separate files.
+Standard output is for "normal" output whereas standard error is used for error messages. 
 
-Standard output is for "normal" output whereas standard error is used for error messages.  Clog is also attached to the standard-error stream but is buffered; that is, the messages are accumulated in memory until the buffer is filled, when they are _flushed_ (written) to output.  Cerr is not buffered.  
+On Linux cin and cout are buffered, whereas cerr is not.
+Clog is attached to the standard-error stream but is buffered. 
 
 The "c" is for _character_, which is the type these objects can handle.  For wide characters (two or more bytes) the streams `wcin`, `wcout`, `wcerr`, and `wclog` are available.
 
@@ -68,8 +72,7 @@ Try different input values for this code.  Try entering floats or words.
 
 ## Formatted Input/Output
 
-Formatted input is rarely needed but can be used to control whitespace behavior,
-particularly useful for character (`char`) input.
+Formatted input is rarely needed but can be used to control whitespace behavior, which is particularly useful for character (`char`) input.
 Some documentation is [here](https://www.cplusplus.com/reference/ios/skipws/)
 
 Formatted output permits greater control over the appearance of output.  Compilers tend to let their default output sprawl.
@@ -85,21 +88,21 @@ They are introduced with the `iomanip` header.
 ```
 A few basic manipulators:
 * Output
-   *  endl //flushes the output and inserts newline
-   *  ends //outputs null character (C string terminator)
-   *  boolalpha // true/false printed for Booleans
-   *  left/right/internal //left/right/internal for fillers.
+   *  `endl` //flushes the output and inserts newline
+   *  `ends` //outputs null character (C string terminator)
+   *  `boolalpha` // true/false printed for Booleans
+   *  `left`/`right`/`internal` //left/right/internal for fillers.
 * Input
-  * ws // reads and ignores whitespace
-  * skipws/noskipws //ignore/read initial whitespace as characters (skip is the default)
+  * `ws` // reads and ignores whitespace
+  * `skipws`/`noskipws` //ignore/read initial whitespace as characters (skip is the default)
 
 These manipulators stay in effect in a given output stream until cancelled.
 
-* setw(n) Set width output quantity will occupy
-* setprecision(n) Set number of places printed for floating-point numbers
-* fixed/scientific Fixed-point format or scientific notation format
-* setfill(c) Set a filler characterc
-* setbase(n) Output in base `n` (options are 8, 10, or 16, or 0 which reverts tothe default of decimal).
+* `setw(n)` //Set width the output quantity will occupy
+* `setprecision(n)` //Set number of places printed for floating-point numbers
+* `fixed`/`scientific` //Fixed-point format or scientific notation format
+* `setfill(c)` //Set a filler character `c`
+* `setbase(n)` //Output in base `n` (options are 8, 10, or 16, or 0 which reverts to the default of decimal).
 
 **Example**
 {{< code-download file="/courses/cpp_introduction/codes/out_manip.cxx" lang="c++" >}}
@@ -114,6 +117,10 @@ A more complete list of manipulators is [here](https://www.cplusplus.com/referen
   * Scientific notation
   * Scientific notation with 8 decimal places
 
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/print_pi.cxx" lang="c++" >}}
+{{< /spoiler >}}
+
 2. In an “infinite” while loop:
 
 Request an integer from the user without advancing to a new line, e.g.
@@ -121,3 +128,7 @@ Request an integer from the user without advancing to a new line, e.g.
 “Please enter an integer:” <then read integer>
 
 If the integer is 1, print “zebra”.  If it is 2, print “kangaroo”.  If it is anything else except for zero, print “not found”.  If it is 0, exit the loop.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/kangaroo.cxx" lang="c++" >}}
+{{< /spoiler >}}

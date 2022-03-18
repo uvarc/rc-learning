@@ -96,7 +96,7 @@ Notice that we name the executable the same as the main program, minus the file 
 You can run the executable either from the command line (`./example` may be required for Linux) or through the Geany execute menu or gears icon.  
 If Geany is to run a multi-file executable then the main program file must be selected as the current file as well as match the name of the executable.
 
-{{< figure src="/courses/cpp_introduction/img/GeanyFiles.png" width=500px caption="Executing the example program" >}}
+{{< figure src="/courses/cpp_introduction/img/Geany5.png" width=500px caption="Executing the example program" >}}
 
 The file ending in `.h` is called a _header file_. The best practice in C++ is to separate the _interface_ into a header file and the _implementation_ into the source file. We will discuss this, as well as the preprocessor commands, when we cover functions.
 

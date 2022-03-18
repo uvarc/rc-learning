@@ -81,15 +81,25 @@ We will discuss this in more detail when we talk about [pointers](/courses/cpp_i
 C++ has introduced _stringstreams_ for this purpose.
 Stringstreams are internal string _buffers_.
 
+In this example we have included the line 
+```c++
+using namespace std;
+```
+for convenience.  We will discuss namespaces in when we talk about 
+[scope](/course/cpp_introduction/scope).  In short, it makes the _standard_ namespace the default, so that we may omit in before keywords such as `cout` and `string`.
+
 ```c++
 #include <iostream>
 #include <string>
 #include <sstream>
+
 using namespace std;
+
 int main() {
     string age;
     int iage;
     iage=39
+
     //Convert numeric to character:
     stringstream ss;
     ss<<iage;       //load iage into buffer

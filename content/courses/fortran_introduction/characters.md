@@ -3,12 +3,6 @@ title: "Characters and Strings"
 toc: true
 type: book
 weight: 43
-
-menu:
-    fortran_introduction:
-        parent: Character Variables
-        weight: 43
-
 ---
 
 Fortran's support of characters and strings has evolved significantly through the recent standards. The earliest Fortran used _Hollerith codes_ to represent characters.  The `character` type was introduced in the Fortran 77 standard. The original character type is essentially a fixed-length string.  Variable-length strings were introduced in the Fortran 2003 standard.  
@@ -61,6 +55,11 @@ The string must be allocated in the executable code before it is used.
 ```
 
 Allocatable arrays of allocatable strings are possible, but will require creating a [derived type](/courses/fortran_introduction/derived_types).
+
+An allocatable string may be deallocated if necessary with the usual `DEALLOCATE` intrinsic.
+```fortran
+DEALLOCATE(str)
+```
 
 Prior to Fortran 2003, the standard defined a module `iso_varying_string`.  Most compilers available now support the 2003 standard so will offer the standard variable string, but the iso_varying_string module provides a number of functions so may still be worthwhile.  We will discuss standardized modules [later](courses/fortran_introduction/standard_modules).
 

@@ -12,5 +12,3 @@ weight: 1
 ---
 
 This short course is an introduction to programming in C++.  Experience programming in some other language is helpful but not required.  
-
-Under construction.  Please see [here](/courses/introduction_to_cpp) for current notes.

@@ -112,14 +112,19 @@ while (x>0.0) {
 
 **Exercises**
 
-1 Loop from 0 to 20 by increments of 2.  Make sure that 20 is included.  Print the loop variable at each iteration.
-2 Start a variable n at 1.  As long as n is less than 121, do the following:
+1. Loop from 0 to 20 by increments of 2.  Make sure that 20 is included.  Print the loop variable at each iteration.
+2. Start a variable n at 1.  As long as n is less than 121, do the following:
     * If n is even, add 3
     * If n is odd, add 5
     * Print n for each iteration.  Why do you get the last value?
-3 Set a real value x=0. Loop from 1 to N inclusive by 1.
+3. Set a real value x=0. Loop from 1 to N inclusive by 1.
   * If the loop variable is less than M, add 11.0 to x.
   * If x > w and x < z, skip the iteration.
   * If x > 100., exit the loop.
+  * Print the final value of x.
   * Experiment with different values for the variables.  Start with N=50, M=25, w=9., z=13.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/loops.cxx" lang="c++" >}}
+{{< /spoiler >}}
 

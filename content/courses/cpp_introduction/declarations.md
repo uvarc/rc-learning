@@ -93,7 +93,7 @@ Variable `y` will take the same type as `x`.  This declaration was intended prim
 
 ### Constants
 
-Programmers can declare a variable to have a fixed value that cannot be changed. In C++ we add the qualifier _const_ to these variables.
+Programmers can declare a variable to have a fixed value that cannot be changed. In C++ we add the qualifier `const` to these variables.
 ```
 const double pi=3.141592653589793;
 ```

@@ -95,12 +95,11 @@ Classes may use instance of other classes.  This is called "composition" and we 
 {{< code-download file="/courses/cpp_introduction/solns/access_demo.cxx" lang="c++" >}}
 {{< /spoiler >}}
 
-2. Write a class Atom that contains the following attributes:
-  * Element symbol
-  * Element name
-  * Atomic mass
-  * Atomic number
-* The methods should be
-  * Constructor to set attributes
-  * Compute and return the number of neutrons from the mass and number (n=mass-number)
-Chose appropriate access levels for attributes and methods.
+2. Modify your Employee class to use appropriate access levels for attributes and methods.  Add any "setters" and "getters" that you may need.  Place the interface into a `.h` file and the implementation into a corresponding `.cxx` file.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/class_struct_example/Employee.h" lang="c++" >}}
+{{< code-download file="/courses/cpp_introduction/solns/class_struct_example/Employee.cxx" lang="c++" >}}
+{{< code-download file="/courses/cpp_introduction/solns/class_struct_example/employees.cxx" lang="c++" >}}
+{{< /spoiler >}}
+

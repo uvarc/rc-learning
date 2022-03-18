@@ -110,4 +110,3 @@ If you have not already done so, download or copy the [example.f90](/courses/for
 Exercise 2:
 If you are working on a system with NetCDF available, download the two files and the completed Makefile into their own folder.  Open Geany and browse to the location of the files.  Open the two source files.  Either select `Make` from the `Build` menu, or from the dropdown arrow next to the brick icon choose `Make All`.
 Build the code using the Makefile.  Execute the result.
-

@@ -3,12 +3,6 @@ title: "Character Intrinsics and Conditionals"
 toc: true
 type: book
 weight: 44
-
-menu:
-    fortran_introduction:
-        parent: Character Variables
-        weight: 44
-
 ---
 
 ## Character Functions

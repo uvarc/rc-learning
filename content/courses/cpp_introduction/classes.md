@@ -128,3 +128,8 @@ MyClass::MyClass(x,y,z) {
 
 Convert the Employee struct to a class.  Write a constructor for it. Incorporate an `updateSalary` method that takes a raise percentage (or fraction, your choice), computes the new salary, and updates the employee attribute. Why does it not have to take the employee's
 current salary as a parameter?
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/employees.cxx" lang="c++" >}}
+{{< /spoiler >}}
+

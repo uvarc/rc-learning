@@ -96,3 +96,16 @@ Small arrays can be initialized as follows:
 A={{1.,2.,3.,4.,5.},{6.,7.,8.,9.,10.}};
 ```
 
+**Exercise**
+Write a program to:
+* Declare an integer array of 10 elements
+In your program:
+  * Print the size of the array
+  * Change the fourth element to 11
+
+Declare a real array of rank 2 (two dimensions) and allocate it with new.  Allocate the array and set each element to the sum of its row and column indices.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/c_arrays.cxx" lang="c++" >}}
+{{< /spoiler >}}
+

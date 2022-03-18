@@ -70,6 +70,30 @@ Example:
 
 Getline is used twice, once to read the line as a string and again to split the line on commas.  In this case we know that we have four fields in each line so we declare an array of strings.  More generally, we could use a vector and `push_back` after getline reads the next chunk to the delimiter.  To read the subunits of the line, we declare a stringstream and use that as the stream buffer, rather than a file descriptor.
 
-**Exercise**
+**Exercises**
 
-Download the file [cpi.csv](/data/cpi.csv).  Examine the file.  Write a program that will read the file.  Store the first column in a vector `year` and the second column in another vector `cpi`.
+1. Download the file [cpi.csv](/data/cpi.csv).  Examine the file.  Write a program that will read the file.  Store the first column in a vector `year` and the second column in another vector `cpi`.  Be sure to skip the header line.  It is not necessary to read any data from the header.  
+
+As an alternative to converting with a stringstream, you can convert a C++ string to a C-style string with the `c_str()` method.
+```c++
+mystr.c_str()
+```
+You can then use the atoi and atof functions that operate on C strings to convert to integer and float respectively.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/read_cpi.cxx" lang="c++" >}}
+{{< /spoiler >}}
+
+2. Write a program that creates a file mydata.txt containing four rows consisting of
+```
+1, 2, 3
+4, 5, 6
+7, 8, 9
+10, 11, 12
+```
+Rewind the file and read the data back.  Write a loop to add 1 to each value and print each row to the console.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/read_write_csv.cxx" lang="c++" >}}
+{{< /spoiler >}}
+

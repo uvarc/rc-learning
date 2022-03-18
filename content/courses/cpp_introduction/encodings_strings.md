@@ -50,6 +50,7 @@ Example:
 
 **Exercise**
 In the above code, change "This" to "That" in `newtitle`.
+{{< code-download file="/courses/cpp_introduction/solns/strings.cxx" lang="c++" >}}
 
 ### Strings, Wide Strings, and Unicode
 
