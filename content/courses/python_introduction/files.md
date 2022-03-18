@@ -100,7 +100,7 @@ Make sure there is no blank line at the beginning of the data file.
 Use readlines rather than a loop to read the data file.  Eliminate the header appropriately.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/exercise17.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/readlines_demo.py" lang="python" >}}
 {{< /spoiler >}}
 
 We will not go into more detail about reading files since we will later cover packages that offer more convenient ways to read the most common formats.  
@@ -172,7 +172,7 @@ a=1.; b=2.4; c=5.8; d=0.7
 Print the results for each n you have.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/exercise18.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/polynomial.py" lang="python" >}}
 {{< /spoiler >}}
 
 </details>

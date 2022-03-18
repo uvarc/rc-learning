@@ -52,6 +52,10 @@ Use Spyder to write a <em>complete</em> program to compute BMI from weight and h
 </p>
 </pre>
 </p>
+{{< spoiler text="Example solution" >}}
+{{< code-download file="/courses/python_introduction/solns/user_input_bmi.py" lang="python" >}}
+{{< /spoiler >}}
+
 </details>
 
 #### Formatted Output
