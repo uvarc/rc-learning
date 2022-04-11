@@ -8,7 +8,7 @@ categories: ["Python", "Programming", "HPC"]
 tags: ["python","programming","HPC"]
 authors: ["kah"]
 
-notes: python-hi-perf
+notes: python_high_perf
 
 ---
 

@@ -14,9 +14,9 @@ Sometimes you cannot sufficiently speed up your program even with all optimizati
 ### The Global Interpreter Lock (GIL)
 
 Standard Python implements a GIL (global interpreter lock). Threads cannot be started within a single interpreter.
-A variety of workarounds to the GIL exist.  For instance, Python 3 provides the `threading` module, which implements the Thread class. However, unless the programmer is familiar with low-level thread operations and is very careful, it is more like to slow down the code than to speed it up.
+A variety of workarounds to the GIL exist.  For instance, Python 3 provides the `threading` module, which implements the Thread class. However, unless the programmer is familiar with low-level thread operations and is very careful, it is more likely to slow down the code than to speed it up.
 
-In most cases, it is better to just start another Python process.  The `multiprocessing` package handles this and manages communication between the processes.  For the purpose of this workshop we will experiment with a few different multiprocessing approaches. A detailed description can be found on the official <a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank">Multiprocessing website</a>.
+In most cases, it is better to just start another Python process.  The `multiprocessing` package handles this and manages communication among the processes.  For the purpose of this tutorial we will experiment with a few different multiprocessing approaches. A detailed description can be found on the official <a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank">Multiprocessing website</a>.
 
 One difference between true threads and a Multiprocessing process is that threads share memory and processes do not.
 
@@ -133,7 +133,7 @@ Here is a more realistic example.  Let’s parallelize our Monte Carlo pi solver
 Map requires an iterator for its second argument. We will manually divide the total number of "data throws" into chunks of roughly equal size on each process and store the result into a list _myNumPoints_. The Pool map method will then distribute the elements of the list, one to each cpu.  This is called **load balancing** in parallel computing terms.  Maximum efficiency generally occurs when each process performs approximately the same quantity of work.
 We also do not hard-code the number of processes, but will set an environment variable `NUM_PROCS` outside to select the core count. 
 
-{{% code file="/notes/python-hi-perf/MonteCarloPiMC.py" lang="python" %}}
+{{% code-download file="/notes/python_high_perf/codes/MonteCarloPiMC.py" lang="python" %}}
 
 #### Running on a Local Computer
 
@@ -163,20 +163,22 @@ Serial time:0.5596
 ```
 As we might expect, the time for the serial run increases roughly linearly with the number of points.  The parallel time seems to obey the same rule after the first test run; for larger runtimes the additional time to set up Multiprocessing becomes less significant.  The value of $\pi$ also becomes more accurate as the number of "throws" increases.
 
-#### Running the Program on Rivanna
+#### Running the Program on a Cluster
+
+For those who have access to a high-performance computing cluster such as UVA's Rivanna, Python scripts can be run in batch mode.  Our example assumes the SLURM resource manager.
 
 In order to execute our program on designated compute node(s), we need to write a simple bash script that defines the compute resources we need.  We call this our job script.  For our example, the job script `pimc.sh` looks like this:
 
-{{% code file="/notes/python-hi-perf/pimc.sh" lang="bash" %}}
+{{% code-download file="/notes/python_high_perf/codes/pimc.sh" lang="bash" %}}
 
-You can view this script in a text editor on Rivanna.  If you are connected through a FastX Mate session, got to the menu **Applications** -> **Accessories** --> **Pluma Text Editor**.
+You can view this script in a text editor on Rivanna.  If you are connected through a FastX Mate session, go to the menu **Applications** -> **Accessories** --> **Pluma Text Editor**.
 
 The `#SBATCH` directives define the compute resources (`-N`, `--cpus-per-task`, `-p`), compute wall time (`-t`), and the allocation (`-A`) to be used. `-N 1` specifies that the job runs on a single node. With `--cpus-per-task` we request the number of cpu cores for the job.  By increasing the number for `--cpus-per-task` we can take advantage of multiple cpu cores and set up a bigger pool of workers. Ideally we want to match the worker pool size with the number of cpu cores.
 
 <br>
 **Submitting the job:**
 
-The job needs to be submitted to the job scheduler with a specific command. On Rivanna we use the Simple Linux Utility Resource Manager (SLURM) and the `sbatch` command for job submission.
+The job must be submitted to the job scheduler with a specific command. On Rivanna we use the Simple Linux Utility Resource Manager (SLURM) and the `sbatch` command for job submission.
 
 Open a terminal window and execute this command:
 ```
@@ -199,7 +201,7 @@ You can check the status of your jobs by running either one of these commands:
 
 The `squeue` command show all active jobs, either pending or running.  The `sacct` command shows the history of your jobs whether they are pending, running, completed, cancelled or failed.
 
-You can find more detailed about SLURM and job management on our [website](https://www.rc.virginia.edu/userinfo/rivanna/slurm).
+You can find more details about SLURM and job management on our [website](https://www.rc.virginia.edu/userinfo/rivanna/slurm).
 
 <br>
 **Checking the Output File:**
@@ -222,7 +224,7 @@ When we run the exercise with 10^9 points we may obtain results like these (on o
 <br>
 If we plot time versus number of cores we obtain the following graph.  The orange line is ideal scaling, where the total time is the serial time divided by the number of cores used.  The blue line shows the actual runtime and speedup achieved.
 
-![](/notes/python-hi-perf/mp-scaling.png)
+![](/notes/python_high_perf/mp-scaling.png)
 
 Our actual scaling in this case is quite close to perfect.  This has a lot to do with our problem; the amount of time taken is mostly proportional to the number of throws to be calculated.  Not all problems scale this well.
 

@@ -30,7 +30,7 @@ We will illustrate with a simple (and very incomplete) example of code to work w
 
 **Example**
 
-Download the example Fortran code [fractions.f90](/notes/python-hi-perf/fractions.f90) to try this yourself.
+Download the example Fortran code [fractions.f90](/notes/python_high_perf/codes/fractions.f90) to try this yourself.
 
 First create a Python _signature file_.
 ```
@@ -68,7 +68,7 @@ See the [documentation](https://docs.python.org/3/library/ctypes.html#fundamenta
 
 **Example**
 
-Download the [arith.c](/notes/python-hi-perf/arith.c) file, which implements some trivial arithmetic functions.  It must be compiled to a shared library.  Under Unix we execute the commands
+Download the [arith.c](/notes/python_high_perf/codes/arith.c) file, which implements some trivial arithmetic functions.  It must be compiled to a shared library.  Under Unix we execute the commands
 ```
 gcc -fPIC -c arith.c 
 gcc -shared arith.o -o arith.so
@@ -86,9 +86,9 @@ A newer tool for C is [CFFI](https://cffi.readthedocs.io/en/latest/). CFFI is a 
 
 **Example**
 
-We will wrap arith.c with CFFI.  First we must create and run a build file, which we will call [build_arith.py](/notes/python-hi-perf/build_arith.py).
+We will wrap arith.c with CFFI.  First we must create and run a build file, which we will call `build_arith.py`.
 
-{{% code file="/notes/python-hi-perf/build_arith.py" lang="python" %}}
+{{% code-download file="/notes/python_high_perf/codes/build_arith.py" lang="python" %}}
 
 We can now import our module.  The functions will be available with the namespace `lib`.
 ```
@@ -108,22 +108,22 @@ One of the most popular packages that deals directly with C++ is [PyBind11](http
 One option is to use [CMake](), since it can be configured to generate the fairly complex Makefile required, and it also works on Windows.  A somewhat simpler method is to use the Python package `invoke`.  This can be installed through pip or through a manager such as a Linux operating system package manager.  The Python header file `Python.h` must also be accessible.
 
 **Example**
-We will wrap the [fractions.cxx](/notes/python-hi-perf/fractions.cxx) file.  It also requires the [fractions.h](/notes/python-hi-perf/fractions.h) header. These files implement a very incomplete Fractions class, similar to the Fortran example above.
+We will wrap the [fractions.cxx](/notes/python_high_perf/codes/fractions.cxx) file.  It also requires the [fractions.h](/notes/python_high_perf/codes/fractions.h) header. These files implement a very incomplete Fractions class, similar to the Fortran example above.
 
-1. Write the bindings [wrap_fractions.cxx](/notes/python-hi-perf/wrap_fractions.cxx)
+1. Write the bindings wrap_fractions.cxx.
 
-{{% code file="/notes/python-hi-perf/wrap_fractions.cxx" lang="c++" %}}
+{{% code-download file="/notes/python_high_perf/codes/wrap_fractions.cxx" lang="c++" %}}
 
 2. Compile `fractions.cxx` into a shared library.  Invoke can be used for this, but a simple command line is also sufficient here.
 ```
 g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC fractions.cxx -o libfractions.so
 ```
 Run the command
-```
+```no-highlight
 python3 -m pybind11 --includes
 ```
 in order to determine the include path.  On a particular system it returned
-```
+```no-highlight
 -I/usr/include/python3.9 -I/usr/include/pybind11
 ```
 Take note of the include file paths.  Move into Python and run invoke
@@ -148,7 +148,7 @@ This will create a module whose name begins with py\_fractions (the rest of the 
 >>> f1.addFracs(f2)
 [153, 104]
 ```
-The commands required to generate the module are in the [tasks.py](/notes/python-hi-perf/tasks.py) file for convenience.
+The commands required to generate the module are in the [tasks.py](/notes/python_high_perf/tasks.py) file for convenience.
 
 
 Pybind11 requires C++ code that adheres to the C++11 standard or higher.  Another option is the Boost library Python bindings [Boost.Python](https://www.boost.org/doc/libs/release/libs/python/doc/html/index.html).  Pybind11 is a fork of these bindings; the Boost version is more general, and can handle many older C++ codes.
@@ -161,10 +161,10 @@ Cython is a package that allows Python code to be compiled into C code.  Some re
 **Exercise:** `integrate.py` 
 
 Suppose we start with
-{{% code file="/notes/python-hi-perf/integrate_cyf.pyx" lang="python" %}}
+{{% code-download file="/notes/python_high_perf/codes/integrate_cyf.pyx" lang="python" %}}
 
 Save the above code as `integrate_cyf.pyx`.  Now create a `setup.py` file:
-{{% code file="/notes/python-hi-perf/setup.py" lang="python" %}}
+{{% code-download file="/notes/python_high_perf/codes/setup.py" lang="python" %}}
 
 On the command line run `python setup.py build_ext --inplace` to build the extension.
 
@@ -184,7 +184,7 @@ Numba is available with the Anaconda Python distribution.   It compiles selected
 A well-known but slow way to compute pi is by a Monte Carlo method.  Given a circle of unit radius inside a square with side length 2, we can estimate the area inside and outside the circle by throwing “darts” (random locations).  Since the area of the circle is pi and the area of the square is 4, the ratio of hits inside the circle to the total thrown is pi/4.  
 
 Open the `MonteCarloPi.py` script.
-{{% code file="/notes/python-hi-perf/MonteCarloPi.py" lang="python" %}}
+{{% code-download file="/notes/python_high_perf/codes/MonteCarloPi.py" lang="python" %}}
 
 Running with 10^9 points takes 6 minutes and 21 seconds on one particular system.
 

@@ -28,7 +28,7 @@ The results will be shown in the `Profiler` pane.
 **Exercise:** 
 Open the `fibonacci.py` file and execute it with the Spyder Profiler.  The code deliberately uses an inefficient algorithm.  Let's look at the output in the `Profiler` pane.  What function was called most frequently and has the largest cumulative run time?
 
-![](/notes/python-hi-perf/fibonacci-profiler.png)
+![](/notes/python_high_perf/fibonacci-profiler.png)
 
 A more detailed description of the Profiler option for Spyder can be found <a href="http://docs.spyder-ide.org/profiler.html" target="_blank">here</a>.
 
@@ -216,10 +216,10 @@ NumPy provides a large library of functions on NumPy arrays that take the place 
 
 **Exercise:** 
 Nested for loops are **very inefficient** (`loops.py`)
-{{% code file="/notes/python-hi-perf/loops.py" lang="python" %}}
+{{% code-download file="/notes/python_high_perf/codes/loops.py" lang="python" %}}
 
 Eliminating for loops is **much faster** (`aops.py`)
-{{% code file="/notes/python-hi-perf/aops.py" lang="python" %}}
+{{% code-download file="/notes/python_high_perf/codes/aops.py" lang="python" %}}
 
 **Results** with Python 3.6.9 on one particular system:
 
@@ -242,7 +242,7 @@ u[1:-1,1:-1]=0.25*(u[2:,1:-1]+u[:-2,1:-1]+u[1:-1,2:]+u[1:-1,:-2]
 
 **Example**
 Our "dummy" function is a ufunc, so we can run a trial with little modification to the previous code.  The "setup" code is not timed by timeit.
-{{% code file="/notes/python-hi-perf/replace_forloop.py" lang="python" %}}
+{{% code-download file="/notes/python_high_perf/codes/replace_forloop.py" lang="python" %}}
 
 The difference is remarkable.  Remember that times for different runs may vary somewhat even on the same system, but the basic result will be similar.
 ```

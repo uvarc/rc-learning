@@ -31,7 +31,7 @@
 
           {{ partial "tags.html" . }}
 
-          {{ if site.Params.docs_section_pager }}
+          {{ if ne site.Params.docs_section_pager false }}
           <div class="article-widget">
             {{ partial "section_pager" . }}
           </div>
