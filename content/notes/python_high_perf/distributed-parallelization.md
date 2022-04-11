@@ -292,7 +292,7 @@ Convert the "timeseries" example to Dask MPI.
 
 Run this simple example with
 
-{{< code-download file="/notes/python_high_perf/codes/run-dask_mpi.py" lang="bash" >}}
+{{< code-download file="/notes/python_high_perf/codes/run_dask_mpi.slurm" lang="bash" >}}
 
 The OMPI_MCA environment variable suppresses a warning message that is seldom relevant.
 
