@@ -2,16 +2,14 @@
 <div class="post-nav">
   {{if .NextInSection}}
   {{/* For the docs layout, prev/next labels are reversed. */}}
-  {{ if eq .Type "docs" }}{{ $str = "previous" }}{{else}}{{ $str = "next" }}{{end}}
-  {{ if eq .Type "book" }}{{ $str = "previous" }}{{else}}{{ $str = "next" }}{{end}}
+  {{ if or (eq .Type "docs") (eq .Type "book") }}{{ $str = "previous" }}{{else}}{{ $str = "next" }}{{end}}
   <div class="post-nav-item">
     <div class="meta-nav">{{ i18n $str }}</div>
     <a href="{{.NextInSection.RelPermalink}}" rel="next">{{.NextInSection.Title}}</a>
   </div>
   {{end}}
   {{if .PrevInSection}}
-  {{ if eq .Type "docs" }}{{ $str = "next" }}{{else}}{{ $str = "previous" }}{{end}}
-  {{ if eq .Type "book" }}{{ $str = "next" }}{{else}}{{ $str = "previous" }}{{end}}
+  {{ if or (eq .Type "docs") (eq .Type "book") }}{{ $str = "next" }}{{else}}{{ $str = "previous" }}{{end}}
   <div class="post-nav-item">
     <div class="meta-nav">{{ i18n $str }}</div>
     <a href="{{.PrevInSection.RelPermalink}}" rel="prev">{{.PrevInSection.Title}}</a>

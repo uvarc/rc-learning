@@ -40,6 +40,6 @@ For this project you can require an exact match of the species name.  (Note that
 In addition to the sorters.f90 module mentioned above, the sample solution uses the [file_utils](/courses/fortran_introduction/solns/file_utils.f90) module that collects some useful file-related subprograms, including the count_lines function.
 
 {{< spoiler text="Sample solution" >}}
-{{< code file="/courses/fortran_introduction/solns/bird_dat.f90" lang="fortran" >}}
-{{< code file="/courses/fortran_introduction/solns/bird_obs.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/solns/bird_dat.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/solns/bird_obs.f90" lang="fortran" >}}
 {{< /spoiler >}}

@@ -55,7 +55,7 @@ Setting a pointer variable to NULL can prevent referencing an unintended memory 
 ### C-Style Allocation
 Previously we saw that arrays could be initialized with a variable that was set at compile time and declared `const`.   However, this limits the flexibility of the code.  Anytime a change is required, the code must be recompiled.  Modifying hard-coded values is also error prone.  Finally, in many cases we need to be able to adapt the code to the circumstances of a particular run.  This is especially true for programs that use arrays, since they are frequently used to represent grids or other numerical entities, and the program should be capable of running at different resolutions without the need to recompile each time.
 
-C has a set of `alloc` routines of which `malloc` (memory allocation) is most frquently used.  The malloc function allocates a block of memory of the specified number of _bytes_.  It must be told the number of bytes to obtain by the programmer.  Nearly always the `sizeof` function must be invoked to be sure the correct number of bytes is allocated.
+C has a set of `alloc` routines of which `malloc` (memory allocation) is most frequently used.  The malloc function allocates a block of memory of the specified number of _bytes_.  It must be told the number of bytes to obtain by the programmer.  Nearly always the `sizeof` function must be invoked to be sure the correct number of bytes is allocated.
 Malloc returns a pointer of type `void` so it must be cast to the desired type.
 
 These blocks are raw chunks of memory, but can be referenced as the C-style arrays we have already seen.  
@@ -130,6 +130,6 @@ Otherwise use delete without square brackets.
 Correct the memory-leaking example.  Leave the multiple `new` statements (even though they have no consequences) and fix the code as is.  Is there a way to tell whether the fix was successful?
 
 {{< spoiler text="Example Solution" >}}
-{{< code file="/courses/cpp_introduction/solns/fixed_leaker.cxx" lang="c++" >}}
+{{< code-download file="/courses/cpp_introduction/solns/fixed_leaker.cxx" lang="c++" >}}
 {{< /spoiler >}}
 

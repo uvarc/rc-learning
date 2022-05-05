@@ -50,7 +50,7 @@ Chauvenet’s criterion: It’s not the state of the art but works pretty well.
 5. The criterion is that we retain data with `prob>=1./(2*N_obs)` (number of observations).
 
 {{< spoiler text="Example solution" >}}
-{{< code file="/courses/fortran_introduction/solns/stats.f90" lang="fortran" >}}
-{{< code file="/courses/fortran_introduction/solns/bmi_calculator.f90" lang="fortran" >}}
-{{< code file="/courses/fortran_introduction/solns/bmi_data.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/solns/stats.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/solns/bmi_calculator.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/solns/bmi_data.f90" lang="fortran" >}}
 {{< /spoiler >}}

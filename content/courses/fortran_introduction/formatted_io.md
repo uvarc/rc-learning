@@ -15,8 +15,6 @@ But that frequently results in sprawling output that is difficult to read. Forma
 
 Formatted output in Fortran is similar to other languages (the general layout descends from Fortran, the oldest higher-level programming language).
 
-In Fortran it is best to avoid formatted _input_ as much as possible, as it can lead to errors.
-
 ## Edit Descriptors
 
 The edit descriptor modifies how to output the variables.  They are combined into forms like
@@ -101,6 +99,37 @@ The second parameter to the write is then an integer statement label.  The label
 ```
 
 Traditionally the format is placed immediately below the line which refers to it, or else all format statements are grouped together just before the end statement of their program unit.
+
+## Formatted Input
+
+In Fortran it is best to avoid formatted _input_ as much as possible, as it can lead to errors.  For historical reasons, if a format is specified to be real (floating point) but no decimal point is included in the data, the compiler inserts it based on the format.  For example, suppose we had data in the form
+```no-highlight
+112 9876 12
+```
+with a format string of
+```fortran
+read(infile,'(f8.4,f6.2,i4)'
+```
+We intended to read three values, two reals and an integer, but this format results in input values of
+```no-highlight
+      112.987602      0.119999997               0
+```
+The errors in the real values are the consequence of converting from decimal to binary and back.  
+Note that the spaces between the values are ignored.
+
+We get the expected result with `read(infile,*)`:
+```no-highlight 
+   112.000000       9876.00000              12
+```
+The compiler has more freedom so the conversion is also more accurate.
+
+Unformatted input is permitted when casting from a character to a real, so there is no need for formatted input at all.
+```fortran
+character(len=12) :: quantity_char
+real              :: quantity
+quantity_char="100"
+read(quantity_char,*) quantity
+```
 
 ## Fortran Non-Advancing IO
 

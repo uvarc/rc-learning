@@ -101,7 +101,7 @@ depending on what you want to do.
 
 Type into Spyder or Jupyterlab and run
 
-{{< code-download file="/courses/python_introduction/solns/exercise12.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/dictionary_demo.py" lang="python" >}}
 
 </details>
 
@@ -126,7 +126,7 @@ mascots=["Celtics","Nets","Knicks","76ers","Raptors","Golden State Warriors",
 {{< /code-snippet >}}
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/exercise13.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/create_dictionary.py" lang="python" >}}
 {{< /spoiler >}}
 
 </details>

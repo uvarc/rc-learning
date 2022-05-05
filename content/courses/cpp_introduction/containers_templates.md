@@ -50,9 +50,9 @@ The array container "wraps" C-style fixed-size arrays.  Unlike a bare array, the
 
 {{< code file="/courses/cpp_introduction/codes/std_array.cxx" lang="cxx" >}}
 
-A standard array is a sequence and we can use a range-based `for` loop with it.  Note also the peculiar declaration of the loop variable in the three-element loop; this is required because the array container defines its size and index variables to be of an _unsigned_ int of type `size_type`. Strictly speaking, it should always be used for loop variables for standard containers, since they are defined internally that way.  The intention was to allow for very large array sizes without overflowing a loop variable.  A standard `int` or `long` will nearly always work, and the compiler will not complain, but best practice is to make the loop variable match the internal definition.  The `size_type` depends on the vector template so would have to be declared `std::vector<float>::size_type`; a shortcut that is safe, but still less wordy, is to use `std::size_t`.
+A standard array is a sequence and we can use a range-based `for` loop with it.  Note also the peculiar declaration of the loop variable in the three-element loop; this is required because the array container defines its size and index variables to be of an _unsigned_ int of type `size_type`. Strictly speaking, it should always be used for loop variables for standard containers, since they are defined internally that way.  The intention was to allow for very large array sizes without overflowing a loop variable.  A standard `int` or `long` will nearly always work, and the compiler will not complain, but best practice is to make the loop variable match the internal definition.  The `size_type` depends on the vector template so would have to be declared `std::vector<float>::size_type`; a shortcut that is safe, yet less wordy, is to use `std::size_t`.
 ```c++
-   for (std::size_t i=0; i<vec.size(); i++) {
+   for (std::size_t i=0; i<x.size(); i++) {
       //code
    }
 ```
@@ -69,8 +69,9 @@ Initializing vectors:
 {{< code-download file="/courses/cpp_introduction/codes/std_vector.cxx" lang="c++" >}}
 
 Many operations are defined for a vector.  These are some of the most commonly used:
+|---------------------|---------------------|
 |  V.push_back(item)  |  Append `item` to V |
-|  V.at(index)        |  Access `index` with bounds checking ([] does no checking |
+|  V.at(index)        |  Access `index` with bounds checking ([] does no checking) |
 |  V.start()          |  Starting point for iterator  |
 |  V.end()            |  End point (beyond last element) of iterator |
 |  V.size()           |  Number of elements
@@ -96,7 +97,7 @@ Insert is a bit tricky.  It has several forms but the simplest is `<vec>.insert(
 You may use an integer for appropriate loop variables, but remember that `size_type` is more correct.  You may also use `using namespace std` if you wish.
 
 {{< spoiler text="Example Solution" >}}
-{{< code file="/courses/cpp_introduction/solns/vector.cxx" lang="c++" >}}
+{{< code-download file="/courses/cpp_introduction/solns/vector.cxx" lang="c++" >}}
 {{< /spoiler >}}
 
 The sample uses `endl` (output an end-of-line character) rather than `\n`.  There is a slight difference between the two which we will discuss [later](/courses/content/cpp_introduction/console_io).

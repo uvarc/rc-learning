@@ -12,9 +12,9 @@ primary = "#3f51b5"
 
 # Menu
 # Madison blue
-menu_primary = "#2c3d57"
+#menu_primary = "#2c3d57"
 #Jefferson blue
-#menu_primary = "#232d4b"
+menu_primary = "#232d4b"
 menu_text = "#fff"
 menu_text_active = "#8c9eff" # A100
 menu_title = "#fff"

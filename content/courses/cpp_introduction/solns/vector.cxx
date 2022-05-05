@@ -29,11 +29,12 @@ int main(void) {
    cout << endl << endl;
 
    cout << "Change some elements\n";
-   cout << endl;
    Num[0] += 100;
    Num.at(1)=102;
+   for (int i: Num) 
+      cout << i << " ";
 
-   cout << endl;
+   cout << endl << endl;
    cout << "Iterator\n";
    for (it = Num.begin(); it != Num.end(); it++)
       cout << *it << " ";

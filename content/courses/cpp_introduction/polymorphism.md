@@ -2,7 +2,7 @@
 title: "Polymorphism and Operator Overloading"
 toc: true
 type: book
-weight: 94
+weight: 95
 ---
 
 Polymorphism means "many shapes."  In C++ it refers to the ability to define functions with the same name but different arguments, or in different classes; the latter case amounts to at minimum a different type for the hidden instance variable among the arguments.  There are two types of polymorphism: compile time and runtime.
@@ -54,10 +54,10 @@ class Point {
    public:
       float x,y;
       Point(float x, float y);
-      Point operator+(Point another);
+      Point operator+(const Point &another);
 };
 
-Point Point::operator+(Point another);
+Point Point::operator+(const Point &another);
     return Point(x+another.x,y+another.y);
 }
 ```
@@ -69,8 +69,9 @@ C=A+B;
 ```
 makes intuitive sense.  We would not want to overload multiplication with this definition.
 
-Most C++ operators, including several we have not discussed, can be overloaded.
-The syntax is `operator<symbol>(args)`.
+Most of the standard C++ operators, including several we have not discussed, can be overloaded. Exceptions are `.` (member selection), `.*` (pointer to member selection), `::` (scope resolution), and `:?` (conditional).  No preprocessor arguments (`#`) may be redefined.
+
+In general, operator redefinitions do not have to be class members, but typically they are when it is possible.  If they are not members, they must be global (not recommmended) or a friend function (better).  Some operators, such as `<<` for printing, cannot be members because they must take the instance as an argument.
 
 Assignment has a few extra requirements.  It must be a member function of a struct or class.  The argument is the _right_ side of the equality and must be declared `const`.  
 ```c++
@@ -78,17 +79,25 @@ class Point {
    public:
       float x,y;
       Point(float x, float y);
-      Point operator+(Point another);
+      Point operator+(const Point another);
       Point& operator=(const Point&);
 };
 
 Point& Point::operator=(const Point& rhs) {
     x=rhs.x;
     y=rhs.y;
-    return this;
+    return *this;
 }
 ```
+There are some additional complications for overloading assignment that we will not consider here; the major subtleties are copying versus assignment.  Copying creates a _new_ instance to hold the data, whereas assignment assigns values to an instance that already exists. C++ also allows self-assignment (f1=f1) and our simple-minded assignment operator above may fail in this case if memory must be allocated.  We can improve our example by checking for self-assignment 
+by adding at the top of the function the lines
+```c++
+if (this == &str)
+return *this;
+```
+See [here](https://www.learncpp.com/cpp-tutorial/overloading-the-assignment-operator/) for details.
 
 For a good discussion of operator overloading, see [here](https://docs.microsoft.com/en-us/cpp/cpp/operator-overloading?view=msvc-160) or [here](https://en.cppreference.com/w/cpp/language/operators).  
 
 Overloaded operators other than assignment (=) can be inherited by derived classes.
+

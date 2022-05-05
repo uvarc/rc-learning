@@ -91,7 +91,7 @@ Remember the formula:
 BMI = (Weight in Kilograms / (Height in Meters x Height in Meters))
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/exercise20.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/user_bmi_function.py" lang="python" >}}
 {{< /spoiler >}}
 </pre>
 </p>
@@ -236,4 +236,9 @@ R=functools.reduce(lambda x,y:x+y, V)
 F=list(filter(lambda x:x>0, V))
 {{< /code-snippet >}}
 
+{{< spoiler text="Example solution" >}}
+{{< code-download file="/courses/python_introduction/solns/functionals.py" lang="python" >}}
+{{< /spoiler >}}
+
 </details>
+

@@ -103,7 +103,7 @@ struct myStruct {
 
 struct myStruct var1;
 ```
-This would commonly be declared with
+This would frequently be declared with
 ```c
 typedef struct myStruct {
    int myvar;
@@ -113,4 +113,15 @@ typedef struct myStruct {
 aStruct var1;
 ```
 
-In contrast to C, the `enum`, `struct`, and `class` keywords are not required in variable declarations, as long as there is no ambiguity.  Programmers are advised to avoid creating this ambiguity, but some libraries may not adhere to this principle.  Ambiguity can commonly occur when a struct contains a member with the same name as a typedef.
+In contrast to C, C++ does not require the `enum`, `struct`, and `class` keywords in variable declarations, as long as there is no ambiguity.  Programmers are advised to avoid creating this ambiguity, but some libraries may not adhere to this principle.  Ambiguity can commonly occur when a struct contains a member with the same name as a typedef.
+
+```c++
+struct myStruct {
+   int myvar;
+   float anothervar;
+}
+
+myStruct var1;
+```
+
+Structures are described in detail in the next chapter.

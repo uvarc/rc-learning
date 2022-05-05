@@ -21,7 +21,7 @@ First (equal status):  * /
 Second (equal status):  + -
 
 Evaluation is left to right by precedence unless parentheses are used to group operators and operands.
-The mnemonic *PEMDAS* is sometimes applied--*P*arentheses*E*xponents*M*ultiplication*D*ivision*A*ddition*S*ubtraction--but remember that MD and AS are equals within their ranking.  C++ does not provide an exponential operator so more correctly it would be *PMDAS*.  Exponentiation is supplied by the`pow` built-in function.
+The mnemonic *PEMDAS* is sometimes applied--*P*arentheses*E*xponents*M*ultiplication*D*ivision*A*ddition*S*ubtraction--but remember that MD and AS are equals within their ranking.  C++ does not provide an exponential operator so more correctly it would be *PMDAS*.  Exponentiation is supplied by the `pow` built-in function.
 ```c++
 pow(x,3)
 ```
@@ -84,6 +84,10 @@ Beware when assigning the result of an increment or decrement to another variabl
  j is: 4
 ```
 
+**Exercise**
+Run the following program.  Modify the values of the different variables and see what happens.
+{{< code-download file="/courses/cpp_introduction/codes/expressions.cxx" lang="c++" >}}
+
 ## Conditional Operators
 
 ### Comparison Operators
@@ -133,6 +137,10 @@ Like arithmetic operators, conditional operators have a precedence ordering.
 * ==,!= are equal and outrank &&
 * && outranks ||
 
+**Exercise**
+Experiment with different values for the variables in this code.
+{{< code-download file="/courses/cpp_introduction/codes/conditional_operators.cxx" lang="c++" >}}
+
 ## Bitwise Operators
 
 Bitwise operators are defined for "integer type" variables, e.g. `int`, `short i
@@ -141,6 +149,5 @@ nt`, `unsigned int`, `char`, `unsigned char` etc.  They return another "integer 
 |   Operator    |   Meaning   |
 |---------------|-------------|
 |   &           |     bitwise and     |
-|   |          |     bitwise or      |
-|   ^          |     bitwise xor (exclusive or)      |
-
+|   \|           |     bitwise or      |
+|   ^           |     bitwise xor (exclusive or)      |

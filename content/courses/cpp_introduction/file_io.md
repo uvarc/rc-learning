@@ -50,11 +50,11 @@ To open read/write use
 
 We can control the characteristics of the file with modifiers
 
-* `ios::in      open` for input (read). Default for ifstream.
-* `ios::out     open` for output (write). Default for ofstream.
-* `ios::binary` open as binary (not text)
-* `ios::app`    append
-* `ios::trunc`  if file exists, overwrite (default for ofstream)
+* `ios::in`      open for input (read). Default for ifstream.
+* `ios::out`     open for output (write). Default for ofstream.
+* `ios::binary`  open as binary (not text)
+* `ios::app`     append
+* `ios::trunc`   if file exists, overwrite (default for ofstream)
 
 Use a pipe (|) to combine them
 ```c++
@@ -122,8 +122,14 @@ Although this method works, it has a number of drawbacks.  As we learned for [co
 **Exercise**
 
 Write a program that creates a file mydata.txt containing four rows consisting of
-1, 2, 3
-4, 5, 6
-7, 8, 9
-10, 11, 12
-Either rewind or reopen the file and read the data back.  Write a loop to add 1 to each value and print each row to the console.  Note that if you choose to rewind, the file will have to be opened read/write.  If you close it and reopen it, it will have to be reopened in write mode.
+```no-highlight
+1 2 3
+4 5 6
+7 8 9
+10 11 12
+```
+Either rewind or reopen the file and read the data back.  Write a loop to add 1 to each value and print each row to the console.  Note that if you choose to rewind, the file will have to be opened read/write.  If you close it and reopen it, it will have to be reopened in write mode.  You may use a statically-sized array for the data.  In the next chapter we will learn a more flexible method of reading lines of files.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/read_write_file.cxx" lang="c++" >}}
+{{< /spoiler >}}

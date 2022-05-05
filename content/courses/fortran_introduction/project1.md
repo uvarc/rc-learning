@@ -4,11 +4,6 @@ toc: true
 type: book
 weight: 32
 
-menu:
-    fortran_introduction:
-        parent: Project 1
-        weight: 32
-
 ---
 Write a program to compute the day of the week for any date of the Gregorian calendar. Here is the formula: 
 ```
@@ -40,5 +35,5 @@ Test your program first with your own birth date. Then test with the following d
 Try to write and test your own program before peeking at the sample solution.
 
 {{< spoiler text="Sample solution" >}}
-{{< code file="/courses/fortran_introduction/solns/day_of_week.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran_introduction/solns/day_of_week.f90" lang="fortran" >}}
 {{< /spoiler >}}

@@ -1,35 +1,34 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 int main() {
 
-    string title="This is a string";
-    string subtitle="Another string";
+    std::string title="This is a string";
+    std::string subtitle="Another string";
 
-    cout<<title.size()<<"\n";
+    std::cout<<title.size()<<"\n";
 
-    string newtitle=title+":"+subtitle;
+    std::string newtitle=title+":"+subtitle;
 
-    cout<<newtitle<<"\n";
-    cout<<newtitle.substr(1,3)<<"\n";
-    cout<<newtitle[4]<<"\n";
-    cout<<newtitle.at(5)<<"\n";
+    std::cout<<newtitle<<"\n";
+    std::cout<<newtitle.substr(1,3)<<"\n";
+    std::cout<<newtitle[4]<<"\n";
+    std::cout<<newtitle.at(5)<<"\n";
 
     subtitle.clear();
     subtitle="The Sequel";
     subtitle.append("!");
 
-    cout<<subtitle<<"\n";
+    std::cout<<subtitle<<"\n";
 
     int start=newtitle.find("Another");
     int end=newtitle.size();
     int n=end-start;
     newtitle.replace(start,end,subtitle);
-    cout<<newtitle<<"\n";
+    std::cout<<newtitle<<"\n";
     int pos=newtitle.find(":");
     newtitle.insert(pos+1," ");
-    cout<<newtitle<<"\n";
+    std::cout<<newtitle<<"\n";
 }
 
  

@@ -28,9 +28,15 @@ If you do not have superuser (sudo) permission or you wish to install Boost some
 https://www.boost.org/doc/libs/1_76_0/more/getting_started/unix-variants.html).
 The default prefix for installation from `b2 install` is `/usr/local`.  This is true for both Linux and Mac OS.  If you wish to install to `/usr/local`, which is normally in the system search paths, you will need to run the installation command with sudo
 ```no-highlight
+cd path/to/boost/source
+./bootstrap.sh
+sudo ./b2 install
+```
+If you do not have sudo privileges or you wish to install it someplace else, keep in mind that this will affect how you reference the headers and libraries with `-I` and `-L`.  You must provide the prefix to the installation directory to the `bootstrap.sh` script to install someplace other than the default location.
+```no-highlight
+./bootstrap.sh --prefix=/home/mst3k/boost
 ./b2 install
 ```
-If you do not have sudo privileges or you wish to install it someplace else, keep in mind that this will affect how you reference the headers and libraries with `-I` and `-L`.
 
 #### Windows
 
@@ -71,4 +77,4 @@ The Boost library provides a popular alternative, the MultiArray. This structure
 
 **Exercise**
 
-If you have succeeded in installing Boost, or you have access to a system where it has been installed, download and run the boost_array.cxx program.
+If you have succeeded in installing Boost, or you have access to a system where it has been installed, download and run the above boost_array.cxx program.

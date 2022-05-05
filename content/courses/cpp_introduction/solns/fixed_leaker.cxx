@@ -5,11 +5,10 @@ int main() {
 
     int   N=10;
 
-    float *x;
     for (int i=1;i<=5;++i) {
-        if (x != NULL) delete [] x;
-        x= new float[N];
+        float *x= new float[N];
         std::cout<<"New:"<<x<<"\n";
+        if (x != NULL) delete [] x;
     }
 
     return 0;

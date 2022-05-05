@@ -11,7 +11,7 @@ Even the standard templated types such as vectors are not sufficiently flexible 
 For example, consider a program to update employee information.  We can define several variables relevant for an employee; for example we might use salary, name of manager, name of department, employee ID number, and so forth.  Each of these is potentially a different type.  Salary would be floating point, the names would be strings, and the ID number would generally be an integer.  We have more than one employee to handle, so we must use some form of list or array.  In most languages we cannot define a single array to accommodate all these _fields_.  
 This leads to the need for a way to keep all the information about one employee coordinated.
 
-If we were restricted to generally-available types in C++, we would have to declare separate vectors for each field of interest.  When processing data, we would have to take pains to ensure that the index of one vector was correct for another vector.  Suppose we wanted to find all employees making more than a certain amount.  We would have to search the "salary" vector for the elements that met the criterion, while storing the index into some other vector, so that we would have an vector whose contents were the indices for other vector.  This is very prone to errors. 
+If we were restricted to generally-available types in C++, we would have to declare separate vectors for each field of interest.  When processing data, we would have to take pains to ensure that the index of one vector was correct for another vector.  Suppose we wanted to find all employees making more than a certain amount.  We would have to search the "salary" vector for the elements that met the criterion, while storing the indices into some other vector, so that we would have a vector whose contents were the indices for another vector.  This is very prone to errors. 
 ```c++
 std::vector<int>         employee_ID;
 std::vector<std::string> employee_name;
@@ -131,7 +131,11 @@ Notice in the vector example, we create an element with `push_back` by invoking 
 Copy the [vabirds.csv](/data/vabirds.csv) file. Each line of this file consists of a string followed by a number of integers.  In the header (one line) the string is the word "Species" with the integers a sequence of years.  In subsequent lines, the string is the common name of the bird, and the integers are observations for the years indicated in the header.  Write a program that will
 1. create a struct birdDat with members "species" and a vector for the observations.
 2. create a vector of the struct.
-3. read the file.  Store the years from the header in a vector.  Load the data for each line into an element of the birdDat struct vector.    
-4. write a function to compute the mean of the observations.
-5. print the mean of the observations for "AmericanCrow".
-6. Organize your code so the struct and the function that computes the mean are in a header.
+3. Read the file name from the command line.
+4. read the file.  Store the years from the header in a vector.  Load the data for each line into an element of the birdDat struct vector.    
+5. Print the observations for AmericanCrow.
+
+{{< spoiler text="Example Solution" >}}
+{{< code-download file="/courses/cpp_introduction/solns/read_bird_data.cxx" lang="c++" >}}
+{{< /spoiler >}}
+

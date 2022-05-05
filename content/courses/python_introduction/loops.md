@@ -65,7 +65,7 @@ Modify your loop to print the first N integers.  Be sure that N is set to a valu
 Write a loop that will sum the first N integers.  Hint: you will need a variable called an <em>accumulator</em> whose value is assigned outside the loop to 0.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/exercise7.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/sum_to_N.py" lang="python" >}}
 {{< /spoiler >}}
 
 </details>
@@ -111,7 +111,7 @@ print(x,y,z)
 Modify each for loop in the previous exercise to use a while loop instead.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/exercise8.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/sum_to_N_while.py" lang="python" >}}
 {{< /spoiler >}}
 
 </pre>
