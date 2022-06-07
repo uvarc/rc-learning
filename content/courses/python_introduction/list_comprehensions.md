@@ -15,6 +15,7 @@ squares=[x**2 for x in range(10)]
 This is equivalent to
 
 ```python
+squares=[]
 for x in range(10):
     squares.append(x**2)
 ```
