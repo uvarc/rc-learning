@@ -66,7 +66,7 @@ w=squareroot(10.)
 One of the most commonly used versions of import changes the name of the namespace, typically to something simpler.
 
 ```python
-imoprt numpy as np
+import numpy as np
 import pandas as pd
 
 z=np.zeros(200)

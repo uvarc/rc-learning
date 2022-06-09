@@ -28,7 +28,13 @@ If you are using your local computer, we recommend the Anaconda distribution (<a
 
 **If you are using Rivanna, follow these steps to verify that your account is active:**
 
-### Check your Access to Rivanna
+## Download Data and Code Examples
+
+[Data](/notes/python_high_perf/data.zip)
+
+[Code](/notes/python_high_perf/codes.zip)
+
+## Check your Access to Rivanna
 
 1. In your web browser, got to <a href="https://rivanna-desktop.hpc.virginia.edu" target="_blank">rivanna-desktop.hpc.virginia.edu</a>.  This takes you to our FastX web portal that lets you launch a remote desktop environment on Rivanna.  If you are off Grounds, you must be connected through the UVA Anywhere VPN client.
 
