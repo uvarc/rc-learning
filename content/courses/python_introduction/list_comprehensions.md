@@ -1,10 +1,14 @@
 ---
-title: List Comprehensions
+title: Loop Alternatives
 toc: true
 type: book
 draft: false
 weight: 45
 ---
+
+Loops in Python are very slow.  Nested loops are especially slow.  Some alternatives are available in the standard set of packages that are usually faster..
+
+## List Comprehensions
 
 A list comprehension collapses a loop over a list and, optionally, an if clause.
 
@@ -34,5 +38,11 @@ for x in range(-10,11):
         positives.append(math.sqrt(x))
 ```
 
-List comprehensions are nearly always __much__ faster than the equivalent loop.
+List comprehensions may be nested.
 
+{{< code-snippet >}}
+list_2d = [[i+j for j in range(1,6)] for i in range(10,16)]
+{{< /code-snippet >}}
+
+Observe the ordering in the previous example.  The inner loop is _first_.
+  

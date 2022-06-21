@@ -8,7 +8,9 @@ menu:
         weight: 1
 ---
 
-# Overview
+## Overview
+
+Python, like most interpreted languages, can be very slow. But there are best practices and some programming tricks that can speed it up considerably.  This can make the difference between finishing the work in an acceptable time, or being unable to finish a project.
 
 **First Things First:** Always start with a working, correct code. Make it as clean and readable as possible.
 
@@ -20,21 +22,15 @@ For this tutorial, it is assumed that you have experience with programming in Py
 
 - - -
 
-# Setup
+## Setup
 
-To follow along for the [Serial Optimization](#serial-optimization-strategies) and [Multiprocessing](#multiprocessing) examples, you can execute the code examples on your own computer or on UVA's high-performance computing cluster, Rivanna.  Examples described in the last section, [Distributed Parallelization](#distributed-parallelization), must be executed on UVA's high-performance computing platform, Rivanna.
+To follow along for the [Serial Optimization](#serial-optimization-strategies) and [Multiprocessing](#multiprocessing) examples, you can execute the code examples on your own computer or on UVA's high-performance computing cluster, Rivanna.  Examples described in the last section, [Distributed Parallelization](#distributed-parallelization), are best executed on UVA's high-performance computing platform, Rivanna.
 
 If you are using your local computer, we recommend the Anaconda distribution (<a href="https://www.anaconda.com/distribution/" target="balnk_">download</a>) to run the code examples. Anaconda provides multiple Python versions, an integrated development environment (IDE) with editor and profiler, Jupyter notebooks, and an easy to use package environment manager.
 
 **If you are using Rivanna, follow these steps to verify that your account is active:**
 
-## Download Data and Code Examples
-
-[Data](/notes/python_high_perf/data.zip)
-
-[Code](/notes/python_high_perf/codes.zip)
-
-## Check your Access to Rivanna
+### Check your Access to Rivanna
 
 1. In your web browser, got to <a href="https://rivanna-desktop.hpc.virginia.edu" target="_blank">rivanna-desktop.hpc.virginia.edu</a>.  This takes you to our FastX web portal that lets you launch a remote desktop environment on Rivanna.  If you are off Grounds, you must be connected through the UVA Anywhere VPN client.
 

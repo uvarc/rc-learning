@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 Created on Mon Feb 3 17:56:40 2020
 
@@ -10,11 +8,17 @@ use of a Profiler.
 @author: Karsten Siller
 """
 def fib(n):
-    # from http://en.literateprograms.org/Fibonacci_numbers_(Python)
+    n1=0; n2=1;
     if n < 2:
         return n
     else:
-        return fib(n-1) + fib(n-2)
+        i=1
+        while i<n:
+            fibb=n1+n2
+            n1=n2
+            n2=fibb
+            i+=1
+        return n2
 
 def fib_seq(n):
     results = [ ]
@@ -24,4 +28,4 @@ def fib_seq(n):
     return results
 
 if __name__ == '__main__':
-    print (fib_seq(30))
+    print (fib_seq(5))

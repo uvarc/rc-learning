@@ -2,11 +2,11 @@
 title: "Multiprocessing for Multicore Systems"
 toc: true
 type: docs
-weight: 4
+weight: 35
 menu:
     hp-python:
         parent: High-Performance Python
-        weight: 4
+        weight: 35
 ---
 
 Sometimes you cannot sufficiently speed up your program even with all optimization tricks.  You may be able to take advantage of modern multicore processors to distribute the work across different cores.  One popular programming model for multicore is **threads**.  Threads are subprocesses launched by the initial process (the executable in most cases).  Threads can be created and destroyed.  Each thread should be assigned to its own core.  Threads share a memory space and can also access the global memory of the system.  
@@ -18,7 +18,7 @@ A variety of workarounds to the GIL exist.  For instance, Python 3 provides the 
 
 In most cases, it is better to just start another Python process.  The `multiprocessing` package handles this and manages communication among the processes.  For the purpose of this tutorial we will experiment with a few different multiprocessing approaches. A detailed description can be found on the official <a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank">Multiprocessing website</a>.
 
-One difference between true threads and a Multiprocessing process is that threads share memory and processes do not.
+One difference between true threads and a Multiprocessing process is that threads directly share memory and processes do not.
 
 **Import the package**
 ```
