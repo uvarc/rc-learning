@@ -2,11 +2,11 @@
 title: "Working with Compilers"
 type: docs
 toc: true
-weight: 3
+weight: 24
 menu:
     hp-python:
         parent: High-Performance Python
-        weight: 3
+        weight: 24
 ---
 
 Broadly speaking, interpreted languages tend to be slow, but are relatively easy to learn and use.  Compiled languages generally deliver the maximum speed, but are more complex to learn and use effectively.  Python can utilize libraries of compiled code that are appropriately prepared, or can invoke a compiler (standard or "just in time") to compile snippets of code and incorporate it directly into the execution. 
@@ -47,7 +47,7 @@ The original Fortran source consisted of a module Fractions.  Examining the sign
 >>> fractions.adder(1,2,3,4)
 array([10,  8], dtype=int32)
 ```
-One significant weakness of f2py is limited support of the Fortran90+ standards, particularly derived types.  One option is [f90wrap](https://github.com/jameskermode/f90wrap) package.
+One significant weakness of f2py is limited support of the Fortran90+ standards, particularly derived types.  One option is the [f90wrap](https://github.com/jameskermode/f90wrap) package.
 
 It is also possible to wrap the Fortran code in C by various means, such as the F2003 ISO C binding features, then to use the Python-C interface packages, such as ctypes and CFFI, for Fortran.  More details are available at [fortran90.org](https://fortran90.org) for interfacing with [C](https://www.fortran90.org/src/best-practices.html#interfacing-with-c) and [Python](https://www.fortran90.org/src/best-practices.html#interfacing-with-python).
 
@@ -103,7 +103,7 @@ However, neither ctypes nor CFFI supports C++ directly.  Any C++ must be "C-like
 
 ### C++
 
-One of the most popular packages that deals directly with C++ is [PyBind11](https://pybind11.readthedocs.io/en/stable/).  Setting up the bindings is more complex than is the case for ctypes or CFFI, however, and the bindings are written in C++, not Python.
+One of the most popular packages that deals directly with C++ is [PyBind11](https://pybind11.readthedocs.io/en/stable/).  Setting up the bindings is more complex than is the case for ctypes or CFFI, however, and the bindings are written in C++, not Python.  Pybind11 will have to be installed through `conda` or `pip`.
 
 One option is to use [CMake](), since it can be configured to generate the fairly complex Makefile required, and it also works on Windows.  A somewhat simpler method is to use the Python package `invoke`.  This can be installed through pip or through a manager such as a Linux operating system package manager.  The Python header file `Python.h` must also be accessible.
 
@@ -120,39 +120,25 @@ g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC fractions.cxx -o libfractions.so
 ```
 Run the command
 ```no-highlight
-python3 -m pybind11 --includes
+python -m pybind11 --includes
 ```
 in order to determine the include path.  On a particular system it returned
 ```no-highlight
 -I/usr/include/python3.9 -I/usr/include/pybind11
 ```
-Take note of the include file paths.  Move into Python and run invoke
+Take note of the include file paths, which will vary from one system to another.  Move into Python and run invoke
+{{% code-download file="/notes/python_high_perf/codes/tasks.py" lang="python" %}}
+
+This will create a module whose name begins with `py_fractions` (the rest of the name is specific to the platform on which it was created, and is ignored when importing).  Test that it works:
 ```python
-import invoke
-cpp_name="wrap_fractions.cxx"
-extension_name="py_fractions"
-invoke.run(
-    "g++ -O3 -Wall -Werror -shared -std=c++11 -fPIC "
-    "`python3 -m pybind11 --includes` "
-    "-I /usr/include/python3.9 -I .  "
-    "{0} "
-    "-o {1}`python3.9-config --extension-suffix` "
-    "-L. -lcppmult -Wl,-rpath,.".format(cpp_name, extension_name)
-)
-```
-This will create a module whose name begins with py\_fractions (the rest of the name is specific to the platform on which it was created, and is ignored when importing).  Test that it works:
-```
 >>> from py_fractions import Fraction
 >>> f1=Fraction(5,8)
 >>> f2=Fraction(11,13)
 >>> f1.addFracs(f2)
 [153, 104]
 ```
-The commands required to generate the module are in the [tasks.py](/notes/python_high_perf/tasks.py) file for convenience.
 
-
-Pybind11 requires C++ code that adheres to the C++11 standard or higher.  Another option is the Boost library Python bindings [Boost.Python](https://www.boost.org/doc/libs/release/libs/python/doc/html/index.html).  Pybind11 is a fork of these bindings; the Boost version is more general, and can handle many older C++ codes.
-
+Pybind11 requires C++ code that adheres to the C++11 standard or higher.  Another option is the Boost library Python bindings [Boost.Python](https://www.boost.org/doc/libs/release/libs/python/doc/html/index.html).  Pybind11 is a fork of these bindings; the Boost version is more general, and can handle many older C++ codes, but it is more complex to use.
 
 ## Cython
 
@@ -186,7 +172,7 @@ A well-known but slow way to compute pi is by a Monte Carlo method.  Given a cir
 Open the `MonteCarloPi.py` script.
 {{% code-download file="/notes/python_high_perf/codes/MonteCarloPi.py" lang="python" %}}
 
-Running with 10^9 points takes 6 minutes and 21 seconds on one particular system.
+Running with $10^9$ points takes 6 minutes and 21 seconds on one particular system.
 
 Now add another `import` statement.
 ```python

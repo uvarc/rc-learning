@@ -14,7 +14,7 @@ _For loops_ execute for a fixed number of iterations.  It is possible to exit ea
 
 _While loops_ do not start with a predetermined number of iterations.  They terminate when some condition becomes False.
 
-## For Loops in iPython
+## For Loops in Python
 
 ```python
 for item in iterator:
@@ -213,36 +213,3 @@ for i in range(10):
         s=s+i+j
 print(s)
 {{< /code-snippet >}}
-
-
-## List Comprehensions
-
-A list comprehension collapses a loop over a list and, optionally, an if clause.
-
-```python
-squares=[x**2 for x in range(10)]
-```
-
-This is equivalent to
-
-```python
-for x in range(10):
-    squares.append(x**2)
-```
-
-With an optional conditional it becomes
-
-```python
-positives=[math.sqrt(x) for x in range(-10,11) if x>0]
-```
-
-This is equivalent to
-
-```python
-for x in range(-10,11):
-    if x>0:
-        positives.append(math.sqrt(x))
-```
-
-List comprehensions are nearly always __much__ faster than the equivalent loop.
-It is good practice to replace a short, simple loop with a comprehension whenever possible.

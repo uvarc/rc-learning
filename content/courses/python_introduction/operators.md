@@ -134,21 +134,3 @@ just as in the analogous mathematical expression.  An `and` operator is always a
 ```python
 0<a and a<=1
 ```
-
-### String Comparison Operators
-
-String comparison operators look the same as arithmetic comparison operators but use _lexical ordering_.  Strings are compared character by character.  Spaces are counted as well as some "nonprinting" characters.  Equality requires an _exact_ match.
-
-{{< code-snippet >}}
-str1="News of the world"
-str2="News of the world  "
-print(str1==str2)
-{{< code-snippet >}}
-
-{{< /code-snippet >}}
-str3="uppercase"
-str4="Uppercase"
-print(str3>str4)
-{{< /code-snippet >}}
-
-Notice that uppercase letters are lexically less than lowercase letters.  This is due to the ordering sequence in the _character set_ being used.

@@ -1,12 +1,12 @@
 ---
-title: "Distributed Parallel Programming with MPI"
+title: "Distributed Parallel Programming"
 type: docs
 toc: true
-weight: 5
+weight: 45
 menu: 
     hp-python:
         parent: High-Performance Python
-        weight: 5
+        weight: 45
 ---
 
 Nearly all recent computers, including personal laptops, are multicore systems.  The central-processing units (CPUs) of these machines are divided into multiple processor cores.  These cores share the main memory (RAM) of the computer and may share at least some of the faster memory (cache).  This type of system is called a **shared-memory processing** or **symmetric multiprocessing** (SMP) computer.  
@@ -120,23 +120,17 @@ When creating a Dataframe, Dask does attempt to assign a type to each column.  I
 
 Dask Bags implement collective operations like mapping, filtering, and aggregation on data that is less structured than an array or a dataframe.
 
-This example requires the mimesis package.
+**Example**
+
+Download the [data](/notes/python_high_perf/data.zip).  Unzip it where the Python interpreter can find it.  If using Jupyter make sure to set the working folder and then provide the path to the `data` folder.
 ```python
->>>import dask
->>>import json
->>>import os
-
->>>os.makedirs('data', exist_ok=True)            # Create data/ directory
-
->>>b = dask.datasets.make_people()               # Make records of people
->>>b.map(json.dumps).to_textfiles('data/*.json') # Encode as JSON, write to disk
 import dask.bag as db
->>>b = db.read_text('data/*.json').map(json.loads)
->>>b
->>>b.take(2)  # shows the first two entries
->>>c=b.filter(lambda record: record['age'] > 30)
->>>c.take(2)
->>>b.count().compute()
+b = db.read_text('data/*.json').map(json.loads)
+b
+b.take(2)  # shows the first two entries
+c=b.filter(lambda record: record['age'] > 30)
+c.take(2)
+b.count().compute()
 ```
 
 **Exercise**
@@ -223,7 +217,6 @@ The Reduce function returns each result to the process regarded as the root, whi
 
 This example reruns the problem without distributing the throws in order to obtain a serial time for comparison purposes.  Of course, a real application would not do that.
 
-
 ### Running the MPI Python Program on Rivanna
 
 In order to launch multiple tasks (or processes) of our program, we run this program through the MPI executor.  On our HPC cluster this is srun.
@@ -232,7 +225,7 @@ In order to launch multiple tasks (or processes) of our program, we run this pro
 srun python MonteCarloPiMPI.py 1000000000
 ```
 
-**Note you cannot launch the MPI program with `srun` on the Rivanna login nodes.**  In order to execute our program on designated compute node(s), we need to write a simple bash script that defines the compute resources we need.  We call this our job script.  For our example, the job script `pimpi.sh` looks like this:
+**Note: you cannot launch the MPI program with `srun` on the Rivanna login nodes.**  In order to execute our program on designated compute node(s), we need to write a simple bash script that defines the compute resources we need.  We call this our job script.  For our example, the job script `pimpi.sh` looks like this:
 
 {{% code-download file="/notes/python_high_perf/codes/pimpi.sh" lang="bash" %}}
 
@@ -245,18 +238,15 @@ Open a terminal window and execute this command:
 sbatch pimpi.sh
 ``` 
 
-<br>
-**Checking the Job Status:**
+**Checking the job status:**
 
 Check the job status with the `squeue -u` or `sacct` commands as described in the [Multiprocessing](#multiprocessing) section. 
 
-<br>
-**Checking the Output File:**
+**Checking the output file:**
 
 Open the `slurm-XXXXXX.out` files in a text editor and record the total run time for the job.
 
-<br>
-**Exercises**
+**Exercise**
 
 Rerun the MPI job using 1 or 4 cpu cores by changing the `--ntasks-per-node` option.
 

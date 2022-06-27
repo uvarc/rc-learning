@@ -41,7 +41,7 @@ All comparison operators have the same precedence relative to each other.  All c
 Examine the results of the following:
 
 {{< code-snippet >}}
-a=11.; b=9.; c=45. n=3
+a=11.; b=9.; c=45.; n=3
 print(a > b)
 print(a < b and c==n)
 print(a < b or c==n)
@@ -61,7 +61,7 @@ B=A
 C=0.25*math.pi*d**2
 ```
 
-Unlike some other languages, Python statements do not require a semicolon at the end of the line.  Semicolons may be used to separate multiple statements on one line.
+Unlike some other languages, Python statements do not require a semicolon at the end of the line, and the standard programming style does not use one.  Semicolons may be used to separate multiple statements on one line.
 
 The backslash character `\` is the line-continuation marker.  A comma that separates elements can also mark a continuation as long as it is the last character on the line.
 

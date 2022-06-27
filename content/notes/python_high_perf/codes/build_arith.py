@@ -10,8 +10,8 @@ ffibuilder.cdef("""
  """)
 
 # set_source() specifies the name of the Python extension module to
-# create, as well as the original C source file.  If we had `arith.h` we
-# would put `include "arith.h"` in the triple quotes.  Conventionally, we
+# create, as well as the original C source file.  If we had arith.h we
+# would put include "arith.h" in the triple quotes.  Conventionally, we
 # name the extension module with a leading underscore.
 ffibuilder.set_source("_arith",
 """

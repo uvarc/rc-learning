@@ -16,7 +16,7 @@ categories: ["Rivanna","HPC"]
 #   Otherwise, set `slides = ""`.
 #slides: rivanna-intro 
 #notes: rivanna-intro
-url_slides: slides/rivanna-intro-pptx/IntroductionToRivanna_2021_12_01.pptx
+url_slides: slides/rivanna-intro-pptx/IntroductionToRivanna_2022_06_14.pptx
 # slides: rivanna-intro
 
 notes: rivanna-intro
