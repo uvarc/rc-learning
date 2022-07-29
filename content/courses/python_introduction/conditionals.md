@@ -69,8 +69,7 @@ else:
 
 The "condition" must be an expression that evaluates to True or False; that is, it must be a Boolean variable or expression.  Boolean expressions are formed from other types of variables with conditional operators.
 
-<details>
-<summary>Exercise 6</summary>
+**Exercise**
 
 The Body Mass Index is a widely-used number to classify body shapes.  The formula in Imperial units (pounds, inches) is
 
@@ -92,7 +91,6 @@ over 45: obese class IV (morbidly obese)
 
 Using whichever unit system you prefer, write some code to assign the weight and height, compute the number, and determine its classification.  Assign your own weight and height.  Try a few others.  Use an online calculator to check your results.
 
-For Imperial units you may wish to include a conversion from feet+inches to inches, since the formula requires inches only.
-
-</details>
-
+{{< spoiler text="Example solution" >}}
+{{< code-download file="/courses/python_introduction/exercises/simple_bmi.py" lang="python" >}}
+{{< /spoiler >}}

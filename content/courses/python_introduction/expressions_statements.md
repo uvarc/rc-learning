@@ -36,8 +36,8 @@ The Boolean operators have their own precedence rules. Highest to lowest are `no
 
 All comparison operators have the same precedence relative to each other.  All comparison operators outrank all Boolean operators.
 
-<details>
-<summary>Exercise 3</summary>
+**Exercise**
+
 Examine the results of the following:
 
 {{< code-snippet >}}
@@ -50,8 +50,6 @@ print((a > b or c==n) and a < b)
 is_greater=a > b
 print(is_greater,type(is_greater))
 {{< /code-snippet >}}
-
-</details>
 
 ## Statements
 

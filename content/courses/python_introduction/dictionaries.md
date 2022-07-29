@@ -96,17 +96,11 @@ if key not in D
 
 depending on what you want to do.
 
-<details>
-<summary>Exercise 12</summary>
+**Exercises**
 
 Type into Spyder or Jupyterlab and run
 
-{{< code-download file="/courses/python_introduction/solns/dictionary_demo.py" lang="python" >}}
-
-</details>
-
-<details>
-<summary>Exercise 13</summary>
+{{< code-download file="/courses/python_introduction/exercises/dictionary_demo.py" lang="python" >}}
 
 Use the following lists to create a dictionary `teams` where the key is taken from the first list with the value from the second list.  Use your dictionary to print the team located in Chicago.  Note that there are two teams in Los Angeles so you must make the values a list, most of which will have only one element. Hint: for neat printing, use the `join` function to create a string from a list.
 
@@ -126,8 +120,6 @@ mascots=["Celtics","Nets","Knicks","76ers","Raptors","Golden State Warriors",
 {{< /code-snippet >}}
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/create_dictionary.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/exercises/create_dictionary.py" lang="python" >}}
 {{< /spoiler >}}
-
-</details>
 

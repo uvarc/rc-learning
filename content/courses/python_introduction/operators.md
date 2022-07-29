@@ -49,8 +49,8 @@ If you'd like the new print function as well, modify this line to
 from __future__ import division, print_function
 ```
 
-<details>
-<summary>Exercise 1</summary>
+**Exercises**
+
 Type or paste into your choice of Spyder's interpreter pane or a JupyterLab cell the following assignments.
 
 {{< code-snippet >}}
@@ -73,11 +73,6 @@ num_1/num_2
 num_2/num_1
 ```
 
-</details>
-
-<details>
-<summary>Exercise 2</summary>
-
 Use the same method of typing one line at a time (using a separate cell for each in Jupyter) to study the outcome of the following operations:
 
 ```python
@@ -94,7 +89,6 @@ Use the same method of typing one line at a time (using a separate cell for each
 11.4%3.5 #?
 11.4-(11.4//3.5)*3.5
 ```
-</details>
 
 ## Boolean Operators
 
@@ -115,7 +109,7 @@ Boolean operators operate on Boolean expressions.
 
 Comparison operators operate on other types but return Boolean values.  They are also called _conditional_ operators or relational operators.
 
-Comparison operators represent relationships between two or more variables.  They can be defined on any type, but arithmetic and string comparisons are the most common.
+Comparison operators represent relationships between two or more variables.  They can be defined on any type, but arithmetic and [string](/courses/python_introduction/strings) comparisons are the most common.
 
 ### Arithmetic Comparison Operators
 

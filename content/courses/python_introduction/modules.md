@@ -96,8 +96,7 @@ Example
 
 {{< code-download file="/courses/python_introduction/scripts/rooter.py" lang="python" >}}
 
-<details>
-<summary>Exercise 24</summary>
+**Exercise**
 
 Type in the example.  Save it into a file called `rooter.py`.  Type in and save a file `testmain.py`
 
@@ -109,4 +108,3 @@ print(sqrtrt)
 
 First run rooter.py as a standalone script, then run testmain.py.  What's the difference?
 
-</details>

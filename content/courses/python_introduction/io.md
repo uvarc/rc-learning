@@ -10,7 +10,7 @@ Programs are not very useful if they cannot communicate their results.  They are
 
 It is best to make your program read its input parameters, rather than embedding them (hard-coding) them into the program body.  You may want to change the parameters later or run it for many different sets of parameters.  You may give your program to somebody else who will have to modify it.  Always assume your program may later be used for a slightly different purpose, whether by someone else or by you.
 
-### Console Input
+## Console Input
 
 The console is a text interface for input to and output from the computer.  In Spyder, the iPython window itself can serve as a console.  In Jupyterlab the output console is indicated by lines marked with `Out []` whereas a reference to an input console will open a textbox. 
 
@@ -26,7 +26,7 @@ weight=float(input("Enter your weight in pounds:"))
 print(type(weight))
 ```
 
-### Console Output
+## Console Output
 
 We have already been using the `print` function.  Let us now examine it in more detail.
 
@@ -44,21 +44,27 @@ w=62.
 print("Your BMI is",w/ht**2)
 ```
 
-<details>
-<summary>Exercise 15</summary>
-<pre>
-<p>
-Use Spyder to write a <em>complete</em> program to compute BMI from weight and height input from a user.  First request the user's choice of units.  We have not spent much time with strings yet so you may use a digit to indicate the user's choice, but remember it will still be a string on input. Then request weight and height.  You will need to convert these from strings. Look up the correct conversion factors for Imperial to metric units. Compute the BMI and print the result to the console.   
-</p>
-</pre>
-</p>
+**Exercise**
+
+Use Spyder or another IDE to write a <em>complete</em> program to compute BMI from weight and height input from a user.  First request the user's choice of units.  We have not spent much time with strings yet so you may use a digit to indicate the user's choice, but remember it will still be a string on input. Then request weight and height.  You will need to convert these from strings. Look up the correct conversion factors for Imperial to metric units. Compute the BMI. 
+
+The categories are 
+|   BMI     |   Category |
+|-----------|------------|
+| less than 18.5    |  Underweight |
+| 18.5 to 25.0      |  Normal      |
+| 25.0 to 30.0      |  Overweight  |
+| 30.0 to 35.0      |  Obese Class I |
+| 35.0 to 40.0      |  Obese Class II |
+| more than 40.0      |  Obese Class III | 
+
+Print the user's BMI value and category.
+
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/user_input_bmi.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/exercises/user_input_bmi.py" lang="python" >}}
 {{< /spoiler >}}
 
-</details>
-
-#### Formatted Output
+### Formatted Output
 
 So far we have only considered _list-directed_ input/output.  We leave it to the interpreter to format.  However, we often want or need more control over the format.  For this we define __format strings__.
 
@@ -115,8 +121,7 @@ Empty curly braces result in default formatting and ordering.  In this situation
 
 * print("I have {} books to read by {}".format(12,"tomorrow"))
 
-<details>
-<summary>Exercise 16</summary>
+**Exercise**
 
 Type at the interpreter 
 
@@ -132,8 +137,6 @@ Practice printing math.pi
 - For at least one of the above, add a message
 - Print the number of digits to at least 6 spaces and pad with zeros
 - Print the number with a message that specifies the number of digits, where the number of digits is also to be printed.
-
-</details>
 
 Even more sophisticated formatting is possible.  In the above examples, when printing pi the value of `n` had to be 12 or the output would be inconsistent.  In newer Python versions we can make the width a variable.
 

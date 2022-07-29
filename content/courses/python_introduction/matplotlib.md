@@ -70,14 +70,11 @@ Surface plots require the `mplot3d` package and some additional commands to set 
 Recent versions of Matplotlib can apply _style sheets_ to change the overall appearance of plots.  For example, NumPy has modified its default style, but the older one (shown in some of our illustrations) is available as "classic."  Matplotlib can also be styled to imitate the R package `ggplot`.  See the [gallery](https://matplotlib.org/gallery/style_sheets/style_sheets_reference.html#sphx-glr-gallery-style-sheets-style-sheets-reference-py)
 for the possibilities.
 
-<details>
-<summary>Exercise 26</summary>
+**Exercise**
 
 1. Type into your choice of Spyder's interpreter pane or a JupyterLab cell the example plotting codes we have seen so far.  These were all taken from the Matplotlib gallery.
 
 2. In the contour plot example, change `contour` to `contourf` and observe the difference.
-
-</details>
 
 ## Seaborn
 

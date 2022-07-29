@@ -15,5 +15,5 @@ class MyClass:
         self.y=20.
 
     def addit(self,z):
-        return MyClass.i+self.y-z
+        return MyClass._i+self.y-z
 

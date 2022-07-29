@@ -10,8 +10,8 @@ A __class__ is a generalized, programmer-defined data structure that can contain
 
 ## Object Oriented Programming
 
-Object-oriented programming (OOP) is an approach to structuring a program.  The code is organized around coherent structures that contain both attributes (variables) and behaviors (procedures).  For example, consider a program for a human resources department.  They are concerned with _employees_.  An employee has several attributes, including such things as a name, an employee ID number, a salary, and possibly other information such as home address and start date.  If we did not have something like an object, we would have to represent a group of employees with a list or similar structure.  
-Each element of the list would have to contain all the information about one employee, so would have to be a list itself.  If we wanted to work with a particular employee's record, we would have to determine the index, then make sure to use it consistently across any other lists or arrays we might be using.  With the information about each employee bundled into an object, we can create a variable representing an employee, and load all the pertinent data into it.  
+Object-oriented programming (OOP) is an approach to structuring a program.  The code is organized around coherent structures that contain both attributes (variables) and behaviors (procedures).  For example, consider a program for a human resources department.  They are concerned with _employees_.  An employee has several attributes, including such things as a name, an employee ID number, a salary, and possibly other information such as home address and start date.  If we did not have something like an object, we would have to represent a group of employees with a list or similar structure.  Each element of the list would have to contain all the information about one employee, so would have to be a list itself.  If we wanted to work with a particular employee's record, we would have to determine the index, then make sure to use it consistently across any other lists or arrays we might be using.  With the information about each employee bundled into an object, we can create a variable representing an employee, and load all the pertinent data into it.  
+
 Moreover, employees have behaviors (or behaviors can be imposed on them).  They can be given salary raises (or perhaps cuts).  They can change their status.  They can be hired, fired, or they can quit.  We could write procedures to manage those behaviors, and include them in the object so that each employee would carry out the behaviors and the relevant attributes would be properly updated for the correct employee.  We could easily introduce new attributes or behaviors without needing to rewrite code to shuffle list elements.  We can more easily check our code dealing with an "employee" since everything relevant to the employee is _encapsulated_ in the corresponding object.
 
 ## Classes
@@ -34,7 +34,7 @@ we have invoked a constructor (in an unusual format) for the list class.  When w
 L.append(5)
 ```
 
-we are calling the append _method_ on the _instance_ L of the _class_ list to add an element at the end of the list represented by `L`.
+we are calling the `append` _method_ on the _instance_ `L` of the _class_ `list` to add an element at the end of the list represented by `L`.
 
 ### Syntax
 
@@ -52,7 +52,7 @@ Example:
 
 {{< code-download file="/courses/python_introduction/scripts/mymodule.py" lang="python" >}}
 
-The first line defines the class name.  The next line is the docstring.  After that we define and initialize a variable that is global to the class.  The first method is the constructor.  The ultimate class constructor is always named \_\_init\_\_ (two underscores).  The first argument to init, and to all methods in Python, is the _instance variable_.  The next two arguments to the constructor are actually passed from the caller.  They are used to initialize the two attributes `x` and `y`.  Notice that `self.x` and `x` are completely different variables; similarly for `self.y` and `y`.
+The first line defines the class name.  The next line is the docstring.  After that we define and initialize a variable that is global to the class.  The first method is the constructor.  The ultimate class constructor is always named `__init__` (two underscores).  The first argument to init, and to all methods in Python, is the _instance variable_.  The next two arguments to the constructor are actually passed from the caller.  They are used to initialize the two attributes `x` and `y`.  Notice that `self.x` and `x` are completely different variables; similarly for `self.y` and `y`.
 
 Next is a method that acts only upon the instance.  Note that it does _not_ return the instance.  Instance variables are never returned from a method of their own class.  Traditionally None is returned (explicitly or by default).  Finally, we have a function that performs a computation using a class attribute, and returns the result to the caller.  The global variable `i` is referenced with the class name, not with self, because it is a _class variable_ and not an attribute of an instance.
 
@@ -69,8 +69,7 @@ thing.reset(w,z)
 
 The constructor `__init__` is invoked when a new instance is declared.  It need not take any arguments from the caller at all, though it will always include `self` in its parameter list.  Any attributes to be declared should be set to some default value in the constructor.
 
-<details>
-<summary>Exercise 30</summary>
+**Exercise**
 
 Type in the example class.  Save it into a file called `mymodule.py`.  Run the file or cell.  In your interpreter window or a new cell, type
 
@@ -85,8 +84,6 @@ a=mc.addit(13)
 print(a)
 ```
 
-</details>
-
 In the interpreter you can create new attributes dynamically; they will not, however, be preserved in your class module.
 
 ```python
@@ -94,43 +91,6 @@ x=MyClass(11.,13.)
 x.counter=1
 print(x.counter,x.i,x.reset(12,15))
 ```
-
-## Data Hiding
-
-In stricter object-oriented languages, class data may be _public_ or _private_.  Public members are directly accessible from an instance.  Private attributes can only be accessed through methods; the data is said to be _encapsulated_ within the object.  Private methods can only be accessed by other methods.  This is to prevent outside code from changing the attributes, or the results of methods, without a "message" to the class instance being sent.  
-
-### Data Hiding in Python
-
-Python does not enforce this but does have a mechanism for "hiding" some members.
-All symbols beginning, but not ending, in two underscores are not accessible through an instance.  They can only be utilized through a method.  Symbols beginning with a single underscore are understood to be part of the _implementation_ and not the interface.  Outside code must not rely on them and should rarely to never use them directly.
-
-Example: 
-
-{{< code-download file="/courses/python_introduction/scripts/mymodule_private.py" lang="python" >}}
-
-This makes a difference. 
-
-```python
-ac=MyClass(19.,20.)
-ac.addit(30.)
-ac._i
-ac.__redo()
-```
-
-The last line will result in an AttributeError: MyClass instance has no attribute '\_\_redo'.
-
-However, it is not absolute:
-
-```python
-ac._MyClass__redo()   #impolite!
-print(ac.x,ac.y)
-```
-
-### Accessors and Mutators
-
-To handle "private" or even just "implementation" variables we use methods.  Accessors ("getters") get the value and return it.  Mutators ("setters") change the value.
-
-{{< code-download file="/courses/python_introduction/scripts/privateclass.py" lang="python" >}}
 
 ## Class Methods
 

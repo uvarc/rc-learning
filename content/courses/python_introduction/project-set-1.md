@@ -3,7 +3,7 @@ title: Project Set 1
 toc: true
 type: book
 draft: false
-weight: 65
+weight: 49
 ---
 
 ## Project 1
@@ -50,20 +50,37 @@ Write a program that:
 
 ## Project 4
 
-Download the file [us-state-capitals.csv](/data/us-state-capitals.csv).  Write a program that will read this file and create a dictionary with the state name as the key and the capital name as the value.  Using your dictionary, print the capitals of Arkansas, Virginia, and Wyoming.
+The Collatz conjecture is a fun little exercise in number theory.
 
-Again using your dictionary, generate a list of all state capitals that begin with the letter 'A'.  Use the list to create a string consisting of these city names separated by a semicolon ;   Open a new file capitals-with-a.txt and write this string to it.
+1. Given a positive integer, if it is odd multiply it by 3 and add 1. If it is even divide by 2.
+2. Repeat this procedure until the result is 1.
+
+The Collatz conjecture is that the sequence will always reach 1. No exceptions have been found...yet.  The number of steps required to reach 1 is called the stopping time.
+
+**A.** Write a program that will find and print the stopping time for the first N positive integers. Count the starting number itself as one of the steps. Print a table of N and stopping time.
+Test your program for N=30 and N=50.
+
+**B.** Modify your program to print the starting number, its stopping time, and the maximum value of the sequence of numbers. **Hint:** If you use a list you will be able to use the len() and max() intrinsic (built-in) functions. Confirm that you get the same stopping numbers as before.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/state_capitals.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/collatz.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 5
 
-Write a program that obtains the sum of the numbers from 1 to some specified positive (>0) integer N. Request the value of N as console input from the user. Your program should catch user inputs that cannot be converted to integers greater than 0.  Do not use the Gauss formula, do this via “brute force.”
-Print the number, its sum as obtained from your work, and the correct answer from the Gauss formula sum(N)=N(N+1)/2.  Test your program with N=1, N=25, N=1000.
+The algorithm for converting a number in base 10 to another base is as follows:
+
+1. Find the remainder of the number divided by the base.
+2. Divide the number by the base using integer division. If the result is greater than zero, replace the old value of the number by the result of the integer division and store the remainder previously obtained as the new leftmost digit for the base and repeat. If the result of the integer division is 0, the process is complete.
+
+**A.** Write a program to convert the first 51 integers, starting at 0 and ending at 50, to octal (base 8). Print a table of the decimal number and its octal equivalent.
+**Hint:** construct a list of digits as you work through the integer divisions. The elements of the list should be strings so you’ll need to convert from integer to string. To change from a list of individual strings to a single string for printing, use the join function as follows:
+ "". join(digits)
+That is two (regular, not “smart”) double quotes with nothing between them, followed by a period, followed by join and in parentheses, the name of the list you have created.
+
+**B.** Modify your program to handle bases up to 16 (hexadecimal). Use the letters of the alphabet to represent digits 10, 11, 12, ... as A, B, C, ... Hint: the char(<number>) built-in converts from an integer to its representation in the ASCII collating sequence. Note that A is number 65, i.e. chr(65)="A". The rest of the alphabet follows in numerical sequence to 96, then the lower-case letters begin at 97. Please use upper case letters.
+The only widely used base greater than 10 is hexadecimal (base 16). Print a table of 0 to 32 as hexadecimal numbers.  Play with formatting to produce a nice table.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/proj5.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/base_convert.py" lang="python" >}}
 {{< /spoiler >}}
-

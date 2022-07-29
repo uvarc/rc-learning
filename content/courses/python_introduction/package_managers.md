@@ -3,7 +3,7 @@ title: Managing Python Packages
 toc: true
 type: book
 draft: false
-weight: 130
+weight: 125
 ---
 
 ## Managing Packages in Anaconda

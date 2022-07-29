@@ -6,11 +6,106 @@ draft: false
 weight: 71
 ---
 
-Most of the time we read or write from a file rather than from the console.  File input/output can be complicated in Python and we will later see some built-in means of reading particular types of files, particularly comma-separated-values (CSV) text files.
+Files are the main ingredients of our programs.  Our scripts are files; we may have input files; we will usually want some kind of output file.  We can manipulate files in Python without having to go through the operating system's user interface.
 
-Before anything can be done with a file we must _open_ it.  This attaches the file name to the program through some form of _file descriptor_, which is like an identifier for the file.  Once opened we do not refer to the file by its name anymore, but only via the ID.
+## Files, Folders, and Paths
+
+Three major operating systems are in use today; Windows, Mac OS, and Linux. Each one does things a little differently.
+The `os` module provides access to some basic operating-system functionality, particularly those related to files, in a uniform interface.
+
+### Paths and Platforms
+
+The location of a file is specified by its _path_.  The exact format of the path varies somewhat by operating system.  Python uses _forward slashes_ to separate folders, even on Windows where the backslash (`\`) is "native."
+
+Python tends to be rooted in the Unix operating system so some of the vocabulary comes from there.  "Folders" in Windows and Mac OS are called "directories" in Unix.  The full path to a file is the tree of all folders/directories that must be traversed to reach it. 
+
+```python
+#Windows
+filename="C:/Users/You/Desktop/Python Programs/myscript.py"
+#Mac OS
+filename="/Users/You/Desktop/Python Programs/myscript.py"
+#Linux
+filename="/home/you/python_programs/myscript.py"
+```
+
+We can use the `os` module to make our scripts a little more platform-independent.  The `expanduser` function will get the home directory of the user running the script.  For this we must use the `path` submodule of os.
+
+```python
+import os
+home_dir=os.path.expanduser('~')
+```
+The tilde `~` stands for the home directory in any operating system.
+
+We can use `join` to concatenate folders and paths into complete file names. On Windows, `join` understands both forward and backward slashes.
+
+```python
+#Windows
+folder="Desktop\Python Programs"
+#Mac OS
+folder="Desktop/Python Programs"
+#Linux
+folder="python_programs"
+#All
+script="myscript.py"
+filename=os.path.join(home_dir,folder,script)
+f=open(filenam)
+```
+The `os` module can perform basic file and folder manipulations in a way that is appropriate for each operating system.  
+
+### Changing and Creating Directories
+
+When we run a script, the path from which it is run is the _current working directory_.  Note that Jupyterlab and IDEs may set the current working directory their own way.  We can get it through the `os` module and we can change it.
+
+```python
+mycwd=os.getcwd()
+newpath="/home/you/somefolder"
+os.chdir(newpath)
+```
+
+To create a new folder/directory, use `mkdir`
+```python
+os.mkdir(new_folder) #relative to CWD
+os.mkdir(fullpath)   #full path
+```
+
+### Listing Files
+
+We can list the files in a directory with `listdir` from `os`.  It returns a list.
+```python
+files=os.listdir() #current working directory
+input_directory=os.path.listdir(input_path) #using a full path
+```
+We can check whether an item is a directory with `os.path.isdir()`, which can also check whether it exists.  Similar for `os.path.isfile()`.
+```python
+#Starting from CWD
+for file in os.listdir():
+    if os.path.isdir(file):
+        print("{} is a directory".format(file))
+    elif os.path.isfile(file):
+        print("{} is a file".format(file))
+    else:
+        print("{} is neither a file nor a directory".format(file))
+```
+
+If we do not need a list of the files but only an iterator, we can use `scandir`.  Scandir returns an object, not a string, so we must extract the parts we need.  The advantage to scandir is that it can be faster if we need to test any attributes of the file.
+{{< code file="/courses/python_introduction/scripts/scandir.py" lang="python" >}}
+
+### Copying and Moving Files
+
+Another module, [shutil](https://docs.python.org/3/library/shutil.html), allows us to move and copy files and perform other basic operations on them.
+
+```python
+import shutil
+shutil.copy(source,destination)
+shutil.move(source,destination)
+```
+In the above, both `source` and `destination` should be either strings or should be paths created by some function such as `os.path.join`.
+
+For more details about the os module, see its [documentation](https://docs.python.org/3/library/os.html).
 
 ## Opening a File
+
+Before anything can be done with a file we must _open_ it.  This attaches the file name to the program through some form of _file descriptor_, which is like an identifier for the file.  Once opened we do not refer to the file by its name anymore, but only via the ID.
 
 We open a file and associate an identifier with it by means of the `open` statement.
 
@@ -21,116 +116,6 @@ fout=open("filename","w")
 ```
 
 The default is read-only.  Adding the `r` makes this explicit.  To open for writing only, add the `w`.  This overwrites the file if it already exists.  To append to an existing file, use `a` in place of `w`.  Both `w` and `a` will create the file if it does not exist.  To open for both reading and writing, use `r+`; in this case the file must exist.  To open it for reading and writing even if it does not exist, use `w+`.
-
-## Reading from a File
-
-The standard read commands in Python read _only strings_.  Even if the input values are intended to be numbers, they are read in as strings.  Any conversions must be done by the programmer.
-
-Reading commands
-
-* f.read()
-  * Reads the entire file identified by `f` into one large string
-* f.readline()
-  * Reads a single line (including the newline character) from the file `f`
-* f.readlines() 
-  * Reads all the lines into a list, one line per list element.  Newlines are included.
-
-We have several options to handle the strings when reading directly from a file.  One option is to use read, then split all the lines on the `\n` character:
-
-```python
-fin=open("filename","r")
-the_file=fin.read()
-file_list=the_file.split("\r\n")
-```
-
-We can now process through the list using a loop.  Note that we use `\r\n` to make sure we accommodate Windows, Mac OSX, and Linux operating systems.  
-
-A way to obtain a list of strings, with each element one line of the file, is to employ `map` with `readlines`:
-
-```python
-fin=open("filename","r")
-lines=[line.strip('\r\n') for line in fin.readlines()]
-for line in lines:
-    #do whatever with each line, for example
-    data=list(map(float,line.split(',')))  #will expect CSV file
-    #do something with the data list corresponding to each line
-```
-
-Yet another option is to use a Python idiom in which we iterate through the file using the file identifier.  Suppose we have a file with comma-separated values.  We can read the data with
-
-```python
-fin=open("filename")
-for line in fin:
-    data=line.rstrip("\r\n").split(",")
-```
-
-In the examples above, we have not done anything to store the values of the data, so each time through the `data` variable will be overwritten and the previous values lost.  How we handle this will depend on the file and what should be done to its contents.  One common approach is to declare lists to hold the values in advance, then append as we go.
-
-```python
-fin=open("filename")
-x=[]
-y=[]
-fin.readline()
-for line in fin:
-    data=line.rstrip("\r\n").split(",")
-    x.append(float(data[0]))
-    y.append(float(data[2]))
-```
-
-When we have completed this loop x will contain the values from the first column and y will contain values from the third column.  In this example we are not interested in the other columns.  We also convert on the fly to float.  This example assumes that our data file has one line of text header, which we use `readline` to skip.  Since we are not interested in the contents of the header line, we discard it and only use `readline` to move past it.
-
-**Example**
-
-Read the following file and store the values into two lists x and y.  You may choose any name for the file but make the file extension be `.csv`.  Print the values for the 4th row after reading in the data.
-{{< code-snippet >}}
-x,y
-11.3,14.6
-9.2,7.56
-10.9,8.1
-4.8,12.8
-15.7,9.9
-{{< /code-snippet >}}
-Make sure there is no blank line at the beginning of the data file.
-
-{{< code-download file="/courses/python_introduction/scripts/read_file_ex.py" lang="python" >}}
-
-<details>
-<summary>Exercise 17</summary>
-
-Use readlines rather than a loop to read the data file.  Eliminate the header appropriately.
-
-{{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/readlines_demo.py" lang="python" >}}
-{{< /spoiler >}}
-
-We will not go into more detail about reading files since we will later cover packages that offer more convenient ways to read the most common formats.  
-
-## Writing Files
-
-To write a file it must have been opened appropriately.  We can use print with the addition of a `file=` argument.
-
-```python
-f=open("myfile","w")
-print("Format string {:f} {:f}".format(x,y),file=f)
-```
-
-Corresponding to `read` there is a `write`.  It writes _one_ string to the specified file 
-
-```python
-fout=open("outfile","w")
-fout.write(s)
-```
-
-The string can contain newline markers `\n` but `write` will not insert them.  They must be positioned explicitly.
-
-Corresponding to `readlines` there is a `writelines`:
-
-```python
-fout=open("outfile","w")
-fout.writelines(seq)
-```
-
-here `seq` is a sequence, usually a list of strings.  The `writelines` will not add any end-of-line markers so as with write, they must be appended to every string in the sequence where a linebreak is desired.
 
 ## Closing Files
 
@@ -143,39 +128,18 @@ fout.close()
 
 Files will be automatically closed when your script terminates, but best practice is to close them all yourself as soon as you are done with it.  You _must_ close a file if you intend to open it later in a different mode.  You cannot reopen a file using an active file descriptor.  You must first close it.
 
-<details>
-<summary>Exercise 18</summary>
+**Exercise**
 
-Open a file 
-
-```python
-data.txt 
-```
-
-in write mode.  Write to the file three columns of numbers separated by commas.  These columns should be
-
-```python
-n n**2 n**3
-```
-
-for n going from 1 to 20.  
-Read back the file.  Store each variable into a list.  Use these values to compute and print 
-
-$$ a+bn+cn^2+dn^3 $$
-
-for 
-
-```python
-a=1.; b=2.4; c=5.8; d=0.7
-```
-
-Print the results for each n you have.
+All three major operating systems have a Documents folder by default in their desktop environments.  Write a script to 
+ 1. change the working directory to the Documents directory.  Use a general way to construct the path.
+ 2. List all the files in the directory.  Use a string function to check whether any end in ".txt."  OK to use listdir.
+ 3. Make a new folder "MyTestFolder" in the Documents directory.  Check first whether it already exists.
+ 4. Open a file "new_file.txt" for writing.
+ 5. Use the following line to write a little text into it.  Replace "f" with your choice of file identifier.
+    f.write("Here are some words for this file.\n")
+ 6. Close the file.
+ 7. Move the file into "MyTestFolder."
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/polynomial.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/exercises/file_fiddling.py" lang="python" >}}
 {{< /spoiler >}}
-
-</details>
-
-## Resources
-
