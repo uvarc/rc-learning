@@ -94,3 +94,14 @@ with open('myfile','w') as f:
         mystring="whatever"
         f.write(mystring+'\n')
 ```
+
+**Exercise**
+
+Download the file [numbers.csv](/data/numbers.csv). Write a program to read it and extract the columns as x,y.  It has a one-line header.  What problem did you encounter?  Use an exception to exclude the line with the error.  
+
+Optionally, add exception handling to the file operations.
+
+{{< spoiler text="Example solution" >}}
+{{< code-download file="/courses/python_introduction/exercises/exceptions_example.py" lang="python" >}}
+{{< /spoiler >}}
+

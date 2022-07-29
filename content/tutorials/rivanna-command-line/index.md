@@ -12,4 +12,3 @@ categories: ["Rivanna","HPC"]
 notes: rivanna-command-line 
 
 ---
-

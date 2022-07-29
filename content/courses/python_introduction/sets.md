@@ -52,8 +52,7 @@ Sets attempt to reproduce most of the properties of mathematical sets.
 * Set difference (elements in s1 but not in s2)
   * s1.difference(s2) or s1-s2
 
-<details>
-<summary>Exercise 14</summary>
+**Exercise**
 
 Type at the interpreter 
 
@@ -82,8 +81,6 @@ states&states2
 states^states2
 states|states2
 ```
-
-</details>
 
 ### Resources
 

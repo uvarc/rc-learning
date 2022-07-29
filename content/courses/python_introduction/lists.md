@@ -115,8 +115,7 @@ Much more can be done with lists.
 * In Python 3, `reversed(L)` returns an iterator and not a list, but you may use the list constructor to convert it.
   * `Lreversed=list(reversed(L))`
 
-<details>
-<summary>Exercise 5</summary>
+**Exercise**
 
 Type
 
@@ -131,7 +130,6 @@ Print the index of the item 9
 Remove that item from the list.
 Print the current length of the list.
 Sort the list and then reverse the sorted version.
-</details>
 
 Copying lists:
 

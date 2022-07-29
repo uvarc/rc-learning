@@ -37,8 +37,8 @@ An _iterator_ is a data type that can be traversed in order.  Sequences either a
 * Repetition
   * `S1*N` replicates the sequence `S1` `N` times.  
 
-<details>
-<summary>Exercise 4</summary>
+**Exercise**
+
 Examine the results of the following:
 
 ```python
@@ -57,7 +57,6 @@ B is A
 C is A
 B is not A
 ```
-</details>
 
 ### Mutability
 
