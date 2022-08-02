@@ -1,9 +1,14 @@
 ---
 title: Pandas Example
 toc: true
-type: book
+type: docs
 draft: false
 weight: 139
+
+menu:
+    python_introduction:
+        parent: Pandas
+        weight: 139
 ---
 
 We are now ready to pull together what we have learned about Pandas and work through a detailed example.
@@ -167,4 +172,10 @@ Many plotting options can be applied directly to the Dataframe object, without t
 **Exercise**
 
 Download the data [file](/data/MikeTroutData.csv) and work through the example.
+
+## Resources
+
+Many Pandas tutorials are available online. A good starting point is [here](https://pandas.pydata.org/pandas-docs/stable/getting_started/tutorials.html).
+
+A repository of pandas practice projects is [located here](https://www.geeksforgeeks.org/pandas-practice-excercises-questions-and-solutions/)
 

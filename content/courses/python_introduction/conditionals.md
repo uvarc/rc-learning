@@ -1,12 +1,17 @@
 ---
 title: Conditionals 
 toc: true
-type: book
+type: docs
 draft: false
-weight: 40
+weight: 41
+
+menu:
+    python_introduction:
+        parent: Conditionals and Loops
+        weight: 41
 ---
 
-Now that we understand the basic data types, we can begin to study the fundamental programming constructs that all programs will use.  The two most important of these are _conditionals_ and _loops_.
+Conditionals are how scripts choose different paths, depending on the circumstances.
 
 ## Branching
 

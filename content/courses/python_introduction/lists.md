@@ -1,9 +1,14 @@
 ﻿---
 title: Lists
 toc: true
-type: book
+type: docs
 draft: false
 weight: 32
+
+menu:
+    python_introduction:
+        parent: Compound Types
+        weight: 32
 ---
 
 Lists are one of the most important data types in Python.  They are flexible and easy to use. Lists are sequences of objects.  Each element of the list can be of any type, including another list.  Lists are _ordered_ which means that each element can be referenced by an integer _index_.

@@ -1,9 +1,14 @@
 ---
 title: Advanced Functions
 toc: true
-type: book
+type: docs
 draft: false
-weight: 81
+weight: 82
+
+menu:
+    python_introduction:
+        parent: Functions and Modules
+        weight: 82
 ---
 
 ## Optional and Keyword Arguments

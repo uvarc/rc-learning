@@ -1,9 +1,13 @@
 ---
 title: Project Set 3
 toc: true
-type: book
+type: docs
 draft: false
 weight: 125
+
+menu:
+    python_introduction:
+        weight: 125
 ---
 
 Remember that you need to add the `import numpy` (or commonly used `import numpy as np`) statement in your script before you can use the numpy package.  Similarly, we must import Matplotlib.

@@ -1,9 +1,14 @@
 ---
 title: Displaying Data in Pandas
 toc: true
-type: book
+type: docs
 draft: false
 weight: 136
+
+menu:
+    python_introduction:
+        parent: Pandas
+        weight: 136
 ---
 
 Pandas relies on Matplotlib for plotting.  We can combine them to work seamlessly with data.  To use any Pandas plotting methods, `matplotlib.pyplot` must be imported. 
@@ -80,9 +85,3 @@ Figure out a way to set the BMI values that are outside the cutoffs to `np.nan` 
 {{< spoiler text="Example solution" >}}
 {{< code-download file="/courses/python_introduction/exercises/bmi_pandas.py" lang="python" >}}
 {{< /spoiler >}}
-
-## Resources
-
-Many Pandas tutorials are available online. A good starting point is [here](https://pandas.pydata.org/pandas-docs/stable/getting_started/tutorials.html).
-
-A repository of pandas practice projects is [located here](https://www.geeksforgeeks.org/pandas-practice-excercises-questions-and-solutions/)

@@ -1,21 +1,17 @@
 ---
 title: Matplotlib
 toc: true
-type: book
+type: docs
 draft: false
-weight: 120
+weight: 110
+
+menu:
+    python_introduction:
+        parent: NumPy, Matplotlib, SciPy
+        weight: 110
 ---
 
-Matplotlib is a Python package that can be used to produce high-quality plots similar to those of MATLAB<sup>TM</sup>.  Its homepage and documentation can be found at [matplotlib.org](https://matplotlib.org).  A full complement of plot types is available, including
-
-* line plots
-* scatter plots
-* histograms
-* bar charts 
-* pie charts 
-* contour plots
-
-Most of our sample scripts are taken directly from the Matplotlib [gallery](https://matplotlib.org/stable/gallery/index.html).
+Most of our sample scripts in this section are taken directly from the Matplotlib [gallery](https://matplotlib.org/stable/gallery/index.html).
 
 ## One-Dimensional Plots
 

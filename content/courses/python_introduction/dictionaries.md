@@ -1,12 +1,17 @@
 ---
 title: Dictionaries
 toc: true
-type: book
+type: docs
 draft: false
-weight: 60
+weight: 61
+
+menu:
+    python_introduction:
+        parent: Dictionaries and Sets
+        weight: 61
 ---
 
-So far the compound types we have studied have been _ordered_.  We access elements by integer _indices_ numbered from 0 to N-1, where N is the total number of elements.  Dictionaries, in contrast, are _unordered_.  Elements are accessed by a _key_ which may be of any immutable type. If a tuple is used as a key, no elements of the tuple may be mutable.  Keys must be _unique_ (no duplication)
+Dictionaries are _mappings_.  Elements are accessed by a _key_ which may be of any immutable type. Tuples may used as a key, but in that case no elements of the tuple may be mutable.  Keys must be _unique_ (no duplication)
 
 The key corresponds to a _value_.  The value may be of any type, including mutable types such as lists. The dictionary consists of all key-value pairs.  Dictionaries themselves are _mutable_ and may be of any length up to the limits of the system.  Dictionaries can be nested, i.e. the value may itself be a dictionary.
 
@@ -122,4 +127,8 @@ mascots=["Celtics","Nets","Knicks","76ers","Raptors","Golden State Warriors",
 {{< spoiler text="Example solution" >}}
 {{< code-download file="/courses/python_introduction/exercises/create_dictionary.py" lang="python" >}}
 {{< /spoiler >}}
+
+### Resources
+
+Documentation is [here](https://docs.python.org/3/tutorial/datastructures.html#dictionaries).
 

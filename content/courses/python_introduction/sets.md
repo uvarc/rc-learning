@@ -1,9 +1,14 @@
 ---
 title: Sets
 toc: true
-type: book
+type: docs
 draft: false
 weight: 62
+
+menu: 
+    python_introduction:
+        parent: Dictionaries and Sets
+        weight: 62
 ---
 
 Sets are another _unordered_ type.  No element of a set may be duplicated.  The set is mutable but all elements must be immutable.
@@ -81,7 +86,3 @@ states&states2
 states^states2
 states|states2
 ```
-
-### Resources
-
-Documentation is [here](https://docs.python.org/3/tutorial/datastructures.html#dictionaries).

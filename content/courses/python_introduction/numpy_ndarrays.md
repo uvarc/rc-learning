@@ -1,21 +1,17 @@
 ---
 title: NumPy
 toc: true
-type: book
+type: docs
 draft: false
-weight: 100
+weight: 101
+
+menu:
+    python_introduction:
+        parent: NumPy, Matplotlib, SciPy
+        weight: 101
 ---
 
-The NumPy package adds many features important or useful to scientific and numeric computing.  These include
-
-* True multidimensional arrays
-* Linear algebra functions
-* Fast Fourer Transform (FFT) Functions
-* Random number generators 
-* Tools for integrating Fortran, C, and C++ libraries.
-
 NumPy is very powerful and our introduction will barely touch on its most important features.
-It is not part of the base Python packages, but it is included with Anaconda and can be easily added to other Python installations.  
 
 ## Arrays
 

@@ -1,9 +1,13 @@
 ---
 title: Project Set 4
 toc: true
-type: book
+type: docs
 draft: false
 weight: 140
+
+menu:
+    python_introduction:
+        weight: 140
 ---
 
 ## Pandas 

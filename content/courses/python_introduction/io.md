@@ -1,14 +1,15 @@
 ---
 title: Input and Output
 toc: true
-type: book
+type: docs
 draft: false
-weight: 70
+weight: 71
+
+menu:
+    python_introduction:
+        parent: IO and Exceptions
+        weight: 71
 ---
-
-Programs are not very useful if they cannot communicate their results.  They are also not terribly useful if they cannot change their controlling parameters to compute different results.
-
-It is best to make your program read its input parameters, rather than embedding them (hard-coding) them into the program body.  You may want to change the parameters later or run it for many different sets of parameters.  You may give your program to somebody else who will have to modify it.  Always assume your program may later be used for a slightly different purpose, whether by someone else or by you.
 
 ## Console Input
 
@@ -16,7 +17,8 @@ The console is a text interface for input to and output from the computer.  In S
 
 To read input from the console we use the `input()` function (Python 3+).  In Python 2.7 the equivalent is `raw_input()`.  Any string within the parentheses is optional and, if present, if will be printed to prompt the user.  The input from the user is captured as a string and returned; it must be stored for any subsequent use.
 
-The input (raw_input) function returns _only_ a string.  If you need to use the values as any other type, you must perform the conversion yourself.
+The input function returns _only_ a string.  If you need to use the values as any other type, you must perform the conversion yourself.
+
 Example:
 
 ```python

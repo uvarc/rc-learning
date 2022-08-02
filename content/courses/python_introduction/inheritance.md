@@ -1,9 +1,14 @@
 ---
 title: Data Hiding, Inheritance, Polymorphism, and Operator Overloading
 toc: true
-type: book
+type: docs
 draft: false
 weight: 210
+
+menu:
+    python_introduction:
+        parent: Object-Oriented Programming
+        weight: 210
 ---
 
 ## Data Hiding

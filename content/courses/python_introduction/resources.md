@@ -1,9 +1,13 @@
 ---
 title: Resources
 toc: true
-type: book
+type: docs
 draft: false
 weight: 300
+
+menu:
+    python_introduction:
+        weight: 300
 ---
 
 ## Resources
@@ -34,13 +38,13 @@ Because you are a part of the UVA community, you have many places to go for help
 - [Data Discovery](https://data.library.virginia.edu/datasources/)
 - [Research Data Management](https://data.library.virginia.edu/data-management/)
 
-[UVA CS 1110/1111 Syllabus](https://cs1110.cs.virginia.edu/) - Link to all course materials, video lectures, etc. for CS 1110/1111 _Introduction to Programming_. All materials are available online for free, although you will not have access to instructors or teaching assistants if you are not formally enrolled.
-
 ### Specific programs and packages documentation
 
 - [Python Documentation](https://www.python.org/) - The Home of python's documentation, background info, events, etc.
 
 - [Anaconda](https://www.anaconda.com/) - View the Anaconda project's homepage.
+
+- [Conda](https://www.conda.io) - A package manager for Python.
 
 - [Pip](https://pip.pypa.io/en/stable/) - The python package installer. Pip Installs Packages
 

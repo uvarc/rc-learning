@@ -1,9 +1,13 @@
 ---
 title: Project Set 2
 toc: true
-type: book
+type: docs
 draft: false
 weight: 79
+
+menu:
+    python_introduction:
+        weight: 79
 ---
 
 ## Project 6

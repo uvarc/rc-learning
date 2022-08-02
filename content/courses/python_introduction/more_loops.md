@@ -1,9 +1,14 @@
 ---
 title: More About Looping
 toc: true
-type: book
+type: docs
 draft: false
 weight: 44
+
+menu:
+    python_introduction:
+        parent: Conditionals and Loops
+        weight: 44
 ---
 
 ## Leaving Early

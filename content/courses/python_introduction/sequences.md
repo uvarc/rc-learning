@@ -1,12 +1,15 @@
 ﻿---
 title: Sequences
 toc: true
-type: book
+type: docs
 draft: false
 weight: 30
----
 
-So far we have examined _primitive_ types.  Each variable stands for one value.  Python defines several built-in _compound types_; a single variable stands for multiple values. 
+menu:
+    python_introduction:
+        parent: Compound Types
+        weight: 30
+---
 
 A _sequence_ in Python is an ordered group of values that can be represented by a single variable. We can address individual elements or subgroups of a sequence with square brackets and possibly a _range_ of indices.  Square brackets hold the index or range. 
 
@@ -56,21 +59,4 @@ C=A
 B is A
 C is A
 B is not A
-```
-
-### Mutability
-
-In Python types are categorized as __mutable__ or __immutable__.  Immutable types cannot be changed in place, but they can be overwritten.
-
-```python
-x=1.0
-x=2.0
-```
-
-All the types we have seen so far are _immutable_.  Compound types may be _mutable_; their elements can be changed in place.  Compound types may also be immutable.  [Strings](/courses/python_introduction/strings) are a compound type but they are immutable.
-
-```python
-S1="Hello world"
-S1[0:5]="Goodbye" #illegal
-S1="Goodbye cruel world." #legal
 ```
