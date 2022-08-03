@@ -1,9 +1,14 @@
 ---
 title: Expressions and Statements
 toc: true
-type: book
+type: docs
 draft: false
 weight: 25
+
+menu:
+    python_introduction:
+        parent: The Basics
+        weight: 25
 ---
 
 ## Expressions 

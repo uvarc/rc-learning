@@ -1,9 +1,14 @@
 ---
 title: Project Set 1
 toc: true
-type: book
+type: docs
 draft: false
 weight: 49
+
+menu: 
+    python_introduction:
+        weight: 49
+   
 ---
 
 ## Project 1
@@ -18,7 +23,7 @@ Write a program that:
 Fahrenheit, printing each value in degrees C and F (use print C,F).
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/proj1.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/temperature_list.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 2
@@ -33,7 +38,7 @@ for the Fahrenheit equivalents.
 on the same line, but does it by indexing into the two lists.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/proj2.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/temperature_loop.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 3
@@ -45,7 +50,7 @@ Write a program that:
 3. Creates a list of temperatures in degrees Fahrenheit which are greater than zero but for which the corresponding temperature in Celsius is less than zero. Print the elements of this last list.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/proj3.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/temperature_cond_loop.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 4

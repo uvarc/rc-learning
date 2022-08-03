@@ -1,14 +1,17 @@
 ---
 title: Functions
 toc: true
-type: book
+type: docs
 draft: false
-weight: 80
+weight: 81
+
+menu:
+    python_introduction:
+        parent: Functions and Modules
+        weight: 81
 ---
 
-Functions are self-contained units of code.  They enable us to isolate chunks of code into small packages.
-
-Functions break down the programming into a series of well-defined tasks.  This makes code easier to read, debug, and maintain.  Functions also reduce "cut and paste" errors.  If a section of code does something more than once, it should be replaced with a function.
+Functions break down the programming into a series of well-defined tasks.  This makes code easier to read, debug, and maintain.  Functions also reduce "cut and paste" errors.  If a code carries out the same operations on different data more than once, those sections should be converted to a function.
 
 ## Arguments
 

@@ -1,9 +1,14 @@
 ---
 title: Managing Python Packages
 toc: true
-type: book
+type: docs
 draft: false
-weight: 125
+weight: 14
+
+menu:
+    python_introduction:
+        parent: Getting Started
+        weight: 14
 ---
 
 ## Managing Packages in Anaconda

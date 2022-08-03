@@ -1,9 +1,14 @@
 ---
 title: Files
 toc: true
-type: book
+type: docs
 draft: false
-weight: 71
+weight: 72
+
+menu:
+    python_introduction:
+        parent: IO and Exceptions
+        weight: 72
 ---
 
 Files are the main ingredients of our programs.  Our scripts are files; we may have input files; we will usually want some kind of output file.  We can manipulate files in Python without having to go through the operating system's user interface.

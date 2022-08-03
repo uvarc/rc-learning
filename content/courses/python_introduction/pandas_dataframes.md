@@ -1,9 +1,14 @@
 ---
 title: Working with Dataframes
 toc: true
-type: book
+type: docs
 draft: false
 weight: 132
+
+menu:
+    python_introduction:
+        parent: Pandas
+        weight: 132
 ---
 
 ## Selecting and Manipulating Data

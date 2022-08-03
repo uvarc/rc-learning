@@ -1,9 +1,14 @@
 ---
 title: Sorting and Grouping Data with Pandas
 toc: true
-type: book
+type: docs
 draft: false
 weight: 138
+
+menu:
+    python_introduction:
+        parent: Pandas
+        weight: 138
 ---
 
 ## Sorting DataFrames

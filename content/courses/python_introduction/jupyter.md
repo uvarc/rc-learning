@@ -1,9 +1,14 @@
 ---
 title: Jupyterlab 
 toc: true
-type: book
+type: docs
 draft: false
 weight: 11
+
+menu:
+    python_introduction:
+        parent: Getting Started
+        weight: 12
 ---
 
 We will begin with Jupyterlab. Select the Jupyterlab icon in the Anaconda Navigator.  

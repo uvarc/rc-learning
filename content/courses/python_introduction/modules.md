@@ -1,14 +1,19 @@
 ---
 title: Modules 
 toc: true
-type: book
+type: docs
 draft: false
-weight: 82
+weight: 83
+
+menu:
+    python_introduction:
+        parent: Functions and Modules
+        weight: 83
 ---
 
 Modules are fundamental to the programming model of Python.  Modules are programming units that (should) consist of _related_ variables and functions that form a coherent block of _data_+_procedures_ (functions).  They are an extension of the concept of packaging code that we have already studied with functions.
 
-In Python every file you write is a module.  The name of themodule is the file name without the exension.  Every Python file must end in `.py` regardless of your operating system, so if you write a file `mycode.py` the corresponding module is `mycode`.  If you are using Jupyter you will need to export your code into a script in order to create a new module (Notebook tab -> Export to -> Executable Script).
+In Python every file you write is a module.  The name of the module is the file name without the exension.  Every Python file must end in `.py` regardless of your operating system, so if you write a file `mycode.py` the corresponding module is `mycode`.  If you are using Jupyter you will need to export your code into a script in order to create a new module (Notebook tab -> Export to -> Executable Script).
 
 Modules that are not run as the main program must be _imported_ for its contents to be accessible.  When a module is imported, it is compiled to a special representation called __bytecode__.  A new file of the same base name with the suffix `.pyc` will be created.  
 

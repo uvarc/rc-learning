@@ -1,9 +1,14 @@
 ---
 title: Exceptions
 toc: true
-type: book
+type: docs
 draft: false
 weight: 75
+
+menu:
+    python_introduction:
+        parent: IO and Exceptions
+        weight: 75
 ---
 
 Many situations can result in an error.  

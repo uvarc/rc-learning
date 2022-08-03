@@ -1,9 +1,14 @@
 ---
 title: Loop Alternatives
 toc: true
-type: book
+type: docs
 draft: false
 weight: 45
+
+menu:
+    python_introduction:
+        parent: Conditionals and Loops
+        weight: 45
 ---
 
 Loops in Python are very slow.  Nested loops are especially slow.  Some alternatives are available in the standard set of packages that are usually faster..

@@ -1,20 +1,17 @@
 ---
-title: Objects and Classes
+title: Classes
 toc: true
-type: book
+type: docs
 draft: false
-weight: 200
+weight: 201
+
+menu:
+    python_introduction:
+        parent: Object-Oriented Programming
+        weight: 201
 ---
 
 A __class__ is a generalized, programmer-defined data structure that can contain multiple variables under one name, as well as functions that work on the data represented by those variables. These programmer-defined types are the foundation of _object-oriented programming_.  Python is an object-oriented language even though most programmers mostly use classes written by others, so it is useful to understand the basics.  
-
-## Object Oriented Programming
-
-Object-oriented programming (OOP) is an approach to structuring a program.  The code is organized around coherent structures that contain both attributes (variables) and behaviors (procedures).  For example, consider a program for a human resources department.  They are concerned with _employees_.  An employee has several attributes, including such things as a name, an employee ID number, a salary, and possibly other information such as home address and start date.  If we did not have something like an object, we would have to represent a group of employees with a list or similar structure.  Each element of the list would have to contain all the information about one employee, so would have to be a list itself.  If we wanted to work with a particular employee's record, we would have to determine the index, then make sure to use it consistently across any other lists or arrays we might be using.  With the information about each employee bundled into an object, we can create a variable representing an employee, and load all the pertinent data into it.  
-
-Moreover, employees have behaviors (or behaviors can be imposed on them).  They can be given salary raises (or perhaps cuts).  They can change their status.  They can be hired, fired, or they can quit.  We could write procedures to manage those behaviors, and include them in the object so that each employee would carry out the behaviors and the relevant attributes would be properly updated for the correct employee.  We could easily introduce new attributes or behaviors without needing to rewrite code to shuffle list elements.  We can more easily check our code dealing with an "employee" since everything relevant to the employee is _encapsulated_ in the corresponding object.
-
-## Classes
 
 This "object" is a concept; the class is its most common representation as code.  Strictly speaking, an object must contain both data (variables) and procedures (functions) and it must be possible to declare variables of its type.  Declaring a variable of a class is called _instantiation_ and each variable is called an _instance_ of the object/class.  This is a key difference between a class and module; as we have seen, a module also contains variables and functions, but no variables can be declared of its type.
 
@@ -140,7 +137,3 @@ The pickle module is built into Python but it is limited.  It cannot handle seve
 import dill as pickle
 ```
 Dill is not included in the base Anaconda but can be installed through [conda](/courses/python_introduction/package_managers).
-
-### Resources
-
-A longer discussion of OOP in Python is available [here](https://www.python-course.eu/python3_object_oriented_programming.php).

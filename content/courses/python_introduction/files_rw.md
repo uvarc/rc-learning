@@ -1,9 +1,14 @@
 ---
 title: Reading and Writing Files
 toc: true
-type: book
+type: docs
 draft: false
-weight: 72
+weight: 73
+
+menu:
+    python_introduction:
+        parent: IO and Exceptions
+        weight: 73
 ---
 
 Most of the time we read or write from a file rather than from the console.  File input/output can be complicated in Python and we will later see some built-in means of reading particular types of files, particularly comma-separated-values (CSV) text files.

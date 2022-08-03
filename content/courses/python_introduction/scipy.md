@@ -1,24 +1,18 @@
 ---
 title: SciPy
 toc: true
-type: book
+type: docs
 draft: false
-weight: 110
+weight: 120
+
+menu:
+    python_introduction:
+        parent: NumPy, Matplotlib, SciPy
+        weight: 120
 ---
 
-NumPy and SciPy (*Sci*entific *Py*thon) are closely linked and frequently are used together.  Both provide a large selection of built-in functions.
-
-SciPy builds on NumPy to provide a set of modules and packages that add functions for data analysis and numerical computations.  These include 
-
-* special functions 
-* optimizations 
-* linear algebra 
-* quadrature (numerical integration)
-* interpolation
-* signal processing
-* basic statistics 
-
-Its homepage at [www.scipy.org](www.scipy.org) has details and documentation.  The SciPy library is part of the "SciPy ecosystem" that also includes NumPy, Sympy, and Pandas.  We will not discuss Sympy but it is a well-developed computer algebra system (CAS) that is also incorporated into several other packages such as SageMath.
+The SciPy library is part of the "SciPy ecosystem" that also includes NumPy, Sympy, and Pandas.  We will not discuss Sympy but it is a well-developed computer algebra system (CAS) that is also incorporated into several other packages such as SageMath.
+Its homepage at [www.scipy.org](www.scipy.org) has details and documentation.  
 
 ### Importing SciPy Packages
 
