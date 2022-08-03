@@ -30,7 +30,7 @@ Create a new dataframe using the following table:
 - use the groupby() method to group your dataframe in some way that makes sense for your data
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/proj14.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/basketball_data.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 15

@@ -16,7 +16,7 @@ Write a program that obtains the sum of the numbers from 1 to some specified pos
 Print the number, its sum as obtained from your work, and the correct answer from the Gauss formula sum(N)=N(N+1)/2.  Test your program with N=1, N=25, N=1000.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/proj5.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/sum_to_N.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 7
