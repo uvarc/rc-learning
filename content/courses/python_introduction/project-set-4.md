@@ -30,7 +30,7 @@ Create a new dataframe using the following table:
 - use the groupby() method to group your dataframe in some way that makes sense for your data
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/basketball_data.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_4/basketball_data.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 15
@@ -52,7 +52,7 @@ df2 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
 - Reshape the data and create a pivot table view of people by country using the [pivot_table function](https://www.geeksforgeeks.org/python-pandas-pivot_table/). Also include the name, age, and salary in the results
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/pivot_table_example.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_4/pivot_table_example.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 16
@@ -60,7 +60,7 @@ df2 = pd.DataFrame({'ID #': [1,2,3,4,5,6,7,8,9,10],
 Download the file [pandas_demo.ipynb](/courses/python_introduction/scripts/pandas_demo_blank.zip) and the data files [eighthr.data](/data/eighthr.data) and [eightr.names](/data/eighthr.names). If you are using Windows, check that it does not append ".txt" to the data files.  You may need to open File Explorer, go to View, and check "File name extensions."  Open the notebook in JupyterLab or Jupyter.  Go through the exercises in each cell.
 
 {{< spoiler text="Example solution, zipped Jupyter notebook" >}}
-[pandas_demo.zip](/courses/python_introduction/solns/pandas_demo.zip)
+[pandas_demo.zip](/courses/python_introduction/solns/proj_set_4/pandas_demo.zip)
 {{< /spoiler >}}
 
 ### Project 17
@@ -70,7 +70,7 @@ Download the file [cigarette-smoking-behaviour-2018-census.csv](/data/cigarette-
 - Because we have a total number of respondents, let's make a new column that is a ratio of # of each category / total number of respondents
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/cigarette_smoking_nz.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_4/cigarette_smoking_nz.py" lang="python" >}}
 {{< /spoiler >}}
  
 ### Project 18
@@ -87,5 +87,5 @@ Download [cville_2017_april.xlsx](/data/cville_2017_april.xlsx), which contains 
 - Plot the number of each weather 'condition'. Plot sunny days, partly cloudy days, and rain days. There are several ways to do this.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/cville_2017_apr_pandas.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_4/cville_2017_apr_pandas.py" lang="python" >}}
 {{< /spoiler >}}

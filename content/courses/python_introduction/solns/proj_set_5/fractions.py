@@ -77,4 +77,3 @@ class Fraction (object):
     def __str__(self):
         return "%s/%s"%(str(self.num),str(self.denom))
 
-

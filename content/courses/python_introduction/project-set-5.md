@@ -10,6 +10,8 @@ menu:
         weight: 222
 ---
 
+Classes.
+
 ## Project 19
 
 Download the file [vabirds.csv](data/vabirds.csv). 
@@ -25,7 +27,7 @@ d) Add one or two methods to your Bird class that compute the maximum, minimum, 
 e) Read the name of a bird from the command line or from user input (your choice).  Print a summary of the statistics to the console and produce a plot of observations versus years.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/birds.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_5/birds.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 20
@@ -60,7 +62,7 @@ If it is not, first create an empty set, then immediately update the set with th
 Be sure to use appropriate functions rather than monolithic code throughout this project.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/movies.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_5/movies.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 21
@@ -76,6 +78,6 @@ For your first attempt it is not necessary to reduce the fraction, i.e. it is ac
 3. Use `NaN` to represent division by zero and `isnan` to check for it.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/fractions.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_5/fractions.py" lang="python" >}}
 {{< /spoiler >}}
 
