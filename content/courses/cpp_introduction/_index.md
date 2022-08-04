@@ -12,3 +12,7 @@ weight: 1
 ---
 
 This short course is an introduction to programming in C++.  Experience programming in some other language is helpful but not required.  
+
+The best way to learn a programming language is to use it.  We strongly urge you
+ to attempt the exercises and projects to practice your coding skills.
+

@@ -11,6 +11,8 @@ menu:
    
 ---
 
+Basic operations, lists, conditionals, loops.
+
 ## Project 1
 
 Write a program that:
@@ -23,7 +25,7 @@ Write a program that:
 Fahrenheit, printing each value in degrees C and F (use print C,F).
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/temperature_list.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_1/temperature_list.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 2
@@ -38,7 +40,7 @@ for the Fahrenheit equivalents.
 on the same line, but does it by indexing into the two lists.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/temperature_loop.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_1/temperature_loop.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 3
@@ -50,7 +52,7 @@ Write a program that:
 3. Creates a list of temperatures in degrees Fahrenheit which are greater than zero but for which the corresponding temperature in Celsius is less than zero. Print the elements of this last list.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/temperature_cond_loop.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_1/temperature_cond_loop.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 4
@@ -68,7 +70,7 @@ Test your program for N=30 and N=50.
 **B.** Modify your program to print the starting number, its stopping time, and the maximum value of the sequence of numbers. **Hint:** If you use a list you will be able to use the len() and max() intrinsic (built-in) functions. Confirm that you get the same stopping numbers as before.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/collatz.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_1/collatz.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 5
@@ -87,5 +89,5 @@ That is two (regular, not “smart”) double quotes with nothing between them, 
 The only widely used base greater than 10 is hexadecimal (base 16). Print a table of 0 to 32 as hexadecimal numbers.  Play with formatting to produce a nice table.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/base_convert.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_1/base_convert.py" lang="python" >}}
 {{< /spoiler >}}

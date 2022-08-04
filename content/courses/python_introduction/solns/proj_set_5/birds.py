@@ -68,4 +68,3 @@ ax.set_ylabel("Number of Observations")
 ax.set_title(title_string)
 plt.plot(years,obs)
 plt.show()
-

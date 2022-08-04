@@ -10,13 +10,19 @@ menu:
         weight: 79
 ---
 
-## Project 6
+Input/output, strings, dictionaries, functions, modules.
 
-Write a program that obtains the sum of the numbers from 1 to some specified positive (>0) integer N. Request the value of N as console input from the user. Your program should catch user inputs that cannot be converted to integers greater than 0.  Do not use the Gauss formula, do this via “brute force.”
+A. Write a program that obtains the sum of the numbers from 1 to some specified positive (>0) integer N. Request the value of N as console input from the user. Your program should catch user inputs that cannot be converted to integers greater than 0.  Do not use the Gauss formula, do this via “brute force.”
 Print the number, its sum as obtained from your work, and the correct answer from the Gauss formula sum(N)=N(N+1)/2.  Test your program with N=1, N=25, N=1000.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/sum_to_N.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_2/sum_to_N.py" lang="python" >}}
+{{< /spoiler >}}
+
+B. Convert your code to sum from 1 to N into a function.  Write a main program that requests a number M from the user, then prints a table of the integers from 1 to M and their corresponding sums.
+
+{{< spoiler text="Example solution" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_2/sums_table.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 7
@@ -26,7 +32,7 @@ Download the file [us-state-capitals.csv](/data/us-state-capitals.csv).  Write a
 Again using your dictionary, generate a list of all state capitals that begin with the letter 'A'.  Use the list to create a string consisting of these city names separated by a semicolon ;   Open a new file capitals-with-a.txt and write this string to it.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/state_capitals.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_2/state_capitals.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 8
@@ -42,7 +48,7 @@ Hints: read each sequence as a line.  Split the line on whitespace (rstrip first
 Copy the next element of the list into a string, and use substrings to extract each letter.  Build your dictionary as you step through the string.  Repeat for the next line until you have read all the lines.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/DNA.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_2/DNA.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 9
@@ -67,5 +73,5 @@ Look up the documentation for the random module to find some useful functions.  
 - FYI this is an “urban legend” because: firstly, no such research was ever conducted at any university, and secondly it is true only for very practiced readers of English and even then only for familiar words that are easy to recognize in context.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/scramble_text.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_2/scramble_text.py" lang="python" >}}
 {{< /spoiler >}}

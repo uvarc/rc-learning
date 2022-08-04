@@ -10,6 +10,8 @@ menu:
         weight: 125
 ---
 
+Functions, modules, NumPy, Matplotlib.
+
 Remember that you need to add the `import numpy` (or commonly used `import numpy as np`) statement in your script before you can use the numpy package.  Similarly, we must import Matplotlib.
 ```python
 import numpy as np
@@ -33,7 +35,7 @@ Matplotlib.  Add code to plot y as a function of x.
 f) Add a line to accept user input to specify the x start, x end, and stride values.  Your finished code should get these values from the user, print the values and x-coordinate of the max and min for y, and display a plot of y versus x. Upload the plot for input values of starting x=-2., ending x=2., stride=.01.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/numpy_basics.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_3/numpy_basics.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 11 
@@ -68,7 +70,7 @@ e) (More advanced) Read about exceptions in the Files chapter and add them to yo
 f) (More advanced) Convert your file with the functions into a module.  Isolate the calls to input/output, including plotting, by using a main() function.  Add the `if __name__=="__main__"` so that it will not be invoked if you import your module.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/inflation.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_3/inflation.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 12
@@ -89,11 +91,11 @@ You may use the `np.percentile(a,m)` function to compute the upper and lower qua
 Plot the corrected data.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/bmistats.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_3/bmistats.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 13
-Download [cville_2017_april.csv](/courses/python_introduction/solns/cville_2017_april.csv), which contains April 2017 weather data for Charlottesville, VA.
+Download [cville_2017_april.csv](/data/cville_2017_april.csv), which contains April 2017 weather data for Charlottesville, VA.
 - Read the file into appropriate NumPy arrays
 - Make a line plot of average wind speed for each day
 - Add main titles, and label axes to be more descriptive
@@ -104,6 +106,6 @@ Download [cville_2017_april.csv](/courses/python_introduction/solns/cville_2017_
 - Plot the number of each weather 'condition'. Plot sunny days, partly cloudy days, and rain days. There are several ways to do this.
 
 {{< spoiler text="Example solution" >}}
-{{< code-download file="/courses/python_introduction/solns/cville_2017_apr.py" lang="python" >}}
+{{< code-download file="/courses/python_introduction/solns/proj_set_3/cville_2017_apr.py" lang="python" >}}
 {{< /spoiler >}}
 

@@ -36,8 +36,7 @@ Many more options are available.
 
 ### Conda Environments
 
-Xarray is a general-purpose package but it is particularly aimed at geophysical applications.  Suppose you wish to use it only for a particular application (a homework problem, for example) but do not wish to install it into your main environment.  When you use Anaconda you always have a _conda environment_; the one with which you start is called _base_.  
-Conda can also be used to create "sandboxes" called _conda environments_.  To create a new environment for your Xarray project, start the Navigator and click on the Environments tab in the upper left.  Click the Create button in the lower pane.  A pop-up will appear.  Name your environment, say `geodata`.  A relatively small number of packages will be installed.  Once created, you can select it from your list of environments, change the dropdown to Installable, and install packages as usual.
+Xarray is a general-purpose package but it is particularly aimed at geophysical applications.  Suppose you wish to use it only for a particular application (a homework problem, for example) but do not wish to install it into your main environment.  When you use Anaconda you always have a _conda environment_; the one with which you start is called _base_. Conda can also be used to create "sandboxes" called _conda environments_.  To create a new environment for your Xarray project, start the Navigator and click on the Environments tab in the upper left.  Click the Create button in the lower pane.  A pop-up will appear.  Name your environment, say `geodata`.  A relatively small number of packages will be installed.  Once created, you can select it from your list of environments, change the dropdown to Installable, and install packages as usual.
 
 From the command line, run
 ```bash
