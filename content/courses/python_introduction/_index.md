@@ -22,3 +22,4 @@ Learning to program requires practice and patience.  You cannot learn by watchin
 
 When the course is being offered live the project sample solutions may be unavailable: try them yourself anyway, and return when the solutions are posted again.
 
+Once you have mastered programming in Python, you may find that your scripts are slow.  We offer a course in [High-Performance Python](/notes/python_high_perf) to help you learn to optimize your code.

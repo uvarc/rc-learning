@@ -18,17 +18,31 @@ module load geany
 geany&
 ```
 
-For personal use, compilers, Geany, and the other cross-platform IDEs are available for all popular Linux distributions and can be installed through the distribution's package manager or by downloading from the vendor (e.g. the NVIDIA HPC SDK).  Most workstation users do not install environment modules, so the module command would not be required. 
+For personal use, compilers, Geany, and the other cross-platform IDEs are available for all popular Linux distributions and can be installed through the distribution's package manager or by downloading from the vendor (e.g. the NVIDIA HPC SDK).  Most workstation users do not install environment modules, so the module command would not be required.  However, it may be convenient if you wish to instal multiple compilers.  At least one implementation of software modules is usually available for a given distribution.
+
+_GCC_
+The gcc compiler is a standard part of all Linux distributions.  However, it is usually necessary to add g++ and gfortran separately.
+
+_Intel OneAPI_
+Download the Linux version from [Intel](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html).  Installing the HPC Toolkit as well as the required Basic Toolkit is recommended.
+
+_NVIDIA HPC SDK_
+Download and install the [package](https://developer.nvidia.com/nvidia-hpc-sdk-downloads).  If your distribution is not supported with a package, you may have t
+o download the tarball and set paths appropriately.
+
+To use a different compiler with Geany, from the `Build` menu choose `Set Build Commands`. To use a different compiler with Geany, from the `Build` menu choose `Set Build Commands`.  See the chapter on [building](/courses/cpp_introduction/building) your codes for compiler names and some options.
+
+### IDEs for Mac and Windows
 
 On Mac and Windows, an IDE can be installed in the usual way for those platforms, either through the application "store" or starting at the package's home page.
 
 ### Mac OS
 
 _GCC_
-Install Xcode from the App Store.  This will install gcc and g++.
+Install Xcode from the App Store.  This will install gcc and g++.  You may also wish to install the gcc package from [homebrew](https://brew.sh) since it will install the Xcode command-line tools for you.
 
 _Intel oneAPI_
-Download the Mac version from Intel.
+Download the Mac version from [Intel](https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html).  It may be useful to install the HPC Toolkit as well as the required Basic Toolkit. 
 
 The NVIDIA HPC SDK is not available for Macs.
 
@@ -56,10 +70,12 @@ Download and install it.
 Once it has been installed, follow the [instructions](https://www.msys2.org/) to open a command-line tool, update the distribution, then install the compilers and tools.
 
 _Intel oneAPI_
-Download and install the basic toolkit.  Many programmers may find elements of the HPC toolkit useful as well.
+First install [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
+  Individual developers and most academic users are eligible for the free commun
+ity edition.  After installing VS, download and install the Basic Toolkit.  The HPC Toolkit is also recommended; it is installed after Basic.
 
 _NVIDIA HPC SDK_
-Download and install the package.
+Download and install the package when it is available.
 
 #### Environment Variables in Windows
 To use any of these compilers through an IDE, they must be added to the Path environment variable.  You must use the path you chose for the installation.  The default is C:\msys64\mingw64\bin for the compilers.

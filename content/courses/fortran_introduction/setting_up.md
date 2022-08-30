@@ -66,7 +66,7 @@ _Intel oneAPI_
 Download and install the basic toolkit and, for Fortran, the HPC toolkit.
 
 _NVIDIA HPC SDK_
-Download and install the package.
+Download and install the package when it is available.
 
 #### Environment Variables in Windows
 To use any of these compilers through an IDE, they must be added to the Path environment variable.  You must use the path you chose for the installation.  The default is C:\msys64\mingw64\bin for the compilers.

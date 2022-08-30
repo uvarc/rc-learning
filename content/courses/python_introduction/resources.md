@@ -18,8 +18,6 @@ Other online tutorials include [Tutorialspoint](https://www.tutorialspoint.com/p
 
 There are also many video tutorials, including one produced at UVA, [Programming in Python for Scientists and Engineers]({{< ref "/courses/programming_python_scientists_engineers" >}}).  This was created when Python 2 was the most widely used; since then Python 2 has been deprecated and all new materials are in Python 3.  There are some modifications for Python 3 in the Episode Guides for the videos of this series. 
 
-Once you have mastered programming in Python, you may find that your scripts are slow.  We offer a course in [High-Performance Python](/notes/python_high_perf) to help you learn to optimize your code.
-
 Happy programming!
 
 ### UVA Specific Resources

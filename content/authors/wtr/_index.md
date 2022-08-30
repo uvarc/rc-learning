@@ -10,7 +10,7 @@ authors:
 superuser: false
 
 # Role/position
-role: Research Computing Consultant
+role: Former Employee
 
 # Organizations/Affiliations
 organizations:
@@ -21,11 +21,9 @@ organizations:
 #bio: 
 
 interests:
-- HPC
 - Bioinformatics
 - R
 - Python
-- Rivanna
 
 ---
 

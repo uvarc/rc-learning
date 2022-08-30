@@ -28,7 +28,7 @@ The [NVIDIA HPC SDK](https://developer.nvidia.com/hpc-sdk) is another free (thou
 _Intel Compilers_
 The Intel compilers have a reputation for producing the fastest executables on Intel architectures.  Most high-performance computing sites provide the commercial Intel suite `icc`, `icpc`, and `ifort`.  Intel's Parallel Studio package also ships with high-performance Math Kernel Libraries (MKL), MPI (IntelMPI), and threading (tbb).  The Parallel Studio package is available on the UVA HPC system.
 
-Intel has recently released the [oneAPI Toolkits](https://software.intel.com/content/www/us/en/develop/tools/oneapi/all-toolkits.html). They are free but not open source, and are supported only through a community forum.  
+Intel has recently released the [oneAPI Toolkits](https://software.intel.com/content/www/us/en/develop/tools/oneapi/all-toolkits.html). They are free but not open source, and are supported only through a community forum.  In order to obtain the "classic" compilers described above, the HPC Toolkit must be installed.  The newer compilers provided in the Base Toolkit for Intel are `icx`, and `icpx`.  Both the classic and the new Fortran compilers `ifort` and `ifx` are in the HPC Toolkit.
 
 ## Integrated Development Environments
 
@@ -39,6 +39,8 @@ Mac OS uses Xcode as its native IDE. Xcode includes some compilers, particularly
 A full-featured cross-platform IDE is [Eclipse] (http://www.eclipse.org/).  Free.
 
 A lighter-weight IDE for Windows and Linux is [Code::Blocks] (http://www.codeblocks.org/).  Free.
+
+Windows programmers using Intel's oneAPI distribution must also install [Visual Studio](https://visualstudio.microsoft.com/).
 
 An increasingly popular IDE is Visual Studio Code ([VSCode](https://code.visualstudio.com/)) from Microsoft. It is also cross-platform, with versions available for Windows, Mac OS, and Linux.  It does not support C, C++, or Fortran by default; extensions must be installed to provide syntax highlighting and debugging for those languages.  C and C++ are installed with one extension that can be found at the top of the list.  To install a Fortran extension, open the extension panel if it is hidden, and type `fortran` in the search bar.  There are several options; the one simply called "fortran" is popular.  Also recommended are the breakpoint extension and fprettify.
 
@@ -53,9 +55,18 @@ This is the _compilation_ step.
 Object files are binary (machine language) but cannot be executed.  They must be _linked_ into an executable by a program called a _linker_ (also called a _loader_).  The linker is normally invoked through the compiler.  The entire process of compiling and linking is called _building_ the executable.
 
 If not told otherwise a compiler will attempt to compile and link the source file(s) it is instructed to compile.  If more than one file is needed to create the executable, linking will not work until all object files are available, so the compiler must be told to skip that step.
+
 For Unix compilers the `-c` option suppresses linking.  The compiler must then be run again to build the executable from the object files.
 The linker option `-o` is used to name the binary something other than `a.out`.
 Unix and MacOS do not care about file extensions, but Windows will expect an executable to end in `.exe`.
+
+### Command Line
+
+For full control and access to more compiler options, we can build from the comm
+and line.  For Linux and Mac this is a terminal application.  On windows, use a
+command prompt for gcc.  The Intel oneAPI distribution ships with an integrated
+command prompt in its folder in the applications menu; this command prompt is aw
+are of the location of the compiler executables and libraries.
 
 **Example**
 ```
