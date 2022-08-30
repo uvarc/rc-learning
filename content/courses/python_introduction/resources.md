@@ -16,10 +16,6 @@ This concludes our overview of programming in Python.  The high popularity of Py
 
 Other online tutorials include [Tutorialspoint](https://www.tutorialspoint.com/python/index.htm) and [DataCamp](https://www.datacamp.com/learn/python?utm_source=adwords_ppc&utm_medium=cpc&utm_campaignid=1565610360&utm_adgroupid=63334253950&utm_device=c&utm_keyword=python%20programming&utm_matchtype=p&utm_network=g&utm_adpostion=&utm_creative=591601772809&utm_targetid=kwd-116884689&utm_loc_interest_ms=&utm_loc_physical_ms=9008336&gclid=CjwKCAjw682TBhATEiwA9crl3zjHzq2mV9cH_c7P2DpHXcUwsWqcFt3bFLyFSh8U-A6q2kv9lDR9cRoCzIMQAvD_BwE).
 
-There are also many video tutorials, including one produced at UVA, [Programming in Python for Scientists and Engineers]({{< ref "/courses/programming_python_scientists_engineers" >}}).  This was created when Python 2 was the most widely used; since then Python 2 has been deprecated and all new materials are in Python 3.  There are some modifications for Python 3 in the Episode Guides for the videos of this series. 
-
-Once you have mastered programming in Python, you may find that your scripts are slow.  We offer a course in [High-Performance Python](/notes/python_high_perf) to help you learn to optimize your code.
-
 Happy programming!
 
 ### UVA Specific Resources
