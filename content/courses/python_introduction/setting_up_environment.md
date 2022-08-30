@@ -7,13 +7,11 @@ weight: 11
 
 menu:
     python_introduction:
-        parent: Getting Started
+        parent: Introduction to Programming in Python
         weight: 11
 ---
 
-## Setting up Your Environment
-
-The Anaconda environment from [Anaconda Inc.](https://anaconda.com) is widely used because it bundles a Python interpreter, most of the popular packages, and development environments. It is cross platform and freely available. [Download](https://www.anaconda.com/products/individual#Downloads) and install the Anaconda Distribution product appropriate for your operating system (Windows, Mac OSX, or Linux).  There are two somewhat incompatible versions of Python; version 2.7 is deprecated but still fairly widely used.  Version 3 is the supported version.  We will use Python 3 but if you know you need to use Python 2.7, you can download that instead.  Anaconda even makes it relatively easy to install both versions.
+We will start by installing the Anaconda environment from [Anaconda Inc](https://anaconda.com).  Anaconda is widely used because it bundles a Python interpreter, most of the popular packages, and development environments. It is cross platform and freely available. [Download](https://www.anaconda.com/products/individual#Downloads) and install the Anaconda Distribution product appropriate for your operating system (Windows, Mac OSX, or Linux).  There are two somewhat incompatible versions of Python; version 2.7 is deprecated but still fairly widely used.  Version 3 is the supported version.  We will use Python 3 but if you know you need to use Python 2.7, you can download that instead.  Anaconda even makes it relatively easy to install both versions using its full-featured package manager called _conda_.
 
 Once you have installed Anaconda, [find the Navigator application](https://docs.anaconda.com/anaconda/user-guide/getting-started/) in the appropriate menu for your operating system.  
 You should see a workspace similar to this

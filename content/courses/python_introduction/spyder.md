@@ -3,11 +3,11 @@ title: IDEs
 toc: true
 type: docs
 draft: false
-weight: 12
+weight: 13
 
 menu:
     python_introduction:
-        parent: Getting Started
+        parent: Introduction to Programming in Python
         weight: 13
 ---
 

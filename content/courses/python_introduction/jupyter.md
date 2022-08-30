@@ -3,11 +3,11 @@ title: Jupyterlab
 toc: true
 type: docs
 draft: false
-weight: 11
+weight: 12
 
 menu:
     python_introduction:
-        parent: Getting Started
+        parent: Introduction to Programming in Python
         weight: 12
 ---
 

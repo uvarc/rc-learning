@@ -7,7 +7,7 @@ weight: 14
 
 menu:
     python_introduction:
-        parent: Getting Started
+        parent: Introduction to Programming in Python
         weight: 14
 ---
 
