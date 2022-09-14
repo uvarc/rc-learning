@@ -2,7 +2,7 @@
 title: "Using Containers on Rivanna"
 type: article 
 toc: true
-date: 2022-08-05T00:00:00-05:00
+date: 2022-09-14T00:00:00-05:00
 
 ---
 
@@ -54,8 +54,6 @@ To download a container hosted on a registry, use the `pull` command. Docker ima
 ### Pull lolcow from Docker Hub
 
 ```bash
-module spider singularity
-module load singularity
 singularity pull docker://rsdmse/lolcow
 ```
 
@@ -360,8 +358,6 @@ rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.3.0
 
 # References
 
-- [UVA Rivanna-Docker GitHub](https://github.com/uvarc/rivanna-docker)
-    - Dockerfiles by UVA Research Computing
-    - [Tips](https://github.com/uvarc/rivanna-docker/wiki/Tips)
-- [_Best practices for writing Dockerfiles_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
-- [Natanael Copa, _Small, Simple, and Secure: Alpine Linux under the Microscope_, DockerCon EU (2017)](https://youtu.be/sIG2P9k6EjA)
+- [Singularity User Guide](https://apptainer.org/user-docs/master/)
+    - [Overview](https://apptainer.org/user-docs/master/quick_start.html#overview-of-the-singularity-interface)
+    - [Bind Path and Mounts](https://apptainer.org/user-docs/master/bind_paths_and_mounts.html)

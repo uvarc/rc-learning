@@ -70,7 +70,7 @@ for i,x in enumerate(xs):
 A _functional_ in this context is a function that takes a function as its argument.  Python has functionals that can take the place of loops.
 
 <!--- Theme includes mapping JS Leaflet, grabs hash followed by word map --->
-<h3> Map </h3>
+<h3> Map/Reduce/Filter </h3>
 
 The `map` functional applies a function individually to each element of an iterable and returns an iterator (in Python 3).  Since we frequently want to do something with the result we can cast it to a list.
 
@@ -78,22 +78,17 @@ The `map` functional applies a function individually to each element of an itera
 float_vals=list(map(float,range(20)))
 print(float_vals)
 ```
-
 Map is said to _broadcast_ the function across the iterable.
 
-### Reduce
 
 The `reduce` function takes a binary (two arguments) function and applies it pairwise to each element, working its way down the iterable, to produce a single result.  It was removed from core Python in Python 3 but can be imported from the `functools` [module](/courses/python_introduction/modules).
-
 ```python
 from functools import reduce
 def adder(x,y):
    return x+y
-sum_it=reduce(sum,range(20))
+sum_it=reduce(adder,range(20))
 print(sum_it)
 ```
-
-### Filter
 
 The `filter` functional takes a function that returns a Boolean (True or False) and applies it elementwise to the iterable, returning an iterator.
 ```python
@@ -103,9 +98,9 @@ evens=list(filter(is_even,range(21)))
 print(evens)
 ```
 
-Map, filter, and reduce are frequently used with [lambda functions](courses/python_introduction/advanced_functions).
+Map, filter, and reduce are frequently used with [lambda functions](/courses/python_introduction/advanced_functions).
 
 ## NumPy
 
-Another way to avoid for loops is to use [NumPy](courses/python_introduction/numpy).  The best speedups are usually achieved when it is possible to use NumPy built-in "vectorized" functions.  For more details, see our workshop on [High-Performance Python](/notes/python_hi_perf/serial_optimization).
+Another way to avoid for loops is to use [NumPy](/courses/python_introduction/numpy_matplotlib_scipy).  The best speedups are usually achieved when it is possible to use NumPy built-in "vectorized" functions.  For more details, see our workshop on [High-Performance Python](/notes/python_hi_perf/serial_optimization).
 
