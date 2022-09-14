@@ -2,7 +2,7 @@
 title: "Using Containers on Rivanna"
 type: article 
 toc: true
-date: 2022-08-05T00:00:00-05:00
+date: 2022-09-14T00:00:00-05:00
 
 ---
 
@@ -54,8 +54,6 @@ To download a container hosted on a registry, use the `pull` command. Docker ima
 ### Pull lolcow from Docker Hub
 
 ```bash
-module spider singularity
-module load singularity
 singularity pull docker://rsdmse/lolcow
 ```
 
