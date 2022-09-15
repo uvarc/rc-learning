@@ -2,7 +2,7 @@
 title: "Using Containers on Rivanna"
 type: article 
 toc: true
-date: 2022-09-14T00:00:00-05:00
+date: 2022-09-13T00:00:00-05:00
 
 ---
 
