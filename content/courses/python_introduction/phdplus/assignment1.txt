@@ -1,0 +1,20 @@
+Assignment 1 has three projects.  For B and C please upload a .py script.
+
+A.) Describe the difference between a list and a tuple.  Write your answer into the Collab textbox.
+
+B.) This project has two distinct parts but please put them into a single file for checking purposes. 
+
+   Part 1.  The formula for the speed of an object freely falling from a height h is
+    v=sqrt(2.*g*h)
+  where g is the acceleration due to gravity, 9.8 m/s**2 or 32 ft/s**2. We are ignoring air resistance.  The sqrt is in the math package (like sin, cos, etc.)
+  
+   Make a table of speed for heights from 0 to 100 meters inclusive in increments of 10 m.  Print the distance in m, distance in ft, speed in m/s, and speed in ft/s.  Do not worry about formatting the output at this point.
+
+   Part 2.  The sine can be computed with the infinite sum
+       sin(x)=x-x**3/3! + x**5/5! - x**7/7! + x**9/9! + ..... 
+  
+   We can't compute an infinite sum in the finite computer, so we must cut it off somewhere.  Your task here is to determine the number of terms needed to compute the sine to an accuracy of 1.e-12.  Assume the built-in math.sin(x) is accurate well beyond this.  Hints: use the math.factorial(k) built-in function to compute the factorial (k!).  You can alternate the sign in a couple of ways but one way is to have a variable that starts at 1. whose sign is switched each term. The absolute value of a difference is just abs(v1-v2), the math prefix is not required.  We can say we have converged to a tolerance when abs(v1-v2) is less than that tolerance.  Do this computation for x=.1
+
+C.) An "arithmetic number" is a number such that the average of the sum of its divisors is itself an integer.  Write a program that will print a list of the arithmetic numbers between 1 and N inclusive.  Set N=20 for your run.
+
+How can we go about programming this?  First of all, we need to remember what a divisor is.  A divisor is a number k between 1 and M such that the remainder of M/k is zero.  We know how to get the remainder in Python.  But we need all of the divisors for the number M.  Now we must decide on a data structure to hold them as we find them.  After that, we need to use the data structure to get the average.  Finally, we must decide whether that average is an integer even though our result should be a floating-point number.  Hint: play with the % operator for floating-point numbers when remaindered with 1.

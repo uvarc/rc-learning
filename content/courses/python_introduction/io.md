@@ -107,21 +107,30 @@ Examples:
 ### Formatters
 
 To construct our formatted output we use _format strings_, also called _formatters_.  We insert curly braces as placeholders for variables in the finished string.  Format codes go inside the braces following a colon.
-
-* print("The value of pi is approximately {:.6f}".format(math.pi))
-* print("Pi to {:d} digits is {:.12f}".format(n,math.pi)
+```python
+print("The value of pi is approximately {:.6f}".format(math.pi))
+print("Pi to {:d} digits is {:.12f}".format(n,math.pi)
+```
 
 We have left the space to the left of the colon blank, but it represents the order of the arguments to `format`.  Thus the second example is equivalent to
-
-* print("Pi to {0:d} digits is {1:.12f}".format(n,math.pi))
+```python
+print("Pi to {0:d} digits is {1:.12f}".format(n,math.pi))
+```
 
 This means we can rearrange the output if we wish.
-
-* print("Pi is {1:.12f} to {0:d} digits".format(n,math.pi))
+```python
+print("Pi is {1:.12f} to {0:d} digits".format(n,math.pi))
+```
 
 Empty curly braces result in default formatting and ordering.  In this situation one could use list-directed formatting as well, but using a formatter enables more control over layout and spacing.
+```python
+print("I have {} books to read by {}".format(12,"tomorrow"))
+```
 
-* print("I have {} books to read by {}".format(12,"tomorrow"))
+Values can be aligned in a field with `<` (left align), `>` (right align), or `^` (center align). These symbols must be followed by a field width.
+```python
+print("The number {:^8} is {:>15.4f}".format("pi",math.pi))
+```
 
 **Exercise**
 
