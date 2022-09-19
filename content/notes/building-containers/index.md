@@ -326,154 +326,27 @@ In your browser, go to `https://hub.docker.com/r/<user>/lolcow`.
 
 ---
 
-# Using Containers on Rivanna
+# Case Studies
 
-_Singularity on HPC_
+Up to now, we know how to write a simple Dockerfile to install software using the distro's package manager. In practice, we may encounter software that does not exist in the package list. How do we deal with such cases?
 
-Do the following:
+## Compiled language (C++) 
 
-- Connect to Rivanna
-    - SSH client or FastX Web
-- Run `hdquota`
-    - Make sure you have a few GBs of free space
-- Run `allocations`
-    - Check if you have `rivanna-training`
+https://github.com/lilab-bcb/cumulus_feature_barcoding
 
-## Singularity is designed for HPC
+Hints:
+- You do not have to start from a bare OS. Search for `gcc` on Docker Hub.
+- Install `build-essential` if you are starting from a bare OS.
+- Version pinning - to choose a specific version, download from https://github.com/lilab-bcb/cumulus_feature_barcoding/releases (you will need `wget`).
 
-- Does not require sudo privilege to run (unlike Docker)
-- Interoperates well with HPC resource managers in multi-node environments
-- Easily makes use of GPUs, high speed networks, parallel filesystems
-- Able to convert Docker images into Singularity
+## Interpreted language (Python)
 
----
+https://docs.qiime2.org/2022.8/install/native/#install-qiime-2-within-a-conda-environment
 
-## Pull
-
-To download a container hosted on a registry, use the `pull` command. Docker images are automatically converted into Singularity format.
-
-`singularity pull [<SIF>] <URI>`
-
-- `<URI>` (Unified resource identifiers)
-    - `[library|docker|shub]://[<user>/]<repo>[:<tag>] `
-    - Default prefix: `library` ([Singularity Library](https://cloud.sylabs.io/library))
-    - `user`: optional; may be empty (e.g. `singularity pull ubuntu`)
-    - `tag`: optional; default: `latest`
-- `<SIF>` (Singularity image format)
-    - Optional
-    - Rename image; default: `<repo>_<tag>.sif`
-
-### Pull your lolcow from Docker Hub
-
-```bash
-module spider singularity
-module load singularity
-singularity pull docker://<user>/lolcow
-```
-
-## Inspect
-
-Inspect an image before running it via `inspect`.
-
-`singularity inspect <SIF>`
-
-```bash
-$ singularity inspect lolcow_latest.sif 
-WARNING: No SIF metadata partition, searching in container...
-org.label-schema.build-date: Wednesday_14_October_2020_14:30:00_EDT
-org.label-schema.schema-version: 1.0
-org.label-schema.usage.singularity.deffile.bootstrap: docker
-org.label-schema.usage.singularity.deffile.from: <user>/lolcow
-org.label-schema.usage.singularity.version: 3.6.1
-```
-
-### Inspect runscript
-
-The Docker entrypoint is preserved as Singularity runscript.
-
-`singularity inspect --runscript <SIF>`
-
-```bash
-$ singularity inspect --runscript lolcow_latest.sif 
-#!/bin/sh
-OCI_ENTRYPOINT='"/bin/sh" "-c" "fortune | cowsay | lolcat"'
-...
-```
-
-## Run
-
-There are 3 ways to run a container: `run`, `shell`, `exec`.
-
-### `run`
-
-Execute the default command in `inspect --runscript`.
-
-CPU: `singularity run <SIF>` = `./<SIF>`
-
-GPU: `singularity run --nv <SIF>` (later)
-
-```bash
-./lolcow_latest.sif
-```
-
-Treat container like an executable:
-
-```bash
-singularity pull lolcow docker://<user>/lolcow
-./lolcow
-```
-
-### `shell`
-
-Start a Singularity container interactively in its shell.
-
-`singularity shell <SIF>`
-
-```bash
-$ singularity shell lolcow_latest.sif
-Singularity>
-```
-
-The change in prompt indicates you are now inside the container.
-
-To exit the container shell, type `exit`.
-
-### `exec`
-
-Execute custom commands without shelling into the container.
-
-`singularity exec <SIF> <command>`
-
-```bash
-$ singularity exec lolcow_latest.sif which fortune
-```
-
-## Bind mount
-
-- Singularity bind mounts these host directories at runtime:
-    - Personal directories: `/home`, `/scratch`
-    - Leased storage shared by your research group: `/project`, `/nv`
-    - Some system directories: `/tmp`, `/sys`, `/proc`, `/dev`, `/usr`
-    - Your current working directory
-- Other directories inside the container are owned by root
-- To bind mount additional host directories/files, use `--bind`/`-B`:
-
-```bash
-singularity run|shell|exec -B <host_path>[:<container_path>] <SIF>
-```
-
----
-
-## Exercises
-
-1. For each of the 3 executables `fortune`, `cowsay`, `lolcat`, run `which` both inside and outside the container.
-1. a) Run `ls -l` for your home directory both inside and outside the container. Verify that you get the same result. b) To disable all bind mounting, use `run|shell|exec -c`. Verify that `$HOME` is now empty.
-1. View the content of `/etc/os-release` both inside and outside the container. Are they the same or different? Why?
-1. (Advanced) Let's see if we can run the host `gcc` inside the lolcow container. First load the module: `module load gcc`
-    - Verify that the path to `gcc` (hint: `which`) is equal to `$EBROOTGCC/bin`.
-    - Verify that `$EBROOTGCC/bin` is in your `PATH`.
-    - Now shell into the container (hint: `-B /apps`) and examine the environment variables `$EBROOTGCC` and `$PATH`. Are they the same as those on the host? Why (not)?
-    - In the container, add `$EBROOTGCC/bin` to `PATH` (hint: `export`). Is it detectable by `which`? Can you launch `gcc`? Why (not)?
+Hints:
+- You do not have to start from a bare OS. Search for `miniconda` on Docker Hub.
+- Alternatively, there is a much faster dependency solver than conda - (micro)mamba. If you use it as the base image, see https://github.com/mamba-org/micromamba-docker#quick-start for instructions.
+- After you're done, compare with the [official Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile) and image size. What is the biggest reason for the difference?
 
 ---
 
