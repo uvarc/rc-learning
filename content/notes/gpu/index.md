@@ -12,7 +12,6 @@ In this workshop participants are introduced to the gpu computing resources on R
 
 # Introduction to GPU
 
-<https://www.docker.com/resources/what-container>
 
 # GPUs on Rivanna
 
@@ -31,20 +30,12 @@ mix      udc-an33-37    12/24/0/36    384000        384000        0             
 ...
 ```
 
-To request a GPU in a Slurm job, your Slurm script must contain these lines:
-
-```bash
-#SBATCH -p gpu
-#SBATCH --gres=gpu
-```
-
-See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations) for further information.
-
 # GPU-Enabled Applications on Rivanna
 
+## Modules
 Provided by two toolchains `nvompic` (compiled) and `singularity` (container).
 
-## `nvompic`
+### `nvompic`
 
 Stands for:
 
@@ -78,7 +69,7 @@ $ module avail
    hdf5/1.12.1    openblas/0.3.17 (D)    openmpi/3.1.6 (L,D)
 ```
 
-## `singularity`
+### `singularity`
 
 The popular deep learning frameworks, TensorFlow and PyTorch, are backed by containers. (To learn more about containers, see [Using Containers on Rivanna](/workshop/using-containers).)
 
@@ -87,6 +78,20 @@ module load singularity tensorflow
 ```
 
 On JupyterLab, you may conveniently select the kernel of the desired framework and version.
+
+## Slurm job
+
+To request a GPU in a Slurm job, your Slurm script must contain these lines:
+
+```bash
+#SBATCH -p gpu
+#SBATCH --gres=gpu
+```
+
+See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations) for further information.
+
+
+# Demo: RAPIDS
 
 ---
 
