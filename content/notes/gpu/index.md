@@ -2,7 +2,7 @@
 title: "GPU-Enabled Applications on Rivanna"
 type: article 
 toc: true
-date: 2022-10-20T00:00:00-05:00
+date: 2022-09-27T00:00:00-05:00
 
 ---
 
