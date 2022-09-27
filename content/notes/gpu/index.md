@@ -30,6 +30,13 @@ mix      udc-an33-37    12/24/0/36    384000        384000        0             
 ...
 ```
 
+Important things to note:
+
+- CPU memory is not GPU memory
+- Each **GPU node** contains multiple **GPU devices**
+- Different GPU types have different specs (GPU memory, CPU cores, etc.)
+- In descending order of performance: A100, V100, P100, K80
+
 # GPU-Enabled Applications on Rivanna
 
 ## Modules
