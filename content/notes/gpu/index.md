@@ -33,7 +33,46 @@ mix      udc-an33-37    12/24/0/36    384000        384000        0             
 # GPU-Enabled Applications on Rivanna
 
 ## Modules
-Provided by two toolchains `nvompic` (compiled) and `singularity` (container).
+Provided by three toolchains `goolfc`, `nvompic` (compiled languages), and `singularity` (container).
+
+### `goolfc`
+
+Stands for:
+
+- GCC compilers `g`
+- OpenMPI (`o`)
+- OpenBLAS (`o`)
+- ScaLAPACK (`l`)
+- FFTW (`f`)
+- CUDA (`c`)
+
+```bash
+--------------------------------------------------------------------------------
+  goolfc: goolfc/9.2.0_3.1.6_11.0.228
+--------------------------------------------------------------------------------
+    Description:
+      GNU Compiler Collection (GCC) based compiler toolchain along with CUDA
+      toolkit, including OpenMPI for MPI support with CUDA features enabled,
+      OpenBLAS (BLAS and LAPACK support), FFTW and ScaLAPACK with CUDA features
+      enabled.
+
+
+    This module can be loaded directly: module load goolfc/9.2.0_3.1.6_11.0.228
+```
+
+The toolchain version consists of three subversions joined by `_`, corresponding to the version of `gcc`, `openmpi`, and `cuda`, respectively.
+
+```bash
+$ module load goolfc
+$ module avail
+
+------- /apps/modulefiles/standard/mpi/gcc-cuda/9.2.0-11.0.228/openmpi/3.1.6 -------
+   fftw/3.3.8     (L,D)    hoomd/2.9.6     python/3.8.8    (D)
+   gromacs/2021.2          python/3.7.7    scalapack/2.1.0 (L)
+
+----------- /apps/modulefiles/standard/compiler/gcc-cuda/9.2.0-11.0.228 ------------
+   gpunufft/2.1.0    mumax3/3.10    nccl/2.7.8    openmpi/3.1.6 (L,D)
+```
 
 ### `nvompic`
 
@@ -44,7 +83,7 @@ Stands for:
 - CUDA (`c`)
 
 ```bash
-$ ms nvompic
+$ module spider nvompic
 
 -----------------------------------------------------------------------------------
   nvompic: nvompic/21.9_3.1.6_11.4.2
