@@ -81,6 +81,9 @@ $ module avail
    gpunufft/2.1.0    mumax3/3.10    nccl/2.7.8    openmpi/3.1.6 (L,D)
 ```
 
+#### Usage instructions
+- [GROMACS](https://www.rc.virginia.edu/userinfo/rivanna/software/gromacs/)
+
 ### `nvompic`
 
 Stands for:
@@ -115,6 +118,11 @@ $ module avail
    hdf5/1.12.1    openblas/0.3.17 (D)    openmpi/3.1.6 (L,D)
 ```
 
+#### Usage Instructions
+
+- [BerkeleyGW](https://www.rc.virginia.edu/userinfo/rivanna/software/berkeleygw/)
+- [QuantumEspresso](https://www.rc.virginia.edu/userinfo/rivanna/software/quantumespresso/)
+
 ### `singularity`
 
 The popular deep learning frameworks, TensorFlow and PyTorch, are backed by containers. (To learn more about containers, see [Using Containers on Rivanna](/workshop/using-containers).)
@@ -136,6 +144,10 @@ To request a GPU in a Slurm job, your Slurm script must contain these lines:
 
 See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations) for further information.
 
+#### Usage instructions
+
+- [TensorFlow](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/)
+- [PyTorch](https://www.rc.virginia.edu/userinfo/rivanna/software/pytorch/)
 
 # Demo: RAPIDS
 
