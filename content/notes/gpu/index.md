@@ -14,7 +14,33 @@ In this workshop participants are introduced to the gpu computing resources on R
 
 <https://www.docker.com/resources/what-container>
 
-# GPU Modules on Rivanna
+# GPUs on Rivanna
+
+Go to https://www.rc.virginia.edu/userinfo/rivanna/overview/#system-details and click on "Hardware Configuration". GPUs are indicated by "GPU" under the specialty hardware column. 
+
+Command to check the current status of GPU nodes:
+
+```bash
+$ qlist -p gpu
+
+STATE    NODE           CPUS(A/I/O/T) TOTALMEM(MB)  ALLOCMEM(MB)  AVAILMEM(MB)  GRES(M:T:A)               JOBS
+==============================================================================================================
+mix      udc-an28-1     8/120/0/128   1000000       40960         959040        gpu:a100:8(S:0-7):1         1
+mix      udc-an28-7     28/100/0/128  1000000       680960        319040        gpu:a100:8(S:0-7):6         6
+mix      udc-an33-37    12/24/0/36    384000        384000        0             gpu:v100:4(S:0-1):3         3
+...
+```
+
+To request a GPU in a Slurm job, your Slurm script must contain these lines:
+
+```bash
+#SBATCH -p gpu
+#SBATCH --gres=gpu
+```
+
+See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations) for further information.
+
+# GPU-Enabled Applications on Rivanna
 
 Provided by two toolchains `nvompic` (compiled) and `singularity` (container).
 
