@@ -14,7 +14,7 @@ for i in range(1,N+1):
             divisors.append(j)
     s=sum(divisors)
     avg=float(s)/len(divisors)
-    if int(avg)==avg:
+    if avg % 1 == 0.:
         arith_nums.append(i)
 
 for n in arith_nums:

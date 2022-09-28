@@ -6,7 +6,7 @@ date: 2020-10-13T00:00:00-05:00
 
 ---
 
-In this workshop you will learn how to build Docker containers and run them on Rivanna. For a general introduction on software containers, please refer to the "Introduction" section in our [Singularity workshop](/workshops/singularity). 
+In this workshop you will learn how to build Docker container images. Starting from a simple Dockerfile, we will adopt best practices sequentially and see their effect.
 
 # Prerequisites
 
@@ -326,293 +326,55 @@ In your browser, go to `https://hub.docker.com/r/<user>/lolcow`.
 
 ---
 
-# Using Containers on Rivanna
+# Case Studies (hands-on)
 
-_Singularity on HPC_
+By now, we know how to write a simple Dockerfile to install software using the distro's package manager. In practice, we may encounter software that does not exist in the package list. How do we deal with such cases?
 
-Do the following:
+## Compiled language (C++) 
 
-- Connect to Rivanna
-    - SSH client or FastX Web
-- Run `hdquota`
-    - Make sure you have a few GBs of free space
-- Run `allocations`
-    - Check if you have `rivanna-training`
+https://github.com/lilab-bcb/cumulus_feature_barcoding
 
-## Singularity is designed for HPC
+Hints:
+- You do not have to start from a bare OS. Search for `gcc` on Docker Hub.
+- Install `build-essential` if you are starting from a bare OS.
+- Version pinning - to choose a specific version, download from https://github.com/lilab-bcb/cumulus_feature_barcoding/releases (you will need `wget`).
 
-- Does not require sudo privilege to run (unlike Docker)
-- Interoperates well with HPC resource managers in multi-node environments
-- Easily makes use of GPUs, high speed networks, parallel filesystems
-- Able to convert Docker images into Singularity
+## Interpreted language (Python)
 
----
+https://docs.qiime2.org/2022.8/install/native/#install-qiime-2-within-a-conda-environment
 
-## Pull
+Hints:
+- Click on "Linux" to get the URL for the yaml file. Download the yaml file in the same directory as your Dockerfile.
+- You do not have to start from a bare OS in your Dockerfile. Search for `miniconda3` on Docker Hub.
+- (Recommended) There is a much faster dependency solver than conda - micromamba. If you use it as the base image, see [here](https://github.com/mamba-org/micromamba-docker#quick-start) and [here](https://github.com/mamba-org/micromamba-docker#activating-a-conda-environment-for-entrypoint-commands) for instructions.
+- Use the suggested `COPY` and `ENTRYPOINT` statements.
+- After you're done, compare with the [official Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile) and image size. What is the biggest reason for the difference?
 
-To download a container hosted on a registry, use the `pull` command. Docker images are automatically converted into Singularity format.
+## General Remarks
 
-`singularity pull [<SIF>] <URI>`
+- Play with different base images and package managers.
+- If you encounter a Docker statement that you have not used before, first check the official documentation for best practices.
+- A comprehensive list of dependencies may be lacking. Some developers may not specify any at all. You will have to rely on a combination of experience, error message, and web search. (Most likely all of the above.)
+- Especially for Python packages, versions may be too permissive or too restrictive such that, in either case, future installation of the application will fail. (I have encountered both.) Tweak the versions until it works.
+- The next step is "multi-stage build" which is covered in the [Minimal Containers](/workshops/minimal-containers) workshop. There you will learn how to distinguish between buildtime versus runtime dependencies and separate them out.
 
-- `<URI>` (Unified resource identifiers)
-    - `[library|docker|shub]://[<user>/]<repo>[:<tag>] `
-    - Default prefix: `library` ([Singularity Library](https://cloud.sylabs.io/library))
-    - `user`: optional; may be empty (e.g. `singularity pull ubuntu`)
-    - `tag`: optional; default: `latest`
-- `<SIF>` (Singularity image format)
-    - Optional
-    - Rename image; default: `<repo>_<tag>.sif`
+# Clean Up
 
-### Pull your lolcow from Docker Hub
+If you build containers often, you can run out of disk space quickly. To clean up:
 
-```bash
-module spider singularity
-module load singularity
-singularity pull docker://<user>/lolcow
-```
+1. Run `docker rmi <IMAGE_ID>` to remove a specific image.
+1. Run `docker system prune` to clean up cache. (This will not affect images that are tagged.)
 
-## Inspect
+    ```bash
+    $ docker system prune
+    WARNING! This will remove:
+      - all stopped containers
+      - all networks not used by at least one container
+      - all dangling images
+      - all dangling build cache
 
-Inspect an image before running it via `inspect`.
-
-`singularity inspect <SIF>`
-
-```bash
-$ singularity inspect lolcow_latest.sif 
-WARNING: No SIF metadata partition, searching in container...
-org.label-schema.build-date: Wednesday_14_October_2020_14:30:00_EDT
-org.label-schema.schema-version: 1.0
-org.label-schema.usage.singularity.deffile.bootstrap: docker
-org.label-schema.usage.singularity.deffile.from: <user>/lolcow
-org.label-schema.usage.singularity.version: 3.6.1
-```
-
-### Inspect runscript
-
-The Docker entrypoint is preserved as Singularity runscript.
-
-`singularity inspect --runscript <SIF>`
-
-```bash
-$ singularity inspect --runscript lolcow_latest.sif 
-#!/bin/sh
-OCI_ENTRYPOINT='"/bin/sh" "-c" "fortune | cowsay | lolcat"'
-...
-```
-
-## Run
-
-There are 3 ways to run a container: `run`, `shell`, `exec`.
-
-### `run`
-
-Execute the default command in `inspect --runscript`.
-
-CPU: `singularity run <SIF>` = `./<SIF>`
-
-GPU: `singularity run --nv <SIF>` (later)
-
-```bash
-./lolcow_latest.sif
-```
-
-Treat container like an executable:
-
-```bash
-singularity pull lolcow docker://<user>/lolcow
-./lolcow
-```
-
-### `shell`
-
-Start a Singularity container interactively in its shell.
-
-`singularity shell <SIF>`
-
-```bash
-$ singularity shell lolcow_latest.sif
-Singularity>
-```
-
-The change in prompt indicates you are now inside the container.
-
-To exit the container shell, type `exit`.
-
-### `exec`
-
-Execute custom commands without shelling into the container.
-
-`singularity exec <SIF> <command>`
-
-```bash
-$ singularity exec lolcow_latest.sif which fortune
-```
-
-## Bind mount
-
-- Singularity bind mounts these host directories at runtime:
-    - Personal directories: `/home`, `/scratch`
-    - Leased storage shared by your research group: `/project`, `/nv`
-    - Some system directories: `/tmp`, `/sys`, `/proc`, `/dev`, `/usr`
-    - Your current working directory
-- Other directories inside the container are owned by root
-- To bind mount additional host directories/files, use `--bind`/`-B`:
-
-```bash
-singularity run|shell|exec -B <host_path>[:<container_path>] <SIF>
-```
-
----
-
-## Exercises
-
-1. For each of the 3 executables `fortune`, `cowsay`, `lolcat`, run `which` both inside and outside the container.
-1. a) Run `ls -l` for your home directory both inside and outside the container. Verify that you get the same result. b) To disable all bind mounting, use `run|shell|exec -c`. Verify that `$HOME` is now empty.
-1. View the content of `/etc/os-release` both inside and outside the container. Are they the same or different? Why?
-1. (Advanced) Let's see if we can run the host `gcc` inside the lolcow container. First load the module: `module load gcc`
-    - Verify that the path to `gcc` (hint: `which`) is equal to `$EBROOTGCC/bin`.
-    - Verify that `$EBROOTGCC/bin` is in your `PATH`.
-    - Now shell into the container (hint: `-B /apps`) and examine the environment variables `$EBROOTGCC` and `$PATH`. Are they the same as those on the host? Why (not)?
-    - In the container, add `$EBROOTGCC/bin` to `PATH` (hint: `export`). Is it detectable by `which`? Can you launch `gcc`? Why (not)?
-
----
-
-## TensorFlow on GPU through Slurm
-
-- Computationally intensive tasks must be performed on compute nodes
-- Job submission to Slurm
-
-Copy these files:
-
-```bash
-cp /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.slurm .
-cp /share/resources/tutorials/singularity_ws/mnist_example.{ipynb,py} .
-
-
-Examine Slurm script:
-
-```bash
-#!/bin/bash
-#SBATCH -A rivanna-training           # account name
-#SBATCH -p gpu                        # partition/queue
-#SBATCH --gres=gpu:1                  # request 1 gpu
-#SBATCH -c 1                          # request 1 cpu core
-#SBATCH -t 00:05:00                   # time limit: 5 min
-#SBATCH -J tftest                     # job name
-#SBATCH -o tftest-%A.out              # output file
-#SBATCH -e tftest-%A.err              # error file
-
-module purge                          # start with clean environment
-module load singularity
-
-singularity run --nv \
-/share/resources/tutorials/singularity_ws/tensorflow-2.3.0.sif mnist_example.py
-```
-
-Submit job:
-
-```bash
-sbatch tensorflow-2.3.0.slurm
-```
-
-### What does `--nv` do?
-
-See [Singularity GPU user guide](https://sylabs.io/guides/3.7/user-guide/gpu.html#nvidia-gpus-cuda).
-
-```bash
-$ singularity shell tensorflow-2.3.0.sif
-Singularity> python
->>> import os
->>> os.listdir('/.singularity.d/libs')
-[]
-```
-
-Why can't I `ls`? See "Minimal Containers" workshop.
-
----
-
-# Custom Jupyter Kernel
-
-_You can install your own kernel_
-
-## "Can I use that TF 2.3 container on JupyterLab?"
-
-First, note we do not have `tensorflow/2.3.0` as a module:
-
-```bash
-module spider tensorflow
-```
-
-## Installation
-
-### Manual
-1. Create kernel directory
-
-```bash
-DIR=~/.local/share/jupyter/kernels/tensorflow-2.3.0
-mkdir -p $DIR
-cd $DIR
-```
-
-2. Write `kernel.json`
-
-```
-{
- "argv": [
-  "/home/<user>/.local/share/jupyter/kernels/tensorflow-2.3.0/init.sh",
-  "-f",
-  "{connection_file}"
- ],
- "display_name": "tf2.3",
- "language": "python"
-}
-```
-
-3. Write `init.sh`
-
-```bash
-#!/bin/bash
-module load singularity
-singularity exec --nv /path/to/sif python -m ipykernel $@
-```
-
-4. Change `init.sh` into an executable
-```bash
-chmod +x init.sh
-```
-
-**Easy to automate!**
-
-### JKRollout
-
-This tool is currently limited to Python. The container must have the `ipykernel` Python package.
-
-```text
-Usage: jkrollout sif display_name [gpu]
-    sif          = file name of *.sif
-    display_name = name of Jupyter kernel
-    gpu          = enable gpu (default: false)
-```
-
-```bash
-jkrollout /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.sif "tf2.3" gpu
-```
-
-## Test your new kernel
-
-- Go to https://rivanna-portal.hpc.virginia.edu
-- Select JupyterLab
-    - Rivanna Partition: GPU
-    - Work Directory: (location of your `mnist_example.ipynb`)
-    - Allocation: `rivanna-training`
-- Select the new TensorFlow 2.3 kernel
-- Run `mnist_example.ipynb`
-
-## Remove a custom kernel
-
-```bash
-rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.3.0
-```
+    Are you sure you want to continue? [y/N] y
+    ```
 
 ---
 

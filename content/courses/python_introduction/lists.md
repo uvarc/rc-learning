@@ -101,6 +101,8 @@ Much more can be done with lists.
 
 * Length (number of elements)
   * `lenL=len(L)`
+* Sum of values (if the same type and sum is defined)
+  * `sumL=sum(L)`
 * Maximum or minimum value of the items (if they are the same type and max and min are defined)
   * `max(L) min(L)`
 * Membership test (returns Boolean)

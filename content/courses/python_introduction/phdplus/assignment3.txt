@@ -1,0 +1,38 @@
+A)  Turn in a .py script.  The last line should be plt.show() even if you do not need it when you are developing the script.
+
+The Gaussian function is
+    g=c*exp(-y)
+where
+    y=0.5*((x-m)/s)**2
+    c=1./(sqrt(2.*pi)*s)
+You will need to add appropriate prefixes for the math functions here.
+Here m is the mean and s is the standard deviation.
+
+Write a function that computes the value of the Gaussian, with optional arguments m=0 and s=1
+
+Call the function to compute the Gaussian over the range -5. to 5 inclusive, with interval 0.1.  The variable x should be a NumPy array. 
+
+If you can make your function a ufunc, do so.  If you feel more comfortable with a loop at this point, that is OK.
+
+Compute the Gaussian for 1. m=0, s=1 (default), 2. m=2.5, s=1 3. m=0, s=2
+Plot all three curves on one figure.  Default labeling is fine.
+
+B)  Turn in a Jupyter notebook named yourid_project3.ipynb (substitute your ID)
+
+Return to the world_population.csv data file from Assignment 2.  We will use NumPy and Matplotlib this time.
+
+Read in all the data into one large NumPy array.  Since the intended types aren't the same you'll have to set the dtype to 'str' for the overall array.  From this extract the country names into their own 1-d array.  Extract the population values into a 2-d array of dtype 'float'.  Extract the rank (by population) into an array of dtype 'int'.  Study the NumPy documentation of the "argsort" function.  Apply it to rank and use the result to save the top ten countries by population into a new array.  Save the corresponding populations.  Flip the order of the populations (look up np.flip).  Make an array of years (you may hard-code the numbers).  
+
+Compute the year interval and store it into a new array (note that the years are not equally spaced, so we need to do this).  See whether you can figure out how to do it without a loop, but a loop is OK.  For the top ten countries, compute their population change.  This will have one less column than the population.  Also compute the rate of change by dividing the change by the year interval (very approximate).
+
+Once all this is working, we will make some plots.  We want these to be a bit fancy.  
+Plot 1. Plot the top-ten countries' population by year. Title it "The Ten Most Populous Countries."  Add a legend of country names.  Look up how to move the legend outside the chart box. 
+
+Hint to plot all countries on one chart: you can loop over an axis returned from subplots
+fig1,ax1=plt.subplots()
+   for p in something:
+      ax1.plot(x,p)
+
+Plot 2. Make two plots on the same graph.  The first should be the change in population by year and the second the rate of change of population by year.  Title each plot appropriately.  Set up a legend for the first one and move it ouside the plotting box (the two subplots can share one legend).
+
+Plot 3. Make a histogram of all countries' populations.  You can use defaults.  It won't be especially pretty but that's OK.

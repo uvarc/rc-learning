@@ -1,0 +1,13 @@
+A)  
+Download the file rome_rain.dat.  Use a text editor to look at it.  This is the average precipitation by month for Rome, Italy.  Note the delimiter character.
+
+Read the month and the precipitation in mm from the file.  (We will not use the precipitation in inches nor the number of rainy days in this project.)  
+
+Make a dictionary where month is the key and precipitation is the value.  Once it is loaded, go through the dictionary again.  Find and print the months with the maximum and minimum rainfall.  You may use the max and min functions on the values list you can extract from the dictionary.  By accumulating the dictionary values, compute the total average precipitation for the year.  (There are better ways to do that computation but this is an exercise.)
+
+B)
+Download the file world_population.csv and examine it.  Read the country names, the capital names, and the population values (2022-1970).  For this project we will only use the 2022 population but please read them all in (and check that you did so correctly).  Make a dictionary with country the key and 2022 population the value.  Print "The population of Norway is" followed by the number.  
+
+Create a list of the countries with a population of more than one hundred million.  Print a table of the country and its population.  Make a header "Country" "2022 Population," followed by the output.  Use the centering and justification markers to line things up neatly.  This may require some fiddling.
+
+Make a list of all the countries whose capitals start with the letter "B."  Open a file named "capitals_with_B.csv" and write a comma-separated value table.  Start with a header "Country, Capital" followed by the output. Write the country names in ALL CAPS and the capital names normally.
