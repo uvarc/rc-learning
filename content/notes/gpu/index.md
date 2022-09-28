@@ -133,6 +133,11 @@ module load singularity tensorflow
 
 On JupyterLab, you may conveniently select the kernel of the desired framework and version.
 
+#### Usage instructions
+
+- [TensorFlow](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/)
+- [PyTorch](https://www.rc.virginia.edu/userinfo/rivanna/software/pytorch/)
+
 ## Slurm job
 
 To request a GPU in a Slurm job, your Slurm script must contain these lines:
@@ -143,11 +148,6 @@ To request a GPU in a Slurm job, your Slurm script must contain these lines:
 ```
 
 See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations) for further information.
-
-#### Usage instructions
-
-- [TensorFlow](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/)
-- [PyTorch](https://www.rc.virginia.edu/userinfo/rivanna/software/pytorch/)
 
 # Demo: RAPIDS
 

@@ -344,8 +344,8 @@ Hints:
 https://docs.qiime2.org/2022.8/install/native/#install-qiime-2-within-a-conda-environment
 
 Hints:
-- You do not have to start from a bare OS. Search for `miniconda` on Docker Hub.
-- Alternatively, there is a much faster dependency solver than conda - (micro)mamba. If you use it as the base image, see https://github.com/mamba-org/micromamba-docker#quick-start for instructions.
+- You do not have to start from a bare OS. Search for `miniconda3` on Docker Hub.
+- Alternatively, there is a much faster dependency solver than conda - micromamba. If you use it as the base image, see https://github.com/mamba-org/micromamba-docker#quick-start for instructions.
 - After you're done, compare with the [official Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile) and image size. What is the biggest reason for the difference?
 
 ---
