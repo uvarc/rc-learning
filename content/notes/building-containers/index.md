@@ -326,7 +326,7 @@ In your browser, go to `https://hub.docker.com/r/<user>/lolcow`.
 
 ---
 
-# Case Studies
+# Case Studies (hands-on)
 
 Up to now, we know how to write a simple Dockerfile to install software using the distro's package manager. In practice, we may encounter software that does not exist in the package list. How do we deal with such cases?
 
@@ -344,9 +344,29 @@ Hints:
 https://docs.qiime2.org/2022.8/install/native/#install-qiime-2-within-a-conda-environment
 
 Hints:
-- You do not have to start from a bare OS. Search for `miniconda3` on Docker Hub.
-- Alternatively, there is a much faster dependency solver than conda - micromamba. If you use it as the base image, see https://github.com/mamba-org/micromamba-docker#quick-start for instructions.
+- Click on "Linux" to get the URL for the yaml file. Download the yaml file in the same directory as your Dockerfile.
+- You do not have to start from a bare OS in your Dockerfile. Search for `miniconda3` on Docker Hub.
+- (Recommended) There is a much faster dependency solver than conda - micromamba. If you use it as the base image, see [here](https://github.com/mamba-org/micromamba-docker#quick-start) and [here](https://github.com/mamba-org/micromamba-docker#activating-a-conda-environment-for-entrypoint-commands) for instructions.
+- Use the suggested `COPY` and `ENTRYPOINT` statements.
 - After you're done, compare with the [official Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile) and image size. What is the biggest reason for the difference?
+
+# Clean Up
+
+If you build containers often, you can run out of disk space quickly. To clean up:
+
+1. Run `docker rmi <IMAGE_ID>` to remove a specific image.
+1. Run `docker system prune` to clean up cache. (This will not affect images that are tagged.)
+
+    ```bash
+    $ docker system prune
+    WARNING! This will remove:
+      - all stopped containers
+      - all networks not used by at least one container
+      - all dangling images
+      - all dangling build cache
+
+    Are you sure you want to continue? [y/N] y
+    ```
 
 ---
 
