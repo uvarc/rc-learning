@@ -6,7 +6,7 @@ date: 2020-10-13T00:00:00-05:00
 
 ---
 
-In this workshop you will learn how to build Docker containers and run them on Rivanna. For a general introduction on software containers, please refer to the "Introduction" section in our [Singularity workshop](/workshops/singularity). 
+In this workshop you will learn how to build Docker container images. Starting from a simple Dockerfile, we will adopt best practices sequentially and see their effect.
 
 # Prerequisites
 
@@ -355,8 +355,8 @@ Hints:
 - Play with different base images and package managers.
 - If you encounter a Docker statement that you have not used before, first check the official documentation for best practices.
 - A comprehensive list of dependencies may be lacking. Some developers may not specify any at all. You will have to rely on a combination of experience, error message, and web search. (Most likely all of the above.)
-- Especially for Python packages, versions may be too permissive or too restrictive such that, in either case, a future installation of the application will fail. (I have encountered both.) Tweak the versions until it works.
-- The next step is "multi-stage build" which is covered in the [Minimal Containers](/workshop/minimal-containers) workshop. There you will learn how to distinguish between buildtime versus runtime dependencies and separate them out.
+- Especially for Python packages, versions may be too permissive or too restrictive such that, in either case, future installation of the application will fail. (I have encountered both.) Tweak the versions until it works.
+- The next step is "multi-stage build" which is covered in the [Minimal Containers](/workshops/minimal-containers) workshop. There you will learn how to distinguish between buildtime versus runtime dependencies and separate them out.
 
 # Clean Up
 
