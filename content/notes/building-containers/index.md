@@ -328,7 +328,7 @@ In your browser, go to `https://hub.docker.com/r/<user>/lolcow`.
 
 # Case Studies (hands-on)
 
-Up to now, we know how to write a simple Dockerfile to install software using the distro's package manager. In practice, we may encounter software that does not exist in the package list. How do we deal with such cases?
+By now, we know how to write a simple Dockerfile to install software using the distro's package manager. In practice, we may encounter software that does not exist in the package list. How do we deal with such cases?
 
 ## Compiled language (C++) 
 
@@ -349,6 +349,14 @@ Hints:
 - (Recommended) There is a much faster dependency solver than conda - micromamba. If you use it as the base image, see [here](https://github.com/mamba-org/micromamba-docker#quick-start) and [here](https://github.com/mamba-org/micromamba-docker#activating-a-conda-environment-for-entrypoint-commands) for instructions.
 - Use the suggested `COPY` and `ENTRYPOINT` statements.
 - After you're done, compare with the [official Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile) and image size. What is the biggest reason for the difference?
+
+## General Remarks
+
+- Play with different base images and package managers.
+- If you encounter a Docker statement that you have not used before, first check the official documentation for best practices.
+- A comprehensive list of dependencies may be lacking. Some developers may not specify any at all. You will have to rely on a combination of experience, error message, and web search. (Most likely all of the above.)
+- Especially for Python packages, versions may be too permissive or too restrictive such that, in either case, a future installation of the application will fail. (I have encountered both.) Tweak the versions until it works.
+- The next step is "multi-stage build" which is covered in the [Minimal Containers](/workshop/minimal-containers) workshop. There you will learn how to distinguish between buildtime versus runtime dependencies and separate them out.
 
 # Clean Up
 
