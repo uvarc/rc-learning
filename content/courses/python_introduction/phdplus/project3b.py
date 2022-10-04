@@ -8,10 +8,10 @@ populations=np.asarray(raw_data[:,5:13],dtype='float')
 rank=np.asarray(raw_data[:,0],dtype='int')
 rank_index=np.argsort(rank)
 
-top_ten_pop=populations[rank_index[:11],:]
+top_ten_pop=populations[rank_index[:10],:]
 #invert
 top_ten_pop.sort(axis=1)
-top_ten_countries=countries[rank_index[:11]]
+top_ten_countries=countries[rank_index[:10]]
 
 years=np.array([2022,2020,2015,2010,2000,1990,1980,1970])
 years.sort()

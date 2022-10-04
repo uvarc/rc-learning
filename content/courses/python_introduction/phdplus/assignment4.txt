@@ -1,0 +1,27 @@
+
+Please remember to add a plt.show() at the end of your scripts.
+
+Project 1
+
+Return to the rome_rain.dat file you used in Assignment 2.  This time we will use Pandas to look at the data.
+
+Find and print the means.  If you enounter a deprecation warning, you can get rid of it by using mean(numeric_only=True) rather than just mean().
+
+Find and print the totals of the numeric columns.  
+You can let it format and print the results of means and totals.
+
+Find the maximum and minimum precipitation in millimeters.  Look up how to get the max/min index and use it to print the value of the max/min and the month in which each occurred.  (This would be two print statements.)
+
+Make a plot of annual precipitation in mm.  Give it an appropriate title.  Set a label for the y axis.  Change the x tick labels to the months and rotate them 45 degrees so they fit better.  Hint: df.plot() returns a Matplotlib "axis" object, e.g.
+ax=df.plot()
+You can use that for labels and tick marks and such.  Suppress the legend since we don't need it for one line.
+
+Project 2
+
+Return to world_population.csv from Assignment 3.  We'll repeat the analysis using Pandas.
+
+Read the data.  By whatever means you can come up with, make a new dataframe consisting of the original data but with the years reversed.  (One option that we have seen is concat.  Look up its arguments since we may want to concatentate by columns rather than rows.)  You may find it convenient for later analysis to rename the columns of this dataframe to be just the year numbers.  
+
+Sort this dataframe by rank.  Select the ten most populous countries.  In order to plot things, we may need to rearrange the data.  Drop any columns you wish other than Country and the population years.  Reorganize the data so that you can plot the population as a function of years for the top ten countries.  Label the legend with the country names.
+
+Make a new dataframe with the rate of change of population of the top ten countries.  You may use NumPy as an intermediary but the new dataframe should have the rates and years.  Plot the rate of change for these countries as a function of year (omitting the last one).  Move the legend as you did in Project 3b.  You can skip plotting the changes; just plot the rate of change this time.

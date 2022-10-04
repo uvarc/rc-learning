@@ -129,7 +129,7 @@ Files will be automatically closed when your script terminates, but best practic
 
 Open a file 
 
-```python
+```no-highlight
 data.txt 
 ```
 in write mode.  Write to the file three columns of numbers separated by commas.  These columns should be

@@ -24,8 +24,8 @@ k=1
 while abs(my_sine-math.sin(x)) > tol:
     sign=-sign
     k+=2
-    my_sine+=sign*x**k/math.factorial(k)
     nterms+=1
+    my_sine+=sign*x**k/math.factorial(k)
 
 print()
 print("The number of terms required is ",nterms," my_sine ",my_sine," correct ",math.sin(x))
