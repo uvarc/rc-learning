@@ -16,11 +16,11 @@ The graphics processing unit was invented specifically for rendering of 3D graph
 
 |Property|CPU|GPU|
 |---|---|---|
-|Core|1-10 | $10^{3-4}$ |
+|Core|$10^{0-1}$ | $10^{3-4}$ |
 |Throughput | Low | High |
-|Workload type| Generic | Specific (e.g. rendering, deep learning)|
-|Memory | High (TB) | Low (100 GB) |
 |Clock speed (per-core performance) | High | Low |
+|Workload type| Generic | Specific (e.g. rendering, deep learning)|
+|Memory per node| TB | 100 GB |
 
 ## Integrated vs discrete GPU
 
@@ -30,13 +30,13 @@ Discrete (or dedicated) GPUs are designed for resource-intensive computations. T
 
 ## Myths
 
-- *GPUs are better than CPUs and will eventually replace them.*
+- *GPUs are better than CPUs and will eventually replace them.*  
     CPU and GPU complement each other. GPU will not replace CPU.
-- *If I run my CPU code on a GPU, it'll be way faster.*
-    This depends on whether your code can run on a GPU at all. Even so, if your computation is not intensive enough, there will be no acceleration. In fact, your code may even be slower on a GPU.
-- *Running a GPU program on two GPU devices will be twice as fast as running it on one.*
+- *If I run my CPU code on a GPU, it'll be way faster.*  
+    This depends on whether your code can run on a GPU at all. Even so, if the computation is not resource-intensive enough, there will be no acceleration. In fact, your code may even be slower on a GPU.
+- *Running a GPU program on two GPU devices will be twice as fast as running it on one.*  
     Again, this depends on whether your program can run on multiple GPU devices and the computation intensity.
-- *GPU acceleration only applies to data science and machine/deep learning.*
+- *GPU acceleration only applies to data science and machine/deep learning.*  
     Many scientific codes are making use of GPU acceleration: VASP, QuantumEspresso, GROMACS, ...
 
 # GPUs on Rivanna
