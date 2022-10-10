@@ -12,6 +12,32 @@ In this workshop participants are introduced to the gpu computing resources on R
 
 # Introduction to GPU
 
+The graphics processing unit was invented specifically for rendering of 3D graphics. Nowadays they are also used as accelerators for parallel computing; you may also hear the term "general-purpose GPU" (GPGPU).
+
+|Property|CPU|GPU|
+|---|---|---|
+|Core|1-10 | $10^{3-4}$ |
+|Throughput | Low | High |
+|Workload type| Generic | Specific (e.g. rendering, deep learning)|
+|Memory | High (TB) | Low (100 GB) |
+|Clock speed (per-core performance) | High | Low |
+
+## Integrated vs discrete GPU
+
+Integrated GPUs are mostly for graphics rendering and gaming. They are integrated on the CPU motherboard to achieve thinner and lighter systems.
+
+Discrete (or dedicated) GPUs are designed for resource-intensive computations. This is the focus of the workshop.
+
+## Myths
+
+- *GPUs are better than CPUs and will eventually replace them.*
+    CPU and GPU complement each other. GPU will not replace CPU.
+- *If I run my CPU code on a GPU, it'll be way faster.*
+    This depends on whether your code can run on a GPU at all. Even so, if your computation is not intensive enough, there will be no acceleration. In fact, your code may even be slower on a GPU.
+- *Running a GPU program on two GPU devices will be twice as fast as running it on one.*
+    Again, this depends on whether your program can run on multiple GPU devices and the computation intensity.
+- *GPU acceleration only applies to data science and machine/deep learning.*
+    Many scientific codes are making use of GPU acceleration: VASP, QuantumEspresso, GROMACS, ...
 
 # GPUs on Rivanna
 
@@ -158,3 +184,5 @@ See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations)
 ---
 
 # References
+
+- [CPU vs GPU: What's the Difference](https://www.intel.com/content/www/us/en/products/docs/processors/cpu-vs-gpu.html)
