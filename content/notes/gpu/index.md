@@ -16,9 +16,9 @@ The graphics processing unit was invented specifically for rendering of 3D graph
 
 |Property|CPU|GPU|
 |---|---|---|
-|Core|$10^{0-1}$ | $10^{3-4}$ |
+|Number of cores|$10^{0-1}$ | $10^{3-4}$ |
 |Throughput | Low | High |
-|Clock speed (per-core performance) | High | Low |
+|Per-core performance | High | Low |
 |Workload type| Generic | Specific (e.g. rendering, deep learning)|
 |Memory per node| TB | 100 GB |
 
@@ -72,6 +72,10 @@ Important things to note:
 - In descending order of performance: A100, V100, P100, K80
 
 # GPU-Enabled Applications on Rivanna
+
+|`nvhpc`|`goolfc`|`nvompic`|`singularity`|Jupyter kernels|
+|---|---|---|---|---|
+|(User code)|`gromacs`|`quantumespresso`<br>`berkeleygw`|`tensorflow`<br>`pytorch`<br>`rapidsai`|TensorFlow<br>PyTorch<br>RAPIDS|
 
 ## Modules
 
