@@ -28,6 +28,14 @@ Integrated GPUs are mostly for graphics rendering and gaming. They are integrate
 
 Discrete (or dedicated) GPUs are designed for resource-intensive computations. This is the focus of the workshop.
 
+## GPU vendors and types
+
+**NVIDIA**, AMD, Intel
+
+- Datacenter: H100, A100, V100, P100, K80
+- Workstation: A6000, Quadro
+- Gaming: GeForce RTX 40xx, 30xx, 20xx
+
 ## Myths
 
 - *GPUs are better than CPUs and will eventually replace them.*  
@@ -66,7 +74,15 @@ Important things to note:
 # GPU-Enabled Applications on Rivanna
 
 ## Modules
-Provided by three toolchains `goolfc`, `nvompic` (compiled languages), and `singularity` (container).
+
+The `nvhpc` module (NVIDIA HPC SDK) provides these libraries and tools:
+- Compilers (`nvc`, `nvc++`, `nvfortran`)
+- CUDA
+- Mathematical libraries: cuBLAS, cuRAND, cuFFT, cuSPARSE, cuTENSOR, cuSOLVER
+- Communication libraries: NVSHMEM, NCCL
+- Tools: CUDA-GDB, Nsight System
+
+In addition, applications are installed under three toolchains `goolfc`, `nvompic` (compiled languages), and `singularity` (container).
 
 ### `goolfc`
 
@@ -164,6 +180,12 @@ On JupyterLab, you may conveniently select the kernel of the desired framework a
 - [TensorFlow](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/)
 - [PyTorch](https://www.rc.virginia.edu/userinfo/rivanna/software/pytorch/)
 
+## Jupyter kernels
+
+- TensorFlow
+- PyTorch
+- RAPIDS
+
 ## Slurm job
 
 To request a GPU in a Slurm job, your Slurm script must contain these lines:
@@ -186,3 +208,4 @@ See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations)
 # References
 
 - [CPU vs GPU: What's the Difference](https://www.intel.com/content/www/us/en/products/docs/processors/cpu-vs-gpu.html)
+- [NVIDIA HPC SDK documentation](https://docs.nvidia.com/hpc-sdk/index.html)
