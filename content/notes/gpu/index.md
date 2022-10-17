@@ -20,21 +20,21 @@ The graphics processing unit was invented specifically for rendering of 3D graph
 |Throughput | Low | High |
 |Per-core performance | High | Low |
 |Workload type| Generic | Specific (e.g. rendering, deep learning)|
-|Memory per node| TB | 100 GB |
+|Memory per node on Rivanna| up to 1 TB | up to 80 GB |
 
 ## Integrated vs discrete GPU
 
 Integrated GPUs are mostly for graphics rendering and gaming. They are integrated on the CPU motherboard to achieve thinner and lighter systems.
 
-Discrete (or dedicated) GPUs are designed for resource-intensive computations. This is the focus of the workshop.
+**Discrete (or dedicated) GPUs are designed for resource-intensive computations.**
 
 ## GPU vendors and types
 
 **NVIDIA**, AMD, Intel
 
-- Datacenter: H100, A100, V100, P100, K80
+- Datacenter: H100, **A100**, **V100**, **P100**, **K80**
 - Workstation: A6000, Quadro
-- Gaming: GeForce RTX 40xx, 30xx, 20xx
+- Gaming: GeForce RTX 40xx, 30xx, **20xx**
 
 ## Myths
 
@@ -45,11 +45,11 @@ Discrete (or dedicated) GPUs are designed for resource-intensive computations. T
 - *Running a GPU program on two GPU devices will be twice as fast as running it on one.*  
     Again, this depends on whether your program can run on multiple GPU devices and the computation intensity.
 - *GPU acceleration only applies to data science and machine/deep learning.*  
-    Many scientific codes are making use of GPU acceleration: VASP, QuantumEspresso, GROMACS, ...
+    Many scientific codes are making use of GPU acceleration: VASP, QuantumEspresso, GROMACS, ... See [here](https://www.nvidia.com/en-us/gpu-accelerated-applications/) for a full list.
 
 # GPUs on Rivanna
 
-Go to https://www.rc.virginia.edu/userinfo/rivanna/overview/#system-details and click on "Hardware Configuration". GPUs are indicated by "GPU" under the specialty hardware column. 
+Go to [this page](https://www.rc.virginia.edu/userinfo/rivanna/overview/#system-details) and click on "Hardware Configuration". GPUs are indicated by "GPU" under the specialty hardware column. 
 
 Command to check the current status of GPU nodes:
 
@@ -72,6 +72,8 @@ Important things to note:
 - In descending order of performance: A100, V100, P100, K80
 
 # GPU-Enabled Applications on Rivanna
+
+Popular GPU applications on Rivanna at a glance
 
 |`nvhpc`|`goolfc`|`nvompic`|`singularity`|Jupyter kernels|
 |---|---|---|---|---|
@@ -190,9 +192,15 @@ On JupyterLab, you may conveniently select the kernel of the desired framework a
 - PyTorch
 - RAPIDS
 
-## Slurm job
+## Requesting a GPU
 
-To request a GPU in a Slurm job, your Slurm script must contain these lines:
+### Open OnDemand
+
+Select the `gpu` partition. If you need a specific GPU type, select from the dropdown menu. `Default` will assign you the first available GPU.
+
+### Slurm script
+
+Your Slurm script must contain these lines:
 
 ```bash
 #SBATCH -p gpu
@@ -201,7 +209,7 @@ To request a GPU in a Slurm job, your Slurm script must contain these lines:
 
 See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations) for further information.
 
-# Demo: RAPIDS
+# Demo (Python & Matlab)
 
 ---
 
@@ -213,3 +221,4 @@ See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations)
 
 - [CPU vs GPU: What's the Difference](https://www.intel.com/content/www/us/en/products/docs/processors/cpu-vs-gpu.html)
 - [NVIDIA HPC SDK documentation](https://docs.nvidia.com/hpc-sdk/index.html)
+- ["That Was Fast: GPUs Now Accelerate Almost 600 HPC Apps"](https://blogs.nvidia.com/blog/2018/11/16/gpus-now-accelerate-almost-600-hpc-apps/)
