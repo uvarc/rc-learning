@@ -12,7 +12,7 @@ In this workshop participants are introduced to the gpu computing resources on R
 
 # Introduction to GPU
 
-The graphics processing unit was invented specifically for rendering of 3D graphics. Nowadays they are also used as accelerators for parallel computing; you may also hear the term "general-purpose GPU" (GPGPU).
+The graphics processing unit was invented specifically for graphics rendering. Nowadays they are also used as accelerators for parallel computing; you may also hear the term "general-purpose GPU" (GPGPU).
 
 |Property|CPU|GPU|
 |---|---|---|
