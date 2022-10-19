@@ -173,7 +173,7 @@ $ module avail
 
 ### `singularity`
 
-The popular deep learning frameworks, TensorFlow and PyTorch, are backed by containers. (To learn more about containers, see [Using Containers on Rivanna](/workshop/using-containers).)
+The popular deep learning frameworks, TensorFlow and PyTorch, are backed by containers. (To learn more about containers, see [Using Containers on Rivanna](/workshops/using-containers).)
 
 ```bash
 module load singularity tensorflow
@@ -185,6 +185,7 @@ On JupyterLab, you may conveniently select the kernel of the desired framework a
 
 - [TensorFlow](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/)
 - [PyTorch](https://www.rc.virginia.edu/userinfo/rivanna/software/pytorch/)
+- [RAPIDS](https://www.rc.virginia.edu/userinfo/rivanna/software/rapidsai/) ([workshop](/workshops/rapids))
 
 ## Jupyter kernels
 
