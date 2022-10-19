@@ -114,14 +114,23 @@ If you have installed Anaconda on your local computer, other export options are 
 
 ## Plotting in JupyterLab
 
-In JupyterLab, open a new notebook with the `+` icon.  From the Files sidebar, navigate to your projects folder.  Double-click on the `sine.py` file to open it in the text editor.  Cut and paste the text into one or more cells in JupyterLab.  Run the cell(s).  What happens?
-
-You may need to add a line
-
+In JupyterLab, open a new notebook with the `+` icon. Type
+```python
+import matplotlib.pylab as plt
+```
+Run the cell. In a new cell type
+```python
+x=plt.arange(-1.,1.1,.1)
+y=1./plt.sqrt(x**2+1)
+```
+Execute the cell.  In the next cell type
+```python
+plt.plot(x,y)
+```
+Jupyterlab no longer requires it, but sometimes you need to add one more line, which should be in the same cell as the plot command.
 ```python
 plt.show()
 ```
-Put this into a new cell and run it.  In the upper cell change `sin` to `cos`.  In the Notebook menu select `Run All Cells` and observe the change.
 
 ## Resources
 

@@ -3,7 +3,7 @@ title: "Bash Scripting"
 type: article
 toc: true
 # date: 2015-07-23T21:13:14-05:00
-draft: true
+draft: false
 ---
 
 <p class="lead">Scripts are powerful tool for automating regular, recurring tasks. Use them to make repetitive tasks easier, 

@@ -75,10 +75,10 @@ Test your program for N=30 and N=50.
 
 ## Project 5
 
-The algorithm for converting a number in base 10 to another base is as follows:
+The algorithm for converting an integer N in base 10 to another base is as follows:
 
-1. Find the remainder of the number divided by the base.
-2. Divide the number by the base using integer division. If the result is greater than zero, replace the old value of the number by the result of the integer division and store the remainder previously obtained as the new leftmost digit for the base and repeat. If the result of the integer division is 0, the process is complete.
+1. Find the remainder of N divided by the target base.
+2. Divide N by the target base using integer division. If the result is greater than zero, replace the previous value of N by the result of the integer division. Store the remainder previously obtained as the new leftmost digit for the number in the target base. Repeat until the result of the integer division is 0.
 
 **A.** Write a program to convert the first 51 integers, starting at 0 and ending at 50, to octal (base 8). Print a table of the decimal number and its octal equivalent.
 **Hint:** construct a list of digits as you work through the integer divisions. The elements of the list should be strings so you’ll need to convert from integer to string. To change from a list of individual strings to a single string for printing, use the join function as follows:

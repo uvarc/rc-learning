@@ -12,10 +12,44 @@ In this workshop participants are introduced to the gpu computing resources on R
 
 # Introduction to GPU
 
+The graphics processing unit was invented specifically for graphics rendering. Nowadays they are also used as accelerators for parallel computing; you may also hear the term "general-purpose GPU" (GPGPU).
+
+|Property|CPU|GPU|
+|---|---|---|
+|Number of cores|$10^{0-1}$ | $10^{3-4}$ |
+|Throughput | Low | High |
+|Per-core performance | High | Low |
+|Workload type| Generic | Specific (e.g. rendering, deep learning)|
+|Memory per node on Rivanna| up to 1 TB | up to 80 GB |
+
+## Integrated vs discrete GPU
+
+Integrated GPUs are mostly for graphics rendering and gaming. They are integrated on the CPU motherboard to achieve thinner and lighter systems.
+
+**Discrete (or dedicated) GPUs are designed for resource-intensive computations.**
+
+## GPU vendors and types
+
+**NVIDIA**, AMD, Intel
+
+- Datacenter: H100, **A100**, **V100**, **P100**, **K80**
+- Workstation: A6000, Quadro
+- Gaming: GeForce RTX 40xx, 30xx, **20xx**
+
+## Myths
+
+- *GPUs are better than CPUs and will eventually replace them.*  
+    CPU and GPU complement each other. GPU will not replace CPU.
+- *If I run my CPU code on a GPU, it'll be way faster.*  
+    This depends on whether your code can run on a GPU at all. Even so, if the computation is not resource-intensive enough, there will be no acceleration. In fact, your code may even be slower on a GPU.
+- *Running a GPU program on two GPU devices will be twice as fast as running it on one.*  
+    Again, this depends on whether your program can run on multiple GPU devices and the computation intensity.
+- *GPU acceleration only applies to data science and machine/deep learning.*  
+    Many scientific codes are making use of GPU acceleration: VASP, QuantumEspresso, GROMACS, ... See [here](https://www.nvidia.com/en-us/gpu-accelerated-applications/) for a full list.
 
 # GPUs on Rivanna
 
-Go to https://www.rc.virginia.edu/userinfo/rivanna/overview/#system-details and click on "Hardware Configuration". GPUs are indicated by "GPU" under the specialty hardware column. 
+Go to [this page](https://www.rc.virginia.edu/userinfo/rivanna/overview/#system-details) and click on "Hardware Configuration". GPUs are indicated by "GPU" under the specialty hardware column. 
 
 Command to check the current status of GPU nodes:
 
@@ -39,8 +73,22 @@ Important things to note:
 
 # GPU-Enabled Applications on Rivanna
 
+Popular GPU applications on Rivanna at a glance
+
+|`nvhpc`|`goolfc`|`nvompic`|`singularity`|Jupyter kernels|
+|---|---|---|---|---|
+|(User code)|`gromacs`|`quantumespresso`<br>`berkeleygw`|`tensorflow`<br>`pytorch`<br>`rapidsai`|TensorFlow<br>PyTorch<br>RAPIDS|
+
 ## Modules
-Provided by three toolchains `goolfc`, `nvompic` (compiled languages), and `singularity` (container).
+
+The `nvhpc` module (NVIDIA HPC SDK) provides these libraries and tools:
+- Compilers (`nvc`, `nvc++`, `nvfortran`)
+- CUDA
+- Mathematical libraries: cuBLAS, cuRAND, cuFFT, cuSPARSE, cuTENSOR, cuSOLVER
+- Communication libraries: NVSHMEM, NCCL
+- Tools: CUDA-GDB, Nsight System
+
+In addition, applications are installed under three toolchains `goolfc`, `nvompic` (compiled languages), and `singularity` (container).
 
 ### `goolfc`
 
@@ -125,7 +173,7 @@ $ module avail
 
 ### `singularity`
 
-The popular deep learning frameworks, TensorFlow and PyTorch, are backed by containers. (To learn more about containers, see [Using Containers on Rivanna](/workshop/using-containers).)
+The popular deep learning frameworks, TensorFlow and PyTorch, are backed by containers. (To learn more about containers, see [Using Containers on Rivanna](/workshops/using-containers).)
 
 ```bash
 module load singularity tensorflow
@@ -137,10 +185,23 @@ On JupyterLab, you may conveniently select the kernel of the desired framework a
 
 - [TensorFlow](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/)
 - [PyTorch](https://www.rc.virginia.edu/userinfo/rivanna/software/pytorch/)
+- [RAPIDS](https://www.rc.virginia.edu/userinfo/rivanna/software/rapidsai/) ([workshop](/workshops/rapids))
 
-## Slurm job
+## Jupyter kernels
 
-To request a GPU in a Slurm job, your Slurm script must contain these lines:
+- TensorFlow
+- PyTorch
+- RAPIDS
+
+## Requesting a GPU
+
+### Open OnDemand
+
+Select the `gpu` partition. If you need a specific GPU type, select from the dropdown menu. `Default` will assign you the first available GPU.
+
+### Slurm script
+
+Your Slurm script must contain these lines:
 
 ```bash
 #SBATCH -p gpu
@@ -149,7 +210,7 @@ To request a GPU in a Slurm job, your Slurm script must contain these lines:
 
 See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations) for further information.
 
-# Demo: RAPIDS
+# Demo (Python & Matlab)
 
 ---
 
@@ -158,3 +219,7 @@ See [here](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#gpu-computations)
 ---
 
 # References
+
+- [CPU vs GPU: What's the Difference](https://www.intel.com/content/www/us/en/products/docs/processors/cpu-vs-gpu.html)
+- [NVIDIA HPC SDK documentation](https://docs.nvidia.com/hpc-sdk/index.html)
+- ["That Was Fast: GPUs Now Accelerate Almost 600 HPC Apps"](https://blogs.nvidia.com/blog/2018/11/16/gpus-now-accelerate-almost-600-hpc-apps/)

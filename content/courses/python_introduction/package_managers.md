@@ -15,17 +15,18 @@ menu:
 
 The Anaconda Navigator interface can be used to install, remove, and update packages.  To update, start Navigator, click Environments, change the dropdown from `Installed` to `Updateable`, then go through and select packages you wish to upgrade by clicking on the checkbox and selecting "Mark for update" from the dropdown.  The checkbox will change to an arrow.  When you select a package, a green `Apply` button and a red `Clear` button will appear at the lower right.  When you have marked all packages you wish to update, click the `Apply` button.  (It may take a while to complete.)
 
-If you are updating many packages it may be better to do it through a command line.  From your computer's applications menu, start the Anaconda Prompt.   To upgrade a package type
+To install new packages from the Navigator, go to the Environments tab, change the "Installed" dropdown to "Not installed" and wait for the package list to be populated.  Find the package you want, in this illustration one called `dill`, select it (and any other packages you find you might need), then click the green Apply button.
+
+![AnacondaPackageManager](/courses/python_introduction/imgs/AnacondaPackageManager.png)
+
+Conda can be also used from the command line.  In Linux and Mac OS, the terminal can be used for this.  In Windows, use the Anaconda Command Prompt, which can be accessed through the Apps menu in the Anaconda folder, should be opened for these commands, since it has the correct paths preset.
+
+If you are updating many packages it may be better to do it through a command line. To upgrade a package type
 
 ```python
 conda update package
 ```
-
 You can also install packages with either the Navigator interface or with the conda command line.
-To invoke conda from the Navigator, go to the Environments tab, change the "Installed" dropdown to "Not installed" and wait for the package list to be populated.  Find the package you want, in this illustration one called `dill`, select it (and any other packages you find you might need), then click the green Apply button.
-
-![AnacondaPackageManager](/courses/python_introduction/imgs/AnacondaPackageManager.png)
-
 
 ```python
 conda install newpackage

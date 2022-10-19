@@ -15,7 +15,7 @@ We would like to start with a simple example that has a simple work distribution
 
 A particle is moving through a two-dimensional finite grid.  At each step, the "walker" can move left, right, up, or down, with equal probability.  We seek the distance from the origin after N steps.  
 
-Theoretically, for N steps the distance is $\sqrt(N)$. We want to test this empirically, but one trial does not give us very good results.  We want to run a lot of trials and average the results.
+Theoretically, for N steps the distance is $\sqrt{N}$. We want to test this empirically, but one trial does not give us very good results.  We want to run a lot of trials and average the results.
 
 ### Agglomeration and Mapping
 
@@ -47,7 +47,7 @@ For Fortran also download the random.f90 module
 
 Using the mpi1 program in your language as an example, add the lines to run this code with MPI.  In your print statement make the first output value be the rank.
 
-# Run it
+## Run it
 
 ```bash
 mpicxx -o randc mpirandom_walk.cxx

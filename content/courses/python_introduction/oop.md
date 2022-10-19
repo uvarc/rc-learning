@@ -17,3 +17,8 @@ Moreover, employees have behaviors (or behaviors can be imposed on them).  They 
 Objects are another software paradigm that can be used to implement separation of concerns.
 
 A longer discussion of OOP in Python is available [here](https://www.python-course.eu/python3_object_oriented_programming.php).
+
+"The great thing about Object Oriented code is that it can make small,
+simple problems look like large, complex ones."
+-Anonymous
+
