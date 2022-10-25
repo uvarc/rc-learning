@@ -49,7 +49,7 @@ Integrated GPUs are mostly for graphics rendering and gaming. They are integrate
 
 # GPUs on Rivanna
 
-Go to [this page](https://www.rc.virginia.edu/userinfo/rivanna/overview/#system-details) and click on "Hardware Configuration". GPUs are indicated by "GPU" under the specialty hardware column. 
+Go to [this page](https://www.rc.virginia.edu/userinfo/rivanna/overview/?showHardware#system-details). GPUs are indicated by "GPU" under the specialty hardware column. 
 
 Command to check the current status of GPU nodes:
 
