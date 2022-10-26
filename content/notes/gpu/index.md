@@ -20,7 +20,7 @@ The graphics processing unit was invented specifically for graphics rendering. N
 |Throughput | Low | High |
 |Per-core performance | High | Low |
 |Workload type| Generic | Specific (e.g. rendering, deep learning)|
-|Memory per node on Rivanna| up to 1 TB | up to 80 GB |
+|Memory on Rivanna| up to 1.5 TB per node | up to 80 GB per device |
 
 ## Integrated vs discrete GPU
 
