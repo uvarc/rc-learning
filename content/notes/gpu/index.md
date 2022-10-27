@@ -20,7 +20,7 @@ The graphics processing unit was invented specifically for graphics rendering. N
 |Throughput | Low | High |
 |Per-core performance | High | Low |
 |Workload type| Generic | Specific (e.g. rendering, deep learning)|
-|Memory per node on Rivanna| up to 1 TB | up to 80 GB |
+|Memory on Rivanna| up to 1.5 TB per node | up to 80 GB per device |
 
 ## Integrated vs discrete GPU
 
@@ -36,6 +36,8 @@ Integrated GPUs are mostly for graphics rendering and gaming. They are integrate
 - Workstation: A6000, Quadro
 - Gaming: GeForce RTX 40xx, 30xx, **20xx**
 
+(**bold** means available on Rivanna)
+
 ## Myths
 
 - *GPUs are better than CPUs and will eventually replace them.*  
@@ -45,11 +47,11 @@ Integrated GPUs are mostly for graphics rendering and gaming. They are integrate
 - *Running a GPU program on two GPU devices will be twice as fast as running it on one.*  
     Again, this depends on whether your program can run on multiple GPU devices and the computation intensity.
 - *GPU acceleration only applies to data science and machine/deep learning.*  
-    Many scientific codes are making use of GPU acceleration: VASP, QuantumEspresso, GROMACS, ... See [here](https://www.nvidia.com/en-us/gpu-accelerated-applications/) for a full list.
+    Many scientific codes are making use of GPU acceleration: VASP, QuantumEspresso, GROMACS, ... See [here](https://www.nvidia.com/en-us/gpu-accelerated-applications/) for a list compiled in 2018.
 
 # GPUs on Rivanna
 
-Go to [this page](https://www.rc.virginia.edu/userinfo/rivanna/overview/#system-details) and click on "Hardware Configuration". GPUs are indicated by "GPU" under the specialty hardware column. 
+Go to [this page](https://www.rc.virginia.edu/userinfo/rivanna/overview/?showHardware#system-details). GPUs are indicated by "GPU" under the specialty hardware column. 
 
 Command to check the current status of GPU nodes:
 
@@ -94,7 +96,7 @@ In addition, applications are installed under three toolchains `goolfc`, `nvompi
 
 Stands for:
 
-- GCC compilers `g`
+- GCC compilers (`g`)
 - OpenMPI (`o`)
 - OpenBLAS (`o`)
 - ScaLAPACK (`l`)
@@ -185,7 +187,7 @@ On JupyterLab, you may conveniently select the kernel of the desired framework a
 
 - [TensorFlow](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/)
 - [PyTorch](https://www.rc.virginia.edu/userinfo/rivanna/software/pytorch/)
-- [RAPIDS](https://www.rc.virginia.edu/userinfo/rivanna/software/rapidsai/) ([workshop](/workshops/rapids))
+- [RAPIDS](https://www.rc.virginia.edu/userinfo/rivanna/software/rapidsai/) (also see [workshop](/workshops/rapids))
 
 ## Jupyter kernels
 

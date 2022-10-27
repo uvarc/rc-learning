@@ -107,7 +107,7 @@ This command will install the latest `opencv-python` package version in your cur
 module load anaconda
 pip install --user opencv-python matplotlib scikit-image pandas
 ```
-> **Note:** You have to use the `--user` flag which instructs the interpreter to install the package in your home directory. Alternativley, create your own custom [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) first and run the `pip install opencv-python matplotlib` command in that environment (without the `--user` flag) 
+> **Note:** You have to use the `--user` flag which instructs the interpreter to install the package in your home directory. Alternativley, create your own custom [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) first and run the `pip install opencv-python matplotlib pandas` command in that environment (without the `--user` flag) 
 
 To confirm successful package installation, start the **Spyder IDE** by typing the following command in the terminal:
 ```bash
@@ -137,7 +137,7 @@ cp -R /share/resources/tutorials/opencv-examples ~/
 
 ## Loading Images
 
-The `imread` function is used to read images from files. Images are represented as a multi-dimensional [NumPy](https://numpy.org) arrays. Learn more about NumPy arrays [here](/courses/python_introduction/numpy/). The multi-dimensional properties are stored in an image's `shape` attribute, e.g. number of rows (height) x number of columns (width) x number of channels (depth).
+The `imread` function is used to read images from files. Images are represented as a multi-dimensional [NumPy](https://numpy.org) arrays. Learn more about NumPy arrays [here](/courses/python_introduction/numpy_ndarrays/). The multi-dimensional properties are stored in an image's `shape` attribute, e.g. number of rows (height) x number of columns (width) x number of channels (depth).
 
 
 ```python:
@@ -174,10 +174,12 @@ The `cv2.imshow()` method displays the image on our screen. The `cv2.waitKey()` 
 Alternatively, we can use the `matplotlib` package to display an image.
 
 ```python:
+import matplotlib.pyplot as plt
+
 plt.imshow(cv2.cvtColor(image,cv2.COLOR_BGR2RGB))
 ```
 
-> Note that OpenCV storeschannels of an RGB image in Blue, Green, Red order. We use the `cv2.cvtColor(image,cv2.COLOR_BGR2RGB)` function to convert from BGR --> RGB channel ordering for display purposes. 
+> Note that OpenCV stores channels of an RGB image in Blue, Green, Red order. We use the `cv2.cvtColor(image,cv2.COLOR_BGR2RGB)` function to convert from BGR --> RGB channel ordering for display purposes. 
 
 
 ## Saving Images
@@ -209,10 +211,10 @@ red=184, green=35, blue=15
 
 ## Slicing and Cropping
 
-It is also very easy to extract a rectangular region of interest from of an image and storing it as a cropped copy. Let's extract the pixels for 60<=x<160 and 320<=y<420 from our original image. The resulting cropped image has a width and height of 100x100 pixels.
+It is also very easy to extract a rectangular region of interest from an image and storing it as a cropped copy. Let's extract the pixels for **30<=y<130** and **140<=x<240** from our original image. The resulting cropped image has a width and height of **100x100** pixels.
 
 ```python:
-roi = image[60:160, 320:420]
+roi = image[30:130,140:240]
 plt.imshow(cv2.cvtColor(roi,cv2.COLOR_BGR2RGB))
 ```
 
@@ -224,9 +226,9 @@ It is very easy to resize images. It just takes a single line of code. In this c
 resized = cv2.resize(image,(500,500))
 ```
 
-Note that we are _forcing_ the resized image into a square 500x500 pixel format. To avoid distortion of the resized image, we can calculate the width/height aspect ratio of the original image and use it to calculate the new height based on the original width * aspect ratio (or new width based on original height / aspect ratio). 
+Note that we are _forcing_ the resized image into a square 500x500 pixel format. To avoid distortion of the resized image, we can calculate the height/width `aspect` ratio of the original image and use it to calculate the `new_height = new_width * aspect` ratio (or `new_width = new_height / aspect` ratio).
 
-```
+```python:
 # resize width while preserving height proportions
 height = image.shape[0]
 width = image.shape[1]
@@ -234,9 +236,11 @@ aspect = height/width
 new_width = 640
 new_height = int(new_width * aspect)
 resized2 = cv2.resize(image,(new_width,new_height))
+print (image.shape)
+print (resized2.shape)
 ```
 
-```
+```python:
 # display the two resized images
 _,ax = plt.subplots(1,2)
 ax[0].imshow(cv2.cvtColor(resized, cv2.COLOR_BGR2RGB))
@@ -277,11 +281,14 @@ axarr[1,1].set_title('RGB')
 
 ![](clown-split.png)
 
-Let's take the blue and green channel only and merge them back into a new RGB image, effectively masking the red channel. For this we'll define a new numpy array with the same width and height as the original image and a depth of 1 (single channel), all pixels filled with zero values. Since the indiviudal channels of an RGB image are 8-bit numpy arrays, we choose the numpy uint8 data type.
+Let's take the blue and green channel only and merge them back into a new RGB image, effectively masking the red channel. For this we'll define a new numpy array with the same width and height as the original image and a depth of 1 (single channel), all pixels filled with zero values. Since the individual channels of an RGB image are 8-bit numpy arrays, we choose the numpy `uint8` data type.
 
 ```python:
 import numpy as np
 zeros = np.zeros((image.shape[0], image.shape[1]), dtype=np.uint8)
+# alternative: 
+# zeros = np.zeros_like(B)
+
 print (B.shape, zeros.shape)
 merged = cv2.merge([B, G, zeros])
 _,ax = plt.subplots(1,1)
@@ -295,7 +302,7 @@ ax.axis('off')
 
 1. In the clown.png image, inspect the pixel value for x=300, y=25.
 2. Crop the clown.png image to a centered rectangle with half the width and half the height of the original.
-3. Extract the green channel, apply the values to the red channel and merge the original blue, original red and new red channel into a new BGR image.  Then display this image as an RGB image using matplotlib.
+3. Extract the green channel, apply the values to the red channel and merge the original blue, original green and new red channel into a new BGR image.  Then display this image as an RGB image using matplotlib.
 
 ---
 
@@ -303,7 +310,7 @@ ax.axis('off')
 
 ## Denoising
 
-OpenCV provides four simple to use denoising tools:
+OpenCV provides four convenient built-in [denoising tools](https://docs.opencv.org/3.4/d5/d69/tutorial_py_non_local_means.html):
 
 1. `cv2.fastNlMeansDenoising()` - works with a single grayscale images
 2. `cv2.fastNlMeansDenoisingColored()` - works with a color image.
@@ -461,7 +468,7 @@ nuclei = image[:,:,0] # get blue channel
 
 ![](nuclei.png)
 
-To eliminate noise, we apply a Gaussian filter with 3x3 kernel, then apply the Otsu thresholding alogorithm. The thresholding converts the grayscale intensity image into a black and white binary image. White pixels represent nuclei; black pixel represent background. 
+To eliminate noise, we apply a Gaussian filter with 3x3 kernel, then apply the Otsu thresholding alogorithm. The thresholding converts the grayscale intensity image into a black and white binary image. The function returns two values, we store them in `ret` (the applied threshold value) and `thresh` (the thresholded black & white binary image).  White pixels represent nuclei; black pixel represent background. 
 
 ```python:
 # apply Gaussian filter to smoothen image, then apply Otsu threshold
@@ -477,7 +484,7 @@ import numpy as np
 from skimage.segmentation import clear_border
 
 kernel = np.ones((3,3),np.uint8)
-opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN,kernel, iterations=7)
+opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN,kernel,iterations=7)
 
 # remove image border touching objects
 opening = clear_border(opening)
