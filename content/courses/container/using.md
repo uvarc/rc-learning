@@ -6,7 +6,7 @@ weight: 3
 
 ---
 
-# Logging in to Rivanna
+Logging in to Rivanna:
 
 - Connect to Rivanna
     - SSH client or FastX Web
