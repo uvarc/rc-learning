@@ -1,10 +1,11 @@
 ---
-title: Appendix: Building Containers [Singularity]
+title: "Appendix: Building Containers [Singularity]"
 toc: true
 type: book
 weight: 10
 
 ---
+
 # Singularity Commands Overview
 
 ### Create
@@ -85,8 +86,6 @@ $ singularity inspect --runscript lolcow_latest.sif
 ```
 
 **Inspect the runscript before running an image!**
-
-<br>
 
 # Pulling from Docker Hub
 > Pulling Docker images reduces reproducibility. If you were to pull a Docker image today and then wait six months and pull again, you are not guaranteed to get the same image. If any of the source layers has changed the image will be altered. -- <cite>Singularity 3.5 User Guide</cite>
@@ -247,8 +246,6 @@ Add metadata in the form of key-value pairs. Example:
 ### `%help`
 
 Text to be displayed upon `singularity run-help`.
-
-<br>
 
 # Convert a Dockerfile
 

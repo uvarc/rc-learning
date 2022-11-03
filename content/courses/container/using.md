@@ -2,7 +2,7 @@
 title: Using Containers on Rivanna [Singularity]
 toc: true
 type: book
-weight: 2
+weight: 3
 
 ---
 
