@@ -1,5 +1,5 @@
 ---
-title: Using Containers on Rivanna
+title: Using Containers on Rivanna [Singularity]
 toc: true
 type: book
 weight: 2

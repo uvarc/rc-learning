@@ -27,9 +27,9 @@ This short course is an introduction to using and building software containers, 
     - best practices
     - DockerHub
     - case studies
-- Building Containers [Singularity]
-    - Singularity definition file
 - Minimal Containers
+- Appendix: Building Containers [Singularity]
+    - Singularity definition file
 
 You are strongly encouraged to repeat the examples and do the exercises.
 

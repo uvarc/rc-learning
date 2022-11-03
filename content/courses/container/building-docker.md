@@ -6,6 +6,8 @@ weight: 3
 
 ---
 
+_Docker, Dockerfile, Docker Hub_
+
 Starting from a simple Dockerfile, we will adopt best practices sequentially and see their effect.
 
 # Prerequisites
@@ -22,11 +24,7 @@ Starting from a simple Dockerfile, we will adopt best practices sequentially and
 
 ---
 
-# Building Containers
-
-_Docker, Dockerfile, Docker Hub_
-
-## Building _for_ (not _on_) Rivanna
+# Building _for_ (not _on_) Rivanna
 
 - **Docker**
     - No Docker on Rivanna
@@ -37,7 +35,7 @@ _Docker, Dockerfile, Docker Hub_
     - Singularity Library/Hub (more limitations)
     - Refer to [workshop](https://learning.rc.virginia.edu/workshops/singularity/) in Spring 2020
 
-## Intro to Dockerfile: lolcow
+# Intro to Dockerfile: lolcow
 
 `fortune | cowsay | lolcat`
 
@@ -50,7 +48,7 @@ Steps:
 2. Install software dependencies (if any)
 3. Install software
 
-### Step 1: Choose a base image
+## Step 1: Choose a base image
 
 Use `FROM` to specify the base image. In this example, we'll use Ubuntu 16.04. You do not need to install this on your computer - Docker will pull from Docker Hub when you build it.
 
@@ -64,7 +62,7 @@ FROM ubuntu:16.04
 
 [Dockerfile reference](https://docs.docker.com/engine/reference/builder/#format)
 
-### Steps 2 & 3: Install software
+## Steps 2 & 3: Install software
 
 Use `RUN` to specify the actual commands to be executed (as if you were to type them on the command line).
 
@@ -102,7 +100,7 @@ docker run --rm -it <img>
 
 But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't seem to work. What's wrong?
 
-#### Summary so far
+### Summary so far
 
 - Build:
     - Update package manager
@@ -114,7 +112,7 @@ But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't see
     - User needs to know path to executable
     - User just wants to run "lolcow"
 
-### Use `ENV` to set environment variable
+## Use `ENV` to set environment variable
 
 This is equivalent to `export PATH=/usr/games:${PATH}` but it is preserved at runtime. In doing so we can execute `fortune`, `cowsay`, and `lolcat` directly without specifying the full path.
 
@@ -127,7 +125,7 @@ RUN apt-get install -y fortune cowsay lolcat
 ENV PATH=/usr/games:${PATH}
 ```
 
-### Use `ENTRYPOINT` to set default command
+## Use `ENTRYPOINT` to set default command
 
 ```dockerfile
 FROM ubuntu:16.04
@@ -142,11 +140,11 @@ ENTRYPOINT fortune | cowsay | lolcat
 
 Finally, we can simply run `docker run --rm -it <img>` to get the desired behavior. You now know how to build a working Docker container.
 
-## 4 Best Practices
+# 4 Best Practices
 
 While our container is functional, there is a lot of room for improvement. We shall look at some important best practices for writing Dockerfiles.
 
-### 0. Package manager cache busting
+## 0. Package manager cache busting
 
 The idea of "cache busting" is to force `update` whenever a change is made to `install`. This ensures we get the latest packages (especially critical security updates) should we make changes and rebuild the image in the future.
 
@@ -166,7 +164,7 @@ ENTRYPOINT fortune | cowsay | lolcat
 
 `docker build -t <user>/lolcow:0 -f Dockerfile0 .`
 
-### 1. Clean up
+## 1. Clean up
 
 Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache in a separate `RUN` statement.
 
@@ -215,7 +213,7 @@ docker images | grep lolcow
 
 Now you should see that the clean-up is effective.
 
-### 2. Only install what's needed
+## 2. Only install what's needed
 
 The `apt` package manager often recommends related packages that are not really necessary. To disable recommendation, use `--no-install-recommends`.
 
@@ -236,7 +234,7 @@ ENTRYPOINT fortune | cowsay | lolcat
     - `fortunes-min` contains the message database
 - See [how Ubuntu reduced image size by 60%](https://ubuntu.com/blog/we-reduced-our-docker-images-by-60-with-no-install-recommends)
 
-### 3. Use a smaller base image
+## 3. Use a smaller base image
 
 For installation of common packages, you may consider Alpine.
 
@@ -256,7 +254,7 @@ ENTRYPOINT fortune | cowsay | lolcat
 
 Note: An `ENV` statement is not needed here because the executables are installed under `/usr/bin`.
 
-### Image size comparison
+## Image size comparison
 
 ```bash
 $ docker images | grep lolcow | sort -nk 2 | awk '{print $1, $2, $NF}'
@@ -280,7 +278,7 @@ $ docker images | grep lolcow | sort -nk 2 | awk '{print $1, $2, $NF}'
 
 Reference: [_Best practices for writing Dockerfiles_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
-### Summary
+## Summary
 
 1. Choose a base image (`FROM`)
 2. Install software dependencies (`RUN`)
@@ -289,7 +287,7 @@ Reference: [_Best practices for writing Dockerfiles_](https://docs.docker.com/de
 5. Define environment variables (`ENV`)
 6. Define default command (`ENTRYPOINT`)
 
-## Push to Docker Hub
+# Push to Docker Hub
 
 You can push your image to Docker Hub easily. First, let's set our lolcow version 3 as the latest.
 
@@ -304,7 +302,7 @@ docker login
 docker push <user>/lolcow:latest
 ```
 
-### Docker Hub interface
+## Docker Hub interface
 
 In your browser, go to `https://hub.docker.com/r/<user>/lolcow`.
 

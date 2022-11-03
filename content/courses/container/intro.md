@@ -6,9 +6,21 @@ weight: 1
 
 ---
 
-# Introduction to Software Containers
-
 <https://www.docker.com/resources/what-container>
+
+## Why use software containers?
+- Simple
+    Containers simplify software installation and management.
+- Portable
+    You can build an image on one machine and run it on another.
+- Reproducible
+    Versioning and freezing of containers enable data reproducibility.
+
+## Characteristics
+Containers
+- share the OS kernel of the host
+- virtualize the OS instead of hardware
+- have much less overhead and faster deployment than a VM
 
 ## Singularity is designed for HPC
 

@@ -8,14 +8,14 @@ weight: 4
 
 The industry standard of restricting containers to just the application and its dependencies often results in better security and smaller size. See how the use of multi-stage builds and scratch/distroless base images can reduce the image size by as much as 99% in real applications.
 
-## Prerequisites
-Building Containers [Docker]
+Prerequisites:
+- Building Containers [Docker]
 
 ---
 
 # Review of Best Practices
 
-In the previous workshop, we worked through an example of `lolcow` and saw how following best practices can reduce the image size drastically.
+In the previous chapter, we worked through an example of `lolcow` and saw how following best practices can reduce the image size drastically.
 
 ## 0. Package manager cache busting
 ```bash
