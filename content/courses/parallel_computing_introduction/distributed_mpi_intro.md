@@ -17,7 +17,7 @@ MPI must be initialized before we can invoke any other routines.  This does not 
 
 In the current MPI standard, all C/C\+\+ routines return an integer, the _error code_.  The Fortran bindings are mostly subroutines and include this return value as the last parameter.
 
-C
+C/C++
 ```c
 MPI_Init(&argc, &argv);
 //more correct but rarely used
@@ -26,10 +26,16 @@ MPI_Init(&argc, &argv);
 
 Fortran
 ```fortran
+integer ierr
+!code
 call MPI_Init(ierr)
 ```
 
-For Python, mpi4py calls this when a communicator object is instantiated. It is available but not required.
+Python
+
+This tutorial applies only to the `mpi4py` package, which is the most popular MPI implementation for Python at this time.  This package consists of multiple subpackages, of which the most important is `MPI`.  Within the `MPI` subpackage are several _classes_.  Most of the basic functionality of MPI is implemented as methods in the _Communicator_ class.
+
+mpi4py calls `Init` internally when a Communicator object is instantiated. It is available but not required.
 
 ```python
 from mpi4py import MPI
@@ -65,12 +71,13 @@ nprocs=comm.Get_size()
 
 ## Determine Process Rank
 
-The rank is always relative to the communicator.  We are only considering the default MPI_COMM_WORLD in these examples.  Process rank is an integer in the range 0, 1, …,  _nprocs_-1) returned through the second argument.
+The rank is always relative to the communicator.  We are only considering the default MPI_COMM_WORLD in these examples.  Process rank is an integer in the range
+0, 1, …,  (_nprocs_-1) returned through the second argument.
 
 C
 ```c
 int rank;
-MPI_Comm_rank(MPI_COMM_WORLD, &rankd);
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 ```
 
 Fortran
@@ -93,8 +100,13 @@ MPI_Finalize();
 ```
 
 Fortran
-```
+```fortran
 call MPI_Finalize(ierr)
+```
+
+Python
+```python
+MPI.Finalize()
 ```
 
 This must be the last routine after all other MPI library calls.  It allows the system to free up MPI resources.  It does not have to be the last executable statement, but no more MPI routines may be invoked after it.

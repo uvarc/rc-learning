@@ -1,5 +1,5 @@
 ---
-title: "Distributed Programs and MPI"
+title: "MPI"
 toc: true
 type: docs
 weight: 21
@@ -9,49 +9,23 @@ menu:
         weight: 21
 ---
 
-Programming in the distributed-memory model requires some low-level management of data distribution and communication.
-
-## Partitioning
-
-Partitioning refers to dividing computation and data into pieces or chunks. There are basically two ways to split up the workload.
-
-**Domain decomposition**
-
-Domain decomposion divides the data into chunks.  Typically these data are represent in some array-like form, though other data structures are possible.  The portion of the data known only to a particular process is often said to be _local_ to that process.  Data that is known to all processes is _global_.  The programmer must then determine how to associate computations with the local data for each process.
-
-**Functional decomposition**
-
-In functional or task decomposition, the tasks performed by the computation is divided among the processes.
-
-### Partitioning Checklist
-
-In distributed-memory programming, it is particularly important to maximize the computation to communication ratio, due to communication overhead.  The programmer should also minimize redundant computations and redundant data storage. As an example of avoiding redundant data, generally a program should not simply declare a large number of global arrays and then have each process determine which subset to use.  This usually wastes memory and may also make the program infeasible, since each process will consume a large amount of memory.  The programmer must determine how to distribute the data to each local array.
-
-In addition, the quantity of work on each process should be roughly the same size (load balancing).  The number of tasks is generally an increasing function of problem size so tasks and/or their data should be divided equally among the processes.
-
-## Communication
-
-The programmer must determine the values to be passed among the tasks.  Only the necessary data should be communicated.  The type of communication may be _local_, in which the task needs values from a small number of other processes, or _global_,  where a significant number of processes contribute data to perform a computation
-
-The goal is to balance communication operations among tasks, and to keep communications as local as possible.
-
-**Agglomeration**
-
-We prefer to group tasks into larger tasks.  Here the goals are to improve performance, maintain scalability of the program, and simplify programming.
-
-Due to overhead, it is better to send fewer, larger messages than more, smaller messages.  In MPI programming, in particular, the goal is often to create one agglomerated task per processor.
-
-**Mapping**
-
-Mapping is the process of assigning tasks to processes or threads. For threading (SMP), the mapping done by operating system. In a distributed memory system, the user chooses how many processes, how many nodes, and how many cores per node.  These choices can affect performance.
-
-Mapping has the often conflicting goals of maximizing processor utilization and minimizing interprocess communication.  Optimal mapping is probably unsolvable in general, so the programmer must use heuristics and approximations.  Frequently, determing the best mapping requires experimentation (scaling studies).
-
-## MPI
-
 MPI stands for  _M_ essage  _P_ assing  _I_ nterface.  It is a standard established by a committee of users and vendors.  
 
+## Programming Languages
+
 MPI is written in C and ships with bindings for Fortran.  Bindings have been written for many other languages, including Python and R. C\+\+ programmers should use the C functions.
+
+Many of the examples in this lecture are C or C\+\+ code, with some Fortran and Python examples as well.  All of the C functions work the same for Fortran, with a slightly different syntax.  They are mostly the same for Python but the most widely used set of Python bindings, `mpi4py`, was modeled on the deprecated C\+\+ bindings, as they are more "Pythonic."
+
+Guides to the most-commonly used MPI routines for the three languages this course supports can be downloaded.
+
+[C/C++](/courses/parallel_computing_introduction/MPI_Guide_C.pdf) 
+
+[Fortran](/courses/parallel_computing_introduction/MPI_Guide_Fortran.pdf) 
+
+[Python](/courses/parallel_computing_introduction/MPI_Guide_mpi4py.pdf)
+
+## Process Management
 
 MPI programs are run under the control of an executor or _process manager_.  The process manager starts the requested number of processes on a specified list of hosts, assigns an identifier to each process, then starts the processes.  Each copy has its own global variables\, stack\, heap\, and program counter.
 
@@ -91,14 +65,69 @@ When a buffer is specified, the MPI library will look at the starting point in m
 
 For the send buffer, MPI will copy the sequence of bytes into the buffer and send them over the appropriate network interface to the receiver.  The receiver will acquire the stream of data into its receive buffer and copy them into the variable specified in the program. 
 
-## Programming Languages
+### Buffer Datatypes
 
-Many of the examples in this lecture are C or C\+\+ code, with some Fortran and Python examples as well.  All of the C functions work the same for Fortran, with a slightly different syntax.  They are mostly the same for Python but the most widely used set of Python bindings, `mpi4py`, was modeled on the deprecated C\+\+ bindings, as they are more "Pythonic."
+MPI supports most of the _primitive_ datatypes available in the target programming language, as well as a few others.
 
-Guides to the most-commonly used MPI routines for the three languages this course supports can be downloaded.
+####C/C++
 
-[C/C++](/courses/parallel_computing_introduction/MPI_Guide_C.pdf) 
+MPI supports most C/C++ datatypes as well as some extensions. The most commonly used are listed below.
 
-[Fortran](/courses/parallel_computing_introduction/MPI_Guide_Fortran.pdf) 
+|   C/C++ type   |  MPI_Datatype  |
+|----------------|----------------|
+|   int          |    MPI_INT     |
+|   short        |    MPI_SHORT   |
+|   long         |    MPI_LONG    |
+|   long long    |    MPI_LONG_LONG_INT  |
+|   unsigned int |    MPI_UNSIGNED    |
+|   unsigned short |  MPI_UNSIGNED_SHORT  |
+|   unsigned long |  MPI_UNSIGNED_LONG |
+|   unsigned long long |  MPI_UNSIGNED_LONG_LONG |
+|   float        |  MPI_FLOAT      |
+|   double       |  MPI_DOUBLE     |
+|   long double  |  MPI_LONG_DOUBLE     |
+|   char         |  MPI_CHAR        |
+|   wchar         |  MPI_WCHAR        |
 
-[Python](/courses/parallel_computing_introduction/MPI_Guide_mpi4py.pdf)
+Since MPI is written in C and we are not discussing the deprecated C++ bindings, the following types require headers.
+
+|   C type       |  MPI_Datatype      |
+|----------------|----------------|
+|   bool         |  MPI_C_BOOL        |
+|   complex         |  MPI_C_COMPLEX        |
+|   double complex         |  MPI_C_DOUBLE_COMPLEX        |
+
+Extensions
+
+|   C/C++ type   |  MPI_Datatype  |
+|----------------|----------------|
+|   none         | MPI_BYTE         |
+|   none         | MPI_PACKED       |
+
+#### Fortran
+
+|   Fortran type |  MPI_Datatype      |
+|----------------|--------------------|
+|   integer      |    MPI_INTEGER     |
+|   real         |    MPI_REAL        |
+|   double precision    |    MPI_DOUBLE_PRECISION |
+|   complex      |  MPI_COMPLEX       |
+|   logical      |  MPI_LOGICAL       |
+|   character    |  MPI_CHARACTER     |
+|   none         |  MPI_BYTE          |
+|   none         |  MPI_PACKED        |
+
+Most MPI distributions support the following types.  These are Fortran 77 style declarations; newer code should use `KIND` but care must be taken that the number of byes specified is correct.
+
+|   Fortran type |  MPI_Datatype      |
+|----------------|--------------------|
+|   integer\*16      |    MPI_INTEGER16     |
+|   real\*8      |    MPI_REAL8     |
+|   real\*16      |    MPI_REAL16     |
+
+#### Python
+
+As we have mentioned, the basic MPI communication routines are in the Communicator class of the MPI subpackge of mpi4py.  Each communication subprogram has two forms, a lower-case version and another where the first letter of the method is upper case.  The lower-case version can be used to send or receive an object; mpi4py pickles it before communicating. The upper-case version works _only_ with NumPy Ndarrays.  Communicating Ndarrays is faster and is recommended when possible. However, _every_ buffer must be an Ndarray in this case, so even scalars must be placed into a one-element array.
+
+The mpi4py package supports the C datatypes, but in the format `MPI.Dtype` rather than `MPI_Dtype`, but they are seldom required as an argument to the MPI functions.
+
