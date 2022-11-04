@@ -13,16 +13,16 @@ Prerequisites:
 
 ---
 
-# Review of Best Practices
+## Review of Best Practices
 
 In the previous chapter, we worked through an example of `lolcow` and saw how following best practices can reduce the image size drastically.
 
-## 0. Package manager cache busting
+### 0. Package manager cache busting
 ```bash
 apt-get update && apt-get install ...
 ```
 
-## 1. Clean up
+### 1. Clean up
 - `apt`
 ```bash
 rm -rf /var/lib/apt/lists/*
@@ -37,12 +37,12 @@ pip install --no-cache-dir ...
 ```
 - Must occur in the same `RUN` statement as the installation step
 
-## 2. Only install what's needed
+### 2. Only install what's needed
 ```bash
 --no-install-recommends
 ```
 
-## 3. Base image
+### 3. Base image
 - For OS and common tools (e.g. python/conda, GCC) start from [official image](https://docs.docker.com/docker-hub/official_images/)
     - Do not reinvent the wheel
 - Know which variant to use (e.g. `devel` vs `runtime`, `slim`)
@@ -59,16 +59,16 @@ With our [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/qiime2
 
 ---
 
-# Multi-Stage Build
+## Multi-Stage Build
 
 The objective is to minimize image size without loss of functionality. What's needed to build/install an application is not always needed at runtime. By separating the buildtime and runtime stages, we'll see how to achieve up to 99% reduction in image size in real applications.
 
-## "Disk space is cheap so why should I care?"
+### "Disk space is cheap so why should I care?"
 - Minimize vulnerabilities/attack surface
 - Fewer things to maintain
 - Reduce overhead
 
-## Buildtime $\neq$ runtime dependency
+### Buildtime $\neq$ runtime dependency
 
 - Multiple `FROM` statements (each defines a **stage**)
 - Build stage:
@@ -81,7 +81,7 @@ The objective is to minimize image size without loss of functionality. What's ne
 
 Reference: [_Use multi-stage builds_](https://docs.docker.com/develop/develop-images/multistage-build/)
 
-## Multi-stage Dockerfile template
+### Multi-stage Dockerfile template
 
 ```dockerfile
 FROM base1 AS build
@@ -273,9 +273,9 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
 
 ---
 
-# Base Images Without OS
+## Base Images Without OS
 
-## Do we really need an operating system?
+### Do we really need an operating system?
 
 - Not always!
 - No `/bin/sh`, `ls`, `cat`, ...
@@ -288,7 +288,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
     - Copy binary and libraries to production stage
     - Build production
 
-## Example base images 
+### Example base images 
 - [Scratch](https://hub.docker.com/_/scratch)
     - Literally start from scratch!
     - A "no-op" in the Dockerfile, meaning no extra layer in image
@@ -454,7 +454,7 @@ The TF 2.3 container that you used in the previous workshop is actually based on
 
 ---
 
-# Dynamic vs Static Linking
+## Dynamic vs Static Linking
 
 The above procedure, while impressive, may be tedious for the average user. All the examples so far are based on [dynamic linking](https://en.wikipedia.org/wiki/Dynamic_linker), where the shared libraries of an executable are stored separately. If you are compiling code from source, you may choose to build a static binary (e.g. `-static` in GCC) so that all the necessary libraries are built into the binary.
 
@@ -697,7 +697,7 @@ LibTorch is the C++ frontend of PyTorch. This exericse is based on the ["Writing
 
 ---
 
-# Summary
+## Summary
 
 | App | Single-stage image size | Final image size | Reduction (%) |
 |---|---:|---:|---:|
@@ -708,7 +708,7 @@ LibTorch is the C++ frontend of PyTorch. This exericse is based on the ["Writing
 
 ---
 
-# References
+## References
 
 - [UVA Rivanna-Docker GitHub](https://github.com/uvarc/rivanna-docker)
     - Dockerfiles by UVA Research Computing

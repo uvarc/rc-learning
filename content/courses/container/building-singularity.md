@@ -6,7 +6,7 @@ weight: 10
 
 ---
 
-# Singularity Commands Overview
+## Singularity Commands Overview
 
 ### Create
 1. Download from a repository: `pull`/`build`
@@ -23,7 +23,7 @@ weight: 10
 2. Run a shell interactively within the container: `shell`
 3. Run a command within the container: `exec`
 
-# Example: lolcow
+## Example: lolcow
 
 ```
 $ singularity pull library://godlovedc/demo/lolcow
@@ -87,7 +87,7 @@ $ singularity inspect --runscript lolcow_latest.sif
 
 **Inspect the runscript before running an image!**
 
-# Pulling from Docker Hub
+## Pulling from Docker Hub
 > Pulling Docker images reduces reproducibility. If you were to pull a Docker image today and then wait six months and pull again, you are not guaranteed to get the same image. If any of the source layers has changed the image will be altered. -- <cite>Singularity 3.5 User Guide</cite>
 
 ```
@@ -103,7 +103,7 @@ FATAL:   Failed to verify: lolcow_docker.sif: error while searching for signatur
 ```
 
 
-# Converting from local Docker cache (not on Rivanna)
+## Converting from local Docker cache (not on Rivanna)
 
 (Taken from Singularity 3.5 User Guide)
 
@@ -141,7 +141,7 @@ INFO:    Build complete: lolcow_from_docker_cache.sif
 
 Note that this requires `sudo` privilege.
 
-# Singularity Definition File
+## Singularity Definition File
 
 The definition file is a set of instructions that is used to build a Singularity container:
 
@@ -176,12 +176,12 @@ From: ...        #
     ...
 ```
 
-## Header
+### Header
 
 - At the top of the def file
 - Sets the base OS or base container
 
-### `Bootstrap` (mandatory)
+#### `Bootstrap` (mandatory)
 This is the very first entry. It defines the bootstrap agent:
 
 - `library`
@@ -189,17 +189,17 @@ This is the very first entry. It defines the bootstrap agent:
 - `shub`
 - and [many more](https://sylabs.io/guides/3.5/user-guide/appendix.html#buildmodules)
 
-### `From` (mandatory)
+#### `From` (mandatory)
 Define the base container.
 
 ```
 From: [<collection>/]<container>[:<tag>]
 ```
 
-## Section
+### Section
 Each section starts with `%`. All sections are optional.
 
-### `%files`
+#### `%files`
 
 Copy files into the container.
 
@@ -212,7 +212,7 @@ Copy files into the container.
 
 Files in the `%files` section are always copied before the `%post` section is executed so that they are available during the build and configuration process.
 
-### `%post`
+#### `%post`
 
 Installation commands. Example:
 
@@ -221,7 +221,7 @@ Installation commands. Example:
     apt-get update && apt-get -y install lolcat
 ```
 
-### `%environment`
+#### `%environment`
 
 Define environment variables (set at runtime). Not available at build time. Example:
 
@@ -230,11 +230,11 @@ Define environment variables (set at runtime). Not available at build time. Exam
     export LC_ALL=C
 ```
 
-### `%runscript`
+#### `%runscript`
 
 List of commands to be executed upon `singularity run`.
 
-### `%labels`
+#### `%labels`
 
 Add metadata in the form of key-value pairs. Example:
 
@@ -243,11 +243,11 @@ Add metadata in the form of key-value pairs. Example:
     Author Ruoshi Sun
 ```
 
-### `%help`
+#### `%help`
 
 Text to be displayed upon `singularity run-help`.
 
-# Convert a Dockerfile
+## Convert a Dockerfile
 
 The `lolcow` container that we used before was prepared using this Dockerfile ([source](https://github.com/GodloveD/lolcow/blob/master/Dockerfile)):
 
@@ -273,9 +273,9 @@ Hints:
 - `ENTRYPOINT` commands are executed at runtime.
 - You will not be able to build this on Rivanna!
 
-# Other Features
+## Other Features
 
-## Sandbox
+### Sandbox
 
 - Create and use a writable directory
 - Useful for debugging definition file
@@ -285,7 +285,7 @@ singularity build --sandbox <directory> <URI/DEF>
 singularity shell --writable <directory>
 ```
 
-## Add environment variables in `%post` section
+### Add environment variables in `%post` section
 
 ```
 %post
@@ -293,7 +293,7 @@ singularity shell --writable <directory>
     echo 'export VARIABLE_NAME=x' >>$SINGULARITY_ENVIRONMENT
 ```
 
-## Remote
+### Remote
 
 - Host your own repository
 - Push image to repository
@@ -304,6 +304,6 @@ See [here](https://sylabs.io/guides/3.5/user-guide/endpoint.html)
 
 ---
 
-# References
+## References
 - [Apptainer User Guide](https://apptainer.org/docs/user/1.0/index.html)
 - [Definition File](https://apptainer.org/docs/user/1.0/definition_files.html)
