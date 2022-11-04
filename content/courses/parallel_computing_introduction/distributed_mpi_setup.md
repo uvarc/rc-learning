@@ -87,12 +87,12 @@ MPI codes must generally be compiled and run through a command line on Windows. 
 
 The Intel oneAPI Basic Toolkit includes a customized command prompt in its folder in the Apps menu.
 
-### Build it
+### Build It
 
-In a terminal window on the frontend rivanna\.hpc\.virginia\.edu run
+In a terminal window on the frontend `rivanna.hpc.virginia.edu` run
 ```bash
 module load gcc openmpi
-``
+```
 
 For Python add
 ```bash
