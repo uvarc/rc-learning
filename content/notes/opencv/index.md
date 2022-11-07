@@ -2,7 +2,7 @@
 title: "Scientific Image Processing with Python OpenCV"
 author: "Karsten Siller"
 highlight_style: "github"
-date: 2021-11-02T00:00:00-05:00
+date: 2022-10-27T00:00:00-05:00
 toc: true  
 type: article
 draft: false
