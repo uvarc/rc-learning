@@ -17,9 +17,9 @@ Logging in to Rivanna:
 
 ---
 
-# Basic Singularity commands
+## Basic Singularity commands
 
-## Pull
+### Pull
 
 To download a container hosted on a registry, use the `pull` command. Docker images are automatically converted into Singularity format.
 
@@ -34,13 +34,13 @@ To download a container hosted on a registry, use the `pull` command. Docker ima
     - Optional
     - Rename image; default: `<repo>_<tag>.sif`
 
-### Pull lolcow from Docker Hub
+#### Pull lolcow from Docker Hub
 
 ```bash
 singularity pull docker://rsdmse/lolcow
 ```
 
-## Inspect
+### Inspect
 
 Inspect an image before running it via `inspect`.
 
@@ -56,7 +56,7 @@ org.label-schema.usage.singularity.deffile.from: rsdmse/lolcow
 org.label-schema.usage.singularity.version: 3.7.1
 ```
 
-### Inspect runscript
+#### Inspect runscript
 
 This is the default command of the container. (Docker `ENTRYPOINT` is preserved.)
 
@@ -69,11 +69,11 @@ OCI_ENTRYPOINT='"/bin/sh" "-c" "fortune | cowsay | lolcat"'
 ...
 ```
 
-## Run
+### Run
 
 There are three ways to run a container: `run`, `shell`, `exec`.
 
-### `run`
+#### `run`
 
 Execute the default command in `inspect --runscript`.
 
@@ -85,7 +85,7 @@ GPU: `singularity run --nv <SIF>` (later)
 ./lolcow_latest.sif
 ```
 
-### `shell`
+#### `shell`
 
 Start a Singularity container interactively in its shell.
 
@@ -100,7 +100,7 @@ The change in prompt indicates you are now inside the container.
 
 To exit the container shell, type `exit`.
 
-### `exec`
+#### `exec`
 
 Execute custom commands without shelling into the container.
 
@@ -111,7 +111,7 @@ $ singularity exec lolcow_latest.sif which fortune
 /usr/bin/fortune
 ```
 
-## Bind mount
+### Bind mount
 
 - Singularity bind mounts these host directories at runtime:
     - Personal directories: `/home`, `/scratch`
@@ -140,9 +140,9 @@ singularity run|shell|exec -B <host_path>[:<container_path>] <SIF>
 
 ---
 
-# Container Modules
+## Container Modules
 
-## Singularity module
+### Singularity module
 
 On Rivanna, the `singularity` module serves as a "toolchain" that will activate container modules. **You must load `singularity` before loading container modules.**
 
@@ -165,7 +165,7 @@ module avail
 
 You can now load container modules.
 
-## Container modules under singularity toolchain
+### Container modules under singularity toolchain
 
 The corresponding `run` command is displayed upon loading a module.
 
@@ -197,7 +197,7 @@ Currently Loaded Modules:
 
 ---
 
-# Container Slurm job (TensorFlow on GPU)
+## Container Slurm job (TensorFlow on GPU)
 
 - Computationally intensive tasks must be performed on compute nodes.
 - Slurm is Rivanna's resource manager.
@@ -236,7 +236,7 @@ Submit job:
 sbatch tensorflow-2.3.0.slurm
 ```
 
-### What does `--nv` do?
+#### What does `--nv` do?
 
 See [Singularity GPU user guide](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
 
@@ -252,9 +252,9 @@ Why can't I `ls`? See "Minimal Containers" workshop.
 
 ---
 
-# Custom Jupyter Kernel
+## Custom Jupyter Kernel
 
-## "Can I use that TF 2.3 container on JupyterLab?"
+### "Can I use that TF 2.3 container on JupyterLab?"
 
 First, note we do not have `tensorflow/2.3.0` as a module:
 
@@ -262,9 +262,9 @@ First, note we do not have `tensorflow/2.3.0` as a module:
 module spider tensorflow
 ```
 
-## Installation
+### Installation
 
-### Manual
+#### Manual
 1. Create kernel directory
 
 ```bash
@@ -302,7 +302,7 @@ chmod +x init.sh
 
 **Easy to automate!**
 
-### JKRollout
+#### JKRollout
 
 This tool is currently limited to Python. The container must have the `ipykernel` Python package.
 
@@ -317,7 +317,7 @@ Usage: jkrollout sif display_name [gpu]
 jkrollout /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.sif "tf2.3" gpu
 ```
 
-## Test your new kernel
+### Test your new kernel
 
 - Go to https://rivanna-portal.hpc.virginia.edu
 - Select JupyterLab
@@ -327,7 +327,7 @@ jkrollout /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.sif "tf2.3"
 - Select the new TensorFlow 2.3 kernel
 - Run `mnist_example.ipynb`
 
-## Remove a custom kernel
+### Remove a custom kernel
 
 ```bash
 rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.3.0
@@ -335,7 +335,7 @@ rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.3.0
 
 ---
 
-# References
+## References
 
 - [Singularity User Guide](https://apptainer.org/user-docs/master/)
     - [Overview](https://apptainer.org/user-docs/master/quick_start.html#overview-of-the-singularity-interface)
