@@ -9,7 +9,7 @@ tags: [matlab,ml,dl]
 
 notes: matlab-data-science
 
-url_video: videos/matlab-data-science/workshop-intro.mp4
+url_video: /videos/matlab-data-science/workshop-intro.mp4
 ---
 
 The hands-on courses in this workshop cover the use of Matlab for data science applications.
