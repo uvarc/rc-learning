@@ -129,7 +129,7 @@ singularity run|shell|exec -B <host_path>[:<container_path>] <SIF>
 
 ## Exercises
 
-1. For each of the three executables `fortune`, `cowsay`, `lolcat`, run `which` both inside and outside the container. Which one exists on both the host and the container?
+1. For each of the three executables `fortune`, `cowsay`, `lolcat`, run `which` both inside and outside the `lolcow` container. Which one exists on both the host and the container?
 1. a) Run `ls -l` for your home directory both inside and outside the container. Verify that you get the same result. b) To disable all bind mounting, use `run|shell|exec -c`. Verify that `$HOME` is now empty.
 1. View the content of `/etc/os-release` both inside and outside the container. Are they the same or different? Why?
 1. (Advanced) Let's see if we can run the host `gcc` inside the lolcow container. First load the module: `module load gcc`
@@ -172,11 +172,11 @@ The corresponding `run` command is displayed upon loading a module.
 ```bash
 $ module load tensorflow
 To execute the default application inside the container, run:
-singularity run --nv $CONTAINERDIR/tensorflow-2.7.0.sif
+singularity run --nv $CONTAINERDIR/tensorflow-2.10.0.sif
 
 $ module list
 Currently Loaded Modules:
-  1) singularity/3.7.1   2) tensorflow/2.7.0
+  1) singularity/3.7.1   2) tensorflow/2.10.0
 ```
 
 - `$CONTAINERDIR` is an environment variable. It is the directory where containers are stored on Rivanna.
@@ -206,7 +206,7 @@ Currently Loaded Modules:
 Copy these files:
 
 ```bash
-cp /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.slurm .
+cp /share/resources/tutorials/singularity_ws/tensorflow-2.10.0.slurm .
 cp /share/resources/tutorials/singularity_ws/mnist_example.{ipynb,py} .
 ```
 
@@ -223,17 +223,17 @@ Examine Slurm script:
 #SBATCH -o tftest-%A.out         # output file
 #SBATCH -e tftest-%A.err         # error file
 
-module purge                     # start with clean environment
-module load singularity
+# start with clean environment
+module purge
+module load singularity tensorflow/2.10.0
 
-singularity run --nv \
-/share/resources/tutorials/singularity_ws/tensorflow-2.3.0.sif mnist_example.py
+singularity run --nv $CONTAINERDIR/tensorflow-2.10.0.sif mnist_example.py
 ```
 
 Submit job:
 
 ```bash
-sbatch tensorflow-2.3.0.slurm
+sbatch tensorflow-2.10.0.slurm
 ```
 
 #### What does `--nv` do?
@@ -241,26 +241,29 @@ sbatch tensorflow-2.3.0.slurm
 See [Singularity GPU user guide](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
 
 ```bash
-$ singularity shell tensorflow-2.3.0.sif
-Singularity> python
->>> import os
->>> os.listdir('/.singularity.d/libs')
-[]
-```
+$ singularity shell $CONTAINERDIR/tensorflow-2.10.0.sif
+Singularity> ls /.singularity.d/libs
 
-Why can't I `ls`? See "Minimal Containers" workshop.
+$ singularity shell --nv $CONTAINERDIR/tensorflow-2.10.0.sif
+Singularity> ls /.singularity.d/libs
+libEGL.so		  libGLX.so.0		       libnvidia-cfg.so			  libnvidia-ifr.so
+libEGL.so.1		  libGLX_nvidia.so.0	       libnvidia-cfg.so.1		  libnvidia-ifr.so.1
+...
+```
 
 ---
 
 ## Custom Jupyter Kernel
 
-### "Can I use that TF 2.3 container on JupyterLab?"
+### "Can I use my own container on JupyterLab?"
 
-First, note we do not have `tensorflow/2.3.0` as a module:
+Suppose you need to use TensorFlow 2.11.0 on JupyterLab. First, note we do not have `tensorflow/2.11.0` as a module:
 
 ```bash
 module spider tensorflow
 ```
+
+Go to [TensorFlow's Docker Hub page](https://hub.docker.com/r/tensorflow/tensorflow/tags?page=1&name=2.11.0) and search for the tag (i.e. version). You'll want to use one that has the `-gpu-jupyter` suffix. Pull the container in your Rivanna account.
 
 ### Installation
 
@@ -268,7 +271,7 @@ module spider tensorflow
 1. Create kernel directory
 
 ```bash
-DIR=~/.local/share/jupyter/kernels/tensorflow-2.3.0
+DIR=~/.local/share/jupyter/kernels/tensorflow-2.11.0
 mkdir -p $DIR
 cd $DIR
 ```
@@ -278,11 +281,11 @@ cd $DIR
 ```
 {
  "argv": [
-  "/home/<user>/.local/share/jupyter/kernels/tensorflow-2.3.0/init.sh",
+  "/home/<user>/.local/share/jupyter/kernels/tensorflow-2.11.0/init.sh",
   "-f",
   "{connection_file}"
  ],
- "display_name": "tf2.3",
+ "display_name": "Tensorflow 2.11",
  "language": "python"
 }
 ```
@@ -314,7 +317,7 @@ Usage: jkrollout sif display_name [gpu]
 ```
 
 ```bash
-jkrollout /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.sif "tf2.3" gpu
+jkrollout /path/to/sif "Tensorflow 2.11" gpu
 ```
 
 ### Test your new kernel
@@ -324,13 +327,13 @@ jkrollout /share/resources/tutorials/singularity_ws/tensorflow-2.3.0.sif "tf2.3"
     - Rivanna Partition: GPU
     - Work Directory: (location of your `mnist_example.ipynb`)
     - Allocation: `rivanna-training`
-- Select the new TensorFlow 2.3 kernel
+- Select the new "TensorFlow 2.11" kernel
 - Run `mnist_example.ipynb`
 
 ### Remove a custom kernel
 
 ```bash
-rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.3.0
+rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.11.0
 ```
 
 ---

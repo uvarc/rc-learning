@@ -50,10 +50,10 @@ Steps:
 
 ### Step 1: Choose a base image
 
-Use `FROM` to specify the base image. In this example, we'll use Ubuntu 16.04. You do not need to install this on your computer - Docker will pull from Docker Hub when you build it.
+Use `FROM` to specify the base image. In this example, we'll use Ubuntu 22.04. You do not need to install this on your computer - Docker will pull from Docker Hub when you build it.
 
 ```dockerfile
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 ```
 
 - OS: `ubuntu`, `debian`, `centos`, ...
@@ -67,7 +67,7 @@ FROM ubuntu:16.04
 Use `RUN` to specify the actual commands to be executed (as if you were to type them on the command line).
 
 ```dockerfile
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 RUN apt-get install fortune cowsay lolcat
 ```
@@ -77,7 +77,7 @@ Save this file as `Dockerfile` and run `docker build .` Does it work?
 We need to update our package list. Let's modify our Dockerfile and build again.
 
 ```dockerfile
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 RUN apt-get update
 RUN apt-get install fortune cowsay lolcat
@@ -86,7 +86,7 @@ RUN apt-get install fortune cowsay lolcat
 This time it still failed due to the prompt for confirmation. To pass "yes" automatically, add `-y`.
 
 ```dockerfile
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 RUN apt-get update
 RUN apt-get install -y fortune cowsay lolcat
@@ -117,7 +117,7 @@ But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't see
 This is equivalent to `export PATH=/usr/games:${PATH}` but it is preserved at runtime. In doing so we can execute `fortune`, `cowsay`, and `lolcat` directly without specifying the full path.
 
 ```dockerfile
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 RUN apt-get update
 RUN apt-get install -y fortune cowsay lolcat
@@ -128,7 +128,7 @@ ENV PATH=/usr/games:${PATH}
 ### Use `ENTRYPOINT` to set default command
 
 ```dockerfile
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 RUN apt-get update
 RUN apt-get install -y fortune cowsay lolcat
@@ -149,7 +149,7 @@ While our container is functional, there is a lot of room for improvement. We sh
 The idea of "cache busting" is to force `update` whenever a change is made to `install`. This ensures we get the latest packages (especially critical security updates) should we make changes and rebuild the image in the future.
 
 ```dockerfile
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y \
         fortune cowsay lolcat
@@ -169,7 +169,7 @@ ENTRYPOINT fortune | cowsay | lolcat
 Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache in a separate `RUN` statement.
 
 ```dockerfile
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y \
         fortune cowsay lolcat
@@ -195,7 +195,7 @@ You should see that there is no difference in the image size. Why?
 **Very important!** You must remove files in the same `RUN` statement as they are added.
 
 ```dockerfile
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y \
         fortune cowsay lolcat && \
@@ -218,7 +218,7 @@ Now you should see that the clean-up is effective.
 The `apt` package manager often recommends related packages that are not really necessary. To disable recommendation, use `--no-install-recommends`.
 
 ```dockerfile
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         fortune fortunes-min cowsay lolcat && \
@@ -244,7 +244,7 @@ For installation of common packages, you may consider Alpine.
 Look for `slim` variants (e.g. `debian:buster-slim`) of a base image, if any.
 
 ```dockerfile
-FROM alpine:3.12
+FROM alpine:3.17
 
 RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk add --no-cache fortune cowsay@testing lolcat@testing
@@ -258,11 +258,11 @@ Note: An `ENV` statement is not needed here because the executables are installe
 
 ```bash
 $ docker images | grep lolcow | sort -nk 2 | awk '{print $1, $2, $NF}'
-<user>/lolcow    0      242MB
-<user>/lolcow    0.5    242MB
-<user>/lolcow    1      211MB
-<user>/lolcow    2      193MB
-<user>/lolcow    3       43MB
+<user>/lolcow    0      207MB
+<user>/lolcow    0.5    207MB
+<user>/lolcow    1      167MB
+<user>/lolcow    2      154MB
+<user>/lolcow    3      45.9MB
 ```
 
 <style scoped>table { font-size: 65%; }</style>
@@ -271,10 +271,10 @@ $ docker images | grep lolcow | sort -nk 2 | awk '{print $1, $2, $NF}'
 |---|---|---:|---:|
 |0  |(Basis of comparison) | - | - |
 |0.5|Clean up in separate `RUN`  | 0 | 0 |
-|1  |Clean up in same `RUN`      |31 | 13 |
-|-  |Install only what's needed  |18 | 7 |
-|2  |Combination of previous two |49 | 20 |
-|3  |Alpine base image           |199| 82 |
+|1  |Clean up in same `RUN`      |40 | 19 |
+|-  |Install only what's needed  |13 | 6 |
+|2  |Combination of previous two |53 | 26 |
+|3  |Alpine base image           |161| 78 |
 
 Reference: [_Best practices for writing Dockerfiles_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
