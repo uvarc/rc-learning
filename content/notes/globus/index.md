@@ -69,7 +69,7 @@ UVA Anywhere/More Secure VPN is not necessary for Globus. With just the web app,
 
 **Personal Collection:** A PC or workstation where you installed Globus
 
-**UVA Main-DTN:** The collection for Rivanna/Research Computing storage
+**UVA Standard Security Storage:** The collection for Rivanna/Research Project and Research Value storage
 
 **UVA IVY-DTN:** The collection for Ivy Central Storage
 
@@ -139,7 +139,7 @@ Once the app is open you can choose collections to transfer data between, as det
 3. Select your Personal Collection
 4. Click “Transfer or Sync to…” in the gray menu
 5. Click the second “Collection” field
-6. Search for and select “UVA Main-DTN” or “UVA IVY-DTN”
+6. Search for and select “UVA Standard Security Storage” or “UVA IVY-DTN”
 7. Select the files or folders you want to transfer
 8. Select the destination for your files
 9. Click the highlighted “Start” button
@@ -229,7 +229,7 @@ Optional: Enter an email message and add write permissions so the user can uploa
 | I have admin privileges on my Health System computer. Why isn’t the Globus installation working? | Sometimes the Health System firewall prevents Globus software from connecting to the mothership. Ask HIT to remote in and complete the installation. |
 | Why won’t my transfer to Ivy storage start? | Globus doesn’t work while connected to the High Security VPN. Disconnect while transferring data. |
 | Globus is transferring folders but they’re all empty. | There is probably a file with bad permissions or characters in the filename. Choose “Skip files with errors” in the Transfer options |
-| I can’t connect to the UVA Main-DTN. | When leaving UVA, your Eservices account can expire before your email – meaning no Globus access. |
+| I can’t connect to UVA Standard Security Storage. | When leaving UVA, your Eservices account can expire before your email – meaning no Globus access. |
 
 
 
