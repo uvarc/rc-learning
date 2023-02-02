@@ -10,5 +10,5 @@ tags: [rivanna,hpc]
 categories: ["Rivanna","HPC"]
 
 notes: rivanna-command-line 
-
+url_slides: slides/rivanna-cli/UsingRivannaCommandLine.pptx
 ---
