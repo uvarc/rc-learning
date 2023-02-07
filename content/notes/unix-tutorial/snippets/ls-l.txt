@@ -1,0 +1,11 @@
+-rw------- 1 mst3k users       340 Jan 24 09:41 contour.py
+-rw-r--r-- 1 mst3k users       322 May 29  2020 omparea.c
+-rw-r--r-- 1 mst3k users       336 May 29  2020 omparea.f90
+-rwxr-xr-x 1 mst3k users    105104 Jan 30 09:25 ompheatedplate
+-rw-r--r-- 1 mst3k users      3144 Jan 24 11:49 ompheatedplate.cxx
+-rw-r--r-- 1 mst3k users      2147 Jan 25 07:31 ompheatedplate.f90
+-rw-r--r-- 1 mst3k users       302 Jan 30 13:39 omp.slurm
+-rw-r--r-- 1 mst3k users 197321360 Jan 30 13:22 plate5
+drwxr-sr-x 2 mst3k users      2560 May 29  2020 pythonMP
+-rw-r--r-- 1 mst3k users       270 Jan 30 13:39 serial.slurm
+-rw-r--r-- 1 mst3k users       403 Jan 30 15:52 slurm-46361608.out

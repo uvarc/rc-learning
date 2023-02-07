@@ -129,7 +129,7 @@ if __name__ == '__main__':
 ```
 
 <br>
-Here is a more realistic example.  Let’s parallelize our Monte Carlo pi solver (`MonteCarloPiMC.py`).
+Here is a more realistic example.  Let’s parallelize our Monte Carlo pi solver (MonteCarloPiMC.py).
 Map requires an iterator for its second argument. We will manually divide the total number of "data throws" into chunks of roughly equal size on each process and store the result into a list _myNumPoints_. The Pool map method will then distribute the elements of the list, one to each cpu.  This is called **load balancing** in parallel computing terms.  Maximum efficiency generally occurs when each process performs approximately the same quantity of work.
 We also do not hard-code the number of processes, but will set an environment variable `NUM_PROCS` outside to select the core count. 
 
