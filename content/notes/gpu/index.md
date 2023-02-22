@@ -77,9 +77,16 @@ Important things to note:
 
 Popular GPU applications on Rivanna at a glance
 
-|`nvhpc`|`goolfc`|`nvompic`|`singularity`|Jupyter kernels|
+|`nvhpc`|`gcc`/`goolf`|`nvompic`|`singularity`|Jupyter kernels|
 |---|---|---|---|---|
-|(User code)|`gromacs`|`quantumespresso`<br>`berkeleygw`|`tensorflow`<br>`pytorch`<br>`rapidsai`|TensorFlow<br>PyTorch<br>RAPIDS|
+|(User code)|`gromacs` |`quantumespresso`|`pytorch`   |PyTorch|
+|           |`gpunufft`|`berkeleygw`     |`tensorflow`|TensorFlow|
+|           |`mumax3`  |`yambo`          |`rapidsai`  |RAPIDS|
+|           |          |                 |`amptorch`  |AMPTorch|
+|           |          |                 |`alphafold` ||
+|           |          |                 |`deeplabcut`||
+|           |          |                 |`isaacgym`  ||
+
 
 ## Modules
 
