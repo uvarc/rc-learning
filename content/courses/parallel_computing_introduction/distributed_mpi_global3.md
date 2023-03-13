@@ -6,7 +6,6 @@ weight: 29
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
-        weight: 29
 ---
 
 In many-to-many collective communications, all processes in the communicator group send a message to others. 
@@ -39,6 +38,25 @@ It is seldom needed in Python.  For examples in C++ and Fortran, please see
 {{< /spoiler >}}
 
 In these examples, it is used in a loop to force the output from the processes to be separated distinctly and in rank order.  Upon entry into the loop, all processes synchronize before executing the loop body.  The process whose rank matches the loop variable writes its output, while the other processes skip back to the top of the loop.  However, they must wait there until the process doing the writing finishes and invokes MPI_Barrier.
+
+**Exercise**
+
+Write a program that generates an array of values from 1 to 10 only on the root process.  Broadcast the array to each process.  Print the array from each process.
+
+Test it with four processes on the frontend or on your workstation.
+
+{{< spoiler text="C++" >}}
+{{< code-download file="/courses/parallel_computing_introduction/solns/bcast_ex.cxx" lang="c++" >}}
+{{< /spoiler >}}
+
+{{< spoiler text="Fortran" >}}
+{{< code-download file="/courses/parallel_computing_introduction/solns/bcast_ex.f90" lang="fortran" >}}
+{{< /spoiler >}}
+
+{{< spoiler text="Python" >}}
+{{< code-download file="/courses/parallel_computing_introduction/solns/bcast_ex.py" lang="python" >}}
+{{< /spoiler >}}
+
 
 ## Allreduce
 
@@ -101,7 +119,7 @@ comm.Allgather([all_data,MPI.TYPE],[data,MPI.TYPE])
 ```
 
 **Exercise**
-Modify the example reduction code in your language of choice to perform an Allreduce.
+Modify the example gather code in your language of choice to perform an Allgather.
 
 {{< spoiler text="C++ Solution" >}}
 {{< code-download file="/courses/parallel_computing_introduction/solns/allgather.cxx" lang="cxx" >}}

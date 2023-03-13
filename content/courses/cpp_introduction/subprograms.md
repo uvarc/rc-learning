@@ -21,13 +21,9 @@ Subprograms must be invoked or _called_ in order for any of their code to be exe
 Functions take any number (up to compiler limits) of arguments and return one item.  This item can be a compound type.
 Functions must be declared to a type like variables.  The `return` statement returns the result to the caller.
 
-Subroutines take any number of arguments (up to the compiler limit) and return any number of arguments.  Bidirectional communication can take place through the argument list.
-Strictly speaking, all subprograms in C++ are functions, but the ability to declare a `void` return "type" and to pass by reference means some are effectively subroutines. 
+Subroutines take any number of arguments (up to the compiler limit) and return any number of arguments.  Bidirectional communication can take place through the argument list.  Strictly speaking, all subprograms in C++ are functions, but the ability to declare a `void` return "type" and to pass by reference means some are effectively subroutines. 
 
-Variables in the argument list are often called _dummy arguments_ since they stand for _actual arguments_ that are defined in the calling unit.
-Like any variable, they must be declared explicitly.  In C++ these declarations are included in the argument list.
-In C++ either the function or its _prototype_ must appear before any invocation.
-The prototype consists only of the declaration of the function along with its argument list.  Only the types are required in the argument list of a prototype; dummy variables are optional.  The prototype provides the compiler with information about the number and type of arguments to the function, which enables it to check each invocation to ensure that the argument lists match.
+Variables in the argument list are often called _dummy arguments_ since they stand for _actual arguments_ that are defined in the calling unit.  Like any variable, they must be declared explicitly.  In C++ these declarations are included in the argument list.  In C++ either the function or its _prototype_ must appear before any invocation.  The prototype consists only of the declaration of the function along with its argument list.  Only the types are required in the argument list of a prototype; dummy variables are optional.  The prototype provides the compiler with information about the number and type of arguments to the function, which enables it to check each invocation to ensure that the argument lists match.
 
 C++ does not define or expect a keyword for a function declaration. The parentheses following the name are required, however.
 

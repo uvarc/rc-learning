@@ -6,7 +6,6 @@ weight: 5
 menu:
     parallel_programming:
         parent: Introduction to Parallel Programming
-        weight: 5
 ---
 
 Our discussion so far has applied to an abstract computer with little 

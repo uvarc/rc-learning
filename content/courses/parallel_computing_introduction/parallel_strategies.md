@@ -6,7 +6,6 @@ weight: 3
 menu:
     parallel_programming:
         parent: Introduction to Parallel Programming
-        weight: 3
 ---
 
 ## Dependencies

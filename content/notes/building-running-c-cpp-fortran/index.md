@@ -78,16 +78,16 @@ module spider intel
 
 Special note for Fortran users: When using the Intel compiler, nearly all Fortran codes must add a flag `-heap-arrays` to the compile line, or your executable is likely to end with a segmentation violation.
 
-### PGI (Soon to be NVIDIA HPC SDK)
+### NVIDIA HPC SDK
 
-We also offer the Portland Group (PGI) compilers but currently have fewer application libraries compiled for them.  PGI has been acquired by NVIDIA and will be renamed the NVIDIA HPC SDK (software development kit).  It is particularly strong at programming for general-purpose GPUs, mainly of NVIDIA architecture. This compiler suite provides tools such as OpenACC and OpenMP for programming for GPGPUs, but also supports interfaces to CUDA through the higher-level languages, in particular C++ and Fortran.
+We also offer the NVIDIA HPC SDK (software development kit) compilers.  This suite is particularly strong at programming for general-purpose GPUs, mainly of NVIDIA architecture. They provide tools such as OpenACC and OpenMP for programming for GPGPUs, but also support interfaces to CUDA through the higher-level languages, in particular C++ and Fortran.
 
--  pgcc 
--  pgc++
--  pgfortran (also pgf77 for very old code) 
+-  nvcc 
+-  nvc++
+-  nvfortran 
 
-```
-module spider pgi
+```bash
+module spider nvhpc
 ```
 
 ## Compiling a Single-File Program

@@ -6,7 +6,6 @@ weight: 2
 menu:
     parallel_programming:
         parent: Introduction to Parallel Programming
-        weight: 2
 ---
 
 Most computer programs are _serial_ (also called sequential).  One operation at a time is executed, one after the other in the sequence specified by the programmer.  The time for the execution of such a program is fixed for a given problem size.  

@@ -2,11 +2,10 @@
 title: "Global Communication in MPI: Many To One"
 toc: true
 type: docs
-weight: 26
+weight: 27
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
-        weight: 26
 ---
 
 In many-to-one collective communications, all processes in the communicator group send a message to root. The buffer is read from the senders and written on the root.

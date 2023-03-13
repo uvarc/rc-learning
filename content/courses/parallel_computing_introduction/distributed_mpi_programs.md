@@ -6,7 +6,6 @@ weight: 21
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
-        weight: 21
 ---
 
 MPI stands for  _M_ essage  _P_ assing  _I_ nterface.  It is a standard established by a committee of users and vendors.  
@@ -69,6 +68,8 @@ For the send buffer, MPI will copy the sequence of bytes into the buffer and sen
 
 MPI supports most of the _primitive_ datatypes available in the target programming language, as well as a few others.
 
+In every language, it is _imperative_ that the data types in the send and receive buffers match.  If they do not, the result can be anything from garbage to a segmentation violation.
+
 ####C/C++
 
 MPI supports most C/C++ datatypes as well as some extensions. The most commonly used are listed below.
@@ -89,13 +90,21 @@ MPI supports most C/C++ datatypes as well as some extensions. The most commonly 
 |   char         |  MPI_CHAR        |
 |   wchar         |  MPI_WCHAR        |
 
-Since MPI is written in C and we are not discussing the deprecated C++ bindings, the following types require headers.
+Specific to C:
 
 |   C type       |  MPI_Datatype      |
 |----------------|----------------|
 |   bool         |  MPI_C_BOOL        |
 |   complex         |  MPI_C_COMPLEX        |
-|   double complex         |  MPI_C_DOUBLE_COMPLEX        |
+|   double complex  |  MPI_C_DOUBLE_COMPLEX        |
+
+Specific to C++:
+
+|   C type       |  MPI_Datatype      |
+|----------------|----------------|
+|   bool         |  MPI_CXX_BOOL        |
+|   complex         |  MPI_CXX_COMPLEX        |
+|   double complex  |  MPI_CXX_DOUBLE_COMPLEX        |
 
 Extensions
 
@@ -109,6 +118,7 @@ Extensions
 |   Fortran type |  MPI_Datatype      |
 |----------------|--------------------|
 |   integer      |    MPI_INTEGER     |
+|   integer\*8   |    MPI_INTEGER8    |
 |   real         |    MPI_REAL        |
 |   double precision    |    MPI_DOUBLE_PRECISION |
 |   complex      |  MPI_COMPLEX       |
@@ -127,7 +137,11 @@ Most MPI distributions support the following types.  These are Fortran 77 style 
 
 #### Python
 
-As we have mentioned, the basic MPI communication routines are in the Communicator class of the MPI subpackge of mpi4py.  Each communication subprogram has two forms, a lower-case version and another where the first letter of the method is upper case.  The lower-case version can be used to send or receive an object; mpi4py pickles it before communicating. The upper-case version works _only_ with NumPy Ndarrays.  Communicating Ndarrays is faster and is recommended when possible. However, _every_ buffer must be an Ndarray in this case, so even scalars must be placed into a one-element array.
+As we have mentioned, the basic MPI communication routines are in the Communicator class of the MPI subpackge of mpi4py.  Each communication subprogram has two forms, a lower-case version and another where the first letter of the method is upper case.  The lower-case version can be used to send or receive an object; mpi4py pickles it before communicating.  The argument of these routines is the sent object; the received object is the return value of the function.
 
-The mpi4py package supports the C datatypes, but in the format `MPI.Dtype` rather than `MPI_Dtype`, but they are seldom required as an argument to the MPI functions.
+The upper-case version works _only_ with buffered objects, usually NumPy Ndarrays.  Communicating Ndarrays is faster and is recommended when possible. However, _every_ buffer must be an Ndarray in this case, so even scalars must be placed into a one-element array. The upper-case buffered functions are more similar to the corresponding C/C++ functions.  For the buffered functions, it is very important that the types match, so use of `dtype` is recommmended in declaring NumPy arrays.
+
+The mpi4py package supports the C datatypes, but in the format `MPI.Dtype` rather than `MPI_Dtype`, but they are seldom required as an argument to the MPI functions.  It is strongly recommended that the type of each NumPy array be explicitly declared with the `dtype` option, to ensure that the types match in both send and receive buffers.  
+
+{{< code-download file="/courses/parallel_computing_introduction/codes/mpi4py_ex.py" lang="python" >}}
 

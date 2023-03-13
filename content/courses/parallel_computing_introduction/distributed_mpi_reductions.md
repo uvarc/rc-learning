@@ -6,14 +6,13 @@ weight: 28
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
-        weight: 28
 ---
 
 In a _reduction_, data are sent to a root process, which performs a specified binary operation on sequential pairs of data.
 
 Ignoring details of implementation, which as described would be very inefficient, consider this example.  We want to compute the sum of all the local values of some variable over all ranks in the communicator group.  The root process, assumed to be rank 0 for our case, has a value in its buffer.  It receives another value from rank 1, adds it to the 0 value, and stores the result into a "global" buffer.  Next it receives the value from rank 2.  It adds this value to the contents of the global buffer.  The value from rank 3 is then received and added to the global buffer variable.  This continues until all ranks have sent their value to the root process.
 
-If the buffer is an array, MPI_Reduce will perform the operation elementwise.
+The standard MPI Datatypes that we have already seen are used for the operations that return a single type of value.  If the buffer is an array, MPI_Reduce will perform the operation elementwise.
 
 The built-in operations are the same for all languages.
 
@@ -88,3 +87,24 @@ comm.Reduce(sendarr, recvarr, operation, root=0)
 {{< /spoiler >}}
 
 The special datatypes for MAXLOC and MINLOC in mpi4py are the same as for C, but with the underscore replaced by a period as usual (`MPI.FLOAT_INT`).
+
+**Exercise**
+
+Return to the random-walk program with MPI.  Add an appropriate reduction and print only the overall result.  
+
+{{< spoiler text="Explanation" >}}
+The purpose of parallelizing the random-walk code was to run a large number of trials in order to obtain a more accurate estimate of the final distance.  Without the reduction, we would have collected the results and averaged them.  We can use the reduction to accomplish this automatically.
+{{< /spoiler >}}
+
+{{< spoiler text="C++" >}}
+{{< code-download file="/courses/parallel_computing_introduction/solns/mpirandom_walk_red.cxx" lang="c++" >}}
+{{< /spoiler >}}
+
+{{< spoiler text="Fortran" >}}
+{{< code-download file="/courses/parallel_computing_introduction/solns/mpirandom_walk_red.f90" lang="fortran" >}}
+{{< /spoiler >}}
+
+{{< spoiler text="Python" >}}
+{{< code-download file="/courses/parallel_computing_introduction/solns/mpirandom_walk_red.py" lang="python" >}}
+{{< /spoiler >}}
+

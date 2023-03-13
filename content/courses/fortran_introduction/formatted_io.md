@@ -70,6 +70,7 @@ For most purposes it is best to put the format string into the write statement. 
 ```fortran
 write(*,'(i5,2x,i6)') i1,i2
 write(*,'(i5,a,i6)')) i1,"  ",i2
+write(*,'(a,f0.6)')) "The result is  ",res
 write(*,'(a,i4,es15.7)') "row",n,var
 write(*,'(3(i2,3x,f8.3)') (r(j),var(j),j=1,3)
 write(*,'(2f8.2)') z !complex

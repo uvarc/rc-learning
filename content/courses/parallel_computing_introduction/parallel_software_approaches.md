@@ -6,7 +6,6 @@ weight: 6
 menu:
     parallel_programming:
         parent: Introduction to Parallel Programming
-        weight: 6
 ---
 
 Parallel programming has been studied by computer scientists for decades. Historically, several approaches have been developed.  They may be summarized as

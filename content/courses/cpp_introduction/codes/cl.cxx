@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
      inputValue>>value;
      std::cout<<"Input is "<<filename<<" "<<value<<"\n";
    } else {
-     std::cout<<"Not enough arguments.\n";
+     std::cout<<"Usage: filename number\n";
      exit(1);
    }
    return 0;

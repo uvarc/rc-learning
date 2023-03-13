@@ -6,7 +6,6 @@ weight: 22
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
-        weight: 22
 ---
 
 We will start with the basic routines used to initialize MPI, obtain information about the process, and write simple examples.

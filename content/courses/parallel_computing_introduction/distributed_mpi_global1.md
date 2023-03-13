@@ -2,11 +2,10 @@
 title: "Global Communication in MPI: One to Many"
 toc: true
 type: docs
-weight: 25
+weight: 26
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
-        weight: 25
 ---
 
 So far we have seen only examples without communication.  However, all practical MPI programs will make use of some form of interprocess communications.  The simplest are _global_, or _collective_ communications in which every process in a communicator group participate.  Global communications can be one to many, many to one, or all to all.
