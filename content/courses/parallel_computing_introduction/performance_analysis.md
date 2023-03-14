@@ -6,7 +6,6 @@ weight: 4
 menu:
     parallel_programming:
         parent: Introduction to Parallel Programming
-        weight: 4
 ---
 
 ## Speedup and Efficiency
@@ -47,12 +46,15 @@ _superlinear_ speedup.  One fairly common cause of this is _cache efficiency_.  
 into cache.  We have seen that cache is much faster than main memory, so 
 considerable gains may be achieved with improved cache efficiency.  Some other
 reasons include better performance of the algorithm over smaller data, or even
-moving to an algorithm that is better but only in parallel, since speedup is computed 
-relative to the best sequential algorithm. 
+moving to an algorithm that is better but only in parallel, since speedup is computed relative to the best sequential algorithm. 
 
-The **efficiency** is the ratio of the serial execution time to the parallel time multiplied by $p$.  Using the above notation we obtain
+The **efficiency** is the ratio of the serial execution time to the parallel time multiplied by $p$, i.e. if $S$ is the speedup, 
 
-$$ \epsilon(n,p)=\frac{\sigma(n) + \phi(n)}{p\sigma(n) + \phi(n) + p\kappa(n,p}$$
+$$ \mathrm{Efficiency} = \frac{S}{p} $$
+
+Using the above formal notation we obtain
+
+$$ \epsilon(n,p)=\frac{\sigma(n) + \phi(n)}{p\sigma(n) + \phi(n) + p\kappa(n,p)}$$
 
 From this it should be apparent that 
 $$ 0 < \epsilon(n,p) \le 1 $$
@@ -100,37 +102,25 @@ overhead.  This suggests that more work per process is better, up to various
 system limits such as memory available per core.
 
 The degree to which efficiency is maintained as the number of processes increases
-is the _scalability_ of the code.  Amdahl's Law demonstrates that a very high degree of parallelization is necessary in order for a code to scale to
-a large number of processes for a fixed amount of work.  
-This can be difficult to achieve.  However, parallelization has other
-benefits.  Dividing work among more cores can reduce the memory footprint
-per core to the point that a problem that could not be solved in serial can
-be solved.  It can also 
+is the _scalability_ of the code.  Amdahl's Law demonstrates that a very high degree of parallelization is necessary in order for a code to scale to a large number of processes for a fixed amount of work, a phenomenon known as **strong scaling**.  
 
-### Strong Scaling Vs. Weak Scaling
+### Weak Scaling
+
+Strong scaling over a large number of processors can be difficult to achieve.  However, parallelization has other benefits.  Dividing work among more cores can reduce the memory footprint per core to the point that a problem that could not be solved in serial can be solved.  
 
 - Strong scaling: the same quantity of work is divided among an increasing number of processes.
 
 - Weak scaling: the amount of work per process is fixed, while the number of processes increases.
 
-Amdahl's law shows that strong scaling will always
-be limited. We must achieve a parallel fraction of close to 99% in order for the
-program to scale to more than around 100 processes.
-Many parallel programs are intended to solve large-scale problems, such as
-simulating atmospheric circulation or the dynamics of accretion disks around
-black holes, so will require hundreds or even thousands of processes to
-accomplish these goals; strong scaling is not feasible for these types of
-problem.  
+Amdahl's law shows that strong scaling will always be limited. We must achieve a parallel fraction of close to 99% in order for the program to scale to more than around 100 processes.  Many parallel programs are intended to solve large-scale problems, such as simulating atmospheric circulation or the dynamics of accretion disks around black holes, so will require hundreds or even thousands of processes to accomplish these goals; strong scaling is not feasible for these types of problem.  
 
-The counterpart to Amdahl's Law for weak scaling is **Gustafson's Law**.  
-Here we fix not the size of the problem but the execution time.
-Using the same notation as before, with $f$ the fraction of the workload
-that must be executed sequentially, the sequential time that would 
-be required for the problem size corresponding to $p$ processes will be
+The counterpart to Amdahl's Law for weak scaling is **Gustafson's Law**. Here we fix not the size of the problem but the execution time.  Using the same notation as before, with $f$ the fraction of the workload that must be executed sequentially, the sequential time that would be required for the problem size corresponding to $p$ processes will be 
 $$ t_s = ft + (1-f)pt $$
 where $t$ is the fixed execution time.  
 The speedup is $t_s/t$ which yields
 $$ \psi = f + (1-f)p $$
+For weak scaling there is no upper limit on the speedup, and as $f \to 0$, $S \to p$.  The ideal scaled speedup is thus linearly proportional to the number of processes.
+
 The efficiency is 
 $$ \epsilon = \frac{S}{p} = \frac{f}{p}+1-f $$
 This expression ignores real-world complications such as communication and

@@ -6,7 +6,6 @@ weight: 23
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
-        weight: 23
 ---
 
 We are now ready to write our first MPI program.  Select your choice of language below for this example.

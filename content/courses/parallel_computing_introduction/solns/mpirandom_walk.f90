@@ -2,17 +2,13 @@ module random
   implicit none
 
   ! Author:  Katherine Holcomb
-  !
   ! Shortened version of a longer module
-
   ! Module incorporated into this file for convenience; typically it would be in its 
   ! own file.
-
   ! Comment out one or the other when the module is incorporated into a code.
 
   ! Single precision
   !integer, parameter   :: rk = kind(1.0)
-
   ! Double precision
   integer, parameter   :: rk = kind(1.0d0)
 
@@ -89,9 +85,11 @@ use random
 use mpi
 implicit none
 
+  integer, parameter   :: ik = selected_int_kind(15)
   integer              :: nargs
   character(len=10)    :: ns,nexp
-  integer              :: m, n, ntrials, nsteps, step
+  integer              :: m, step
+  integer(ik)          :: n, nsteps
   real, dimension(2)   :: pos, move
   real                 :: distance
 

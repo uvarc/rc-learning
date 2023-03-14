@@ -116,3 +116,24 @@ float newmean(float A[],int n){
 }
 ```
 
+## Passing Function Names
+
+The name of a subprogram can be passed to another subprogram.  One method is to pass a _function pointer_ to the subprogram.  A newer method is to use the standard _functional_ templates.  
+
+**Example**
+a numerical-integration subroutine needs the function to be integrated.
+```c++
+#include <functional>
+
+//Function pointer
+//float trap(float a, float b, float h, int n, float (*function)(float)) {
+//Templated function object
+float trap(float a, float b, float h, int n, function<float(float)> f) {
+```
+where f is a function.
+
+{{< spoiler text="Full example of passing a subprogram as a dummy variable" >}}
+{{< code-download file="/courses/cpp_introduction/codes/trap.cxx" lang="c++" >}}
+{{< /spoiler >}}
+
+

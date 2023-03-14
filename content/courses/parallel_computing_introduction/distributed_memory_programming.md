@@ -5,7 +5,7 @@ type: docs
 weight: 20
 menu:
     parallel_programming:
-        weight: 20
+        name: "Distributed-Memory Programming"
 ---
 
 Programming in the distributed-memory model requires some low-level management of data distribution and communication.  The model is  _nodes_ (computing systems) connected by an  _interconnection network_.  Each node consist of processors, memory, and network.  Some form of disk storage is usually available, though it is not always local to the node but could be shared among all the nodes.

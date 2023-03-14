@@ -4,7 +4,6 @@ summary: Introduction to Parallel Programming
 authors: [kah]
 categories: ["Programming","Parallel Programming","Fortran","C/C++"]
 tags: ["parallel","programming","fortran","c/c++"]
-#weight: 1
 
 # Page metadata.
 title: Introduction to Parallel Programming
@@ -16,10 +15,10 @@ type: docs  # Do not modify.
 # Add menu entry to sidebar.
 # - name: Declare this menu item as a parent with ID `name`.
 # - weight: Position of link in menu.
+weight: 1
 menu:
   parallel_programming:
     name: Introduction to Parallel Programming
-    weight: 1
 ---
 
 This course is an introduction to parallel programming.  

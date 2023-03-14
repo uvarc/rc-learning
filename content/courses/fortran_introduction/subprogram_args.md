@@ -120,14 +120,36 @@ end subroutine
 
 The name of a subprogram can be passed to another subprogram.
 **Example**
-a numerical-integration subroutine needs the function to be integrated.
+a numerical-integration subroutine needs to be able to call the function to be integrated.
 ```
-subroutine trap(f,a,b)
+subroutine trap(f,a,b,h,n)
 ```
 where f is a function.
 
-The unit in which the subprogram receiving the name is called must have an interface for the subprogram to be passed.
+The procedure name to be passed must have an interface in the unit that invokes the subprogram that will take this parameter.  The subprogram must also have an interface for the passed procedure. The older syntax `EXTERNAL func` may be used for the parameter, but new code should use `INTERFACE`.  This will result in an INTERFACE block within another INTERFACE, which may look a bit wordy but is the modern way to declare this type of parameter.
+```fortran
+interface
+  real function trap(f,a,b,h,n)
+      implicit none
+      real,    intent(in)   :: a, b, h
+      integer, intent(in)   :: n
+      interface
+         real function f(x)
+         implicit none
+         real, intent(in) :: x
+         end function
+       end interface
+   end function
+   real function f(x)
+        implicit none
+        real, intent(in) :: x
+   end function
+end interface
+```
 
+{{< spoiler text="Full example of passing a subprogram as a dummy variable" >}}
+{{< code-download file="/courses/fortran_introduction/codes/trap.f90" lang="fortran" >}}
+{{< /spoiler >}}
 
 **Exercise**
 
@@ -136,7 +158,6 @@ Each calling unit must have an interface for every subprogram it calls.
 
 Use intent and implicit none.  Remember that implicit none must be declared in each unit.
 You may use arrays to represent the points.
-
 
 {{< spoiler text="Example Solution" >}}
 {{< code-download file="/courses/fortran_introduction/solns/euclid.f90" lang="fortran" >}}

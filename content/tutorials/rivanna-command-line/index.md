@@ -9,6 +9,7 @@ authors: [gka]
 tags: [rivanna,hpc]
 categories: ["Rivanna","HPC"]
 
-notes: rivanna-command-line 
-
+#notes: rivanna-command-line
+url_pdf: slides/rivanna-cli/UsingRivannaCommandLine.pdf 
+url_slides: slides/rivanna-cli/UsingRivannaCommandLine.pptx
 ---

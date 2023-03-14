@@ -1,0 +1,1 @@
+grep -h p list? | sort > sorted_plist.txt

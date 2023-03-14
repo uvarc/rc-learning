@@ -6,7 +6,6 @@ weight: 24
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
-        weight: 24
 ---
 
 We would like to start with a simple example that has a simple work distribution.  To make it even easier, we will use no communications.
@@ -34,11 +33,6 @@ Download the serial code for your language of choice.  Compile it (if appropriat
 
 {{< spoiler text="Fortran" >}}
 {{< code-download file="/courses/parallel_computing_introduction/codes/random_walk.f90" lang="fortran" >}}
-{{< /spoiler >}}
-
-For Fortran also download the random.f90 module
-{{< spoiler text="Fortran" >}}
-{{< code-download file="/courses/parallel_computing_introduction/codes/random.f90" lang="fortran" >}}
 {{< /spoiler >}}
 
 {{< spoiler text="Python" >}}
@@ -74,8 +68,9 @@ Try with -np 8
 6:1000000,1000,418.708
 7:1000000,1000,881.862
 4:1000000,1000,744.641
+```
 
 Why is the rank order jumbled?
 
-MPI output is  _nondeterministic_  unless the programmer forces it to order it, using a _barrier_.
+MPI output is _nondeterministic_ unless the programmer forces it to be ordered, using a _barrier_.
 

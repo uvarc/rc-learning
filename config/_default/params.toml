@@ -26,6 +26,8 @@ font = ""
 # Sizes: XS (extra small), S (small), M (medium), L (large - DEFAULT), XL (extra large)
 font_size = "L"
 
+logo = "/img/RC_logo_horizontal.png"
+
 ############################
 ## Basic Info
 ############################
@@ -148,8 +150,8 @@ main_menu = {align = "l", show_logo = true}
 reading_time = false
 
 # Display next/previous section pager? (true/false)
-section_pager = false
-#docs_section_pager = true  # Display pager in Docs layout (e.g. tutorials)?
+#section_pager = false
+docs_section_pager = true  # Display pager in Docs layout (e.g. tutorials)?
 
 # Enable in-built social sharing buttons? (true/false)
 sharing = false
