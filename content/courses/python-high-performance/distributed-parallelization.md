@@ -11,13 +11,13 @@ menu:
 
 Nearly all recent computers, including personal laptops, are multicore systems.  The central-processing units (CPUs) of these machines are divided into multiple processor cores.  These cores share the main memory (RAM) of the computer and may share at least some of the faster memory (cache).  This type of system is called a **shared-memory processing** or **symmetric multiprocessing** (SMP) computer.  
 
-{{< figure src="/notes/python_high_perf/SMP.png" caption="Schematic of an SMP system" >}}
+{{< figure src="/courses/python-high-performance/SMP.png" caption="Schematic of an SMP system" >}}
 
 A computing cluster consists of a group of computers connected by a network.  High-performance clusters nearly always have a network that is faster than the Ethernet used by consumer devices.  Many use a network called InfiniBand.  A cluster is thus a **distributed-memory processor** (DMP).  Each computer, usually called a **node**, is independent of the others and can exchange data only through the network.
 
 Multiprocessing works only on a single computer with multiple computing cores (SMP). If you have access to a computing cluster you can use distributed parallelization to run your program on multiple computers (DMP) as well as multiple cores per computer.  This requires a communications library.  
 
-{{< figure src="/notes/python_high_perf/DMP.png" caption="Schematic of a DMP system" >}}
+{{< figure src="/courses/python-high-performance/DMP.png" caption="Schematic of a DMP system" >}}
 
 Before considering parallelizing your program, it is highly desirable to spend some time optimizing the _serial_ version.  Particularly if you can utilize NumPy and Pandas effectively, you may not need to try to parallelize the code.  If you still need to do so, a well-optimized, clearly-written script will make the work much easier.
 
@@ -59,10 +59,10 @@ Certain operations that require the full result, such as plotting, will automati
 To visualize the task graph for a given Dask object, be sure that _graphviz_ is installed (python-graphviz for conda).  The `visualize` method for a Dask object will then produce the graph.  If run at the command line, the result should be written to a file.  Within a Jupyter notebook, the image will be embedded.  
 
 **Example** 
-{{% code-download file="/notes/python_high_perf/codes/dask_viz.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/dask_viz.py" lang="python" %}}
 
 {{< spoiler text="Expected result" >}}
-{{< figure src="/notes/python_high_perf/codes/da_mean.png" height=720 >}}
+{{< figure src="/courses/python-high-performance/codes/da_mean.png" height=720 >}}
 {{< /spoiler >}}
 
 ### Dask Dataframes
@@ -126,7 +126,7 @@ When creating a Dataframe, Dask does attempt to assign a type to each column.  I
 
 **Example**
 
-{{% code-download file="/notes/python_high_perf/codes/dask_df_example.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/dask_df_example.py" lang="python" %}}
 
 ### Dask Delayed
 
@@ -134,7 +134,7 @@ Another example of _lazy evaluation_ by Dask is delayed evaluation. Sometimes fu
 
 **Example** 
 
-{{% code-download file="/notes/python_high_perf/codes/dask_delayed.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/dask_delayed.py" lang="python" %}}
 
 It is also possible to invoke delayed through a decorator.
 ```python
@@ -160,7 +160,7 @@ Dask Bags implement collective operations like mapping, filtering, and aggregati
 
 **Example**
 
-Download the [data](/notes/python_high_perf/data.zip).  Unzip it where the Python interpreter can find it.  If using Jupyter make sure to set the working folder and then provide the path to the `data` folder.
+Download the [data](/courses/python-high-performance/data.zip).  Unzip it where the Python interpreter can find it.  If using Jupyter make sure to set the working folder and then provide the path to the `data` folder.
 ```python
 import dask.bag as db
 b = db.read_text('data/*.json').map(json.loads)
@@ -243,7 +243,7 @@ MPI consists of dozens of functions, though most programmers need only a fractio
 
 MPI requires more advanced programming skills so we will just show an example here.  Our Monte Carlo pi program is well suited to MPI so we can use that.
 
-{{% code-download file="/notes/python_high_perf/codes/MonteCarloPiMPI.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/MonteCarloPiMPI.py" lang="python" %}}
 
 The first invocation of MPI is the call to Get_rank.  This returns the rank of the process that calls it.  Remember that each MPI process runs as a separate executable; the only way their behaviors can be controlled individually is through the rank.  This call also initializes MPI; a separate MPI.Init is not required. The next line allows us to find out how many processes are in COMM_WORLD.  The number of processes for MPI programs is always set outside the program, and should never be hardcoded into the source code.
 
@@ -265,7 +265,7 @@ srun python MonteCarloPiMPI.py 1000000000
 
 **Note: you cannot launch the MPI program with `srun` on the Rivanna login nodes.**  In order to execute our program on designated compute node(s), we need to write a simple bash script that defines the compute resources we need.  We call this our job script.  For our example, the job script `pimpi.sh` looks like this:
 
-{{% code-download file="/notes/python_high_perf/codes/pimpi.sh" lang="bash" %}}
+{{% code-download file="/courses/python-high-performance/codes/pimpi.sh" lang="bash" %}}
 
 The `#SBATCH` directives define the compute resources (`-N`, `--ntasks-per-node`, `-p`), compute wall time (`-t`), and the allocation account (`--account`) to be used. `-N 1` specifies that all MPI tasks should run on a single node.  We are limiting the number of nodes for this workshop so that everyone gets a chance to run their code on the shared resources.  
 
@@ -305,7 +305,7 @@ Dask can use `mpi4py` on a high-performance cluster.  First install mpi4py accor
 ### Schedulers
 
 We have not discussed Dask [_schedulers_](https://docs.dask.org/en/latest/scheduling.html) previously. The scheduler is a process that managers the workers that carry out the tasks.
-We have been implicitly using the _single-machine_ scheduler, which is the default. Within the single-machine scheduler are two options, _threaded_ and _processes_.  The threaded single-machine scheduler is the default for Dask Arrays, Dask Dataframes, and Dask Delayed.  However, as we discussed with [Multiprocessing](/notes/python_high_perf/multiprocessing), the GIL (Global Interpreter Lock) inhibits threading in general.  Most of NumPy and Pandas release the GIL so threading works well with them.  If you cannot use NumPy and Pandas then the processes scheduler is preferred.  It is much like Multiprocessing.
+We have been implicitly using the _single-machine_ scheduler, which is the default. Within the single-machine scheduler are two options, _threaded_ and _processes_.  The threaded single-machine scheduler is the default for Dask Arrays, Dask Dataframes, and Dask Delayed.  However, as we discussed with [Multiprocessing](/courses/python-high-performance/multiprocessing), the GIL (Global Interpreter Lock) inhibits threading in general.  Most of NumPy and Pandas release the GIL so threading works well with them.  If you cannot use NumPy and Pandas then the processes scheduler is preferred.  It is much like Multiprocessing.
 
 To use Dask-MPI we must introduce the Dask `distributed` scheduler. The `distributed` scheduler may be preferable to `processes` even on a single machine, and it is required for use across multiple nodes. 
 
@@ -316,11 +316,11 @@ We will discuss here only the batch interface for Dask MPI.  Dask-MPI provides a
 **Example**
 Convert the "timeseries" example to Dask MPI.
 
-{{< code-download file="/notes/python_high_perf/codes/dask_df_mpi.py" lang="python" >}}
+{{< code-download file="/courses/python-high-performance/codes/dask_df_mpi.py" lang="python" >}}
 
 Run this simple example with
 
-{{< code-download file="/notes/python_high_perf/codes/run_dask_mpi.slurm" lang="bash" >}}
+{{< code-download file="/courses/python-high-performance/codes/run_dask_mpi.slurm" lang="bash" >}}
 
 The OMPI_MCA environment variable suppresses a warning message that is seldom relevant.
 

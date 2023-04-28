@@ -57,7 +57,7 @@ The result is a _generator object_.  This can save both memory and time.
 
 **Example**
 The following code tests the speed of map, list comprehension, and loop.
-{{% code-download file="/notes/python_high_perf/codes/replace_forloop_comp.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/replace_forloop_comp.py" lang="python" %}}
 
 The result on one particular system:
 ```python
@@ -72,10 +72,10 @@ NumPy provides a large library of functions on NumPy arrays that take the place 
 
 **Exercise:** 
 Nested for loops are **very inefficient** (`loops.py`)
-{{% code-download file="/notes/python_high_perf/codes/loops.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/loops.py" lang="python" %}}
 
 Eliminating for loops is **much faster** (`aops.py`)
-{{% code-download file="/notes/python_high_perf/codes/aops.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/aops.py" lang="python" %}}
 
 **Results** with Python 3.6.9 on one particular system:
 
@@ -98,7 +98,7 @@ u[1:-1,1:-1]=0.25*(u[2:,1:-1]+u[:-2,1:-1]+u[1:-1,2:]+u[1:-1,:-2]
 
 **Example**
 Our "dummy" function is a ufunc, so we can run a trial with little modification to the previous code.  The "setup" code is not timed by timeit.
-{{% code-download file="/notes/python_high_perf/codes/replace_forloop.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/replace_forloop.py" lang="python" %}}
 
 The difference is remarkable.  Remember that times for different runs may vary somewhat even on the same system, but the basic result will be similar.
 ```

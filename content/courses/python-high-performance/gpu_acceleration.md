@@ -36,7 +36,7 @@ export CUDA_PATH=/usr/local/cuda/bin
 Methods invoked through the CuPY module will be carried out on the GPU.  Corresponding NumPy methods will be processed by the CPU as usual.  Data transfer happens through _streams_.  The null stream is the default.
 
 CuPY provides several packages.  In this example we show its FFT implementation.
-{{% code-download file="/notes/python_high_perf/codes/pycuda_example.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/pycuda_example.py" lang="python" %}}
 
 **Exercise**
 Providing enough work to fill the GPU's threads is critical to overcoming the overhead of copying data.  
@@ -60,9 +60,9 @@ export PATH=/usr/local/cuda/bin:$PATH
 **Example**
 
 This script is copied directly from PyCUDA's examples.
-{{% code-download file="/notes/python_high_perf/codes/pycuda_example.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/pycuda_example.py" lang="python" %}}
 
-Much as we saw when discussing using [compiled code](/notes/python_high_perf/compiled_code), we must define our function in C style.  This block of code to be executed on the device is called a _kernel_.  PyCUDA compiles the kernel, uses its interface with NumPy to allocate memory on the device, copy the Ndarrays, carry out the computation, then copy the result from the device to the `dest` array.
+Much as we saw when discussing using [compiled code](/courses/python-high-performance/compiled_code), we must define our function in C style.  This block of code to be executed on the device is called a _kernel_.  PyCUDA compiles the kernel, uses its interface with NumPy to allocate memory on the device, copy the Ndarrays, carry out the computation, then copy the result from the device to the `dest` array.
 
 Notice that the Ndarrays are declared to be `dtype=float32`.  Very few GPUs support double-precision (`float` or `float64` in Python) hardware, so using doubles may be slow as the computations must be done in software on the device.
 
@@ -83,7 +83,7 @@ For best performance, the signature of the function arguments must be specified.
 **Example**
 
 From the Numba documentation:
-{{% code-download file="/notes/python_high_perf/codes/numba_vectorize.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/numba_vectorize.py" lang="python" %}}
 
 You may ignore the deprecation warning.
 The run may also emit a warning about underutilization:
@@ -95,7 +95,7 @@ This is because efficient use of a GPU requires that the device threads be as fi
 Another requirement for efficient GPU utilization is memory management.  Using NumPy arrays will result in copying from the host memory to the device memory.
 Calling a ufunc with NumPy arrays can result in a large amount of copying of data back and forth between host and device.
 We can instead declare arrays that will be set up in the GPU memory.  The `todevice` method will copy the host array to the device array.  We can also declare an output array on the device for the result.  When we are done with our calculations, we explicitly copy the result back to the host memory.
-{{% code-download file="/notes/python_high_perf/codes/numba_vectorize_todevice.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/numba_vectorize_todevice.py" lang="python" %}}
 
 If you time these two scripts, you may see a small speedup even for this relatively low-efficiency problem when copying is minimized.  Of course, we should aim for a large amount of work on the device arrays before we return the output to the host, and we should strive to make the problem large enough to fill the GPU's threads.
 
@@ -107,7 +107,7 @@ Numba has a `cuda.jit` decorator that can be used like the `jit` equivalent, but
 
 This example of a matrix-multiplication kernel is taken from the Numba CUDA [documentation](https://numba.readthedocs.io/en/stable/cuda/).
 
-{{% code-download file="/notes/python_high_perf/codes/numba_cuda_example.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/numba_cuda_example.py" lang="python" %}}
 
 ## RAPIDS
 

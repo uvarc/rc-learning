@@ -133,7 +133,7 @@ Here is a more realistic example.  Let’s parallelize our Monte Carlo pi solver
 Map requires an iterator for its second argument. We will manually divide the total number of "data throws" into chunks of roughly equal size on each process and store the result into a list _myNumPoints_. The Pool map method will then distribute the elements of the list, one to each cpu.  This is called **load balancing** in parallel computing terms.  Maximum efficiency generally occurs when each process performs approximately the same quantity of work.
 We also do not hard-code the number of processes, but will set an environment variable `NUM_PROCS` outside to select the core count. 
 
-{{% code-download file="/notes/python_high_perf/codes/MonteCarloPiMC.py" lang="python" %}}
+{{% code-download file="/courses/python-high-performance/codes/MonteCarloPiMC.py" lang="python" %}}
 
 #### Running on a Local Computer
 
@@ -169,7 +169,7 @@ For those who have access to a high-performance computing cluster such as UVA's 
 
 In order to execute our program on designated compute node(s), we need to write a simple bash script that defines the compute resources we need.  We call this our job script.  For our example, the job script `pimc.sh` looks like this:
 
-{{% code-download file="/notes/python_high_perf/codes/pimc.sh" lang="bash" %}}
+{{% code-download file="/courses/python-high-performance/codes/pimc.sh" lang="bash" %}}
 
 You can view this script in a text editor on Rivanna.  If you are connected through a FastX Mate session, go to the menu **Applications** -> **Accessories** --> **Pluma Text Editor**.
 
@@ -224,7 +224,7 @@ When we run the exercise with 10^9 points we may obtain results like these (on o
 <br>
 If we plot time versus number of cores we obtain the following graph.  The orange line is ideal scaling, where the total time is the serial time divided by the number of cores used.  The blue line shows the actual runtime and speedup achieved.
 
-![](/notes/python_high_perf/mp-scaling.png)
+![](/courses/python-high-performance/mp-scaling.png)
 
 Our actual scaling in this case is quite close to perfect.  This has a lot to do with our problem; the amount of time taken is mostly proportional to the number of throws to be calculated.  Not all problems scale this well.
 
