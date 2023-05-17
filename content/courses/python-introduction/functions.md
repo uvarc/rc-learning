@@ -97,24 +97,6 @@ Write another function that takes a BMI value and returns the category (Underwei
 {{< code-download file="/courses/python-introduction/exercises/user_bmi_function.py" lang="python" >}}
 {{< /spoiler >}}
 
-## Variable Passing
-
-Python passes variables in a manner called _assignment_. This means that if an argument is mutable and it is changed in the function, it __will change__ in the caller.  If it is _immutable_ it will not be changed even if the function changes its value; a local copy will be made within the function block.  If a function changes one of its parameters that is called a __side effect__.
-
-**Exercise**
-
-```python
-def side_effect(L,x):
-    L.append(x)
-    return None
-L=[1,2,3,4]
-side_effect(L,11)
-print(L)
-print(side_effect(L,99))
-```
-
-What is printed in the last line and why?  What is `L` now?
-
 ## Early Returns
 
 The `return` statement exits immediately with no more statements being executed.  A function may contain multiple return statements, but only the first encountered will be executed.  In conjunction with conditionals, the function can thus return early.

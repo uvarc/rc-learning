@@ -51,7 +51,7 @@ A=np.load(f,A)
 
 ### Some Frequently Used NumPy Functions
 
-
+{{< table >}}
 | Array Manipulation | Mathematical Operations    |
 | ------------------ | -------------------------- |
 | arange             | abs, cos, sin, tan         |
@@ -65,6 +65,7 @@ A=np.load(f,A)
 | repeat, reshape    | inf, isinf                 |
 | rollaxis, swapaxis | linspace                   |
 | transpose          | lstsq                      |
+{{< /table >}}
 
 This is just a sample; the full reference can be examined at the [manual](https://docs.scipy.org/doc/numpy/reference/routines.html).
 

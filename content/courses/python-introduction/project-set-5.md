@@ -3,18 +3,18 @@ title: Project Set 5
 toc: true
 type: docs
 draft: false
-weight: 220
+weight: 230
 
 menu:
     python-introduction:
-        weight: 222
+        weight: 230
 ---
 
 Classes.
 
 ## Project 19
 
-Download the file [vabirds.csv](data/vabirds.csv). 
+Download the file [vabirds.csv](/data/vabirds.csv). 
 
 a) Use Pandas to read the file and capture the header information. Use the header to create of list of years.  Convert to a numpy array of floats.
 

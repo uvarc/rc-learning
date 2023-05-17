@@ -8,6 +8,7 @@ weight: 75
 
 Download the file [bodyfat.csv](/data/bodyfat.csv).  This is a dataset of body fat, age, height, and weight for a set of participants in a study. BMI categories are as follows:
 
+{{< table >}}
 |Severely underweight |  BMI < 16.0 |
 |Underweight          | 16 <= BMI < 18.5 |
 |Normal               | 18.5 <= BMI < 25 |
@@ -15,6 +16,7 @@ Download the file [bodyfat.csv](/data/bodyfat.csv).  This is a dataset of body f
 |Obese Class I        | 30 <= BMI < 35 |
 |Obese Class II       | 35 <= BMI < 40 |
 |Obese Class III      | BMI > 40       |
+{{< /table >}}
 
 Write a `bmistats` module containing functions for the following:
 1. Convert pounds to kilograms.  Use the actual conversion factor, not the approximate one.  Look it up on Google.

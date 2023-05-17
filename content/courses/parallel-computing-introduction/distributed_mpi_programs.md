@@ -74,6 +74,7 @@ In every language, it is _imperative_ that the data types in the send and receiv
 
 MPI supports most C/C++ datatypes as well as some extensions. The most commonly used are listed below.
 
+{{< table >}}
 |   C/C++ type   |  MPI_Datatype  |
 |----------------|----------------|
 |   int          |    MPI_INT     |
@@ -89,32 +90,40 @@ MPI supports most C/C++ datatypes as well as some extensions. The most commonly 
 |   long double  |  MPI_LONG_DOUBLE     |
 |   char         |  MPI_CHAR        |
 |   wchar         |  MPI_WCHAR        |
+{{< /table >}}
 
 Specific to C:
 
+{{< table >}}
 |   C type       |  MPI_Datatype      |
 |----------------|----------------|
 |   bool         |  MPI_C_BOOL        |
 |   complex         |  MPI_C_COMPLEX        |
 |   double complex  |  MPI_C_DOUBLE_COMPLEX        |
+{{< /table >}}
 
 Specific to C++:
 
-|   C type       |  MPI_Datatype      |
+{{< table >}}
+|   C++ type       |  MPI_Datatype      |
 |----------------|----------------|
 |   bool         |  MPI_CXX_BOOL        |
 |   complex         |  MPI_CXX_COMPLEX        |
 |   double complex  |  MPI_CXX_DOUBLE_COMPLEX        |
+{{< /table >}}
 
 Extensions
 
+{{< table >}}
 |   C/C++ type   |  MPI_Datatype  |
 |----------------|----------------|
 |   none         | MPI_BYTE         |
 |   none         | MPI_PACKED       |
+{{< /table >}}
 
 #### Fortran
 
+{{< table >}}
 |   Fortran type |  MPI_Datatype      |
 |----------------|--------------------|
 |   integer      |    MPI_INTEGER     |
@@ -126,14 +135,17 @@ Extensions
 |   character    |  MPI_CHARACTER     |
 |   none         |  MPI_BYTE          |
 |   none         |  MPI_PACKED        |
+{{< /table >}}
 
 Most MPI distributions support the following types.  These are Fortran 77 style declarations; newer code should use `KIND` but care must be taken that the number of byes specified is correct.
 
+{{< table >}}
 |   Fortran type |  MPI_Datatype      |
 |----------------|--------------------|
 |   integer\*16      |    MPI_INTEGER16     |
 |   real\*8      |    MPI_REAL8     |
 |   real\*16      |    MPI_REAL16     |
+{{< /table >}}
 
 #### Python
 

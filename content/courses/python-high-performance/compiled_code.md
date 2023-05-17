@@ -57,12 +57,14 @@ Python provides the [ctypes](https://docs.python.org/3/library/ctypes.html) stan
 
 Much as for f2py, the user must prepare some form of signature for the C functions.  Ctypes types include
 
+{{< table >}}
 | Python | C |
 |--------|---|
 |c_double| double |
 |c_int| int |
 |c_longlong| longlong |
 |c_numpy.ctypeslib.ndpointer(dtype=numpy.float64) | \*double| 
+{{< /table >}}
 
 See the [documentation](https://docs.python.org/3/library/ctypes.html#fundamental-data-types) for a complete list.
 

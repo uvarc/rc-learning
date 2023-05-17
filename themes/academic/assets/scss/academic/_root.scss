@@ -478,8 +478,8 @@ a.badge:hover {
 
 /* Based on Bootstrap's `table-responsive` style. */
 table {
-  display: block;
-  width: 100%;
+  display: table;
+  //width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin-bottom: 1rem;

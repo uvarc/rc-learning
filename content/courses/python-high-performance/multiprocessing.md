@@ -214,14 +214,15 @@ SLURM creates output files for each job that log the information that the progra
 
 When we run the exercise with 10^9 points we may obtain results like these (on one particular workstation):
 
+{{< table >}}
 | CPU cores | Run time | Scaling
 | --- | --- | --- |
 | 1 (serial) | 402 sec | 1 |
-| 4 | 109.5 sec | |
-| 8 | 60.5 sec | |
-| 16 | 32.5 sec | |
+| 4 | 109.5 sec | 3.67 |
+| 8 | 60.5 sec | 6.64  |
+| 16 | 32.5 sec | 12.37  |
+{{< /table >}}
 
-<br>
 If we plot time versus number of cores we obtain the following graph.  The orange line is ideal scaling, where the total time is the serial time divided by the number of cores used.  The blue line shows the actual runtime and speedup achieved.
 
 ![](/courses/python-high-performance/mp-scaling.png)

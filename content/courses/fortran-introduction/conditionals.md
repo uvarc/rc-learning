@@ -25,6 +25,7 @@ Conditional operators are used to construct logical (Boolean) expressions.
 These are used to compare numerical values.
 Fortran has two sets, one with letters and one with symbols.  Note that `/=` has a `/` for “not.”  The periods around the letter-based operators are required.
 
+{{< table >}}
 |   Letters    |   Symbols   |   Meaning  |
 |--------------|-------------|------------|
 |   .EQ.       |   ==        |   Equality |
@@ -33,14 +34,17 @@ Fortran has two sets, one with letters and one with symbols.  Note that `/=` has
 |   .LE.       |    <=       | Less than or equal  |
 |   .GT.       |    >        | Greater than  |
 |   .GE.       |    >=       | Greater than or equal to  |
+{{< /table >}}
 
 ## Logical Operators
 
+{{< table >}}
 |   Operator    |   Meaning   |
 |---------------|-------------|
 |   .NOT.       |   Negation of what follows |
 |   .AND.       |     and     |
 |   .OR.        |     or      |
+{{< /table >}}
 
 It is important to note that `.OR.` is an _inclusive_ or.  It evaluates to `.TRUE.` if either operand is true.  This is different from many human languages, for which "or" is generally, though not always, _exclusive_.  An exclusive "or" is true only if exactly one of the conditions is true.
    You can have cake or ice cream (but not both).

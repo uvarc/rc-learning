@@ -16,6 +16,7 @@ The standard MPI Datatypes that we have already seen are used for the operations
 
 The built-in operations are the same for all languages.
 
+{{< table >}}
 |  operation  |  MPI_Op |
 |-------------|---------|
 |  bit-wise and  |  MPI_BAND |
@@ -30,6 +31,7 @@ The built-in operations are the same for all languages.
 |  minumum  |  MPI_MIN |
 |  maximum and its index   |  MPI_MAXLOC |
 |  minimum and its index   |  MPI_MINLOC |
+{{< /table >}}
 
 The operations in Python mpi4py are the same, but with a period rather than an underscore, e.g. `MPI.SUM`.
 
@@ -47,6 +49,7 @@ int MPI_Reduce(void *operand, void *result, int count, MPI_Datatype type, MPI_Op
 
 The special predefined types used for MPI_MAXLOC and MPI_MINLOC in C/C++ assume a struct has been defined, with the first member's type as indicated and the second an `int`.
 
+{{< table >}}
 |  Types (value, index)  |  MPI_Datatype |
 |-------------|---------|
 | float, int  |  MPI_FLOAT_INT |
@@ -55,6 +58,7 @@ The special predefined types used for MPI_MAXLOC and MPI_MINLOC in C/C++ assume 
 | int, int  |  MPI_2INT |
 | short, int  |  MPI_SHORT_INT |
 | long double, int  |  MPI_LONG_DOUBLE_INT |
+{{< /table >}}
 
 ### Fortran
 
@@ -66,6 +70,7 @@ MPI_REDUCE(sendbuf, recvbuf, count, datatype, op, root, comm, ierr)
 {{< code-download file="/courses/parallel-computing-introduction/codes/reduce.f90" lang="fortran" >}}
 {{< /spoiler >}}
 
+{{< table >}}
 For MPI_MAXLOC and MPI_MINLOC, Fortran derived types are not accommodated at this time, so an array with two elements of the same type must be used. The index (the second element) can coerced to an integer if necessary.
 
 |  Types (value, index)  |  MPI_Datatype |
@@ -73,6 +78,7 @@ For MPI_MAXLOC and MPI_MINLOC, Fortran derived types are not accommodated at thi
 | real  |  MPI_2REAL |
 | double precision  |  MPI_2DOUBLE_PRECISION |
 | integer  |  MPI_2INTEGER |
+{{< /table >}}
 
 ### Python
 

@@ -34,7 +34,8 @@ will result in an error, but
 ```
 works.
 
-A C-style string may only be initialized to a quoted string when it is declared.```c++
+A C-style string may only be initialized to a quoted string when it is declared.
+```c++
    char greeting[6];
    greeting="Hello";
 ```
@@ -44,12 +45,14 @@ is invalid.
 
 C++ supports C-style string functions.  Include the `<cstring>` header.
 
-|    Function    |      Operation    |   Usage     |
-|--------------|-------------------|-------------|
+{{< table >}}
+|    Function   |      Operation    |   Usage     |
+|:-------------:|:-----------------:|:-----------:|
 |   strcpy      |  copy str2 to str1 |  strcpy(str1,str2)  |
 |   strcat      |  concatenate str2 to str1|  strcat(str1,str2)  |
 |   strcmp      |  compare two strings |  strcmp(str1,str2)  |
 |   strlen      |  length of string (excludes null)  |  strlen(str)  |
+{{< /table >}}
 
 Individual characters may be addressed using bracket notation.  Each character is one item, and the count begins from zero and goes to strlen-1.
 ```c++

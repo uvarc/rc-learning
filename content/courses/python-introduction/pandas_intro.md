@@ -71,6 +71,7 @@ print(grade_book)
 
 The result of printing the DataFrame should look like this:
 
+{{< table >}}
 | | Name           | Year | Grade |
 |-|--------------- | ---- | ----- |
 |0| Jim Dandy      | 2    | 85.4  |
@@ -78,6 +79,7 @@ The result of printing the DataFrame should look like this:
 |2| Minnie Moocher | 1    | 73.2  |
 |3| Joe Friday     | 2    | 82.3  |
 |4| Teddy Salad    | 3    | 98.5  |
+{{< /table >}}
 
 Now we can apply methods to the `grade_book` DataFrame.
 

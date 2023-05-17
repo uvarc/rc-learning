@@ -116,6 +116,7 @@ This may make more sense once we understand file [input/output](/courses/cpp-int
 
 The C++11 standard has introduced several type-conversion functions:
 
+{{< table >}}
 | Function    |  Conversion | 
 |-------------|-------------|
 |`std::stoi`  |  string to integer |
@@ -127,5 +128,6 @@ The C++11 standard has introduced several type-conversion functions:
 | `std::stold`   |  string to long double|
 | `std::to_string`    |  number to string |
 | `std::to_wstring`   |  number to wide string |
+{{< /table >}}
 
 These are in the standard string class for C++11 and above.  Some compilers may require the addition of a `-std=c++11` flag to access them.

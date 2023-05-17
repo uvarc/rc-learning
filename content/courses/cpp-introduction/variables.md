@@ -47,6 +47,7 @@ Unsigned integers omit the sign bit and use all the available bits for the value
 C++ supports several categories of integer, differing by the number of bits to represent them and whether they are signed or unsigned.
 The C++ standard does not specify the number of bits in an integer, only the _minimum_ for each category.
 
+{{< table >}}
 |    Declaration    | Minimum Number of Bits   |  Minimum Range  |
 |-------------------|--------------------------|-----------------|
 |    short          |      16              |  -32,768 to 32,767   |
@@ -57,6 +58,7 @@ The C++ standard does not specify the number of bits in an integer, only the _mi
 |  unsigned long    |      32              |  0 to 4,294,967,295               |
 |  long long        |      64              | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807  |
 |  unsigned long long |    64              |  0 to 18,446,744,073,709,551,615  |
+{{< /table >}}
 
 The programmer can use the `sizeof` function to determine the actual size of a type on the system in use.  It returns a result in bytes.  On most computing platforms, the `int` and `long` are the same (32 bits or 4 bytes).
 
@@ -89,10 +91,12 @@ conversion.  Moreover, some numbers can be represented exactly given the availab
 The most common types of floating-point number supported by hardware are _single precision_, which occupies 32 bits, and _double precision_, which takes up 64 bits.
 As for integers, the C++ standard specifies only _minimum_ ranges.  On nearly all general-purpose hardware, single-precision floating point is `float` and double-precision floating point is `double`.
 
+{{< table >}}
 |   Precision  |  Exponent Bits |  Significand Bits | Exponent Range (base 2) | Approximate Decimal Range  |  Approximate Decimal Precision |
 |--------------|----------------|-------------------|-------------------------|----------------------------|--------------------------------|
 | Single       |  8    |  23  |  -126/127 | &plusmn;2 x 10<sup>-38</sup> to &plusmn;3 x 10<sup>38</sup> | 7 digits |
 | Double       |  11   |  52  |  -1022/1023 |  &plusmn;2.23 x 10<sup>−308</sup> to &plusmn;1.80 x 10<sup>308</sup> |  16 digits |
+{{< /table >}}
 
 C++ specifies a `long double` type but requires only that it be at least equivalent to double.
 
@@ -122,6 +126,7 @@ Since they are integers they can be used in mathematical expressions, though thi
 
 _Literals_ are specific values corresponding to a particular type.  The compiler infers the type from the format.
 
+{{< table >}}
 |  Value  |  Type |
 |---------|-------|
 |  3      |  int  |
@@ -130,5 +135,6 @@ _Literals_ are specific values corresponding to a particular type.  The compiler
 | "This is a string" | string |
 | "Isn’t it true?" | string |
 | true    |  bool  |
+{{< /table >}}
 
 Note that the default type for a floating-point literal is a `double`.

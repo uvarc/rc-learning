@@ -15,12 +15,15 @@ There are two basic types of messaging: **blocking** and **nonblocking**.  Block
 Within these two major categories, MPI defines four modes of sending data. 
 
 Different routines correspond to these modes.
+
+{{< table >}}
 | Mode |  Blocking  |   Non-Blocking |  Pros  |   Cons  |
 |------|------------|----------------|--------|---------|
 | Synchronous | MPI_Ssend | MPI_Issend |  Safe  |  Introduces overhead (waiting) |
 | Buffered | MPI_Bsend | MPI_Ibsend |  Predictable, fast | Requires more memory, copying takes time | 
 | Ready | MPI_Rsend | MPI_Irsend | Fast  | Unpredictable, hard to debug |
 | Standard | MPI_Send | MPI_Isend | Usually a good balance between speed and safety | Relies on quality of MPI implementation |
+{{< /table >}}
 
 All `send` routines have similar syntax
 ```c++
@@ -67,9 +70,11 @@ Because of its usually good balance between speed and safety, the standard send 
 
 The receive is either blocking or nonblocking.  All other modes depend on the send.
 
+{{< table >}}
 |  Blocking  |   Non-Blocking | 
 |------------|----------------| 
 |  MPI_Recv  |   MPI_Irecv    |
+{{< /table >}}
 
 The syntax of the blocking receive is
 

@@ -291,12 +291,14 @@ Rerun the MPI job using 1 or 4 cpu cores by changing the `--ntasks-per-node` opt
 ### Scaling
 On the cluster, the timings are very similar to Multiprocessing on the workstation.
 
+{{< table >}}
 | CPU Cores | Run Time |
 | --- | --- |
 | 1 (serial) | 400 sec|
 | 4 | 102 sec |
 | 8 | 60 sec |
 | 16 | 31 sec |
+{{< /table >}}
 
 ## Dask-MPI
 

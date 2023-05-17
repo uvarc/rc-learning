@@ -94,6 +94,7 @@ Run the following program.  Modify the values of the different variables and see
 
 These are used to compare numerical values.  They can also compare character and string variables; ordering is determined by the character encoding.  They return a Boolean value.
 
+{{< table >}}
 |   Symbols   |   Meaning  |
 |-------------|------------|
 |   ==        |  Equality  |
@@ -102,14 +103,17 @@ These are used to compare numerical values.  They can also compare character and
 |    <=       | Less than or equal  |
 |    >        | Greater than  |
 |    >=       | Greater than or equal to  |
+{{< /table >}}
 
 ### Boolean Operators
 
+{{< table >}}
 |   Operator    |   Meaning   |
 |---------------|-------------|
 |   !           |   Negation of what follows |
 |   &&          |     and     |
 |   ||          |     or      |
+{{< /table >}}
 
 It is important to note that `||` is an _inclusive_ or.  It evaluates to `true` if either operand is true.  This is different from many human languages, for which "or" is generally, though not always, _exclusive_.  An exclusive "or" is true only if exactly one of the conditions is true.
    You can have cake or ice cream (but not both).
@@ -121,12 +125,14 @@ where `a` and `b` are Boolean expressions.
 
 "Truth tables" define the outcome of Boolean operators.  This example is for "and."
 
+{{< table >}}
 |   Operator    |   Operand 1   | Operand 2 |  Result |
 |---------------|---------------|-----------|---------|
 |     &&        |   true        |  true     |  true   |
 |     &&        |   false       |  true     |  false  |
 |     &&        |   true        |  false    |  false  |
 |     &&        |   false       |  false    |  false  |
+{{< /table >}}
 
 ## Conditional Operator Precedence
 
@@ -146,8 +152,10 @@ Experiment with different values for the variables in this code.
 Bitwise operators are defined for "integer type" variables, e.g. `int`, `short i
 nt`, `unsigned int`, `char`, `unsigned char` etc.  They return another "integer type" variable.
 
+{{< table >}}
 |   Operator    |   Meaning   |
 |---------------|-------------|
 |   &           |     bitwise and     |
 |   \|           |     bitwise or      |
 |   ^           |     bitwise xor (exclusive or)      |
+{{< /table >}}

@@ -96,12 +96,14 @@ end subroutine
 
 ## Strengths and Weaknesses
 
+{{< table >}}
 |Fortran        |  C++ (not C)   |
 |---------------|----------------|
 |(2003/8) Many math function built-ins |Limited mathematical built-ins |
 |Multidimensional arrays a first-class data structure, array operations supported| True multidimensional arrays not possible without add-on libraries (Blitz++, Boost)|
 |Does not support true strings yet, just character arrays| Good string handling (compared to C) |
 |Classes somewhat clunky.  Modules fill much of this role| Straightforward implementation of classes (modules in C++20 standard) |
+{{< /table >}}
 
 ## Compiled Languages
 

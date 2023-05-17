@@ -21,22 +21,22 @@ In most cases, it may be advisable to set up a separate environment for differen
 
 [CuPy](https://cupy.dev/) is an implementation of many of the features of NumPy and SciPy that takes advantage of the GPU.  It is one of the simplest introductions to GPU programming.
 It can be [installed](https://docs.cupy.dev/en/stable/install.html) with conda through the `conda-forge` channel.
-If using the Anaconda Navigator GUI, install the channel, then switch to it and install PyCUDA through the interface.  For installing from the command line, use
+If using the Anaconda Navigator GUI, install the channel, then switch to it and install cuPy through the interface.  For installing from the command line, use
 ```bash
 conda install -c conda-forge cupy
 ```
-You can also use pip to install CuPY.
+You can also use pip to install CuPy.
 Alternatively, use a Docker [container](https://hub.docker.com/r/cupy/cupy/).
 
-You must set the `CUDA_PATH` environment variable for CuPY to be able to accelerate your code properly.
+You must set the `CUDA_PATH` environment variable for CuPy to be able to accelerate your code properly.
 ```bash
 export CUDA_PATH=/usr/local/cuda/bin
 ```
 
-Methods invoked through the CuPY module will be carried out on the GPU.  Corresponding NumPy methods will be processed by the CPU as usual.  Data transfer happens through _streams_.  The null stream is the default.
+Methods invoked through the CuPy module will be carried out on the GPU.  Corresponding NumPy methods will be processed by the CPU as usual.  Data transfer happens through _streams_.  The null stream is the default.
 
-CuPY provides several packages.  In this example we show its FFT implementation.
-{{% code-download file="/courses/python-high-performance/codes/pycuda_example.py" lang="python" %}}
+CuPy provides several packages.  In this example we show its FFT implementation.
+{{% code-download file="/courses/python-high-performance/codes/cupy_example.py" lang="python" %}}
 
 **Exercise**
 Providing enough work to fill the GPU's threads is critical to overcoming the overhead of copying data.  

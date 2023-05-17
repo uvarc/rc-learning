@@ -46,6 +46,7 @@ It is _not_ necessary to write keywords, or any source at all, in all capital le
 
 ## Declarations by Type
 
+{{< table >}}
 |   Fortran Name   |    Type   |   Standard?       |
 |------------------|-----------|----------------------------|
 |     INTEGER      |  32-bit integer |  Yes                  |
@@ -62,6 +63,7 @@ It is _not_ necessary to write keywords, or any source at all, in all capital le
 | CHARACTER(LEN=10)  | Character variable with 10 characters | Yes |
 | CHARACTER\*10  | Character variable with 10 characters | Yes, but deprecated style |
 |     BYTE         |  One byte  | Yes  |
+{{< table >}}
 
 Other types may be specified through [KIND].
 

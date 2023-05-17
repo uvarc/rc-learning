@@ -699,12 +699,14 @@ LibTorch is the C++ frontend of PyTorch. This exericse is based on the ["Writing
 
 ## Summary
 
+{{< table >}}
 | App | Single-stage image size | Final image size | Reduction (%) |
 |---|---:|---:|---:|
 | `fortune` | 130 MB | 4 MB | 97.0 |
 | LightGBM | 2.24 GB | 10.7 MB | 99.5 |
 | `dgemm` | 1.29 GB | 26.6 MB | 98.0 |
 | `dcgan` | 1.98 GB | 314 MB | 85.5 |
+{{< /table >}}
 
 ---
 

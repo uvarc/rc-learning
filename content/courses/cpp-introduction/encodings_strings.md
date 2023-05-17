@@ -34,6 +34,7 @@ str.at(n);  // nth character (counts from 0), checks bounds for error
 
 Many useful operations are available to work with strings.  Most of them have more options than presented here; see [documentation](https://en.cppreference.com/w/cpp/string/basic_string) for more details.
 
+{{< table >}}
 |    Method    |      Operation    |   Usage     |
 |--------------|-------------------|-------------|
 |   clear      |  delete all characters |  str.clear()  |
@@ -43,6 +44,7 @@ Many useful operations are available to work with strings.  Most of them have mo
 |   replace      |  replace n characters from position p with str1 |  str.replace(p,n,str1)  |
 |   find      |  find start position str1 in str  |  str.find(str2)  |
 |   c_str      |  convert to C-style character array  |  str.c_str()  |
+{{< /table >}}
 
 Example:
 
