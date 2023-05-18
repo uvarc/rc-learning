@@ -1,6 +1,7 @@
 ---
 # Course title, summary, and position.
-summary: Introduction to Programming in Python
+title:   Programming in Python
+summary: "This short course is an introduction to the Python programming language for beginners.  No previous experience with programming is required."
 authors: [kah]
 categories: ["Programming","Python"]
 tags: ["programming","python"]
@@ -22,7 +23,7 @@ menu:
     weight: 1
 ---
 
-This short course is an introduction to the Python programming language for beginners.  No previous experience with programming is required.
+Python is one of the most popular programming languages, widely used in areas as diverse as data science and Web programming.  This course is an introduction to programming as well as to the Python language.
 
 Learning to program requires practice and patience.  You cannot learn by watching videos or even reading notes with examples.  You should attempt all the examples throughout this course.  Resist the urge to peek at the solutions as long as you can.  Work throught at least a few of the Projects for each section.
 

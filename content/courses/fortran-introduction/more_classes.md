@@ -1,12 +1,12 @@
 ---
-title: "Advanced Classes"
+title: "Data Hiding and Inheritance"
 toc: true
 type: book
 weight: 76
 
 menu:
     fortran-introduction:
-        parent: Advanced Classes
+        parent: Data Hiding and Inheritance
         weight: 76
 ---
 
@@ -25,7 +25,7 @@ We will modify the example to accomplish this.
 {{< code-download file="/courses/fortran-introduction/codes/private_class_module.f90" lang="fortran" >}}
 
 In the caller:
-``
+```fortran
 CALL myvar%init(i,j,x,y)
 CALL write_class(myvar,11) ! illegal, link error
 CALL myvar%write(12)       ! OK
