@@ -102,5 +102,5 @@ Map, filter, and reduce are frequently used with [lambda functions](/courses/pyt
 
 ## NumPy
 
-Another way to avoid for loops is to use [NumPy](/courses/python-introduction/numpy_matplotlib_scipy).  The best speedups are usually achieved when it is possible to use NumPy built-in "vectorized" functions.  For more details, see our workshop on [High-Performance Python](/notes/python_hi_perf/serial_optimization).
+Another way to avoid for loops is to use [NumPy](/courses/python-introduction/numpy_matplotlib_scipy).  The best speedups are usually achieved when it is possible to use NumPy built-in "vectorized" functions.  For more details, see our workshop on [High-Performance Python](/courses/python_high_performance/serial_optimization).
 

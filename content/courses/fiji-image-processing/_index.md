@@ -2,9 +2,9 @@
 # Course title, summary, and position.
 title:   Introduction to Fiji/ImageJ
 summary: "An introduction to using and scripting the Fiji/ImageJ image analysis packages."
-authors: [ksz]
+authors: [ksz,cag]
 categories: ["Fiji"]
-tags: ["fiji"]
+tags: ["imaging","fiji"]
 #weight: 1
 
 date: "2020-11-17T00:00:00Z"
@@ -18,4 +18,4 @@ type: book  # Do not modify.
 weight: 1
 ---
 
-ImageJ is a popular image-processing package written in Java. FiJi is a distribution of ImageJ which bundles many popular plugins.
+ImageJ is a popular image-processing package written in Java. Fiji is a distribution of ImageJ which bundles many popular plugins.
