@@ -9,7 +9,7 @@ url_dataset: data/intro-fiji-images.zip
 
 {{< figure src="/img/fiji.png" >}}
 
-{{% link-button href="/data/intro-fiji-images.zip" icon="fa fa-download" %}}Download Data{{% /link-button %}}
+{{% link-button href="/data/intro-fiji-images.zip" icon="fa fa-download" %}}Data{{% /link-button %}}
 
 ## Fiji Installation
 
