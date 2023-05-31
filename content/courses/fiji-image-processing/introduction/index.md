@@ -1,12 +1,15 @@
 ---
-title: Image Processing with Fiji/ImageJ
+title: Getting Started
 draft: false
-type: article
+type: book
 toc: true
-
+weight: 15
+url_dataset: data/intro-fiji-images.zip
 ---
 
 {{< figure src="/img/fiji.png" >}}
+
+{{% link-button href="/data/intro-fiji-images.zip" icon="fa fa-download" %}}Data{{% /link-button %}}
 
 ## Fiji Installation
 
@@ -45,11 +48,11 @@ and then you are able to start it.
 * The intersection of row and column is a pixel
 * Each pixel is represented as an intensity value (e.g. between 0-255)
 
-{{< figure src="/notes/fiji-intro/intro-fiji-1.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-1.png" >}}
 
 <br>
 
-{{< figure src="/notes/fiji-intro/intro-fiji-2.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-2.png" >}}
 
 Fiji can handle image files in various file formats and pixel encodings, e.g. color images (RGB, HSB, etc.), grayscale images, and binary images.
 
@@ -61,7 +64,7 @@ Pixels in ***grayscale images*** may be encoded as 8-bit integer (256 intensity 
 
 ## Image Processing & Analysis
 
-{{< figure src="/notes/fiji-intro/intro-fiji-3.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-3.png" >}}
 
 Image processing and analysis procedures often share a common workflow as shown here.
 
@@ -83,13 +86,13 @@ The enhanced image can then be converted into binary image masks that define gro
 
 **Images and Image Stacks in Fiji**
 
-{{< figure src="/notes/fiji-intro/intro-fiji-4.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-4.png" >}}
 
 ## Working with Image Channels
 
 Fiji has built-in tools to manipulate multi-channel composite and RGB images. For this example, open the 5-dimensional (x, y, z, color, time) image stack.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-5.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-5.png" >}}
 
 1 Go to `File` > `Open Samples` > `Mitosis (26MB, 5D stack)`. An image window should open as shown here.
 
@@ -110,7 +113,7 @@ Fiji has built-in tools to manipulate multi-channel composite and RGB images. Fo
 
 **Splitting Channels**
 
-{{< figure src="/notes/fiji-intro/intro-fiji-6.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-6.png" >}}
 
 1) Go to `File` > `Open Samples` > `Mitosis (26MB, 5D stack)`.
 
@@ -123,7 +126,7 @@ Individual image channels are displayed in separate windows. This operation only
 
 **Merging Channels**
 
-{{< figure src="/notes/fiji-intro/intro-fiji-7.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-7.png" >}}
 
 Images displayed in separate windows can be ***merged*** into multi-channel composite images. The input ***images need to be of the same type*** (either 8-bit or 16-bit pixel encoding). You can merge up to 7 different images into a single multi-channel image.
 
@@ -161,7 +164,7 @@ For **multi-channel image**, you can change the LUT by running these commands:
 ### Image Montage and Cropping
 
 **Making an Image Montage**
-{{< figure src="/notes/fiji-intro/intro-fiji-8.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-8.png" >}}
 
 Images can be layed out in a grid-like fashion, aka a ***montage***. Given the regular arrangement of the images in a grid layout, all image tiles used for the montage have to be of the same x-y dimension and same image type (e.g. all 8-bit, 8-bit, 32-bit, or RGB).
 
@@ -197,7 +200,7 @@ The easiest way to create a montage is to create an image stack that contains al
 
 **Image Size: Cropping**
 
-{{< figure src="/notes/fiji-intro/intro-fiji-select-tools.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-select-tools.png" >}}
 
 Images can be cropped around regions-of-interest (ROIs) that can be drawn with the selection tools in the Fiji Toolbar.
 
@@ -217,7 +220,7 @@ Note that the image will be cropped for all z-focal planes, all channels, and al
 
 ### Image Scale Bars
 
-{{< figure src="/notes/fiji-intro/intro-fiji-10.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-10.png" >}}
 
 Many scientific instruments used for image acquisition store additional metadata in the image files that contain calibrations defining the size of a pixel (or 3D voxel) for that image or image stack in physical units (e.g. mm, nm, etc.). These values define the scale of an image.
 
@@ -247,7 +250,7 @@ You can set or modify an image's scale following these steps:
 
 **Adding a Scale Bar**
 
-{{< figure src="/notes/fiji-intro/intro-fiji-11.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-11.png" >}}
 
 For presentation purposes it is frequently desired to display a scale bar in the image. This can be done following these steps:
 
@@ -284,7 +287,7 @@ For presentation purposes it is frequently desired to display a scale bar in the
 
 # Image Filtering & Enhancement
 
-{{< figure src="/notes/fiji-intro/intro-fiji-12.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-12.png" >}}
 
 <br>
 
@@ -292,7 +295,7 @@ For presentation purposes it is frequently desired to display a scale bar in the
 
 Image noise is an undesirable by-product of image capture that adds spurious and extraneous information.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-13.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-13.png" >}}
 
 <br>
 
@@ -308,8 +311,8 @@ Fiji provides several standard filters that can be applied to images. Here we ar
 
 4) Experiment with settings and click `Preview`.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-14.png" >}}
-{{< figure src="/notes/fiji-intro/intro-fiji-15.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-14.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-15.png" >}}
 
 <br><br>
 
@@ -319,7 +322,7 @@ Fiji provides several standard filters that can be applied to images. Here we ar
 
 * **Median**: Replaces pixel value with median value in kernel region.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-16.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-16.png" >}}
 
 <br>
 
@@ -341,7 +344,7 @@ Fiji provides several standard filters that can be applied to images. Here we ar
 
 Periodic noise as shown by the banding pattern observed in this image cannot be removed with the kernel-based standard filters described above. However applying ***Fast-Fourier Transform (FFT)*** analysis can reveal the periodicity of such noise represented by the high intensity spots in the the FFT image (top middle panel). By masking these hotspots (bottom middle panel) and applying the inverse FFT one can retrieve the original image without the periodic noise (right panel).
 
-{{< figure src="/notes/fiji-intro/intro-fiji-17.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-17.png" >}}
 
 
 ### Applying Filters: Edge Detection
@@ -350,7 +353,7 @@ Edge detection is commonly used to define the outline of objects of interest. It
 
 **Note that edge detection algorithms can be very sensitive to noise. So it is generally advised to remove noise with other filters first (e.g. median filter which preserves edges quite well) before applying the edge detection filter (see images below).**
 
-{{< figure src="/notes/fiji-intro/intro-fiji-18.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-18.png" >}}
 
 
 # Image Segmentation</a>
@@ -365,7 +368,7 @@ Edge detection is commonly used to define the outline of objects of interest. It
 
 ### Example: Blob Analysis
 
-{{< figure src="/notes/fiji-intro/intro-fiji-19.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-19.png" >}}
 
 To illustrate typical steps in image segmentation and analysis, we are going to process the ***blobs-shaded.tif*** image that is part of the [Tutorial Example Files] (#example-files).
 
@@ -385,7 +388,7 @@ To illustrate typical steps in image segmentation and analysis, we are going to 
 
 In order to separate the dark spots from the background we will be using intensity thresholding. The idea is that all pixels with an intensity below (or equal) the threshold go in one bin, all other pixels go into another bin. Pixels in one bin are considered to belong to objects of interest while those in the other bin are considered background. This is the principal method to create binary images.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-20.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-20.png" >}}
 
 
 1) Open image file ***blobs-shaded.tif***.
@@ -404,7 +407,7 @@ In order to separate the dark spots from the background we will be using intensi
 
 ### Correction of Uneven Background Signal
 
-{{< figure src="/notes/fiji-intro/intro-fiji-21.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-21.png" >}}
 
 **A Background Correction Image**
 
@@ -424,7 +427,7 @@ In order to separate the dark spots from the background we will be using intensi
 
 **Performing the Background Correction**
 
-{{< figure src="/notes/fiji-intro/intro-fiji-22.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-22.png" >}}
 
 5) Go to `Process` > `Image Calculator…`.
 
@@ -442,13 +445,13 @@ In order to separate the dark spots from the background we will be using intensi
 
 6) Click on the ***resulting*** window that contains the corrected image.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-23.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-23.png" >}}
 
 7) Go to `Image` > `Rename...` and enter ***Corr*** as a new name for the corrected image.
 
 8) Go to `Image` > `Type` > `8-bit` to change the image from 32-bit float to 8-bit integer encoding.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-24.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-24.png" >}}
 
 <br>
 
@@ -467,13 +470,13 @@ In order to separate the dark spots from the background we will be using intensi
 
 * Click on the ***Corr*** image window and click `Auto` in the Threshold window. Note the uniform detection of dark spots indicated by the red overlay. Note the bimodal distribution of the pixel intensity values in the thresholding histogram. Compare this thresholding to the one obtained for the original image ***blobs-shaded.tif***.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-25.png" >}}
-{{< figure src="/notes/fiji-intro/intro-fiji-27.png" >}}
-{{< figure src="/notes/fiji-intro/intro-fiji-28.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-25.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-27.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-28.png" >}}
 
 <br>
 
-{{< figure src="/notes/fiji-intro/intro-fiji-29.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-29.png" >}}
 
 11) In the Threshold dialog window, click `Apply`.
 
@@ -493,7 +496,7 @@ The result after steps 1-12 should be a binary mask image that shows white bobs 
 
 The previous steps produced a binary mask, but closer inspection reveals that some blob objects are fused. These appear as peanut-shaped objects. We will apply a watershed algorithm to separate these fused objects.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-32.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-32.png" >}}
 
 13) Click on the ***Mask*** image window and go to `Process` > `Binary` > `Watershed`.
 
@@ -511,8 +514,8 @@ The previous steps produced a binary mask, but closer inspection reveals that so
 
 Now we are ready to identify and extract information from each blob.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-34.png" >}}
-{{< figure src="/notes/fiji-intro/intro-fiji-33.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-34.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-33.png" >}}
 
 15) Go to `Analyze` > `Analyze Particles...`.
 
@@ -528,7 +531,7 @@ The option `Add to Manager` sends the definition for each identified particle, i
 
 ### The ROI Manager
 
-{{< figure src="/notes/fiji-intro/intro-fiji-35.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-35.png" >}}
 
 Regions-of-interest (ROIs) define groups of pixels in an image. ROIs can have different shapes, e.g. line, rectangular, ellipsoid, polygonal, text, or irregular. An ROI can be used to
 
@@ -560,7 +563,7 @@ The ROI Manager can save selected ROIs to a file or open ROIs from a file. Typic
 
 ### Set Measurements
 
-{{< figure src="/notes/fiji-intro/intro-fiji-37.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-37.png" >}}
 
 Fiji can measure a variety of parameters for each region-of-interest, or an entire image. The specific measurements to be calculated by the Particle Analyzer can be set in the **Set Measurements** dialog.
 
@@ -600,7 +603,7 @@ The Particle Analyzer allows filtering of identified ROIs by size and circularit
 
 4) Click `OK`.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-38.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-38.png" >}}
 
 Based on our selection, the Particle Analyzer creates two results tables, titled **Results** and **Summary**. The type of  measurements computed (e.g. **Mean**, **Median**, etc.) depend on the settings in the **Set Measurements** dialog.
 
@@ -608,7 +611,7 @@ Based on our selection, the Particle Analyzer creates two results tables, titled
 
 * The **Summary** table, as the name implies, provides summary statistics for all ROIs.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-39.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-39.png" >}}
 
 <br>
 
@@ -616,7 +619,7 @@ Based on our selection, the Particle Analyzer creates two results tables, titled
 
 Let's go back and modify the measurement selection.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-40.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-40.png" >}}
 
 1) Go to `Analyze` > `Set Measurements...`.
 
@@ -648,7 +651,7 @@ Now we can compare the intensity measurements for the corresponding ROIs in the 
 
 * What do you observe?
 
-{{< figure src="/notes/fiji-intro/intro-fiji-41.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-41.png" >}}
 
 ### Additional ROI Manager Functions
 
@@ -664,11 +667,11 @@ Go to the [Exercises](#exercises) section for ideas to explore ROI-Manager funct
 
 # 3D Image Reconstruction
 
-{{< figure src="/notes/fiji-intro/intro-fiji-42.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-42.png" >}}
 
 ### Isolating the Brain Segmentation
 
-{{< figure src="/notes/fiji-intro/intro-fiji-43.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-43.png" >}}
 
 ### Creating the Brain Segmentation
 
@@ -711,7 +714,7 @@ This will create a new grayscale window with the brain proper that corresponds t
 
 9) Go to `View` > `Create 360 degree animation` to view a rotating animation of the rendered head volume.
 
-{{< figure src="/notes/fiji-intro/3d-brain-rendering.gif" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/3d-brain-rendering.gif" >}}
 
 * Better: Export surfaces in Fiji to .stl files.
 
@@ -723,7 +726,7 @@ This will create a new grayscale window with the brain proper that corresponds t
 
 [https://imagej.nih.gov/ij/docs/examples/](https://imagej.nih.gov/ij/docs/examples/)
 
-{{< figure src="/notes/fiji-intro/intro-fiji-44.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-44.png" >}}
 
 <br>
 
@@ -820,7 +823,7 @@ Select the image stack created in step 5 (or reopen the stack saved in step 6) a
 modified montage settings. To change the foreground color for the border, double click on the **Color Picker** in
 the Fiji toolbar.
 
-{{< figure src="/notes/fiji-intro/intro-fiji-45.png" >}}
+{{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-45.png" >}}
 
 <br>
 

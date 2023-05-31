@@ -1,10 +1,11 @@
 ---
 title: 'Introduction to R'
+summary: "This short course introduces the basics of the R statistical computing language and the RStudio environment."
 type: article
 toc: true
 ---
 
-<p class="lead">This material introduces the basics of the R statistical computing environment and RStudio. We will introduce the R statistical computing environment as well as RStudio. We will cover very basic functionality, including variables, functions, importing data, and the fundamentals of inspecting data frame objects. This section assumes little to no experience with statistical computing or R.</p>
+<p class="lead"> We will introduce the R statistical computing environment as well as RStudio. We will cover very basic functionality, including variables, functions, importing data, and the fundamentals of inspecting data frame objects. The course assumes little to no experience with statistical computing or R.</p>
 
 ```{r, echo=FALSE, message=FALSE, eval=TRUE, warning=FALSE}
 library(knitr)

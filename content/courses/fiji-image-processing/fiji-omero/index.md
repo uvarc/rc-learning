@@ -1,28 +1,29 @@
 ---
 title: Image Processing with Fiji and Omero
+authors: [ksz]
 highlight_style: "github"
 date: 2020-11-09T00:00:00-05:00
 toc: true  
-type: article
+type: book
 draft: false
+weight: 200
+
 ---
 
-# Introduction to OMERO
+## Introduction to OMERO
 
 OMERO is an image management software package that allows you to organize, view, annotate, analyze, and share your data from a single centralized database. With OMERO, you and your collaborators can access your images from any computer without having to download the images directly to your computer.
 
-In this workshop you will learn to view and manipulate images through the [Fiji
+In this chapter you will learn to view and manipulate images through the [Fiji
 /ImageJ](https://fiji.sc/) software package.
 
 For more details, review the [OMERO tutorial](/tutorials/omero-hands-on) or visit the Research Computing website describing the [UVA Omero Database Service](https://www.rc.virginia.edu/userinfo/omero/overview/).
 
 ---
 
-# Setup for this Workshop
+## Installation of Fiji and the OMERO Plugin
 
-### Installation of Fiji and the OMERO Plugin
-
-1. Install the Fiji application on your computer as described in this [tutorial](/notes/fiji-intro/#fiji-installation).
+1. Install the Fiji application on your computer as described in this [chapter](/courses/fiji-image-processing/introduction/).
 
 2. Start Fiji and go to `Help` > `Update`. This starts the updater which looks for plugin updates online.
 
@@ -49,7 +50,7 @@ To follow along, you can download the Jython scripts presented in this tutorial 
 
 1. If you are accessing the OMERO Database from an off-Grounds location, you have to connect through a UVA Virtual Private Network (VPN).  Please follow these [instructions to set up your VPN](https://virginia.service-now.com/its?id=itsweb_kb_article&sys_id=f24e5cdfdb3acb804f32fb671d9619d0).
 
-2. Open a webbrowser and go to http://omero.hpc.virginia.edu. Login to the OMERO web interface is described [here](/notes/omero/#logging-in-with-omeroweb).
+2. Open a webbrowser and go to http://omero.hpc.virginia.edu. Login to the OMERO web interface is described [here](/courses/omero/#logging-in-with-omeroweb).
 
     * **Username:** Your computing ID
     
@@ -137,7 +138,7 @@ Let's create a new project and dataset through the OMERO web client.
 3. Click on the blue folder icon of your new project and take note of the `Project ID`. We will need this to direct Fiji where to load data from or save data to.  No right click on your blue project folder icon and create a new dataset.  Right click on the dataset icon and take note of the `Dataset ID`.
 
 After the project is generated, your user interface should look like this:
-    ![](/notes/fiji-omero/fiji-omero-datasetid.png)
+    ![](/courses/fiji-omero/fiji-omero-datasetid.png)
 
 ---
 
@@ -181,8 +182,8 @@ Before you begin, you need to know the dataset ID that the image should be linke
 
 3. Go to OMERO webclient (http://omero.hpc.virginia.edu) and look for the uploaded image in `Orphaned Images`.
 
-	<img src="/notes/fiji-omero/leaf.png" style="float:left;width:40%;height:auto">
-	<img src="/notes/fiji-omero/fiji-omero-new-export.png" style="width:40%;height:auto">
+	<img src="/courses/fiji-omero/leaf.png" style="float:left;width:40%;height:auto">
+	<img src="/courses/fiji-omero/fiji-omero-new-export.png" style="width:40%;height:auto">
 
 
 <br>
@@ -210,21 +211,21 @@ Before you begin, you need to know the dataset ID that the image should be linke
 	a. Go to `Process` > `Filter` > `Median`.  In the popup dialog enter a `Radius` of  `3.0` and click `OK`.  This will smooth out some of the image intrinsic noise without degrading the object outlines.
 
 	b. Go to `Image` > `Adjust Threshold`.  In the popup dialog choose the `Default` thresholding algorithm, uncheck the `Dark Background` box and click `Apply`. The image should have been converted to a binary mask with white objects ona black background.
-			<img src="/notes/fiji-omero/fiji-omero-setthreshold.png" style="float:left;width:47%;height:auto">
-			<img src="/notes/fiji-omero/fiji-omero-blobs-thresholded.png" style="width:40%;height:auto">
+			<img src="/courses/fiji-omero/fiji-omero-setthreshold.png" style="float:left;width:47%;height:auto">
+			<img src="/courses/fiji-omero/fiji-omero-blobs-thresholded.png" style="width:40%;height:auto">
 	
 	
 	c. Go to `Analyze` > `Set Measurements...`. In the popup dialog specify the parameters as shown in this screenshot. Click `OK`.
 
 	d. Go to `Analyze` > `Analyze Particles` and set up the parameters as shown. Click `OK`.
-			<img src="/notes/fiji-omero/fiji-omero-setmeasurements.png" style="float:left;width:40%;height:auto">
-			<img src="/notes/fiji-omero/fiji-omero-analyzeparticles.png" style="width:50%;height:auto">
+			<img src="/courses/fiji-omero/fiji-omero-setmeasurements.png" style="float:left;width:40%;height:auto">
+			<img src="/courses/fiji-omero/fiji-omero-analyzeparticles.png" style="width:50%;height:auto">
 
     e. These steps should create a `Results` and a `Summary` table.
 
 3. Go to `File` > `Export` > `OMERO...`.  Enter the dataset ID you chose under step 1 and click `OK`.
 
-{{< figure src="/notes/fiji-omero/fiji-omero-blobs-export.png" >}}
+{{< figure src="/courses/fiji-omero/fiji-omero-blobs-export.png" >}}
 	
 4. Click on the `Results` table window and go to `File` > `Save As`.  Save the file as `Results.csv` on your computer.  Repeat the same for the `Summary` table.  
 
@@ -254,7 +255,7 @@ To follow along, you can download the Jython scripts presented in this tutorial 
 
 We'll be using the built-in **Script Editor** in Fiji to run our scripts.  To start the script editor in Fiji go to menu `File` > `New` > `Script…`.
 
-{{< figure src="/notes/fiji-omero/fiji-script-editor.png" >}}
+{{< figure src="/courses/fiji-omero/fiji-script-editor.png" >}}
 
 * The top pane provides the editor. Multiple scripts can be open at the same time and will show up as separate tabs.
 * The bottom pane shows output (e.g. produced by print statements) and any errors encountered during script execution.
@@ -588,7 +589,7 @@ Let's try to upload an image from Fiji to OMERO.
 
 ### Creating Key:Value Annotations
 
-{{< figure src="/notes/fiji-omero/fiji-omero-keyvalue.png" >}}
+{{< figure src="/courses/fiji-omero/fiji-omero-keyvalue.png" >}}
 OMERO allows you to link other pieces of information to your Project, Dataset, Screen, Plate or Image objects. This additional information is displayed on the right side in the OMERO web client, labeled under the `General` tab as `Image Details`, `Tags`, `Key-Value Pairs`, `Tables`, `Attachments`, `Comments`, and `Ratings`. In addition, there is the `Acquisition` tab that provides metadata information that was automatically extracted from the image file headers during import.  
 
 For the remainder of this workshop, we will focus on `Key-Value` pairs and `Attachments`.  The key-value pairs are implemented as a dictionary (or HashMaps) that can be used to annotate individul images or whole datasets/project or plates/screens with additional information. Such information may include experimental conditions etc.. 
@@ -716,7 +717,7 @@ The example script, `Omero_Batch_Processing.py`, consists of five key functions:
 
 **Remember that the gateway connection needs to be closed at the end of the script**.
 
-{{< figure src="/notes/fiji-omero/fiji-omero-batchprocessing.png" >}}
+{{< figure src="/courses/fiji-omero/fiji-omero-batchprocessing.png" >}}
 
 To test this and see the process in action we will process a set of four images that has been deposited in the OMERO database. The setup is as follows:
 

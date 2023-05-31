@@ -1,31 +1,35 @@
 ---
-title: "Fiji / ImageJ: Script development for Image Processing"
-type: article
+title: "Script development for Image Processing with Fiji"
+type: book
 toc: true
 date: 2021-10-14T00:00:00-05:00
+weight: 100
+url_code: /scripts/fiji/fiji-example-scripts.zip
 ---
 
 {{< figure library="true" src="fiji.png" >}}
 
-This tutorial is an introduction to the scripting interface of the [Fiji](https://fiji.sc) application, an open-source and enhanced version of the popular ImageJ program used for scientific image processing.  Here you will learn how to write scripts for automated execution of image processing pipelines and batch processing of multiple image files in Fiji.
+{{% link-button href="/scripts/fiji/fiji-example-scripts.zip" icon="fa fa-download" %}}Scripts{{% /link-button %}}
+
+This chapter is an introduction to the scripting interface of the [Fiji](https://fiji.sc) application, an open-source and enhanced version of the popular ImageJ program used for scientific image processing.  Here you will learn how to write scripts for automated execution of image processing pipelines and batch processing of multiple image files in Fiji.
 
 Step-by-step instructions are provided for developing scripts in Jython, an implementation of the popular Python language for Java platforms. Example scripts are provided for the Jython and BeanShell languages.
 
 
-# Intro & Fiji Programming Tools {#intro-id}
+## Introduction & Fiji Programming Tools {#intro-id}
 
-## Installation {#installation-id}
+### Installation {#installation-id}
 Fiji is a stand-alone application that can be downloaded from the [Fiji website](https://fiji.sc/#download). It is available for Mac OSX, Windows, and Linux platforms.  
 
 + **MacOS X:** The Fiji application should be installed in the the user's home directory rather than the default `Applications` folder.
 + **Windows 7 & 10:** The Fiji application should be installed in the the user's home directory rather than the default `C:\Program Files` directory.
 + **Linux:** The Fiji application should be installed in a directory where the user has read, execution, and write permissions, e.g. the user's `home` directory.
 
-## Download the Example Scripts
+### Download the Example Scripts
 
 Go to [this tutorials landing page](/tutorials/fiji-scripting/) and click on the `Code` button. 
 
-## The Application Programming Interface (API) {#api-id}
+### The Application Programming Interface (API) {#api-id}
 Fiji and ImageJ are written in Java. The application programming interface (API) defines the various Java packages, classes, methods, and constants that a programmer can use for development of custom Fiji & ImageJ scripts. The API is well documented on these public sites:
 
 + ImageJ (https://imagej.nih.gov/ij/developer/api/)
@@ -45,7 +49,7 @@ Step-by-step instructions in this tutorial are provided for developing scripts i
 <br>
 
 
-## The Script Editor {#script-editor-id}
+### The Script Editor {#script-editor-id}
 To start the script editor in Fiji go to menu `File` > `New` > `Script…`.
 
 {{< figure src="fiji-script-editor.png" >}}
@@ -64,7 +68,7 @@ To start the script editor in Fiji go to menu `File` > `New` > `Script…`.
 
 <br>
 
-## The Macro Recorder {#macro-recorder-id}
+### The Macro Recorder {#macro-recorder-id}
 In the Fiji menu, go to `Plugins` > `Macros…` > `Record`.
 
 {{< figure src="fiji-macro-recorder.png" >}}
@@ -74,7 +78,7 @@ In the Fiji menu, go to `Plugins` > `Macros…` > `Record`.
 + Clicking the `Create` button copies the code to a new script in the [Script Editor](#script-editor-id).
 + **Keep the Recorder window open throughout this tutorial.**
 
-## The Console Window {#console-id}
+### The Console Window {#console-id}
 In the Fiji menu, go to `Window` > `Console`.
 
 + The Console window shows the output and logging information produced by running plugins and scripts.
@@ -82,7 +86,7 @@ In the Fiji menu, go to `Window` > `Console`.
 <br>
 
 
-# Jython {#jython-id}
+## Jython {#jython-id}
 
 Jython is an implementation of the Python 2.7 programming language designed to run on the Java platform.
 
@@ -91,7 +95,7 @@ Jython is an implementation of the Python 2.7 programming language designed to r
 + Jython scripts can use ImageJ/Fiji packages and classes via specific `import` statements.
 + In Python many problems can be solved with less code than in other languages.  Still the code is easy to read. 
 
-## Variables {#variables-id}
+### Variables {#variables-id}
 A variable is used to store values or references to other objects/functions in the computer's memory.
 
 * Values are assigned to variables in statements with an `=`.
@@ -116,7 +120,7 @@ my_list = [2,3,5,7,11]
 
 <br>
 
-## Conditionals: if Statements {#conditionals-id}
+### Conditionals: if Statements {#conditionals-id}
 
 Often different blocks of code need to be executed depending on a specific condition.  This is achieved by using `if`, `elif`, `else` code blocks.
 
@@ -153,7 +157,7 @@ else:
 
 <br>
 
-## Code Loops {#loops-id}
+### Code Loops {#loops-id}
 
 Like most languages, Python and Jython offer loop constructs to repeatedly execute the same code block.
 

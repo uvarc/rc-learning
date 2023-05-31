@@ -8,8 +8,6 @@ menu:
         weight: 1
 ---
 
-## Overview
-
 Python, like most interpreted languages, can be very slow. But there are best practices and some programming tricks that can speed it up considerably.  This can make the difference between finishing the work in an acceptable time, or being unable to finish a project.
 
 **First Things First:** Always start with a working, correct code. Make it as clean and readable as possible.
