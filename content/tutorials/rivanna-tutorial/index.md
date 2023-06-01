@@ -17,6 +17,7 @@ categories: ["Rivanna","HPC"]
 #slides: rivanna-intro 
 #notes: rivanna-intro
 # slides: rivanna-intro
+url_pdf: /notes/rivanna-tutorial/pdf/notes.pdf
 
 notes: rivanna-tutorial
 
