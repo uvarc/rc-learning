@@ -95,11 +95,31 @@ for ch in "HelloEverybody":
 
 ### Enumerate
 
-Sometimes we need both the item and its index.  We can use enumerate for this purpose.
+Sometimes we need both the item and its index.  We can use the `enumerate` function for this purpose.  Enumerate returns an iterator each element of which is atuple consisting of a count, by default starting at 0, and the corresponding value of its argument.
 
 ```python
-velocity=[-11.,-3.,-1.,1.,2.3,.4.]
+velocity=[-11.,-3.,-1.,1.,2.3,4.]
 for i,v in enumerate(velocity):
     print(i,v)
 ```
 
+### Zip
+
+The `zip()` function is also handy, especially but not limited to, for loops.  Zip accepts multiple iterables and returns a new iterable whose elements are tuples of corresponding items from its arguments.  
+
+```python
+x = [20.,9.,6.,5.,6.,8.3]
+velocity=[-11.,-3.,-1.,1.,2.3,4.]
+for t in zip(x,velocity):
+    print(t)
+```
+
+When using `zip` there is a risk that the iterables will not be the same length. The default is for the function to stop when it reaches the end of its shortest argument, but this often masks a bug.  Python 3.10 introduced the `strict` parameter to zip.  If the `strict=True` option is added, it will throw an error if the lengths do not match.  
+
+```python
+#Must be 3.10 or greater
+x = [20.,9.,6.,5.,6.,8.3,12.3]
+velocity=[-11.,-3.,-1.,1.,2.3,4.]
+for t in zip(x,velocity,strict=True):
+    print(t)
+```

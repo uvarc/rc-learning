@@ -32,3 +32,4 @@ ssh -Y mst3k@rivanna.hpc.virginia.edu
    * Choose an SSH session
        * Enter your user ID and optionally your password
        * Save the password if you wish
+       * MobaXterm bundles the X windowing system so can start graphical apps.

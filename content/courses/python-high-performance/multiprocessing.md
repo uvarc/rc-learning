@@ -16,17 +16,19 @@ Sometimes you cannot sufficiently speed up your program even with all optimizati
 Standard Python implements a GIL (global interpreter lock). Threads cannot be started within a single interpreter.
 A variety of workarounds to the GIL exist.  For instance, Python 3 provides the `threading` module, which implements the Thread class. However, unless the programmer is familiar with low-level thread operations and is very careful, it is more likely to slow down the code than to speed it up.
 
+### The Process Class
+
 In most cases, it is better to just start another Python process.  The `multiprocessing` package handles this and manages communication among the processes.  For the purpose of this tutorial we will experiment with a few different multiprocessing approaches. A detailed description can be found on the official <a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank">Multiprocessing website</a>.
 
 One difference between true threads and a Multiprocessing process is that threads directly share memory and processes do not.
 
 **Import the package**
-```
+```python
 from multiprocessing import Process
 ```
 
 **Define a function**
-```
+```python
 def f(name): 
     print('hello from '+name)
 
@@ -37,7 +39,7 @@ if __name__ == '__main__':
         p.start()
 ```
 The result may be something like
-```
+```python
 hello from 0
 hello from 2
 hello from 3
@@ -45,17 +47,15 @@ hello from 1
 ```
 Notice that the responses are not in numerical order.  In general, parallel programs do **not** guarantee ordering unless the library or the programmer forces it.  In this case the processes results are printed as they arrive.
 
-**Note that `multiprocessing` requires a main() function and must be run inside it.**  This means that some examples, such as the multiprocessing.Pool examples will not work in the interactive interpreter. 
+Note that `multiprocessing` **requires** a main() function and must be run inside it.  This means that some examples, such as the multiprocessing.Pool examples, will not work in the interactive interpreter. 
 
-For manager-worker problems, we can start a pool of workers.
+### The Pool Class
 
-**The Pool Class**
-
-You can define a pool using an instance of the `Pool` class.  
+For manager-worker problems, we can start a pool of workers.  You can define a pool using an instance of the `Pool` class.  
 
 Pools work through _data parallelization_.  The `map` method is analogous to the corresponding standard built-in "map" functional but distributes the data across the processes.
 
-```
+```python
 from multiprocessing import Pool 
 
 def f(x): 
@@ -76,7 +76,7 @@ if __name__ == '__main__':
 In this example we created a Pool of four workers (`Pool(processes=4)`). The `pool.map` call submits a workload to the Pool of workers.  The first parameter is the name of the function, in this case `f`, and the second argument defines the sequence of arguent(s) that need to be passed to the specified function `f`. Each element of the sequence is passed to f on one of the cores in use.
 
 The `map` function is _blocking_; execution will not continue until the result is returned.  Another version of map, `map_async`, is _nonblocking_. Execution continues while the computations are carried out.  The communication is terminated when `get` is invoked.
-```
+```python
 from multiprocessing import Pool
 
 def f(x):
@@ -93,26 +93,13 @@ if __name__ == '__main__':
    pool.close()
    pool.join()
 ```
-The map method accommodates only one argument to the function.  For Python 3.3 and later, `starmap` is available for multiple arguments.
-```
-from multiprocessing import Pool 
+The map method accommodates only one argument to the function.  For Python 3.3 and later, `starmap` is available for multiple arguments.  An efficient way to generate the required iterator of tuples is to use the [zip()](https://docs.python.org/3/library/functions.html?highlight=zip%20function#zip) function.
 
-def f(x,y): 
-  return x**y
-
-if __name__ == '__main__': 
-   pool = Pool(processes=4) 
-   result = pool.map(f, [x,3) for x in range(1,11)])
-   
-   # Print result
-   print(result)  
-   pool.close()
-   pool.join()
-```
+{{< code-download file="/courses/python-high-performance/codes/mpstarmap.py" lang="python" >}}
 
 Another set of functions is `apply` and `apply_async`.  The difference between the apply group and map/map_async is that apply returns the result from only one element of the pool.  Like `starmap`, apply supports multiple arguments, but there is no starmap_async so if we need a nonblocking routine equivalent, we should use apply_async.  We will need to collect the results ourselves.
 
-```
+```python
 from multiprocessing import Pool 
 
 def f(x,y): 
@@ -128,7 +115,6 @@ if __name__ == '__main__':
    print(allresults)  
 ```
 
-<br>
 Here is a more realistic example.  Let’s parallelize our Monte Carlo pi solver (MonteCarloPiMC.py).
 Map requires an iterator for its second argument. We will manually divide the total number of "data throws" into chunks of roughly equal size on each process and store the result into a list _myNumPoints_. The Pool map method will then distribute the elements of the list, one to each cpu.  This is called **load balancing** in parallel computing terms.  Maximum efficiency generally occurs when each process performs approximately the same quantity of work.
 We also do not hard-code the number of processes, but will set an environment variable `NUM_PROCS` outside to select the core count. 
@@ -138,7 +124,7 @@ We also do not hard-code the number of processes, but will set an environment va
 #### Running on a Local Computer
 
 Most modern personal computers, including laptops, are multicore.  If you are running on your own computer, test the code for a fairly small number of "dart throws." You may change ncpus to a fixed integer corresponding to your computer's core count.  Start with 10000 and increase to 100000, then to 1000000.  You may find that for a small number of throws, the serial time is faster than the multicore time.  This is due to _overhead_, which includes the additional time required to set up the multiple processes and communicate between them.  The result on one computer running Linux was
-```
+```no-highlight
 $ python MonteCarloPiMC.py 10000
 ncpus=4
 Points: [2500, 2500, 2500, 2500]
@@ -175,39 +161,36 @@ You can view this script in a text editor on Rivanna.  If you are connected thro
 
 The `#SBATCH` directives define the compute resources (`-N`, `--cpus-per-task`, `-p`), compute wall time (`-t`), and the allocation (`-A`) to be used. `-N 1` specifies that the job runs on a single node. With `--cpus-per-task` we request the number of cpu cores for the job.  By increasing the number for `--cpus-per-task` we can take advantage of multiple cpu cores and set up a bigger pool of workers. Ideally we want to match the worker pool size with the number of cpu cores.
 
-<br>
-**Submitting the job:**
+##### Submitting the job
 
 The job must be submitted to the job scheduler with a specific command. On Rivanna we use the Simple Linux Utility Resource Manager (SLURM) and the `sbatch` command for job submission.
 
 Open a terminal window and execute this command:
-```
+```bash
 sbatch pimc.sh
 ``` 
 
 After submission you should see output like this:
-```
+```bash
 Submitted batch job 9024339
 ```
 The integer number resembles a unique job id.
 
-<br>
-**Checking the Job Status:**
+##### Checking the Job Status
 
 You can check the status of your jobs by running either one of these commands:
 
-* `squeue -u <YOUR_ID`
+* `squeue -u YOUR_ID`
 * `sacct`
 
 The `squeue` command show all active jobs, either pending or running.  The `sacct` command shows the history of your jobs whether they are pending, running, completed, cancelled or failed.
 
 You can find more details about SLURM and job management on our [website](https://www.rc.virginia.edu/userinfo/rivanna/slurm).
 
-<br>
-**Checking the Output File:**
+###### Checking the Output File
+
 SLURM creates output files for each job that log the information that the program prints to stdout and stderror during the job run.  The file(s) will also include information in case the job run was aborted.  By default the name of the SLURM output file is `slurm-<JOB_ID>.out`.  Check the directory in which you executed the sbatch command for a SLRURM output file and open it in a text editor.
 
-<br>
 **Exercises:** Rerun the job using 2, 4, or 8 cpu cores.  In order to do this, open the `pimc.sh`, change the `--cpus-per-task` option accordingly, save the file, and resubmit the job script from the terminal window with the `sbatch` command. 
 
 ### Scaling
@@ -225,7 +208,7 @@ When we run the exercise with 10^9 points we may obtain results like these (on o
 
 If we plot time versus number of cores we obtain the following graph.  The orange line is ideal scaling, where the total time is the serial time divided by the number of cores used.  The blue line shows the actual runtime and speedup achieved.
 
-![](/courses/python-high-performance/mp-scaling.png)
+{{< figure src="/courses/python-high-performance/mp-scaling.png" caption="Scaling performance for the Multiprocessing Monte Carlo Pi example." >}}
 
 Our actual scaling in this case is quite close to perfect.  This has a lot to do with our problem; the amount of time taken is mostly proportional to the number of throws to be calculated.  Not all problems scale this well.
 

@@ -4,7 +4,7 @@ date: "2022-10-01:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 562
+weight: 462
 
 menu:
   rivanna-tutorial:
@@ -19,9 +19,9 @@ menu:
 ## Moving Files and Folders
 * In the Open OnDemand File Explorer, use the Copy/Move button in the upper right.  Select the file or folder you wish to move.  A dialog will open.  In your navigation pane, go to the target folder.  Click Copy in the dialog on the left.   
 * In the "Caja" file manager on FastX, if moving within the same parent folder, just drag the file or folder to the new location.  If moving between folders that do not share a parent, open another Caja window.  `Cut` the file or folder and `paste` to its new location.
-* From the command line type `mv oldpath newpath` (that is, include the path and not just the file/folder name).
+* From the command line type `mv oldpath newpath` (that is, include the path and not just the file/folder name). 
 
 ## Copying Files and Folders
 * In the Open OnDemand File Explorer, use the `Copy/Move` button, but click on Copy rather than Move.
 * In the "Caja" file manager on FastX, open another Caja window and drag the icon of the file or folder between them.  Alternatively right-click and use the `copy` and `paste` menu items.
-* From the command line type `mv oldpath newpath` (that is, include the path and not just the file/folder name).
+* From the command line type `cp oldpath newpath` (that is, include the path and not just the file/folder name) if you wish to copy the file into a different folder.  If copying to the same folder, `cp current_name copy_name` is sufficient.

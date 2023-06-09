@@ -17,6 +17,7 @@ For this tutorial, it is assumed that you have experience with programming in Py
 * [Serial Optimization:](serial-optimization) Replacing inefficient code constructs with more efficient ones (single process).
 * [Multiprocessing:](multiprocessing) Executing multiple processes on a single computer (shared memory).
 * [Distributed Parallelization:](distributed-parallelization) Executing multiple processes across multiple computers (distributed memory, HPC cluster).
+* [GPU Acceleration:](gpu-acceleration) A minimal introduction to programming for a GPU with Python.
 
 - - -
 

@@ -1,10 +1,10 @@
 ---
-title: "Exercise 2"
+title: "Exercise 1"
 date: "2022-10-01:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 570
+weight: 470
 
 menu:
   rivanna-tutorial:
@@ -13,11 +13,9 @@ menu:
 
 Start an Open OnDemand File Explorer tab.  In your home directory, create a new file.  Use the Editor to enter the following text:
 
-```no-highlight
-I came in with Halley's Comet in 1835. It is coming again next year, and I expect to go out with it. It will be the greatest disappointment of my life if I don't go out with Halley's Comet. The Almighty has said, no doubt: "Now here are these two unaccountable freaks; they came in together, they must go out together."
-
--Mark Twain
-```
+> I came in with Halley's Comet in 1835. It is coming again next year, and I expect to go out with it. It will be the greatest disappointment of my life if I don't go out with Halley's Comet. The Almighty has said, no doubt: "Now here are these two unaccountable freaks; they came in together, they must go out together." 
+>
+>-Mark Twain
 
 Name the file whatever you wish.  Make a new folder "Quotes."  Move the file to this directory.  
 
