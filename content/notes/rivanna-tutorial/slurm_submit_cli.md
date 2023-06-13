@@ -37,7 +37,10 @@ Now you can submit the script with the `sbatch` command.
 sbatch myscript.slurm
 ```
 
-Now you can monitor the job through the OOD Active Jobs tab, or with the `squeue` command.
+The system will return the _job id_
+```bash
+Submitted batch job 123456
+```
 
 To use a directory in leased /project storage, substitute the appropriate path, starting with /project, for the scratch directory.  Otherwise the process is the same.
 

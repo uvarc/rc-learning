@@ -4,7 +4,7 @@ date: "2022-10-01:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 560
+weight: 460
 
 menu:
   rivanna-tutorial:
@@ -13,7 +13,7 @@ menu:
 
 There are three quick ways to work with files.
 
-* The Open OnDemand File Explorer.  The button layout may be somewhat non-intuitive but it is self-explanatory. 
+* The Open OnDemand File Explorer.  
 
 * If logged in through FastX, you can use the "Caja" file manager.  It can be accessed through the filing-cabinet icon in the ribbon at the top, or via the Applications->System Tools menu.  Caja works very similarly to Windows Explorer and the Mac Finder, but is somewhat more limited. It should be simple to use.  The Open OnDemand file manager shows only one location at a time, whereas Caja, like Explorer or Finder, can open multiple windows. Note: you will not be allowed to do anything as "Administrator."
 
@@ -31,9 +31,9 @@ In Open OnDemand and Caja, rather than trying to navigate to your /scratch direc
 * If you are using a command line you can use a text editor like `vi` or you can  use the `cat` command followed by the name of the new file.  For a folder, type `mkdir dirname`.
 
 ## Deleting Files and Folders
-* In the Open OnDemand File Explorer, click the red Delete button.  It will request confirmation. 
+* In the Open OnDemand File Explorer, select the file or folder, then click the red Delete button.  It will request confirmation. 
 * In the "Caja" file manager on FastX, right-click and Delete.  Since the space in your home directory is limited, we recommend not moving to Trash.
-* From the command line, for a file type `rm filename`.  For a directory type `rm -r directoryname`.
+* From the command line, for a file type `rm filename`.  For a directory type `rm -rf directoryname`.
 
 {{< warning >}}
 When deleting a file at the command line, it _will not_ ask for confirmation unless you add the -i flag to the `rm` command.

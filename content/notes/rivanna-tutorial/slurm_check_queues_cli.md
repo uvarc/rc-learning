@@ -11,6 +11,8 @@ menu:
     parent: The Slurm Resource Manager
 ---
 
+Regardless of how the job was submitted, through the Job Composer or at a command line, you can use the Open OnDemand Job Viewer or you can use command-line tools to monitor your job.
+
 If you are using a terminal you can type
 
 ```bash

@@ -42,7 +42,7 @@ This stands for "memory per cpu" (Slurm still often refers to a core as a "cpu")
 ```
 This requests the partition to which the job will be submitted.
 ```no-highlight
-#SBATCH --account=your_account
+#SBATCH --account=your_allocation
 ```
 Specifies the allocation to be charged.  (This does not refer to your user account.)
 ```no-highlight

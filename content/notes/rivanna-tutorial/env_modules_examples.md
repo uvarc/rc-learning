@@ -4,7 +4,7 @@ date: "2022-10-01:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 440
+weight: 640
 
 menu:
   rivanna-tutorial:
@@ -13,7 +13,7 @@ menu:
 
 Find all available versions of MATLAB.  You may see a different list.
 
-{{< code file="/notes/rivanna-tutorial/snippets/module_example.txt" lang="no-highlight" >}}
+{{< code file="/notes/rivanna-tutorial/snippets/module_example.txt" lang="plaintext" >}}
 
 Load a specific version of MATLAB
 ```bash
