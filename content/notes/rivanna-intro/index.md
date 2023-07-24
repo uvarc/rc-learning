@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Rivanna"
-date: "2022-06-14T00:00:00Z"
+date: "2023-07-24T00:00:00Z"
 authors: [jmh,kah,wtr]
 ---
 
-{{< slideshow folder="slides/rivanna-intro-pptx" ext="JPG" >}}
+{{< slideshow folder="slides/rivanna-intro-pptx" ext="jpeg" >}}
