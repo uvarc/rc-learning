@@ -277,7 +277,7 @@ trainer.fit(autoencoder, DataLoader(train), DataLoader(val))
 #SBATCH -N 1
 #SBATCH --ntasks-per-node=1
 #SBATCH -p gpu
-#SBATCH --gres=gpu:k80:1
+#SBATCH --gres=gpu:1
 
 module purge
 module load singularity
@@ -305,7 +305,7 @@ For this example, use the same number in `--ntasks-per-node` and `--gres=gpu` in
 time srun singularity run --nv pytorch_1.7.0.sif example.py
 ```
 
-For K80 you should obtain similar results as follows:
+Results on a K80 GPU:
 
 |N|Time (s)|Speedup|Relative SU|
 |---|---:|---:|---:|
