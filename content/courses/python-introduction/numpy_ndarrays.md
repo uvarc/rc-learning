@@ -8,7 +8,6 @@ weight: 101
 menu:
     python-introduction:
         parent: NumPy, Matplotlib, SciPy
-        weight: 101
 ---
 
 NumPy is very powerful and our introduction will barely touch on its most important features.

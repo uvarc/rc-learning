@@ -7,7 +7,6 @@ weight: 230
 
 menu:
     python-introduction:
-        weight: 230
 ---
 
 Classes.

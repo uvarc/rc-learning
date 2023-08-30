@@ -8,7 +8,6 @@ weight: 75
 menu:
     python-introduction:
         parent: IO and Exceptions
-        weight: 75
 ---
 
 Many situations can result in an error.  
@@ -42,7 +41,7 @@ except:
 
 More processing is usually required, of course.
 
-The interpreter provides a large number of built-in exceptions.  (See the documentation for a complete list.)  Some of the more commonly encountered are 
+The interpreter provides a large number of built-in exceptions.  (See the [documentation](https://docs.python.org/3/library/exceptions.html) for a complete list.)  Some of the more commonly encountered are 
 * EOFError
 * IOError
 * KeyboardInterrupt
@@ -65,7 +64,7 @@ except ValueError:
   print("You did not enter an integer")
 ```
 
-If you wish to do something particular when the `try` passes, use `else`
+If you want your script to perform some action upon passing the `try`, use `else`
 
 ```python
 try:
@@ -76,7 +75,7 @@ else:
     print("File successfully opened")
 ```
 
-If you have code that should be executed whether the condition passes or failes use `finally`
+If you have code that should be executed whether the condition passes or fails use `finally`
 
 ```python
 try:

@@ -8,7 +8,6 @@ weight: 132
 menu:
     python-introduction:
         parent: Pandas
-        weight: 132
 ---
 
 ## Selecting and Manipulating Data

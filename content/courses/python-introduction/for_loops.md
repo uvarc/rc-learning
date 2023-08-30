@@ -8,7 +8,6 @@ weight: 42
 menu:
     python-introduction:
         parent: Conditionals and Loops
-        weight: 42
 ---
 
 One of the most fundamental processes in a computer program is to repeat statements many (perhaps many, many, many) times.  Computers never run out of patience.

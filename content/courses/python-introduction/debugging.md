@@ -7,7 +7,6 @@ weight: 260
 menu:
     python-introduction:
        parent: Testing and Debugging
-       weight: 260
 ---
 
 Let's try a more challenging debugging example. Download the file [dow_buggy.py](/courses/python-introduction/scripts/dow_buggy.py) and the document [Day_of_the_Week.pdf](/courses/python-introduction/data/Day_of_the_Week.pdf). The document describes an algorithm to find the day of the week for any date in the Gregorian calendar between the years 1400 and 2599. The algorithm is straightforward but has many steps, and also requires that we remind ourselves how to obtain a remainder from a division. In Python we use the modulo operator, represented by `%`; thus `7%3` is 1. Our code hard-codes in days of the week rather than obtaining input from the user, so to change the date you will have to edit the source file. 

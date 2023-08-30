@@ -8,7 +8,6 @@ weight: 84
 menu:
     python-introduction:
         parent: Functions and Modules
-        weight: 84
 ---
 
 The __scope__ of a variable is the range over which it has a defined value.  In Python, the scope is the code block in which the variable is first referenced.  Therefore a calling program may have a variable `x`, a function may also have a variable `x`, and if `x` is not an argument to the function then it will be distinct in the two units.
@@ -67,7 +66,7 @@ One of the most common applications of lambda expressions is to the built-in fun
   * L1=map(square,S)          #Python 2.7
   * L1=list(map(square,S))    #Python 3
 * reduce 
-  * first argument must be a function that takes two inputs and returns a single input of the same type
+  * first argument must be a function that takes two inputs and returns a single output of the same type
   * total=reduce(sum,s)   #Python 2.7
   * import functools; total=functools.reduce(sum,s) #Python 3
 * filter
@@ -80,12 +79,13 @@ One of the most common applications of lambda expressions is to the built-in fun
 
 Print the results of the following code.  Try to express map and filter with an equivalent list comprehension.  For the equivalent to the reduction, try the `sum` built-in function.  Note that not all reductions will have an equivalent built-in, but when available it may be faster than the corresponding reduce construct.
 
-{{< code-snippet >}}
+```python
+import functools
 V=[-1,0,1,2,3,4,5]
 L=list(map(lambda x:x**2, V))
 R=functools.reduce(lambda x,y:x+y, V)
 F=list(filter(lambda x:x>0, V))
-{{< /code-snippet >}}
+```
 
 {{< spoiler text="Example solution" >}}
 {{< code-download file="/courses/python-introduction/exercises/functionals.py" lang="python" >}}

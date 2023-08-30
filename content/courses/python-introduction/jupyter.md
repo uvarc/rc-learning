@@ -8,12 +8,10 @@ weight: 12
 menu:
     python-introduction:
         parent: Introduction to Programming in Python
-        weight: 12
 ---
 
-We will begin with Jupyterlab. Select the Jupyterlab icon in the Anaconda Navigator.  
-Launching it will cause a tab to open in your Web browser. 
-When Jupyterlab starts up, you will see a list of your files on the left and three icons to select the mode.  Jupyterlab incorporates a Jupyter notebook server as well as a plain Python console and a simple text editor.  We want to start a Jupyter notebook so click on the top tile.
+We will begin with Jupyterlab. Select the Jupyterlab icon in the Anaconda Navigator.  Launching it will cause a tab to open in your Web browser. 
+When Jupyterlab starts up, you will see a list of your files on the left and three icons to select the mode.  Jupyterlab incorporates a Jupyter notebook server as well as a plain Python or iPython console and a simple text editor.  We want to start a Jupyter notebook so click on the top tile.
 
 ![JupyterLabSetup](/courses/python-introduction/imgs/JupyterLabSetup.png)
 
@@ -21,20 +19,19 @@ A textbox will open.
 
 ![JupyterLabInput](/courses/python-introduction/imgs/JupyterLabInput.png)
 
-Your notebook is untitled.  Open the File menu and click Rename.  Name your notebook `hello.ipynb`, then click the Rename button.
+Your notebook is untitled.  Open the File menu and click Rename.  Name your notebook `first_script.ipynb`, then click the Rename button.
 
 ![JupyterLabRename](/courses/python-introduction/imgs/JupyterLabRename.png)
 
 ## Cells
 
-The blank line with the blinking cursor is a cell.  You can type code into the cell.  After the `In[]` prompt type `print("Hello")`
-To execute the cell click the arrowhead, or type the `shift+enter` keys together.
+The blank line with the blinking cursor is a _cell_.  You can type code into the cell.  After the `In[]` prompt type `print("Hello")`
+To run the cell click the arrowhead in the ribbon at the top of the tab, or type the `shift+enter` keys together.
 
 ## Your First Program
 
 If you are using Python 2.7 please begin all your programs with the line
-`from __future__ import print_function`
-The symbols surrounding `future` are double underscores.
+`from __future__ import print_function`. The symbols surrounding `future` are double underscores.
 
 Type the following lines into a cell.
 
@@ -60,7 +57,7 @@ len(Numerals)
 
 ### Some Strings
 
-In a new cell Type
+In a new cell type
 
 ```python
 greeting="Hello World"
@@ -69,23 +66,23 @@ greeting2=hello+" there"
 output=greeting2+"\n"*2
 ```
 
-The symbol `\n` stands for "new line."  Run this cell.  In a new cell type
+The symbol `\n` stands for "new line."  Run this cell.  In another new cell type
 
 ```python
 output
 ```
 
-Run cell.  then
+Run this cell, then in another cell, enter and run the line
 
 ```python
 print(output)
 ```
 
-When you are working directly at the interpreter, you can type a variable and it will print the value.  This is called _expression evaluation_.  Using the `print` function observes any formatting.
+When you are working directly at the interpreter, you can type a variable and it will print the value exactly.  This is called _expression evaluation_.  Using the `print` function observes any formatting.
 
 ## Text Editor
 
-JupyterLab includes a simple text editor you can use to create files.  In the upper left of your JupyterLab tab, click `+` to start the launcher. Choose the text editor. Type
+JupyterLab includes a simple text editor you can use to create files.  In the upper left of your JupyterLab tab, click `+` to start the launcher. Choose the `text file` tile. Type
 
 ```python
 def hello():
@@ -94,19 +91,21 @@ def hello():
 hello()
 ```
 
-Be sure to indent lines exactly as shown, and to return completely to the margin for `hello()`. Select your text. From the Editor menu select Language.  Scroll (far) down to Python.  You will now enable syntax coloring for this file.  From the File menu choose Save As. Name the file `hello_func.py`  By default, files will be saved into the folder in which JupyberLab is working. The default is your "User" directory.  After saving the file, return to your Jupyter notebook page and type
+Be sure to indent lines exactly as shown, and to return completely to the margin for `hello()`. Select your text. From the View menu select Text Editor Syntax Highlighting.  Scroll (far) down to Python and click.  You will now enable syntax coloring for this file.  
 
+Syntax coloring marks different constructs with different font colors. It is very helpful and all modern technical editors provide it for most programming languages.
+
+From the File menu choose Rename Text. Name the file `hello_func.py`.  By default, files will be saved into the folder in which JupyterLab is working. The default is your "User" directory.  After saving the file, return to your Jupyter notebook page and type
 ```python
 import hello_func
 ```
-
 Then run the cell.
 
 ## Exporting your Notebook
 
 ### Exporting to a Script
 
-You can export embedded text in your notebook into a script.  First make sure your notebook has a name.  If you have not named your current notebook yet, call it `first_script.ipynb`.  From the Notebook menu find Export To->Executable Script.  Save the script in the usual way from your browser.  If it is in `Downloads` move it to a location of your choice.  You can make a new directory for your Python scripts if you wish.
+You can export embedded text in your notebook into a script.  First make sure your notebook has a name.  If you have not named your current notebook yet, call it `first_script.ipynb`.  From the Notebook menu find Save and Export Notebook As->Executable Script.  Jupyterlab will default to the `Downloads` folder; move it to a location of your choice.  You can make a new directory for your Python scripts if you wish.
 
 ### Exporting to Other Formats
 
@@ -127,11 +126,9 @@ Execute the cell.  In the next cell type
 ```python
 plt.plot(x,y)
 ```
-Jupyterlab no longer requires it, but sometimes you need to add one more line, which should be in the same cell as the plot command.
-```python
-plt.show()
-```
 
 ## Resources
 
 Several tutorials are available for Jupyter and Jupyterlab online.  One good one is [here](https://www.tutorialspoint.com/jupyter/index.htm).
+
+The official Jupyterlab documentation is [here](https://jupyterlab.readthedocs.io/en/stable/index.html)

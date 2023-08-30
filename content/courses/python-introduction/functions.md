@@ -8,7 +8,6 @@ weight: 81
 menu:
     python-introduction:
         parent: Functions and Modules
-        weight: 81
 ---
 
 Functions break down the programming into a series of well-defined tasks.  This makes code easier to read, debug, and maintain.  Functions also reduce "cut and paste" errors.  If a code carries out the same operations on different data more than once, those sections should be converted to a function.

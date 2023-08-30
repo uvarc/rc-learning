@@ -8,7 +8,6 @@ weight: 138
 menu:
     python-introduction:
         parent: Pandas
-        weight: 138
 ---
 
 ## Sorting DataFrames

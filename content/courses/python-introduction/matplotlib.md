@@ -8,7 +8,6 @@ weight: 110
 menu:
     python-introduction:
         parent: NumPy, Matplotlib, SciPy
-        weight: 110
 ---
 
 Most of our sample scripts in this section are taken directly from the Matplotlib [gallery](https://matplotlib.org/stable/gallery/index.html).

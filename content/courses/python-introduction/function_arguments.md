@@ -8,7 +8,6 @@ weight: 82
 menu:
     python-introduction:
         parent: Functions and Modules
-        weight: 82
 ---
 
 ## Variable Passing
@@ -66,9 +65,9 @@ def myvarfunc(arg1, arg2, *args, **kwargs):
 
 {{< code-download file="/courses/python-introduction/scripts/args_kwargs.py" lang="python" >}}
 
-In this context, the asterisk (`*`) is called the _unpacking operator_. Notice that `args` are read into a tuple and `kwargs` are read into a dictionary.
+In this context, the asterisk (`*`) is called the _unpacking operator_. Python reads the `args` into a tuple and any `kwargs` into a dictionary.
 
-Variable-length arguments and keyword arguments are particularly common in packages.  Even if you never write a code that uses them, you will almost certainly _use_ them in code.  Variable-length keyword arguments are particularly common in packages.  For example, we started our Python adventure with the `plot` function from [Matplotlib](/courses/python-programming-introduction/matplotlib).  We specified two positional arguments
+Variable-length arguments and keyword arguments are particularly common in packages.  Even if you never write a code that uses them, you will almost certainly _use_ them in code. For example, we started our Python adventure with the `plot` function from [Matplotlib](/courses/python-programming-introduction/matplotlib).  We specified two positional arguments
 ```python
 plt.plot(x,y)
 ```
@@ -76,4 +75,3 @@ The plot function actually works through variable-length arguments and keyword a
 ```python
 matplotlib.pyplot.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
 ```
-

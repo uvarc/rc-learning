@@ -3,12 +3,11 @@ title: Files
 toc: true
 type: docs
 draft: false
-weight: 72
+weight: 73
 
 menu:
     python-introduction:
         parent: IO and Exceptions
-        weight: 72
 ---
 
 Files are the main ingredients of our programs.  Our scripts are files; we may have input files; we will usually want some kind of output file.  We can manipulate files in Python without having to go through the operating system's user interface.
@@ -16,13 +15,12 @@ Files are the main ingredients of our programs.  Our scripts are files; we may h
 ## Files, Folders, and Paths
 
 Three major operating systems are in use today; Windows, Mac OS, and Linux. Each one does things a little differently.
-The `os` module provides access to some basic operating-system functionality, particularly those related to files, in a uniform interface.
 
 ### Paths and Platforms
 
 The location of a file is specified by its _path_.  The exact format of the path varies somewhat by operating system.  Python uses _forward slashes_ to separate folders, even on Windows where the backslash (`\`) is "native."
 
-Python tends to be rooted in the Unix operating system so some of the vocabulary comes from there.  "Folders" in Windows and Mac OS are called "directories" in Unix.  The full path to a file is the tree of all folders/directories that must be traversed to reach it. 
+Python tends to be rooted in the Linux operating system so some of the vocabulary comes from there.  "Folders" in Windows and Mac OS are called **directories** in Linux.  The full path to a file is the tree of all folders/directories that must be traversed to reach it. 
 
 ```python
 #Windows
@@ -33,29 +31,30 @@ filename="/Users/You/Desktop/Python Programs/myscript.py"
 filename="/home/you/python_programs/myscript.py"
 ```
 
-We can use the `os` module to make our scripts a little more platform-independent.  The `expanduser` function will get the home directory of the user running the script.  For this we must use the `path` submodule of os.
+We can use the `os` module to make our scripts a little more platform-independent.  The `os` module provides access to some basic operating-system functionality, particularly those related to files, in an interface that is uniform across different systems. 
 
+In this example, the `expanduser` function will get the home directory of the user running the script.  For this we must use the `path` submodule of os.
 ```python
 import os
 home_dir=os.path.expanduser('~')
 ```
 The tilde `~` stands for the home directory in any operating system.
 
-We can use `join` to concatenate folders and paths into complete file names. On Windows, `join` understands both forward and backward slashes.
+We can use `join` to concatenate directories and paths into complete file names. On Windows, `join` understands both forward and backward slashes.
 
 ```python
 #Windows
-folder="Desktop\Python Programs"
+dir="Desktop\Python Programs"
 #Mac OS
-folder="Desktop/Python Programs"
+dir="Desktop/Python Programs"
 #Linux
-folder="python_programs"
+dir="python_programs"
 #All
 script="myscript.py"
-filename=os.path.join(home_dir,folder,script)
-f=open(filenam)
+filename=os.path.join(home_dir,dir,script)
+f=open(filename)
 ```
-The `os` module can perform basic file and folder manipulations in a way that is appropriate for each operating system.  
+The `os` module can perform basic file and directory manipulations in a way that is appropriate for each operating system.  
 
 ### Changing and Creating Directories
 
@@ -63,13 +62,13 @@ When we run a script, the path from which it is run is the _current working dire
 
 ```python
 mycwd=os.getcwd()
-newpath="/home/you/somefolder"
+newpath="/home/you/some_dir"
 os.chdir(newpath)
 ```
 
-To create a new folder/directory, use `mkdir`
+To create a new directory, use `mkdir`
 ```python
-os.mkdir(new_folder) #relative to CWD
+os.mkdir(new_dir) #relative to CWD
 os.mkdir(fullpath)   #full path
 ```
 
@@ -131,11 +130,11 @@ fin.close()
 fout.close()
 ```
 
-Files will be automatically closed when your script terminates, but best practice is to close them all yourself as soon as you are done with it.  You _must_ close a file if you intend to open it later in a different mode.  You cannot reopen a file using an active file descriptor.  You must first close it.
+Files will be automatically closed when your script terminates, but best practice is to close each file yourself as soon as you are done with it.  You _must_ close a file if you intend to open it later in a different mode.  You cannot reopen a file using an active file descriptor.  You must first close it.
 
 **Exercise**
 
-All three major operating systems have a Documents folder by default in their desktop environments.  Write a script to 
+All three major operating systems have a Documents directory by default in their desktop environments.  Write a script to 
  1. change the working directory to the Documents directory.  Use a general way to construct the path.
  2. List all the files in the directory.  Use a string function to check whether any end in ".txt."  OK to use listdir.
  3. Make a new folder "MyTestFolder" in the Documents directory.  Check first whether it already exists.

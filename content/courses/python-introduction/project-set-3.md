@@ -7,7 +7,6 @@ weight: 125
 
 menu:
     python-introduction:
-        weight: 125
 ---
 
 Functions, modules, NumPy, Matplotlib.

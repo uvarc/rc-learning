@@ -8,7 +8,6 @@ weight: 44
 menu:
     python-introduction:
         parent: Conditionals and Loops
-        weight: 44
 ---
 
 ## Leaving Early

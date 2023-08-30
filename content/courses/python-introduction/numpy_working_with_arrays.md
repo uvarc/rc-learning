@@ -8,7 +8,6 @@ weight: 102
 menu:
     python-introduction:
         parent: NumPy, Matplotlib, SciPy
-        weight: 102
 ---
 
 Numpy arrays are easy to use and have many properties and built-in functions that make them a good choice for many applications, especially but not exclusively working with numerical data. 
@@ -74,7 +73,7 @@ print(A[valid])
 
 ## Axes
 
-NumPy refers to dimensions as axes.  Many NumPy intrinsic functions take an optional axis argument.  
+NumPy refers to dimensions as _axes_.  Many NumPy functions take an optional axis argument.  As always, we number axes from zero.
 
 ```python
 a=np.arange(12).reshape(3,4)
@@ -84,13 +83,12 @@ print(a)
  [ 8  9 10 11]]
 print(a.sum())
  66
-print(a.sum(0))  # across rows for ech column
+print(a.sum(0))  # across rows for each column
  [12 15 18 21]
 print(a.sum(1))  # across columns for each row
  [ 6 22 38]
 ```
-
-In sum and similar methods, such as prod, the axis argument is the one to be _summed out_.  In these examples, the first sum uses all elements, resulting in a single value.  In the second two examples, we reduce the rank by one and the shape of the result removes the summed axis.
+In `sum` and similar methods, such as `prod` (product), the axis argument is the one to be _summed out_, that is, eliminated.  In the above examples, the first sum uses all elements, resulting in a single value.  In the examples with an optional axis argument, we reduce the rank by one and the shape of the result removes the summed axis. Starting from a rank-2, $3 \times 4$ array, the sum over axis 0 produces a 4-element rank-1 array.  The sum over axis 1 results in a 3-element rank-1 array.
 
 ## Array Operations
 
@@ -111,13 +109,13 @@ Array operations and NumPy built-in functions can be many times faster than loop
 
 Generate an NxM two-dimensional array `A` with the smallest element 1 and the largest one `N*M*incr`.  Make sure your values are inclusive and the size of the array is correct.  Use reshape to convert from the one-d `arange` to the NxM array. N, M, and incr should be variables.
 
-Create another array B the same shape, such that it is 0.25*A+.01.
+Create another array `B` the same shape, such that it is `0.25*A+.01`.
 
-Create a third array C that is the elementwise sum of A and B.
+Create a third array `C` that is the elementwise sum of `A` and `B`.
 
-Create a fourth array D that sums C over the second axis.  Print the shape, size, and the values of D.
+Create a fourth array `D` that sums `C` over the second axis.  Print the shape, size, and the values of `D`.
 
-Print the first N-2 rows and M-3 columns of B. Be sure B is large enough. Use she shape of B to check that this is true.
+Print the first N-2 rows and M-3 columns of `B`. Be sure `B` is large enough. Use the shape of `B` to check that this is true.
 
 {{< spoiler text="Example solution" >}}
 {{< code-download file="/courses/python-introduction/exercises/numpy_arrays.py" lang="python" >}}

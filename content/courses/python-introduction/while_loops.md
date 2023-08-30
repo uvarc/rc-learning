@@ -8,7 +8,6 @@ weight: 43
 menu:
     python-introduction:
         parent: Conditionals and Loops
-        weight: 43
 ---
 
 A _while_ loop uses a conditional to determine when to exit.  The loop must be coded to ensure that the conditional will become False at some point, or it will never terminate.

@@ -11,4 +11,5 @@ for index in range(len(c_temps)):
     if c_temps[index]<0 and f_temps[index]>0:
         filtered.append(f_temps[index])
 
-print (f"Filtered: {filtered}")
+print("Filtered results")
+print(filtered)

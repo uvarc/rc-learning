@@ -8,7 +8,6 @@ weight: 201
 menu:
     python-introduction:
         parent: Object-Oriented Programming
-        weight: 201
 ---
 
 A __class__ is a generalized, programmer-defined data structure that can contain multiple variables under one name, as well as functions that work on the data represented by those variables. These programmer-defined types are the foundation of _object-oriented programming_.  Python is an object-oriented language even though most programmers mostly use classes written by others, so it is useful to understand the basics.  
