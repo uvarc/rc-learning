@@ -7,7 +7,6 @@ weight: 255
 menu:
     python-introduction:
        parent: Testing and Debugging
-       weight: 255
 ---
 
 Suppose you have some data in a file and you wish to plot it. The file is 

@@ -8,7 +8,6 @@ weight: 20
 menu:
     python-introduction:
         parent: The Basics
-        weight: 21
 ---
 
 Variables in a computer program are not quite like mathematical variables.  They are placeholders for _locations in memory_.  Memory values consists of a sequence of binary digits (bits) that can be `0` or `1`, so all numbers are represented internally in __base 2__.  
@@ -63,7 +62,7 @@ Variable names can improve or reduce the readability of a script or code.  Inter
 isValid=True
 is_valid=False
 ```
-Camel case and underscores may be used together; choose whichever seems clearer given the context, though there tends to be a preference in Python for underscores for ordinary variables.  It is conventional to use camel case for certain constructs such as classes.
+The first form in the example above is called _camel case_, which uses capitalization to separate parts of a long variable name. It gets its name from a fanciful comparison of the ups and downs of the case changes to a multi-humped camel.  The other convention uses underscores for purposes of clarity.  Camel case and underscores may be used together; choose whichever seems clearer given the context, though there tends to be a preference in Python for underscores for ordinary variables.  However, it is conventional to use camel case for certain advanced constructs such as _classes_.
 
 ## Literals
 

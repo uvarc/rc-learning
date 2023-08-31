@@ -8,7 +8,6 @@ weight: 210
 menu:
     python-introduction:
         parent: Object-Oriented Programming
-        weight: 210
 ---
 
 In object-oriented languages that are stricter than Python, class data may be _public_ or _private_.  Public members are directly accessible from an instance.  Private attributes can only be accessed through methods; the data is said to be _encapsulated_ within the object.  Private methods can only be accessed by other methods.  This is to prevent outside code from changing the attributes, or the results of methods, without a "message" to the class instance being sent.  

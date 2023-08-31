@@ -7,7 +7,6 @@ weight: 270
 menu:
     python-introduction:
        parent: Testing and Debugging
-       weight: 270
 ---
 
 A function, module, or class is a _unit_ of code.  Testing each unit is thus called _unit testing_.  It is not always possible to completely isolate each function and test it, but every function should be tested in some way as it is written.  Do not wait until you have written dozens or hundreds of lines of code to start testing.

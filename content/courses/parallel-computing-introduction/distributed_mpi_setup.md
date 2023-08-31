@@ -43,7 +43,13 @@ If you have access to a multicore computer, you can run MPI programs on it.
 
 If using a compiled language, before you can build MPI codes you must install a compiler, and possibly some kind of IDE.  See our guides for [C++](/courses/cpp_introduction/setting_up) or [Fortran](/courses/fortran_introduction/setting_up).
 
-For Python, on all operating systems install [mpi4py](https://mpi4py.readthedocs.io/en/stable/index.html). To install mpi4py you must have a working `mpicc` compiler.  For Anaconda this generally requires installing the `gcc_linux-64` package using `conda`. Then you can `conda install mpi4py`.  You may wish to create a new conda environment for MPI programming.  
+For Python, on all operating systems install [mpi4py](https://mpi4py.readthedocs.io/en/stable/index.html). To install mpi4py you must have a working `mpicc` compiler.  For Anaconda this generally requires installing the `gcc_linux-64` package using `conda`. Instructions are [here](https://conda.io/projects/conda-build/en/latest/resources/compiler-tools.html) for Linux and command-line MacOS. For Windows use the Anaconda [package manager](/courses/python-introduction/package_managers) interface and install `m2w64-gcc`. 
+
+The author of mpi4py [recommends](https://mpi4py.readthedocs.io/en/stable/install.html) using pip even with an Anaconda environment. This command will be similar on a local system to that used for installation on a multiuser system. 
+```no-highlight
+python -m pip install mpi4py
+```
+This may avoid some issues that occasionally arise in prebuilt mpi4py packages. Be sure that an appropriate `mpicc` executable is in the path.
 
 #### Linux
 

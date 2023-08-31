@@ -8,7 +8,6 @@ weight: 30
 menu:
     python-introduction:
         parent: Compound Types
-        weight: 30
 ---
 
 A _sequence_ in Python is an ordered group of values that can be represented by a single variable. We can address individual elements or subgroups of a sequence with square brackets and possibly a _range_ of indices.  Square brackets hold the index or range. 
@@ -35,7 +34,7 @@ An _iterator_ is a data type that can be traversed in order.  Sequences either a
   * `S[il:ul+1]` starts at `il` and goes to `ul`.  The colon is here called a range operator.
 * Starting from the end 
   * `S[-N]` is the `N-1` element.  Thus `S[-1]` is the last element, `S[-2]` the next to last, and so forth. 
-* Concatenation
+* Concatenation (Joining)
   * `S1+E1`
 * Repetition
   * `S1*N` replicates the sequence `S1` `N` times.  

@@ -7,7 +7,6 @@ weight: 79
 
 menu:
     python-introduction:
-        weight: 79
 ---
 
 Input/output, strings, dictionaries, functions, modules.

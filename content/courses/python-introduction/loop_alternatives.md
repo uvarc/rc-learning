@@ -8,7 +8,6 @@ weight: 45
 menu:
     python-introduction:
         parent: Conditionals and Loops
-        weight: 45
 ---
 
 Loops in Python are very slow.  Nested loops are especially slow.  Some alternatives are available in the standard set of packages that are usually faster..

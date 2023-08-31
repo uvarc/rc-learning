@@ -7,7 +7,6 @@ weight: 300
 
 menu:
     python-introduction:
-        weight: 300
 ---
 
 ## Resources

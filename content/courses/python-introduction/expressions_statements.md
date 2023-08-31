@@ -8,7 +8,6 @@ weight: 25
 menu:
     python-introduction:
         parent: The Basics
-        weight: 25
 ---
 
 ## Expressions 
@@ -119,7 +118,7 @@ f=open("input.dat","r")  #open file for reading
 
 #### Docstrings
 
-A special type of string literal is surrounded by triple double quotes `"""a"""`. When placed at the top of a unit of code, immediately after the declaration of the unit name if present, and indented to the correct level, the interpreter recognizes these as a special type of comment called a _doctring_ (documentation string).  Spyder automatically puts a mostly-empty docstring at the top of each new file.  Docstrings are used to summarize the purpose and usage of the code that follows.
+A special type of string literal is surrounded by triple double quotes `"""a"""`. When placed at the top of a unit of code, immediately after the declaration of the unit name if present, and indented to the correct level, the interpreter recognizes these as a special type of comment called a _docstring_ (documentation string).  Spyder automatically puts a mostly-empty docstring at the top of each new file.  Docstrings are used to summarize the purpose and usage of the code that follows.
 ```python
 """
    Program: My Program to compute a value

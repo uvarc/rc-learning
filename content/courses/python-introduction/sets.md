@@ -8,7 +8,6 @@ weight: 62
 menu: 
     python-introduction:
         parent: Dictionaries and Sets
-        weight: 62
 ---
 
 Sets are another _unordered_ type.  No element of a set may be duplicated.  The set is mutable but all elements must be immutable.

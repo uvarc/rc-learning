@@ -8,7 +8,6 @@ weight: 139
 menu:
     python-introduction:
         parent: Pandas
-        weight: 139
 ---
 
 We are now ready to pull together what we have learned about Pandas and work through a detailed example.

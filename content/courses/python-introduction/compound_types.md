@@ -7,7 +7,6 @@ weight: 30
 
 menu:
     python-introduction:
-        weight: 30
 ---
 
 The variables we have seen so far represent one single item each.  If `x` is a floating-point number, it takes on one value at a time.  Compound types are those for which a single variable represents many elements.  In Python, compound types can be sequences, which can be ordered by integer indexes.  We will focus on sequences here, since they are very widely used.  A few compound types are unordered, such as dictionaries and sets; we will study those later.

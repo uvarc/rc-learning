@@ -27,16 +27,6 @@ We will focus on the first three components in this introductory workshop. The o
 ## Prerequisites
 
 - NVIDIA GPU with compute capability 6.0+ (Pascal)
-    - On Rivanna, RAPIDS will not work on K80 nodes. If you're using JupyterLab, exclude them by specifying
-        ```bash
-        -x udc-ba25-2[3,7,8],udc-ba26-2[3-6],udc-ba27-2[3-4]
-        ```
-        in the "Optional: Slurm Option" box.
-
-        If you're submitting a batch job, add this line to your SLURM script:
-        ```bash
-        #SBATCH -C "p100|v100|rtx2080"
-        ```
 - CUDA 11
 
 ## Installation
@@ -107,7 +97,6 @@ Prepare a SLURM script `job.slurm`:
 #SBATCH -A mygroup             # your allocation account
 #SBATCH -p gpu                 # partition
 #SBATCH --gres=gpu:1           # number of GPUs
-#SBATCH -C "p100|v100|rtx2080" # do not run on K80 nodes
 #SBATCH -N 1                   # number of nodes
 #SBATCH -c 1                   # number of cores
 #SBATCH -t 10:00:00            # time

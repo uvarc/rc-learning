@@ -8,7 +8,6 @@ weight: 137
 menu: 
     python-introduction:
         parent: Pandas
-        weight: 137
 ---
 
 We often need to extract data based on specified criteria, and to regroup and reorganize it.  Pandas provides a wealth of methods for these operations.

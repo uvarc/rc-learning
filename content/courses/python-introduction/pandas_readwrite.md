@@ -8,7 +8,6 @@ weight: 135
 menu:
     python-introduction:
         parent: Pandas
-        weight: 135
 ---
 
 Pandas provides multiple functions to read files in several formats.

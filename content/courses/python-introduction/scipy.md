@@ -8,7 +8,6 @@ weight: 120
 menu:
     python-introduction:
         parent: NumPy, Matplotlib, SciPy
-        weight: 120
 ---
 
 The SciPy library is part of the "SciPy ecosystem" that also includes NumPy, Sympy, and Pandas.  We will not discuss Sympy but it is a well-developed computer algebra system (CAS) that is also incorporated into several other packages such as SageMath.

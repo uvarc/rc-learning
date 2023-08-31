@@ -8,31 +8,38 @@ weight: 32
 menu:
     python-introduction:
         parent: Compound Types
-        weight: 32
 ---
 
-Lists are one of the most important data types in Python.  They are flexible and easy to use. Lists are sequences of objects.  Each element of the list can be of any type, including another list.  Lists are _ordered_ which means that each element can be referenced by an integer _index_.
+Lists are one of the most important data types in Python.  They are flexible and easy to use. Lists are [sequences](/courses/python-introduction/sequences) of objects.  Each element of the list can be of any type, including another list.  
+Lists have all the common properties of sequences: they are _ordered_ which means that each element can be referenced by an integer _index_.  As for all ordered types in Python, the indices start at 0.  
 
 Lists are dynamically sized and they are __mutable__.  They must be declared in some manner before they can be used.
 
-* Empty List
+* Empty list
   * `L=[]`
+* List with specified elements (the values of the elements must have been assigned)
+  * `L=[L1,L2,L3,L4,L5]
+* List with `N` items, each having value `V` (both N and V must have been assigned and N must be an integer)
+  *  `L=[V]*N`
 * Return a new list from a built-in function
   * `L=list(range(12))`
     This returns a list of integers 0,1,..11
 
-As for all ordered types in Python, the indices start at 0.  The upper bound in any range is the limit we _do not_ reach.
 
 #### List Elements
 
-To access a particular element by its index, we enclose the index value in square brackets.
-
+To access a particular element by its index, we enclose the index value in square brackets.  If a list `L` has been defined, we can access its third element with
 ```python
-L[2]
+print(L[2])
 ```
 
 Lists are mutable so individual elements can be changed.
+```python
+L[2]=42
+```
 
+**Exercise**
+In your choice of Jupyterlab or Spyder, type and run
 ```python
 myL=[1,2,3,5,6,7]
 myL[1]=4
@@ -44,8 +51,7 @@ Sublists are often called _slices_.
 ```python
 subL=myL[1:3]
 ```
-
-Here the colon is again the range operator.  Always remember that the upper bound is **excluded**, so this slice is elements 1 and 2, which are the second and third elements.
+Always remember that the upper bound is **excluded**, so this slice is elements 1 and 2, which are the second and third elements.
 
 ```python
 subL=myL[2:]
@@ -57,10 +63,10 @@ subL=myL[:3]
 ```
 This extracts the elements from the beginning to the third element (index number 2).
 
-A stride can also be specified
+An increment can also be specified
 
 ```python
-subL=L[1:7:2]
+subL=myL[1:7:2]
 ```
 This extracts elements 1, 3, and 5.
 
@@ -68,15 +74,15 @@ This extracts elements 1, 3, and 5.
 
 * Initialize an empty list
   * `L=[]`
-* Initialize a list of known size (the size can be a variable but it must have a value when this statement is executed)
-  * `L1=[0]*N`
 * Append an element to a list
   * `L1.append("Graham")`
 * Extend a list with another list
   * `L1.extend(["Michael","Terry"])`
 
-Appending adds the argument as the new last element exactly as it appears. It takes any type.  Extending requires a list as its argument.  It concatenates that list at the end of the original one.  It is is equivalent to
+It is important to understand the difference btween appending and extending. Appending adds the argument as the new last element exactly as it appears. It takes any type.  Extending requires a list as its argument.  It joins the two lists sequentially.  It is is equivalent to
   * `L=[1,2,3]+[4,5,6]`
+
+Joining two compound types in a series is called _concatenation_.  We frequently concatenate lists and strings in Python.
 
 * Insert an element
   * `L.insert(i,item)`
@@ -101,7 +107,7 @@ Much more can be done with lists.
 
 * Length (number of elements)
   * `lenL=len(L)`
-* Sum of values (if the same type and sum is defined)
+* Sum of values (if all elements are the same type and sum is defined for them)
   * `sumL=sum(L)`
 * Maximum or minimum value of the items (if they are the same type and max and min are defined)
   * `max(L) min(L)`

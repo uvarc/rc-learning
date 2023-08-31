@@ -7,7 +7,6 @@ weight: 140
 
 menu:
     python-introduction:
-        weight: 140
 ---
 
 ## Pandas 

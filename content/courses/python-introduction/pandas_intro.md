@@ -8,7 +8,6 @@ weight: 131
 menu: 
     python-introduction:
         parent: Pandas
-        weight: 131
 ---
 
 Pandas introduces new data structures, the most important of which are the Series and the DataFrame.

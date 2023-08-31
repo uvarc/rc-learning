@@ -7,7 +7,6 @@ weight: 70
 
 menu:
     python-introduction:
-        weight: 70
 ---
 
 Programs are not very useful if they cannot communicate their results.  They are also not terribly useful if they cannot change their controlling parameters to compute different results.  

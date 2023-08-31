@@ -8,7 +8,6 @@ weight: 136
 menu:
     python-introduction:
         parent: Pandas
-        weight: 136
 ---
 
 Pandas relies on Matplotlib for plotting.  We can combine them to work seamlessly with data.  To use any Pandas plotting methods, `matplotlib.pyplot` must be imported. 

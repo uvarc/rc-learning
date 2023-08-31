@@ -8,7 +8,6 @@ weight: 61
 menu:
     python-introduction:
         parent: Dictionaries and Sets
-        weight: 61
 ---
 
 Dictionaries are _mappings_.  Elements are accessed by a _key_ which may be of any immutable type. Tuples may used as a key, but in that case no elements of the tuple may be mutable.  Keys must be _unique_ (no duplication)

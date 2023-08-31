@@ -34,9 +34,9 @@ Integrated GPUs are mostly for graphics rendering and light gaming. They are int
 
 **NVIDIA**, AMD, Intel
 
-- Datacenter: H100, **A100**, **V100**, **P100**, **K80**
+- Datacenter: H100, **A100**, **V100**, P100, K80
 - Workstation: A6000, Quadro
-- Gaming: GeForce RTX 40xx, 30xx, **20xx**
+- Gaming: GeForce RTX 40xx, **30xx**, **20xx**
 
 (**bold** means available on Rivanna)
 

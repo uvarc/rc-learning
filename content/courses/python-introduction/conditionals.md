@@ -8,7 +8,6 @@ weight: 41
 menu:
     python-introduction:
         parent: Conditionals and Loops
-        weight: 41
 ---
 
 Conditionals are how scripts choose different paths, depending on the circumstances.

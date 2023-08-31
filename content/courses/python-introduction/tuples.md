@@ -8,7 +8,6 @@ weight: 33
 menu:
     python-introduction:
         parent: Compound Types
-        weight: 33
 ---
 
 A tuple is a Python ordered sequence object that is similar to a list but is __immutable__.  Tuples are indicated by parentheses (round brackets). Like all ordered sequences, we can refer to individual elements with [n] and slices with [lb:ub].  As for all other ordered sequences, numbering of elements starts at 0 and the upper bound of a range is excluded.

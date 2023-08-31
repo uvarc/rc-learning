@@ -7,7 +7,6 @@ weight: 265
 menu:
     python-introduction:
        parent: Testing and Debugging
-       weight: 265
 ---
 
 We finally obtained a correct version of the `dow.py` day-of-the-week calculator, but we arrived by a rather cumbersome process of manually adding code.  We determined several test cases that revealed bugs in our code, but we added each one individually.  Why not automate this testing?
