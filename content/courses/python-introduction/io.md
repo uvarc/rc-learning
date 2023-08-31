@@ -13,7 +13,7 @@ menu:
 
 ## Console Input
 
-The console is a text interface for input to and output from the computer.  In Spyder, the iPython window itself can serve as a console.  In Jupyterlab the output console is indicated by lines marked with `Out []` whereas a reference to an input console will open a textbox. 
+The console is a text interface for input to and output from the computer.  In Spyder, the iPython window itself can serve as a console.  In JupyterLab the output console is indicated by lines marked with `Out []` whereas a reference to an input console will open a textbox. 
 
 To read input from the console we use the `input()` function (Python 3+).  In Python 2.7 the equivalent is `raw_input()`.  Any string within the parentheses is optional and, if present, it will be printed to prompt the user.  The input from the user is captured as a string and returned; it must be stored for any subsequent use.
 

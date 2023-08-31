@@ -26,7 +26,7 @@ Multi-user Linux systems such as [Rivanna](https://www.rc.virginia.edu/userinfo/
 
 Once you have installed Anaconda, [find the Navigator application](https://docs.anaconda.com/anaconda/user-guide/getting-started/) in the appropriate menu for your operating system.  You should see a workspace similar to this
 ![Anaconda-Navigator](/courses/python-introduction/imgs/AnacondaNavigator.png).
-The Navigator will present many options that may change over time, most of which are not particularly useful to beginners. Not all are installed by default but can be installed with a click.  In this course we will use **Spyder** and **Jupyterlab**, which should already be available.  If not, click the button to install the package.
+The Navigator will present many options that may change over time, most of which are not particularly useful to beginners. Not all are installed by default but can be installed with a click.  In this course we will use **Spyder** and **JupyterLab**, which should already be available.  If not, click the button to install the package.
 
 On Windows you can start the Anaconda Navigator, as well as some other Anaconda tools, from the App menu.
 
@@ -42,6 +42,6 @@ anaconda-navigator &
 
 MacOS users in particular may find that Navigator may be very slow or tend to hang when started from the Launchpad.  Starting from a terminal can avoid this problem.
 
-Both Jupyterlab and Spyder may be fairly slow to start, so be patient.  Jupyterlab will start an instance or a new tab of the default Web browser and run there. Spyder is a standalone application.
+Both JupyterLab and Spyder may be fairly slow to start, so be patient.  JupyterLab will start an instance or a new tab of the default Web browser and run there. Spyder is a standalone application.
 
-When using Anaconda, never install Jupyter/Jupyterlab or Spyder independently; you can upgrade them with the Conda package manager.
+When using Anaconda, never install Jupyter/JupyterLab or Spyder independently; you can upgrade them with the Conda package manager.

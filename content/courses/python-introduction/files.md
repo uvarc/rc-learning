@@ -58,7 +58,7 @@ The `os` module can perform basic file and directory manipulations in a way that
 
 ### Changing and Creating Directories
 
-When we run a script, the path from which it is run is the _current working directory_.  Note that Jupyterlab and IDEs may set the current working directory their own way.  We can get it through the `os` module and we can change it.
+When we run a script, the path from which it is run is the _current working directory_.  Note that JupyterLab and IDEs may set the current working directory their own way.  We can get it through the `os` module and we can change it.
 
 ```python
 mycwd=os.getcwd()

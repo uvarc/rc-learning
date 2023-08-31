@@ -102,7 +102,7 @@ depending on what you want to do.
 
 **Exercises**
 
-Type into Spyder or Jupyterlab and run
+Type into Spyder or JupyterLab and run
 
 {{< code-download file="/courses/python-introduction/exercises/dictionary_demo.py" lang="python" >}}
 

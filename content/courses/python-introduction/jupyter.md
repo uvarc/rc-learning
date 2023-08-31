@@ -1,5 +1,5 @@
 ---
-title: Jupyterlab 
+title: JupyterLab 
 toc: true
 type: docs
 draft: false
@@ -10,8 +10,8 @@ menu:
         parent: Introduction to Programming in Python
 ---
 
-We will begin with Jupyterlab. Select the Jupyterlab icon in the Anaconda Navigator.  Launching it will cause a tab to open in your Web browser. 
-When Jupyterlab starts up, you will see a list of your files on the left and three icons to select the mode.  Jupyterlab incorporates a Jupyter notebook server as well as a plain Python or iPython console and a simple text editor.  We want to start a Jupyter notebook so click on the top tile.
+We will begin with JupyterLab. Select the JupyterLab icon in the Anaconda Navigator.  Launching it will cause a tab to open in your Web browser. 
+When JupyterLab starts up, you will see a list of your files on the left and three icons to select the mode.  JupyterLab incorporates a Jupyter notebook server as well as a plain Python or iPython console and a simple text editor.  We want to start a Jupyter notebook so click on the top tile.
 
 ![JupyterLabSetup](/courses/python-introduction/imgs/JupyterLabSetup.png)
 
@@ -105,7 +105,7 @@ Then run the cell.
 
 ### Exporting to a Script
 
-You can export embedded text in your notebook into a script.  First make sure your notebook has a name.  If you have not named your current notebook yet, call it `first_script.ipynb`.  From the Notebook menu find Save and Export Notebook As->Executable Script.  Jupyterlab will default to the `Downloads` folder; move it to a location of your choice.  You can make a new directory for your Python scripts if you wish.
+You can export embedded text in your notebook into a script.  First make sure your notebook has a name.  If you have not named your current notebook yet, call it `first_script.ipynb`.  From the Notebook menu find Save and Export Notebook As->Executable Script.  JupyterLab will default to the `Downloads` folder; move it to a location of your choice.  You can make a new directory for your Python scripts if you wish.
 
 ### Exporting to Other Formats
 
@@ -129,6 +129,6 @@ plt.plot(x,y)
 
 ## Resources
 
-Several tutorials are available for Jupyter and Jupyterlab online.  One good one is [here](https://www.tutorialspoint.com/jupyter/index.htm).
+Several tutorials are available for Jupyter and JupyterLab online.  One good one is [here](https://www.tutorialspoint.com/jupyter/index.htm).
 
-The official Jupyterlab documentation is [here](https://jupyterlab.readthedocs.io/en/stable/index.html)
+The official JupyterLab documentation is [here](https://jupyterlab.readthedocs.io/en/stable/index.html)
