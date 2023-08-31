@@ -1,6 +1,5 @@
 <footer class="site-footer">
-<p class="powered-by">
-  <span style="float:left"><img height=auto width=300px src={{.Site.BaseURL}}{{ .Site.Params.logo }} alt="RC Logo" /></span>
+  <span style="float:left"><img height=auto width=300px src="/img/RC_logo.svg" alt="RC Logo" /></span>
   <span style="text-align:center">
   {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}} {{ end }}
   </span>

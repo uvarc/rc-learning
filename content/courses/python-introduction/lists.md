@@ -25,7 +25,6 @@ Lists are dynamically sized and they are __mutable__.  They must be declared in 
   * `L=list(range(12))`
     This returns a list of integers 0,1,..11
 
-
 #### List Elements
 
 To access a particular element by its index, we enclose the index value in square brackets.  If a list `L` has been defined, we can access its third element with
@@ -39,7 +38,7 @@ L[2]=42
 ```
 
 **Exercise**
-In your choice of Jupyterlab or Spyder, type and run
+In your choice of JupyterLab or Spyder, type and run
 ```python
 myL=[1,2,3,5,6,7]
 myL[1]=4
@@ -138,8 +137,8 @@ numList=list(range(10))
 
 Print the length of the list.
 Change the fourth element to 11.
-Extend the list with L=[20,30,40]
-Print the index of the item 9
+Extend the list with L=[20,30,40].
+Print the index of the item that has the value `9`.
 Remove that item from the list.
 Print the current length of the list.
 Sort the list and then reverse the sorted version.
@@ -154,7 +153,7 @@ B[2]=9
 print(A)
 ```
 
-B is just an alias (a "nickname") for A.  If B changes so does A.  __This is true for all mutable types.__ Slicing notation creates a _view_ that can make a copy if the entire list is included.
+`B` is just an alias (a "nickname") for `A`.  If `B` changes so does `A`.  __This is true for all mutable types.__ Slicing notation creates a _view_ that can make a copy if the entire list is included.
 
 ```python
 C=A[:]

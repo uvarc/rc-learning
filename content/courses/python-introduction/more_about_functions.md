@@ -20,7 +20,7 @@ When working in the interpreter (including running codes through Spyder repeated
 %reset
 ```
 
-to clear the workspace.  In Jupyterlab you can also go to the URL bar and add `?reset` at the end, _viz_
+to clear the workspace.  In JupyterLab you can also go to the URL bar and add `?reset` at the end, _viz_
 
 ```
 http://localhost:8888/lab?reset
