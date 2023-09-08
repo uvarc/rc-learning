@@ -25,7 +25,9 @@ Be aware that it will alter your `.bashrc` or other shell resource file.
 Multi-user Linux systems such as [Rivanna](https://www.rc.virginia.edu/userinfo/rivanna/overview/) may have Anaconda or other Python preinstalled.  See the instructions for your local system, such as [ours](https://www.rc.virginia.edu/userinfo/rivanna/software/anaconda/).
 
 Once you have installed Anaconda, [find the Navigator application](https://docs.anaconda.com/anaconda/user-guide/getting-started/) in the appropriate menu for your operating system.  You should see a workspace similar to this
-![Anaconda-Navigator](/courses/python-introduction/imgs/AnacondaNavigator.png).
+
+{{< figure src="/courses/python-introduction/imgs/AnacondaNavigator.png" caption="The Anaconda Navigator home screen." >}}
+
 The Navigator will present many options that may change over time, most of which are not particularly useful to beginners. Not all are installed by default but can be installed with a click.  In this course we will use **Spyder** and **JupyterLab**, which should already be available.  If not, click the button to install the package.
 
 On Windows you can start the Anaconda Navigator, as well as some other Anaconda tools, from the App menu.

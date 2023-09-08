@@ -10,11 +10,11 @@ menu:
         parent: The Basics
 ---
 
-Variables in a computer program are not quite like mathematical variables.  They are placeholders for _locations in memory_.  Memory values consists of a sequence of binary digits (bits) that can be `0` or `1`, so all numbers are represented internally in __base 2__.  
-Eight bits is a _byte_, another frequently used unit in computing.  Memory is organized into chunks called _words_; most modern computers use 64-bit (8 byte) words.   
+Variables in a computer program are not quite like mathematical variables.  They are placeholders for _locations in memory_.  Memory values consists of a sequence of binary digits (bits) that can be `0` or `1`, so all numbers are represented internally in __base 2__.  Eight bits is a _byte_, another frequently used unit in computing.  Memory is organized into chunks called _words_; most modern computers use 64-bit (8 byte) words.   
 
 Names of variables are chosen by the programmer.  Python is case sensitive, so `myVariable` is not the same as `Myvariable` which in turn is not the same as `MyVariable`.  With some exceptions, however, the programmer should avoid assigning names that differ only by case since human readers can overlook such differences.
-Variable names must use only letters of the Latin alphabet, digits, or underscores.  A variable name must begin with a letter or underscore.  Special symbols other than the underscore are not allowed.  By convention, variable names beginning with underscores are regarded as "special" and are reserved for certain circumstances, such as internal variables in [classes](/courses/python-introduction/classes).  Names surrounded by double underscores (sometimes called "dunkers") generally are used by internal Python operations. 
+
+Variable names must use only letters of the Latin alphabet, digits, or underscores.  A variable name must begin with a letter or underscore.  Special symbols other than the underscore are not allowed.  By convention, variable names beginning with underscores are regarded as "special" and are reserved for certain circumstances, such as internal variables in [classes](/courses/python-introduction/classes).  Names surrounded by double underscores (sometimes called "dunders") generally are used by internal Python operations. 
 
 ## Python Types
 
@@ -41,14 +41,11 @@ Python supports complex numbers.  A complex number consists of two double-precis
 ```python
 R+I*1J
 ```
-
 or
-
 ```python
 R+I*1j
 ```
-
-The imaginary part is denoted by the letter "J" (not "i" as in most of mathematics) and it is not case sensitive in this context.  The numerical value of the imaginary part must immediately precede it with no multiplication symbol.  If the imaginary part is a variable, as in the examples, the digit 1 must be present.  This is so the interpreter knows that the J indicates imaginary and is not a variable.
+The imaginary part is denoted by the letter "J" (not "i" as in most of mathematics) and it is not case sensitive in this context.  The numerical value of the imaginary part must immediately precede it with no multiplication symbol.  If the imaginary part is a variable, as in the examples, the digit 1 must be present.  This is so the interpreter knows that the J indicates the square root of -1, and is not a variable.
 
 ### Boolean
 
@@ -56,7 +53,7 @@ Boolean variables indicate _truth value_.  Booleans have only two possible value
 
 ## Choosing Good Variable Names
 
-Variable names can improve or reduce the readability of a script or code.  Interpreters do not have problems keeping track of variables or following the logical flow of a code, but human readers do often have these problems.  Thinking of the script as text will help guide choices for variable and other names.  A variable name should be descriptive of what the variable represents without being too long. It is acceptable and common to include two words but they should be separated either capitalizing some or all letters beginning a word ("camel case") or by underscores.  Some choices may be better for different types; for instance, the name of a Boolean may be a phrase that can be answered "yes" or "no."
+Variable names can improve or reduce the readability of a script or code.  Interpreters do not have problems keeping track of variables or following the logical flow of a code, but human readers do often have these problems.  Thinking of the script as text will help guide choices for variable and other names.  A variable name should be descriptive of what the variable represents without being too long. It is acceptable and common to include two words but they should be separated either capitalizing some or all letters beginning a word or by underscores.  Some choices may be better for different types; for instance, the name of a Boolean may be a phrase that can be answered "yes" or "no."
 
 ```
 isValid=True

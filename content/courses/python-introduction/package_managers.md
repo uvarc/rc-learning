@@ -16,7 +16,7 @@ The Anaconda Navigator interface can be used to install, remove, and update pack
 
 To install new packages from the Navigator, go to the Environments tab, change the "Installed" dropdown to "Not installed" and wait for the package list to be populated.  Find the package you want, in this illustration one called `dill`, select it (and any other packages you find you might need), then click the green Apply button.
 
-![AnacondaPackageManager](/courses/python-introduction/imgs/AnacondaPackageManager.png)
+{{< figure src="/courses/python-introduction/imgs/AnacondaPackageManager.png" caption="Anaconda Package Manager" >}}
 
 Conda can be also used from the command line.  In Linux and Mac OS, the terminal can be used for this.  In Windows, use the Anaconda Command Prompt, which can be accessed through the Apps menu in the Anaconda folder, should be opened for these commands, since it has the correct paths preset.
 
@@ -32,25 +32,25 @@ conda install newpackage
 ```
 Many more options are available.  
 
-![Conda.png](/courses/python-introduction/imgs/Conda.png)
+{{< figure src="/courses/python-introduction/imgs/Conda.png" caption="Conda from a command line." >}}
 
 ## Conda Environments
 
 When you use Anaconda you always have a _conda environment_; the one with which you start is called _base_.  A conda environment is a "bundle" of a Python version, which need not be the same as your base, along with a set of packages installed against that version.  Only one environment can be active at a time (for Linux users, in a given shell) but environments can be activated and deactivated at will.  
 
-A common use for conda environments is to create "sandboxes" to avoid duplication or to use different versions of Python.  For example, Xarray is a general-purpose package but it is particularly aimed at geophysical applications.  Suppose you wish to use it only for a particular application (a homework problem, for example) but do not wish to install it into your main environment.  To create a new environment for your Xarray project, start the Navigator and click on the Environments tab in the upper left.  Click the Create button in the lower pane.  A pop-up will appear.  Name your environment, say `geodata`.  A relatively small number of packages will be installed.  Once created, you can select it from your list of environments, change the dropdown to Installable, and install packages as usual.
+A common use for conda environments is to create "sandboxes" to avoid duplication or to use different versions of Python.  For example, Xarray is a general-purpose package but it is particularly aimed at geophysical applications.  Suppose you wish to use it only for a particular application (a homework problem, for example) but do not wish to install it into your main environment.  To create a new environment for your Xarray project, start the Navigator and click on the Environments tab in the upper left.  Click the Create button in the lower pane.  A pop-up will appear.  Name your environment, say `geodat`.  A relatively small number of packages will be installed.  Once created, you can select it from your list of environments, change the dropdown to Installable, and install packages as usual.
 
 From the command line, run
 ```bash
-conda create --name geodata --python=3.9
+conda create --name geodat --python=3.11
 ```
 The Python version must be specified.  To switch from the command line run (Mac and Linux)
 ```bash
-source activate geodata
+source activate geodat
 ```
 Windows
 ```no-highlight
-activate geodata
+activate geodat
 ```
 
 Once activated, run
