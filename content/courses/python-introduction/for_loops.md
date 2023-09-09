@@ -26,8 +26,7 @@ for item in iterator:
 else:
     block2
 ```
-
-The `else` clause is executed if the loop completes all the steps and is optional.  The colons are required as indicated.  Code blocks must be indented.  The `item` is a variable which successively takes on the values in the `iterator`.  
+The `else` clause is optional and not frequently used; it is executed if the loop completes all the steps. Colons introduce a code block and are required as indicated. The code blocks must be indented.  The `item` is a variable which successively takes on the values in the `iterator`.  
 
 ### Iterables and Iterators
 
@@ -42,9 +41,9 @@ The range iterator is used to step over a sequence of numbers and is very freque
 * `range(0,10,2)` : 0,2,4,6,8
 * `range(10,0,-2)` : 10,8,6,4,2 (note that zero is __not__ included)
 
-The interval is often called a stride.  If it is present the lower bound must also be present even if it is the default, 0.  Otherwise the lower bound may be omitted.  If the stride is omitted it is 1.  The last value is never reached.
+The interval is often called a _stride_.  If it is present the lower bound must also be present even if it is the default, 0.  Otherwise the lower bound may be omitted.  If the stride is omitted it is 1.  The last value is never reached.
 
-In Python 3 the range function returns an iterator object and is not directly accessible.  To see the values, convert it to a list
+In Python 3 the range function returns an iterator object and is not directly accessible.  To see the values or assign them to a variable, convert it to a list
 ```python
 print(list(range(10)))
 ```
@@ -94,7 +93,7 @@ for ch in "HelloEverybody":
 
 ### Enumerate
 
-Sometimes we need both the item and its index.  We can use the `enumerate` function for this purpose.  Enumerate returns an iterator each element of which is atuple consisting of a count, by default starting at 0, and the corresponding value of its argument.
+Sometimes we need both the item and its index.  We can use the `enumerate` function for this purpose.  Enumerate returns an iterator each element of which is a tuple consisting of a count, by default starting at 0, and the corresponding value of its argument.
 
 ```python
 velocity=[-11.,-3.,-1.,1.,2.3,4.]

@@ -13,19 +13,20 @@ menu:
 We will begin with JupyterLab. Select the JupyterLab icon in the Anaconda Navigator.  Launching it will cause a tab to open in your Web browser. 
 When JupyterLab starts up, you will see a list of your files on the left and three icons to select the mode.  JupyterLab incorporates a Jupyter notebook server as well as a plain Python or iPython console and a simple text editor.  We want to start a Jupyter notebook so click on the top tile.
 
-![JupyterLabSetup](/courses/python-introduction/imgs/JupyterLabSetup.png)
+{{< figure src="/courses/python-introduction/imgs/JupyterLabSetup.png" caption="Setting up JupyterLab" >}}
 
-A textbox will open.
-
+A browser tab will open with a text entry area.
 ![JupyterLabInput](/courses/python-introduction/imgs/JupyterLabInput.png)
+{{< figure src="/courses/python-introduction/imgs/JupyterLabInput.png" >}}
 
 Your notebook is untitled.  Open the File menu and click Rename.  Name your notebook `first_script.ipynb`, then click the Rename button.
 
-![JupyterLabRename](/courses/python-introduction/imgs/JupyterLabRename.png)
+{{< figure src="/courses/python-introduction/imgs/JupyterLabRename.png" caption="Rename and save your notebook." >}}
 
 ## Cells
 
 The blank line with the blinking cursor is a _cell_.  You can type code into the cell.  After the `In[]` prompt type `print("Hello")`
+
 To run the cell click the arrowhead in the ribbon at the top of the tab, or type the `shift+enter` keys together.
 
 ## Your First Program
@@ -42,11 +43,9 @@ print(Numerals[:3])
 print(Numerals[3:])
 print(Numerals[4:6])
 ```
-
 Run this cell.  Is the result what you expected?
 
 Now add lines
-
 ```python
 Numerals.extend(list(range(11,21)))
 Numerals[3]=11
@@ -67,13 +66,10 @@ output=greeting2+"\n"*2
 ```
 
 The symbol `\n` stands for "new line."  Run this cell.  In another new cell type
-
 ```python
 output
 ```
-
 Run this cell, then in another cell, enter and run the line
-
 ```python
 print(output)
 ```

@@ -18,7 +18,7 @@ Lists are dynamically sized and they are __mutable__.  They must be declared in 
 * Empty list
   * `L=[]`
 * List with specified elements (the values of the elements must have been assigned)
-  * `L=[L1,L2,L3,L4,L5]
+  * `L=[L1,L2,L3,L4,L5]`
 * List with `N` items, each having value `V` (both N and V must have been assigned and N must be an integer)
   *  `L=[V]*N`
 * Return a new list from a built-in function
@@ -46,24 +46,22 @@ print(myL)
 ```
 
 Sublists are often called _slices_.
-
 ```python
 subL=myL[1:3]
 ```
 Always remember that the upper bound is **excluded**, so this slice is elements 1 and 2, which are the second and third elements.
 
+This extracts elements from the third to the last.
 ```python
 subL=myL[2:]
 ```
-This extracts elements from the third to the last.
 
+This extracts the elements from the beginning to the third element (index number 2).
 ```python
 subL=myL[:3]
 ```
-This extracts the elements from the beginning to the third element (index number 2).
 
-An increment can also be specified
-
+An increment can also be specified:
 ```python
 subL=myL[1:7:2]
 ```
@@ -80,8 +78,6 @@ This extracts elements 1, 3, and 5.
 
 It is important to understand the difference btween appending and extending. Appending adds the argument as the new last element exactly as it appears. It takes any type.  Extending requires a list as its argument.  It joins the two lists sequentially.  It is is equivalent to
   * `L=[1,2,3]+[4,5,6]`
-
-Joining two compound types in a series is called _concatenation_.  We frequently concatenate lists and strings in Python.
 
 * Insert an element
   * `L.insert(i,item)`

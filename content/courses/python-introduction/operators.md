@@ -13,25 +13,19 @@ menu:
 Operators are defined on types and return a new value, usually of the same but sometimes of a different type.  The most familiar are the arithmetic operators `+ - * /` (addition, subtraction, multiplication, division).  Python also provides an exponentiation operator `**`, e.g. `a**b`.  Python also accepts `pow(a,b)` for exponentiation.
 
 The equal sign (=) is an _assignment operator_ in Python.  It does not indicate equality; rather it assigns a value to a variable.  Since variables represent locations in memory, the assignment tells the interpreter to place the value into that memory location.  This means that a mathematically nonsensical expression like
-
 ```python
 x=x+1
 ```
-
 is perfectly correct Python.  The interpreter fetches the value of x from memory, adds one to it, and stores the result back into the same memory location.
 
 Python supports add/assign and similar operators.  Thus
-
 ```python
 x+=1
 ```
-
 is the same thing as
-
 ```python
 x=x+1
 ```
-
 Experienced programmers tend to use operator/assignment (+=, -=, \*=, /=) but it is not required.
 
 ## Integer Operators
@@ -118,9 +112,9 @@ Comparison operators represent relationships between two or more variables.  The
 ### Arithmetic Comparison Operators
 
 * Equal, not equal. Note that equality is a double equals sign.
-  * == !=
+  * ==,  !=
 * Less than, greater than, less than or equal to, greater than or equal to
-  * &lt; &gt;  &lt;=  &gt;=
+  * &lt;,  &gt;,  &lt;=,  &gt;=
 
 _Chaining_
 

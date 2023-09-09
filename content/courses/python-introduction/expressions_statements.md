@@ -29,10 +29,12 @@ Among the rules for expression evaluation is operator precedence.  If you write
 ```python
 x*z-w/y+v
 ```
-the interpreter must follow a set of rules to evaluate each operation.  Python, as well as most other programming languages, carries out the operations from left to right by the priority assigned to each operator.  In Python the ranking for arithmetic operators is, from first to last, \*\*, then (\* /) have equal rank, followed by (+ -) also with equal rank.  So in the expression above, the interpreter first evaluates x\*z, then w/y, then adds those two results together, and finally adds v.  If you want a different grouping you must use parentheses. For example, you may want to add y and v before dividing.
+the interpreter must follow an order of operations to evaluate the expression.  Python, as well as most other programming languages, carries out the operations from left to right by the priority assigned to each operator.  In Python the ranking for arithmetic operators is, from first to last, \*\*, then (\* /) have equal rank, followed by (+ -) also with equal rank.  So in the expression above, the interpreter first evaluates x\*z, then w/y, then adds those two results together, and finally adds v.  If you want a different grouping you must use parentheses. For example, you may want to add y and v before dividing.
 ```python
 x*z-w/(y+v)
 ```
+
+A popular mnemonic for the order of operations is **PEMDAS** (Parentheses, Exponentiation, Multiplication/Division, Addition/Subtraction).
 
 The interpreter will never be confused about the order in which it will evaluate an expression, but humans can often become confused.  It is better to include more parentheses than needed than to have too few, in order to keep your meaning clear both to the interpreter and your reader.
 

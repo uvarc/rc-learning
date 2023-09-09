@@ -25,19 +25,19 @@ plt.plot(x,y)
 plt.show()
 ```
 This results in
-![SimplePlot.png](/courses/python-introduction/imgs/SimplePlot.png)
+{{< figure src="/courses/python-introduction/imgs/SimplePlot.png" caption="A simple Matplotlib plot." >}}
 
 Let us write a more sophisticated example.  This is a scatter plot with points randomly placed according to a normal distribution.
 
 {{< code-download file="/courses/python-introduction/scripts/scatter_plot.py" lang="python" >}}
 
-![ScatterPlot.png](/courses/python-introduction/imgs/ScatterPlot.png)
+{{< figure src="/courses/python-introduction/imgs/ScatterPlot.png" caption="Scatter plot." >}}
 
 We can place more sophisticated labeling or multiple plots on a graph with `subplot`
 
 {{< code-download file="/courses/python-introduction/scripts/subplots.py" lang="python" >}}
 
-![Subplot.png](/courses/python-introduction/imgs/Subplot.png)
+{{< figure src="/courses/python-introduction/imgs/SubPlot.png" caption="Scatter plot." >}}
 
 Many other options are available for annotations, legends, and so forth.
 
@@ -45,7 +45,7 @@ More advanced plots are provided.  The following demonstrates streamlines for ve
 
 {{< code-download file="/courses/python-introduction/scripts/streamlines.py" lang="python" >}}
 
-![Streamplots.png](/courses/python-introduction/imgs/Streamplots.png)
+{{< figure src="/courses/python-introduction/imgs/StreamPlots.png" caption="Streamlines plot." >}}
 
 Matplotlib can also make histograms, pie charts, and so forth.  These are commonly used with Pandas, and Pandas can access them directly, as we will see.
 
@@ -79,13 +79,13 @@ Seaborn 0.9 or later is needed for the "relationship" plot example below. This e
 
 {{< code-download file="/courses/python-introduction/scripts/seaborn_demo.py" lang="python" >}}
 
-![SeabornDemo1.png](/courses/python-introduction/imgs/SeabornDemo1.png)
+{{< figure src="/courses/python-introduction/imgs/SeabornDemo1.png" caption="Seaborn line plots with error bounds." >}}
 
 Many other statistical plots are available including boxplots, violin plots, distribution plots, and so forth.  The next example is a heatmap.
 
 {{< code-download file="/courses/python-introduction/scripts/seaborn_demo2.py" lang="python" >}}
 
-![SeabornDemo2.png](/courses/python-introduction/imgs/SeabornDemo2.png)
+{{< figure src="/courses/python-introduction/imgs/SeabornDemo2.png" caption="Seaborn heatmap." >}}
 
 The call to `sns.set()` imposes the default Seaborn theme to all Matplotlib plots as well as those using Seaborn.  Seaborn provides a number of methods to modify the appearance of its plots as well as Matplotlib plots created while the settings are in scope.  For many examples see their [tutorial](https://seaborn.pydata.org/tutorial/aesthetics.html#aesthetics-tutorial) on styling plots.
 
