@@ -14,18 +14,18 @@ Files are the main ingredients of our programs.  Our scripts are files; we may h
 
 ## Files, Folders, and Paths
 
-Three major operating systems are in use today; Windows, Mac OS, and Linux. Each one does things a little differently.
+Three major operating systems are in use today; Windows, MacOS, and Linux. Each one does things a little differently.
 
 ### Paths and Platforms
 
 The location of a file is specified by its _path_.  The exact format of the path varies somewhat by operating system.  Python uses _forward slashes_ to separate folders, even on Windows where the backslash (`\`) is "native."
 
-Python tends to be rooted in the Linux operating system so some of the vocabulary comes from there.  "Folders" in Windows and Mac OS are called **directories** in Linux.  The full path to a file is the tree of all folders/directories that must be traversed to reach it. 
+Python tends to be rooted in the Linux operating system so some of the vocabulary comes from there.  "Folders" in Windows and MacOS are called **directories** in Linux.  The full path to a file is the tree of all folders/directories that must be traversed to reach it. 
 
 ```python
 #Windows
 filename="C:/Users/You/Desktop/Python Programs/myscript.py"
-#Mac OS
+#MacOS
 filename="/Users/You/Desktop/Python Programs/myscript.py"
 #Linux
 filename="/home/you/python_programs/myscript.py"
@@ -40,12 +40,12 @@ home_dir=os.path.expanduser('~')
 ```
 The tilde `~` stands for the home directory in any operating system.
 
-We can use `join` to concatenate directories and paths into complete file names. On Windows, `join` understands both forward and backward slashes.
+We can use `path.join` to concatenate directories and paths into complete file names. On Windows, `path.join` understands both forward and backward slashes.
 
 ```python
 #Windows
 dir="Desktop\Python Programs"
-#Mac OS
+#MacOS
 dir="Desktop/Python Programs"
 #Linux
 dir="python_programs"
@@ -91,7 +91,7 @@ for file in os.listdir():
         print("{} is neither a file nor a directory".format(file))
 ```
 
-If we do not need a list of the files but only an iterator, we can use `scandir`.  Scandir returns an object, not a string, so we must extract the parts we need.  The advantage to scandir is that it can be faster if we need to test any attributes of the file.
+If we do not need a list of the files but only an iterator, we can use `scandir`.  Scandir returns an object, not a string, so we must extract the parts we need.  The advantage to scandir is that it can be faster if we need to test any attributes of the file.  The `with` statement is intended to handle any [exceptions](/courses/python-introduction/exceptions).
 {{< code file="/courses/python-introduction/scripts/scandir.py" lang="python" >}}
 
 ### Copying and Moving Files

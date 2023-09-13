@@ -27,13 +27,13 @@ F is the field width (total number of columns occupied), w is the number of digi
 Examples:
 
 * Use exactly 15 spaces with 8 decimal places 
-  * 15.8f
+  * `15.8f`
 * Let the interpreter decide the total field width but use 8 decimal places 
-  * .8f
+  * `.8f`
 * Print a float as an integer (this will truncate, not round, the decimal places)
-  * 0f
+  * `0f`
 * Print in scientific notation with three decimal places
-  * .3e
+  * `.3e`
 
 Strings are specified with the letter `s`. They do not take a field width but can be adjusted or zero padded by using more advanced operations on the string to be printed.
 
@@ -97,11 +97,11 @@ Even more sophisticated formatting is possible.  In the above examples, when pri
 
 * print("Pi to {} digits is .{dec}f}".format(math.pi,dec=n))
 
-#### Formatting with f-Strings
+### Formatting with f-Strings
 
-For Python 3.6 and up the _formatted string literal_ or f-string was introduced.  These can be used to create formatted output easily.
+For Python 3.6 and up the _formatted string literal_ or "f-string" was introduced.  These can be used to create formatted output easily.
 
-Example
+**Example**
 
 ```python
 n=12
