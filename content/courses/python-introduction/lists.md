@@ -123,23 +123,7 @@ Much more can be done with lists.
 * In Python 3, `reversed(L)` returns an iterator and not a list, but you may use the list constructor to convert it.
   * `Lreversed=list(reversed(L))`
 
-**Exercise**
-
-Type
-
-```python
-numList=list(range(10))
-```
-
-Print the length of the list.
-Change the fourth element to 11.
-Extend the list with L=[20,30,40].
-Print the index of the item that has the value `9`.
-Remove that item from the list.
-Print the current length of the list.
-Sort the list and then reverse the sorted version.
-
-Copying lists:
+#### Copying lists:
 
 ```python
 A=[1,2,3,4]
@@ -163,3 +147,18 @@ An alternative is to explicitly use the list constructor function:
 ```python
 D=list(A)
 ```
+
+**Exercise**
+
+Type
+```python
+numList=list(range(10))
+```
+Print the length of the list.
+Change the fourth element to 11.
+Extend the list with L=[20,30,40].
+Print the index of the item that has the value `9`.
+Remove that item from the list.
+Print the current length of the list.
+Compute the average of the list elements.
+Sort the list and then reverse the sorted version.

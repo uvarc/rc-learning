@@ -76,12 +76,14 @@ The "condition" must be an expression that evaluates to True or False; that is, 
 **Exercise**
 
 The Body Mass Index is a widely-used number to classify body shapes.  The formula in Imperial units (pounds, inches) is
-
-BMI=weight\*703.1/height\*\*2
+```python
+BMI=weight*703.1/height**2
+```
 
 In metric units (kg, m) the formula is
-
-BMI=weight/height\*\*2
+```python
+BMI=weight/height**2
+```
 
 The categories are as follows (we have omitted the top two):
 
