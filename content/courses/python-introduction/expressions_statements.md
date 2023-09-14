@@ -86,27 +86,6 @@ A=[1,2,3,
    4, 5, 6]
 ```
 
-## Code Blocks
-
-Statements can be grouped into _blocks_ that function logically as a single statement.  In Python these blocks are indicated by the _indentation level_. You may indent each block by however many spaces you wish (3 or 4 is usually recommended), but each block level must be indented by exactly the same number.  Do not use tabs.
-
-Many editors, including Spyder, will automatically indent the next statement to the same level as the previous one.  You escape to an outer level with the backspace or some other key.  Spyder also provides _Indent_ and _Unindent_ options in its Edit menu.  These are extremely convenient for Python since you need only select lines, then click indent or unindent to create or move a code block level.
-
-Examples
-
-```python
-def func(z):
-    x=99.
-    y=1.
-    return (x+y)/z
-
-if x==20:
-   x=99
-   if (x>=30):
-       for i in range(x):
-           j=i+x
-```
-
 ### Comments
 
 Comments are statements or partial statements inserted for the benefit of human readers of the program.  Comments are ignored by the interpreter.  In Python ordinary comments begin with a hash mark (or octothorp) #.  All symbols from the hash mark to the end of the line are ignored.

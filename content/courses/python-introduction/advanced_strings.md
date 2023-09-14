@@ -12,16 +12,21 @@ menu:
 
 One of Python's strong points is its ability to do many things well, so both numerical and textual analysis can be done with the same language.  We will look at some of the many ways we can manipulate strings in Python.  It is important to distinguish between string _functions_, which take a string as an argument, e.g. `sfunc(mystring)`, and string _methods_ that follow the string variable, e.g. `mystr.amethod()`.  Both perform operations on the string.  The [classes](/courses/python-introduction/classes) chapter will make clear why the syntax differs.
 
+The result of all the built-in methods and functions must be stored into a new string variable; they do not modify the original string.  For example,
+```python
+str_list=str.split(',')
+```
+
 ### Categorization
 
-Several methods are available to determine whether a string represents letters or may be text.  They apply to the entire string.
+Several methods are available to determine whether a string represents letters or may be text.  They apply to the entire string. They return a Boolean value.
 
 * `isalpha`, `isdigit`, `isalnum`
   * is alphabetic, is a number, is alphanumeric (combination of numbers and other characters)
     * `mystr.isalpha()`
 * `isupper`, `islower`, `istitle`
   * is uppercase, is lowercase, is "title case" (first letter of each word capitalized, all others lower case)
-    *` mystr.isupper()`
+    * ` mystr.isupper()`
 
 #### Manipulating Case
 
@@ -40,57 +45,57 @@ Several methods are available to determine whether a string represents letters o
 
 ### Searching and Tests
 
-* Find a character or substring.  Returns location of _first_ occurrence only.
+* Find a character or substring.  Returns location of the _first_ occurrence only.
   * `find`
-    * returns -1 if it does not find the substring 
+    * returns $-1$ if it does not find the substring 
     * `mystr.find(s)`
   * `rfind(s)`
     * searches right to left
-* `index`
-  * throws an exception if the substring is not found 
+* Find the index of the beginning (left to right) of a substring.  Throws an _exception_ (error) if the substring is not found.
+  * `index`
     * `mystr.index(s)`
   * `rindex(s)`
     * searches right to left
-* `count`
-  * Counts the number of occurrences of substring s.  Case sensitive.
+* Count the number of occurrences of substring `s`.  It is case sensitive.
+  * `count`
     * `mystr.count(s)`
-* `endswith`
-  * Determines whether a string ends with a particular substring
+* Determine whether a string ends with a particular substring
+  * `endswith`
     * `mystr.endswith(s)`
-* `startswith`
-  * Determines whether a string starts with a particular substring
+* Determines whether a string starts with a particular substring
+  * `startswith`
     * `mystr.startswith(s)`
 
 ### Modifying and Filling
 
-* Remove characters from beginning and end (empty parentheses remove spaces and tabs). The angle brackets indicate an option that can be omitted and are not typed out.
+* Remove characters from the beginning and end (if no arguments, i.e. the parenteses are left empty, remove spaces and tabs). The angle brackets indicate an option that can be omitted and are not typed out.
   * `mystr.strip(<chars>)`
     * `mystr.rstrip(<chars>)`, `string.lstrip(<chars>)`
     * The default is _whitespace_ (spaces and tabs)
-* Replace substring a with b
+* Replace substring `a` with `b`.
   * `mystr.replace(a,b)`
-* Expand tabs 
+* Expand tabs.
   * The default is 8 spaces per tab.  If a different number is required, pass it in the parentheses.
   * `mystr.expandtabs()`  #8 spaces 
   * `mystr.expandtabs(4)` #4 spaces 
-* Justify in a field of width n spaces 
+* Justify in a field of width `n` spaces.
   * `mystr.rjust(n)`, `mystr.ljust(n)`
-* Center in a field of n spaces 
+* Center in a field of `n` spaces.
   * `mystr.center(n)`
-* Fill spaces with zeros in field of width n (mainly used for numbers)
+* Fill spaces with zeros in field of width `n` (mainly used with numbers).
   * `mystr.zfill(n)`
 
 ### Splitting and Joining
 
-* Split on string `s`.  Most usually splits on a character.  Splits on whitespace (spaces and tabs) when the delimiter isn't specified.  Returns a list with the delimiter removed, and each separated string an element of the list.
+* Split on string `s`.  Is mostly used to split on a character or sometimes a very short string.  Splits on whitespace (spaces and tabs) when the delimiter isn't specified.  Returns a list with the delimiter removed, and each separated string an element of the list.
   * `split(<s>)`
     * `mystr.split()`
     * `mystr.split(',')`
 * Split on newlines.  Returns a list of the lines, with newline characters stripped.
   * `mystr.splitlines()`
-* Join a list of strings with a string (usually a single character).  This is the inverse of split.  The syntax is peculiar, for Python.
+* Join a list of strings with a string (usually a single character) into a single string.  This is the inverse of split.  The syntax is peculiar, for Python.
   * `<s>.join(list)`
-    * joins a list with no spaces or other characters between
+    * joins a list of strings with no spaces or other characters between them.
        * `"".join(strlist)`
     * joins a list with commas between
        * `",".join(strlist)`

@@ -112,9 +112,9 @@ Although a particular string variable is immutable, it is possible to extract su
 sub_string=string[0:3]
 ```
 
-In this context the colon (:) is called the _range operator_.  For all ordered types, Python counts _from zero_.  So the first character is numbered 0, the second is 1, and so forth.  As we have seen before, the upper bound is always _exclusive_ in Python. Thus the variable `sub_string` consists of characters 0, 1, and 2.
+In this context the colon (:) is again representing the _range operator_. Recall that for all ordered types, Python counts _from zero_.  So the first character is numbered 0, the second is 1, and so forth.  As we have seen before, the upper bound is always _exclusive_ in Python. Thus the variable `sub_string` consists of characters 0, 1, and 2.
 
-Since strings are immutable we cannot assign values to a substring; that is, they cannot appear on the left-hand sign of an assignment = statement.
+Since strings are immutable we cannot assign values to a substring; that is, they cannot appear on the left-hand sign of an assignment `=` statement.
 
 **Exercise**
 

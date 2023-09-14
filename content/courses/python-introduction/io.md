@@ -36,7 +36,7 @@ The print function
 
 * always inserts a space between its arguments
 * always adds a newline character unless the `end` argument is added.
-  * print(var,end="")
+  * `print(var,end="")`
 
 Messages can be added in between variables.
 

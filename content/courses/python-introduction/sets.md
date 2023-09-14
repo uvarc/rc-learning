@@ -27,13 +27,13 @@ Since sets are unordered, the order of `L` is not guaranteed to be preserved.
 ### Set Operations
 
 * Add an element to set s
-  * s.add(item)
+  * `s.add(item)`
 * Extend with a sequence 
-  * s.update(t)
+  * `s.update(t)`
 * Remove an item (will fail silently if the item isn't present)
-  * s.discard(item)
+  * `s.discard(item)`
 * Remove with an exception if the item isn't is_present 
-  * s.remove(item)
+  * `s.remove(item)`
 
 The `in` operator works even though, strictly speaking, sets are not sequences.
 
@@ -43,18 +43,18 @@ item in s
 
 Sets attempt to reproduce most of the properties of mathematical sets.  
 
-* Test for subset (a set is a subset of itself)
-  * s2.issubset(s1) or s2&lt;=s1
-* Test for superset (similarly, a set is its own superset)
-  * s1.issuperset(s2) or s2>=s1
-* Intersection
-  * s1.intersection(s2) or s1&s2
-* Union -- the | symbol is a pipe 
-  * s1.union(s2) or s1|s2
-* Symmetric difference (elements in one or the other but not both)
-  * s1.symmetric_difference(s2) or s1^s2
-* Set difference (elements in s1 but not in s2)
-  * s1.difference(s2) or s1-s2
+* Test for subset (a set is a subset of itself):
+  * `s2.issubset(s1)` or `s2<=s1`
+* Test for superset (similarly, a set is its own superset):
+  * `s1.issuperset(s2)` or `s2>=s1`
+* Intersection:
+  * `s1.intersection(s2)` or `s1&s2`
+* Union -- the | symbol is a pipe:
+  * `s1.union(s2)` or `s1|s2`
+* Symmetric difference (elements in one or the other but not both):
+  * `s1.symmetric_difference(s2)` or `s1^s2`
+* Set difference (elements in s1 but not in s2):
+  * `s1.difference(s2)` or `s1-s2`
 
 **Exercise**
 

@@ -18,12 +18,12 @@ The standard read commands in Python read _only strings_.  Even if the input val
 
 Reading commands
 
-* f.read()
-  * Reads the entire file identified by `f` into one large string
-* f.readline()
-  * Reads a single line (including the newline character) from the file `f`
-* f.readlines() 
-  * Reads all the lines into a list, one line per list element.  Newlines are included.
+*  Read the entire file identified by `f` into one large string:
+  * `f.read()`
+* Read a single line (including the newline character) from the file `f`
+  * `f.readline()`
+* Read all the lines into a list, one line per list element.  Newlines are included.
+  * `f.readlines()`
 
 We have several options to handle the strings when reading directly from a file.  One option is to use read, then split all the lines on the `\n` character:
 
@@ -53,7 +53,6 @@ fin=open("filename")
 for line in fin:
     data=line.rstrip("\r\n").split(",")
 ```
-
 In the examples above, we have not done anything to store the values of the data, so each time through the `data` variable will be overwritten and the previous values lost.  How we handle this will depend on the file and what should be done to its contents.  One common approach is to declare lists to hold the values in advance, then append as we go.
 
 ```python
@@ -93,7 +92,7 @@ We will not go into more detail about reading files since we will later cover pa
 
 ## Writing Files
 
-To write a file it must have been opened appropriately.  We can use print with the addition of a `file=` argument.
+To write a file it must have been opened appropriately.  We can use `print` with the addition of a `file=` argument.
 ```python
 f=open("myfile","w")
 print("Format string {:f} {:f}".format(x,y),file=f)
@@ -111,18 +110,15 @@ Corresponding to `readlines` there is a `writelines`:
 fout=open("outfile","w")
 fout.writelines(seq)
 ```
-Here `seq` is a sequence, usually a list of strings.  The `writelines` will not add any end-of-line markers so as with write, they must be appended to every string in the sequence where a linebreak is desired.
+Here `seq` is a sequence, usually a list of strings.  The `writelines` will not add any end-of-line markers so as with `write`, they must be appended to every string in the sequence where a linebreak is desired.
 
 ## Closing Files
 
 When you have completed all operations on a file you should close it.
-
 ```python
 fin.close()
 fout.close()
 ```
-
-Files will be automatically closed when your script terminates, but best practice is to close them all yourself as soon as you are done with it.  You _must_ close a file if you intend to open it later in a different mode.  You cannot reopen a file using an active file descriptor.  You must first close it.
 
 **Exercise**
 
