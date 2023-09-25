@@ -4,7 +4,7 @@ date: "2022-10-01:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 460
+weight: 560
 
 menu:
   rivanna-tutorial:
@@ -21,20 +21,14 @@ There are three quick ways to work with files.
 In Open OnDemand and Caja, rather than trying to navigate to your /scratch directory, use Go To (OOD) or Go->Location (Caja) and type the path `/scratch/mst3k`, using your own ID rather than `mst3k`.
 {{< /info >}}
 
-* Use the command line.
 
 ## Creating Files and Folders
 
 * Open OnDemand: click the New File (file) or New Dir (folder) button and provide the name. You may also provide a path.
 * In FastX with Caja: For a new file go to the File->Create Document menu. For a folder use File->Create Folder.
 * In FastX you can use an editor such as `pluma`, which is accessible through the Applications->Accessories menu, using its File->New menu item.  You can then use the editor to add content to the file.
-* If you are using a command line you can use a text editor like `vi` or you can  use the `cat` command followed by the name of the new file.  For a folder, type `mkdir dirname`.
 
 ## Deleting Files and Folders
 * In the Open OnDemand File Explorer, select the file or folder, then click the red Delete button.  It will request confirmation. 
 * In the "Caja" file manager on FastX, right-click and Delete.  Since the space in your home directory is limited, we recommend not moving to Trash.
-* From the command line, for a file type `rm filename`.  For a directory type `rm -rf directoryname`.
 
-{{< warning >}}
-When deleting a file at the command line, it _will not_ ask for confirmation unless you add the -i flag to the `rm` command.
-{{< /warning >}}
