@@ -16,8 +16,6 @@ Most of the time we read or write from a file rather than from the console.  Fil
 
 The standard read commands in Python read _only strings_.  Even if the input values are intended to be numbers, they are read in as strings.  Any conversions must be done by the programmer.
 
-Reading commands
-
 *  Read the entire file identified by `f` into one large string:
   * `f.read()`
 * Read a single line (including the newline character) from the file `f`
@@ -33,7 +31,7 @@ the_file=fin.read()
 file_list=the_file.split("\r\n")
 ```
 
-We can now process through the list using a loop.  Note that we use `\r\n` to make sure we accommodate Windows, Mac OSX, and Linux operating systems.  
+We can now process through the list using a loop.  Note that we use `\r\n` to make sure we accommodate Windows, MacOS, and Linux operating systems.  
 
 If we have numeric data, one way to obtain a list of floats for each line of the file is to employ `map` with `readlines`:
 ```python

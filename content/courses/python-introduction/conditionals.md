@@ -85,7 +85,7 @@ In metric units (kg, m) the formula is
 BMI=weight/height**2
 ```
 
-The categories are as follows (we have omitted the top two):
+The categories are as follows:
 
 {{< table >}}
 |  Range   |  Category   |

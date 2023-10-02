@@ -68,15 +68,15 @@ print(number_1 < number_2)
 
 Python supplies many string operators and functions.  Among the most commonly used are
 
-* concatenation
+* Concatenation
   * `s1 + s2`
-* number of characters
+* Number of characters
   * `len(string)`
-* type conversion from numerical type to string
+* Type conversion from numerical type to string
   * `str(f)`
-* type conversion from string to numerical type.  This must be possible according to the interpreter's rules for the numbers.  In particular, the string `"3."` does not represent an integer.
+* Type conversion from string to numerical type.  This must be possible according to the interpreter's rules for the numbers.  In particular, the string `"3."` does not represent an integer.
   * `float(s)`
-* raw string: no characters are taken to be special characters.  Sometimes particularly useful on Windows. Either `r` or `R` can be used.
+* Raw string: no characters are taken to be special characters.  Sometimes particularly useful on Windows. Either `r` or `R` can be used.
   * `r'This is a string \ with no special characters \n'`
 
 **Exercise**
