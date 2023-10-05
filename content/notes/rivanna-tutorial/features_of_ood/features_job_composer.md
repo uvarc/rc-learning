@@ -4,7 +4,7 @@ date: "2022-10-01:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 631
+weight: 330
 
 menu:
   rivanna-tutorial:
@@ -15,7 +15,7 @@ The job composer tab allows you to create and submit a job to run on Rivanna.
 
 {{< figure src="/notes/rivanna-tutorial/img/Features_job_composer.png" caption="OOD Job Composer" >}}
 
-Selecting the default template will automatically create a submission script called ```demo_hello_world.slurm``` located in ```/home/egg3xa/Rivanna/data/sys/myjobs/projects/default/1``` on the file system:
+Selecting the default template will automatically create a submission script called ```demo_hello_world.slurm``` located in ```/home/computingID/Rivanna/data/sys/myjobs/projects/default/1``` on the file system:
 
 {{< figure src="/notes/rivanna-tutorial/img/featues_template_job.png" caption="Default Template Job" >}}
 

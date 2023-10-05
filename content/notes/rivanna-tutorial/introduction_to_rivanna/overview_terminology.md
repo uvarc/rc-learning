@@ -15,7 +15,7 @@ menu:
   * A _node_ is the basic building block of a cluster.
   * Nodes are a type of computer called a _server_.  
      - They generally have more power than a typical computer.
-     - They may have specialty hardware like graphical processing units
+     - They may have specialty hardware like graphical processing units.
 
   * Two types of nodes
     * <span style="color:#0000FF">Head Node </span> – a server used for logging in and submitting jobs.

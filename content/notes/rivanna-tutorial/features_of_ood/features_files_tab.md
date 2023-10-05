@@ -4,7 +4,7 @@ date: "2022-10-01:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 625
+weight: 310
 
 menu:
   rivanna-tutorial:
@@ -16,4 +16,4 @@ The "Files" tab on the menu bar gives access to all files in home or project (if
 {{< figure src="/notes/rivanna-tutorial/img/OOD_files_tab.png" caption="OOD Files Menu" >}}
 
 
-Here, you are able to upload and download small files to and from Rivanna from your local computer. You can also create and delete new files and directories in addition to copying or renaming them. The Filter search bar searches for files or directories in the file system.
+Here, you can upload and download small files to and from Rivanna from your local computer. You can also create and delete new files and directories in addition to copying or renaming them. The Filter search bar searches for files or directories in the file system.

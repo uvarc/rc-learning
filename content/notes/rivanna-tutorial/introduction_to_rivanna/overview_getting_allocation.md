@@ -8,7 +8,7 @@ type: docs  # Do not modify.
 menu:
   rivanna-tutorial:
     parent: Introduction to Rivanna
-    weight: 130
+    weight: 20
 ---
 
 {{< figure src="/notes/rivanna-tutorial/img/allocation_schematic.png" caption="Requesting an Allocation" >}}

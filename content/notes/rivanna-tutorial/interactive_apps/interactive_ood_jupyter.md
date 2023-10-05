@@ -4,7 +4,7 @@ date: "2022-10-01:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 410
+weight: 220
 
 menu:
   rivanna-tutorial:
@@ -29,6 +29,6 @@ The "Number of hours" is the time your job session will remain active.
 If you exceed the requested time limit, your session will be terminated without warning.
 {{< /warning >}}
 
-The "Allocation" is the name of the allocation that should be charged.  Your advisort should have told you what to use.  You can be a member of more than one allocation.  In that case one of them, not chosen by you, will be the default.  It is best to always fill in the name of an allocation, but remember to change it if necessary.
+The "Allocation" is the name of the allocation that should be charged.  Your advisor should have told you what to use.  You can be a member of more than one allocation.  In that case one of them, not chosen by you, will be the default.  It is best to always fill in the name of an allocation, but remember to change it if necessary.
 
 Once you have completed the Webform, click on the `Launch` button to submit the request.
