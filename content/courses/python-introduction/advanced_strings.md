@@ -21,11 +21,11 @@ str_list=str.split(',')
 
 Several methods are available to determine whether a string represents letters or may be text.  They apply to the entire string. They return a Boolean value.
 
-* `isalpha`, `isdigit`, `isalnum`
-  * is alphabetic, is a number, is alphanumeric (combination of numbers and other characters)
+* Is alphabetic, is a number, is alphanumeric (combination of numbers and other characters).  Whitespace is none of these.
+  * `isalpha`, `isdigit`, `isalnum`
     * `mystr.isalpha()`
-* `isupper`, `islower`, `istitle`
-  * is uppercase, is lowercase, is "title case" (first letter of each word capitalized, all others lower case)
+* Is uppercase, is lowercase, is "title case" (first letter of each word capitalized, all others lower case)
+  * `isupper`, `islower`, `istitle`
     * ` mystr.isupper()`
 
 #### Manipulating Case
@@ -36,6 +36,9 @@ Several methods are available to determine whether a string represents letters o
 * Switch to all lowercase
   * `lower`
     * `mystr.lower()`
+* Capitalize first letter
+  * `capitalize`
+    * `mystr.capitalize()`
 * Convert to title case 
   * `title`
     * `mystr.title()`
@@ -47,7 +50,7 @@ Several methods are available to determine whether a string represents letters o
 
 * Find a character or substring.  Returns location of the _first_ occurrence only.
   * `find`
-    * returns $-1$ if it does not find the substring 
+    * returns `-1` if it does not find the substring 
     * `mystr.find(s)`
   * `rfind(s)`
     * searches right to left
@@ -78,9 +81,10 @@ Several methods are available to determine whether a string represents letters o
   * The default is 8 spaces per tab.  If a different number is required, pass it in the parentheses.
   * `mystr.expandtabs()`  #8 spaces 
   * `mystr.expandtabs(4)` #4 spaces 
-* Justify in a field of width `n` spaces.
-  * `mystr.rjust(n)`, `mystr.ljust(n)`
-* Center in a field of `n` spaces.
+* Justify in a field of width `n` spaces. Returns original string if the field width is too short.
+  * `mystr.rjust(n)` # right justify
+  * `mystr.ljust(n)` # left justify
+* Center in a field of `n` spaces. Returns original string if the field width is too short.
   * `mystr.center(n)`
 * Fill spaces with zeros in field of width `n` (mainly used with numbers).
   * `mystr.zfill(n)`

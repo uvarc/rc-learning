@@ -12,16 +12,18 @@ menu:
 
 So far we have only considered _list-directed_ input/output.  We leave it to the interpreter to format.  However, for output we often want or need more control over the appearance.  
 
-## Format Strings
+## Format Codes
 
-We define __format strings__ to describe how we wish the output to appear when printed.  Formats are indicated by a pattern:
+We define __format codes__ to describe how we wish the output to appear when printed.  A format code contains a letter for the type and, for numbers, one or more numerals to indicate the length to be printed.
 
+### Floating Point
+
+Formats for floating-point numbers are indicated by a pattern:
 ```python
 F.wf
 F.wg
 F.we
 ```
-
 F is the field width (total number of columns occupied), w is the number of digits to the right of the decimal point; these must be substituted by numbers. The letters f, g, and e are called _format codes_ and indicate floating-point (decimal point) format, general format (interpreter decides f or e), and exponential notation.  If we do not specify w for numbers, the default is 6 decimal digits printed.  If we specify the number of digits the interpreter will _round_ the result; if unspecified it will _truncate_.
 
 Examples:
@@ -35,7 +37,11 @@ Examples:
 * Print in scientific notation with three decimal places
   * `.3e`
 
+### Strings 
+
 Strings are specified with the letter `s`. They do not take a field width but can be adjusted or zero padded by using more advanced operations on the string to be printed.
+
+### Integers
 
 Integers are specified by `d` (this stands for decimal, as in base-10 number) with an optional field width.  If the field width is wider than the integer, it will be padded with blanks by default.  If it is narrower it will be ignored.  If omitted the interpreter will use the width of the integer.  
 
@@ -48,7 +54,7 @@ Examples:
 05d
 ```
 
-### Formatters
+## Formatters
 
 To construct our formatted output we use _format strings_, also called _formatters_.  We insert curly braces as placeholders for variables in the finished string.  Format codes go inside the braces following a colon.
 ```python
@@ -97,7 +103,7 @@ Even more sophisticated formatting is possible.  In the above examples, when pri
 
 * print("Pi to {} digits is .{dec}f}".format(math.pi,dec=n))
 
-### Formatting with f-Strings
+## Formatting with f-Strings
 
 For Python 3.6 and up the _formatted string literal_ or "f-string" was introduced.  These can be used to create formatted output easily.
 
@@ -118,7 +124,7 @@ In this example, the integer division is required because the result of the expr
 
 If quotation marks are needed inside an f-string (such as for a dictionary key) they must be single quotes.  In addition, the backslash `\` cannot be a character within an f-string, so if a character such as the newline `\n` is needed, it must be assigned to a variable.
 
-### Resources
+## Resources
 
 Full documentation is [here](https://docs.python.org/3/tutorial/inputoutput.html).  Details on format strings is [here](https://docs.python.org/3/library/string.html).
 
