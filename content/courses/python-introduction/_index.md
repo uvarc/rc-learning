@@ -5,7 +5,7 @@ summary: "This short course is an introduction to the Python programming languag
 authors: [kah]
 categories: ["Programming","Python"]
 tags: ["programming","python"]
-#weight: 1
+weight: 1
 
 # Page metadata.
 title: Introduction to Programming in Python
@@ -20,7 +20,6 @@ type: docs  # Do not modify.
 menu:
   python-introduction:
     name: Introduction to Programming in Python
-    weight: 1
 ---
 
 Python is one of the most popular programming languages, widely used in areas as diverse as data science and Web programming.  This course is an introduction to programming as well as to the Python language.

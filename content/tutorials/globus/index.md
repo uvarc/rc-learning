@@ -1,5 +1,5 @@
 ---
-title : "Data Transfer: How to Use Globus"
+title : "Using Globus to Transfer Data"
 summary : "This tutorial will cover data transfer using Globus software."
 authors : [cag]
 categories : ["Data Transfer"]
