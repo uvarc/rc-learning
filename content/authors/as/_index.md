@@ -22,6 +22,8 @@ organizations:
 
 interests:
 - Parallel Computing
-- Machine Learning
+- Machine Learning/Deep Learning
+- Containers
+- Matlab
 
 ---
