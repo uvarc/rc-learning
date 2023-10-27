@@ -336,7 +336,7 @@ https://docs.qiime2.org/2022.8/install/native/#install-qiime-2-within-a-conda-en
 Hints:
 - Click on "Linux" to get the URL for the yaml file. Download the yaml file in the same directory as your Dockerfile.
 - You do not have to start from a bare OS in your Dockerfile. Search for `miniconda3` on Docker Hub.
-- (Recommended) There is a much faster dependency solver than conda - micromamba. If you use it as the base image, see [here](https://github.com/mamba-org/micromamba-docker#quick-start) and [here](https://github.com/mamba-org/micromamba-docker#activating-a-conda-environment-for-entrypoint-commands) for instructions.
+- (Recommended) There is a much faster dependency solver than conda - micromamba. See [here](https://micromamba-docker.readthedocs.io/en/latest/quick_start.html) for instructions.
 - Use the suggested `COPY` and `ENTRYPOINT` statements.
 - After you're done, compare with the [official Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile) and image size. What is the biggest reason for the difference?
 
