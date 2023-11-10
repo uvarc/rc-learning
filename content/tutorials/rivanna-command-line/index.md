@@ -6,8 +6,6 @@ summary: "This tutorial is an introduction to using the Unix command line on Riv
 publishDate: "2017-01-01T00:00:00Z"
 
 authors: [as,gka,kah]
-=======
-authors: [gka,as]
 tags: [rivanna,hpc]
 categories: ["Rivanna","HPC"]
 
@@ -19,5 +17,4 @@ url_slides: slides/rivanna-cli/HPC_From_Terminal.pptx
 
 weight: 200
 
-=======
 ---
