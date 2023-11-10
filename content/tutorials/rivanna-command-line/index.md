@@ -5,7 +5,6 @@ summary: "This tutorial is an introduction to using the Unix command line on Riv
 # Schedule page publish date (NOT talk date).
 publishDate: "2017-01-01T00:00:00Z"
 
-<<<<<<< HEAD
 authors: [as,gka,kah]
 =======
 authors: [gka,as]
