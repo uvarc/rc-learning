@@ -2,7 +2,7 @@
 # Course title, summary, and position.
 title:   Introduction to Fiji/ImageJ
 summary: "An introduction to using and scripting the Fiji/ImageJ image analysis packages."
-authors: [ksz,cag]
+authors: [khs,cag]
 categories: ["Fiji"]
 tags: ["imaging","fiji"]
 #weight: 1

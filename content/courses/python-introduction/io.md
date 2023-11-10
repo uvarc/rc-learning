@@ -3,12 +3,11 @@ title: Input and Output
 toc: true
 type: docs
 draft: false
-weight: 71
+weight: 81
 
 menu:
     python-introduction:
         parent: IO and Exceptions
-        weight: 71
 ---
 
 ## Console Input

@@ -3,7 +3,7 @@ title: Dictionaries
 toc: true
 type: docs
 draft: false
-weight: 61
+weight: 71
 
 menu:
     python-introduction:

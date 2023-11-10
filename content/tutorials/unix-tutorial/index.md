@@ -14,5 +14,7 @@ tags: [rivanna,hpc,unix]
 #   Otherwise, set `slides = ""`.
 notes: unix-tutorial
 
+weight: 400
+
 ---
 

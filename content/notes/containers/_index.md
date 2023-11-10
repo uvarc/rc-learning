@@ -1,5 +1,6 @@
 ---
 # Course title, summary, and position.
+title: "Introduction to Building and Deploying Containers"
 authors: [cag]
 categories: ["Containers","Docker","R","Shiny", "App Development"]
 tags: ["containers","docker","r","shiny","app-development"]

@@ -21,6 +21,7 @@ url_slides: slides/rivanna-intro-pptx/IntroductionToRivanna_2023_07_24.pptx
 
 notes: rivanna-intro
 
+weight: 1
 
 ---
 

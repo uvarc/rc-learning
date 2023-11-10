@@ -3,7 +3,7 @@ title: Modules
 toc: true
 type: docs
 draft: false
-weight: 85
+weight: 55
 
 menu:
     python-introduction:

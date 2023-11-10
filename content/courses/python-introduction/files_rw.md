@@ -3,7 +3,7 @@ title: Reading and Writing Files
 toc: true
 type: docs
 draft: false
-weight: 74
+weight: 84
 
 menu:
     python-introduction:

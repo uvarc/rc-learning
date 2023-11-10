@@ -8,4 +8,6 @@ summary: This tutorial will teach you to compile, link, and run on Rivanna progr
 
 notes: "building-running-c-cpp-fortran"
 
+weight: 600
+
 ---

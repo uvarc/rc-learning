@@ -3,7 +3,7 @@ title: Sets
 toc: true
 type: docs
 draft: false
-weight: 62
+weight: 72
 
 menu: 
     python-introduction:

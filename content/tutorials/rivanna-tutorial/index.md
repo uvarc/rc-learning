@@ -5,7 +5,7 @@ summary: "This tutorial is an introduction to using the Rivanna high-performance
 # Schedule page publish date (NOT talk date).
 publishDate: "2021-04-13T00:00:00Z"
 
-authors: [jmh,kah,pbo]
+authors: [jmh,kah]
 tags: [rivanna,hpc]
 categories: ["Rivanna","HPC"]
 
@@ -17,9 +17,11 @@ categories: ["Rivanna","HPC"]
 #slides: rivanna-intro 
 #notes: rivanna-intro
 # slides: rivanna-intro
-#url_pdf: /notes/rivanna-tutorial/pdf/notes.pdf
+url_pdf: /notes/rivanna-tutorial/pdf/notes.pdf
 
 notes: rivanna-tutorial
+
+weight: 100
 
 ---
 

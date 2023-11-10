@@ -3,7 +3,7 @@ title: Function Arguments
 toc: true
 type: docs
 draft: false
-weight: 82
+weight: 52
 
 menu:
     python-introduction:
