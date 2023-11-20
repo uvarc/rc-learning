@@ -116,9 +116,8 @@ program piMC
 
 ! For strong scaling
    my_nthrows=n_throws/nprocs
-   if ( mod(n_throws,nprocs)/=0 ) then
-      my_nthrows=n_throws/nprocs
-      n_extra=mod(n_throws,nprocs)   ! dopey load balancing
+   n_extra=mod(n_throws,nprocs) ! dopey load balancing
+   if ( n_extra /=0 ) then
       do n=1,n_extra
          if (n-1==rank) my_nthrows=my_nthrows+1
       enddo

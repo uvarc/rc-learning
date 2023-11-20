@@ -3,7 +3,7 @@ title: Dictionaries and Sets
 toc: true
 type: docs
 draft: false
-weight: 60
+weight: 70
 
 menu:
     python-introduction:

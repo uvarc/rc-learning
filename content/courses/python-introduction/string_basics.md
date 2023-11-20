@@ -3,7 +3,7 @@ title: Strings in Python
 toc: true
 type: docs
 draft: false
-weight: 51
+weight: 61
 
 menu:
     python-introduction:

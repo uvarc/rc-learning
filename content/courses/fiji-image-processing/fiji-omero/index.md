@@ -1,6 +1,6 @@
 ---
 title: Image Processing with Fiji and Omero
-authors: [ksz]
+authors: [khs]
 highlight_style: "github"
 date: 2020-11-09T00:00:00-05:00
 toc: true  

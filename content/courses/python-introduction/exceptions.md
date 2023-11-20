@@ -3,7 +3,7 @@ title: Exceptions
 toc: true
 type: docs
 draft: false
-weight: 75
+weight: 85
 
 menu:
     python-introduction:

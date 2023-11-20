@@ -3,7 +3,7 @@ title: Strings
 toc: false
 type: docs
 draft: false
-weight: 50
+weight: 60
 
 menu:
     python-introduction:

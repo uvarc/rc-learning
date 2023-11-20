@@ -3,7 +3,7 @@ title: Formatted Output
 toc: true
 type: docs
 draft: false
-weight: 72
+weight: 82
 
 menu:
     python-introduction:
