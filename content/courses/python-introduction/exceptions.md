@@ -98,9 +98,8 @@ You cannot use an `else` in any `try` clause that contains a `finally` block.
 In many case, especially those having to do with file operations, the `with` and `as` operators can replace the `try`/`except`/`finally` block. The following will close the file whether the operation was successful or not.
 ```python
 with open('myfile','w') as f:
-    for n in range(len(mylines)):
-        mystring="whatever"
-        f.write(mystring+'\n')
+    for line in f:
+        print(line)
 ```
 
 **Exercise**

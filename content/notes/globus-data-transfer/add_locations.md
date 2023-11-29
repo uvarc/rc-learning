@@ -16,7 +16,7 @@ Adding a location to the Globus defaults:
 
 **Instructions**
 
-1. Click Globus icon in toolbar
+1. Right-click Globus icon in toolbar
 2. Click “Preferences” (Mac) or “Options” (Windows)
 3. Click the Access tab
 4. Click the “+”

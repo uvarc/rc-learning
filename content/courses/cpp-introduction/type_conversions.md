@@ -72,9 +72,19 @@ d=double(f);
 ```
 
 All these conversions are called **C style casts**.  They are very permissive.
-This is not a problem for ordinary numeric variables as long as the programmer understands the rules.  It can become a problem 
-when converting from one _pointer_ type to another.  
+This is not a problem for ordinary numeric variables as long as the programmer understands the rules.  It can become a problem when converting from one _pointer_ type to another.  
 We will discuss this in more detail when we talk about [pointers](/courses/cpp-introduction/pointers_mem).
+
+Newer **C++ style casts** look like [templates](/courses/cpp-introduction/polymorphism).
+
+The _static_ cast is most widely used and behaves similarly to the C-style casts.
+```c++
+int n=100000;
+double s = static_cast<double>(n);
+```
+
+The _dynamic_cast_ is mostly used for pointers or reference to classes and is beyond our scope here.  The _constant_cast_ can be used to both cast and alter the value of a variable declared `const` and likewise is beyond our scope in this introduction. Finally, a _reinterpret_cast_ is defined; it is used to convert pointers from one type to another and also will not be discussed in this introduction.
+
 
 ### String/Numeric Interconversions
 
