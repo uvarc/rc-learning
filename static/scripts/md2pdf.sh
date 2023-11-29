@@ -13,19 +13,22 @@ start=${startline//"weight:"/}
 weight_array=($start)
 pdf_array[$start]=$folder".pdf"
 chromium-browser --headless --disable-gpu --print-to-pdf=$folder.pdf "https://staging.learning.rc.virginia.edu/notes/"$folder
-for file in `ls *md`; do
+for path in $(find -type f -name "*md"); do
+   file=$(sed 's/^.\///' <<< $path)
    if [[ "$file" == "_index.md" || "$file" == "index.md" ]]; then
        continue
    fi 
    base=${file%.md}
    keyline=`grep "weight:" $file`
    key=${keyline//"weight:"}
-   pdf_file=$base".pdf"
+   fname=$(basename $file)
+   fnamebase=${fname%.md}
+   pdf_file=$fnamebase".pdf"
+   echo "PDF is " $pdf_file
    weight_array+=($key)
    pdf_array[$key]=$pdf_file
 
    url="https://staging.learning.rc.virginia.edu/notes/"${folder}"/"${base}
-   echo $url
    chromium-browser --headless --quiet --disable-gpu --print-to-pdf=$pdf_file $url
 done
 

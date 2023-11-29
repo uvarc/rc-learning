@@ -8,7 +8,7 @@ weight: 4
 
 menu:
   rivanna-intro:
-      parent: Overview of Rivanna
+      name: Overview of Rivanna
 ---
 
 * Node
