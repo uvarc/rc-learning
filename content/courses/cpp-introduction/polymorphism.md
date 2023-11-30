@@ -23,6 +23,11 @@ Templating is a form of overloading.  We can convert our `sum` function into a t
 
 The `class` variable name (`typename` may also be used) is arbitrary, but `T` is customary.
 
+Many built-in C++ libraries use templates for type declarations.
+```c++
+vector<float> v;
+```
+
 ### Overriding Class Methods
 
 Even more generally, inherited class methods can be **overridden** by derived classes, modifying them to be more appropriate to the derived class. 
