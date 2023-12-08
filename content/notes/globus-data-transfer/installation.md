@@ -19,19 +19,7 @@ To transfer data to and from your computer, you will first need to install Globu
 | Windows | https://docs.globus.org/how-to/globus-connect-personal-windows |
 {{< /table >}}
 
-The videos and set of instructions below show how to navigate to the installation links from the Globus homepage.
-
-Find the link to get the software:
-
-{{< video src="/notes/globus/videos/globus-install-link.mp4" controls="yes" >}}
-
-Download the software for your operating system:
-
-{{< video src="/notes/globus/videos/globus-get-connect-personal.mp4" controls="yes" >}}
-
-Install the software:
-
-{{< video src="/notes/globus/videos/globus-install-connect-personal.mp4" controls="yes" >}}
+The screenshots and set of instructions below show how to navigate to the installation links from the Globus homepage.
 
 **Instructions**
 
@@ -41,3 +29,10 @@ Install the software:
 4. Scroll down to “Install Globus Connect Personal” (light blue box)
 5. Click the link for your operating system and follow the installation instructions
 
+Download the software for your operating system:
+
+{{< figure src="/notes/globus-data-transfer/imgs/globus_download_personal_connector.png" caption="Find the link to download for your operating system" width=700px >}}
+
+Install the software:
+
+{{< figure src="/notes/globus-data-transfer/imgs/globus_install_personal_connector.png" caption="Download the application" width=700px >}}
