@@ -17,5 +17,7 @@ categories: ["Rivanna","HPC","Bioinformatics"]
 
 url_slides: notes/bioinfo-tools-riv
 
+weight: 500
+
 ---
 

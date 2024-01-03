@@ -3,7 +3,7 @@ title: Reading and Writing Files
 toc: true
 type: docs
 draft: false
-weight: 74
+weight: 84
 
 menu:
     python-introduction:
@@ -20,7 +20,7 @@ The standard read commands in Python read _only strings_.  Even if the input val
   * `f.read()`
 * Read a single line (including the newline character) from the file `f`
   * `f.readline()`
-* Read all the lines into a list, one line per list element.  Newlines are included.
+* Read all the lines into a list, one line per list element.  Newlines are retained at the end of each list element. 
   * `f.readlines()`
 
 We have several options to handle the strings when reading directly from a file.  One option is to use read, then split all the lines on the `\n` character:

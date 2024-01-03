@@ -3,7 +3,7 @@ title: IO and Exceptions
 toc: false
 type: docs
 draft: false
-weight: 70
+weight: 80
 
 menu:
     python-introduction:
