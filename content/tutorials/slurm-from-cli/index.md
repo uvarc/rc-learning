@@ -11,6 +11,6 @@ categories: ["Rivanna","HPC"]
 
 notes: slurm-command-line
 
-weight: 250
+weight: 200
 
 ---
