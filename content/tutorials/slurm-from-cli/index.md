@@ -1,6 +1,6 @@
 ---
-title: Using Rivanna from the Command Line
-summary: "This tutorial is an introduction to using the Unix command line on Rivanna."
+title: Using Slurm from a Terminal
+summary: "This tutorial is an introduction to submitting Slurm jobs through a terminal interface."
 
 # Schedule page publish date (NOT talk date).
 publishDate: "2023-01-04T00:00:00Z"
