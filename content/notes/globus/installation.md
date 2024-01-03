@@ -21,11 +21,11 @@ To transfer data to and from your computer, you will first need to install Globu
 
 The videos and set of instructions below show how to navigate to the installation links from the Globus homepage.
 
-{{< video src="globus-install-link.mp4" controls="yes" >}}
+{{< video src="/notes/globus/videos/globus-install-link.mp4" controls="yes" >}}
 
-{{< video src="globus-get-connect-personal.mp4" controls="yes" >}}
+{{< video src="/notes/globus/videos/globus-get-connect-personal.mp4" controls="yes" >}}
 
-{{< video src="globus-install-connect-personal.mp4" controls="yes" >}}
+{{< video src="/notes/globus/videos/globus-install-connect-personal.mp4" controls="yes" >}}
 
 **Instructions**
 
@@ -39,7 +39,7 @@ The videos and set of instructions below show how to navigate to the installatio
 
 The following video and instructions show how to set up Globus once it is installed on your computer.
 
-{{< video src="globus-setup.mp4" controls="yes" >}}
+{{< video src="videos/globus-setup.mp4" controls="yes" >}}
 
 **Instructions**
 

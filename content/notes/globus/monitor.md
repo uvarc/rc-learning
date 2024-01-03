@@ -31,7 +31,7 @@ Globus now has the add functionality of:
 
 Globus provides a secure, unified interface to your research data. Use Globus to "fire and forget" high-performance data transfers between systems within and across organizations.
 
-{{< figure src="globus-advantages.png" width=30% >}}
+{{< figure src="/notes/globus/imgs/globus-advantages.png" width=30% >}}
 
 There are many advantages to using Globus: 
 
@@ -142,7 +142,7 @@ By clicking on the "Activity" tab, you can check on the progress of transfers, m
 - Files with errors will cause entire transfer to fail – skip files with errors instead (option 6).
 - Schedule one-time and regular transfers with Timer.
 
-{{< figure src="globus-transfer-options.png" width=30% >}}
+{{< figure src="/notes/globus/imgs/globus-transfer-options.png" width=30% >}}
 
 
 ### Connecting to External Drives
@@ -173,7 +173,7 @@ Globus users are able to share data with anyone with a Globus account. All UVA R
 
 External collaborators don’t need to be affiliated with an institution using Globus in order for you to share data with them. Anyone can create a personal Globus account using @globusid.org
 
-{{< figure src="globus-collab.png" width=30% >}}
+{{< figure src="/notes/globus/imgs/globus-collab.png" width=30% >}}
 
 The following video and instructions show how to create a **shared endpoint**, a folder in which collaborators can upload and download data. Shared endpoints may be public (visible to the world!) or accessible only to users with permission.
 

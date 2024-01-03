@@ -16,7 +16,7 @@ Files are transferred with the Globus File Manager Web App. There are three ways
 
 Once the app is open you can choose the collections between which you wish transfer data, as detailed in the video and instructions below.
 
-{{< video src="globus-transfer-data.mp4" controls="yes" >}}
+{{< video src="videos/globus-transfer-data.mp4" controls="yes" >}}
 
 **Instructions**
 
@@ -36,4 +36,4 @@ Once the app is open you can choose the collections between which you wish trans
 - Files with errors will cause entire transfer to fail – skip files with errors instead (option 6).
 - Schedule one-time and regular transfers with Timer.
 
-{{< figure src="globus-transfer-options.png" width=30% >}}
+{{< figure src="/notes/globus/imgs/globus-transfer-options.png" width=30% >}}

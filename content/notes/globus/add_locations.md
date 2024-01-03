@@ -10,7 +10,7 @@ menu:
 
 When you first set up Globus, it only has access to certain folders of your local drive. You can add additional locations such as mapped network drives or external hard drives in the Globus Options/Preferences menu.
 
-{{< video src="globus-external-drives.mp4" controls="yes" >}}
+{{< video src="/notes/globus/videos/globus-external-drives.mp4" controls="yes" >}}
 
 **Instructions**
 
