@@ -9,7 +9,7 @@ authors: [as,kah]
 tags: [rivanna,hpc]
 categories: ["Rivanna","HPC"]
 
-notes: slurm-command-line
+notes: slurm-from-cli
 
 weight: 200
 
