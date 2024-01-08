@@ -1,5 +1,5 @@
 ---
-title: Using Containers on Rivanna [Singularity]
+title: Using Containers on Rivanna [Apptainer]
 toc: true
 type: book
 weight: 3
@@ -17,18 +17,18 @@ Logging in to Rivanna:
 
 ---
 
-## Basic Singularity commands
+## Basic Apptainer commands
 
 ### Pull
 
-To download a container hosted on a registry, use the `pull` command. Docker images are automatically converted into Singularity format.
+To download a container hosted on a registry, use the `pull` command. Docker images are automatically converted into Apptainer format.
 
-`singularity pull [<SIF>] <URI>`
+`apptainer pull [<SIF>] <URI>`
 
 - `<URI>` (Unified resource identifiers)
     - `[library|docker|shub]://[<user>/]<repo>[:<tag>] `
     - Default prefix: `library` ([Singularity Library](https://cloud.sylabs.io/library))
-    - `user`: optional; may be empty (e.g. `singularity pull ubuntu`)
+    - `user`: optional; may be empty (e.g. `apptainer pull ubuntu`)
     - `tag`: optional; default: `latest`
 - `<SIF>` (Singularity image format)
     - Optional
@@ -37,33 +37,33 @@ To download a container hosted on a registry, use the `pull` command. Docker ima
 #### Pull lolcow from Docker Hub
 
 ```bash
-singularity pull docker://rsdmse/lolcow
+apptainer pull docker://rsdmse/lolcow
 ```
 
 ### Inspect
 
 Inspect an image before running it via `inspect`.
 
-`singularity inspect <SIF>`
+`apptainer inspect <SIF>`
 
 ```bash
-$ singularity inspect lolcow_latest.sif 
+$ apptainer inspect lolcow_latest.sif 
 org.label-schema.build-arch: amd64
-org.label-schema.build-date: Friday_5_August_2022_9:54:5_EDT
+org.label-schema.build-date: Monday_8_January_2024_10:21:0_EST
 org.label-schema.schema-version: 1.0
+org.label-schema.usage.apptainer.version: 1.2.2
 org.label-schema.usage.singularity.deffile.bootstrap: docker
 org.label-schema.usage.singularity.deffile.from: rsdmse/lolcow
-org.label-schema.usage.singularity.version: 3.7.1
 ```
 
 #### Inspect runscript
 
 This is the default command of the container. (Docker `ENTRYPOINT` is preserved.)
 
-`singularity inspect --runscript <SIF>`
+`apptainer inspect --runscript <SIF>`
 
 ```bash
-$ singularity inspect --runscript lolcow_latest.sif 
+$ apptainer inspect --runscript lolcow_latest.sif 
 #!/bin/sh
 OCI_ENTRYPOINT='"/bin/sh" "-c" "fortune | cowsay | lolcat"'
 ...
@@ -77,9 +77,9 @@ There are three ways to run a container: `run`, `shell`, `exec`.
 
 Execute the default command in `inspect --runscript`.
 
-CPU: `singularity run <SIF>` = `./<SIF>`
+CPU: `apptainer run <SIF>` = `./<SIF>`
 
-GPU: `singularity run --nv <SIF>` (later)
+GPU: `apptainer run --nv <SIF>` (later)
 
 ```bash
 ./lolcow_latest.sif
@@ -87,13 +87,13 @@ GPU: `singularity run --nv <SIF>` (later)
 
 #### `shell`
 
-Start a Singularity container interactively in its shell.
+Start a Apptainer container interactively in its shell.
 
-`singularity shell <SIF>`
+`apptainer shell <SIF>`
 
 ```bash
-$ singularity shell lolcow_latest.sif
-Singularity>
+$ apptainer shell lolcow_latest.sif
+Apptainer>
 ```
 
 The change in prompt indicates you are now inside the container.
@@ -104,25 +104,23 @@ To exit the container shell, type `exit`.
 
 Execute custom commands without shelling into the container.
 
-`singularity exec <SIF> <command>`
+`apptainer exec <SIF> <command>`
 
 ```bash
-$ singularity exec lolcow_latest.sif which fortune
+$ apptainer exec lolcow_latest.sif which fortune
 /usr/bin/fortune
 ```
 
 ### Bind mount
 
-- Singularity bind mounts these host directories at runtime:
+- Apptainer bind mounts these host directories at runtime:
     - Personal directories: `/home`, `/scratch`
-    - Leased storage shared by your research group: `/project`, `/nv`
-    - Some system directories: `/tmp`, `/sys`, `/proc`, `/dev`, `/usr`
+    - Leased storage shared by your research group: `/project`, `/standard`, `/nv`
     - Your current working directory
-- Other directories inside the container are owned by root
 - To bind mount additional host directories/files, use `--bind`/`-B`:
 
 ```bash
-singularity run|shell|exec -B <host_path>[:<container_path>] <SIF>
+apptainer run|shell|exec -B <host_path>[:<container_path>] <SIF>
 ```
 
 ---
@@ -142,9 +140,9 @@ singularity run|shell|exec -B <host_path>[:<container_path>] <SIF>
 
 ## Container Modules
 
-### Singularity module
+### Apptainer module
 
-On Rivanna, the `singularity` module serves as a "toolchain" that will activate container modules. **You must load `singularity` before loading container modules.**
+On Rivanna, the `apptainer` module serves as a "toolchain" that will activate container modules. **You must load `apptainer` before loading container modules.**
 
 See what modules are available by default:
 ```bash
@@ -152,31 +150,31 @@ module purge
 module avail
 ```
 
-Check the module version of Singularity:
+Check the module version of Apptainer:
 ```bash
-module spider singularity
+module spider apptainer
 ```
 
-Load the Singularity module and check what modules are available:
+Load the Apptainer module and check what modules are available:
 ```bash
-module load singularity
+module load apptainer
 module avail
 ```
 
 You can now load container modules.
 
-### Container modules under singularity toolchain
+### Container modules under apptainer toolchain
 
 The corresponding `run` command is displayed upon loading a module.
 
 ```bash
 $ module load tensorflow
 To execute the default application inside the container, run:
-singularity run --nv $CONTAINERDIR/tensorflow-2.10.0.sif
+apptainer run --nv $CONTAINERDIR/tensorflow-2.10.0.sif
 
 $ module list
 Currently Loaded Modules:
-  1) singularity/3.7.1   2) tensorflow/2.10.0
+  1) apptainer/1.2.2   2) tensorflow/2.10.0
 ```
 
 - `$CONTAINERDIR` is an environment variable. It is the directory where containers are stored on Rivanna.
@@ -186,7 +184,7 @@ Currently Loaded Modules:
 
 ## Exercise
 
-1. What happens if you load a container module without loading Singularity first?
+1. What happens if you load a container module without loading Apptainer first?
     ```bash
     module purge
     module list
@@ -206,8 +204,8 @@ Currently Loaded Modules:
 Copy these files:
 
 ```bash
-cp /share/resources/tutorials/singularity_ws/tensorflow-2.10.0.slurm .
-cp /share/resources/tutorials/singularity_ws/mnist_example.{ipynb,py} .
+cp /share/resources/tutorials/apptainer_ws/tensorflow-2.10.0.slurm .
+cp /share/resources/tutorials/apptainer_ws/mnist_example.{ipynb,py} .
 ```
 
 Examine Slurm script:
@@ -225,9 +223,9 @@ Examine Slurm script:
 
 # start with clean environment
 module purge
-module load singularity tensorflow/2.10.0
+module load apptainer tensorflow/2.10.0
 
-singularity run --nv $CONTAINERDIR/tensorflow-2.10.0.sif mnist_example.py
+apptainer run --nv $CONTAINERDIR/tensorflow-2.10.0.sif mnist_example.py
 ```
 
 Submit job:
@@ -238,14 +236,14 @@ sbatch tensorflow-2.10.0.slurm
 
 #### What does `--nv` do?
 
-See [Singularity GPU user guide](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
+See [Apptainer GPU user guide](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
 
 ```bash
-$ singularity shell $CONTAINERDIR/tensorflow-2.10.0.sif
-Singularity> ls /.singularity.d/libs
+$ apptainer shell $CONTAINERDIR/tensorflow-2.10.0.sif
+Apptainer> ls /.apptainer.d/libs
 
-$ singularity shell --nv $CONTAINERDIR/tensorflow-2.10.0.sif
-Singularity> ls /.singularity.d/libs
+$ apptainer shell --nv $CONTAINERDIR/tensorflow-2.10.0.sif
+Apptainer> ls /.apptainer.d/libs
 libEGL.so		  libGLX.so.0		       libnvidia-cfg.so			  libnvidia-ifr.so
 libEGL.so.1		  libGLX_nvidia.so.0	       libnvidia-cfg.so.1		  libnvidia-ifr.so.1
 ...
@@ -294,8 +292,8 @@ cd $DIR
 
 ```bash
 #!/bin/bash
-module load singularity
-singularity exec --nv /path/to/sif python -m ipykernel $@
+module load apptainer
+apptainer exec --nv /path/to/sif python -m ipykernel $@
 ```
 
 4. Change `init.sh` into an executable
@@ -340,6 +338,6 @@ rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.11.0
 
 ## References
 
-- [Singularity User Guide](https://apptainer.org/user-docs/master/)
-    - [Overview](https://apptainer.org/user-docs/master/quick_start.html#overview-of-the-singularity-interface)
-    - [Bind Path and Mounts](https://apptainer.org/user-docs/master/bind_paths_and_mounts.html)
+- [Apptainer User Guide](https://apptainer.org/docs/user/latest/)
+    - [Overview](https://apptainer.org/docs/user/latest/quick_start.html)
+    - [Bind Path and Mounts](https://apptainer.org/docs/user/latest/bind_paths_and_mounts.html)
