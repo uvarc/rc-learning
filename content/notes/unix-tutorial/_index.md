@@ -2,10 +2,10 @@
 title: "UNIX Tutorials for Beginners"
 type: docs
 toc: true
+weight: 1
 
 menu:
     unix-tutorials:
-       weight: 1
 
 ---
 

@@ -29,6 +29,7 @@ for path in $(find -type f -name "*md"); do
    pdf_array[$key]=$pdf_file
 
    url="https://staging.learning.rc.virginia.edu/notes/"${folder}"/"${base}
+   echo "URL is " $url
    chromium-browser --headless --quiet --disable-gpu --print-to-pdf=$pdf_file $url
 done
 
@@ -44,9 +45,9 @@ command=$command" -- notes.pdf"
 $command
 
 # Clean up
-for file in ${pdf_array[@]}; do
-    rm $file
-done
+#for file in ${pdf_array[@]}; do
+#    rm $file
+#done
 
 if [[ ! -d pdf ]]; then
     mkdir pdf
