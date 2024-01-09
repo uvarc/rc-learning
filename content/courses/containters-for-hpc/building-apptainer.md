@@ -278,6 +278,75 @@ From: ubuntu:22.04
     fortune | cowsay | lolcat
 ```
 
+Save this as `lolcow_0.def`, which will be the basis for comparison.
+
+## 2 Best Practices
+
+While our container is functional, there is room for improvement. We shall look at some important best practices.
+
+### 1. Clean up
+
+Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache in a separate `RUN` statement.
+
+```bash
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    apt-get update
+    apt-get install -y fortune cowsay lolcat
+    rm -rf /var/lib/apt/lists/*  # clean up command for apt
+
+%environment
+    export PATH=/usr/games:${PATH}
+
+%runscript
+    fortune | cowsay | lolcat
+```
+
+### 2. Only install what's needed
+
+The `apt` package manager often recommends related packages that are not really necessary. To disable recommendation, use `--no-install-recommends`.
+
+```bash
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    apt-get update
+    apt-get install -y --no-install-recommends fortune fortunes-min cowsay lolcat
+    rm -rf /var/lib/apt/lists/*  # clean up command for apt
+
+%environment
+    export PATH=/usr/games:${PATH}
+
+%runscript
+    fortune | cowsay | lolcat
+```
+
+- You may need to specify extra packages
+    - `fortune` itself provides the executable without the message database
+    - `fortunes-min` contains the message database
+- See [how Ubuntu reduced image size by 60%](https://ubuntu.com/blog/we-reduced-our-docker-images-by-60-with-no-install-recommends)
+
+### Image size comparison
+
+```bash
+$ ll -h lolcow*.sif
+... 86M ... lolcow_0.sif
+... 54M ... lolcow_1.sif
+... 48M ... lolcow_2.sif
+```
+
+<style scoped>table { font-size: 65%; }</style>
+
+| Version | Description | Reduction (MB) | % |
+|---|---|---:|---:|
+|0  |(Basis of comparison) | - | - |
+|1  |Clean up              |32 | 37 |
+|-  |Install only what's needed  |6 | 7 |
+|2  |Combination of previous two |38 | 44 |
+
 ## Other Features
 
 ### Sandbox
