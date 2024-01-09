@@ -166,30 +166,117 @@ Add metadata in the form of key-value pairs. Example:
 
 Text to be displayed upon `apptainer run-help`.
 
-## Convert a Dockerfile
+## Example: lolcow
 
-The `lolcow` container that we used before was prepared using this Dockerfile ([source](https://github.com/GodloveD/lolcow/blob/master/Dockerfile)):
+`fortune | cowsay | lolcat`
 
+- fortune cookie
+- talking cow
+- rainbow color
+
+Steps:
+1. Choose a base image
+2. Install software dependencies (if any)
+3. Install software
+
+### Step 1: Choose a base image
+
+Use `Bootstrap` and `From` to specify the base image. In this example, we'll use Ubuntu 22.04. You do not need to install this on your computer - Apptainer will pull from Docker Hub when you build it.
+
+```bash
+Bootstrap: docker
+From: ubuntu:22.04
 ```
-FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y fortune cowsay lolcat
+- OS: `ubuntu`, `debian`, `centos`, ...
+- Doesn't have to be a bare OS
+    - `python`, `continuumio/miniconda3`, `node`, `nvidia/cuda`, etc.
 
-ENV PATH /usr/games:${PATH}
-ENV LC_ALL=C
+### Steps 2 & 3: Install software
 
-ENTRYPOINT fortune | cowsay | lolcat
+In `%post` specify the actual commands to be executed (as if you were to type them on the command line).
+
+```dockerfile
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    apt-get install fortune cowsay lolcat
 ```
 
-**Challenge:** Write the corresponding definition file.
+Save this file as `lolcow.def` and run `apptainer build lolcow.sif lolcow.def`. Does it work?
 
-Hints:
+We need to update our package list. Let's modify our definition file and build again.
 
-- Refer to the [skeleton](#advanced-the-definition-file) of a definition file.
-- Use `docker` as the bootstrap agent.
-- `RUN` commands are installation commands.
-- `ENV` commands set environment variables. You'll need to use `export <env>=...`.
-- `ENTRYPOINT` commands are executed at runtime.
+```dockerfile
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    apt-get update
+    apt-get install fortune cowsay lolcat
+```
+
+This time it still failed due to the prompt for confirmation. To pass "yes" automatically, add `-y`.
+
+```bash
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    apt-get update
+    apt-get install -y fortune cowsay lolcat
+```
+
+This finally works.
+
+```bash
+apptainer run lolcow.sif
+```
+
+But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't seem to work. What's wrong?
+
+#### Summary so far
+
+- Build:
+    - Update package manager
+    - Automatic yes to prompt
+- Problems:
+    - User needs to know path to executable
+    - User just wants to run "lolcow"
+
+### Use `%environment` to set environment variable
+
+This is equivalent to `export PATH=/usr/games:${PATH}` but it is preserved at runtime. In doing so we can execute `fortune`, `cowsay`, and `lolcat` directly without specifying the full path.
+
+```bash
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    apt-get update
+    apt-get install -y fortune cowsay lolcat
+
+%environment
+    export PATH=/usr/games:${PATH}
+```
+
+### Use `%runscript` to set default command
+
+```bash
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    apt-get update
+    apt-get install -y fortune cowsay lolcat
+
+%environment
+    export PATH=/usr/games:${PATH}
+
+%runscript
+    fortune | cowsay | lolcat
+```
 
 ## Other Features
 
@@ -208,7 +295,7 @@ apptainer shell -w --fakeroot <directory>
 ```
 %post
     <some step that determines x>  # cannot determine x before build
-    echo 'export VARIABLE_NAME=x' >>$SINGULARITY_ENVIRONMENT
+    echo 'export VARIABLE_NAME=x' >>$APPTAINER_ENVIRONMENT
 ```
 
 ### Remote
