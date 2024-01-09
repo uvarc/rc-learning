@@ -2,7 +2,7 @@
 title: Building Containers [Docker]
 toc: true
 type: book
-weight: 4
+weight: 10
 
 ---
 

@@ -15,29 +15,29 @@ weight: 1
 This short course is an introduction to using and building software containers, structured as follows:
 
 - Introduction to Software Containers
-- Using Containers on Rivanna [Singularity]
+- Using Containers on Rivanna [Apptainer]
     - pull and convert Docker containers
     - inspect a container
     - run containers interactively and non-interactively
     - navigate container modules
     - submit container jobs via Slurm
     - create custom Jupyter kernels
-- Building Containers [Docker]
+- Building Containers on Rivanna [Apptainer]
+    - definition file
+    - best practices
+    - registry
+    - case studies
+- Appendix 1: Building Containers [Docker]
     - Dockerfile
     - best practices
     - DockerHub
     - case studies
-- Minimal Containers [Docker]
+- Appendix 2: Minimal Containers [Docker]
     - multistage build
     - OS-less base images
     - dynamic vs static linking
-- Appendix: Building Containers [Singularity]
-    - pull
-    - convert local Docker image
-    - Singularity definition file
-    - convert Dockerfile
 
-The chapters are mutually independent, except for "Minimal Containers" that requires "Building Containers [Docker]" or equivalent knowledge. The appendix on building Singularity containers is derived from a workshop that we no longer offer.
+The chapters are mutually independent, except for "Minimal Containers" that requires "Building Containers [Docker]" or equivalent knowledge.
 
 **You are strongly encouraged to repeat the examples and do the exercises.**
 
