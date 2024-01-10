@@ -1,5 +1,5 @@
 ---
-title: Appendix 2 - Minimal Containers
+title: Appendix 2 - Minimal Containers [Docker]
 toc: true
 type: book
 weight: 11
