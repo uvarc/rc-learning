@@ -10,7 +10,7 @@ authors:
 superuser: false
 
 # Role/position
-role: Senior Computational Scientist
+role: Lead Scientist, Scientific Computing
 
 # Organizations/Affiliations
 organizations:
