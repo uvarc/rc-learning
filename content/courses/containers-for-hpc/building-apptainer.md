@@ -411,6 +411,35 @@ Why can't you run "apptainer exec lolcow_3.sif fortune|cowsay|lolcat"?
 
 ## Registry
 
+A container registry is a repository for container images. Here we examine two popular choices.
+
+### Docker Hub
+
+The Apptainer/Singularity SIF is supported by Docker Hub. Register for a free account.
+
+{{< info >}}Replace "myname" with your actual user name in the following commands.{{< /info >}}
+
+Login:
+```bash
+$ apptainer remote login --username myname docker://docker.io
+
+$ apptainer remote list
+...
+Authenticated Logins
+=================================
+
+URI                 INSECURE
+docker://docker.io  NO
+```
+
+Push:
+```bash
+$ apptainer push lolcow_0.sif oras://docker.io/myname/lolcow:0
+```
+
+Go to `https://hub.docker.com/r/myname/lolcow/tags` to check.
+
+{{< info >}}Best practice: Sign your containers; see [here](https://apptainer.org/docs/user/latest/signNverify.html).{{< /info >}}
 
 ## Case studies
 
@@ -419,3 +448,4 @@ Why can't you run "apptainer exec lolcow_3.sif fortune|cowsay|lolcat"?
 ## References
 - [Apptainer User Guide](https://apptainer.org/docs/user/latest)
 - [Definition File](https://apptainer.org/docs/user/latest/definition_files.html)
+- [Definition File vs Dockerfile](https://apptainer.org/docs/user/latest/docker_and_oci.html#apptainer-definition-file-vs-dockerfile)
