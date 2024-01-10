@@ -28,8 +28,8 @@ Containerization provides an isolated environment, which can be useful in these 
 
 ### Example: lolcow
 
-```
-$ apptainer run lolcow_latest.sif
+```bash
+$ apptainer run lolcow.sif
  ___________________________________
 < Beware of low-flying butterflies. >
  -----------------------------------
@@ -41,14 +41,16 @@ $ apptainer run lolcow_latest.sif
 ```
 
 What command is actually being executed?
-```
-$ apptainer inspect --runscript lolcow_latest.sif
+```bash
+$ apptainer inspect --runscript lolcow.sif
 #!/bin/sh
 
     fortune | cowsay | lolcat
 ```
 
-**Inspect the runscript before running an image!**
+{{< warning >}}
+Inspect the runscript before running an image!
+{{< /warning >}}
 
 ## Setup
 
@@ -74,8 +76,7 @@ The definition file is a set of instructions that is used to build an Apptainer 
 
 This is a skeleton:
 
-{{< code-snippet >}}
-Bootstrap: ...   # "Header"
+{{< code-snippet >}}Bootstrap: ...   # "Header"
 From: ...        #
 
 %files           # "Section"
