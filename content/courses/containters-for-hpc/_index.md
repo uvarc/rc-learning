@@ -15,14 +15,14 @@ weight: 1
 This short course is an introduction to using and building software containers, structured as follows:
 
 - Introduction to Software Containers
-- Using Containers on Rivanna [Apptainer]
+- Using Containers on HPC [Apptainer]
     - pull and convert Docker containers
     - inspect a container
     - run containers interactively and non-interactively
     - navigate container modules
     - submit container jobs via Slurm
     - create custom Jupyter kernels
-- Building Containers on Rivanna [Apptainer]
+- Building Containers on HPC [Apptainer]
     - definition file
     - best practices
     - registry
@@ -43,5 +43,5 @@ The chapters are mutually independent, except for "Minimal Containers" that requ
 
 ## Prerequisites
 - Linux command line.
-- Rivanna account for the "Using Containers" chapter.
-- Docker installation and DockerHub account for the "Building Containers [Docker]" chapter.
+- Rivanna account for the main chapters.
+- Docker installation and DockerHub account for the appendices.

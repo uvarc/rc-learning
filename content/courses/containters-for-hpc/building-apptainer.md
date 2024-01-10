@@ -1,5 +1,5 @@
 ---
-title: "Building Containers [Apptainer]"
+title: "Building Containers on HPC [Apptainer]"
 toc: true
 type: book
 weight: 4
@@ -10,12 +10,12 @@ weight: 4
 
 ### Apptainer vs Singularity
 
-Apptainer is a continuation of the Singularity project. Since our migration to Apptainer on Dec 18, 2023, users can now build containers natively on Rivanna.
+Apptainer is a continuation of the Singularity project. Since our migration to Apptainer on Dec 18, 2023, users can now build containers natively on HPC.
 
 Previous workflow:
 - build Docker container on personal computer
 - upload (push) to a registry
-- download (pull) from registry onto Rivanna
+- download (pull) from registry
 
 ### Motivation
 
@@ -53,12 +53,14 @@ $ apptainer inspect --runscript lolcow_latest.sif
 ## Setup
 
 1. (Optional) Cache
+    
     The default cache directory is `~/.apptainer`. If you are an active container user it can quickly fill up your home. You can define it to your scratch:
     ```
     export APPTAINER_CACHEDIR=/scratch/$USER/.apptainer
     ```
     or remember to clean up periodically.
 1. We have suppressed non-error output from the `apptainer` command. To see the complete output, type `\apptainer`.
+1. Load the Apptainer module: `module load apptainer`
 
 ## Definition File
 
@@ -103,8 +105,8 @@ From: ...        #
 #### `Bootstrap` (mandatory)
 This is the very first entry. It defines the bootstrap agent:
 
-- `library`
 - `docker`
+- `library`
 - `shub`
 - and [many more](https://apptainer.org/docs/user/latest/definition_files.html#preferred-bootstrap-agents)
 
@@ -259,6 +261,7 @@ From: ubuntu:22.04
 
 %environment
     export PATH=/usr/games:${PATH}
+    export LC_ALL=C
 ```
 
 ### Use `%runscript` to set default command
@@ -273,6 +276,7 @@ From: ubuntu:22.04
 
 %environment
     export PATH=/usr/games:${PATH}
+    export LC_ALL=C
 
 %runscript
     fortune | cowsay | lolcat
@@ -299,6 +303,7 @@ From: ubuntu:22.04
 
 %environment
     export PATH=/usr/games:${PATH}
+    export LC_ALL=C
 
 %runscript
     fortune | cowsay | lolcat
@@ -319,6 +324,7 @@ From: ubuntu:22.04
 
 %environment
     export PATH=/usr/games:${PATH}
+    export LC_ALL=C
 
 %runscript
     fortune | cowsay | lolcat
@@ -347,31 +353,63 @@ $ ll -h lolcow*.sif
 |-  |Install only what's needed  |6 | 7 |
 |2  |Combination of previous two |38 | 44 |
 
-## Other Features
+## Sandbox
 
-### Sandbox
+As we have experienced from the previous section, we may need to iteratively troubleshoot the container build process and, unlike Docker which caches the image layers that finished successfully, Apptainer goes through the whole process every time. So during the exploratory phase, we adopt a more "interactive" approach via sandbox.
 
 - Create and use a writable directory
-- Useful for debugging definition file
+- Useful for debugging container build process
 
-```
-apptainer build --sandbox <directory> <URI/DEF>
-apptainer shell -w --fakeroot <directory>
-```
-
-### Add environment variables in `%post` section
-
-```
-%post
-    <some step that determines x>  # cannot determine x before build
-    echo 'export VARIABLE_NAME=x' >>$APPTAINER_ENVIRONMENT
+```bash
+$ apptainer build --sandbox <directory> <URI/DEF>
+$ apptainer shell -w --fakeroot <directory>
+Apptainer> ...
 ```
 
-### Remote
+Technically you can build the sandbox into a container, but this is not recommended. Write down all the commands in the right order into a definition file for reproducibility.
 
-- Host your own repository
-- Push image to repository
-- Remote build
+### Exception: Alpine
+
+Alpine is a Linux distribution with a very slim base image. However, due to a known bug you cannot build it through a definition file in Apptainer.
+
+```bash
+/.singularity.d/libs/fakeroot: eval: line 140: /.singularity.d/libs/faked: not found
+fakeroot: error while starting the `faked' daemon.
+sh: you need to specify whom to kill
+FATAL:   While performing build: while running engine: exit status 1
+```
+
+Let's try to build a lolcow container in Alpine via a sandbox.
+
+```bash
+$ apptainer build --sandbox alpine docker://alpine:3.17
+$ apptainer shell -w alpine
+Apptainer> echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+Apptainer> apk add fortune cowsay@testing lolcat@testing
+Apptainer> rm /var/cache/apk/*
+Apptainer> exit
+$ apptainer build lolcow_3.sif alpine
+$ apptainer exec lolcow_3.sif sh -c "fortune|cowsay|lolcat"
+ ________________________________________
+/ "All my life I wanted to be someone; I \
+| guess I should have been more          |
+| specific."                             |
+|                                        |
+\ -- Jane Wagner                         /
+ ----------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
+Note the container size - only 14MB! This is 84% smaller than what we had before.
+
+## Registry
+
+
+## Case studies
 
 ---
 
