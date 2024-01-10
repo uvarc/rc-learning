@@ -464,7 +464,7 @@ Check:
 
 While you can create a conda environment locally, you cannot directly migrate it onto another machine. How can you ensure an identical environment with a one-time installation?
 
-{{< info >}}Unless you need the entire Anaconda distribution you should opt for a slimer base image (e.g. miniconda, micromamba) to create your own environment.{{< /info >}}
+{{< info >}}Unless you need the entire Anaconda distribution you should opt for a slimmer base image (e.g. miniconda, micromamba) to create your own environment.{{< /info >}}
 
 ### R
 
