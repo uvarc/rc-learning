@@ -437,9 +437,24 @@ Push:
 $ apptainer push lolcow_0.sif oras://docker.io/myname/lolcow:0
 ```
 
-Go to `https://hub.docker.com/r/myname/lolcow/tags` to check.
+Check:
+`https://hub.docker.com/r/myname/lolcow/tags`
 
 {{< info >}}Best practice: Sign your containers; see [here](https://apptainer.org/docs/user/latest/signNverify.html).{{< /info >}}
+
+### GitHub Packages
+
+1. [Create a personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-with-a-personal-access-token-classic)
+1. Login
+    ```bash
+    apptainer remote login --username myname docker://ghcr.io
+    [paste your token]
+    ```
+1. Push
+    ```bash
+    apptainer push lolcow_0.sif oras://ghcr.io/myname/lolcow
+    ```
+1. Check `https://github.com/users/myname/packages/container/package/lolcow`
 
 ## Case studies
 
