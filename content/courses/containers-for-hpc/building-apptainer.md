@@ -57,9 +57,7 @@ Inspect the runscript before running an image!
 1. (Optional) Cache
     
     The default cache directory is `~/.apptainer`. If you are an active container user it can quickly fill up your home. You can define it to your scratch:
-    {{< code-snippet >}}
-    export APPTAINER_CACHEDIR=/scratch/$USER/.apptainer
-    {{< /code-snippet >}}
+    {{< code-snippet >}}export APPTAINER_CACHEDIR=/scratch/$USER/.apptainer{{< /code-snippet >}}
     or remember to clean up periodically.
 1. We have suppressed non-error output from the `apptainer` command. To see the complete output, type `\apptainer`.
 1. Load the Apptainer module: `module load apptainer`
@@ -203,8 +201,7 @@ The package manager will take care of the dependencies for us.
 
 In `%post` specify the actual commands to be executed (as if you were to type them on the command line).
 
-{{< code-snippet >}}
-Bootstrap: docker
+{{< code-snippet >}}Bootstrap: docker
 From: ubuntu:22.04
 
 %post
@@ -215,8 +212,7 @@ Save this file as `lolcow.def` and run `apptainer build lolcow.sif lolcow.def`. 
 
 We need to update our package list. Let's modify our definition file and build again.
 
-{{< code-snippet >}}
-Bootstrap: docker
+{{< code-snippet >}}Bootstrap: docker
 From: ubuntu:22.04
 
 %post
@@ -226,8 +222,7 @@ From: ubuntu:22.04
 
 This time it still failed due to the prompt for confirmation. To pass "yes" automatically, add `-y`.
 
-{{< code-snippet >}}
-Bootstrap: docker
+{{< code-snippet >}}Bootstrap: docker
 From: ubuntu:22.04
 
 %post
@@ -257,8 +252,7 @@ But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't see
 
 This is equivalent to `export PATH=/usr/games:${PATH}` but it is preserved at runtime. In doing so we can execute `fortune`, `cowsay`, and `lolcat` directly without specifying the full path.
 
-{{< code-snippet >}}
-Bootstrap: docker
+{{< code-snippet >}}Bootstrap: docker
 From: ubuntu:22.04
 
 %post
@@ -272,8 +266,7 @@ From: ubuntu:22.04
 
 ### Use `%runscript` to set default command
 
-{{< code-snippet >}}
-Bootstrap: docker
+{{< code-snippet >}}Bootstrap: docker
 From: ubuntu:22.04
 
 %post
@@ -298,8 +291,7 @@ While our container is functional, there is room for improvement. We shall look 
 
 Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache in a separate `RUN` statement.
 
-{{< code-snippet >}}
-Bootstrap: docker
+{{< code-snippet >}}Bootstrap: docker
 From: ubuntu:22.04
 
 %post
@@ -319,8 +311,7 @@ From: ubuntu:22.04
 
 The `apt` package manager often recommends related packages that are not really necessary. To disable recommendation, use `--no-install-recommends`.
 
-{{< code-snippet >}}
-Bootstrap: docker
+{{< code-snippet >}}Bootstrap: docker
 From: ubuntu:22.04
 
 %post
