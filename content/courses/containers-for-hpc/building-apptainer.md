@@ -458,9 +458,26 @@ Check:
 
 ## Case studies
 
+### Python
+
+While you can create a conda environment locally, you cannot directly migrate it onto another machine. How can you ensure an identical environment with a one-time installation?
+
+{{< info >}}Unless you need the entire Anaconda distribution you should opt for a slimer base image (e.g. miniconda, micromamba) to create your own environment.{{< /info >}}
+
+### R
+
+Rocker provides many base images for all R versions (see [here](https://rocker-project.org/images/)):
+- `rocker/r-ver`: basic R installation
+- `rocker/rstudio`: with RStudio Server
+- `rocker/tidyverse`: plus tidyverse and dependencies
+- `rocker/shiny`: shiny server
+
+If you want to build a custom R container start with one of the Rocker images. Building R, RStudio Server, etc. from source can be very tedious!
+
 ---
 
 ## References
 - [Apptainer User Guide](https://apptainer.org/docs/user/latest)
 - [Definition File](https://apptainer.org/docs/user/latest/definition_files.html)
 - [Definition File vs Dockerfile](https://apptainer.org/docs/user/latest/docker_and_oci.html#apptainer-definition-file-vs-dockerfile)
+- [GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
