@@ -1,15 +1,14 @@
 ---
-title: Using Containers on Rivanna [Apptainer]
+title: Using Containers on HPC [Apptainer]
 toc: true
 type: book
 weight: 3
 
 ---
 
-Logging in to Rivanna:
+Log on to our HPC cluster
 
-- Connect to Rivanna
-    - SSH client or FastX Web
+- SSH client or FastX Web
 - Run `hdquota`
     - Make sure you have a few GBs of free space
 - Run `allocations`
@@ -142,7 +141,7 @@ apptainer run|shell|exec -B <host_path>[:<container_path>] <SIF>
 
 ### Apptainer module
 
-On Rivanna, the `apptainer` module serves as a "toolchain" that will activate container modules. **You must load `apptainer` before loading container modules.**
+The `apptainer` module serves as a "toolchain" that will activate container modules. **You must load `apptainer` before loading container modules.**
 
 See what modules are available by default:
 ```bash
@@ -177,7 +176,7 @@ Currently Loaded Modules:
   1) apptainer/1.2.2   2) tensorflow/2.10.0
 ```
 
-- `$CONTAINERDIR` is an environment variable. It is the directory where containers are stored on Rivanna.
+- `$CONTAINERDIR` is an environment variable. It is the directory where containers are stored.
 - After old container module versions are deprecated, the corresponding containers are placed in `$CONTAINERDIR/archive`. These are inaccessible through the module system, but you are welcome to use them if necessary.
 
 ---
@@ -198,7 +197,7 @@ Currently Loaded Modules:
 ## Container Slurm job (TensorFlow on GPU)
 
 - Computationally intensive tasks must be performed on compute nodes.
-- Slurm is Rivanna's resource manager.
+- Slurm is a resource manager.
 - Prepare a Slurm script to submit a job.
 
 Copy these files:
@@ -261,7 +260,7 @@ Suppose you need to use TensorFlow 2.11.0 on JupyterLab. First, note we do not h
 module spider tensorflow
 ```
 
-Go to [TensorFlow's Docker Hub page](https://hub.docker.com/r/tensorflow/tensorflow/tags?page=1&name=2.11.0) and search for the tag (i.e. version). You'll want to use one that has the `-gpu-jupyter` suffix. Pull the container in your Rivanna account.
+Go to [TensorFlow's Docker Hub page](https://hub.docker.com/r/tensorflow/tensorflow/tags?page=1&name=2.11.0) and search for the tag (i.e. version). You'll want to use one that has the `-gpu-jupyter` suffix. Pull the container in your account.
 
 ### Installation
 
@@ -322,7 +321,7 @@ jkrollout /path/to/sif "Tensorflow 2.11" gpu
 
 - Go to https://rivanna-portal.hpc.virginia.edu
 - Select JupyterLab
-    - Rivanna Partition: GPU
+    - Partition: GPU
     - Work Directory: (location of your `mnist_example.ipynb`)
     - Allocation: `rivanna-training`
 - Select the new "TensorFlow 2.11" kernel
