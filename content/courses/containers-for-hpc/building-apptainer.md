@@ -458,7 +458,7 @@ Check:
     ```
 1. Check `https://github.com/users/myname/packages/container/package/lolcow`
 
-## Case studies
+## Case Studies
 
 ### Python
 
@@ -475,6 +475,12 @@ Rocker provides many base images for all R versions (see [here](https://rocker-p
 - `rocker/shiny`: shiny server
 
 If you want to build a custom R container start with one of the Rocker images. Building R, RStudio Server, etc. from source can be very tedious!
+
+## Multistage Build
+
+By distinguishing between buildtime-dependencies vs runtime-dependencies, it is possible to reduce the image size drastically via a [multistage build](https://apptainer.org/docs/user/latest/definition_files.html#multi-stage-builds). (My experience with some extreme cases is that only 1% is needed at runtime.)
+
+This is beyond the scope of the workshop, but you are welcome to browse the Apptainer documentation and Appendix 2 on Minimal Containers.
 
 ---
 
