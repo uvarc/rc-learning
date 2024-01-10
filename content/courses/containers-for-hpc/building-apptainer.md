@@ -55,9 +55,9 @@ $ apptainer inspect --runscript lolcow_latest.sif
 1. (Optional) Cache
     
     The default cache directory is `~/.apptainer`. If you are an active container user it can quickly fill up your home. You can define it to your scratch:
-    ```
+    {{< code-snippet >}}
     export APPTAINER_CACHEDIR=/scratch/$USER/.apptainer
-    ```
+    {{< /code-snippet >}}
     or remember to clean up periodically.
 1. We have suppressed non-error output from the `apptainer` command. To see the complete output, type `\apptainer`.
 1. Load the Apptainer module: `module load apptainer`
@@ -74,7 +74,7 @@ The definition file is a set of instructions that is used to build an Apptainer 
 
 This is a skeleton:
 
-```
+{{< code-snippet >}}
 Bootstrap: ...   # "Header"
 From: ...        #
 
@@ -95,7 +95,7 @@ From: ...        #
 
 %help
     ...
-```
+{{< /code-snippet >}}
 
 ### Header
 
@@ -168,7 +168,7 @@ Add metadata in the form of key-value pairs. Example:
 
 Text to be displayed upon `apptainer run-help`.
 
-## Example: lolcow
+## Hands-on exercise: lolcow
 
 `fortune | cowsay | lolcat`
 
@@ -196,44 +196,49 @@ From: ubuntu:22.04
 
 ### Steps 2 & 3: Install software
 
+{{< info >}}
+The package manager will take care of the dependencies for us.
+{{< /info >}}
+
 In `%post` specify the actual commands to be executed (as if you were to type them on the command line).
 
-```dockerfile
+{{< code-snippet >}}
 Bootstrap: docker
 From: ubuntu:22.04
 
 %post
     apt-get install fortune cowsay lolcat
-```
+{{< /code-snippet >}}
 
 Save this file as `lolcow.def` and run `apptainer build lolcow.sif lolcow.def`. Does it work?
 
 We need to update our package list. Let's modify our definition file and build again.
 
-```dockerfile
+{{< code-snippet >}}
 Bootstrap: docker
 From: ubuntu:22.04
 
 %post
     apt-get update
     apt-get install fortune cowsay lolcat
-```
+{{< /code-snippet >}}
 
 This time it still failed due to the prompt for confirmation. To pass "yes" automatically, add `-y`.
 
-```bash
+{{< code-snippet >}}
 Bootstrap: docker
 From: ubuntu:22.04
 
 %post
     apt-get update
     apt-get install -y fortune cowsay lolcat
-```
+{{< /code-snippet >}}
 
 This finally works.
 
-```bash
-apptainer run lolcow.sif
+```
+$ apptainer build lolcow.sif lolcow.def
+$ apptainer run lolcow.sif
 ```
 
 But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't seem to work. What's wrong?
@@ -251,7 +256,7 @@ But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't see
 
 This is equivalent to `export PATH=/usr/games:${PATH}` but it is preserved at runtime. In doing so we can execute `fortune`, `cowsay`, and `lolcat` directly without specifying the full path.
 
-```bash
+{{< code-snippet >}}
 Bootstrap: docker
 From: ubuntu:22.04
 
@@ -262,11 +267,11 @@ From: ubuntu:22.04
 %environment
     export PATH=/usr/games:${PATH}
     export LC_ALL=C
-```
+{{< /code-snippet >}}
 
 ### Use `%runscript` to set default command
 
-```bash
+{{< code-snippet >}}
 Bootstrap: docker
 From: ubuntu:22.04
 
@@ -280,7 +285,7 @@ From: ubuntu:22.04
 
 %runscript
     fortune | cowsay | lolcat
-```
+{{< /code-snippet >}}
 
 Save this as `lolcow_0.def`, which will be the basis for comparison.
 
@@ -292,7 +297,7 @@ While our container is functional, there is room for improvement. We shall look 
 
 Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache in a separate `RUN` statement.
 
-```bash
+{{< code-snippet >}}
 Bootstrap: docker
 From: ubuntu:22.04
 
@@ -307,13 +312,13 @@ From: ubuntu:22.04
 
 %runscript
     fortune | cowsay | lolcat
-```
+{{< /code-snippet >}}
 
 ### 2. Only install what's needed
 
 The `apt` package manager often recommends related packages that are not really necessary. To disable recommendation, use `--no-install-recommends`.
 
-```bash
+{{< code-snippet >}}
 Bootstrap: docker
 From: ubuntu:22.04
 
@@ -328,7 +333,7 @@ From: ubuntu:22.04
 
 %runscript
     fortune | cowsay | lolcat
-```
+{{< /code-snippet >}}
 
 - You may need to specify extra packages
     - `fortune` itself provides the executable without the message database
@@ -363,10 +368,12 @@ As we have experienced from the previous section, we may need to iteratively tro
 ```bash
 $ apptainer build --sandbox <directory> <URI/DEF>
 $ apptainer shell -w --fakeroot <directory>
-Apptainer> ...
+Apptainer> ... (installation commands) ...
 ```
 
+{{< warning >}}
 Technically you can build the sandbox into a container, but this is not recommended. Write down all the commands in the right order into a definition file for reproducibility.
+{{< /warning >}}
 
 ### Exception: Alpine
 
@@ -405,6 +412,10 @@ $ apptainer exec lolcow_3.sif sh -c "fortune|cowsay|lolcat"
 ```
 
 Note the container size - only 14MB! This is 84% smaller than what we had before.
+
+{{< info >}}
+Why can't you run "apptainer exec lolcow_3.sif fortune|cowsay|lolcat"?
+{{< /info >}}
 
 ## Registry
 
