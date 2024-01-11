@@ -477,7 +477,7 @@ Hints:
 - Pull the base image and examine it first. Does it already provide some of the packages?
 - Apply version pinning.
 
-{{< info >}}You will likely run out of memory when building large containers (over a few GBs). Request an [interactive job](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#submitting-an-interactive-job) to build on a compute node.{{< /info >}}
+{{< info >}}You will likely run out of memory when building large containers (over a few GBs). Request an [interactive job](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#submitting-an-interactive-job) to build on a compute node in the `largemem` partition.{{< /info >}}
 
 ### R
 
@@ -496,6 +496,7 @@ Hints:
 - Is this version already installed on the cluster?
 - Find the appropriate base image.
 - Pull the base image and examine it first. Does it already provide some of the packages?
+- In the definition file, install CRAN packages via `R -e "install.packages('...')"`.
 - Load the three packages. Do they all succeed? If not, how can you fix it?
 
 ## Multistage Build
