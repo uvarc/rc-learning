@@ -462,9 +462,22 @@ Check:
 
 ### Python
 
-While you can create a conda environment locally, you cannot directly migrate it onto another machine. How can you ensure an identical environment with a one-time installation?
+While you can create a conda environment locally, you cannot directly migrate it onto another machine. A container ensures an identical environment with only a one-time installation.
 
 {{< info >}}Unless you need the entire Anaconda distribution you should opt for a slimmer base image (e.g. miniconda, micromamba) to create your own environment.{{< /info >}}
+
+{{< info >}}Base images already exist for popular deep learning frameworks such as PyTorch and Tensorflow. There is no need to install them by yourself.{{< /info >}}
+
+#### Exercise
+Your project requires PyTorch 2.1.2, Numpy, Seaborn, and Pandas. Write the corresponding Apptainer definition file.
+
+Hints:
+- Is this version already installed on the cluster?
+- Find the appropriate base image from [here](https://hub.docker.com/r/pytorch/pytorch/tags).
+- Pull the base image and examine it first. Does it already provide some of the packages?
+- Apply version pinning.
+
+{{< info >}}You will likely run out of memory when building large containers (over a few GBs). Request an [interactive job](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#submitting-an-interactive-job) to build on a compute node.{{< /info >}}
 
 ### R
 
@@ -475,6 +488,15 @@ Rocker provides many base images for all R versions (see [here](https://rocker-p
 - `rocker/shiny`: shiny server
 
 If you want to build a custom R container start with one of the Rocker images. Building R, RStudio Server, etc. from source can be very tedious!
+
+#### Exercise
+Your project requires R 4.3.2, dplyr, ggplot2, and RcppGSL. Write the corresponding Apptainer definition file.
+
+Hints:
+- Is this version already installed on the cluster?
+- Find the appropriate base image.
+- Pull the base image and examine it first. Does it already provide some of the packages?
+- Load the three packages. Do they all succeed? If not, how can you fix it?
 
 ## Multistage Build
 
