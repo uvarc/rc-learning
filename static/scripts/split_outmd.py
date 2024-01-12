@@ -14,7 +14,7 @@ for line in lines:
     #get rid of backslashes before punctuations
     line_list=[]
     for i,char in enumerate(line):
-        if char=='\\' and line[i+1] in string.punctuation:
+        if i<(len(line)-1) and (char=='\\' and line[i+1] in string.punctuation):
             pass
         else:
             line_list.append(char)
@@ -43,8 +43,8 @@ with open('_index.md','w') as nfile:
     nfile.write('title: '+base+"\n")
     nfile.write('date: '+date+"\n")
     nfile.write('authors: '+"[uvarc]\n")
-    nfile.write('categories: '+"[fill]\n")
-    nfile.write('tags: '+"[Fill]\n")
+    nfile.write('categories: '+"[Fill]\n")
+    nfile.write('tags: '+"[fill]\n")
     nfile.write('type: docs '+"\n")
     nfile.write('weight: 1 '+"\n")
     nfile.write('date: '+date+"\n")
@@ -56,6 +56,7 @@ with open('_index.md','w') as nfile:
     nfile.write("Title of Session\n")
 
 for n,slide in enumerate(sections):
+    if slide==[]: continue
     if slide[0].startswith('#'):
         title=slide[0][1:].strip()
         if ':' in title:

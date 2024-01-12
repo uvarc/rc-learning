@@ -4,11 +4,10 @@ type: docs
 toc: true
 # date: 2015-07-23T21:13:14-05:00
 draft: false
-weight: 20
+weight: 200
 
 menu:
    bash-scripting:
-      parent: Bash Scripting
 ---
 
 A shell script is a text file so should be created using a text editor.  Do not use a word-processing program such as LibreOffice Write. Shell scripts should always be created on the operating system (Linux, Mac OS) on which they will run.

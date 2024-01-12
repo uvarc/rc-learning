@@ -107,6 +107,7 @@ Python
 ```python
 MPI.Finalize()
 ```
+For `mpi4py`, `Finalize` must be invoked only if `Init` was explicitly called.
 
-This must be the last routine after all other MPI library calls.  It allows the system to free up MPI resources.  It does not have to be the last executable statement, but no more MPI routines may be invoked after it.
+`Finalize` must be the last routine after all other MPI library calls.  It allows the system to free up MPI resources.  It does not have to be the last executable statement, but no more MPI routines may be invoked after it.
 
