@@ -444,6 +444,12 @@ Check:
 
 {{< warning >}}While Apptainer can convert a Docker image into SIF, you cannot run SIF with Docker. You are simply using Docker Hub to host your SIF - it is not converted into Docker.{{< /warning >}}
 
+#### UVA Research Computing container resources
+
+[Docker Hub account](https://hub.docker.com/u/uvarc)
+
+[Repository of Dockerfiles and definition files](https://github.com/uvarc/rivanna-docker)
+
 ### GitHub Packages
 
 1. [Create a personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-with-a-personal-access-token-classic)
