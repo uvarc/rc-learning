@@ -7,6 +7,5 @@ tags : ["data", "transfer", "globus"]
 date : 2022-10-26T00:00:00-05:00
 
 notes: globus-data-transfer
-
 weight: 300
 ---
