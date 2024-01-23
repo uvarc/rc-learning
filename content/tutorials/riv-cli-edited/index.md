@@ -12,7 +12,6 @@ categories: ["Rivanna","HPC"]
 notes: riv-cli-edited
 url_slides: slides/rivanna-cli/HPC_From_Terminal.pptx 
 
-draft: true
 weight: 10000
 
 ---
