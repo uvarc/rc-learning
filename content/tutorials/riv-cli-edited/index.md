@@ -1,5 +1,5 @@
 ---
-title: Using Rivanna from the Command Line
+title: Using Rivanna from the Command Line (Edited)
 summary: "This tutorial is an introduction to using the Unix command line on Rivanna."
 
 # Schedule page publish date (NOT talk date).
@@ -12,6 +12,7 @@ categories: ["Rivanna","HPC"]
 notes: riv-cli-edited
 url_slides: slides/rivanna-cli/HPC_From_Terminal.pptx 
 
+draft: true
 weight: 10000
 
 ---
