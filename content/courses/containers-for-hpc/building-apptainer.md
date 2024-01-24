@@ -56,10 +56,10 @@ Inspect the runscript before running an image!
 
 1. (Optional) Cache
     
-    The default cache directory is `~/.apptainer`. If you are an active container user it can quickly fill up your home. You can define it to your scratch:
+    The default cache directory is `~/.apptainer`. If you are an active container user it can quickly fill up your home. You can change it to scratch:
     {{< code-snippet >}}export APPTAINER_CACHEDIR=/scratch/$USER/.apptainer{{< /code-snippet >}}
-    or remember to clean up periodically.
-1. We have suppressed non-error output from the `apptainer` command. To see the complete output, type `\apptainer`.
+    Otherwise, remember to clean up periodically.
+1. We have suppressed certain output from the `apptainer` command. To see the complete output, type `\apptainer`.
 1. Load the Apptainer module: `module load apptainer`
 
 ## Definition File
@@ -74,7 +74,8 @@ The definition file is a set of instructions that is used to build an Apptainer 
 
 This is a skeleton:
 
-{{< code-snippet >}}Bootstrap: ...   # "Header"
+```bash
+Bootstrap: ...   # "Header"
 From: ...        #
 
 %files           # "Section"
@@ -94,7 +95,7 @@ From: ...        #
 
 %help
     ...
-{{< /code-snippet >}}
+```
 
 ### Header
 
@@ -130,7 +131,7 @@ Copy files into the container.
     ...
 ```
 
-- always copied before the `%post` section
+- Files are always copied before the `%post` section.
 
 #### `%post`
 
@@ -138,7 +139,8 @@ Installation commands. Example:
 
 ```
 %post
-    apt-get update && apt-get -y install lolcat
+    apt-get update
+    apt-get install -y lolcat
 ```
 
 #### `%environment`
@@ -196,7 +198,7 @@ From: ubuntu:22.04
 ### Steps 2 & 3: Install software
 
 {{< info >}}
-The package manager will take care of the dependencies for us.
+For this application the package manager will take care of all the dependencies.
 {{< /info >}}
 
 In `%post` specify the actual commands to be executed (as if you were to type them on the command line).
@@ -232,7 +234,7 @@ From: ubuntu:22.04
 
 This finally works.
 
-```
+```bash
 $ apptainer build lolcow.sif lolcow.def
 $ apptainer run lolcow.sif
 ```
@@ -283,13 +285,13 @@ From: ubuntu:22.04
 
 Save this as `lolcow_0.def`, which will be the basis for comparison.
 
-## 2 Best Practices
+## Two Best Practices
 
 While our container is functional, there is room for improvement. We shall look at some important best practices.
 
 ### 1. Clean up
 
-Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache in a separate `RUN` statement.
+Package managers usually leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs.
 
 {{< code-snippet >}}Bootstrap: docker
 From: ubuntu:22.04
@@ -478,10 +480,10 @@ While you can create a conda environment locally, you cannot directly migrate it
 Your project requires PyTorch 2.1.2, Numpy, Seaborn, and Pandas. Write the corresponding Apptainer definition file.
 
 Hints:
-- Is this version already installed on the cluster?
 - Find the appropriate base image from [here](https://hub.docker.com/r/pytorch/pytorch/tags).
 - Pull the base image and examine it first. Does it already provide some of the packages?
-- Apply version pinning.
+
+{{< info >}}While PyTorch runs on a GPU, you do not need to build the container on a GPU.{{< /info >}}
 
 {{< info >}}You will likely run out of memory when building large containers (over a few GBs). Request an [interactive job](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#submitting-an-interactive-job) to build on a compute node in the `largemem` partition.{{< /info >}}
 
@@ -493,14 +495,13 @@ Rocker provides many base images for all R versions (see [here](https://rocker-p
 - `rocker/tidyverse`: plus tidyverse and dependencies
 - `rocker/shiny`: shiny server
 
-If you want to build a custom R container start with one of the Rocker images. Building R, RStudio Server, etc. from source can be very tedious!
+{{< info >}}If you want to build a custom R container start with one of the Rocker images. Building R, RStudio Server, etc. from source can be very tedious!{{< /info >}}
 
 #### Exercise
 Your project requires R 4.3.2, dplyr, ggplot2, and RcppGSL. Write the corresponding Apptainer definition file.
 
 Hints:
-- Is this version already installed on the cluster?
-- Find the appropriate base image.
+- Pick an appropriate base image - there are two viable choices here.
 - Pull the base image and examine it first. Does it already provide some of the packages?
 - In the definition file, install CRAN packages via `R -e "install.packages('...')"`.
 - Load the three packages. Do they all succeed? If not, how can you fix it?
