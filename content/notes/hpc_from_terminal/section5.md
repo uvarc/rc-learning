@@ -5,7 +5,7 @@ type: docs
 toc: true 
 weight: 50
 menu: 
-    rivanna-command-line-edited:
+    hpc-from-terminal:
 ---
 
 Most high-performance computing clusters have commands that are specific to that environment, and are not part of Unix per se.

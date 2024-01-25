@@ -5,7 +5,7 @@ type: docs
 weight: 10
 toc: true
 menu: 
-    rivanna-command-line-edited:
+    hpc-from-terminal:
 ---
 
 ## UNIX

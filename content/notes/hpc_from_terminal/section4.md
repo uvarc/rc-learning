@@ -5,7 +5,7 @@ type: docs
 toc: true 
 weight: 40
 menu: 
-    rivanna-command-line-edited:
+    hpc-from-terminal:
 ---
 
 ## Wildcards

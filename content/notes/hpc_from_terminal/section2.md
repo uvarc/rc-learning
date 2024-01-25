@@ -5,10 +5,10 @@ type: docs
 toc : true 
 weight: 20
 menu: 
-    rivanna-command-line-edited:
+    hpc-from-terminal:
 ---
 
-## Fiels and Directories
+## Files and Directories
 
 **Files** store some sort of information: data, source code for scripts or programs, images, video, and so forth.
 
