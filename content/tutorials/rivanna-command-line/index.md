@@ -13,5 +13,5 @@ notes: rivanna-command-line
 url_slides: slides/rivanna-cli/HPC_From_Terminal.pptx 
 
 weight: 250
-draf: true
+draft: true
 ---

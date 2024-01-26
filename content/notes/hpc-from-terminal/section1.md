@@ -55,7 +55,7 @@ ssh -Y mst3k@rivanna.hpc.virginia.edu
 ```
 Throughout this tutorial we will use `mst3k` as our example user ID. You should substitute your own.  The option `-Y` allows access to graphical applications and requires that an _X11 server_ application must be installed on your computer.  This should be the default for Linux, but MacOS users must install [XQuartz](https://xquartz.org) before this command-line option will be useful.
 
-### Logging in With Graphical Applications
+### Graphical Applications
 
 The command-line secure shell is not the only option for accessing Rivanna. Windows users in particular may wish to use other methods, since although ssh is available for it, Windows is not particularly friendly to command lines.
 
