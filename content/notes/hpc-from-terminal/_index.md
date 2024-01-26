@@ -1,5 +1,5 @@
 ---
-title: HPC from the Terminal
+title: HPC from a Terminal
 date: 2023-12-11-14:11:14Z
 type: docs 
 weight: 1 

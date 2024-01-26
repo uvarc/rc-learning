@@ -1,5 +1,5 @@
 ---
-title: HPC From Terminal
+title: HPC from a Terminal 
 summary: "This tutorial is an introduction to using the Unix command line on Rivanna."
 
 # Schedule page publish date (NOT talk date).
@@ -9,8 +9,8 @@ authors: [as,gka,kah]
 tags: [rivanna,hpc]
 categories: ["Rivanna","HPC"]
 
-notes: riv-cli-edited
-url_slides: slides/rivanna-cli/HPC_From_Terminal.pptx 
+notes: hpc-from-terminal
+url_slides: slides/hpc-from-terminal/HPC_From_Terminal.pptx 
 
 weight: 250
 
