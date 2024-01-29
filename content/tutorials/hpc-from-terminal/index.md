@@ -12,6 +12,6 @@ categories: ["Rivanna","HPC"]
 notes: hpc-from-terminal
 url_slides: slides/hpc-from-terminal/HPC_From_Terminal.pptx 
 
-weight: 250
+weight: 200
 
 ---

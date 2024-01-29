@@ -2,7 +2,7 @@
 title: The Slurm Resource Manager
 date: 2023-12-11-14:11:14Z
 type: docs 
-weight: 100
+weight: 1
 menu: 
     slurm-from-cli:
 ---

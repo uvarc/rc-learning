@@ -5,26 +5,26 @@ type: docs
 toc : true 
 weight: 20
 menu: 
-    rivanna-slurm-edited:
+    slurm-from-cli:
 ---
 
-# Writing Batch Scripts
+## Writing Batch Scripts
 
 Batch scripts should be written on a cluster login node.  Please do not use your local computer to write them, as they may not work.  You must also use a _text editor_ and not a word-processing program.
 
 Several options are available to prepare batch scripts.  
 
-## Graphical Editors
+### Graphical Editors
 
 You can log in to a [FastX](https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/), which provides a [MATE](https://mate-desktop.org/) desktop environment. One of the tools is a graphical editor very similar to Notepad.  It is called `pluma` by MATE, but we have made it available as `gedit` if started from a terminal.  If you wish to start it from a menu, it is available from Applications&rarr;Accessories.
 
 You can also use [Open OnDemand's](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/) built-in file manager and editor.  Create a new file from the Files menu.  Select the file and choose `Edit` from the three-dot dropdown menu to the right of the file name.  This will open a very basic text editor.
 
-## Command-Line Editors
+### Command-Line Editors
 
 Editors available at the command line are [nano](https://www.nano-editor.org/), [vim](https://www.vim.org/), and [emacs](https://www.gnu.org/software/emacs/).  Nano is a simple text-only editor.  Vim is also available text-only from a command line, but a graphical version called `gvim` can be invoked from a MATE Desktop through the Applications&rarr;Accessories menu. Emacs can also be started from the Accessories menu but, if a graphical environment, will start a graphical user interface.  If invoked within a text-only environment, it will fall back to a text interface.
 
-# Our First Slurm Script
+## Our First Slurm Script
 
 This example illustrates the main parts of a Slurm script. 
 
@@ -36,7 +36,7 @@ This script runs the Python code
 
 {{< code-download file="/notes/slurm-from-cli/scripts/hello.py" lang="python" >}}
 
-# The Hello.slurm Script
+## The Hello.slurm Script
 
 The first line says that this script should be run by the `bash` interpreter.
 ```bash
@@ -79,7 +79,7 @@ We have chosen to name this script `hello.slurm`, but it can have any name.
 
 Download the hello.slurm and hello.py scripts. Transfer them to the cluster by whatever means you wish.  Modify the Slurm script to use your own allocation group name.
 
-# Common Slurm Directives
+## Common Slurm Directives
 
 The most commonly used Slurm directives are listed in the table below.  Many options have two versions, one with a single hyphen `-` followed by one letter, or two hyphens `--` followed by an equals sign `=` and a word.  Some commands have no single-letter equivalent.
 
@@ -110,29 +110,29 @@ Angle brackets `< >` indicate a value to be specified, and are not typed.
 
 See also our [documentation](https://www.rc.virginia.edu/userinfo/rivanna/slurm/) for many more examples.
 
-# Working with Files and Folders
+## Working with Files and Folders
 
 When using Slurm in terminal mode, you will probably want to create your own folders to organize your Slurm scripts, any input files, and the output.  You will need to be able to move around from one folder to another at the terminal.
 
 By default, Slurm will start your job from the folder in which it was launched. You can change that with the `-D` option (directory) but many users simply navigate to the folder and type commands.
 
-## Creating Files and Folders
+### Creating Files and Folders
 
 There are several options to create, rename, and move your files and folders. Note that folders are usually called "directories" in Unix.
 
-### FastX
+#### FastX
 
 Use the Caja file manager.  This shows up as a filing-cabinet icon in the upper-left corner of the ribbon of the MATE Desktop.  It can also be started from the menu Applications&rarr;System Tools&rarr;Caja. Caja's layout is very similar in appearance and behavior to Windows Explorer and similar tools.
 
-### Open OnDemand
+#### Open OnDemand
 
 Use the File Manager to create, rename, or move your folders.
 
-### Command Line
+#### Command Line
 
 If you are familiar with the command line, you can use that. If you wish to learn it, you can go through our [Unix Tutorials for Beginners](https://learning.rc.virginia.edu/notes/unix-tutorial/), especially Tutorials 1--3.  You can also go through our [HPC from the Terminal](https://learning.rc.virginia.edu/tutorials/rivanna-command-line/) tutorial if you have not already done so.
 
-### Changing into a Directory
+#### Changing into a Directory
 
 If you do not wish to learn the full command-line navigation, you will need to learn the `cd` command to get to your folder for launching your job.
 

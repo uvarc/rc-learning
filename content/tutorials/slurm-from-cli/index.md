@@ -11,6 +11,6 @@ categories: ["Rivanna","HPC"]
 
 notes: slurm-from-cli
 
-weight: 200
+weight: 250
 
 ---

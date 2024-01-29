@@ -5,10 +5,10 @@ type: docs
 weight: 10
 toc: true
 menu: 
-    rivanna-slurm-edited:
+    slurm-from-cli:
 ---
 
-# Resources and Partitions
+## Resources and Partitions
 
 An HPC **job** is a description of the resources required, any preparatory steps such as loading [modules](https://www.rc.virginia.edu/userinfo/rivanna/software/modules/) or otherwise setting up an environment, and the commands to run the software, along with any postprocessing that may be appropriate.
 
@@ -20,9 +20,9 @@ In the abstract, a _queue_ is a sequence of jobs to be prioritized and handled. 
 
 Slurm is a software package that manages the resources of the cluster and balances the demands of many competing job requests.  It consists of a _workload manager_, often called a scheduler, and a _slurmd_ "daemon" which runs on each node and handles the execution and monitoring of the jobs.
 
-# Cores, Nodes, and Tasks
+## Cores, Nodes, and Tasks
 
-## Hardware
+### Hardware
 
 The Slurm model is a cluster consisting of a number of **nodes**.  Each node is a separate server.  These servers are similar to an ordinary desktop computer, but are more reliable and usually provide more memory and cores that an ordinary desktop.
 
@@ -34,8 +34,7 @@ Slurm began when cpus had only one core each. Beginning around 2005, cpus began 
 
 **Memory** refers to _random-access memory_.  It is not the same thing as storage.  If a process reports running out of memory, it means RAM memory. Running out of disk space will result in a different error.
 
-For more details about the structure of a computational cluster, see our [introduction](/notes/rivanna-command-line/overview_of_rivanna/overview_terminology).
-
+For more details about the structure of a computational cluster, see our [introduction](https://learning.rc.virginia.edu/notes/rivanna-intro/).
 ## Processes and Tasks
 
 A **process** can be envisioned an instance of an executable that is running on a particular computer.  Most executables run only a single process.  Some executables run _threads_ within the _root_ process.
@@ -43,7 +42,7 @@ A **process** can be envisioned an instance of an executable that is running on 
 Slurm refers to the root process as a **task**. By default, each task is assigned to one core.
 
 
-# Slurm Resource Requests
+## Slurm Resource Requests
 
 SLURM refers to queues as  __partitions__ .  We do not have a default partition; each job must request one explicitly.
 
@@ -66,7 +65,7 @@ A more detailed view of the partitions and their limits is available through the
 ```bash
 $qlimits
 ```
-# Batch Scripts
+## Batch Scripts
 
 Jobs are described to the resource manager in the form of a _script_.  Typically this is written in the _bash_ scripting language.  Bash is the default shell on most Linux-based systems, which includes the majority of HPC systems, so it is expected to be available to interpret the script.  However, Slurm accepts scripts in other languages if the interpreter is available.  We will consider only bash scripts in this tutorial.
 

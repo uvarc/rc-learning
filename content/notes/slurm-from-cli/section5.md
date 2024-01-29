@@ -1,10 +1,12 @@
 ---
-title: Need help?
+title: V - Need Help?
 date: 2023-12-11-14:11:14Z
-type: docs 
-weight: 4000
+type: docs
+toc: true 
+weight: 50
 menu: 
-    slurm-from-cli
+    slurm-from-cli:
 ---
+
 
 Research Computing is ready to help you learn to use our systems efficiently.  You can [submit a ticket](https://www.rc.virginia.edu/form/support-request/).  For in-person help, please attend one of our weekly sessions of [office hours](https://www.rc.virginia.edu/support/#office-hours).

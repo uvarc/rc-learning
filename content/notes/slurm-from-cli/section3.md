@@ -5,10 +5,10 @@ type: docs
 toc : true 
 weight: 30
 menu: 
-    rivanna-slurm-edited:
+    slurm-from-cli:
 ---
 
-# Running Jobs from Scratch
+## Running Jobs from Scratch
 
 We recommend that you run your jobs out of your /scratch directory.
     * Your personal /scratch/mst3k folder has much more storage space than your home directory. 
@@ -23,7 +23,7 @@ The scratch system is not permanent storage, and files older than 90 days will b
 
 Move or copy the hello.slurm script and the hello.py script to the new folder you created in your scratch directory in Exercise 2.  Submit hello.slurm.
 
-# Submitting a Job
+## Submitting a Job
 
 Once we have navigated to the desired working directory in a terminal window, we use the `sbatch` command to submit the job. This assumes that your Slurm script is located in the current working directory.
 
@@ -46,11 +46,11 @@ Always remember that you submit your **job script** and not your executable or i
 Move or copy the hello.slurm and hello.py scripts into a new folder in your home directory.  Submit the job.
 
 
-# Monitoring a Job
+## Monitoring a Job
 
 Once submitted, we can monitor our jobs.
 
-## Graphical Interface
+### Graphical Interface
 
 The Open OnDemand Job Viewer (Jobs tab&rarr;Active Jobs) shows a Web-based view of jobs.  You can switch the dropdown between "All Jobs" and "Your Jobs."  You can also use the Filter textbox to select jobs by partition or another criterion.  In the Filter textbox you can enter multiple strings, which acts as "and."
 
@@ -58,7 +58,7 @@ Clicking the right-pointing arrow on the left side will cause a dropdown box to 
 
 Remember that this is a Web page and you will need to reload it in order to see changes in status.
 
-## Command Line
+### Command Line
 
 We use the `squeue` command to check on jobs from the terminal.
 
@@ -90,13 +90,13 @@ For more information on a running job, similar to what you can see from the OOD 
 scontrol show job <jobid>
 ```
 
-# Deleting a Job
+## Deleting a Job
 
-## Open OnDemand
+### Open OnDemand
 
 From the Job Viewer find your jobs.  If the job is pending or running, a red trash-can icon will appear under the "Actions" header.  Click the icon.  A dialog box will appear asking you to confirm the cancellation.
 
-## Command Line
+### Command Line
 
 To cancel a job use the `scancel` with the job ID. You can use `squeue -u $USER` to obtain your job IDs, but you must know the JID of the specific job you wish to cancel.
 
@@ -118,11 +118,11 @@ as the command.  You won't need to request a specific amount of memory. Submit t
 {{< code-download file="/notes/slurm-from-cli/scripts/slow.slurm" lang="bash" >}}
 {{< /spoiler >}}
 
-# Examining Your Utilization
+## Examining Your Utilization
 
 When your jobs have finished, you may wish to find out how much of the resource you utilized.  Two commands can be used for this purpose, `sacct` and `seff`.
 
-## sacct
+### sacct
 
 As the name suggests, `sacct` will return accounting information about your job.  It is built-in to Slurm and does not know about local policies such as SU charges, but it will show you information about the job. It only works for jobs that have ended.
 
@@ -169,7 +169,7 @@ The output from `sacct` can be heavily customized. For more information see the 
 
 Running `sacct` puts a load on the system and can be very slow, so please use it judiciously.
 
-## seff
+### seff
 
 The `seff` command returns information about the utilization (called the "efficiency") of core and memory.  
 ```bash
@@ -193,7 +193,7 @@ Core efficiency is more problematic for GPU jobs, since the key to efficient GPU
 
 If your memory utilization is low and you have requested a specified amount, use `sacct -o` with at least the MaxRSS field to double check. If you do not need as much memory as you thought, you may be able to save SUs and have a shorter queue wait time if you decrease it. 
 
-# Stream Output in Slurm
+## Stream Output in Slurm
 
 When running a program interactively, any output to the Unix [standard streams](https://learning.rc.virginia.edu/notes/unix-tutorial/unix_tutorial_3/) will be printed directly to the user's console window.  However, programs running under the control of Slurm will not have a console attached. 
 
