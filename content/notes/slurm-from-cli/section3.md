@@ -41,11 +41,6 @@ Submitted batch job 36805
 
 Always remember that you submit your **job script** and not your executable or interpreter script.
 
-**Exercise 3**
-
-Move or copy the hello.slurm and hello.py scripts into a new folder in your home directory.  Submit the job.
-
-
 ## Monitoring a Job
 
 Once submitted, we can monitor our jobs.
