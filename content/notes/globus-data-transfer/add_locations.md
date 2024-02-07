@@ -19,6 +19,10 @@ When you first set up Globus, it only has access to certain folders of your loca
 5. Select the drive location and click “Open”
 6. Navigate to the drive in the File Manager
 
+{{< figure src=/notes/globus-data-transfer/imgs/globus_connection_options.png caption="Select Options or Preferences from the Globus Connection menu." >}}
+
+{{< figure src=/notes/globus-data-transfer/imgs/globus_connection_add_location.png caption="After clicking the +, navigate to the folder you wish to add." >}}
+
 **Tips for Navigating to Mapped Drives**
  
 - Click the Up button in the File Manager to navigate to higher level directories

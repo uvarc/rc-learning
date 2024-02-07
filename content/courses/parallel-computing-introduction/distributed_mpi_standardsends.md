@@ -25,6 +25,8 @@ comm.Send([sendbuf,datatype],dest=rank,tag=0)
 comm.send(sendbuf,dest=rank,tag=0)
 ```
 
+## Receive
+
 The matching receive is called as follows:
 
 ```c++
@@ -38,34 +40,9 @@ call MPI_Recv(recvbuf, count, datatype, source, int tag, comm, status, ierr)
 ```python
 comm.Recv([data,MPI_Type],source=rank,tag=0,status=status)
 #or for pickled objects
-data=comm.Recv(source=rank,tag=0,status=status)
+data=comm.recv(source=rank,tag=0,status=status)
 ```
 The status variable is optional for Python, but not for C++ or Fortran.
-
-### Status
-
-The _status_ variable contains information about the message.
-
-* MPI_SOURCE
-    The source rank of the message
-* MPI_TAG
-    The tag
-* The length (item count) of the message.  This requires another MPI routine.
-    MPI_Get_count(
-    MPI_Status* status, MPI_Datatype datatype, int* count)
-* The error number
-    MPI_Error
-
-The MPI_SOURCE and MPI_TAG items may be especially useful for the special dummy variables defined for source and tag.
-
-### Special Source and Tag Variables
-
-MPI defines special variables that can be used in MPI_Recv
-```no-highlight
-MPI_ANY_SOURCE
-MPI_ANY_TAG
-```
-Either or both can be used in a receive if the MPI_Recv can accept a message from any source and/or any tag.
 
 **Example**
 
@@ -81,20 +58,4 @@ Our first program will run on two processes and exchange some data between them.
 
 {{< spoiler text="Python" >}}
 {{< code-download file="/courses/parallel-computing-introduction/codes/send_recv.py" lang="python" >}}
-{{< /spoiler >}}
-
-**Example Status Usage**
-
-Add a status query to the exchange code.  Note that Python uses functions to retrieve all the members of the status structure, and must also initialize it with a constructor.
-
-{{< spoiler text="C++" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/send_recv_stat.cxx" lang="c++" >}}
-{{< /spoiler >}}
-
-{{< spoiler text="Fortran" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/send_recv_stat.f90" lang="fortran" >}}
-{{< /spoiler >}}
-
-{{< spoiler text="Python" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/send_recv_stat.py" lang="python" >}}
 {{< /spoiler >}}
