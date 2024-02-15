@@ -33,8 +33,8 @@ Use whatever plotting package you know to make a contour plot of the result. If 
 
 When plotting, the top of an array (row 0) is the bottom of the plot.
 
-{{< spoiler >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/contour.py" lang="python" >}}
+{{< spoiler text="Python script to contour output">}}
+{{< code-download file="/courses/parallel-computing-introduction/scripts/contour.py" lang="python" >}}
 {{< /spoiler >}}
 
 ### Example solutions
@@ -65,10 +65,10 @@ Python
 ```python
 filename = filename + str( rank )
 ```  
-To plot the results you will have to stitch the files together appropriately. If you have no other preference you may use the `contour-ranks.py` code below. Add the `-f` command-line option for Fortran. The script must be given an argument that is the "base" of the filenames, and all the output files must be in the same folder and numbered appropriately.
+To plot the results you will have to stitch the files together appropriately. If you have no other preference you may use the `contour_ranks.py` code below. Add the `-f` command-line option for Fortran. The script must be given an argument that is the "base" of the filenames, and all the output files must be in the same folder and numbered appropriately.
 
-{{< spoiler >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/contour-ranks.py" lang="python" >}}
+{{< spoiler text="Python script to merge output files and contour" >}}
+{{< code-download file="/courses/parallel-computing-introduction/scripts/contour_ranks.py" lang="python" >}}
 {{< /spoiler >}}
 
 Feel free to use the example solutions provided as your basis, but we recommend that you attempt to write your own serial version first.
