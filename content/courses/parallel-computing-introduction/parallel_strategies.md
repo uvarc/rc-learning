@@ -81,7 +81,7 @@ for i in 1 to n
 ```
 This is repeated until some specified tolerance is achieved.  The solution vector `x` is continuously updated as we sweep through the rows.  Utilizing the new information increases the rate of convergence, but introduces a flow dependency.
 
-An older method, called _Jacobi_ iteration, is nearly identical but utilizes two variables for the solution, representing $x^{k}$ and x^{k+1}.  
+An older method, called _Jacobi_ iteration, is nearly identical but utilizes two variables for the solution, representing $x^{k}$ and $x^{k+1}$.  
 The pseudocode in this case is
 ```plaintext
 for i in 1 to n

@@ -2,7 +2,7 @@
 title: "Sending Modes"
 toc: true
 type: docs
-weight: 55
+weight: 70
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

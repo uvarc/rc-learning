@@ -2,7 +2,7 @@
 title: "Point To Point Communications"
 toc: true
 type: docs
-weight: 50
+weight: 60
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

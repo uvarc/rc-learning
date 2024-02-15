@@ -2,7 +2,7 @@
 title: "Standard Blocking Send/Receive"
 toc: true
 type: docs
-weight: 55
+weight: 75
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
@@ -14,10 +14,10 @@ The most widely used send is the "standard" form.  We will begin with the blocki
 
 The syntax for invocation for the standard MPI_Send is
 ```c++
-int MPI_Send(&buf, count, datatype, dest, tag, comm)
+int MPI_Send(&sendbuf, count, datatype, dest, tag, comm)
 ```
 ```fortran
-call MPI_Send(sendbuf, count, datatype, dest, tag, comm,ierr)
+call MPI_Send(sendbuf, count, datatype, dest, tag, comm, ierr)
 ```
 ```python
 comm.Send([sendbuf,datatype],dest=rank,tag=0)

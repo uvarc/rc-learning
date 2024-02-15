@@ -124,15 +124,8 @@ For weak scaling there is no upper limit on the speedup, and as $f \to 0$, $S \t
 The efficiency is 
 $$ \epsilon = \frac{S}{p} = \frac{f}{p}+1-f $$
 This expression ignores real-world complications such as communication and
-other system overhead, but it provides a guide for understanding weak scaling.  
-In the case of $p \to \infty$, $\epsilon \to 1-f$.  Therefore, as for Amdahl's law,
-the sequential fraction will limit the speedup and efficiency possible. 
-However, for weak scaling, lesser parallelization can still produce 
-acceptable efficiencies.
+other system overhead, but it provides a guide for understanding weak scaling.  In the case of $p \to \infty$, $\epsilon \to 1-f$.  Therefore, as for Amdahl's law, the sequential fraction will limit the speedup and efficiency possible.  However, for weak scaling, lesser parallelization can still produce acceptable efficiencies.
+
 {{< figure src="/courses/parallel-computing-introduction/img/weak_speedup.png" caption="Speedup for weak scaling." >}}
 
-Weak scaling allows a much larger workload to be run in the same time.  A significant portion of 
-scientific and engineering problems require a large to very large workload
-for problems of interest to be solved.  For example, fluid dynamics is modeled
-better at higher numerical resolutions, but each computational cell adds to 
-the problem size.  Many problems, such as weather models, could not be solved at all at the resolution of interest without weak scaling.
+Weak scaling allows a much larger workload to be run in the same time.  A significant portion of scientific and engineering problems require a large to very large workload for problems of interest to be solved.  For example, fluid dynamics is modeled better at higher numerical resolutions, but each computational cell adds to the problem size.  Many problems, such as weather models, could not be solved at all at the resolution of interest without weak scaling.

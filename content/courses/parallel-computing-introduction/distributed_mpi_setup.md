@@ -2,7 +2,7 @@
 title: "Setting Up and Running MPI"
 toc: true
 type: docs
-weight: 23
+weight: 28
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

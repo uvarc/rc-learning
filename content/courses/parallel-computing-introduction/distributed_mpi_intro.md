@@ -2,7 +2,7 @@
 title: "Getting Started with MPI"
 toc: true
 type: docs
-weight: 22
+weight: 25
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

@@ -2,7 +2,7 @@
 title: "Receive Status"
 toc: true
 type: docs
-weight: 60
+weight: 78
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
@@ -59,7 +59,9 @@ Either or both can be used in a receive if the MPI_Recv can accept a message fro
 
 **Example Status Usage**
 
-Add a status query to the exchange code.  Note that Python uses functions to retrieve all the members of the status structure, and must also initialize it with a constructor.
+Add a status query to the exchange code to find the source, tag, and any error.  Note that Python uses functions to retrieve all the members of the status structure, and must also initialize it with a constructor.
+
+Although the status data structure can also return the item count, if the receiver does not know the number or size of the message, we recommend invoking `MPI_PROBE`, which allows the receiving process to determine the specifics of the message without actually receiving it. It can then set up an appropriate MPI_Recv.
 
 {{< spoiler text="C++" >}}
 {{< code-download file="/courses/parallel-computing-introduction/codes/send_recv_stat.cxx" lang="c++" >}}

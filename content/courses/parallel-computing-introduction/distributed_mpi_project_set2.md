@@ -2,7 +2,7 @@
 title: "MPI Project Set 2"
 toc: true
 type: docs
-weight: 65
+weight: 89
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
@@ -25,36 +25,31 @@ A "token ring" is a circular messaging system.  Think of a relay, with a message
 
 ## Project 5
 
-Write a program in which all processes send a message to their left and receive from their right. Your program should handle all process counts appropriately.
+Write a program in which each process determines a unique partner to exchange messages.  One way to do this is to use
+```no-highlight
+if rank < npes//2:
+partner=npes//2 + rank
+else
+partner=rank-npes//2
+```
+where the `//` indicates integer division (no fractional part).
 
-1. Left end sends nothing, right end receives nothing.
-2. Make the messages circular, i.e. 0 sends to np-1 and np-1 receives from 0. 
+Each tasks sends its rank to its partner.  Each task receives the partner's rank.  Print the message received when done.  You may assume that the number of processes is even, but check that this is the case before proceding.
+
+Hints: do not overwrite the receiver's rank.  As always, Python programmers should take care that NumPy arrays are declared with the correct type.
 
 #### Example Solutions
 {{< spoiler text="C++" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/shift_1.cxx" lang="c++" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/shift_2.cxx" lang="c++" >}}
+{{< code-download file="/courses/parallel-computing-introduction/solns/send_recv_rank.cxx" lang="c++" >}}
 {{< /spoiler >}}
 {{< spoiler text="Fortran" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/shift_1.f90" lang="fortran" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/shift_2.f90" lang="fortran" >}}
+{{< code-download file="/courses/parallel-computing-introduction/solns/send_recv_rank.f90" lang="fortran" >}}
 {{< /spoiler >}}
 {{< spoiler text="Python" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/shift_1.py" lang="python" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/shift_2.py" lang="python" >}}
+{{< code-download file="/courses/parallel-computing-introduction/solns/send_recv_rank.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 6
-
-Now write a program in which all processes send a message to their left and receive from their right, then send a different message to the right and receive from the left. Your program should handle all process counts appropriately.
-
-1. Left end sends only to the right, right end receives only from the left.
-2. Make the messages circular, i.e. 0 sends to np-1 and np-1 receives from 0.
-
-In this case, watch out for deadlock or unsafe patterns.
-
-
-## Project 7
 
 A common pattern in parallel programming is the _manager-worker_ structure. A "manager" process distributes work to "worker" processes.  Sometimes manager code is separated by `if rank==0` (the manager should nearly always be rank 0) statements, while the other ranks execute the "worker" code. Sometimes the manager spawns distinct worker processes, but that requires using the more advanced MPI `spawn` capability.  In this project we will use a single code.  Usually the manager distributes work to the workers, which return results; the manager then hands more work to those processes that are ready, until all is completed. For this example the workers will do only one round of work.
 
