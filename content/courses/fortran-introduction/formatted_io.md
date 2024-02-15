@@ -176,7 +176,7 @@ Non-advancing IO _must_ be formatted
 1. Examine this example code:
 
 {{< spoiler text="A variety of formatting examples" >}}
-{{< code file="courses/fortran-introduction/code/formats.f90" lang="fortran" >}}
+{{< code file="courses/fortran-introduction/codes/formats.f90" lang="fortran" >}}
 {{< /spoiler >}}
 
 Make sure you understand all the formats. Correct unattractive outputs.  Experiment with changing the formats.
