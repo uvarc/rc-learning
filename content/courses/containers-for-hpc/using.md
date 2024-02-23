@@ -86,7 +86,7 @@ GPU: `apptainer run --nv <SIF>` (later)
 
 #### `shell`
 
-Start a Apptainer container interactively in its shell.
+Start an Apptainer container interactively in its shell.
 
 `apptainer shell <SIF>`
 
