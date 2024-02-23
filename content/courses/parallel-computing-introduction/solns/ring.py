@@ -7,9 +7,9 @@ my_rank=comm.Get_rank()
 npes   =comm.Get_size()
 
 if my_rank==0:
-   baton=42*np.array([1],dtype='i')
+   baton=42*np.array([1],dtype='int')
 else:
-   baton=np.zeros((1,),dtype='i')
+   baton=np.zeros((1,),dtype='int')
 
 if npes==1:
    print('Rank ',my_rank,'has the baton ',baton)

@@ -2,7 +2,7 @@
 title: "MPI Project Set 1"
 toc: true
 type: docs
-weight: 30
+weight: 59
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

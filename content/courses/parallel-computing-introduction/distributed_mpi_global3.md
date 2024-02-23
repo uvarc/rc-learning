@@ -2,7 +2,7 @@
 title: "Global Communication in MPI: Many To Many"
 toc: true
 type: docs
-weight: 29
+weight: 54
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

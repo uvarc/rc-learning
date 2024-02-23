@@ -19,9 +19,9 @@ Containers
 - virtualize the OS instead of hardware
 - have much less overhead and faster deployment than a VM
 
-## Singularity is designed for HPC
+## Apptainer/Singularity is designed for HPC
 
 - Does not require sudo privilege to run (unlike Docker)
 - Interoperates well with HPC resource managers in multi-node environments
 - Easily makes use of GPUs, high speed networks, parallel filesystems
-- Able to convert Docker images into Singularity
+- Able to convert Docker images

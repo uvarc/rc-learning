@@ -2,7 +2,7 @@
 title: "Global Communication in MPI: Reduction"
 toc: true
 type: docs
-weight: 28
+weight: 58
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

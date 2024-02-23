@@ -2,7 +2,7 @@
 title: "A Random Walk with MPI"
 toc: true
 type: docs
-weight: 24
+weight: 38
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

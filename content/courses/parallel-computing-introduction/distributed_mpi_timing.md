@@ -2,7 +2,7 @@
 title: "Timing and Benchmarking"
 toc: true
 type: docs
-weight: 25
+weight: 35
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

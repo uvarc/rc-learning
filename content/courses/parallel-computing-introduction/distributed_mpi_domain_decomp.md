@@ -2,7 +2,7 @@
 title: "Domain Decomposition"
 toc: true
 type: docs
-weight: 40
+weight: 45
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

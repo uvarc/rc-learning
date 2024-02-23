@@ -281,7 +281,7 @@ Q3: Copy the directory
 <details><summary>Solution</summary>
 
 ```bash
-$cp /share/resources/tutorials/rivanna-cli/shakespeare ~
+$cp -r /share/resources/tutorials/rivanna-cli/shakespeare ~
 ```
 </details>
 
