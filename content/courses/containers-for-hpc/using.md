@@ -239,10 +239,10 @@ See [Apptainer GPU user guide](https://apptainer.org/user-docs/master/gpu.html#n
 
 ```bash
 $ apptainer shell $CONTAINERDIR/tensorflow-2.10.0.sif
-Apptainer> ls /.apptainer.d/libs
+Apptainer> ls /.singularity.d/libs
 
 $ apptainer shell --nv $CONTAINERDIR/tensorflow-2.10.0.sif
-Apptainer> ls /.apptainer.d/libs
+Apptainer> ls /.singularity.d/libs
 libEGL.so		  libGLX.so.0		       libnvidia-cfg.so			  libnvidia-ifr.so
 libEGL.so.1		  libGLX_nvidia.so.0	       libnvidia-cfg.so.1		  libnvidia-ifr.so.1
 ...
