@@ -37,7 +37,7 @@ The quotes indicate that a space is part of the file name.  While most modern Un
 
 In most operating systems, all files and directories are located with a **path**.  The “path” is the "full name" of every file & directory.
 
-In a Unix-based operating system, the files are organized into a _tree_ structure.  The tree is "upside down" because the **root directory** is at the top, and directories branch off from there.  The root directory is indicated with a forward slash `/`.
+In a Unix-based operating system, the files are organized into a _tree_ structure (the method to store and organize the files is called **filesystem**, e.g. ext3,ext4, NTFS, etc).  The tree is "upside down" because the **root directory** is at the top, and directories branch off from there.  The root directory is indicated with a forward slash `/`.
 
 {{< diagram >}}
 graph TD
