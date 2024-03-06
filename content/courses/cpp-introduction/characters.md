@@ -84,16 +84,12 @@ HelloCello
 HelloCello
 ```
 The size of `greeting` was doubled (not counting null terminators) even though it was declared size 6.  The compiler did not check for this.  The `strcpy` function then copied it to another variable of size 6.  
-The result is a _buffer overflow_.  To see what might happen, run the following code
+The result is a _buffer overflow_.  
+
+To see what can happen, compile and run the following code
 {{< code-download file="/courses/cpp-introduction/codes/buffer_oflow.cxx" lang="c++" >}}
 
-On the same Linux system the result was
-```no-highlight
-Initial value of year: 2021
-What happened to year? 1869376613
-```
-
-This occurred because `year` was declared right after `str`.  Str was only allocated 8 bytes of memory.  Nearly all compilers will place the next declared variable subsequent in memory, so in this example that was `year`.  Storing an excessively long variable into `str` caused it to overflow in memory and wipe out the value of `year`.
+Type in a short user name (any string), then type `Eleventy` as your password. It should work as expected.  Now try typing a user name that is longer than 10 characters and see what happens.
 
 If using C-style strings and functions, guard against this by using
 
@@ -109,9 +105,9 @@ str1[strlen(str1)]='\0';
 ```
 We must explicitly add the null character to the end of the target of the copy or even strncpy will overflow the buffer.
 
-{{< code-download file="/courses/cpp-introduction/codes/buffer_oflow.cxx" lang="c++" >}}
-
 The `strncat` function is more difficult to use correctly since it appends $n$ bytes from str2 regardless of the size of str1.  
+
+In general, it is best to avoid fixed-size char variables as much as possible, because C++ (and C) does not check C-style array bounds. Similar problems can occur with numerical arrays, but in those cases the result is typical a segmentation fault. Buffer overflows in characters can result in insecure programs.
 
 Since we are programming in C++, not C, for most purposes it is better to use C++ strings (see [here](/courses/cpp-introduction/encodings_strings#strings)),
 which do not have these disadvantages.

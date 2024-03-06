@@ -98,7 +98,7 @@ An allgather is the same as a gather, but each process sends into to the receive
 ### C++ 
 
 ```c++
-int MPI_Allgather(void *recvbuffer, int ncount, MPI_Datatype datatype, void *sendbuffer, int ncount, MPI_Datatype datatype, MPI_Comm communicator)
+int MPI_Allgather(void *sendbuffer, int ncount, MPI_Datatype datatype, void *recvbuffer, int ncount, MPI_Datatype datatype, MPI_Comm communicator)
 ```
 ### Fortran
 
@@ -107,7 +107,7 @@ int MPI_Allgather(void *recvbuffer, int ncount, MPI_Datatype datatype, void *sen
 <type><dimension><size>   :: all_vars
 integer  :: ncount, root, err
 ! more code
-call MPI_ALLGATHER(all_vars, ncount, MPI_TYPE, vars, ncount, MPI_TYPE, MPI_COMM_WORLD, err)
+call MPI_ALLGATHER(vars, ncount, MPI_TYPE, all_vars, ncount, MPI_TYPE, MPI_COMM_WORLD, err)
 ```
 
 ### Python
@@ -115,7 +115,7 @@ call MPI_ALLGATHER(all_vars, ncount, MPI_TYPE, vars, ncount, MPI_TYPE, MPI_COMM_
 As before, for this syntax, both buffers should be NumPy arrays.
 
 ```python
-comm.Allgather([all_data,MPI.TYPE],[data,MPI.TYPE])
+comm.Allgather([data,MPI.TYPE],[all_data,MPI.TYPE])
 ```
 
 **Exercise**
