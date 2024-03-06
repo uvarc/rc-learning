@@ -309,6 +309,8 @@ From: ubuntu:22.04
     fortune | cowsay | lolcat
 {{< /code-snippet >}}
 
+Save this as `lolcow_1.def`.
+
 ### 2. Only install what's needed
 
 The `apt` package manager often recommends related packages that are not really necessary. To disable recommendation, use `--no-install-recommends`.
@@ -328,6 +330,8 @@ From: ubuntu:22.04
 %runscript
     fortune | cowsay | lolcat
 {{< /code-snippet >}}
+
+Save this as `lolcow_2.def`.
 
 - You may need to specify extra packages
     - `fortune` itself provides the executable without the message database
@@ -360,7 +364,7 @@ As we have experienced from the previous section, we may need to iteratively tro
 - Useful for debugging container build process
 
 ```bash
-$ apptainer build --sandbox <directory> <URI/DEF>
+$ apptainer build --sandbox <directory> <URI/IMG>
 $ apptainer shell -w --fakeroot <directory>
 Apptainer> ... (installation commands) ...
 ```
