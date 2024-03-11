@@ -12,7 +12,7 @@ In many-to-one collective communications, all processes in the communicator grou
 
 ## Gather
 
-A gather is the inverse of a scatter.  Each process sends _ncount_ items to root, which assembles them in rank order.  The buffer in the root process must be large enough to accommodate all the data.  As for a scatter, the MPI_Datatype is specified twice but must be the same each time.
+A gather is the inverse of a scatter.  Each process sends _ncount_ items to root, which assembles them in rank order.  The buffer in the root process must be large enough to accommodate all the data.  As for a scatter, the MPI_Datatype is specified twice but must be the same each time. Note that `ncount` is the number of items sent per process, not the total.
 
 {{< figure src="/courses/parallel-computing-introduction/img/gather.png" caption="Gather" >}}
 
@@ -20,7 +20,7 @@ A gather is the inverse of a scatter.  Each process sends _ncount_ items to root
 
 The prototype is
 ```c++
-int MPI_Gather(void *recvbuffer,int ncount,MPI_Datatype datatype,void *sendbuffer,int ncount,MPI_Datatype datatype,int root,MPI_Comm communicator)
+int MPI_Gather(void *sendbuffer,int ncount,MPI_Datatype datatype,void *recvbuffer,int ncount,MPI_Datatype datatype,int root,MPI_Comm communicator)
 ```
 
 {{< spoiler text="C++ Example" >}}
@@ -34,7 +34,7 @@ int MPI_Gather(void *recvbuffer,int ncount,MPI_Datatype datatype,void *sendbuffe
 <type><dimension><size>   :: all_vars
 integer  :: ncount, root, err
 ! more code
-call MPI_Gather(all_vars, ncount, MPI_TYPE, vars, ncount, MPI_TYPE, root, MPI_COMM_WORLD, err)
+call MPI_Gather(vars, ncount, MPI_TYPE, all_vars, ncount, MPI_TYPE, root, MPI_COMM_WORLD, err)
 ```
 
 {{< spoiler text="Fortran Example" >}}
@@ -46,7 +46,7 @@ call MPI_Gather(all_vars, ncount, MPI_TYPE, vars, ncount, MPI_TYPE, root, MPI_CO
 For this syntax, both buffers should be NumPy arrays.
 
 ```python
-comm.Gather([all_data,MPI.TYPE],[data,MPI.TYPE], root=0)
+comm.Gather([data,MPI.TYPE],[all_data,MPI.TYPE], root=0)
 ```
 
 {{< spoiler text="Python Example" >}}

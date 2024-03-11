@@ -22,9 +22,9 @@ In a broadcast, the root process sends the same data to every other process.  It
 
 The prototype is
 ```c++
-int MPI_Bcast (void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm communicator);
+int MPI_Bcast (void *buffer, int ncount, MPI_Datatype datatype, int root, MPI_Comm communicator);
 ```
-In this prototype, `buffer` is the variable holding the data, `count` is the number of _items_ (not bytes) sent, `MPI_Datatype` is a struct defined in `mpi.h`, and `MPI_Comm` is also a struct defined in `mpi.h`.
+In this prototype, `buffer` is the variable holding the data, `ncount` is the number of _items_ (not bytes) sent, `MPI_Datatype` is a struct defined in `mpi.h`, and `MPI_Comm` is also a struct defined in `mpi.h`.
 
 {{< spoiler text="C++ Example" >}}
 {{< code-download file="/courses/parallel-computing-introduction/codes/bcast.cxx" lang="cxx" >}}
@@ -58,16 +58,16 @@ The pickled version does not use `MPI.TYPE` because a pickled object is a binary
 
 ## Scatter
 
-A `scatter` breaks up an array and sends one part to each process, with root keeping its own part.  The simplest function distributes the same `count` of the array to each process.  The sections are distributed from the first element in rank order.  If root=0 this means that it sends itself the first _ncount_ elements and sends the next _ncount_ elements to process 1, the _ncount_ after that to process 2, and so forth.  If root is not zero, that process sends the first _ncount_ to rank 0 and so on, sends the rank-appropriate section to itself, then sends to the next until all processes in the communicator group have received data. For a simple Scatter, the number of elements of the "send buffer" should be divisible by _ncount_.
+A `scatter` breaks up an array and sends one part to each process, with root keeping its own part.  The simplest function distributes the same `ncount` of the array to each process.  The sections are distributed from the first element in rank order.  If root=0 this means that it sends itself the first _ncount_ elements and sends the next _ncount_ elements to process 1, the _ncount_ after that to process 2, and so forth.  If root is not zero, that process sends the first _ncount_ to rank 0 and so on, sends the rank-appropriate section to itself, then sends to the next until all processes in the communicator group have received data. For a simple Scatter, the number of elements of the "send buffer" should be divisible by _ncount_.
 
 {{< figure src="/courses/parallel-computing-introduction/img/scatter.png" caption="Scatter" >}}
 
-In the  _root_ process, the send buffer must contain all the data to be distributed, so it is larger than receive buffer by a factor of $count \times nprocs$.
+In the  _root_ process, the send buffer must contain all the data to be distributed, so it is larger than receive buffer by a factor of $ncount \times nprocs$.
 
 ### C++
 
 ```c
-int MPI_Scatter(void *sendbuffer, int count, MPI_Datatype datatype, void *recvbuffer, int count, MPI_Datatype datatype, int root, MPI_Comm communicator);
+int MPI_Scatter(void *sendbuffer, int ncount, MPI_Datatype datatype, void *recvbuffer, int ncount, MPI_Datatype datatype, int root, MPI_Comm communicator);
 ```
 
 {{< spoiler text="C++ Example" >}}
@@ -97,7 +97,7 @@ comm.Scatter([sendvals,MPI.DOUBLE],[recvals,MPI.DOUBLE,root=0)
 
 ### More General Scattering
 
-The `MPI_Scatter` procedure allows only equal distribution of an entire array of values.  If more general distribution is needed, the `MPI_Scatterv` (vector scatter) allows considerable flexibility.  In this case, the count become an integer array. Different ranks may receive different numbers of items.  An integer _displacement_ vector is included, so that elements can be skipped.  Displacements are measured from the start of the array; each one is essentially the starting index of the block to be sent.  (Fortran programmers, pay attention to 1-based versus 0-based computations.)
+The `MPI_Scatter` procedure allows only equal distribution of an entire array of values.  If more general distribution is needed, the `MPI_Scatterv` (vector scatter) allows considerable flexibility.  In this case, `ncount` becomes an integer array. Different ranks may receive different numbers of items.  An integer _displacement_ vector is included, so that elements can be skipped.  Displacements are measured from the start of the array; each one is essentially the starting index of the block to be sent.  (Fortran programmers, pay attention to 1-based versus 0-based computations.)
 
 In the example codes we will assume 8 processes; generally we should not hard-code a number of processes, but this simplifies the arithmetic.
 
