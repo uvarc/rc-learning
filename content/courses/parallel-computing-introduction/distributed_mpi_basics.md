@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with MPI"
+title: "Basics of MPI Programming"
 toc: true
 type: docs
 weight: 25

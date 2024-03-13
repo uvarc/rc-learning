@@ -12,9 +12,7 @@ MPI stands for  _M_ essage  _P_ assing  _I_ nterface.  It is a standard establis
 
 ## Programming Languages
 
-MPI is written in C and ships with bindings for Fortran.  Bindings have been written for many other languages, including Python and R. C\+\+ programmers should use the C functions.
-
-Many of the examples in this lecture are C or C\+\+ code, with some Fortran and Python examples as well.  All of the C functions work the same for Fortran, with a slightly different syntax.  They are mostly the same for Python but the most widely used set of Python bindings, `mpi4py`, was modeled on the deprecated C\+\+ bindings, as they are more "Pythonic."
+MPI is written in C and ships with bindings for Fortran.  Bindings have been written for many other languages, including Python and R. C\+\+ programmers should use the C functions.  All of the C functions work the same for Fortran, with a slightly different syntax.  They are mostly the same for Python but the most widely used set of Python bindings, `mpi4py`, was modeled on the deprecated C\+\+ bindings, as they are more "Pythonic."
 
 Guides to the most-commonly used MPI routines for the three languages this course supports can be downloaded.
 
@@ -24,11 +22,15 @@ Guides to the most-commonly used MPI routines for the three languages this cours
 
 [Python](/courses/parallel-computing-introduction/MPI_Guide_mpi4py.pdf)
 
-## Process Management
+## Processes and Messages
 
-MPI programs are run under the control of an executor or _process manager_.  The process manager starts the requested number of processes on a specified list of hosts, assigns an identifier to each process, then starts the processes.  Each copy has its own global variables\, stack\, heap\, and program counter.
+To MPI, a _process_ is a copy of your program's executable.  MPI programs are run under the control of an executor or _process manager_.  The process manager starts the requested number of processes on a specified list of hosts, assigns an identifier to each process, then starts the processes. 
 
-Usually when MPI is run the number of processes is determined and fixed for the lifetime of the program.  The MPI3 standard can spawn new processes but in a resource managed environment such as a high-performance cluster, the total number must still be requested in advance.
+The most important point to understand about MPI is that each process runs _independently_ of all the others. Each process has its own global variables, stack, heap, and program counter.  Any communications are through the MPI library. If one process is to carry out some instructions differently from the others, conditional statements must be inserted into the program to identify the process and isolate those instructions.
+
+Processes send and receive _messages_ from one another. A message is a stream of bytes containing the values of variables that one process needs to pass to or retrieve from another one. 
+
+Usually when MPI is run the number of processes is determined and fixed for the lifetime of the program.  The MPI-3 standard can spawn new processes, but in a resource managed environment such as a high-performance cluster, the total number must still be requested in advance.
 
 MPI distributions ship with a process manager called  `mpiexec`  or  `mpirun`. In some environments, such as many using Slurm, we use the Slurm process manager  `srun`.
 
@@ -36,17 +38,18 @@ When run outside of a resource-managed system, we must specify the number of pro
 ```
 mpiexec –np 16 -hosts compute1,compute2  ./myprog
 ```
-
 When running with srun under Slurm the executor does  _not_  require the `-np` flag; it computes the number of processes from the resource request.  It is also aware of the hosts assigned by the scheduler.
 ```
 srun ./myprog
 ```
 ### Message Envelopes
 
+Just as a letter needs an envelope with a unambiguous address, a message needs to be uniquely identified. The _message envelope_ provides that identification. It consists of several components. 
+
 A _communicator_ is an object that specifies a group of processes that will communicate with one another. The default communicator is
 `MPI_COMM_WORLD`. It includes all processes.  The programmer can create new communicators, usually of subsets of the processes, but this is beyond our scope at this point.
 
-In MPI the process ID is called the **rank**.  Rank is relative to the communicator, and is numbered from zero.  Process 0 is often called the *root process*.
+In MPI the process ID is called the **rank**.  Rank is relative to the communicator, and is numbered from zero. 
 
 A message is uniquely identified by its
 - Source rank
@@ -56,11 +59,4 @@ A message is uniquely identified by its
 
 The "tag" can often be set to an arbitrary value such as zero.  It is needed only in cases where there may be multiple messages from the same source to the same destination in a short time interval, or a more complete envelope is desired for some reason.
 
-### Message Buffers
-
-MPI documentation refers to "send buffers" and "receive buffers." These refer to  _variables_ in the program whose contents are to be sent or received.  These variables must be set up by the programmer.  The send and receive buffers cannot be the same unless the special "receive buffer" `MPI_IN_PLACE` is specified.
-
-When a buffer is specified, the MPI library will look at the starting point in memory (the pointer to the variable).  From other information in the command, it will compute the number of bytes to be sent or received.  It will then set up a separate location in memory; this is the actual buffer. Often the buffer is not the same size as the original data since it is just used for streaming within the network.  In any case, the application programmer need not be concerned about the details of the buffers and should just regard them as _variables_.  
-
-For the send buffer, MPI will copy the sequence of bytes into the buffer and send them over the appropriate network interface to the receiver.  The receiver will acquire the stream of data into its receive buffer and copy them into the variable specified in the program. 
 
