@@ -31,7 +31,7 @@ We will focus on the first three components in this introductory workshop. The o
 
 ## Installation
 
-The `rapidsai` module is available on Rivanna. It is backed by a [container](https://github.com/uvarc/rivanna-docker/tree/master/rapidsai) that we built. (The container image is 40% smaller than the official one. [Learn more about containers](/workshops/building-containers) to understand why.)
+The `rapidsai` module is available on Rivanna. It is backed by a [container](https://github.com/uvarc/rivanna-docker/tree/master/rapidsai) based on NVIDIA NGC.
 
 To install on your own machine please visit <https://rapids.ai/start.html>.
 
