@@ -37,7 +37,7 @@ Relational databases operate on the concepts of tables, relations, schemas, data
 
 Take the example of an online store, where data revolves around the ideas of items, orders and customers. When a customer makes a purchase in our store, the data from the transaction is actually broken apart into tables of related data. Here’s one way of seeing that process:
 
-![](/images/howtos/databases/reldb.png)
+![](/notes/databases-intro/reldb.png)
 
 The database for such an online store might have a handful of related tables:
 
@@ -192,9 +192,8 @@ Graph, or Node-arc databases are entirely different, in that they try to store a
 * TinkerPop
 * Infinite
 
-![](/images/howtos/databases/graph-nodes.png)
 
-![](/images/howtos/databases/graphdb-property.png)
+![](/notes/databases-intro/graphdb-property.png)
 
 ---
 

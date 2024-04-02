@@ -6,7 +6,7 @@ summary: "This tutorial is an introduction to relational and NoSQL databases."
 publishDate: "2024-04-01T00:00:00Z"
 
 categories: ["databases"]
-tags: [rivanna, hpc]
+tags: [rivanna]
 
 notes: databases-intro
 
