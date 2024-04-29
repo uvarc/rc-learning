@@ -11,6 +11,6 @@ invoke.run(
     "`python3 -m pybind11 --includes` "
     "-I /usr/include/python3.9 -I .  "
     "{0} "
-    "-o {1}`python3.9-config --extension-suffix` "
+    "-o {1}`python3.11-config --extension-suffix` "
     "-L. -lfractions -Wl,-rpath,.".format(cpp_name, extension_name)
 )

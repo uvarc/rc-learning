@@ -126,7 +126,7 @@ python -m pybind11 --includes
 ```
 in order to determine the include path.  On a particular system it returned
 ```no-highlight
--I/usr/include/python3.9 -I/usr/include/pybind11
+-I/usr/include/python3.11 -I/usr/include/pybind11
 ```
 Take note of the include file paths, which will vary from one system to another.  Move into Python and run invoke
 {{% code-download file="/courses/python-high-performance/codes/tasks.py" lang="python" %}}

@@ -31,7 +31,7 @@ If you are using your local computer, we recommend the Anaconda distribution (<a
 
 ### Check your Access to Rivanna
 
-1. In your web browser, got to <a href="https://rivanna-desktop.hpc.virginia.edu" target="_blank">rivanna-desktop.hpc.virginia.edu</a>.  This takes you to our FastX web portal that lets you launch a remote desktop environment on Rivanna.  If you are off Grounds, you must be connected through the UVA Anywhere VPN client.
+1. In your web browser, go to <a href="https://rivanna-desktop.hpc.virginia.edu" target="_blank">rivanna-desktop.hpc.virginia.edu</a>.  This takes you to our FastX web portal that lets you launch a remote desktop environment on Rivanna.  If you are off Grounds, you must be connected through the UVA Anywhere VPN client.
 
 2. Log in with your UVA credentials and start a MATE session.  You can find a more detailed description of the Rivanna login procedure <a href="https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/" target="_blank">here</a>.
   * **User name:** Your UVA computing id (e.g. mst3k; don't enter your entire email address)
@@ -44,7 +44,7 @@ python -V
 ```
 You will obtain a response like
 ```
-Python 3.6.6
+Python 3.11.3
 ```
 Now type
 ```

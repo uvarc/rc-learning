@@ -8,7 +8,7 @@
 echo Running on `hostname`
 
 module purge
-module load anaconda/5.2.0-py3.6
+module load anaconda/2023.07-py3.11
 
 # set the NUM_PROCS env variable for the Python script
 export NUM_PROCS=${SLURM_CPUS_PER_TASK}

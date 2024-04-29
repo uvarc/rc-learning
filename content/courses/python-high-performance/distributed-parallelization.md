@@ -232,7 +232,7 @@ The process with rank 0 is usually called the **root process**.  Since the mimum
 
 The most popular direct way to use MPI with Python is the `mpi4py` package.  It is not included in the base Anaconda distribution.  To install it into your environment in an HPC cluster such as Rivanna, load the appropriate modules for compiler and an MPI distribution.  It is important that a command `mpicc` provided by your HPC site be first in your path, since that should have been set up to communicate properly with your resource manager (SLURM etc.)
 ```
-module load gcc/9.2.0
+module load gcc/11.4.0
 module load openmpi
 module load anaconda
 pip install --user mpi4py
