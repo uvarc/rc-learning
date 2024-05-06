@@ -151,7 +151,7 @@ This implies you should use a main() function even if you never import your file
 def main():
      solve_problem()
 
-if __name__==”__main__”:
+if __name__=="__main__":
       main()
 ```
 

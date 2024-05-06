@@ -12,7 +12,7 @@ In many-to-many collective communications, all processes in the communicator gro
 
 ## Barrier
 
-When `MPI_Barrier` is invoked, each process pauses until all processes in the communicator group have called this function.  The `MPI_BARRIER` is used to synchronize processes.  It should be used sparingly, since it "serializes" a parallel program. Most of the global communication routines contain an implicit barrier so an explicit `MPI_Barrier` is not required.
+When `MPI_Barrier` is invoked, each process pauses until all processes in the communicator group have called this function.  The `MPI_BARRIER` is used to synchronize processes.  It should be used sparingly, since it "serializes" a parallel program. Most of the collective communication routines contain an implicit barrier so an explicit `MPI_Barrier` is not required.
 
 ### C++
 ```c++
@@ -65,11 +65,11 @@ As the examples in the previous chapter demonstrated, when MPI_Reduce is called,
 The syntax for `MPI_Allreduce` is identical to that of `MPI_Reduce` but with the root number omitted.
 
 ```c
-int MPI_Allreduce(void *operand, void *result, int count, MPI_Datatype type, MPI_Op operator, MPI_Comm comm );
+int MPI_Allreduce(void *operand, void *result, int ncount, MPI_Datatype type, MPI_Op operator, MPI_Comm comm );
 ```
 
 ```fortran
-call MPI_ALLREDUCE(sendbuf, recvbuf, count, datatype, op, comm, ierr)
+call MPI_ALLREDUCE(sendbuf, recvbuf, ncount, datatype, op, comm, ierr)
 ```
 
 ```python
@@ -137,7 +137,7 @@ Modify the example gather code in your language of choice to perform an Allgathe
 
 In MPI_Alltoall, each process sends data to every other process.  Let us consider the simplest case, when each process sends one item to every other process. Suppose there are three processes and rank 0 has an array containing the values \[0,1,2\], rank 1 has \[10,11,12\], and rank 2 has \[20,21,22\].  Rank 0 keeps (or sends to itself) the 0 value, sends 1 to rank 1, and 2 to rank 2.  Rank 1 sends 10 to rank 0, keeps 11, and sends 12 to rank 2.  Rank 2 sends 20 to rank 0, 21 to rank 1, and keeps 22.
 
-distributed_mpi_global2.md:{{< figure src="/courses/parallel-computing-introduction/img/alltoall.png" caption="Alltoall.  Note that as depicted, the values in the columns are transposed to values as rows." >}}
+{{< figure src="/courses/parallel-computing-introduction/img/alltoall.png" caption="Alltoall.  Note that as depicted, the values in the columns are transposed to values as rows." >}}
 
 ### C++
 {{< spoiler text="alltoall.cxx" >}}
@@ -158,4 +158,24 @@ Two more general forms of alltoall exist; `MPI_Alltoallv`, which is similar to `
 
 ## MPI_IN_PLACE
 
-We often do not need the send buffer once the message has been communicated, and allocating two buffers wastes memory and requires some amount of unneeded communication.  Several MPI procedures allow the special receive buffer `MPI_IN_PLACE`.  When used, the send buffer variable is overwritten with the transmitted data.  The expected send and receive buffers must be the same size for this to be valid.
+We often do not need one buffer once the message has been communicated, and allocating two buffers wastes memory and requires some amount of unneeded communication. MPI collective procedures allow the special buffer `MPI_IN_PLACE`. This special value can be used instead of the receive buffer in `Scatter` and `Scatterv`; in the other collective functions it takes the place of the send buffer.  The expected send and receive buffers must be the same size for this to be valid. As usual for mpi2py, the Python name of the variable is MPI.IN_PLACE.
+
+**Examples**
+
+```c++
+MPI_Scatter(sendbuf, ncount, MPI_Datatype, MPI_IN_PLACE, ncount, MPI_Datatype, root, MPI_COMM_WORLD);
+
+MPI_Reduce(MPI_IN_PLACE, recvbuf, ncount, MPI_Datatype, MPI_Op, root, MPI_COMM_WORLD);
+```
+
+```fortran
+call MPI_Scatter(vals, ncount, MPI_TYPE, MPI_IN_PLACE, ncount, MPI_TYPE, root, MPI_COMM_WORLD)
+
+call MPI_REDUCE(MPI_IN_PLACE, recvbuf, ncount, MPI_TYPE, MPI_Op, root, MPI_COMM_WORLD, ierr)
+```
+
+```python
+comm.Scatter([sendvals,MPI.DOUBLE],MPI.IN_PLACE,root=0)
+
+comm.Reduce(sendarr, MPI.IN_PLACE, operation, root=0)
+```

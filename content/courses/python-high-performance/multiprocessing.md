@@ -32,7 +32,7 @@ from multiprocessing import Process
 def f(name): 
     print('hello from '+name)
 
-if __name__ == '__main__': 
+if __name__ == "__main__": 
     ncpus=4
     for i in range(ncpus):
         p=Process(target=f,args=(str(i),)) 
@@ -47,7 +47,7 @@ hello from 1
 ```
 Notice that the responses are not in numerical order.  In general, parallel programs do **not** guarantee ordering unless the library or the programmer forces it.  In this case the processes results are printed as they arrive.
 
-Note that `multiprocessing` **requires** a main() function and must be run inside it.  This means that some examples, such as the multiprocessing.Pool examples, will not work in the interactive interpreter. 
+Note that `multiprocessing` **requires** a main() function or section and must be run inside it.  This means that some examples, such as the multiprocessing.Pool examples, will not work in the interactive interpreter. 
 
 ### The Pool Class
 
@@ -61,7 +61,7 @@ from multiprocessing import Pool
 def f(x): 
   return x*x 
 
-if __name__ == '__main__': 
+if __name__ == "__main__": 
    pool = Pool(processes=4) 
    result = pool.map(f, range(1,11))
    
@@ -82,7 +82,7 @@ from multiprocessing import Pool
 def f(x):
   return x*x
 
-if __name__ == '__main__':
+if __name__ == "__main__":
    pool = Pool(processes=4)
    result = pool.map_async(f, range(1,11))
 
@@ -105,7 +105,7 @@ from multiprocessing import Pool
 def f(x,y): 
   return x**y
 
-if __name__ == '__main__': 
+if __name__ == "__main__": 
    pool = Pool(processes=4) 
    results=[]
    for x in range(1,11):

@@ -53,55 +53,51 @@ It is also possible to wrap the Fortran code in C by various means, such as the 
 
 ### C
 
-Python provides the [ctypes](https://docs.python.org/3/library/ctypes.html) standard package.  Ctypes wraps C _libraries_ into Python code.  To use it, prepare a shared (dynamic) library of functions.  This requires a C compiler, and the exact steps vary depending on your operating system.  Windows compilers produce a file called a _DLL_, whereas Unix and MacOS shared libraries end in `.so`.  
+The [CFFI] (https://cffi.readthedocs.io/en/latest/overview.html) package can be used to wrap C code.  CFFI (C Foreign Function Interface) wraps C _libraries_ into Python code. To use it, prepare a shared (dynamic) library of functions.  This requires a C compiler, and the exact steps vary depending on your operating system.  Windows compilers produce a file called a _DLL_, Unix/Linux shared libraries end in `.so`, and Mac OS shared libraries end in `.dylib`.  
 
-Much as for f2py, the user must prepare some form of signature for the C functions.  Ctypes types include
+CFFI is not a base package, but is often included in Python distributions such as Anaconda. It may also be included as an add-on for other installations such as system Pythons, since some other package such as a cryptography library may require it. Before installing CFFI, first attempt to import it
+```python
+import cffi
+```
+If that fails you can `pip install cffi`.
 
-{{< table >}}
-| Python | C |
-|--------|---|
-|c_double| double |
-|c_int| int |
-|c_longlong| longlong |
-|c_numpy.ctypeslib.ndpointer(dtype=numpy.float64) | \*double| 
-{{< /table >}}
+Much as for f2py, the user must prepare some form of signature for the C functions. For CFFI that usually means writing a header (`.h`) file containing the function prototypes.
 
-See the [documentation](https://docs.python.org/3/library/ctypes.html#fundamental-data-types) for a complete list.
+CFFI has several modes.  We will work with the API (Application Programming Interface) since it is not too complicated and performs well.
+
+See the [documentation](https://cffi.readthedocs.io/en/latest/overview.html) for a discussion of the various modes.
 
 **Example**
 
-Download the [arith.c](/courses/python-high-performance/codes/arith.c) file, which implements some trivial arithmetic functions.  It must be compiled to a shared library.  Under Unix we execute the commands
+Download the [arith.c](/courses/python-high-performance/codes/arith.c) file and its corresponding [arith.h](/courses/python-high-performance/codes/arith.h) header file, which implements some trivial arithmetic functions.  
+
+Now download the build_arith.py script
+{{< code-download file="/courses/python-high-performance/codes/build_arith.py" lang="python" >}}
+
+We must repeat the function prototypes in the `cdef` method. The `set_source` method takes several arguments, not all of which are shown in this example. The first is the name of the shared library that will be generated. Next is all preprocessor statements within triple-double quotes. The `sources` argument is a list of the source file or files.  Note that if the path is not in the current search path, it must be specified.  Our example shows a Unix-like path.  Finally, we invoke the compiler to create the library. CFFI will use the default system library.
+
+Run the script.
+```python
+python build_arith.py
 ```
-gcc -fPIC -c arith.c 
-gcc -shared arith.o -o arith.so
-```
+On Linux the name may be lengthy, such as `_arithlib.cpython-39-x86_64-linux-gnu.so`.  When importing we may use only the first part `_arithlib`.
+
 We now utilize it from the intepreter as follows:
 ```
->>> import ctypes
->>> arith.sum.restype = ctypes.c_double
->>> arith.sum.argtypes = [ctypes.c_double,ctypes.c_double]
->>> arith.sum(3.,4.)
-7.0
+>>>from _arithlib import ffi, lib
+>>>lib.sum(11.1,12.8)
+23.9
+>>>lib.difference(11.1,12.8)
+-1.700000000000001
+>>>lib.product(11.1,12.8)
+142.08
+>>>lib.division(11.1,12.8)
+0.8671874999999999
 ```
 
-A newer tool for C is [CFFI](https://cffi.readthedocs.io/en/latest/). CFFI is a Python tool and must be installed through `pip` or a similar package manager.  CFFI has four modes but we will show only the "API outline" mode, which is the easiest and most reliable but does require a C compiler to be available.  In this mode, CFFI will use the C source and any header files to generate its own library.
+CFFI supports more advanced features.  For example, structs can be wrapped into Python classes.  See [here](https://github.com/wolever/python-cffi-example) for an example.  
 
-**Example**
-
-We will wrap arith.c with CFFI.  First we must create and run a build file, which we will call `build_arith.py`.
-
-{{% code-download file="/courses/python-high-performance/codes/build_arith.py" lang="python" %}}
-
-We can now import our module.  The functions will be available with the namespace `lib`.
-```
->>> from _arith import lib
->>> lib.sum(3.,4.)
-7.0
-```
-
-CFFI supports more advanced features.  For example, structs can be wrapped into Python classes.  See [here](https://github.com/wolever/python-cffi-example) for an example.  The CFFI mode we have illustrated also creates static bindings, unlike ctypes (and other modes of CFFI) for which this happens on the fly.
-
-However, neither ctypes nor CFFI supports C++ directly.  Any C++ must be "C-like" and contain an `extern C` declaration.
+CFFI does not support C++ directly.  Any C++ must be "C-like" and contain an `extern C` declaration.
 
 ### C++
 

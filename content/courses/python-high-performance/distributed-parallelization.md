@@ -21,6 +21,30 @@ Multiprocessing works only on a single computer with multiple computing cores (S
 
 Before considering parallelizing your program, it is highly desirable to spend some time optimizing the _serial_ version.  Particularly if you can utilize NumPy and Pandas effectively, you may not need to try to parallelize the code.  If you still need to do so, a well-optimized, clearly-written script will make the work much easier.
 
+#### Programming Note
+
+We have seen that Multiprocessing requires the presence of a `main` function or section. Other parallelization packages may or may not require this, but it never hurts to include it, and it is a good idea to structure all parallel programming scripts in this manner.
+```python
+import package
+
+def main():
+    parallel invocations
+
+if __name__=="__main__":
+    main()
+```
+or
+```python
+import package
+def func1():
+   code
+def func2():
+   code
+
+if __name__=="__main__":
+    parallel invocations
+```
+
 ## Dask
 
 [Dask](https://docs.dask.org/en/stable/) is a framework for distributed applications.  It works with NumPy, Pandas, and Scikit-Learn, as well as some less common packages that have been customized to utilize it.  It is primarily used to distribute large datasets.  
