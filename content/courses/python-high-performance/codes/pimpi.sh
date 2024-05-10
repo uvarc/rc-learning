@@ -7,11 +7,12 @@
 
 echo Running on `hostname`
 
-module purge
-
 #Load the versions of gcc, MPI, and Python/Anaconda in which you installed mpi4py
+module load anaconda
 module load gcc
 module load openmpi
-module load anaconda
+
+#Activate your environment. Edit to specify whatever name you chose.
+conda activate mpienv
 
 srun python MonteCarloPiMPI.py 100000000

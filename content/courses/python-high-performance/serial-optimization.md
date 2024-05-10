@@ -6,7 +6,6 @@ weight: 13
 menu:
     hp-python:
         parent: High-Performance Python
-        weight: 13
 ---
 
 We can represent the optimization process with a flowchart:

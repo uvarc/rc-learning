@@ -6,7 +6,6 @@ weight: 35
 menu:
     hp-python:
         parent: High-Performance Python
-        weight: 35
 ---
 
 Sometimes you cannot sufficiently speed up your program even with all optimization tricks.  You may be able to take advantage of modern multicore processors to distribute the work across different cores.  One popular programming model for multicore is **threads**.  Threads are subprocesses launched by the initial process (the executable in most cases).  Threads can be created and destroyed.  Each thread should be assigned to its own core.  Threads share a memory space and can also access the global memory of the system.  

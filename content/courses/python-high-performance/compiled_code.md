@@ -6,7 +6,6 @@ weight: 24
 menu:
     hp-python:
         parent: High-Performance Python
-        weight: 24
 ---
 
 Broadly speaking, interpreted languages tend to be slow, but are relatively easy to learn and use.  Compiled languages generally deliver the maximum speed, but are more complex to learn and use effectively.  Python can utilize libraries of compiled code that are appropriately prepared, or can invoke a compiler (standard or "just in time") to compile snippets of code and incorporate it directly into the execution. 

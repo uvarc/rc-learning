@@ -6,7 +6,6 @@ weight: 12
 menu:
     hp-python:
         parent: High-Performance Python
-        weight: 12
 ---
 
 The first step is usually to _profile_ the code.  Profiling can help us find a program's bottlenecks by revealing where most of the time is spent.  Keep in mind that most profilers work per function.  If you do not have your code well separated into functions, the information will be less useful.
