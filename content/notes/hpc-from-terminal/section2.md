@@ -246,7 +246,7 @@ Directories are copied with the `cp -r` command previously discussed.
 
 ## Exercise
 
-Start a terminal on a Rivanna loginnode by whatever means you prefer. Type (the `$` is the prompt and is not typed):
+Start a terminal on a loginnode by whatever means you prefer. Type (the `$` is the prompt and is not typed):
 
 ```bash
 $echo $SHELL

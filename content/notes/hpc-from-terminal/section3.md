@@ -93,11 +93,11 @@ To create files we use a _text editor_.  Do not use a word processor such as Lib
 
 ### Graphical Options
 
-Graphical editors must be used from within a graphical environment.  On Linux the standard graphical windowing system is called **X11**.  Newer Linux versions provide some form of "desktop" environment similar to Windows or MacOS on top of X11.  On Rivanna we provide the [MATE](https://mate-desktop.org/) Desktop Environment.  It can be accessed from [FastX](https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/) on a loginnode.  It can also be started on a compute node from the [Open OnDemand](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/) Desktop Interactive Application.
+Graphical editors must be used from within a graphical environment.  On Linux the standard graphical windowing system is called **X11**.  Newer Linux versions provide some form of "desktop" environment similar to Windows or MacOS on top of X11.  On our system we provide the [MATE](https://mate-desktop.org/) Desktop Environment.  It can be accessed from [FastX](https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/) on a loginnode.  It can also be started on a compute node from the [Open OnDemand](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/) Desktop Interactive Application.
 
 #### 1. gedit/pluma
 
-Modern Linux systems provide at least one graphical text editor. One option is `gedit`.  On the MATE Desktop used on Rivanna, the equivalent is `pluma`, but the `gedit` command starts pluma.
+Modern Linux systems provide at least one graphical text editor. One option is `gedit`.  On the MATE Desktop, the equivalent is `pluma`, but the `gedit` command starts pluma.
 
 Gedit/pluma is very similar to Notepad on Windows.
 
@@ -116,7 +116,7 @@ Regular Linux users are advised to learn at least one text-based editor, in case
 
 #### 1. vi (vim)
 
-The oldest and most widely available text-based editor on Unix is _vi_ for "visual." Modern versions are nearly all based on [vim](https://vim.org) ("vi improved).  On Rivanna we generally _alias_ the `vi` command to `vim`.
+The oldest and most widely available text-based editor on Unix is _vi_ for "visual." Modern versions are nearly all based on [vim](https://vim.org) ("vi improved).  On our system we generally _alias_ the `vi` command to `vim`.
 
 Vim/vi is used entirely through keyboard commands which must be memorized.  The mouse is not utilized.  Only a few commands are needed to be able to do basic editing and they are not difficult to learn.  A beginner tutorial is [here](https://www.tutorialspoint.com/vim/index.htm). One stumbling block for new users is that vim has _command mode_ and _insert mode_ and it must be toggled between the two.
 
