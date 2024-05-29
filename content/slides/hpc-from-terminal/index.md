@@ -1,5 +1,5 @@
 ---
-title: "Using Rivanna from the Command Line"
+title: "High Performance Computing from the Command Line"
 authors: [uvarc]
 slides:
   theme: white
@@ -43,7 +43,7 @@ _Rivanna_ is the university's primary resource for high-performance computation.
 
 [https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/)
 
-- Access through Netbadge (does not require VPN) at the [portal](https://rivanna-portal.hpc.virginia.edu)
+- Access through Netbadge (does not require VPN) at the [portal](https://ood.hpc.virginia.edu)
 
 - From the Dashboard go to the menu Clusters->Rivanna
 
@@ -66,7 +66,7 @@ FastX is a remote desktop application.
 
 - We recommend [MobaXterm](https://mobaxterm.mobatek.net/).  Download the Home Edition, Installer Edition.
 
-- From the Sessions menu, start an _SSH_ session. Using one of the particular names for a rivanna frontend (rivanna1.hpc.virginia.edu, etc.). as the host name.
+- From the Sessions menu, start an _SSH_ session. Using one of the particular names for a frontend (login1.hpc.virginia.edu, etc.). as the host name.
 
 - If you prefer to type an ssh command, start a local terminal session and enter the same command as is used in the Mac OS or Linux terminal (the -Y option is the default).
 
@@ -105,7 +105,7 @@ Replace `mst3k` with your user ID.
 
 - You will have a __prompt__ which indicates that the shell is ready to accept commands.
    - A default prompt is set by the system
-      - On rivanna the default is `bash-4.2$` (the number is the version)
+      - On our system the default is `bash-4.4$` (the number is the version)
    - The user can change the individual prompt
       - In our examples we will use `$`
 

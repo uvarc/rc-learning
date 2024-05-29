@@ -44,7 +44,7 @@ Once the app is open you can choose collections to transfer data between.
 
 # Sharing Data with Collaborators
 
-Globus users are able to share data with anyone with a Globus account. All UVA Rivanna and Ivy users have Globus accounts (authenticate with Netbadge).
+Globus users are able to share data with anyone with a Globus account. All UVA HPC and Ivy users have Globus accounts (authenticate with Netbadge).
 
 External collaborators don’t need to be affiliated with an institution using Globus in order to share data with them. Anyone can create a Globus account using @globusid.org
 

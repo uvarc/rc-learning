@@ -15,7 +15,7 @@ If have not previously used the OOD JupyterLab interactive app, you must select 
 
 {{< figure src="/notes/rivanna-intro/img/OOD_Jupyter_nb.png" caption="Starting a new noteboook." >}}
 
-If you are accidentally disconnected, you can go back to the OOD "My Interactive Sessions" tab and reconnect.  However, anything left running in a cell may have been terminated.  This is due to a limitation of Jupyter, not OOD or Rivanna, and does not apply to some of the other interactive apps.
+If you are accidentally disconnected, you can go back to the OOD "My Interactive Sessions" tab and reconnect.  However, anything left running in a cell may have been terminated.  This is due to a limitation of Jupyter, not OOD or the HPC cluster, and does not apply to some of the other interactive apps.
 
 Remember to delete your session if you finish early. Closing your browser tab does not end the session.
 

@@ -11,7 +11,7 @@ Regular Linux users are advised to learn at least one text-based editor, in case
 
 ### vi (vim)
 
-The oldest and most widely available text-based editor on Unix is _vi_ for "visual." Modern versions are nearly all based on [vim](https://vim.org) ("vi improved).  On Rivanna we generally _alias_ the `vi` command to `vim`.
+The oldest and most widely available text-based editor on Unix is _vi_ for "visual." Modern versions are nearly all based on [vim](https://vim.org) ("vi improved).  On our HPC system we generally _alias_ the `vi` command to `vim`.
 
 Vim/vi is used entirely through keyboard commands which must be memorized.  The mouse is not utilized.  Only a few commands are needed to be able to do basic editing and they are not difficult to learn.  A beginner tutorial is [here](https://www.tutorialspoint.com/vim/index.htm). One stumbling block for new users is that vim has _command mode_ and _insert mode_ and it must be toggled between the two.
 

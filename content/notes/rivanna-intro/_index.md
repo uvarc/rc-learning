@@ -14,7 +14,7 @@ weight: 1
 # Add menu entry to sidebar.
 menu:
  rivanna-intro:
-    name: Introduction to Rivanna
+    name: Introduction to High Performance Computing
 ---
 
 Rivanna is the university's primary resource for high\-performance computing. It provides a platform for computationally-intensive research across disciplines.

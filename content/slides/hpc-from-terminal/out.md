@@ -1,5 +1,5 @@
 
-title: Using Rivanna from the Command Line
+title: High Performance Computing from the Command Line
 authors: [uvarc]
 tags: []
 categories: []

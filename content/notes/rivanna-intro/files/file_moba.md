@@ -13,7 +13,7 @@ menu:
 
 ## MobaXterm
 
-Start an SFTP session in MobaXterm.  Use one of the specific hosts `rivanna1.hpc.virginia.edu`, `rivanna2.hpc.virginia.edu`, `rivanna3.hpc.virginia.edu`
+Start an SFTP session in MobaXterm.  Use one of the specific hosts `login1.hpc.virginia.edu`, `login2.hpc.virginia.edu`, `login3.hpc.virginia.edu`
 
 {{< figure src="/notes/rivanna-intro/img/Moba_sftp_session.png" caption="New SFTP session in MobaXTerm" >}}
 

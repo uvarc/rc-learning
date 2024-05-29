@@ -11,9 +11,9 @@ menu:
     name: Working with Files
 ---
 
-Files are the foundation of working with Rivanna.  We need to be able to
+Files are the foundation of working with an HPC cluster.  We need to be able to
 
-* Transfer files to and from Rivanna
+* Transfer files to and from the cluster
 * Edit text files
 * Create files through the software we run
 

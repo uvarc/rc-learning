@@ -11,7 +11,7 @@ menu:
     parent: Overview of Rivanna
 ---
 
-Rivanna users can access free storage for active work.  Research groups that need more permanent storage, or wish to share storage space, can also lease storage.
+Active users can access free storage for active work.  Research groups that need more permanent storage, or wish to share storage space, can also lease storage.
 
 ## No-Cost Storage
 
@@ -19,7 +19,7 @@ Each user has access to a _home directory_ and a _scratch directory_.
 
 ### Home Directory
 
-When you log in, you will be in your home directory, e.g. /home/mst3k.  Each home directory on Rivanna has 50GB of storage capacity.  The home directory is for individual use and is not shareable with other users.
+When you log in, you will be in your home directory, e.g. /home/mst3k.  Each home directory on has 50GB of storage capacity.  The home directory is for individual use and is not shareable with other users.
 
 ### Scratch Directory
 
@@ -37,7 +37,7 @@ We offer two tiers of leased storage. For rates and offerings see our [website](
 
 ### Research Standard Storage
 
-Standard storage is inexpensive but is not backed up, and access from Rivanna is slow.  
+Standard storage is inexpensive but is not backed up, and access can be slow.  
 
 ### Research Project Storage
 

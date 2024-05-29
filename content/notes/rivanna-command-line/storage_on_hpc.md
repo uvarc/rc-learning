@@ -7,7 +7,7 @@ menu:
     rivanna-command-line:
 ---
 
-The default home directory on Rivanna provides 50GB of storage capacity, e.g., /home/mst3k.  Each user also has access to 10 TB of  __temporary__  storage in the "scratch" folder, e.g. /scratch/mst3k
+The default home directory provides 50GB of storage capacity, e.g., /home/mst3k.  Each user also has access to 10 TB of  __temporary__  storage in the "scratch" folder, e.g. /scratch/mst3k
 
 The /home and /scratch directories are for personal use and not shareable with other users.
 
