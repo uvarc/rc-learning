@@ -12,17 +12,22 @@ Modern programming languages provide data structures that may be called "structs
 
 MPI also provides a general type that enables programmer-defined datatypes. Unlike arrays, which must be adjacent in memory, MPI derived datatypes may consist of elements in noncontiguous locations in memory.
 
-While more general derived MPI datatypes are available, one of the most commonly used is the `MPI_TYPE_VECTOR`. This creates a group of elements separated by a constant interval, called the _stride_, in memory. Examples would be generating a type for columns in a row-major-oriented language, or rows in a column-major-oriented language.  
+While more general derived MPI datatypes are available, one of the most commonly used is the `MPI_TYPE_VECTOR`. This creates a group of elements of size _blocklength_ separated by a constant interval, called the _stride_, in memory. Examples would be generating a type for columns in a row-major-oriented language, or rows in a column-major-oriented language.  
+
+{{< figure src="/courses/parallel-computing-introduction/img/mpi_vector_type.png" caption="Layout in memory for vector type. In this example, the blocklength is 4, the stride is 6, and the count is 3." >}}
 
 C++
 ```c++
+MPI_Datatype newtype;
 MPI_Type_vector(ncount, blocklength, stride, oldtype, newtype);
 ```
 Fortran
 ```fortran
+integer newtype
+!code
 call MPI_TYPE_VECTOR(ncount, blocklength, stride, oldtype, newtype, ierr)
 ```
-For both C++ and Fortran, `ncount`, `blocklength`, and `stride` must be integers. The `oldtype` is a pre-existing type, usually a built-in MPI Type such as MPI_FLOAT or MPI_REAL. For C++ it would be declared as an `MPI_Datatype`, but if built-ins are used that would be automatic.  For Fortran `oldtype` would be an integer if not a built-in type. The `newtype` is a name chosen by the programmer.
+For both C++ and Fortran, `ncount`, `blocklength`, and `stride` must be integers. The `oldtype` is a pre-existing type, usually a built-in MPI Type such as MPI_FLOAT or MPI_REAL. For C++ the new type would be declared as an `MPI_Datatype`, unless it corresponds to an existing built-in type.  For Fortran `oldtype` would be an integer if not a built-in type. The `newtype` is a name chosen by the programmer.
 
 Python
 ```python
@@ -42,5 +47,21 @@ Python
 ```
 newtype.Commit()
 ```
+
+To use our newly committed type in an MPI communication function, we must pass it the starting position of the data to be placed into the type.
+
+C++
+```c++
+MPI_Send(&a[0][i],1,newtype,i,MPI_COMM_WORLD);
+//We need to pass the first element by reference because an array element
+//is not a pointer
+```
+
+Fortran
+```
+MPI_Send(a(1)(i),1,newtype,i,MPI_COMM_WORLD,ierr)
+```
+
+
 
 

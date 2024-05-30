@@ -54,13 +54,14 @@ Recently, Microsoft has released the Windows Subsystem for Linux ([WSL](https://
 A drawback to both Cygwin and the WSL is portability of executables.  Cygwin executables must be able to find the Cygwin DLL and are therefore not standalone.
 WSL executables only run on the WSL.  For standalone, native binaries a good choice is _MingGW_.  MinGW is derived from Cygwin.
 
-MinGW provides a free distribution of gcc/g++/gfortran.  The standard MinGW distribution is updated fairly rarely and generates only 32-bit executables.  We will describe [MinGW-w64](http://mingw-w64.org/doku.php), a fork of the original project.
+MinGW provides a free distribution of gcc/g++/gfortran.  The standard MinGW distribution is updated fairly rarely and generates only 32-bit executables.  We will describe [MinGW-w64](https://www.mingw-w64.org/), a fork of the original project.
 {{< figure src="/courses/fortran-introduction/img/MinGW1.png" width=500px >}}
 
-MinGW-w64 can be installed beginning from the [MSYS2](https://www.msys2.org/) project.  MSYS2 provides a significant subset of the Cygwin tools.
-Download and install it.
+MinGW-w64 can be installed beginning from the [MSYS2](https://www.msys2.org/) project.  MSYS2 provides a significant subset of the Cygwin tools.  Download and install it.
 {{< figure src="/courses/fortran-introduction/img/MSYS2.png" width=500px >}}
-Once it has been installed, follow the [instructions](https://www.msys2.org/) to open a command-line tool, update the distribution, then install the compilers and tools.
+Once it has been installed, follow the [instructions](https://www.msys2.org/) to open a command-line tool, update the distribution, then install the compilers and tools. For Fortran users, the `mingw64` repository may be preferable to the `ucrt64` repo. To find packages, visit their [repository](https://packages.msys2.org/package/). 
+
+A discussion of installing MinGW-64 compilers for use with VSCode has been posted by Microsoft [here](https://code.visualstudio.com/docs/cpp/config-mingw). To use mingw64 rather than ucrt64, simply substitute the text string. Fortran users should install both the C/C++ and Fortran extensions for VSCode.
 
 _Intel oneAPI_
 Download and install the basic toolkit and, for Fortran, the HPC toolkit.

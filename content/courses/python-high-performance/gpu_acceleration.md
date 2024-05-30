@@ -27,9 +27,17 @@ conda install -c conda-forge cupy
 You can also use pip to install CuPy.
 Alternatively, use a Docker [container](https://hub.docker.com/r/cupy/cupy/).
 
-You must set the `CUDA_PATH` environment variable for CuPy to be able to accelerate your code properly.
+You must set the `CUDA_PATH` environment variable for CuPy to be able to accelerate your code properly. If you are working with your own computer, CUDA is installed from NVIDIA packages. 
+
+For example, on a local Linux workstation, NVIDIA installs into `/usr/local/cuda` so you should set this as your CUDA_PATH.
 ```bash
-export CUDA_PATH=/usr/local/cuda/bin
+export CUDA_PATH=/usr/local/cuda
+```
+Refer to NVIDIA's instructions for other operating systems.
+
+On a system such as UVA's HPC environment, the CUDA module will set the CUDA_PATH environment variable.
+```bash
+module load cuda
 ```
 
 Methods invoked through the CuPy module will be carried out on the GPU.  Corresponding NumPy methods will be processed by the CPU as usual.  Data transfer happens through _streams_.  The null stream is the default.
@@ -51,14 +59,18 @@ Like CuPy, it is available through conda-forge.
 conda install -c conda-forge pycuda
 ```
 
-On Linux the PATH variable must include the location of the `nvcc` compiler.
+On Linux the PATH variable must include the location of the `nvcc` compiler. If you have your own Linux workstation you must first locate nvcc. It should be in the folder indicated by the CUDA_PATH variable, with a "bin" appended.
 ```bash
-export PATH=/usr/local/cuda/bin:$PATH
+ls $CUDA_PATH/bin
+```
+Then add this location to your path, e.g.
+```bash
+export PATH=$CUDA_PATH/bin:$PATH
 ```
 
 **Example**
 
-This script is copied directly from PyCUDA's examples.
+This script is copied directly from PyCUDA's [examples](https://github.com/berlinguyinca/pycuda/tree/master/examples).
 {{% code-download file="/courses/python-high-performance/codes/pycuda_example.py" lang="python" %}}
 
 Much as we saw when discussing using [compiled code](/courses/python-high-performance/compiled_code), we must define our function in C style.  This block of code to be executed on the device is called a _kernel_.  PyCUDA compiles the kernel, uses its interface with NumPy to allocate memory on the device, copy the Ndarrays, carry out the computation, then copy the result from the device to the `dest` array.
@@ -73,6 +85,9 @@ conda install cudatoolkit
 ```
 If you must use pip, you must also install the [NVIDIA CUDA SDK](https://numba.readthedocs.io/en/stable/user/installing.html).
 
+Numba can be used with PyCUDA so adding it to the PyCUDA environment, which should already contain cudatoolkit, might be advisable. This example is from the PyCUDA [tutorial](https://github.com/berlinguyinca/pycuda/blob/master/doc/source/tutorial.rst).
+{{% code-download file="/courses/python-high-performance/codes/pycuda_numba.py" lang="python" %}}
+
 ### Numba Vectorization
 
 Numba CUDA can "vectorize" a universal function (ufunc) by compiling it and running it on the GPU.  Vectorization is implemented through a decorator.
@@ -84,8 +99,7 @@ For best performance, the signature of the function arguments must be specified.
 From the Numba documentation:
 {{% code-download file="/courses/python-high-performance/codes/numba_vectorize.py" lang="python" %}}
 
-You may ignore the deprecation warning.
-The run may also emit a warning about underutilization:
+The run may emit a warning about underutilization:
 ```no-highlight
 Grid size (1) < 2 * SM count (40) will likely result in GPU under utilization due to low occupancy.
 ```
