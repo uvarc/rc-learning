@@ -26,7 +26,7 @@ When installing it into your environment in an HPC cluster, you should not use `
 ```bash
 conda create -n "mpienv" python=3.11
 ```
-In recent versions of Anaconda, it is best to install mpi4py from the `conda-forg` channel following their instructions [here](https://conda-forge.org/docs/user/tipsandtricks/#using-external-message-passing-interface-mpi-libraries). 
+In recent versions of Anaconda, it is best to install mpi4py from the `conda-forge` channel following their instructions [here](https://conda-forge.org/docs/user/tipsandtricks/#using-external-message-passing-interface-mpi-libraries). 
 This will install dummies into your environment that will be replaced by the external library when the package is imported.  Do not try to install both MPICH and OpenMPI; use the one most appropropriate to your system. In our example, we will install mpi4py with OpenMPI.
 
 First load the closest gcc to the current version of Anaconda. In our current example, this is gcc 11.4.0. Then check for available versions of OpenMPI (please use OpenMPI on UVA HPC systems) with
