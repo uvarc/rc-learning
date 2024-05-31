@@ -150,19 +150,19 @@ As we might expect, the time for the serial run increases roughly linearly with 
 
 #### Running the Program on a Cluster
 
-For those who have access to a high-performance computing cluster such as UVA's Rivanna, Python scripts can be run in batch mode.  Our example assumes the SLURM resource manager.
+For those who have access to a high-performance computing cluster such as UVA's HPC, Python scripts can be run in batch mode.  Our example assumes the SLURM resource manager.
 
 In order to execute our program on designated compute node(s), we need to write a simple bash script that defines the compute resources we need.  We call this our job script.  For our example, the job script `pimc.sh` looks like this:
 
 {{% code-download file="/courses/python-high-performance/codes/pimc.sh" lang="bash" %}}
 
-You can view this script in a text editor on Rivanna.  If you are connected through a FastX Mate session, go to the menu **Applications** -> **Accessories** --> **Pluma Text Editor**.
+You can view this script in a text editor on an HPC frontend.  If you are connected through a FastX Mate session, go to the menu **Applications** -> **Accessories** --> **Pluma Text Editor**.
 
 The `#SBATCH` directives define the compute resources (`-N`, `--cpus-per-task`, `-p`), compute wall time (`-t`), and the allocation (`-A`) to be used. `-N 1` specifies that the job runs on a single node. With `--cpus-per-task` we request the number of cpu cores for the job.  By increasing the number for `--cpus-per-task` we can take advantage of multiple cpu cores and set up a bigger pool of workers. Ideally we want to match the worker pool size with the number of cpu cores.
 
 ##### Submitting the job
 
-The job must be submitted to the job scheduler with a specific command. On Rivanna we use the Simple Linux Utility Resource Manager (SLURM) and the `sbatch` command for job submission.
+The job must be submitted to the job scheduler with a specific command. On our HPC system we use the Simple Linux Utility Resource Manager (SLURM) and the `sbatch` command for job submission.
 
 Open a terminal window and execute this command:
 ```bash

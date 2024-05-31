@@ -1,14 +1,14 @@
 #!/bin/bash
 #SBATCH -N 1
 #SBATCH --cpus-per-task=4
-#SBATCH --account=your_allocation
-#SBATCH -p instructional
-#SBATCH -t 10:00:00
+#SBATCH --account=hpc_build
+#SBATCH -p interactive
+#SBATCH -t 1:00:00
 
 echo Running on `hostname`
 
 module purge
-module load anaconda/2023.07-py3.11
+module load anaconda
 
 # set the NUM_PROCS env variable for the Python script
 export NUM_PROCS=${SLURM_CPUS_PER_TASK}
