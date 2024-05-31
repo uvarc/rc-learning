@@ -8,7 +8,7 @@ weight: 130
 
 menu:
   rivanna-intro:
-    parent: Connecting to Rivanna 
+    parent: Connecting to The System
 ---
 
 FastX is a Web-based desktop environment for HPC. It is accessible either through the [Open OnDemand Interactive Apps](/notes/rivanna-intro/ood_interactive_apps) menu, or directly at [rivanna-desktop.hpc.virginia.edu](https://rivanna-desktop.hpc.virginia.edu).

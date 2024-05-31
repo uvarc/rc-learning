@@ -8,7 +8,7 @@ weight: 170
 
 menu:
   rivanna-intro:
-    parent: Connecting to Rivanna
+    parent: Connecting to The System
 ---
 
 If you simply close your session browser tab, FastX _suspends_ your session rather than terminates it.  It is generally preferable to terminate rather than suspend so you will not accidentally have multiple sessions running.

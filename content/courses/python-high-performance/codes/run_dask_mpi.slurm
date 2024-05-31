@@ -4,7 +4,7 @@
 #SBATCH -A hpc_build
 #SBATCH -t 00:10:00
 
-module load gcc/9.2.0
+module load gcc/11.4.0
 module load openmpi
 module load anaconda
 

@@ -7,7 +7,7 @@ menu:
     rivanna-command-line:
 ---
 
-The command-line secure shell is not the only option for accessing Rivanna. Windows users in particular may wish to use other methods, since although ssh is available for it, Windows is not particularly friendly to command lines.
+The command-line secure shell is not the only option for accessing our HPC system. Windows users in particular may wish to use other methods, since although ssh is available for it, Windows is not particularly friendly to command lines.
 
 **Open OnDemand** (OOD)
 

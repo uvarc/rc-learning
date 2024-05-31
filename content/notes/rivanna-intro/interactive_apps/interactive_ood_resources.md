@@ -18,7 +18,7 @@ menu:
 | Memory Request in GB | When dealing with Big Data, you will need to increase the amount of memory.  A good rule of thumb is to request 2 to 3 times the size of data that you are reading in or generating. |
 | Work Directory | Allows you to change the working directory of a Jupyter Notebook to your /scratch folder. |
 | Optional: Slurm Option | Allows you to provide advanced features, like requesting specific nodes or providing a reservation |
-| Optional Group | Only needed if you are in more than 16 Rivanna groups.  You may need to force Rivanna to see your allocation. |
+| Optional Group | Only needed if you are in more than 16 computing groups.  You may need to force the system to see your allocation. |
 | Optional: GPU type for GPU partition &  Optional: Number of GPUs | Only needed in you are running on a GPU node.  The “default” for GPU type will put you on the first available GPU node. For now, the number of GPUS should be 1. |
 {{< /table >}}
 

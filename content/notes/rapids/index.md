@@ -31,7 +31,7 @@ We will focus on the first three components in this introductory workshop. The o
 
 ## Installation
 
-The `rapidsai` module is available on Rivanna. It is backed by a [container](https://github.com/uvarc/rivanna-docker/tree/master/rapidsai) that we built. (The container image is 40% smaller than the official one. [Learn more about containers](/workshops/building-containers) to understand why.)
+The `rapidsai` module is available on Rivanna. It is backed by a [container](https://github.com/uvarc/rivanna-docker/tree/master/rapidsai) based on NVIDIA NGC.
 
 To install on your own machine please visit <https://rapids.ai/start.html>.
 
@@ -49,13 +49,7 @@ module load singularity rapidsai
 
 # Exercises
 
-A clone of <https://github.com/rapidsai/notebooks> is located at `/project/apps_data/rapids/notebooks`. The full size is near 1 GB. For this workshop, just copy the `cudf` and `cuml` subdirectories:
-
-```bash
-cp -r /project/apps_data/rapids/notebooks/repos/{cudf,cuml} ~
-```
-
-We have also prepared a notebook `cudf.ipynb` under `/project/apps_data/rapids`. 
+Clone <https://github.com/rapidsai/notebooks>. (The full size is near 1 GB.) We have also prepared a notebook `cudf.ipynb` under `/project/apps_data/rapids`. 
 
 1. In `cudf.ipynb`, compare the performance of `pandas` and `cudf` starting from `N = 100`. Explore the behavior by varying `N`. Beyond which order of magnitude does `cudf` outperform `pandas`?
 
@@ -102,10 +96,10 @@ Prepare a SLURM script `job.slurm`:
 #SBATCH -t 10:00:00            # time
 
 module purge
-module load singularity rapidsai
+module load apptainer rapidsai
 
 # change x.y to the actual version
-singularity run --nv $CONTAINERDIR/rapidsai-x.y.sif mynotebook.py
+apptainer run --nv $CONTAINERDIR/rapidsai-x.y.sif mynotebook.py
 ```
 
 Submit the job via `sbatch job.slurm`.

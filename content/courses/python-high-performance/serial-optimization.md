@@ -6,7 +6,6 @@ weight: 13
 menu:
     hp-python:
         parent: High-Performance Python
-        weight: 13
 ---
 
 We can represent the optimization process with a flowchart:
@@ -151,7 +150,7 @@ This implies you should use a main() function even if you never import your file
 def main():
      solve_problem()
 
-if __name__==”__main__”:
+if __name__=="__main__":
       main()
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: "Global Communication in MPI: One to Many"
+title: "Collective Communication in MPI: One to Many"
 toc: true
 type: docs
 weight: 50

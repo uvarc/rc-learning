@@ -8,10 +8,10 @@ weight: 10
 
 menu:
   rivanna-intro:
-    parent: Overview of Rivanna
+    parent: Overview of UVA HPC
 ---
 
-Time on Rivanna is _allocated_.
+Time on the HPC cluster is _allocated_.
 
 * An allocation refers to a block of CPU time that you can use to run your computations.
 * Only faculty, postdocs, and research staff may request an allocation.

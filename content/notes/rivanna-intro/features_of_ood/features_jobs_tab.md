@@ -11,7 +11,7 @@ menu:
     parent: Features of Open OnDemand
 ---
 
-The "Jobs" tab on the menu bar allows you to submit and search for jobs on Rivanna.
+The "Jobs" tab on the menu bar allows you to submit and search for jobs on the cluster.
 
 {{< figure src="/notes/rivanna-intro/img/OOD_jobs_tab.png" caption="OOD Jobs Menu" >}}
 

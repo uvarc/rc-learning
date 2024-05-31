@@ -8,8 +8,9 @@ x_gpu = cp.array([1, 2, 3])
 l2_cpu = np.linalg.norm(x_cpu)
 l2_gpu = cp.linalg.norm(x_gpu)
   
-print("Using Numpy: ", l2_cpu)
-print("\nUsing Cupy: ", l2_gpu)
+print("Norm output using Numpy: ", l2_cpu)
+print("Norm output Using Cupy: ", l2_gpu)
+print()
 
 print("Setting up arrays on host and device")
 s = time.time()

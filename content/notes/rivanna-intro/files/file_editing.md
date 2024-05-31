@@ -11,7 +11,7 @@ menu:
     parent: Working with Files
 ---
 
-Once we have our files on Rivanna, we may need to edit them.  It is a good idea to edit your files directly on Rivanna, rather than editing on your local computer and then transferring them back and forth.
+Once we have our files on the system, we may need to edit them.  It is a good idea to edit your files directly on the system, rather than editing on your local computer and then transferring them back and forth.
 
 You can create files by the same process as editing an existing one; just select `New` if there is a menu.
 

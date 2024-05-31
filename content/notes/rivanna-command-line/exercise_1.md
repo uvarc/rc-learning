@@ -7,7 +7,7 @@ menu:
     rivanna-command-line:
 ---
 
-Start a terminal on a Rivanna frontend by whatever means you prefer. Type (the `$` is the prompt and is not typed):
+Start a terminal on a frontend by whatever means you prefer. Type (the `$` is the prompt and is not typed):
 
 ```bash
 $echo $SHELL

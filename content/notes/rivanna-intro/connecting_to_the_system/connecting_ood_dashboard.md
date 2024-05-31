@@ -8,7 +8,7 @@ weight: 120
 
 menu:
   rivanna-intro:
-    parent: Connecting to Rivanna
+    parent: Connecting to The System
 ---
 
 The Open OnDemand home page is the Dashboard. 

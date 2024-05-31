@@ -1,28 +1,25 @@
 from cffi import FFI
+
 ffibuilder = FFI()
 
-#First list all the function prototypes we wish to include in our module.
 ffibuilder.cdef("""
-  double sum(double x, double y);
-  double difference(double x, double y);
-  double product(double x, double y);
-  double division(double x, double y);
+ double sum(double x, double y); 
+ double difference(double x, double y); 
+ double product(double x, double y); 
+ double division(double x, double y); 
  """)
 
 # set_source() specifies the name of the Python extension module to
-# create, as well as the original C source file.  If we had arith.h we
-# would put include "arith.h" in the triple quotes.  Conventionally, we
-# name the extension module with a leading underscore.
-ffibuilder.set_source("_arith",
+# create, as well as the original C source file. Conventionally, we
+# name the extension module with a leading underscore. If we required
+# external libraries, we would add the libraries argument with a list
+# of the libraries in the form the linker would use to link them.
+
+ffibuilder.set_source("_arithlib",
 """
-  double sum(double x, double y);
-  double difference(double x, double y);
-  double product(double x, double y);
-  double division(double x, double y);
+     #include "arith.h"   // the C header of the library
 """,
- sources = ['arith.c'],
- library_dirs = [],
-)
+     sources=['./arith.c'])   
 
-ffibuilder.compile()
-
+if __name__ == "__main__":
+    ffibuilder.compile(verbose=True)

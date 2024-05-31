@@ -8,7 +8,7 @@ weight: 4
 
 menu:
   rivanna-intro:
-      name: Overview of Rivanna
+      name: Overview of UVA HPC
 ---
 
 * Node
@@ -22,7 +22,7 @@ menu:
     * <span style="color:#0000FF">Compute Node </span> \-\-  a server that carries out the computational work.
 
 * Core – an individual processor on a computer
-   * Rivanna's nodes have many cores (typically 40 each)
+   * The cluster's nodes have many cores (typically 40 each)
 
 * Memory
   * The random-access memory on a node

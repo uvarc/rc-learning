@@ -93,11 +93,11 @@ To create files we use a _text editor_.  Do not use a word processor such as Lib
 
 ### Graphical Options
 
-Graphical editors must be used from within a graphical environment.  On Linux the standard graphical windowing system is called **X11**.  Newer Linux versions provide some form of "desktop" environment similar to Windows or MacOS on top of X11.  On Rivanna we provide the [MATE](https://mate-desktop.org/) Desktop Environment.  It can be accessed from [FastX](https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/) on a loginnode.  It can also be started on a compute node from the [Open OnDemand](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/) Desktop Interactive Application.
+Graphical editors must be used from within a graphical environment.  On Linux the standard graphical windowing system is called **X11**.  Newer Linux versions provide some form of "desktop" environment similar to Windows or MacOS on top of X11.  On our system we provide the [MATE](https://mate-desktop.org/) Desktop Environment.  It can be accessed from [FastX](https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/) on a loginnode.  It can also be started on a compute node from the [Open OnDemand](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/) Desktop Interactive Application.
 
 #### 1. gedit/pluma
 
-Modern Linux systems provide at least one graphical text editor. One option is `gedit`.  On the MATE Desktop used on Rivanna, the equivalent is `pluma`, but the `gedit` command starts pluma.
+Modern Linux systems provide at least one graphical text editor. One option is `gedit`.  On the MATE Desktop, the equivalent is `pluma`, but the `gedit` command starts pluma.
 
 Gedit/pluma is very similar to Notepad on Windows.
 
@@ -116,7 +116,7 @@ Regular Linux users are advised to learn at least one text-based editor, in case
 
 #### 1. vi (vim)
 
-The oldest and most widely available text-based editor on Unix is _vi_ for "visual." Modern versions are nearly all based on [vim](https://vim.org) ("vi improved).  On Rivanna we generally _alias_ the `vi` command to `vim`.
+The oldest and most widely available text-based editor on Unix is _vi_ for "visual." Modern versions are nearly all based on [vim](https://vim.org) ("vi improved).  On our system we generally _alias_ the `vi` command to `vim`.
 
 Vim/vi is used entirely through keyboard commands which must be memorized.  The mouse is not utilized.  Only a few commands are needed to be able to do basic editing and they are not difficult to learn.  A beginner tutorial is [here](https://www.tutorialspoint.com/vim/index.htm). One stumbling block for new users is that vim has _command mode_ and _insert mode_ and it must be toggled between the two.
 
@@ -276,8 +276,8 @@ Files can be transferred by [graphical clients](https://www.rc.virginia.edu/user
 The secure shell protocol includes two file-transfer command-line tools; `scp` and `sftp`.  Sftp is scp with a slightly different interface.
 
 ```bash
-$scp LOCAL_FILE mst3k@rivanna.hpc.virginia.edu:REMOTE_PLACE
-$scp mst3k@rivanna.hpc.virginia.edu:REMOTE_FILE LOCAL_PLACE
+$scp LOCAL_FILE mst3k@login.hpc.virginia.edu:REMOTE_PLACE
+$scp mst3k@login.hpc.virginia.edu:REMOTE_FILE LOCAL_PLACE
 ```
 `REMOTE_PLACE` and `LOCAL_PLACE` refer to the location on the appropriate host where you want the file to be written.  `REMOTE_PLACE` can be omitted and the file will be transferred to your home directory under the same name.  To change the name or specify a directory on the other system, use a different name or path for `REMOTE_PLACE`.
 
@@ -289,17 +289,17 @@ To copy a directory, use `scp -r` similarly to `cp -r`.
 
 **Examples**
 ```bash
-$scp myfile.txt mst3k@rivanna.hpc.virginia.edu:
-$scp myscript.py mst3k@rivanna.hpc.virginia.edu:project1
-$scp myscript.py mst3k@rivanna.hpc.virginia.edu:script.py
-$scp myfile.csv mst3k@rivanna.hpc.virginia.edu:/scratch/mst3k
-$scp mst3k@rivanna.hpc.virginia.edu:/scratch/mst3k/run11/output.txt .
+$scp myfile.txt mst3k@login.hpc.virginia.edu:
+$scp myscript.py mst3k@login.hpc.virginia.edu:project1
+$scp myscript.py mst3k@login.hpc.virginia.edu:script.py
+$scp myfile.csv mst3k@login.hpc.virginia.edu:/scratch/mst3k
+$scp mst3k@login.hpc.virginia.edu:/scratch/mst3k/run11/output.txt .
 ```
 
 Scp resembles cp.  Sftp is an implementation over scp of the interface of a popular, but insecure, protocol widely used in the past called `ftp` (file transfer protocol).
 
 ```bash
-$sftp mst3k@rivanna.hpc.virginia.edu
+$sftp mst3k@login.hpc.virginia.edu
 sftp> put local_file
 sftp> get remote_file
 sftp> quit
@@ -311,8 +311,8 @@ The sftp client permits other commands. `ls` lists files on the remote system.  
 The rsync command is used to _synchronize_ files and folders.  It has many options and some attention must be paid to whether a trailing slash is needed or not.
 
 ```bash
-$rsync -av ldir/ mst3k@rivanna.hpc.virginia.edu:rdir
-$rsync my_file mst3k@rivanna.hpc.virginia.edu:/scratch/$USER
+$rsync -av ldir/ mst3k@login.hpc.virginia.edu:rdir
+$rsync my_file mst3k@login.hpc.virginia.edu:/scratch/$USER
 ```
 By default `rsync` does not transfer files that are older than the equivalent on the target. This can increase the transfer speed significantly. Rsync also resumes a transfer that was interrupted.  Scp always starts again from the beginning.
 

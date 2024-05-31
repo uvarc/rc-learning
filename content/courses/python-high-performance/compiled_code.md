@@ -6,7 +6,6 @@ weight: 24
 menu:
     hp-python:
         parent: High-Performance Python
-        weight: 24
 ---
 
 Broadly speaking, interpreted languages tend to be slow, but are relatively easy to learn and use.  Compiled languages generally deliver the maximum speed, but are more complex to learn and use effectively.  Python can utilize libraries of compiled code that are appropriately prepared, or can invoke a compiler (standard or "just in time") to compile snippets of code and incorporate it directly into the execution. 
@@ -15,14 +14,27 @@ Broadly speaking, interpreted languages tend to be slow, but are relatively easy
 
 Function libraries can be written in C/C++/Fortran and converted into Python-callable modules.  
 
-### Fortran
+In order to wrap code written in a compiled language, you must have a compiler for the appropriate language installed on your system.  
 
-* If you have Fortran source code you can use f2py
-   * Part of NumPy
-   * Can work for C as well
-   * Extremely easy to use
-   * Can wrap legacy F77 and some newer F90+ (modules are supported)
-   * Must be used from the command line
+#### Windows
+
+If you will not use Fortran, you can install MS Visual Studio. A community edition is available free for personal use and includes C and C++ compilers. If you might use Fortran, a good option is [MinGW-64](https://www.mingw-w64.org/). This may also provide good compatibility with Anaconda even if you do not expect to use Fortran.  MinGW-64 provides several options for builds of the `gcc` (Gnu Compiler Collection).  The `ucrt` build is recommended but may be a little rough around the edges, at least for Fortran users.  The older `mingw64` build may be more suitable.  Either or both can be installed on the same system; the path will select the compiler used by Python or the IDE.  A nice tutorial on installing MingGW-64 and using it with the free [VSCode IDE](https://code.visualstudio.com/) is [here](https://code.visualstudio.com/docs/cpp/config-mingw). You must install VSCode extensions for C/C++ and, if appropriate, Fortran. To install the mingw64 version, simply substitute that name for ucrt in the `pacman` instructions. For Fortran, after the basic toolchain is installed, run 
+```no-highlight
+pacman -S mingw-w64-x86_64-gcc-fortran
+```
+Now go to Settings and edit your system environment variables to add `C:\msys2\mingw64\bin` to `path`.  Once that is done, you can use a command line or the Anaconda power shell to run f2py as shown below for Linux. After that move the resulting library to an appropriate location in your PYTHONPATH.
+
+#### Mac OS
+
+Install XCode from the Mac App Store for the C/C++ compilers, then if appropriate install gfortran from the [Wiki](https://gcc.gnu.org/wiki/GFortranBinaries).  MinGW-64 is also an option for Mac OS. Once installed you can run commands in a Terminal shell. In newer Mac OS versions the shell is `zsh` and not `bash`, but the commands shown for Linux should work without modification.
+
+#### Linux
+
+The gcc compiler should be installed by default but you may have to add the corresponding g++ and gfortran compilers. Refer to the documentation for your Linux distribution and package manager.
+
+### Wrapping Fortran
+
+* If you have Fortran source code you can use f2py.  It is included as part of NumPy.  It can work for C as well, but requires some knowledge of Fortran interfaces to do so.  It can wrap nearly all legacy Fortran 77 and some of the newer Fortran 90 constructs, in particular, modules. It must be used from a command line, which is simple on Linux and Mac OS but a little more complicated on Windows. 
 
 http://docs.scipy.org/doc/numpy-dev/f2py/
 
@@ -51,59 +63,55 @@ One significant weakness of f2py is limited support of the Fortran90+ standards,
 
 It is also possible to wrap the Fortran code in C by various means, such as the F2003 ISO C binding features, then to use the Python-C interface packages, such as ctypes and CFFI, for Fortran.  More details are available at [fortran90.org](https://fortran90.org) for interfacing with [C](https://www.fortran90.org/src/best-practices.html#interfacing-with-c) and [Python](https://www.fortran90.org/src/best-practices.html#interfacing-with-python).
 
-### C
+### Wrapping C
 
-Python provides the [ctypes](https://docs.python.org/3/library/ctypes.html) standard package.  Ctypes wraps C _libraries_ into Python code.  To use it, prepare a shared (dynamic) library of functions.  This requires a C compiler, and the exact steps vary depending on your operating system.  Windows compilers produce a file called a _DLL_, whereas Unix and MacOS shared libraries end in `.so`.  
+The [CFFI] (https://cffi.readthedocs.io/en/latest/overview.html) package can be used to wrap C code.  CFFI (C Foreign Function Interface) wraps C _libraries_ into Python code. To use it, prepare a shared (dynamic) library of functions.  This requires a C compiler, and the exact steps vary depending on your operating system.  Windows compilers produce a file called a _DLL_, Unix/Linux shared libraries end in `.so`, and Mac OS shared libraries end in `.dylib`.  
 
-Much as for f2py, the user must prepare some form of signature for the C functions.  Ctypes types include
+CFFI is not a base package, but is often included in Python distributions such as Anaconda. It may also be included as an add-on for other installations such as system Pythons, since some other package such as a cryptography library may require it. Before installing CFFI, first attempt to import it
+```python
+import cffi
+```
+If that fails you can `pip install cffi`.
 
-{{< table >}}
-| Python | C |
-|--------|---|
-|c_double| double |
-|c_int| int |
-|c_longlong| longlong |
-|c_numpy.ctypeslib.ndpointer(dtype=numpy.float64) | \*double| 
-{{< /table >}}
+Much as for f2py, the user must prepare some form of signature for the C functions. For CFFI that usually means writing a header (`.h`) file containing the function prototypes.
 
-See the [documentation](https://docs.python.org/3/library/ctypes.html#fundamental-data-types) for a complete list.
+CFFI has several modes.  We will work with the API (Application Programming Interface) since it is not too complicated and performs well.
+
+See the [documentation](https://cffi.readthedocs.io/en/latest/overview.html) for a discussion of the various modes.
 
 **Example**
 
-Download the [arith.c](/courses/python-high-performance/codes/arith.c) file, which implements some trivial arithmetic functions.  It must be compiled to a shared library.  Under Unix we execute the commands
+Download the [arith.c](/courses/python-high-performance/codes/arith.c) file and its corresponding [arith.h](/courses/python-high-performance/codes/arith.h) header file, which implements some trivial arithmetic functions.  
+
+Now download the build_arith.py script
+{{< code-download file="/courses/python-high-performance/codes/build_arith.py" lang="python" >}}
+
+We must repeat the function prototypes in the `cdef` method. The `set_source` method takes several arguments, not all of which are shown in this example. The first is the name of the shared library that will be generated. Next is all preprocessor statements within triple-double quotes. The `sources` argument is a list of the source file or files.  Note that if the path is not in the current search path, it must be specified.  Our example shows a Unix-like path.  Finally, we invoke the compiler to create the library. CFFI will use the default system library.
+
+Run the script.
+```python
+python build_arith.py
 ```
-gcc -fPIC -c arith.c 
-gcc -shared arith.o -o arith.so
-```
+On Linux the name may be lengthy, such as `_arithlib.cpython-39-x86_64-linux-gnu.so`.  When importing we may use only the first part `_arithlib`.
+
 We now utilize it from the intepreter as follows:
 ```
->>> import ctypes
->>> arith.sum.restype = ctypes.c_double
->>> arith.sum.argtypes = [ctypes.c_double,ctypes.c_double]
->>> arith.sum(3.,4.)
-7.0
+>>>from _arithlib import ffi, lib
+>>>lib.sum(11.1,12.8)
+23.9
+>>>lib.difference(11.1,12.8)
+-1.700000000000001
+>>>lib.product(11.1,12.8)
+142.08
+>>>lib.division(11.1,12.8)
+0.8671874999999999
 ```
 
-A newer tool for C is [CFFI](https://cffi.readthedocs.io/en/latest/). CFFI is a Python tool and must be installed through `pip` or a similar package manager.  CFFI has four modes but we will show only the "API outline" mode, which is the easiest and most reliable but does require a C compiler to be available.  In this mode, CFFI will use the C source and any header files to generate its own library.
+CFFI supports more advanced features.  For example, structs can be wrapped into Python classes.  See [here](https://github.com/wolever/python-cffi-example) for an example.  
 
-**Example**
+CFFI does not support C++ directly.  Any C++ must be "C-like" and contain an `extern C` declaration.
 
-We will wrap arith.c with CFFI.  First we must create and run a build file, which we will call `build_arith.py`.
-
-{{% code-download file="/courses/python-high-performance/codes/build_arith.py" lang="python" %}}
-
-We can now import our module.  The functions will be available with the namespace `lib`.
-```
->>> from _arith import lib
->>> lib.sum(3.,4.)
-7.0
-```
-
-CFFI supports more advanced features.  For example, structs can be wrapped into Python classes.  See [here](https://github.com/wolever/python-cffi-example) for an example.  The CFFI mode we have illustrated also creates static bindings, unlike ctypes (and other modes of CFFI) for which this happens on the fly.
-
-However, neither ctypes nor CFFI supports C++ directly.  Any C++ must be "C-like" and contain an `extern C` declaration.
-
-### C++
+### Wrapping C++
 
 One of the most popular packages that deals directly with C++ is [PyBind11](https://pybind11.readthedocs.io/en/stable/).  Setting up the bindings is more complex than is the case for ctypes or CFFI, however, and the bindings are written in C++, not Python.  Pybind11 will have to be installed through `conda` or `pip`.
 
@@ -126,7 +134,7 @@ python -m pybind11 --includes
 ```
 in order to determine the include path.  On a particular system it returned
 ```no-highlight
--I/usr/include/python3.9 -I/usr/include/pybind11
+-I/usr/include/python3.11 -I/usr/include/pybind11
 ```
 Take note of the include file paths, which will vary from one system to another.  Move into Python and run invoke
 {{% code-download file="/courses/python-high-performance/codes/tasks.py" lang="python" %}}

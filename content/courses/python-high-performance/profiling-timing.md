@@ -6,7 +6,6 @@ weight: 12
 menu:
     hp-python:
         parent: High-Performance Python
-        weight: 12
 ---
 
 The first step is usually to _profile_ the code.  Profiling can help us find a program's bottlenecks by revealing where most of the time is spent.  Keep in mind that most profilers work per function.  If you do not have your code well separated into functions, the information will be less useful.
@@ -97,12 +96,12 @@ for multiple lines.
 
 Import the fibonnaci.py code to JupyterLab.  Run prun.  Try snakeviz if you wish to do so.  Snakeviz requires Internet access while it is runnning; prun does not.
 
-You can also install the `line_profiler` and `memory_profiler` tools.
+You can also install the `line_profiler` and `memory_profiler` tools. It may be preferable to install from the conda-forge channel for memory_profiler.
 ```no-highlight
 conda install line_profiler
-conda install memory_profiler
+conda install -c conda-forge memory_profiler
 ```
-You can use `pip` if you are not working with Anaconda.
+You can use `pip` if you are not working with Anaconda.  If using Windows or Mac, you can install from the Anaconda-command application. If using the Anaconda Navigator GUI, switch to the conda-forge channel before installing.
 
 The line_profiler tool provides a special version of the Python interpreter, `kernprof` and defines a decorator `@profile`.  To use it from the command line, add the decorator to any function you wish to profile.
 ```python
