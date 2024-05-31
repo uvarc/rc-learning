@@ -51,7 +51,7 @@ Your ssh client communicates with the ssh _server_ program running on the remote
 
 If your computer is a MacOS or Linux system, you log in with
 ```bash
-ssh -Y mst3k@rivanna.hpc.virginia.edu
+ssh -Y mst3k@login.hpc.virginia.edu
 ```
 Throughout this tutorial we will use `mst3k` as our example user ID. You should substitute your own.  The option `-Y` allows access to graphical applications and requires that an _X11 server_ application must be installed on your computer.  This should be the default for Linux, but MacOS users must install [XQuartz](https://xquartz.org) before this command-line option will be useful.
 
