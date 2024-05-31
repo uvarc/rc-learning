@@ -8,7 +8,7 @@ weight: 150
 
 menu:
   rivanna-intro:
-    parent: Connecting to Rivanna
+    parent: Connecting to The System
 ---
 
 Most users should chose the MATE session.  

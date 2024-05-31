@@ -17,7 +17,7 @@ menu:
     name: Introduction to High Performance Computing
 ---
 
-Rivanna is the university's primary resource for high\-performance computing. It provides a platform for computationally-intensive research across disciplines.
+UVA's primary resource for high\-performance computing provides a platform for computationally-intensive research across a variety of disciplines. 
 
 {{< figure src="/notes/rivanna-intro/img/rivanna_racks.png" caption="The Rivanna cluster" >}}
 

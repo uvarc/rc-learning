@@ -8,7 +8,7 @@ weight: 30
 
 menu:
   rivanna-intro:
-    parent: Overview of Rivanna
+    parent: Overview of UVA HPC
 ---
 
 * Allocations and Groups

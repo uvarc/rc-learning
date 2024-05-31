@@ -1,6 +1,6 @@
 ---
-title: Introduction to Rivanna
-summary: "This tutorial is an introduction to using the Rivanna high-performance computing (HPC) system."
+title: Introduction to UVA HPC
+summary: "This tutorial is an introduction to using UVA's high-performance computing (HPC) system."
 
 # Schedule page publish date (NOT talk date).
 publishDate: "2021-04-13T00:00:00Z"

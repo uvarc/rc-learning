@@ -8,12 +8,12 @@ weight: 110
 
 menu:
   rivanna-intro:
-    parent: Connecting to Rivanna
+    parent: Connecting to The System
 ---
 
 To connect to Open OnDemand, open your web browser and type
 
-[https://rivanna-portal.hpc.virginia.edu](https://rivanna-portal.hpc.virginia.edu/)
+[https://ood.hpc.virginia.edu](https://ood.hpc.virginia.edu/)
 
 You will need to authenticate with Netbadge (“Netbadge in")
 

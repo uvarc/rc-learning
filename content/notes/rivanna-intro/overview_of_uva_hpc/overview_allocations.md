@@ -8,7 +8,7 @@ weight: 10
 
 menu:
   rivanna-intro:
-    parent: Overview of Rivanna
+    parent: Overview of UVA HPC
 ---
 
 Time on the HPC cluster is _allocated_.

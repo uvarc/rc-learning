@@ -8,7 +8,7 @@ weight: 100
 
 menu:
   rivanna-intro:
-    name: Connecting to Rivanna 
+    name: Connecting to The System
 ---
 
 * There are three ways to connect to the HPC System:

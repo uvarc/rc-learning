@@ -8,7 +8,7 @@ weight: 50
 
 menu:
   rivanna-intro:
-    parent: Overview of Rivanna
+    parent: Overview of UVA HPC
 ---
 
 Active users can access free storage for active work.  Research groups that need more permanent storage, or wish to share storage space, can also lease storage.

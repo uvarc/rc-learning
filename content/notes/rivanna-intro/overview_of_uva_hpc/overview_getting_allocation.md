@@ -7,7 +7,7 @@ type: docs  # Do not modify.
 
 menu:
   rivanna-intro:
-    parent: Overview of Rivanna
+    parent: Overview of UVA HPC
     weight: 20
 ---
 

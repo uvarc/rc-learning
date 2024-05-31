@@ -8,7 +8,7 @@ weight: 4
 
 menu:
   rivanna-intro:
-      name: Overview of Rivanna
+      name: Overview of UVA HPC
 ---
 
 * Node
