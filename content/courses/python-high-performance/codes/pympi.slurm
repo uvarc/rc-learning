@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -N 1
 #SBATCH --ntasks-per-node=8
-#SBATCH --account=hpc_build
+#SBATCH -A hpc_training  #use a valid allocation for your login
 #SBATCH -p interactive
 #SBATCH -t 1:00:00
 
