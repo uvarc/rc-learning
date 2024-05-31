@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH -N 1
 #SBATCH --ntasks-per-node=8
-#SBATCH --account=your_allocation
-#SBATCH -p instructional
-#SBATCH -t 10:00:00
+#SBATCH --account=hpc_build
+#SBATCH -p interactive
+#SBATCH -t 1:00:00
 
 echo Running on `hostname`
 

@@ -26,7 +26,10 @@ When installing it into your environment in an HPC cluster, you should not use `
 ```bash
 conda create -n "mpienv" python=3.11
 ```
-In recent versions of Anaconda, it is best to install mpi4py from the `conda-forg` channel following their instructions [here](https://conda-forge.org/docs/user/tipsandtricks/#using-external-message-passing-interface-mpi-libraries). This will install dummies into your environment that will be replaced by the external library when the package is imported. First load the closest gcc to the current version of Anaconda. In our current example, this is gcc 11.4.0. Then check for available versions of OpenMPI (please use OpenMPI on UVA HPC systems) with
+In recent versions of Anaconda, it is best to install mpi4py from the `conda-forge` channel following their instructions [here](https://conda-forge.org/docs/user/tipsandtricks/#using-external-message-passing-interface-mpi-libraries). 
+This will install dummies into your environment that will be replaced by the external library when the package is imported.  Do not try to install both MPICH and OpenMPI; use the one most appropropriate to your system. In our example, we will install mpi4py with OpenMPI.
+
+First load the closest gcc to the current version of Anaconda. In our current example, this is gcc 11.4.0. Then check for available versions of OpenMPI (please use OpenMPI on UVA HPC systems) with
 ```bash
 module spider openmpi
 ```
@@ -40,12 +43,12 @@ conda install -c conda-forge "openmpi=4.1.4=external_*"
 ```
 Once this has completed, you can install mpi4py
 ```
-conda install mpi4py
+conda install -c conda-forge mpi4py
 ```
 
 MPI consists of dozens of functions, though most programmers need only a fraction of the total.  The mpi4py package has implemented most of them using a "Pythonic" syntax, rather than the more C-like syntax used by other languages.  One peculiarity of mpi4py is that only particular types may be communicated; in particular, only NumPy NDArrays or pickled objects are supported.  To simplify our discussion, we will ignore the versions for pickled objects.  The requirement that NumPy arrays be sent means that even single values must be represented as one-element NumPy arrays.
 
-MPI requires more advanced programming skills so we will just show an example here.  Our Monte Carlo pi program is well suited to MPI so we can use that.
+MPI requires more advanced programming skills so we will just show an example here.  Our Monte Carlo pi program is well suited to MPI so we can use that. For much more information about programming with MPI in Python, as well as C++ and Fortran, please see our [short course](/courses/parallel-computing-introduction).
 
 {{% code-download file="/courses/python-high-performance/codes/MonteCarloPiMPI.py" lang="python" %}}
 
@@ -69,7 +72,7 @@ srun python MonteCarloPiMPI.py 1000000000
 
 **Note: you cannot launch the MPI program with `srun` on the login nodes.**  In order to execute our program on designated compute node(s), we need to write a simple bash script that defines the compute resources we need.  We call this our job script.  For our example, the job script `pimpi.sh` looks like this:
 
-{{% code-download file="/courses/python-high-performance/codes/pimpi.sh" lang="bash" %}}
+{{% code-download file="/courses/python-high-performance/codes/pympi.slurm" lang="bash" %}}
 
 The `#SBATCH` directives define the compute resources (`-N`, `--ntasks-per-node`, `-p`), compute wall time (`-t`), and the allocation account (`--account`) to be used. `-N 1` specifies that all MPI tasks should run on a single node.  We are limiting the number of nodes for this workshop so that everyone gets a chance to run their code on the shared resources. Be sure to edit the script to activate your environment by its correct name.
 
@@ -77,7 +80,7 @@ The `#SBATCH` directives define the compute resources (`-N`, `--ntasks-per-node`
 
 Open a terminal window. Do not load any modules. Execute this command:
 ```
-sbatch pimpi.sh
+sbatch pympi.slurm
 ``` 
 
 **Checking the job status:**
@@ -110,8 +113,7 @@ Dask can use `mpi4py` on a high-performance cluster.  First install mpi4py accor
 
 ### Schedulers
 
-We have not discussed Dask [_schedulers_](https://docs.dask.org/en/latest/scheduling.html) previously. The scheduler is a process that managers the workers that carry out the tasks.
-We have been implicitly using the _single-machine_ scheduler, which is the default. Within the single-machine scheduler are two options, _threaded_ and _processes_.  The threaded single-machine scheduler is the default for Dask Arrays, Dask Dataframes, and Dask Delayed.  However, as we discussed with [Multiprocessing](/courses/python-high-performance/multiprocessing), the GIL (Global Interpreter Lock) inhibits threading in general.  Most of NumPy and Pandas release the GIL so threading works well with them.  If you cannot use NumPy and Pandas then the processes scheduler is preferred.  It is much like Multiprocessing.
+We have not discussed Dask [_schedulers_](https://docs.dask.org/en/latest/scheduling.html) previously. The scheduler is a process that managers the workers that carry out the tasks.  We have been implicitly using the _single-machine_ scheduler, which is the default. Within the single-machine scheduler are two options, _threaded_ and _processes_.  The threaded single-machine scheduler is the default for Dask Arrays, Dask Dataframes, and Dask Delayed.  However, as we discussed with [Multiprocessing](/courses/python-high-performance/multiprocessing), the GIL (Global Interpreter Lock) inhibits threading in general.  Most of NumPy and Pandas release the GIL so threading works well with them.  If you cannot use NumPy and Pandas then the processes scheduler is preferred.  It is much like Multiprocessing.
 
 To use Dask-MPI we must introduce the Dask `distributed` scheduler. The `distributed` scheduler may be preferable to `processes` even on a single machine, and it is required for use across multiple nodes. 
 

@@ -23,17 +23,17 @@ For this tutorial, it is assumed that you have experience with programming in Py
 
 ## Setup
 
-To follow along for the [Serial Optimization](#serial-optimization-strategies) and [Multiprocessing](#multiprocessing) examples, you can execute the code examples on your own computer or on UVA's high-performance computing cluster, Rivanna.  Examples described in the last section, [Distributed Parallelization](#distributed-parallelization), are best executed on UVA's high-performance computing platform, Rivanna.
+To follow along for the [Serial Optimization](#serial-optimization-strategies) and [Multiprocessing](#multiprocessing) examples, you can execute the code examples on your own computer or on UVA's high-performance computing cluster.  Examples described in the last section, [Distributed Parallelization](#distributed-parallelization), are best executed on UVA's high-performance computing platform.
 
 If you are using your local computer, we recommend the Anaconda distribution (<a href="https://www.anaconda.com/distribution/" target="balnk_">download</a>) to run the code examples. Anaconda provides multiple Python versions, an integrated development environment (IDE) with editor and profiler, Jupyter notebooks, and an easy to use package environment manager.
 
-**If you are using Rivanna, follow these steps to verify that your account is active:**
+**If you are using UVA HPC, follow these steps to verify that your account is active:**
 
-### Check your Access to Rivanna
+### Check your Access to UVA HPC
 
-1. In your web browser, go to <a href="https://rivanna-desktop.hpc.virginia.edu" target="_blank">rivanna-desktop.hpc.virginia.edu</a>.  This takes you to our FastX web portal that lets you launch a remote desktop environment on Rivanna.  If you are off Grounds, you must be connected through the UVA Anywhere VPN client.
+1. In your web browser, go to <a href="https://fastx.hpc.virginia.edu" target="_blank">fastx.hpc.virginia.edu</a>.  This takes you to our FastX web portal that lets you launch a remote desktop environment on a frontend.  If you are off Grounds, you must be connected through the UVA Anywhere VPN client.
 
-2. Log in with your UVA credentials and start a MATE session.  You can find a more detailed description of the Rivanna login procedure <a href="https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/" target="_blank">here</a>.
+2. Log in with your UVA credentials and start a MATE session.  You can find a more detailed description of the FastX login procedure <a href="https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/" target="_blank">here</a>.
   * **User name:** Your UVA computing id (e.g. mst3k; don't enter your entire email address)
   * **Password:** Your UVA Netbadge password 
 
@@ -51,7 +51,7 @@ Now type
 spyder &
 ```
 
-For Jupyterlab you can use [Open OnDemand](https://rivanna-portal.hpc.virginia.edu).  Jupyterlab is one of the Interactive Apps.  Note that these apps submit a job to the compute nodes.  If you are working on quick development and testing and you wish to use the frontend, to run Jupyter or Jupyterlab on the FastX portal you can run 
+For Jupyterlab you can use [Open OnDemand](https://ood.hpc.virginia.edu).  Jupyterlab is one of the Interactive Apps.  Note that these apps submit a job to the compute nodes.  If you are working on quick development and testing and you wish to use the frontend, to run Jupyter or Jupyterlab on the FastX portal you can run 
 ```
 module load anaconda
 anaconda-navigator &
