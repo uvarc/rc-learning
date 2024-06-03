@@ -50,8 +50,8 @@ The lines starting with `#SBATCH` are the resource requests.  They are called "p
 #SBATCH --ntasks=1
 #SBATCH --mem=32000 # mb total memory
 #SBATCH –-time=1-12:00:00
-#SBATCH --partition=standard
-#SBATCH --account=myalloc
+#SBATCH --partition=interactive
+#SBATCH --account=hpc_training
 ```
 Here we are requesting
   * 1 node, 1 task
