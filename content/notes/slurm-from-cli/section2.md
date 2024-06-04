@@ -49,16 +49,16 @@ The lines starting with `#SBATCH` are the resource requests.  They are called "p
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem=32000 # mb total memory
-#SBATCH –-time=1-12:00:00
+#SBATCH --time=2:00:00
 #SBATCH --partition=interactive
 #SBATCH --account=hpc_training
 ```
 Here we are requesting
   * 1 node, 1 task
   * 32GB of memory (measured in MB). Strictly speaking this will be "Gibibyes."
-  * 1 day and 12 hours of running time.
+  * 2 hours of running time.
   * The standard partition (queue).  A partition must be specified.
-  * The account (allocation) group `rivanna-training`
+  * The account (allocation) group `hpc_training`
 
 The next lines set up the environment to run our job.
 ```bash
