@@ -49,16 +49,16 @@ The lines starting with `#SBATCH` are the resource requests.  They are called "p
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem=32000 # mb total memory
-#SBATCH –-time=1-12:00:00
-#SBATCH --partition=standard
-#SBATCH --account=myalloc
+#SBATCH --time=2:00:00
+#SBATCH --partition=interactive
+#SBATCH --account=hpc_training
 ```
 Here we are requesting
   * 1 node, 1 task
   * 32GB of memory (measured in MB). Strictly speaking this will be "Gibibyes."
-  * 1 day and 12 hours of running time.
+  * 2 hours of running time.
   * The standard partition (queue).  A partition must be specified.
-  * The account (allocation) group `rivanna-training`
+  * The account (allocation) group `hpc_training`
 
 The next lines set up the environment to run our job.
 ```bash
@@ -110,6 +110,61 @@ Angle brackets `< >` indicate a value to be specified, and are not typed.
 
 See also our [documentation](https://www.rc.virginia.edu/userinfo/rivanna/slurm/) for many more examples.
 
+
+
+## Modules
+
+Any application software that you want to use will need to be loaded with the `module load` command.  
+
+For example:
+
+```
+$ module load matlab
+$ module load anaconda
+$ module load goolf R
+```
+Modules need to be loaded any time that a new shell is created to setup the same working environment. This includes every time that you log out and back in, and every time that you run a batch job on a compute node.
+
+### Module Details
+
+`module avail` – Lists all available modules and versions.
+
+`module spider` – Shows all available modules
+
+`module key keyword` – Shows modules with the keyword in the description
+
+`module list` – Lists modules loaded in your environment.
+
+`module load mymod` – Loads the default module to set up the environment for some software.
+
+`module load mymod/N.M` – Loads a specific version N.M of software mymod.
+module load compiler mpi mymod – For compiler- and MPI- specific modules, loads the modules in the appropriate order and, optionally, the version.
+
+`module purge` – Clears all modules.
+
+### Learning more about a Module
+
+To locate a python module, try the following:
+
+```
+$ module avail python
+$ module spider python
+$ module key python
+```
+
+To find bioinformatics software packages, try this:
+
+```
+$ module key bio
+```
+
+The available software is also listed on our [website](https://www.rc.virginia.edu/userinfo/rivanna/software/complete-list/)
+
+**Question:**
+
+Why does the command `module load R` give an error?
+
+
 ## Working with Files and Folders
 
 When using Slurm in terminal mode, you will probably want to create your own folders to organize your Slurm scripts, any input files, and the output.  You will need to be able to move around from one folder to another at the terminal.
@@ -157,7 +212,7 @@ $pwd
 
 **Exercise 2**
 
-Use FastX or Open OnDemand or the command line to create a new folder under your home directory. Practice changing into and out of it.
+Use FastX or Open OnDemand or the command line to create a new folder under your scratch directory. Practice changing into and out of it.
 
 Use FastX and Caja to navigate to your `/scratch` directory. To get there, click `Go` in the Caja menu.  A textbox will open. Be sure that "search for files" is unchecked.  Erase whatever is in the textbox and type `/scratch/mst3k` (substituting your own user ID).  Still in FastX, open a terminal (the black box, or in the System Tools menu) and navigate to your new scratch folder.
 

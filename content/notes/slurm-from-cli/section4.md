@@ -147,3 +147,56 @@ You can also cancel individual tasks
 ```bash
 scancel 1283839_11
 ```
+
+## Useful Commands
+
+When you submit a job and it doesn't start or fails for an unknown reason it could be due to restraints in your account. This could include running out of storage space or SUs on your allocation. Additionally, it's useful to see how busy the queue is. The following subsections highight how to identify these problems.
+
+### Allocations
+
+Sometimes it’s useful to check how many SUs are still available on your allocation. The `allocations` command displays information on your allocations and how many SUs are associated with them:
+
+```
+$ allocations
+Account                      Balance        Reserved       Available                
+-----------------          ---------       ---------       ---------
+hpc_training                 1000000               0          999882 
+```
+
+running `allocations -a <allocation_name>` provides even more detail on when the allocation was last renewed and its members. E.g.
+
+```
+$ allocations -a hpc_training
+Description StartTime           EndTime    Allocated   Remaining  PercentUsed Active 
+----------- ------------------- ---------- ----------- ---------- ----------- ------ 
+new         2024-05-29 17:33:13 2025-05-29 1000000.000 999881.524        0.01 True   
+
+Name   Active CommonName                     EmailAddress        DefaultAccount         
+------ ------ ------------------------------ ------------------- ----------------------
+.
+.
+.
+```
+
+### Storage Quota
+One way to check your storage utilization is with the `hdquota` command. This command will show you how much of your home, scratch, and leased (if applicable) storage are being utilized. Below is the sample output for `hdquota`:
+
+```
+$ hdquota
+Type             Location         Name                                        Size Used Avail Use%
+====================================================================================================
+home             /home            mst3k                                       50G   16G   35G  32%
+Scratch          /scratch         mst3k                                       12T  2.0T   11T  17%
+```
+
+This is a useful command to check whether or not you’re running out of storage space or to see where files need to be cleaned up. For more detailed information on disk utilization you may also use the `du` command to investiage specific directories.
+
+### Queue limits and Usage
+
+To gain information on the different queues you can use the `qlist` command. This will show the list of paritions, their usage, and the SU charge rate. You can use `qlimits` for information on each queue’s limits.
+
+The the `sinfo` command will provide some more detailed information on the health of each queue and the number of active nodes available. These commands can be useful in diagnosing why a job may not be running, or to better understand the queue usage for more efficient job throughput. More information on hardware specifications and queue information can be found [here](https://rc.virginia.edu/userinfo/rivanna/overview/#hardware-configuration) on our website.
+
+## Need Help
+
+Research Computing is ready to help you learn to use our systems efficiently.  You can [submit a ticket](https://www.rc.virginia.edu/form/support-request/).  For in-person help, please attend one of our weekly sessions of [office hours](https://www.rc.virginia.edu/support/#office-hours).

@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --ntasks=1
-#SBATCH --partition=standard
-#SBATCH -A myalloc
+#SBATCH --partition=interactive
+#SBATCH -A hpc_training
 #SBATCH --time=3:00:00
 #SBATCH -o out%A.%a
 #SBATCH -e err%A.%a

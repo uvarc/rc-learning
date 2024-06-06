@@ -277,11 +277,11 @@ $rmdir ~/test_dir/sub_dir
 </details>
 
 Q3: Copy the directory
-`/share/resources/tutorials/rivanna-cli/shakespeare` into your home directory.
+`/share/resources/tutorials/rivanna-cl/shakespeare` into your home directory.
 <details><summary>Solution</summary>
 
 ```bash
-$cp -r /share/resources/tutorials/rivanna-cli/shakespeare ~
+$cp -r /share/resources/tutorials/rivanna-cl/shakespeare ~
 ```
 </details>
 
