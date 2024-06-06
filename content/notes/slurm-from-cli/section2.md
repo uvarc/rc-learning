@@ -119,9 +119,9 @@ Any application software that you want to use will need to be loaded with the `m
 For example:
 
 ```
-$ module avail matlab
-$ module spider anaconda
-$ module key goolf R
+$ module load matlab
+$ module load anaconda
+$ module load goolf R
 ```
 Modules need to be loaded any time that a new shell is created to setup the same working environment. This includes every time that you log out and back in, and every time that you run a batch job on a compute node.
 
