@@ -212,7 +212,7 @@ $pwd
 
 **Exercise 2**
 
-Use FastX or Open OnDemand or the command line to create a new folder under your home directory. Practice changing into and out of it.
+Use FastX or Open OnDemand or the command line to create a new folder under your scratch directory. Practice changing into and out of it.
 
 Use FastX and Caja to navigate to your `/scratch` directory. To get there, click `Go` in the Caja menu.  A textbox will open. Be sure that "search for files" is unchecked.  Erase whatever is in the textbox and type `/scratch/mst3k` (substituting your own user ID).  Still in FastX, open a terminal (the black box, or in the System Tools menu) and navigate to your new scratch folder.
 
