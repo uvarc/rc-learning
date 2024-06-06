@@ -110,6 +110,61 @@ Angle brackets `< >` indicate a value to be specified, and are not typed.
 
 See also our [documentation](https://www.rc.virginia.edu/userinfo/rivanna/slurm/) for many more examples.
 
+
+
+## Modules
+
+Any application software that you want to use will need to be loaded with the `module load` command.  
+
+For example:
+
+```
+$ module avail matlab
+$ module spider anaconda
+$ module key goolf R
+```
+Modules need to be loaded any time that a new shell is created to setup the same working environment. This includes every time that you log out and back in, and every time that you run a batch job on a compute node.
+
+### Module Details
+
+`module avail` – Lists all available modules and versions.
+
+`module spider` – Shows all available modules
+
+`module key keyword` – Shows modules with the keyword in the description
+
+`module list` – Lists modules loaded in your environment.
+
+`module load mymod` – Loads the default module to set up the environment for some software.
+
+`module load mymod/N.M` – Loads a specific version N.M of software mymod.
+module load compiler mpi mymod – For compiler- and MPI- specific modules, loads the modules in the appropriate order and, optionally, the version.
+
+`module purge` – Clears all modules.
+
+### Learning more about a Module
+
+To locate a python module, try the following:
+
+```
+$ module avail python
+$ module spider python
+$ module key python
+```
+
+To find bioinformatics software packages, try this:
+
+```
+$ module key bio
+```
+
+The available software is also listed on our [website](https://www.rc.virginia.edu/userinfo/rivanna/software/complete-list/)
+
+**Question:**
+
+Why does the command `module load R` give an error?
+
+
 ## Working with Files and Folders
 
 When using Slurm in terminal mode, you will probably want to create your own folders to organize your Slurm scripts, any input files, and the output.  You will need to be able to move around from one folder to another at the terminal.
