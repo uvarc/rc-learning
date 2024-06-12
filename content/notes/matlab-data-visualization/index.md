@@ -3,7 +3,7 @@ title: "MATLAB Data Processing and Visualization"
 type: article
 hightlight_style: "github"
 toc: true
-
+date: 2023-12-11T00:00:00-05:00
 menu:
     matlab-data-viz:
         name: MATLAB Data Processing and Visualization

@@ -2,6 +2,7 @@
 title: "Data Science with MATLAB"
 type: article
 toc: true
+date: 2023-12-11T00:00:00-05:00
 ---
 
 

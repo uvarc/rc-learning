@@ -1,6 +1,6 @@
 ---
 title: IV - I/O, Pipes and Processes
-date: 2023-12-11-14:11:14Z
+date: 2023-12-11T00:00:00-05:00
 type: docs
 toc: true 
 weight: 40

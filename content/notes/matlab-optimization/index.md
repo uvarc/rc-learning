@@ -1,5 +1,6 @@
 ---
 title : "Optimization Techniques in MATLAB"
+date: 2020-03-03T21:13:14-05:00
 type: article
 ---
 

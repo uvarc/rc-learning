@@ -1,6 +1,6 @@
 ---
 title: The Slurm Resource Manager
-date: 2023-12-11-14:11:14Z
+date: "2023-12-11-14T00:00:00"
 type: docs 
 weight: 1
 menu: 

@@ -1,7 +1,7 @@
 +++
 title= "Workshops"
 subtitle=""
-date= "2020-05-13T00:00:00Z"  # Add today's date.
+date= "2020-05-13T00:00:00"  # Add today's date.
 type = "widget_page"  # Page type is a Widget Page
 widget = "blank"  
 active= true

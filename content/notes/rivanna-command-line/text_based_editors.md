@@ -1,6 +1,6 @@
 ---
 title: Text-Based File Editors
-date: 2023-12-11-14:11:14Z
+date: 2023-12-11T21:14:11-14:00
 type: docs 
 weight: 910
 menu: 

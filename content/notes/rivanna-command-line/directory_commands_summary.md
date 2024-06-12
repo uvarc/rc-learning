@@ -1,6 +1,6 @@
 ---
 title: Directory Commands
-date: 2023-12-11-14:11:14Z
+date: "2023-12-11T00:00:00"
 type: docs 
 weight: 820
 menu: 

@@ -1,6 +1,6 @@
 ---
 title: Logging Out of FastX
-date: "2022-10-01:00:00Z"
+date: "2022-10-01T00:00:00"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.

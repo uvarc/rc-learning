@@ -2,6 +2,7 @@
 title: "WR Introduction to Rivanna"
 summary: WR An introduction to using the Rivanna system
 authors: [uvarc]
+date: "2020-04-13T00:00:00Z"
 slides:
   theme: white
   highlight_style: github
