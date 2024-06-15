@@ -3,7 +3,7 @@ title: Using Bioinformatics Tools on Rivanna
 summary: "This tutorial is an introduction to using several popular bioinformatics tools on Rivanna."
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2021-03-02T00:00:00Z"
+publishDate: "2021-03-02T00:00:00"
 
 authors: [gka]
 tags: [rivanna,hpc,bioinformatics]

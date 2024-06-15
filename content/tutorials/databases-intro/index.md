@@ -3,7 +3,7 @@ title: Introduction to Databases
 summary: "This tutorial is an introduction to relational and NoSQL databases."
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2024-04-01T00:00:00Z"
+publishDate: "2024-04-01T00:00:00"
 
 categories: ["databases"]
 tags: [rivanna]

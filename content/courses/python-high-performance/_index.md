@@ -2,6 +2,7 @@
 title: "High Performance Programming in Python"
 type: docs
 toc: true
+date: "2020-11-17T00:00:00"
 menu:
     hp-python:
         name: High-Performance Python

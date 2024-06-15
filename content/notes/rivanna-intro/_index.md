@@ -5,7 +5,7 @@ categories: ["Rivanna","HPC"]
 tags: ["rivanna","hpc"]
 
 # Page metadata.
-date: "2021-04-13:00:00Z"
+date: "2021-04-13T00:00:00"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.

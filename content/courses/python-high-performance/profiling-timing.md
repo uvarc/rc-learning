@@ -3,6 +3,7 @@ title: "Profiling and Timing"
 type: docs
 toc: true
 weight: 12
+date: "2020-11-17T00:00:00"
 menu:
     hp-python:
         parent: High-Performance Python

@@ -3,6 +3,7 @@ title: "Parallel Programming with MPI"
 type: docs
 toc: true
 weight: 55
+date: "2020-11-17T00:00:00"
 menu: 
     hp-python:
         parent: High-Performance Python

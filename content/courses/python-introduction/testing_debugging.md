@@ -4,6 +4,7 @@ draft: false
 toc: true
 type: docs
 weight: 250
+date: "2020-11-17T00:00:00"
 menu:
     python-introduction:
 ---
