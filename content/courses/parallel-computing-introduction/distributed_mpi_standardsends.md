@@ -3,6 +3,7 @@ title: "Standard Blocking Send/Receive"
 toc: true
 type: docs
 weight: 75
+date: "2020-11-17T00:00:00"
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming

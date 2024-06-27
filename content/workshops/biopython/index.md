@@ -1,6 +1,6 @@
 ---
 title: "Biopython"
-date: 2020-10-01
+date: 2020-10-01T00:00:00
 
 summary: "An introduction to using the Biopython package to develop Python scripts for bioinformatics analysis."
 

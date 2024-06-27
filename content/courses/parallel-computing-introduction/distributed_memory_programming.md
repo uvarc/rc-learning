@@ -3,6 +3,7 @@ title: "Distributed-Memory Programming"
 toc: true
 type: docs
 weight: 20
+date: "2020-11-17T00:00:00"
 menu:
     parallel_programming:
         name: "Distributed-Memory Programming"

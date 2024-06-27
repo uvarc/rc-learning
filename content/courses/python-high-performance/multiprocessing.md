@@ -3,6 +3,7 @@ title: "Multiprocessing for Multicore Systems"
 toc: true
 type: docs
 weight: 35
+date: "2020-11-17T00:00:00"
 menu:
     hp-python:
         parent: High-Performance Python

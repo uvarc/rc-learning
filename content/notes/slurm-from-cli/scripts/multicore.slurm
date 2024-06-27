@@ -1,7 +1,7 @@
 #SBATCH -n 1
 #SBATCH -c 25
-#SBATCH -p standard
-#SBATCH -A myalloc
+#SBATCH -p interactive
+#SBATCH -A hpc_training
 #SBATCH -t 05:00:00
 #SBATCH --mail-user=mst3k@virginia.edu
 #SBATCH --mail-type=END

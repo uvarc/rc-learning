@@ -3,7 +3,7 @@ title: Introduction to UVA HPC
 summary: "This tutorial is an introduction to using UVA's high-performance computing (HPC) system."
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2021-04-13T00:00:00Z"
+publishDate: "2021-04-13T00:00:00"
 
 authors: [jmh,kah,pbo]
 tags: [rivanna,hpc]

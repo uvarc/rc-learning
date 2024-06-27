@@ -1,8 +1,9 @@
+#!/bin/bash
 #SBATCH -N 3
 #SBATCH --ntasks-per-node=4
 #SBATCH -c 10
 #SBATCH -p parallel
-#SBATCH -A myalloc
+#SBATCH -A hpc_training
 #SBATCH -t 05:00:00
 #SBATCH --mail-user=mst3k@virginia.edu
 #SBATCH --mail-type=END

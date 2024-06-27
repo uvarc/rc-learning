@@ -1,7 +1,7 @@
 ---
 type: docs
 toc: true
-# date: 2015-07-23T21:13:14-05:00
+date: "2015-07-23T00:00:00"
 draft: false
 weight: 1
 

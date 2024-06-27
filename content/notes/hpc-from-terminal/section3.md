@@ -1,6 +1,6 @@
 ---
 title:  III - File Manipulation
-date: 2023-12-11-14:11:14Z
+date: 2023-12-11T00:00:00-05:00
 type: docs
 toc : true 
 weight: 30
@@ -154,7 +154,7 @@ $more filename
 This displays the contents of a file on the screen with line scrolling. To scroll you can use ‘arrow’ keys. To advance one line, press the Enter key.  To advance a full page, press the space bar. Press `q` to exit.
 
 ```bash
-$more ~/rivanna-cli/shakespeare/Lear.txt
+$more ~/rivanna-cl/shakespeare/Lear.txt
 ```
 
 To page upward within the text, press `b` (back).
@@ -164,7 +164,7 @@ To page upward within the text, press `b` (back).
 You can search in the forward direction with `/`<pattern>, where pattern is a combination of characters you wish to find.
 
 ```bash
-$more ~/rivanna-cli/shakespeare/Lear.text
+$more ~/rivanna-cl/shakespeare/Lear.text
  /serpent
 ```
 <pre>
@@ -213,7 +213,7 @@ If used single `>` in place of the double `>>` in the above, `cat` will overwrit
 
 Displays only the starting lines of a file. The default is first ten lines. Use “-n” to specify the number of lines.
 ```bash
-$head ~/rivanna-cli/shakespeare/Lear.text
+$head ~/rivanna-cl/shakespeare/Lear.text
 ```
 <pre>
 This Etext file is presented by Project Gutenberg, in
@@ -232,7 +232,7 @@ PROVIDED BY PROJECT GUTENBERG WITH PERMISSION.  ELECTRONIC AND
 
 Displays the last 10 lines.
 ```bash
-$tail 30 ~/rivanna-cli/shakespeare/Lear.text
+$tail 30 ~/rivanna-cl/shakespeare/Lear.text
 ```
 <pre>
      The cup of their deservings.- O, see, see!

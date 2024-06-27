@@ -1,9 +1,8 @@
 ---
 title: High Performance Computing from the Command Line
-date: 2023-12-11-14:11:14Z
+date: "2023-12-11T00:00:00"
 type: docs 
 weight: 1 
-date: 2023-12-11-14:11:14Z
 
 menu: 
     rivanna-command-line:

@@ -3,6 +3,7 @@ title: "Distributed Parallel Programming"
 type: docs
 toc: true
 weight: 45
+date: "2020-11-17T00:00:00"
 menu: 
     hp-python:
         parent: High-Performance Python

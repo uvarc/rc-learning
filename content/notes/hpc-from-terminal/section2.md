@@ -1,6 +1,6 @@
 ---
 title:  II - Files and Directories
-date: 2023-12-11-14:11:14Z
+date: 2023-12-11T00:00:00-05:00
 type: docs
 toc : true 
 weight: 20
@@ -277,11 +277,11 @@ $rmdir ~/test_dir/sub_dir
 </details>
 
 Q3: Copy the directory
-`/share/resources/tutorials/rivanna-cli/shakespeare` into your home directory.
+`/share/resources/tutorials/rivanna-cl/shakespeare` into your home directory.
 <details><summary>Solution</summary>
 
 ```bash
-$cp -r /share/resources/tutorials/rivanna-cli/shakespeare ~
+$cp -r /share/resources/tutorials/rivanna-cl/shakespeare ~
 ```
 </details>
 

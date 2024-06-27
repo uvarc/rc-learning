@@ -2,9 +2,9 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem=32000 # mb total memory
-#SBATCH --time=1-12:00:00
-#SBATCH --partition=standard
-#SBATCH --account=myalloc
+#SBATCH --time=2:00:00
+#SBATCH --partition=interactive
+#SBATCH --account=hpc_training
 
 module purge
 module load anaconda

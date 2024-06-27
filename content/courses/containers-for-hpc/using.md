@@ -1,4 +1,5 @@
 ---
+date : "2024-6-03T00:00:00-05:00"
 title: Using Containers on HPC [Apptainer]
 toc: true
 type: book

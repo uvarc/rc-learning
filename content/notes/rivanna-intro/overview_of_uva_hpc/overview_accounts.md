@@ -1,6 +1,6 @@
 ---
 title: Login Accounts
-date: "2022-10-01:00:00Z"
+date: "2022-10-01T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.

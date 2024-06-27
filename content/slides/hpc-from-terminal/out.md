@@ -3,7 +3,7 @@ title: High Performance Computing from the Command Line
 authors: [uvarc]
 tags: []
 categories: []
-date: "2020-04-13:00:00Z"
+date: "2020-04-13T00:00:00Z"
 slides:
   theme: white
   highlight_style: github

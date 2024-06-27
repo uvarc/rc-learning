@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --nodes=3
 #SBATCH --ntasks-per-node=40
-#SBATCH --account=myalloc
+#SBATCH --account=hpc_training
 #SBATCH -p parallel
 #SBATCH -t 10:00:00
 #SBATCH --mail-user=mst3k@virginia.edu

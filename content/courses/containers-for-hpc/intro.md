@@ -1,4 +1,5 @@
 ---
+date : "2024-6-03T00:00:00-05:00"
 title: Introduction to Software Containers
 toc: true
 type: book

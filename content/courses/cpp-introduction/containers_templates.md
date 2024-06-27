@@ -1,4 +1,5 @@
 ---
+date : "2021-06-23T00:00:00"
 title: "Containers and Template Libraries"
 toc: true
 type: book

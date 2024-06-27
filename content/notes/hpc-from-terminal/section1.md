@@ -1,6 +1,6 @@
 ---
 title: I - Intro to  Unix and Bash Shell
-date: 2023-12-11-14:11:14Z
+date: 2023-12-11T00:00:00-05:00
 type: docs 
 weight: 10
 toc: true
@@ -86,11 +86,11 @@ Invoke the utility `rm` to delete a file.
 ```bash
 $rm myfile
 ```
-In this example, the shell issues a request to the kernel to delete `myfile`.  The kernel then communicates with the software that manages file storage to exectute the operation.
+In this example, the shell issues a request to the kernel to delete `myfile`.  The kernel then communicates with the software that manages file storage to execute the operation.
 
 When it is complete the shell then returns the UNIX prompt to the user, indicating that it is waiting for further commands.
 
-## Rnning Our First Command
+## Running Our First Command
 
 Let’s run our first command. Into a terminal type
 ```bash
