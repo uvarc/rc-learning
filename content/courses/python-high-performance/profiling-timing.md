@@ -94,7 +94,7 @@ for multiple lines.
 
 **Exercise:** 
 
-Import the fibonnaci.py code to JupyterLab.  Run prun.  Try snakeviz if you wish to do so.  Snakeviz requires Internet access while it is runnning; prun does not.
+Import the fibonnaci.py code to JupyterLab.  Run prun.  Try snakeviz if you wish to do so.  Snakeviz requires Internet access while it is running; prun does not.
 
 You can also install the `line_profiler` and `memory_profiler` tools. It may be preferable to install from the conda-forge channel for memory_profiler.
 ```no-highlight
