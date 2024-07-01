@@ -7,7 +7,7 @@ type: docs  # Do not modify.
 weight: 4
 
 menu:
-  rivanna-intro:
+  hpc-intro:
       name: Overview of UVA HPC
 ---
 

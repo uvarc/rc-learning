@@ -7,13 +7,13 @@ type: docs  # Do not modify.
 weight: 250
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     parent: Interactive Apps with Open OnDemand
 ---
 
 You are also able to access the terminal through a JupyterLab session.
 
-{{< figure src="/notes/rivanna-intro/img/OOD_JupyterLab_Terminal.png" caption="JupyterLab Terminal" >}}
+{{< figure src="/notes/hpc-intro/img/OOD_JupyterLab_Terminal.png" caption="JupyterLab Terminal" >}}
 
 Here, you can execute Linux commands to create custom conda environments and JupyterLab kernels. Additionally, you can access and run singularity containers through this functionality.
 

@@ -7,7 +7,7 @@ type: docs  # Do not modify.
 weight: 390
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     parent: Features of Open OnDemand
 ---
 

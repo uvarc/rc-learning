@@ -7,11 +7,11 @@ type: docs  # Do not modify.
 weight: 120
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     parent: Connecting to The System
 ---
 
 The Open OnDemand home page is the Dashboard. 
 
-{{< figure src="/notes/rivanna-intro/img/OOD_Dashboard.png" caption="OOD Dashboard" >}}
+{{< figure src="/notes/hpc-intro/img/OOD_Dashboard.png" caption="OOD Dashboard" >}}
 

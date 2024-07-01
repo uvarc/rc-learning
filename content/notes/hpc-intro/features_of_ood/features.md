@@ -8,11 +8,11 @@ weight: 300
 
 # Add menu entry to sidebar.
 menu:
- rivanna-intro:
+ hpc-intro:
     name: Features of Open OnDemand
 ---
 
 Open OnDemand has many features accessible directly from the menu bar.
 
-{{< figure src="/notes/rivanna-intro/img/OOD_File_Menu.png" caption="Open OnDemand Menu Options" >}}
+{{< figure src="/notes/hpc-intro/img/OOD_File_Menu.png" caption="Open OnDemand Menu Options" >}}
 

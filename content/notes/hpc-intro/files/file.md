@@ -7,7 +7,7 @@ type: docs  # Do not modify.
 weight: 400
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     name: Working with Files
 ---
 

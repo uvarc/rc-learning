@@ -7,14 +7,14 @@ type: docs  # Do not modify.
 weight: 10
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     parent: Overview of UVA HPC
 ---
 
 Time on the HPC cluster is _allocated_.
 
 * An allocation refers to a block of CPU time that you can use to run your computations.
-* Only faculty, postdocs, and research staff may request an allocation.
+* Only faculty may request an allocation. Research staff may apply for an exception.
   * Students must be sponsored by a faculty or research staff.
   * All individuals on a given allocation share the service units.
 * Allocations may be requested at [https://www\.rc\.virginia\.edu/userinfo/rivanna/allocations/](https://www.rc.virginia.edu/userinfo/rivanna/allocations/)

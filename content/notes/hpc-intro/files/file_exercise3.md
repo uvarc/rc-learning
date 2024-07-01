@@ -7,7 +7,7 @@ type: docs  # Do not modify.
 weight: 495
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     parent: Working with Files
 ---
 

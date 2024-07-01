@@ -7,7 +7,7 @@ type: docs  # Do not modify.
 weight: 40
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     parent: Overview of UVA HPC
 ---
 

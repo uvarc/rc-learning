@@ -7,7 +7,7 @@ type: docs  # Do not modify.
 weight: 210
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     parent: Interactive Apps with Open OnDemand
 ---
 
@@ -15,5 +15,5 @@ To submit an interactive job, from the Open OnDemand dashboard click on the menu
 
 We will focus on JupyterLab, Rstudio Server, and the Desktop for now.
 
-{{< figure src="/notes/rivanna-intro/img/OOD_Interactive_Apps.png" caption="OOD Interactive Apps menu" >}}
+{{< figure src="/notes/hpc-intro/img/OOD_Interactive_Apps.png" caption="OOD Interactive Apps menu" >}}
 

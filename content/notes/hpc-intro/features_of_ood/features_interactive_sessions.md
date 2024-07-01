@@ -7,10 +7,10 @@ type: docs  # Do not modify.
 weight: 370
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     parent: Features of Open OnDemand
 ---
 
 This tab will show you running, pending or completed interactive sessions from the OOD interface.
 
-{{< figure src="/notes/rivanna-intro/img/features_interactive.png" caption="Interactive Sessions" >}}
+{{< figure src="/notes/hpc-intro/img/features_interactive.png" caption="Interactive Sessions" >}}

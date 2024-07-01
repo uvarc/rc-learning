@@ -4,7 +4,7 @@ summary: "This hands-on workshop provides links to the MathWorks online courses 
 It focuses on Machine Learning, Deep Learning, and Data Analytics"
 date: 2020-09-08T21:13:14-05:00
 authors: [teh]
-categories: ["MATLAB","Machine Learning","Data Anaytics","Deep Learning"]
+categories: ["MATLAB","Machine Learning","Data Analytics","Deep Learning"]
 tags: [matlab,data,ml,dl]
 weight: 240
 

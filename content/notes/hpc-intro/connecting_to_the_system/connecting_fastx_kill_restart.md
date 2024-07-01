@@ -7,7 +7,7 @@ type: docs  # Do not modify.
 weight: 180
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     parent: Connecting to The System
 ---
 
@@ -15,6 +15,6 @@ You can also terminate -- or restart -- a session from the My Sessions tab.  To 
 
 To restart instead of terminating, click the arrow for "run".
 
-{{< figure src="/notes/rivanna-intro/img/FastX_kill_session.png" caption="Terminating or restarting a session." >}}
+{{< figure src="/notes/hpc-intro/img/FastX_kill_session.png" caption="Terminating or restarting a session." >}}
 
 

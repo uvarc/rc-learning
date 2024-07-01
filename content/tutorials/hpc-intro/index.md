@@ -14,9 +14,8 @@ categories: ["HPC"]
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-#notes: rivanna-intro
 
-notes: rivanna-intro
+notes: hpc-intro
 
 weight: 10
 

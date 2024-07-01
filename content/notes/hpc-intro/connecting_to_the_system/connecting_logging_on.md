@@ -7,7 +7,7 @@ type: docs  # Do not modify.
 weight: 100
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     name: Connecting to The System
 ---
 

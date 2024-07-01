@@ -7,7 +7,7 @@ type: docs  # Do not modify.
 weight: 170
 
 menu:
-  rivanna-intro:
+  hpc-intro:
     parent: Connecting to The System
 ---
 
@@ -15,5 +15,5 @@ If you simply close your session browser tab, FastX _suspends_ your session rath
 
 One way to terminate is to log out.  Go to the System menu in the top ribbon and select `Log Out mst3k` (with your ID).
 
-{{< figure src="/notes/rivanna-intro/img/FastX_logout.png" caption="Logging out of the desktop." >}}
+{{< figure src="/notes/hpc-intro/img/FastX_logout.png" caption="Logging out of the desktop." >}}
 
