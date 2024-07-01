@@ -2,7 +2,7 @@
 # Course title, summary, and position.
 authors: [kah]
 categories: ["HPC","Programming","MPI","Parallel Computing"]
-tags: ["mpi","programming","hpc"]
+tags: ["mpi","programming","parallel-programming","hpc"]
 
 # Page metadata.
 title: "Introduction to Programming in MPI"

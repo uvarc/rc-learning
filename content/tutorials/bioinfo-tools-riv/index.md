@@ -6,8 +6,8 @@ summary: "This tutorial is an introduction to using several popular bioinformati
 publishDate: "2021-03-02T00:00:00"
 
 authors: [gka]
-tags: [rivanna,hpc,bioinformatics]
-categories: ["Rivanna","HPC","Bioinformatics"]
+tags: [hpc,bioinformatics]
+categories: ["HPC","Bioinformatics"]
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.

@@ -1,5 +1,5 @@
 ---
-title: HPC from a Terminal
+title: Using UVA's HPC System from a Terminal
 type: docs 
 weight: 1
 date: "2023-12-11T00:00:00"
