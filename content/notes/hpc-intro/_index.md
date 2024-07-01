@@ -1,8 +1,8 @@
 ---
 # Course title, summary, and position.
 authors: [jmh,kah,pbo]
-categories: ["Rivanna","HPC"]
-tags: ["rivanna","hpc"]
+categories: ["HPC"]
+tags: ["hpc"]
 
 # Page metadata.
 date: "2021-04-13T00:00:00"
