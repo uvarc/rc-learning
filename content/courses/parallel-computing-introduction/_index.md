@@ -2,12 +2,12 @@
 # Course title, summary, and position.
 summary: Introduction to Parallel Programming
 authors: [kah]
-categories: ["Programming","Parallel Programming","Fortran","C/C++"]
-tags: ["parallel","programming","fortran","c/c++"]
+categories: ["Programming","Parallel Computing","Fortran","C/C++"]
+tags: ["parallel-programming","programming","fortran","c/c++"]
 
 # Page metadata.
 title: Introduction to Parallel Programming
-date: "2020-11-17T00:00:00Z"
+date: "2020-11-17T00:00:00"
 draft: false  # Is this a draft? true/false
 toc: true  # Show table of contents? true/false
 type: docs  # Do not modify.

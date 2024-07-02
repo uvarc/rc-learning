@@ -2,11 +2,9 @@
 # Course title, summary, and position.
 title: "Introduction to Building and Deploying Containers"
 authors: [cag]
-categories: ["Containers","Docker","R","Shiny", "App Development"]
-tags: ["containers","docker","r","shiny","app-development"]
 
 # Page metadata.
-date: "2023-05-01:00:00Z"
+date: "2023-05-01T00:00:00"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.

@@ -3,9 +3,9 @@ title: Unix Tutorials for Beginners
 summary: "This set of tutorials is an introduction to using the Unix operating system from the command line."
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: "2017-01-01T00:00:00"
 categories: ["Unix","HPC"]
-tags: [rivanna,hpc,unix]
+tags: [hpc,unix]
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
@@ -14,7 +14,7 @@ tags: [rivanna,hpc,unix]
 #   Otherwise, set `slides = ""`.
 notes: unix-tutorial
 
-weight: 400
+weight: 40
 
 ---
 

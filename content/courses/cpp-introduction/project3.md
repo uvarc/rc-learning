@@ -1,4 +1,5 @@
 ---
+date : "2021-06-23T00:00:00-05:00"
 title: "Project 3"
 toc: true
 type: book

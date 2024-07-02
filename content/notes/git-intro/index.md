@@ -2,6 +2,7 @@
 title: "Version Control with Git"
 type: article
 toc: true
+date: "2023-05-01T00:00:00Z"
 ---
 
 ## Introduction

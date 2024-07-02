@@ -1,8 +1,8 @@
 ---
 title : "Introduction to Shared Memory Programming"
 authors : [kah]
-categories : ["HPC", "Parallel Programming","OpenMP", "GPU" ]
-tags : ["programming", "parallel"]
+categories : ["HPC", "Parallel Computing","OpenMP", "GPU" ]
+tags : ["programming", "parallel-programming"]
 summary : "An introduction to parallel programming using shared memory, including some GPU."
 date : "2020-05-21T00:00:00-05:00"
 ---

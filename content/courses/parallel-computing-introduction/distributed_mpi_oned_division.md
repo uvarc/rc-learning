@@ -3,6 +3,7 @@ title: "Sending and Receiving on a Grid"
 toc: true
 type: docs
 weight: 95
+date: "2020-11-17T00:00:00"
 menu:
     parallel_programming:
         parent: Distributed-Memory Programming
