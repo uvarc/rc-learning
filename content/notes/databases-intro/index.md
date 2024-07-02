@@ -1,12 +1,11 @@
-+++
-type = "howto"
-date = "2023-01-20T00:00:00-05:00" 
-tags = [ "databases", "howto" ] 
-category = ["howto"]
-draft = false 
-title = "Introduction to Databases" 
-author = "RC Staff"
-+++
+---
+
+title: "Introduction to Databases" 
+type: article 
+date: 2023-01-20T00:00:00-05:00 
+draft: false 
+
+---
 
 <p>
   There are two main families of databases: Relational and NoSQL.

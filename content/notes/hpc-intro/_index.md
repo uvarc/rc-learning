@@ -1,8 +1,6 @@
 ---
 # Course title, summary, and position.
 authors: [jmh,kah,pbo]
-categories: ["HPC"]
-tags: ["hpc"]
 
 # Page metadata.
 date: "2021-04-13T00:00:00"
@@ -19,4 +17,4 @@ menu:
 
 UVA's primary resource for high\-performance computing provides a platform for computationally-intensive research across a variety of disciplines. 
 
-{{< figure src="/notes/hpc-intro/img/rivanna_racks.png" caption="The Rivanna cluster" >}}
+{{< figure src="/notes/hpc-intro/img/rivanna_racks.png" caption="UVA's HPC cluster" >}}
