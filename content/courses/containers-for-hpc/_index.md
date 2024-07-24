@@ -3,8 +3,8 @@ date : "2022-11-03T00:00:00-05:00"
 title : "Software Containers for HPC"
 summary: "An Introduction to using and building software containers."
 authors: [rs]
-categories: ["containers","rivanna","hpc"]
-tags: [containers, rivanna, hpc]
+categories: ["Containers","HPC"]
+tags: [containers, hpc]
 toc: true
 type: book
 weight: 1
