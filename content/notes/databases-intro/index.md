@@ -245,7 +245,7 @@ We are frequently asked by researchers how to incorporate databases into their w
 
 <br>
 
-**Note:** Research Computing may be able to provide support for your database needs. Please schedule a consulation request on our website by filling out [this form](https://www.rc.virginia.edu/form/support-request/?category=Consultation). 
+**Note:** Research Computing may be able to provide support for your database needs. Please schedule a consultation request on our website by filling out [this form](https://www.rc.virginia.edu/form/support-request/?category=Consultation). 
 
 
 # Other Resources

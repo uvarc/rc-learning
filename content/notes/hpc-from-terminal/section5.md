@@ -10,7 +10,7 @@ menu:
 
 Most high-performance computing clusters have commands that are specific to that environment, and are not part of Unix per se.
 
-## Home Direcotry
+## Home Directory
 
 The default home directory provides 50GB of storage capacity, e.g., /home/mst3k.  Each user also has access to 10 TB of  __temporary__  storage in the "scratch" folder, e.g. /scratch/mst3k
 

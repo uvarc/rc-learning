@@ -100,7 +100,7 @@ For best performance, the signature of the function arguments must be specified.
 From the Numba documentation:
 {{% code-download file="/courses/python-high-performance/codes/numba_vectorize.py" lang="python" %}}
 
-The run may emit a warning about underutilization:
+The run may emit a warning about under-utilization:
 ```no-highlight
 Grid size (1) < 2 * SM count (40) will likely result in GPU under utilization due to low occupancy.
 ```

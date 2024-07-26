@@ -11,7 +11,7 @@ menu:
     parent: Connecting to The System
 ---
 
-Most users should chose the MATE session.  
+Most users should choose the MATE session.  
 
 {{< figure src="/notes/hpc-intro/img/FastX_session_launch.png" caption="Starting a MATE session" >}}
 

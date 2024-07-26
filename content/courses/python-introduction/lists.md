@@ -76,7 +76,7 @@ This extracts elements 1, 3, and 5.
 * Extend a list with another list
   * `L1.extend(["Michael","Terry"])`
 
-It is important to understand the difference btween appending and extending. Appending adds the argument as the new last element exactly as it appears. It takes any type.  Extending requires a list as its argument.  It joins the two lists sequentially.  It is is equivalent to
+It is important to understand the difference between appending and extending. Appending adds the argument as the new last element exactly as it appears. It takes any type.  Extending requires a list as its argument.  It joins the two lists sequentially.  It is equivalent to
   * `L=[1,2,3]+[4,5,6]`
 
 * Insert an element

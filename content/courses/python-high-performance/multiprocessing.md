@@ -73,7 +73,7 @@ if __name__ == "__main__":
    pool.join()
 ```
 
-In this example we created a Pool of four workers (`Pool(processes=4)`). The `pool.map` call submits a workload to the Pool of workers.  The first parameter is the name of the function, in this case `f`, and the second argument defines the sequence of arguent(s) that need to be passed to the specified function `f`. Each element of the sequence is passed to f on one of the cores in use.
+In this example we created a Pool of four workers (`Pool(processes=4)`). The `pool.map` call submits a workload to the Pool of workers.  The first parameter is the name of the function, in this case `f`, and the second argument defines the sequence of argument(s) that need to be passed to the specified function `f`. Each element of the sequence is passed to f on one of the cores in use.
 
 The `map` function is _blocking_; execution will not continue until the result is returned.  Another version of map, `map_async`, is _nonblocking_. Execution continues while the computations are carried out.  The communication is terminated when `get` is invoked.
 ```python

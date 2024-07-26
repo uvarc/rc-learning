@@ -7,7 +7,7 @@ weight: 25
 
 menu:
     fortran-introduction:
-        parent: Statementns
+        parent: Statements
         weight: 25
 
 ---
@@ -36,7 +36,7 @@ Fixed format comment:
 Free format comment:
   * Anything from `!` to the end of the line is ignored.
 
-Due to its record-oriented history, Fortran uses the end-of-line marker to terminate a statement.  If the statement is too long to fit, or for esthetic reasons the programmer wishes to extend the statement over multiple lines, a continuation marker must be used.
+Due to its record-oriented history, Fortran uses the end-of-line marker to terminate a statement.  If the statement is too long to fit, or for aesthetic reasons the programmer wishes to extend the statement over multiple lines, a continuation marker must be used.
 
 Fixed format continuation:
   * A number or printable character in the 6th column.
@@ -82,7 +82,7 @@ It was often used in old code since do loops required a labeled statement as the
 We use `END DO` now for this purpose.  However, `CONTINUE` is a convenient 
 target for labels in input/output statements, and occasionally in other circumstances.
 
-Fortran has a `GO TO (or `GOTO`) statement.
+Fortran has a `GO TO` (or `GOTO`) statement.
 ```fortran
     go to <label>
 ```

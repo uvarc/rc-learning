@@ -45,7 +45,7 @@ Use the SciPy `ndimage` to tint a photograph.
 1. Import numpy and matplotlab.pyplot. Import the scipy misc package
 2. Extract the sample picture "face" (a raccoon).
 3. Use matplotlab function imshow to look at the picture.  You may still need to use plt.show().
-4. Use the NumPy array(img) function to get an numpy array. Specify dtype='float'.
+4. Use the NumPy array(img) function to get a numpy array. Specify dtype='float'.
 4. Get the shape of the image array.
 5. Tone down the blue by .9 and the red by .95.  The order of color channels in the image is RBG.
 6. The multiplication will use floats which are not permitted for an image (the pixel values must be integers between 0 and 255).  Store the tinted array into a new array with dtype='int'.  You can do this in one step if you think about it.

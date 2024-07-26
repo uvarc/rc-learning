@@ -885,7 +885,7 @@ Modifiers expand the potential matches\.
 # More Modifiers
 
 * \\ escapes the preceding character\, meaning it is to be used literally and not as a regex symbol\.
-* \\ can also indicate nonprinting characters\, e\.g\. \\t for tab\.
+* \\ can also indicate non-printing characters\, e\.g\. \\t for tab\.
 * \(\) group the pattern into a subexpression
 * | pipe is or
   * \[gray|grey\] equivalent to \[gr\(a|e\)y\]

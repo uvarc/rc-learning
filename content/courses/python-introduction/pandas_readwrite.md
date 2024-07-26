@@ -93,7 +93,7 @@ Pandas can also directly import HDF5 files, using [Pytables](https://www.pytable
 my_data=pd.read_hdf("weather.hdf")
 ```
 
-Pandas dataframes are strictly two-dimensional objexts.  The [Xarray](https://docs.xarray.dev/en/stable/) package provides an extension of the Pandas dataframe to more than two dimensions. 
+Pandas dataframes are strictly two-dimensional objects.  The [Xarray](https://docs.xarray.dev/en/stable/) package provides an extension of the Pandas dataframe to more than two dimensions. 
 Since Pandas 0.20, Xarray is the recommended package to manage higher-dimensional data, replacing the Pandas `Panel` data structure.
 
 Xarray can read NetCDF files directly if the [netCDF4-Python](https://github.com/Unidata/netcdf4-python) is installed.  It can also read HDF5 files via [h5netcdf](https://github.com/h5netcdf/h5netcdf).  
@@ -116,7 +116,7 @@ ds.to_netcdf("newdata.nc")
 **Exercise**
 Download the [weather.csv](/data/weather.csv) file.
 Read the data into a dataframe.  Summarize the data.  Look at the first 20 lines.  Print the columns.  Change the names of "Data.Temperature.Avg Temp",
-"Data.Temperature.Max Temp" and "Data.Temperature.Min Temp" to "Data.AvgTemp", "Data.MaxTemp", and "Data.MinTemp" respectively.  Print the mean of the average tempature.
+"Data.Temperature.Max Temp" and "Data.Temperature.Min Temp" to "Data.AvgTemp", "Data.MaxTemp", and "Data.MinTemp" respectively.  Print the mean of the average temperature.
 
 {{< spoiler text="Example Solution, zipped Jupyter notebook" >}}
 [pandas_weather_ex1.zip](/courses/python-introduction/exercises/pandas_weather_ex1.zip)

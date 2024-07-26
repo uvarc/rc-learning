@@ -36,7 +36,7 @@ Modules are brought in via the USE statement
 ```fortran
 USE mymodule
 ```
-All USE statements must be the first nonexecutable statements after the declaration of the program unit (program, function, subroutine), before any IMPLICIT statement and the variable declarations.
+All USE statements must be the first executable statements after the declaration of the program unit (program, function, subroutine), before any IMPLICIT statement and the variable declarations.
 
 There is no distinct "namespace" for a Fortran module.  Names imported into the USEing unit do not acquire a distinguishing name.
 

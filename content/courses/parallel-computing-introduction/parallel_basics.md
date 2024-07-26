@@ -39,7 +39,7 @@ Most consumer computers have only one CPU, but many high-end servers have multip
 its own pathway to memory, disk, and so forth.  
 
 Computers can be connected to one another through some kind of _network_.  The best-known network is Ethernet. Networking allows multiple computers to be connected in physical proximity to one another, forming a _cluster_.  Each member computer in the cluster is usually
-called a _node_.  Ethernet can be used for the interconnect, but Ethernet is a relatively slow network.  The time required for a message to be sent from one computer to another is the _latency_, whereas the amount of data that can be sent per unit time is the _bandwidth_.  Ethernet generally has fairly good bandwith but quite high latency.  Since fast communication between nodes is important in a
+called a _node_.  Ethernet can be used for the interconnect, but Ethernet is a relatively slow network.  The time required for a message to be sent from one computer to another is the _latency_, whereas the amount of data that can be sent per unit time is the _bandwidth_.  Ethernet generally has fairly good bandwidth but quite high latency.  Since fast communication between nodes is important in a
 high-performance cluster, interconnects with much lower latency and higher bandwidth are generally provided for these systems, usually along with Ethernet for routine communication.  The most widely used of these fast networks is InfiniBand, now owned by NVIDIA.  
 
 {{< figure src="/courses/parallel-computing-introduction/img/Frontera.jpg" height=720 width=563 caption="A portion of a large computing cluster." >}}

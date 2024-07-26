@@ -33,7 +33,7 @@ and an extensive set of Julia code examples.
 
 ## The Julia Language Tutorials
 
-* The Julia Programming Language (Offical site) <br />
+* The Julia Programming Language (Official site) <br />
   https://julialang.org/
 
 * Julia 1.5 Documentation <br />

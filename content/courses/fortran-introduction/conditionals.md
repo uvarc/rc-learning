@@ -14,7 +14,7 @@ menu:
 
 A _conditional_ is a programming construct that implements decisions. 
 * _If_ the weather is good _then_ we will go for a walk, _else_ we will stay inside and watch TV.  
-* _If_ it is cold enough to snow I will wear my heavy coat, _else if_ it is warmer and just rains I will wear my rainjacket.
+* _If_ it is cold enough to snow I will wear my heavy coat, _else if_ it is warmer and just rains I will wear my rain jacket.
 The expression following each _if_ or _else_ must be true or false, i.e. a _logical_ expression (in Fortran terminology).
 
 ## Conditional Operators

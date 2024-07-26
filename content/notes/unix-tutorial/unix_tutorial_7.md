@@ -95,7 +95,7 @@ For example, suppose you have installed a program called "units" into your home 
 % export PATH=$PATH:$HOME/units174/bin
 ```
 
-If you have `units` installed you can test that this worked by trying to run units in any directory other than where units is actually located.
+If you have `units` installed you can test that this worked by trying to run units in any directory other than where `units` is actually located.
 ```
 % cd; units
 ```

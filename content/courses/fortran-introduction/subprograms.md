@@ -16,9 +16,9 @@ A _subprogram_ is a self-contained, but not standalone, program unit.  It perfor
 Subprograms are essential to good coding practice.  Among other benefits, they are
   * Reusable.  They can be called anywhere the task is to be performed.
   * Easier to test and debug than a large, catch-all unit.
-  * Effective at reducing errors such as cut and paste mistakes.
+  * Effective at reducing errors such as cut-and-paste mistakes.
 
-Other general names for subprograms are _routines_, _procedures_, and _methods_. The word "method" is generally reserved for procedures defined within an _object_, but it is not conceptionally different from any other subprogram. 
+Other general names for subprograms are _routines_, _procedures_, and _methods_. The word "method" is generally reserved for procedures defined within an _object_, but it is not conceptually different from any other subprogram. 
 
 Subprograms must be invoked or _called_ in order for any of their code to be executed.  
 
@@ -50,7 +50,7 @@ The form END SUBROUTINE is highly recommended.  This can be followed by the name
 ```fortran
 END SUBROUTINE mysub
 ```
-but sometimes this leads to cut and paste errors.
+but sometimes this leads to cut-and-paste errors.
 A RETURN statement is optional unless a premature return is desired.
 Invoking RETURN causes an _immediate_ return of control to the caller.  No other statements in the subprogram will be executed.
 
@@ -99,7 +99,7 @@ We can return it in a different variable with the RESULT clause.
 FUNCTION summit(x,y) RESULT(s)
 ```
 This is especially useful for recursive functions; it is required in this case until the F2008 standard, and not all compilers support F2008 in full yet.
-When using RESULT we declare the type of the name of the RESULT rather than the name of the function.  The caller must still declare the function, however (or use an [interface](/courses/fortran-introduction/interfaces).
+When using RESULT we declare the type of the name of the RESULT rather than the name of the function.  The caller must still declare the function, however (or use an [interface](/courses/fortran-introduction/interfaces)).
 
 **Example**
 ```fortran

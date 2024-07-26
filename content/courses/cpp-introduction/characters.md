@@ -90,7 +90,7 @@ The result is a _buffer overflow_.
 To see what can happen, compile and run the following code
 {{< code-download file="/courses/cpp-introduction/codes/buffer_oflow.cxx" lang="c++" >}}
 
-Type in a short user name (any string), then type `Eleventy` as your password. It should work as expected.  Now try typing a user name that is longer than 10 characters and see what happens.
+Type in a short username (any string), then type `Eleventy` as your password. It should work as expected.  Now try typing a username that is longer than 10 characters and see what happens.
 
 If using C-style strings and functions, guard against this by using
 

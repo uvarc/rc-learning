@@ -14,7 +14,7 @@ We will start by installing the Anaconda environment from [Anaconda Inc](https:/
 
 There are two somewhat incompatible versions of Python; version 2.7 is obsolete but still sometimes used.  Version 3 is the supported version.  We will use Python 3, preferably version 3.9 or above.  If you find that you need to use Python 2.7, Anaconda makes it easy to run both versions side-by-side through _conda environments_.
 
-Anaconda will normally automatically detect your operating system but you should double check to be sure you are downloading the correct version.  On Windows and Mac, after the download is complete, install Anaconda in the usual way for your operating system.  When installing, we strongly recommend staying with the defaults unless you are experienced and very sure you want to make changes. The installer will encourage you to sign up for the Anaconda cloud service; you may ignore that and dismiss the popups. You can do this later if you wish. You may also ignore the suggestions for "reading" or "training."
+Anaconda will normally automatically detect your operating system but you should double-check to be sure you are downloading the correct version.  On Windows and Mac, after the download is complete, install Anaconda in the usual way for your operating system.  When installing, we strongly recommend staying with the defaults unless you are experienced and very sure you want to make changes. The installer will encourage you to sign up for the Anaconda cloud service; you may ignore that and dismiss the popups. You can do this later if you wish. You may also ignore the suggestions for "reading" or "training."
 
 On Linux, the installation is a shell script that you must run with
 ```bash
@@ -32,7 +32,7 @@ The Navigator will present many options that may change over time, most of which
 
 On Windows you can start the Anaconda Navigator, as well as some other Anaconda tools, from the App menu.
 
-If you are using Anaconda from a personal Linux or MacOS system and are comfortable using the command line from a terminal, you can start Spyder or  JupyterLab with
+If you are using Anaconda from a personal Linux or macOS system and are comfortable using the command line from a terminal, you can start Spyder or  JupyterLab with
 ```bash
 jupyter-lab &
 spyder &

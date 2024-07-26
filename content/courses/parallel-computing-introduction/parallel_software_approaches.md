@@ -20,7 +20,7 @@ Parallel programming has been studied by computer scientists for decades. Histor
 A parallelizing compiler should be able to detect parallelism in a sequential program and produce a parallel executable program. A historical example was 
 High\-Performance Fortran, an early effort to make an automatically parallelizing compiler. It never caught on, but some constructs and concepts were incorporated into the Fortran 90 and later standards.
 
-More recently, some compilers can compilers can autogenerate parallel threads using their built-in libraries, such as OpenMP.  The ability of the compiler to autoparallelize efficiently depends heavily on the program structure and the algorithms, but sometimes it is quite effective.
+More recently, some compilers can autogenerate parallel threads using their built-in libraries, such as OpenMP.  The ability of the compiler to auto-parallelize efficiently depends heavily on the program structure and the algorithms, but sometimes it is quite effective.
 
 Extending existing compilers could leverage millions of lines of existing serial programs, thus saving time and labor.  No retraining of programmers is required. Sequential programming is easier than parallel programming so reducing the need for skilled parallel programmers would increase the number of programs that could run in parallel.
 
@@ -29,7 +29,7 @@ On the other hand, not all algorithms lend themselves to parallization at all; p
 ## Extend Existing Languages
 
 Another option is to add functions to a sequential language that create and terminate processes, synchronize processes, and allow processes to communicate.
-This has a numbe of advantages: it is theeasiest, quickest, and least expensive
+This has a number of advantages: it is the easiest, quickest, and least expensive
 approach. It allows existing compiler technology to be leveraged. Minimal retraining of programmers is necessary.
 
 Unfortunately, this can be very difficult to implement, thus compromising availability and uptake.  Work continues in this area with two examples being [UPC++](https://upcxx.lbl.gov/docs/html/guide.html) (Unified Parallel C++) and [Co-Array Fortran](https://docs.nersc.gov/development/programming-models/coarrays/).  Both implement a parallel model called Partitioned Global Address Space (PGAS).  Arrays are distributed over processes in a manner that is transparent to the programmer.  UPC++ is an extended version of the language and must be installed separately, whereas Co-Array Fortran has been incorporated into the language standard from 2008 onward.
@@ -58,9 +58,9 @@ system libraries is available and can be used with most compilers.
 a compiler-provided library.
 
 Since OpenMP is a standard and is provided by compiler vendors, it can
-be used on any operating system for which the necessary compiler is installed; in particular it is available for Linux, Windows, and MacOS.  The version supported
+be used on any operating system for which the necessary compiler is installed; in particular it is available for Linux, Windows, and macOS.  The version supported
 and the quality of the implementation will depend on the compiler vendor.
-Pthreads originated on Unix and can be used on MacOS, which is Unix-based, but it is not
+Pthreads originated on Unix and can be used on macOS, which is Unix-based, but it is not
 native on Windows though a wrapper is available.
 
 In shared-memory programming, the abstract "process" we have discussed
@@ -97,4 +97,4 @@ Much as there was a taxonomy for hardware, there is a classification scheme for 
     Single program multiple data.  This does not mean only one process is running, but that all the processes are the same but they are working on different data.  This is the majority of modern parallel programming, whether shared memory or distributed memory.
 
 - MPMD
-    Multiple program multiple data.  This would represent different programs running on their own data.  The normal functioning of most computers is MPMD, with many different programs running on different cores, and often sharing the cores, but in the parallel-programming context we would generally reserve this terminology for a set of programs that are in some way coordinated.  Often this occurs when a "manager" program spawns other programs, which communicate with the manager and possibly with each other.  Some gaming consoles operate on the MPMD model.
+    Multiple program multiple data.  This would represent different programs running on their own data.  The normal functioning of most computers is MPMD, with many programs running on different cores, and often sharing the cores, but in the parallel-programming context we would generally reserve this terminology for a set of programs that are in some way coordinated.  Often this occurs when a "manager" program spawns other programs, which communicate with the manager and possibly with each other.  Some gaming consoles operate on the MPMD model.

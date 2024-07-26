@@ -9,7 +9,7 @@ weight: 53
 
 We have learned that variables are "nicknames" for the contents of a specific location in memory.  In many languages, including C++, we can also define variable that contain the actual address of a memory location.  These variables are called _pointers_ because they "point to" memory directly.
 
-Since an ordinary variable is also associated with memory, we can use the **reference opearator** `&` to obtain the location in memory.  Inversely, given a location, we can use the **dereference operator** `*` to get the value stored there.
+Since an ordinary variable is also associated with memory, we can use the **reference operator** `&` to obtain the location in memory.  Inversely, given a location, we can use the **dereference operator** `*` to get the value stored there.
 
 {{< code file="/courses/cpp-introduction/codes/ref_deref.cxx" lang="c++" >}}
 
@@ -54,7 +54,7 @@ Setting a pointer variable to NULL can prevent referencing an unintended memory 
 ## Memory Allocation and the New Operator
 
 ### C-Style Allocation
-Previously we saw that arrays could be initialized with a variable that was set at compile time and declared `const`.   However, this limits the flexibility of the code.  Anytime a change is required, the code must be recompiled.  Modifying hard-coded values is also error prone.  Finally, in many cases we need to be able to adapt the code to the circumstances of a particular run.  This is especially true for programs that use arrays, since they are frequently used to represent grids or other numerical entities, and the program should be capable of running at different resolutions without the need to recompile each time.
+Previously we saw that arrays could be initialized with a variable that was set at compile time and declared `const`.   However, this limits the flexibility of the code.  Anytime a change is required, the code must be recompiled.  Modifying hard-coded values is also error-prone.  Finally, in many cases we need to be able to adapt the code to the circumstances of a particular run.  This is especially true for programs that use arrays, since they are frequently used to represent grids or other numerical entities, and the program should be capable of running at different resolutions without the need to recompile each time.
 
 C has a set of `alloc` routines of which `malloc` (memory allocation) is most frequently used.  The malloc function allocates a block of memory of the specified number of _bytes_.  It must be told the number of bytes to obtain by the programmer.  Nearly always the `sizeof` function must be invoked to be sure the correct number of bytes is allocated.
 Malloc returns a pointer of type `void` so it must be cast to the desired type.

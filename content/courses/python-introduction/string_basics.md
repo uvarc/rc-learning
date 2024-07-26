@@ -10,7 +10,7 @@ menu:
         parent: Strings
 ---
 
-String literals are indicated by double quotes `"a"`.  Unlike some other languages, Python is not too picky about single or double quotes to indicate strings, but double quotes are usually preferred for multicharacter strings. If a string contains an apostrophe or its own quotes, the surrounding quotes must be of the other type.
+String literals are indicated by double quotes `"a"`.  Unlike some other languages, Python is not too picky about single or double quotes to indicate strings, but double quotes are usually preferred for multi-character strings. If a string contains an apostrophe or its own quotes, the surrounding quotes must be of the other type.
 
 ```python
 s1="This is a string."

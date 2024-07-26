@@ -39,7 +39,7 @@ Depending on your working directory in Spyder, you may need to provide a path, s
 ```
 This test is intentionally written to fail.  You should see a message.
 
-The pytest executable can also be run from a command line, such as a Linux or Mac OS terminal, or the Anaconda prompt.
+The pytest executable can also be run from a command line, such as a Linux or macOS terminal, or the Anaconda prompt.
 ```no-highlight
 pytest /Users/myid/Python/scripts/test_example.py
 ```
@@ -53,7 +53,7 @@ The name of the class must begin with `Test`.  The tests are run by specifying t
 pytest test_class.py
 ```
 
-We may need to run the same test with multiple values for the input.  Pytest provides a [parameterize](https://docs.pytest.org/en/latest/how-to/parametrize.html#parametrize-basics) capability.  We invoke it with a decorator:
+We may need to run the same test with multiple values for the input.  Pytest provides the [parameterize](https://docs.pytest.org/en/latest/how-to/parametrize.html#parametrize-basics) capability.  We invoke it with a decorator:
 ```python
 @pytest.mark.parametrize("test_input,expected",[("3+5", 8),("2+4", 6),("6*9", 42)])
 def test_eval(test_input, expected):
@@ -62,7 +62,7 @@ def test_eval(test_input, expected):
 
 Pytest has a number of other capabilities, including [fixtures](https://docs.pytest.org/en/7.1.x/how-to/fixtures.html#how-to-fixtures), which are functions that can be used to generate data for input into test functions.  This is beyond our scope, however.
 
-#### PyTest with Juyter Notebooks
+#### PyTest with Jupyter Notebooks
 
 There are a few options for using PyTest with Jupyter notebooks.  A popular package is [testbook](https://testbook.readthedocs.io/en/latest/).  It can be installed from conda-forge in Anaconda, or with pip. Testbook is not run within a notebook, but loads the notebook into a Python script and runs the tests.
 

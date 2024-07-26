@@ -117,7 +117,7 @@ Now re-run your sine-plotting code and observe how the variables acquire values.
 
 Other popular IDEs for Python include the "fremium" [PyCharm](https://www.jetbrains.com/pycharm/).  The "Community" (free) edition is adequate for most casual programmer's needs.  Some organizations, such as the UVA Computer Science Department, hold licenses that students or employees can access.
 
-[VSCode](https://code.visualstudio.com/docs/languages/python) is another IDE.  It is multilanguage but can be easily extended to support Python.
+[VSCode](https://code.visualstudio.com/docs/languages/python) is another IDE.  It is multi-language but can be easily extended to support Python.
 
 ## Resources
 

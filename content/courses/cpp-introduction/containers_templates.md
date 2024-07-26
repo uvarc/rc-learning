@@ -39,7 +39,7 @@ int main() {
 }
 ```
 
-The standard library consists of _containers_, _algorithms_, _iterators_, and a number of general-purpose and numerical sublibraries.  A comprehensive list is [here](https://www.cplusplus.com/reference/).
+The standard library consists of _containers_, _algorithms_, _iterators_, and a number of general-purpose and numerical sub-libraries.  A comprehensive list is [here](https://www.cplusplus.com/reference/).
 
 ### Useful Standard Containers
 

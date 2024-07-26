@@ -27,7 +27,7 @@ MPI_Sendrecv(u, nelem, MPI_DOUBLE,neighbor,sendtag,
 ```
 Normally in C++ an array variable will be declared a pointer and so it is not passed by reference to the MPI subprograms. 
 
-Fortran and Python are straightfoward.
+Fortran and Python are straightforward.
 ```fortran
 ! In the nonexecutable part we declare u and w. They can be allocatable or static.
 ! Fill in u with some values

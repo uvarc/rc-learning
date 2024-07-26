@@ -25,7 +25,7 @@ menu:
 
 **<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=3&section=5" target="_blank">Exercise: Saving Modifications</a>**
 
-### Obtaing Help
+### Obtaining Help
 
 **<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=4&section=2"target="_blank">Video: Using MATLAB's Documentation</a>**
 
@@ -135,7 +135,7 @@ menu:
 
 ### Performing Operations on Arrays
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=6&lesson=2&section=1" target="_blank">Exercise: Basic Array Arithmetic & Functionss</a>**
+**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=6&lesson=2&section=1" target="_blank">Exercise: Basic Array Arithmetic & Functions</a>**
 
 **<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=6&lesson=2&section=3" target="_blank">Video: Element-wise vs. Matrix Operations</a>**
 

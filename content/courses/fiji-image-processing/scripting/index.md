@@ -21,8 +21,8 @@ Step-by-step instructions are provided for developing scripts in Jython, an impl
 ### Installation {#installation-id}
 Fiji is a stand-alone application that can be downloaded from the [Fiji website](https://fiji.sc/#download). It is available for Mac OSX, Windows, and Linux platforms.  
 
-+ **MacOS X:** The Fiji application should be installed in the the user's home directory rather than the default `Applications` folder.
-+ **Windows 7 & 10:** The Fiji application should be installed in the the user's home directory rather than the default `C:\Program Files` directory.
++ **macOS** The Fiji application should be installed in the user's home directory rather than the default `Applications` folder.
++ **Windows 7 & 10:** The Fiji application should be installed in the user's home directory rather than the default `C:\Program Files` directory.
 + **Linux:** The Fiji application should be installed in a directory where the user has read, execution, and write permissions, e.g. the user's `home` directory.
 
 ### Download the Example Scripts
@@ -114,7 +114,7 @@ my_list = [2,3,5,7,11]
 
 * `x` is assigned an integer value of `10`.
 * `y` is a float variable, i.e. a number with decimals.
-* `my_name` is a assigned a sequence of characters, called a `string`. Strings are defined by enclosing single `'` or double `"` quotes.
+* `my_name` is assigned a sequence of characters, called a `string`. Strings are defined by enclosing single `'` or double `"` quotes.
 * `is_it_Monday` is assigned a boolean value. A boolean can be either `True` or `False`.
 * `my_list` contains a sequence of data elements, in this case integers. In Python/Jython, you can create lists containing elements with mixed types, even nested lists, e.g. `[1.0, 'abc', 1.2, "hello"]`.
 
@@ -242,7 +242,7 @@ print sum
 * The function performs the operation on the passed arguments and the result is stored in our custom variable `sum`.
 
 ## Importing packages {#import-id}
-Just like Python, Jython provides an easy way to get access to classes and functions that are defined in external packages, outside of your script.
+Just like Python, Jython provides an easy way to get access to classes and functions that are defined in external packages, outside your script.
 
 * The `import` statement specifies the names of external packages, classes and functions your script wants to use (the `namespace`).
 * The [ImageJ API documentation][imagej-api] provides the Java package names and classes.
@@ -274,7 +274,7 @@ imp = IJ.getImage()
 print_info(imp)    
 ```
 
-* `import` statements define code that your script needs to work but that is organized in packages/modules outside of your current script. An overview of the standard Fiji/ImageJ packages can be found [here][imagej-api].
+* `import` statements define code that your script needs to work but that is organized in packages/modules outside your current script. An overview of the standard Fiji/ImageJ packages can be found [here][imagej-api].
 * Indentation levels define code blocks, e.g. conditionals, code loops, functions.
 * The `def` keyword defines the beginning of a function, followed by the function's name and argument list. The content of the function is defined by the indented code block following the `def` function declaration.
 * Empty lines are ignored by the interpreter but can improve readability of the code.
@@ -332,7 +332,7 @@ Width x Height: 256 x 254
 
 ## Image Dimensions {#image-dimensions-id}
 
-Fiji and ImageJ can handle multi-dimensional images, e.g. volumetric images or time-lapse series, up to five dimensions. Each image ([ImagePlus](https://imagej.nih.gov/ij/developer/api/ij/ij/ImagePlus.html) object) has at least two dimensions, i.e. width (x-axis) and height (y-axis). In addition, ImagePlus object can have multiple color channels, z-focal planes (called slices), and/or timepoints (called frames). Lastly, images can have different pixel encodings, e.g. 8-bit, 16-bit, 32-bit, RGB that define an image's dynamic range (e.g. number of distinct intensity values per pixel) and color representation.
+Fiji and ImageJ can handle multidimensional images, e.g. volumetric images or time-lapse series, up to five dimensions. Each image ([ImagePlus](https://imagej.nih.gov/ij/developer/api/ij/ij/ImagePlus.html) object) has at least two dimensions, i.e. width (x-axis) and height (y-axis). In addition, ImagePlus object can have multiple color channels, z-focal planes (called slices), and/or timepoints (called frames). Lastly, images can have different pixel encodings, e.g. 8-bit, 16-bit, 32-bit, RGB that define an image's dynamic range (e.g. number of distinct intensity values per pixel) and color representation.
 
 The [ImagePlus](https://imagej.nih.gov/ij/developer/api/ij/ij/ImagePlus.html) class provides convenient methods to get this information.
 
@@ -571,7 +571,7 @@ In Fiji, go to `File` > `Open Samples` > `Mitosis`. This image has the following
 * 5 Focal Planes (Slices, Z)
 * 51 Timepoints (Frames)
 
-The multi-dimensional image (represented by an [ImagePlus](https://imagej.nih.gov/ij/developer/api/ij/ij/ImagePlus.html) object `imp`) contains an [ImageStack](https://imagej.nih.gov/ij/developer/api/ij/ij/ImageStack.html) object to manage the different image planes. An ImageStack contains a group of [ImageProcessors](https://imagej.nih.gov/ij/developer/api/ij/ij/process/ImageProcessor.html) of the same type and size.
+The multidimensional image (represented by an [ImagePlus](https://imagej.nih.gov/ij/developer/api/ij/ij/ImagePlus.html) object `imp`) contains an [ImageStack](https://imagej.nih.gov/ij/developer/api/ij/ij/ImageStack.html) object to manage the different image planes. An ImageStack contains a group of [ImageProcessors](https://imagej.nih.gov/ij/developer/api/ij/ij/process/ImageProcessor.html) of the same type and size.
 
 The ImageStack object of an ImagePlus object (`imp`) can be retrieved like so:
 ```
@@ -984,14 +984,14 @@ Once you have completed script development, you can install the script in Fiji. 
 
 * **Note:** Your script name needs to include at least one underscore (`_`). Example: `Basic_Crop.py`
 
-There are two install options:
+There are two installation options:
 
 * **Option A) Manual process:**
     1. Copy the script to the `plugins` directory in your Fiji install tree. You can create a subdirectory in `plugins` (e.g. plugins/workshop) and place your script there if you like to group related scripts.
 * **Option B) Fiji installer:**
     1. In Fiji, go to `Plugins` > `Install…`.
     2. In the first pop-up dialog browse to and select the script. Click `Open`.  
-    3. In the second dialog window,  select the plugins directory (or a subdirectory within plugins) to where the script should be installed. Click `Save`.
+    3. In the second dialog window,  select the "plugins" directory (or a subdirectory within plugins) to where the script should be installed. Click `Save`.
 
 After installing the script as plugin, restart Fiji.
 
@@ -1111,7 +1111,7 @@ if save_rois:
 
 **Project 8:**  Modify the processing function in [Batch Processing example script](#batch-processing-id) to apply a median filter to a circular shaped ROI in the center of the image. The ROI diameter should be half of the width or height (whichever is smaller) of the image. The radius of the median filter should be requested from the user. [Hint: Setting ROI](#roi-set-id), [Hint: Recording filter functions](#ij-run-id), [Hint: Custom Dialog Windows](#dialogs-id)
 
-**Project 9:** Let’s create a script that performs the following operations on a multi-dimensional [ImageStack](https://imagej.nih.gov/ij/developer/api/ij/ij/ImageStack.html):
+**Project 9:** Let’s create a script that performs the following operations on a multidimensional [ImageStack](https://imagej.nih.gov/ij/developer/api/ij/ij/ImageStack.html):
 
 * Extract the central focal image planes of the last channel for all timepoints.
 * Save each extracted image plane as a separate .tif image file in a designated directory.
@@ -1153,11 +1153,11 @@ for frame_no in range(1, imp.getNFrames() + 1):
 
 **Project 10:** Modify Project 9 to include the following features:
 
-* Apply either a Gaussian or Median filter of choosable radius to the extracted image plane.
+* Apply either a Gaussian or Median filter of a chosen radius to the extracted image plane.
 * Downsample the extracted image plane by a certain factor (see next instruction). Pay to attention to where to place that command in relation to the `setCalibration()` command.
 * Include a custom dialog that
     * lets the user choose the filter mode ("Gaussian Blur..." or "Median...") and filter radius (sigma for Gaussian),
-    * lets the user to specify the downsampling fraction (0 < fraction <= 1.0). 1.0 would imply no downsampling. Hint: `Image` > `Adjust` > `Size`.
+    * lets the user specify the downsampling fraction (0 < fraction <= 1.0). 1.0 would imply no downsampling. Hint: `Image` > `Adjust` > `Size`.
 
 # Resources {#resources-id}
 
@@ -1167,7 +1167,7 @@ for frame_no in range(1, imp.getNFrames() + 1):
 * Tips for Developers: https://imagej.net/Tips_for_developers
 * API: https://imagej.nih.gov/ij/developer/api/
 * SciJava: https://javadoc.scijava.org/Fiji/
-* Advancded: https://imagej.net/tutorials/imagej2-python
+* Advanced: https://imagej.net/tutorials/imagej2-python
 
 **General Scripting**
 

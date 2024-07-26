@@ -123,7 +123,7 @@ $ module load matlab
 $ module load anaconda
 $ module load goolf R
 ```
-Modules need to be loaded any time that a new shell is created to setup the same working environment. This includes every time that you log out and back in, and every time that you run a batch job on a compute node.
+Modules need to be loaded any time that a new shell is created to set up the same working environment. This includes every time that you log out and back in, and every time that you run a batch job on a compute node.
 
 ### Module Details
 

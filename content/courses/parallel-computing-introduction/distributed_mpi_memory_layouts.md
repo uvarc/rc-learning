@@ -9,7 +9,7 @@ menu:
         parent: Distributed-Memory Programming
 ---
 
-Halo exchanges typically involve slices of arrays. In our current example, we are discussing exchanging parts of a two-dimensional array. We have learned how to communicate one-dimensional [arrays](/courses/parallel-computing-introduction/distributed_mpi_array_buffers); now we must consider communicating portions of higer-dimensional arrays.
+Halo exchanges typically involve slices of arrays. In our current example, we are discussing exchanging parts of a two-dimensional array. We have learned how to communicate one-dimensional [arrays](/courses/parallel-computing-introduction/distributed_mpi_array_buffers); now we must consider communicating portions of higher-dimensional arrays.
 
 As we learned, MPI does not construct buffers from variables; it reads a specified number of bytes starting at a specified location in memory.  We must therefore take into consideration how arrays are organized in memory.
 
@@ -59,7 +59,7 @@ flowchart LR
    O --- P[4,4]
 {{< /diagram >}}
 
-In this case the _first_ index varies most rapidly.  In Fortran all columns of a two dimensional array (and analogously for higher-dimensional arrays) are guaranteed to be contiguous in memory.
+In this case the _first_ index varies most rapidly.  In Fortran all columns of a two-dimensional array (and analogously for higher-dimensional arrays) are guaranteed to be contiguous in memory.
 
 The figure we examined [previously](/courses/parallel-computing-introduction/distributed_mpi_halo_exchange) illustrates an exchange of columns and would be used for the column-major languages. To visualize the exchange for row-major languages, we just rotate that figure 90 degrees.
 

@@ -9,7 +9,7 @@ weight: 45
 
 Some languages, such as Python, can split a string on a specified delimiter character and return a list of strings. The delimiter is dropped.  Write a program that can accomplish this.
 
-This should be a function but we have not yet covered subprograms, so you may write a monolithic program.  If you wish to look ahead, write this as a function.
+This should be a function, but we have not yet covered subprograms, so you may write a monolithic program.  If you wish to look ahead, write this as a function.
 
 Ideally we would use varying-length strings, but for them to be really useful for this project, we would need an allocatable array of varying-length strings, which requires a derived type or use of more advanced intrinsics.
 

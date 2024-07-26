@@ -52,7 +52,7 @@ This starts from current directory (`.`) and searches for myscript.sh. The perio
 See the manpage or examples online for more usage patterns of this command.
 
 ### `du`
-The `du` command outputs the number of kilobyes used by each subdirectory. Useful if you have gone over quota and you want to find out which directory has the most files. Some options make it more useful; in particular, -s summarizes directories and -h prints it in human-readable format. In your home directory, type
+The `du` command outputs the number of kilobytes used by each subdirectory. Useful if you have gone over quota and you want to find out which directory has the most files. Some options make it more useful; in particular, -s summarizes directories and -h prints it in human-readable format. In your home directory, type
 ```bash
 % du -s -h *
 ```
@@ -114,7 +114,7 @@ Examples:
 ```
 
 ### `sort`
-This command sorts lines of a text file, based on command-­line options. The default is to sort alphabetically, based on lexigraphical ordering (in which e.g. 100 comes before 2).
+This command sorts lines of a text file, based on command-­line options. The default is to sort alphabetically, based on lexicographical ordering (in which e.g. 100 comes before 2).
 ```bash
 % sort mylist.txt
 ```
