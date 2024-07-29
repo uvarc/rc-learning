@@ -133,7 +133,7 @@ View example [here](learning.rc.virginia.edu/courses/parallel_computing_introduc
 ## Front Matter for Tutorials and Workshops "Landings"
 
 - notes
- - directs to content/notes/samename
+ - directs to content/tutorials/samename
 - slides
  - directs to content/slides/samename
  - expects Reveal.js slides

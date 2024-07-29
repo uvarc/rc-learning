@@ -26,7 +26,7 @@ Introductions to Python can be found [here](/courses/programming_python_scientis
 
 **Python code examples**
 
-The Python scripts and data files for this workshop can be [downloaded from here](/notes/opencv/data/opencv-examples.zip). On your computer, unzip the downloaded folder and use it as working directory for this workshop.
+The Python scripts and data files for this workshop can be [downloaded from here](/tutorials/opencv/data/opencv-examples.zip). On your computer, unzip the downloaded folder and use it as working directory for this workshop.
 
 **Python programming environment**
 
@@ -71,7 +71,7 @@ Once you have installed Anaconda, start the Navigator application:
 
 You should see a workspace similar to the screenshot, with several options for working environments, some of which are not installed. We will use `Spyder` which should already be installed. If not, click the button to install the package.
 
-![AnacondaNavigator](/notes/biopython/anaconda-navigator.png)
+![AnacondaNavigator](/tutorials/biopython/anaconda-navigator.png)
 
 ## Spyder
 
@@ -80,7 +80,7 @@ Now we will switch to Spyder. Spyder is an Integrated Development Environment, o
 1. To start it, return to the `Anaconda Navigator` and click on the `Spyder` tile. It may take a while to open (watch the lower left of the Navigator). 
 2. Once it starts, you will see a layout with an editor pane on the left, an explorer pane at the top right, and an iPython console on the lower right. This arrangement can be customized but we will use the default for our examples. Type code into the editor. The explorer window can show files, variable values, and other useful information. The iPython console is a frontend to the Python interpreter itself. It is comparable to a cell in JupyterLab.
 
-![AnacondaNavigator](/notes/biopython/anaconda-spyder.png)
+![AnacondaNavigator](/tutorials/biopython/anaconda-spyder.png)
 
 ## Installation of OpenCV
 
@@ -123,7 +123,7 @@ If the package is installed correctly, the output will show the openCV version n
 
 ## Example scripts and images
 
-Download the example scripts and images from [this link](/notes/opencv/data/opencv-examples.zip). Unzip the downloaded file and start your Python IDE, e.g. Spyder.
+Download the example scripts and images from [this link](/tutorials/opencv/data/opencv-examples.zip). Unzip the downloaded file and start your Python IDE, e.g. Spyder.
 
 If you are on Rivanna, run the following command to copy the examples to your home directory:
 ```bash
