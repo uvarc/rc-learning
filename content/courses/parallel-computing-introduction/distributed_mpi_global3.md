@@ -26,7 +26,7 @@ comm.Barrier()
 ```
 It is seldom needed in Python.  For examples in C++ and Fortran, please see 
 {{< spoiler text="scatter.cxx" >}}
-{{< code file="/courses/parallel-computing-introduction/codes/scatter.cxx" land="cxx" >}}
+{{< code file="/courses/parallel-computing-introduction/codes/scatter.cxx" lang="cxx" >}}
 {{< /spoiler >}}
 
 {{< spoiler text="scatter.f90" >}}
@@ -137,7 +137,7 @@ In MPI_Alltoall, each process sends data to every other process.  Let us conside
 
 ### C++
 {{< spoiler text="alltoall.cxx" >}}
-{{< code file="/courses/parallel-computing-introduction/codes/alltoall.cxx" land="cxx" >}}
+{{< code file="/courses/parallel-computing-introduction/codes/alltoall.cxx" lang="cxx" >}}
 {{< /spoiler >}}
 
 ### Fortran
