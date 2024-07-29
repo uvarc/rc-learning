@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00-05:00"
+date: "2021-06-23"
 title: "Subprogram Arguments"
-toc: true
-type: book
 weight: 72
-
 ---
 
 Passing scalar arguments to a function is straightforward.  It is a little more complicated when pointers or compound types are passed.

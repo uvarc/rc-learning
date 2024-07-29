@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00-05:00"
+date: "2021-06-23"
 title: "Expressions and Statements"
-toc: true
-type: book
 weight: 24
-
 ---
 
 An _expression_ is a combination of variables, operators, and function invocations that can result in a unique evaluation.

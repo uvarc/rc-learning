@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Advanced Array Usage"
-date : "2021-04-5T00:00:00"
-toc: true
-type: book
 weight: 42
-
-menu:
-    fortran-introduction:
-        parent: Arrays
-        weight: 42
-
 ---
 
 ## Array Initialization

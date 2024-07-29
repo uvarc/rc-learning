@@ -1,14 +1,7 @@
 ---
-title: Other Interactive Apps
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Other Interactive Apps"
 weight: 280
-
-menu:
-  hpc-intro:
-    parent: Interactive Apps with Open OnDemand
 ---
 
 Some other widely-used interactive apps are MATLAB and the Desktop.  

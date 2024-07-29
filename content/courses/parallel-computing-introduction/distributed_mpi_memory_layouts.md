@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "MPI Buffers for Halo Exchanges"
-toc: true
-type: docs
 weight: 140
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 Halo exchanges typically involve slices of arrays. In our current example, we are discussing exchanging parts of a two-dimensional array. We have learned how to communicate one-dimensional [arrays](/courses/parallel-computing-introduction/distributed_mpi_array_buffers); now we must consider communicating portions of higher-dimensional arrays.

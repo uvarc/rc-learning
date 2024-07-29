@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00"
+date: "2021-06-23"
 title: "Advanced Input/Output"
-toc: true
-type: book
 weight: 63
-
 ---
 
 Simple stream input/output covers much of what we need for basic programs, but as we move to more sophisticated codes we may find that we need more control, especially for reading files.

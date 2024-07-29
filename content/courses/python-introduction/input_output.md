@@ -1,12 +1,8 @@
 ---
-title: IO and Exceptions
-toc: false
-type: docs
-draft: false
+date: "2020-11-17"
+title: "IO and Exceptions"
 weight: 80
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
+isSectionHeader: true
 ---
 
 Programs are not very useful if they cannot communicate their results.  They are also not terribly useful if they cannot change their controlling parameters to compute different results.  

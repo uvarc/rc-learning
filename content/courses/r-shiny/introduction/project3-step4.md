@@ -1,15 +1,7 @@
 ---
+date: "2023-05-01"
 title: "Step 4: Display the data"
-date: "2023-05-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false # Show table of contents? true/false
-type: docs  # Do not modify.
 weight: 440
-
-menu:
-  r-shiny:
-      parent: Introduction to Shiny
-
 ---
 
 Write reactive logic to:

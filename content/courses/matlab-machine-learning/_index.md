@@ -1,17 +1,11 @@
 ---
+date: "2019-10-16"
 title: "Machine Learning with Matlab"
-summary: Machine learning in Matlab, based on Mathworks online tutorials.
+summary: "Machine learning in Matlab, based on Mathworks online tutorials."
 authors: [cag]
-date: 2019-10-16T21:13:14-05:00
 categories: ["MATLAB","Machine Learning"]
 tags: [matlab,ml]
-toc: true
-type: docs
-
-menu:
-    matlab-machine-learning:
-        name: Overview
-        weight: 1
+weight: 1
 ---
 
 # Overview

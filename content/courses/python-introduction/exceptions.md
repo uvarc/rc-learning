@@ -1,13 +1,7 @@
 ---
-title: Exceptions
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Exceptions"
 weight: 85
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: IO and Exceptions
 ---
 
 Many situations can result in an error.  

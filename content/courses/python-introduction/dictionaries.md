@@ -1,13 +1,7 @@
 ---
-title: Dictionaries
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Dictionaries"
 weight: 71
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Dictionaries and Sets
 ---
 
 Dictionaries are _mappings_.  Elements are accessed by a _key_ which may be of any immutable type. Tuples may be used as a key, but in that case no elements of the tuple may be mutable.  Keys must be _unique_ (no duplication).

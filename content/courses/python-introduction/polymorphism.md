@@ -1,13 +1,7 @@
 ---
+date: "2020-11-17"
 title: Polymorphism and Operator Overloading
-toc: true
-type: docs
-draft: false
 weight: 220
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Object-Oriented Programming
 ---
 
 _Polymorphism_ means literally "having many forms."  In computer science, it is when the same interface can be used for different types.  In most cases the interface is a function name.  Many of the built-in Python functions are polymorphic; the `len` function can be applied to lists, dictionaries, and strings. Polymorphic functions are often said to be _overloaded_.  The function's _signature_ is the unique description of the number and type of the arguments, and if relevant, the class to which it belongs.  The signature is the means by which the interpreter determines which version of the function to apply. This is called _overload resolution_.

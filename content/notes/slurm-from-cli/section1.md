@@ -1,11 +1,7 @@
 ---
-title: I - HPC and Resource Management
-date: 2023-12-11-14T00:11:14Z
-type: docs 
+date: "2023-12-11"
+title: "I - HPC and Resource Management" 
 weight: 10
-toc: true
-menu: 
-    slurm-from-cli:
 ---
 
 ## Resources and Partitions

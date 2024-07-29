@@ -1,13 +1,7 @@
 ---
-title: The Assert Statement
-draft: false
-toc: true
-type: docs
+date: "2020-11-17"
+title: "The Assert Statement"
 weight: 265
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-       parent: Testing and Debugging
 ---
 
 We finally obtained a correct version of the `dow.py` day-of-the-week calculator, but we arrived by a rather cumbersome process of manually adding code.  We determined several test cases that revealed bugs in our code, but we added each one individually.  Why not automate this testing?

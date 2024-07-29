@@ -1,10 +1,7 @@
 ---
-title: The Slurm Resource Manager
-date: "2023-12-11-14T00:00:00"
-type: docs 
+date: "2023-12-11"
+title: "The Slurm Resource Manager"
 weight: 1
-menu: 
-    slurm-from-cli:
 ---
 
 {{< figure src="/notes/slurm-from-cli/img/slurm_logo.png" width=30% >}}

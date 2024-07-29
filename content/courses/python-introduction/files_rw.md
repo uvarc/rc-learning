@@ -1,13 +1,7 @@
 ---
-title: Reading and Writing Files
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Reading and Writing Files"
 weight: 84
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: IO and Exceptions
 ---
 
 Most of the time we read or write from a file rather than from the console.  File input/output can be complicated in Python and we will later see some built-in means of reading particular types of files, particularly comma-separated-values (CSV) text files.

@@ -1,13 +1,7 @@
 ---
-title: Working with Ndarrays
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Working with Ndarrays"
 weight: 102
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: NumPy, Matplotlib, SciPy
 ---
 
 Numpy arrays are easy to use and have many properties and built-in functions that make them a good choice for many applications, especially but not exclusively working with numerical data. 

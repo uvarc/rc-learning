@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00-05:00"
+date: "2021-06-23"
 title: "Project 2"
-toc: true
-type: book
 weight: 55
-
 ---
 
 Some languages, such as Python, can split a string on a specified delimiter character and return a list of strings. The delimiter is dropped.  Write a program that can accomplish this.  

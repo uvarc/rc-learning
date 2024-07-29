@@ -1,13 +1,7 @@
 ﻿---
-title: Lists
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Lists"
 weight: 32
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Compound Types
 ---
 
 Lists are one of the most important data types in Python.  They are flexible and easy to use. Lists are [sequences](/courses/python-introduction/sequences) of objects.  Each element of the list can be of any type, including another list.  

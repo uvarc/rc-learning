@@ -1,10 +1,7 @@
 ---
-date : "2024-6-03T00:00:00"
+date: "2024-06-03"
 title: "Building Containers on HPC [Apptainer]"
-toc: true
-type: book
 weight: 4
-
 ---
 
 ## Introduction

@@ -1,11 +1,7 @@
 ---
-title: Building and Running C/C++/Fortran codes on HPC Systems
-draft: false
-type: article
-toc: true
-date: "2023-05-01T00:00:00Z"
-weight: 4000
-
+date: "2023-05-01"
+title: "Building and Running C/C++/Fortran codes on HPC Systems"
+weight: 1
 ---
 
 ## What is a Compiler

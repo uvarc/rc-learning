@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00-05:00"
+date: "2021-06-23"
 title: "Encodings and Strings"
-toc: true
-type: book
 weight: 24
-
 ---
 
 Like everything else in the computer, characters must be represented by a sequence of 0s and 1s.  A catalogue of these representations is usually called an _encoding_.

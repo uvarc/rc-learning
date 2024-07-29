@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Jacobi Iteration"
-toc: true
-type: docs
 weight: 200
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 There are many algorithms for solving the Laplace equation, but we will use one of the oldest, the Jacobi method. It is typically slow to converge to the solution, but it is easy to understand, easy to program, and easy to parallelize.

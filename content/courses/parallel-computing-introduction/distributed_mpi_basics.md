@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Basics of MPI Programming"
-toc: true
-type: docs
 weight: 25
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 We will start with the basic routines used to initialize MPI, obtain information about the process, and write simple examples.

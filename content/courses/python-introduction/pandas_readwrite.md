@@ -1,13 +1,7 @@
 ---
-title: Reading and Writing Data in Pandas
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Reading and Writing Data in Pandas"
 weight: 135
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Pandas
 ---
 
 Pandas provides multiple functions to read files in several formats.

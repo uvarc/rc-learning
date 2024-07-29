@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "A Random Walk with MPI"
-toc: true
-type: docs
 weight: 38
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 We would like to start with a simple example that has a simple work distribution.  To make it even easier, we will use no communications.

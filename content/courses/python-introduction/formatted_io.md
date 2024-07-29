@@ -1,13 +1,7 @@
 ---
-title: Formatted Output
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Formatted Output"
 weight: 82
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: IO and Exceptions
 ---
 
 So far we have only considered _list-directed_ input/output.  We leave it to the interpreter to format.  However, for output we often want or need more control over the appearance.  

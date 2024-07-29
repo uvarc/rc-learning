@@ -1,13 +1,7 @@
 ---
-title: Input and Output
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Input and Output"
 weight: 81
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: IO and Exceptions
 ---
 
 ## Console Input

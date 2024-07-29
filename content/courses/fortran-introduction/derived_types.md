@@ -1,16 +1,9 @@
 ---
+date: "2021-04-05"
 title: "Derived Types"
-date : "2021-04-5T00:00:00"
-toc: true
-type: book
 weight: 73
-
-menu:
-    fortran-introduction:
-        parent: Derived Types
-        weight: 73
-
 ---
+
 ## Programmer-Defined Datatypes
 
 So far we have used only the predefined types available in the Fortran standard.  However, an important principle of modern software engineering is _separation of concerns_ and _encapsulation_.  We would like for related data to be connected, and we want each program unit to implement a well-defined set of actions, its "concern."  This also allows the programmer to control the _interface_, the way in which other parts of the program interact with the data.

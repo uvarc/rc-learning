@@ -1,15 +1,9 @@
 ---
+date: "2021-04-05"
 title: "Advanced File IO"
-date : "2021-04-5T00:00:00"
-toc: true
-type: book
 weight: 55
-
-menu:
-    fortran-introduction:
-        parent: Advanced File IO
-        weight: 55
 ---
+
 The basic file input/output commands previously covered are sufficient for many programs, but far more control is possible through the use of other commands and options.  We will describe on the most common here.  
 A detailed overview of file IO can be found in Intel's [documentation](https://software.intel.com/content/www/us/en/develop/documentation/fortran-compiler-oneapi-dev-guide-and-reference/top/language-reference/file-operation-i-o-statements.html).
 

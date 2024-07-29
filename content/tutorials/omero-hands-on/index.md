@@ -1,17 +1,15 @@
 ---
+date: "2019-10-10"
 title: "OMERO Hands-On Tutorial"
 summary: "Getting started with the OMERO image database."
 authors: [cag]
-date: "2019-10-10T21:13:14-05:00"
 categories: ["Image Processing","Omero"]
 tags: [imaging,omero]
 draft: true
-
+weight: 450
 notes: omero-hands-on
 url_dataset: data/omero-workshop-images.zip
 url_code: https://github.com/ksiller/omero
-
-
 ---
 
 {{< figure src="/img/ome-main-nav.svg" >}}

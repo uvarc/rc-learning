@@ -1,11 +1,7 @@
 ---
-title: I - Intro to  Unix and Bash Shell
-date: 2023-12-11T00:00:00-05:00
-type: docs 
+date: "2023-12-11"
+title: "I - Intro to  Unix and Bash Shell"
 weight: 10
-toc: true
-menu: 
-    hpc-from-terminal:
 ---
 
 ## UNIX

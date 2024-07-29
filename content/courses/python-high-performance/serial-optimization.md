@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Strategies for Single-Core Optimization"
-type: docs
-toc: true
 weight: 13
-date: "2020-11-17T00:00:00"
-menu:
-    hp-python:
-        parent: High-Performance Python
 ---
 
 We can represent the optimization process with a flowchart:

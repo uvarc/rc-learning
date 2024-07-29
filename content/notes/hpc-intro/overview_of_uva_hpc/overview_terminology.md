@@ -1,14 +1,7 @@
 ---
-title: Terminology
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Terminology"
 weight: 4
-
-menu:
-  hpc-intro:
-      name: Overview of UVA HPC
 ---
 
 * Node

@@ -1,14 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Overloading and Generic Programming"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 77
-
-menu:
-    fortran-introduction:
-        parent: Overloading and Generic Programming
-        weight: 77
 ---
 
 Overloading is when a procedure or operator is able to work on multiple types.  Most languages overload at least basic arithmetic operators to work on all numerical types.  In modern Fortran the mathematical intrinsics are overloaded

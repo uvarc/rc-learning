@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Working with Compilers"
-type: docs
-toc: true
 weight: 24
-date: "2020-11-17T00:00:00"
-menu:
-    hp-python:
-        parent: High-Performance Python
 ---
 
 Broadly speaking, interpreted languages tend to be slow, but are relatively easy to learn and use.  Compiled languages generally deliver the maximum speed, but are more complex to learn and use effectively.  Python can utilize libraries of compiled code that are appropriately prepared, or can invoke a compiler (standard or "just in time") to compile snippets of code and incorporate it directly into the execution. 

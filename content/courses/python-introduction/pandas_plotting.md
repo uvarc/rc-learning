@@ -1,13 +1,7 @@
 ---
-title: Displaying Data in Pandas
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Displaying Data in Pandas"
 weight: 136
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Pandas
 ---
 
 Pandas relies on Matplotlib for plotting.  We can combine them to work seamlessly with data.  To use any Pandas plotting methods, `matplotlib.pyplot` must be imported. 

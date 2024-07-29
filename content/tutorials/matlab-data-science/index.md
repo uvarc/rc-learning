@@ -1,15 +1,12 @@
 ---
+date: "2020-09-08"
 title: "Data Science with MATLAB"
-summary: "This hands-on workshop provides links to the MathWorks online courses in Data Science.
-It focuses on Machine Learning, Deep Learning, and Data Analytics"
-date: 2020-09-08T21:13:14-05:00
+summary: "This hands-on workshop provides links to the MathWorks online courses in Data Science. It focuses on Machine Learning, Deep Learning, and Data Analytics"
 authors: [teh]
 categories: ["MATLAB","Machine Learning","Data Analytics","Deep Learning"]
 tags: [matlab,data,ml,dl]
 weight: 240
-
 notes: matlab-data-science
-
 url_video: /videos/matlab-data-science/workshop-intro.mp4
 ---
 

@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Sending and Receiving on a Grid"
-toc: true
-type: docs
 weight: 95
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 In the most common cases, we want a full exchange of data between every two communicating processes.  If we examine our schematic again

@@ -1,14 +1,7 @@
 ---
-title: Logging Out of FastX
-date: "2022-10-01T00:00:00"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Logging Out of FastX"
 weight: 170
-
-menu:
-  hpc-intro:
-    parent: Connecting to The System
 ---
 
 If you simply close your session browser tab, FastX _suspends_ your session rather than terminates it.  It is generally preferable to terminate rather than suspend so that you will not accidentally have multiple sessions running.

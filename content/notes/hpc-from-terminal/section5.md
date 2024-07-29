@@ -1,11 +1,7 @@
 ---
-title: V - HPC Specifics
-date: 2023-12-11T00:00:00-05:00
-type: docs
-toc: true 
+date: "2023-12-11"
+title: "V - HPC Specifics"
 weight: 50
-menu: 
-    hpc-from-terminal:
 ---
 
 Most high-performance computing clusters have commands that are specific to that environment, and are not part of Unix per se.

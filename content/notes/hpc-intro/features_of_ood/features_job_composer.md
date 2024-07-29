@@ -1,14 +1,7 @@
 ---
-title: Job Composer
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Job Composer"
 weight: 330
-
-menu:
-  hpc-intro:
-    parent: Features of Open OnDemand
 ---
 
 The job composer tab allows you to create and submit a job to run on the cluster.

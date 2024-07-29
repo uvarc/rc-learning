@@ -1,13 +1,7 @@
 ---
-title: For Loops
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "For Loops"
 weight: 42
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Conditionals and Loops
 ---
 
 One of the most fundamental processes in a computer program is to repeat statements many (perhaps many, many, many) times.  Computers never run out of patience.

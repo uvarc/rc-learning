@@ -1,14 +1,7 @@
 ---
-title: Building a Docker Image
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "Building a Docker Image"
 weight: 130
-date: "2023-05-01T00:00:00"
-menu:
-  containers:
-      parent: Container Basics
 ---
 
 In order to serve our own webapp in a container, we will need to build an image for it. There are many "blank" images like the nginx container we pulled earlier that we can use as a starting point. This is called a base image.

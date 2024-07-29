@@ -1,12 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Advantages of Using Globus"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3008
-
-menu: 
-    globus:
+weight: 8
 ---
 
 Globus provides a secure, unified interface to your research data. Use Globus to "fire and forget" high-performance data transfers between systems within and across organizations.

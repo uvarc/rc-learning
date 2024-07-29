@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Domain Decomposition"
-toc: true
-type: docs
 weight: 45
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 Parallel programs must break down something to distribute among the different processes or threads.  In our [previous](/courses/parallel-computing-introduction/parallel_basics) discussion we talked generally about _task parallelism_ and _data parallelism_, but we have seen few concrete examples applied to programming.  One of the most common parallelisms is a form of data decomposition called _domain decomposition_.  This is typically used for data that can be represented on some form of grid.  We break the grid down into subgrids, and assign each subgrid to a process rank.  There is no hard and fast rule for numbering the subgrids and usually multiple options are possible.

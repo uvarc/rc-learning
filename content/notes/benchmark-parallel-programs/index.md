@@ -1,9 +1,7 @@
 ---
+date: "2020-10-29"
 title: "Benchmarking Parallel Programs"
-type: article 
-toc: true
-date: 2020-10-29T00:00:00-05:00
-
+weight: 1
 ---
 
 # Motivation

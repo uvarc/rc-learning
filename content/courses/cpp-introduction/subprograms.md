@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00-05:00"
+date: "2021-06-23"
 title: "Subprograms"
-toc: true
-type: book
 weight: 71
-
 ---
 
 A _subprogram_ is a self-contained, but not standalone, program unit.  It performs a specific task, usually by accepting _parameters_ and returning a result to the unit that invokes (calls) it.

@@ -1,15 +1,10 @@
 ---
-title: Introduction to Databases
+date: "2024-04-01"
+title: "Introduction to Databases"
 summary: "This tutorial is an introduction to relational and NoSQL databases."
-
-# Schedule page publish date (NOT talk date).
-publishDate: "2024-04-01T00:00:00"
-
+authors: []
 categories: ["databases"]
 tags: ["Databases"]
-
-notes: databases-intro
-
 weight: 200
-
+notes: databases-intro
 ---

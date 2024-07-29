@@ -1,13 +1,7 @@
 ---
-title: Setting Up Your Environment
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Setting Up Your Environment"
 weight: 11
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Introduction to Programming in Python
 ---
 
 We will start by installing the Anaconda environment from [Anaconda Inc](https://anaconda.com).  Anaconda is widely used because it bundles a Python interpreter, most of the popular packages, and development environments. It is cross platform and freely available. [Download](https://www.anaconda.com/products/individual#Downloads) and install the Anaconda Distribution product appropriate for your operating system (Windows, MacOS, or Linux). The standard download will install some variation of Python 3 (version 3).

@@ -1,13 +1,7 @@
 ---
-title: Operators
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Operators"
 weight: 22
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: The Basics
 ---
 
 Operators are defined on types and return a new value, usually of the same but sometimes of a different type.  The most familiar are the arithmetic operators `+ - * /` (addition, subtraction, multiplication, division).  Python also provides an exponentiation operator `**`, e.g. `a**b`.  Python also accepts `pow(a,b)` for exponentiation.

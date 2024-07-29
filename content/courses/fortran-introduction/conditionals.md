@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Conditionals"
-date : "2021-04-5T00:00:00"
-toc: true
-type: book
 weight: 31
-
-menu:
-    fortran-introduction:
-        parent: Conditionals
-        weight: 31
-
 ---
 
 A _conditional_ is a programming construct that implements decisions. 

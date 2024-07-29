@@ -1,12 +1,8 @@
 ---
-title: NumPy, Matplotlib, SciPy
-toc: false
-type: docs
-draft: false
+date: "2020-11-17"
+title: "NumPy, Matplotlib, SciPy"
 weight: 100
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
+isSectionHeader: true
 ---
 
 NumPy, Matplotlib, and SciPy are packages that are fundamental to many applications of Python, particularly in numerically-oriented programming.  They are not part of the set of base Python packages, but are included in distributions such as Anaconda and can be easily added to other Python installations.  

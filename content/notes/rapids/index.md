@@ -1,9 +1,7 @@
 ---
+date: "2021-11-07"
 title: "RAPIDS"
-type: article 
-toc: true
-date: 2021-11-07T00:00:00-05:00
-
+weight: 1
 ---
 
 # What is RAPIDS?
@@ -12,15 +10,15 @@ RAPIDS is a suite of open source software libraries developed by NVIDIA to accel
 
 ## Components
 
-|Component| CPU API | Note|
-|---|---|---|
-| [cupy](https://github.com/cupy/cupy) | NumPy, SciPy | Technically not part of RAPIDS |
-| [cuDF](https://github.com/rapidsai/cudf) | Pandas | |
-| [cuML](https://github.com/rapidsai/cuml) | Scikit-learn | |
-| [cuGraph](https://github.com/rapidsai/cugraph) | NetworkX | |
-| [cuSignal](https://github.com/rapidsai/cusignal) | SciPy Signal| |
-| [cuSpatial](https://github.com/rapidsai/cuspatial) | GeoPandas | |
-| [cuxfilter](https://github.com/rapidsai/cuxfilter) | crossfilter | |
+| Component                                          | CPU API      | Note                           |
+|----------------------------------------------------|--------------|--------------------------------|
+| [cupy](https://github.com/cupy/cupy)               | NumPy, SciPy | Technically not part of RAPIDS |
+| [cuDF](https://github.com/rapidsai/cudf)           | Pandas       |                                |
+| [cuML](https://github.com/rapidsai/cuml)           | Scikit-learn |                                |
+| [cuGraph](https://github.com/rapidsai/cugraph)     | NetworkX     |                                |
+| [cuSignal](https://github.com/rapidsai/cusignal)   | SciPy Signal |                                |
+| [cuSpatial](https://github.com/rapidsai/cuspatial) | GeoPandas    |                                |
+| [cuxfilter](https://github.com/rapidsai/cuxfilter) | crossfilter  |                                |
 
 We will focus on the first three components in this introductory workshop. The others are more specialized.
 
@@ -53,19 +51,19 @@ Clone <https://github.com/rapidsai/notebooks>. (The full size is near 1 GB.) We 
 
 1. In `cudf.ipynb`, compare the performance of `pandas` and `cudf` starting from `N = 100`. Explore the behavior by varying `N`. Beyond which order of magnitude does `cudf` outperform `pandas`?
 
-1. Which method's relative performance remains fairly constant? In other words, the ratio of the `pandas` execution time to the `cudf` execution time does not change much with respect to `N`.
+2. Which method's relative performance remains fairly constant? In other words, the ratio of the `pandas` execution time to the `cudf` execution time does not change much with respect to `N`.
 
-1. Which method has the highest performance boost using `cudf`?
+3. Which method has the highest performance boost using `cudf`?
 
-1. Repeat all of the above for other data types.
+4. Repeat all of the above for other data types.
 
-1. In `cuml/notebook/kmeans_demo.ipynb`, compare the performance of `scikit-learn` and `cuml` by varying `N`. Beyond which order of magnitude does `cuml` outperform `scikit-learn`?
+5. In `cuml/notebook/kmeans_demo.ipynb`, compare the performance of `scikit-learn` and `cuml` by varying `N`. Beyond which order of magnitude does `cuml` outperform `scikit-learn`?
 
-1. There is a cell that checks the accuracy of `cuml` versus `scikit-learn`. Is this necessary?
+6. There is a cell that checks the accuracy of `cuml` versus `scikit-learn`. Is this necessary?
 
-1. Feel free to explore other notebooks.
+7. Feel free to explore other notebooks.
 
-1. General question: Why does the performance of RAPIDS depend on `N`? Why does the CPU API outperform RAPIDS when `N` is not big enough?
+8. General question: Why does the performance of RAPIDS depend on `N`? Why does the CPU API outperform RAPIDS when `N` is not big enough?
 
 # Remark: JupyterLab vs batch job
 

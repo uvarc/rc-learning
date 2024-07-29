@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Halo Exchanges"
-toc: true
-type: docs
 weight: 135
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 In our example, suppose that we have a two-dimensional array `A` that must be computed over the entire (global) grid.  Each subgrid will compute a portion of A, but the boundaries must be exchanged. We match each "ghost" zone to a zone on the edge of the grid managed by the neighbor processes.

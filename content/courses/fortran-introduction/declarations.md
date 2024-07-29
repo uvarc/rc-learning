@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Variable Declarations"
-date : "2021-04-5T00:00:00"
-toc: true
-type: book
 weight: 22
-
-menu:
-    fortran-introduction:
-        parent: Basic Programming Constructs
-        weight: 22
-
 ---
 
 Like most compiled languages, Fortran is _statically_  _typed_ .  All variables must be _declared_ to be of a specific type before they can be used.  A variable’s type cannot be changed once it is declared.

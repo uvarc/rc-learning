@@ -1,14 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Loops"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 33
-
-menu:
-    fortran-introduction:
-        parent: Loops
-        weight: 33
 ---
 
 Much computing is repetitive work.  Evaluate an expression many times with different values.  Read lines of a file.  Update a large number of variables.  To accomplish this, we use _loops_.

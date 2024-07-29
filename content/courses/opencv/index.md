@@ -1,19 +1,14 @@
 ---
+date: "2022-10-27"
 title: "Scientific Image Processing with Python OpenCV"
 summary: "An introduction to scientific image processing with the Python OpenCV package. Topics include splitting and merging of color channels, morphological filters, image thresholding and segmentation."
 author: [khs]
 tags: [imaging,python]
 categories: ["Image Processing","Python"]
-
-highlight_style: "github"
-date: 2022-10-27T00:00:00-05:00
-toc: true  
-type: article
-draft: false
+weight: 1
 ---
+
 <img src="opencv_logo.png" style="width:60%;height:60%"></img>
-
-
 
 # Introduction
 
@@ -399,9 +394,9 @@ ax[2].imshow(eroded, cmap='gray')
 ax[2].axis('off')
 ```
 
-Original             | Dilation               | Erosion
-:-------------------:|:----------------------:|:----------------------:
-![](morph-input.png) | ![](morph-dilated.png) | ![](morph-eroded.png) |
+|       Original       |        Dilation        |        Erosion        |
+|:--------------------:|:----------------------:|:---------------------:|
+| ![](morph-input.png) | ![](morph-dilated.png) | ![](morph-eroded.png) |
 
 > By increasing the kernel size or number of iterations we can dilate or erode more of the original object.
 
@@ -419,9 +414,9 @@ opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
 closing = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
 ```
 
-Original             | Opening               | Closing
-:-------------------:|:----------------------:|:----------------------:
-![](morph-input.png) | ![](morph-opened.png) | ![](morph-closed.png) |
+|       Original       |        Opening        |        Closing        |
+|:--------------------:|:---------------------:|:---------------------:|
+| ![](morph-input.png) | ![](morph-opened.png) | ![](morph-closed.png) |
 
 > Note how the opening operation removed the small dot in the top right corner.  In contrast the closing operation retained that small object and also filled in the black hole in the object on the left side of the input image.
 
@@ -432,9 +427,9 @@ kernel = np.ones((2,2),np.uint8)
 gradient = cv2.morphologyEx(image, cv2.MORPH_GRADIENT, kernel)
 ```
 
-Original             | Gradient (edges)
-:-------------------:|:----------------------:
-![](morph-input.png) | ![](morph-gradient.png)
+|       Original       |    Gradient (edges)     |
+|:--------------------:|:-----------------------:|
+| ![](morph-input.png) | ![](morph-gradient.png) |
 
 # Exercises
 
@@ -519,9 +514,9 @@ dist_transform = cv2.distanceTransform(opening,cv2.DIST_L2,5)
 ret, sure_fg = cv2.threshold(dist_transform,0.6*dist_transform.max(),255,0)
 ```
 
-Distance Transform               | Sure Foreground (nuclei seeds)
-:-------------------------------:|:------------------------:
-| ![](nuclei-dist_transform.png) | ![](nuclei-sure_fg.png) |
+|       Distance Transform       | Sure Foreground (nuclei seeds) |
+|:------------------------------:|:------------------------------:|
+| ![](nuclei-dist_transform.png) |    ![](nuclei-sure_fg.png)     |
 
 
 By subtracting the sure foreground regions from the sure background regions we can identify the regions of unknown association, i.e. the pixels that we have not assigned to be either nuclei or background.
@@ -532,9 +527,9 @@ sure_fg = np.uint8(sure_fg)
 unknown = cv2.subtract(sure_bg,sure_fg)
 ```
 
-Sure Background         | Sure Foreground (nuclei seeds)  | Unknown
-:----------------------:|:-------------------------------:|:-----------------------:
-![](nuclei-sure_bg.png) | ![](nuclei-sure_fg.png)         | ![](nuclei-unknown.png) |
+|     Sure Background     | Sure Foreground (nuclei seeds) |         Unknown         |
+|:-----------------------:|:------------------------------:|:-----------------------:|
+| ![](nuclei-sure_bg.png) |    ![](nuclei-sure_fg.png)     | ![](nuclei-unknown.png) |
 
 
 ## Watershed
@@ -561,9 +556,9 @@ image[markers == -1] = [0,255,255]
 
 The resulting `markers` (pseudo-colored) and input images with segmentation overlay look like this:
 
-Markers                 | Segmentation
-:----------------------:|:-------------------------:
-![](nuclei-markers.png) | ![](image-segmented.png) |
+|         Markers         |       Segmentation       |
+|:-----------------------:|:------------------------:|
+| ![](nuclei-markers.png) | ![](image-segmented.png) |
 
 
 ## Measure

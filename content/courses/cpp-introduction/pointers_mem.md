@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00-05:00"
+date: "2021-06-23"
 title: "Pointers and Memory Management"
-toc: true
-type: book
 weight: 53
-
 ---
 
 We have learned that variables are "nicknames" for the contents of a specific location in memory.  In many languages, including C++, we can also define variable that contain the actual address of a memory location.  These variables are called _pointers_ because they "point to" memory directly.

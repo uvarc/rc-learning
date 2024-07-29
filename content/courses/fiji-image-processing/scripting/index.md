@@ -1,8 +1,6 @@
 ---
+date: 2021-10-14
 title: "Script development for Image Processing with Fiji"
-type: book
-toc: true
-date: 2021-10-14T00:00:00-05:00
 weight: 100
 url_code: /scripts/fiji/fiji-example-scripts.zip
 ---

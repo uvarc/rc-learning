@@ -1,14 +1,7 @@
 ---
-title: Exercise 3
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Exercise 3"
 weight: 495
-
-menu:
-  hpc-intro:
-    parent: Working with Files
 ---
 
 Now that we have covered the basics of OOD interactive apps, OOD functionality, and how to work with files, we will now put everything together to create a unique job submission script and run it through the job composer on OOD. In this example we will write a simple 'Hello World!' python script and a submission script to be run with the OOD job composer.

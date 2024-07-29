@@ -1,14 +1,7 @@
 ---
+date: "2022-10-01"
 title: "Exercise 2"
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
 weight: 390
-
-menu:
-  hpc-intro:
-    parent: Features of Open OnDemand
 ---
 
 Start an Open OnDemand File Explorer tab.  In your home directory, create a new file.  Use the Editor to enter the following text:

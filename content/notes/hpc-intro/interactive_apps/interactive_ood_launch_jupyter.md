@@ -1,14 +1,7 @@
 ---
-title: Launching an Interactive Session
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Launching an Interactive Session"
 weight: 230
-
-menu:
-  hpc-intro:
-    parent: Interactive Apps with Open OnDemand
 ---
 
 When you submit a request for an interactive app, it will be placed into the partition you specified, where it will wait until resources become available.  Requests with higher resource requests (more cores, more memory, more time) may wait longer.  

@@ -1,14 +1,7 @@
 ---
-title: Writing the Dockerfile
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "Writing the Dockerfile"
 weight: 210
-date: "2023-05-01T00:00:00Z"
-menu:
-  containers:
-      parent: Serving a ShinyApp
 ---
 
 Below is the Dockerfile that we will use to build the container for our Chick Weight app. Each line is a command for building our environment and corresponds to a different layer of our image. We will cover each section below.

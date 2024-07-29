@@ -1,14 +1,7 @@
 ---
-title: Connecting with FastX
-date: "2022-10-01T00:00:00"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Connecting with FastX"
 weight: 130
-
-menu:
-  hpc-intro:
-    parent: Connecting to The System
 ---
 
 FastX is a Web-based desktop environment for HPC. It is accessible either through the [Open OnDemand Interactive Apps](/notes/hpc-intro/ood_interactive_apps) menu, or directly at [rivanna-desktop.hpc.virginia.edu](https://rivanna-desktop.hpc.virginia.edu).

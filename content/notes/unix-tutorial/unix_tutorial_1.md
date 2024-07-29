@@ -1,14 +1,7 @@
 ---
+date: "2023-12-11"
 title: "Files in Unix"
-linktitle: "Tutorial 1: Files in Unix"
-draft: false
-highlight_style: "github"
-toc: true
-type: docs
 weight: 20
-date: 2023-12-11-14T00:11:14Z
-menu:
-    unix-tutorials:
 ---
 
 ## Files and Processes

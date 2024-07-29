@@ -1,14 +1,7 @@
 ---
+date: "2021-04-05"
 title: "File IO"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 53
-
-menu:
-    fortran-introduction:
-        parent: File IO
-        weight: 53
 ---
 
 Reading from and writing to the console works for simple programs, and is often used even in more complex codes to print error messages, progress indicators, and the like, but for most purposes we need to read from and write to files.  

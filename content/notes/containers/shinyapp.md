@@ -1,14 +1,8 @@
 ---
-title: Serving a ShinyApp
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "Serving a ShinyApp"
 weight: 200
-date: "2023-05-01T00:00:00Z"
-menu:
-  containers:
-      name: Serving a ShinyApp
+isSectionHeader: true
 ---
 
 In this section of the workshop, we will take a completed ShinyApp and create a Docker image for it by writing a Dockerfile. We will then run the container to make sure that the ShinyApp is working as expected. Once we know the container is working, we will create a GitHub repository for our Shiny code and Dockerfile.

@@ -1,14 +1,7 @@
 ---
-title: A Quick Example
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "A Quick Example"
 weight: 110
-date: "2023-05-01T00:00:00"
-menu:
-  containers:
-      parent: Container Basics
 ---
 
 Cowsay is a Linux game that prints ASCII art of a cow and a speech bubble containing a string input by the user. The Whalesay image modifies that game by replacing the cow with a whale.

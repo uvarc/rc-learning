@@ -1,12 +1,8 @@
 ---
-title: Object-Oriented Programming
-toc: false
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Object-Oriented Programming"
 weight: 200
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
+isSectionHeader: true
 ---
 
 Object-oriented programming (OOP) is an approach to structuring a program.  The code is organized around coherent structures that contain both attributes (variables) and behaviors (procedures).  For example, consider a program for a human resources department.  They are concerned with _employees_.  An employee has several attributes, including such things as a name, an employee ID number, a salary, and possibly other information such as home address and start date.  If we did not have something like an object, we would have to represent a group of employees with a list or similar structure.  Each element of the list would have to contain all the information about one employee, so would have to be a list itself.  If we wanted to work with a particular employee's record, we would have to determine the index, then make sure to use it consistently across any other lists or arrays we might be using.  With the information about each employee bundled into an object, we can create a variable representing an employee, and load all the pertinent data into it.  

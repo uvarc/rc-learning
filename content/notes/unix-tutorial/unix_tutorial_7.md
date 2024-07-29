@@ -1,15 +1,7 @@
 ---
+date: "2023-12-11"
 title: "Environment Variables"
-linktitle: "Tutorial 7: Environment Variables"
-date: 2019-04-29T11:06:47-04:00
-draft: false
-highlight_style: "github"
-toc: true
-type: docs
 weight: 80
-date: 2023-12-11-14T00:11:14Z
-menu:
-    unix-tutorials:
 ---
 
 Variables are a way of passing information from the shell to programs when you run them. Programs look "in the environment" for particular variables and if they are found will use the values stored. Some are set by the system, others by you, yet others by the shell, or any program that loads another program. Standard Unix variables are split into two categories, _environment variables_ and _shell variables_. In broad terms, shell variables apply only to the current instance of the shell and are used to set short-term working conditions. Environment variables are exported and have a farther reaching significance; those set at login are valid for the duration of the session. By convention, environment variables are written in UPPERCASE while shell variables usually have lowercase names.

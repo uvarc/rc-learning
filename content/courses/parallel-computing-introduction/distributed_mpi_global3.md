@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Global Communication in MPI: Many To Many"
-toc: true
-type: docs
 weight: 54
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 In many-to-many collective communications, all processes in the communicator group send a message to others. 

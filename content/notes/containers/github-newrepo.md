@@ -1,14 +1,7 @@
 ---
-title: Creating a New GitHub Repository
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "Creating a New GitHub Repository"
 weight: 310
-date: "2023-05-01T00:00:00Z"
-menu:
-  containers:
-      parent: Version Control
 ---
 
 There are several ways to create a new GitHub repository. Here is one way I like to do it:

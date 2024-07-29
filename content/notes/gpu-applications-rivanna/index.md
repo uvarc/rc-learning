@@ -1,11 +1,7 @@
 ---
+date: "2022-10-19"
 title: "GPU-Enabled Applications on Rivanna"
-type: article 
-toc: true
-date: 2022-10-19T00:00:00-05:00
-
-weight: 5000
-
+weight: 1
 ---
 
 In this workshop participants are introduced to the gpu computing resources on Rivanna.

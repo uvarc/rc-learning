@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00-05:00"
+date: "2021-06-23"
 title: "User-Defined Types: Structs"
-toc: true
-type: book
 weight: 84
-
 ---
 
 Even the standard templated types such as vectors are not sufficiently flexible for many applications; while they can be set up for many underlying types, all elements must consist of a single type.  Frequently we wish to collect different types together in some form of cohesive data structure.  To address this, a variety of avenues are available for programmers to define their own types.

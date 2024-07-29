@@ -1,14 +1,7 @@
 ---
-title: Paths in Linux
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Paths in Linux"
 weight: 410
-
-menu:
-  hpc-intro:
-    parent: Working with Files
 ---
 
 UVA HPC runs the Linux operating system.  File paths start from _root_, denoted with a forward slash (`/`).  The layout of the folders/directories is like an upside-down tree.

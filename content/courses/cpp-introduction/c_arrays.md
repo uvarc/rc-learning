@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00"
+date : "2021-06-23"
 title: "C-Style Arrays"
-toc: true
-type: book
 weight: 52
-
 ---
 
 One of the most common data structures, especially for scientific and numerical programming, is a group of variables all of the same type.  This is frequently called an _array_.

@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Project 4"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 72
-
-menu:
-    fortran-introduction:
-        parent: Project 5
-        weight: 72
-
 ---
 
 Download the file [bodyfat.csv](/data/bodyfat.csv).  This is a dataset of body fat, age, height, and weight for a set of participants in a study. BMI categories are as follows:

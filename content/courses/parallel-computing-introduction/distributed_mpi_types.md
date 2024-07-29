@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "MPI Derived Types"
-toc: true
-type: docs
 weight: 220
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 Modern programming languages provide data structures that may be called "structs," or "classes," or "types."  These data structures permit grouping of different quantities under a single variable name.

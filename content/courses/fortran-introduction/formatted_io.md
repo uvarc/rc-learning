@@ -1,14 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Formatted Input/Output"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 52
-
-menu:
-    fortran-introduction:
-        parent: Input/Output
-        weight: 52
 ---
 
 List-directed IO is convenient.  

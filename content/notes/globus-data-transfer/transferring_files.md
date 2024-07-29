@@ -1,11 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Transferring Files with Globus"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3040
-menu:
-    globus
+weight: 40
 ---
 
 Files are transferred with the Globus File Manager Web App. There are three ways to access the app:

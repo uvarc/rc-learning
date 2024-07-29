@@ -1,13 +1,7 @@
 ---
-title: NumPy
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "NumPy"
 weight: 101
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: NumPy, Matplotlib, SciPy
 ---
 
 NumPy is very powerful and our introduction will barely touch on its most important features.

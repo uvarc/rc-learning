@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Profiling and Timing"
-type: docs
-toc: true
 weight: 12
-date: "2020-11-17T00:00:00"
-menu:
-    hp-python:
-        parent: High-Performance Python
 ---
 
 The first step is usually to _profile_ the code.  Profiling can help us find a program's bottlenecks by revealing where most of the time is spent.  Keep in mind that most profilers work per function.  If you do not have your code well separated into functions, the information will be less useful.

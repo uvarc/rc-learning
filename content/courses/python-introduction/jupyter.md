@@ -1,13 +1,7 @@
 ---
-title: JupyterLab 
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "JupyterLab"
 weight: 12
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Introduction to Programming in Python
 ---
 
 We will begin with JupyterLab. Select the JupyterLab icon in the Anaconda Navigator.  Launching it will cause a tab to open in your Web browser. 

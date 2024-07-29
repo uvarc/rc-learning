@@ -1,11 +1,7 @@
 ---
-title: IV - Specialized Jobs
-date: 2023-12-11-14T00:11:14Z
-type: docs
-toc: true 
+date: "2023-12-11"
+title: "IV - Specialized Jobs"
 weight: 40
-menu: 
-    slurm-from-cli:
 ---
 
 ## Environment Variables

@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Updating Old Code"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 100
-
-menu:
-    fortran-introduction:
-        parent: Updating Old Code
-        weight: 100
-
 ---
 
 If your dissertation depends on it (and you are allowed to do it) it's worth the time unless the code is more than 50,000 to 100,000 lines or so.

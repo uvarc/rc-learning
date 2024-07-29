@@ -1,12 +1,8 @@
 ---
-title: Project Set 2
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Project Set 2"
 weight: 79
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
+isSectionHeader: true
 ---
 
 Input/output, strings, dictionaries, functions, modules.

@@ -1,14 +1,7 @@
 ---
-title: Introduction to Machine Learning with Matlab
-toc: true
-type: docs
-date: 2019-10-16T21:13:14-05:00
-
-menu:
-    matlab-machine-learning:
-        parent: Machine Learning with Matlab
-        weight: 2
-
+date: "2019-10-16"
+title: "Introduction to Machine Learning with Matlab"
+weight: 2
 ---
 
 ## Course Overview

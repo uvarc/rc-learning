@@ -1,14 +1,6 @@
 ---
-title: Rstudio Session
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
-weight: 270
-
-menu:
-  hpc-intro:
-    parent: Interactive Apps with Open OnDemand
+date: "2022-10-01"
+title: "Rstudio Session"
 ---
 
 Once you launch/submit your request, your job will wait in the queue until resources are available. You'll then be able to connect to your session:

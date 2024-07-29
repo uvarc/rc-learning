@@ -1,13 +1,7 @@
 ---
-title: Variables and Types
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Variables and Types"
 weight: 20
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: The Basics
 ---
 
 Variables in a computer program are not quite like mathematical variables.  They are placeholders for _locations in memory_.  Memory values consists of a sequence of binary digits (bits) that can be `0` or `1`, so all numbers are represented internally in __base 2__.  Eight bits is a _byte_, another frequently used unit in computing.  Memory is organized into chunks called _words_; most modern computers use 64-bit (8 byte) words.   

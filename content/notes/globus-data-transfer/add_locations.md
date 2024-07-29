@@ -1,11 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Adding Folders to the Globus Path"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3030
-menu:
-    globus
+weight: 30
 ---
 
 When you first set up Globus, it only has access to certain folders of your local drive. You can add additional locations such as mapped network drives or external hard drives in the Globus Options/Preferences menu.

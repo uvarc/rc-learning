@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Operators, Expressions, and Type Conversions"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 24
-
-menu:
-    fortran-introduction:
-        parent: Operators, Expressions, and Type Conversions
-        weight: 24
-
 ---
 
 Operators are characters or groupings of characters that take some number of variables or literals as _operands_, apply some specific mathematical, logical, or translational operation, and return a result.  Operators are defined by each programming language, although basic ones are often the same or similar.  The majority are mathematically binary operators, i.e. they take two operands, though nearly all languages have some unitary operators and a few have operators that take three or more operands.  Each operand must be of the specific types for which an operator is valid.

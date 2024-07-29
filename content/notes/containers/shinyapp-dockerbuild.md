@@ -1,14 +1,7 @@
 ---
-title: Building the App Image
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "Building the App Image"
 weight: 220
-date: "2023-05-01T00:00:00Z"
-menu:
-  containers:
-      parent: Serving a ShinyApp
 ---
 
 Now that we've written the Dockerfile, it's time to build our image! To do that, we will use the `docker build` command.

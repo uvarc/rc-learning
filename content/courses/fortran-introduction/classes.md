@@ -1,14 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Classes"
-date : "2021-04-5T00:00:00"
-toc: true
-type: book
 weight: 75
-
-menu:
-    fortran-introduction:
-        parent: Classes
-        weight: 75
 ---
 
 A _class_ is a data structure that encapsulates both data (variables) and behavior (procedures).  The only difference between a derived type and a class is that a class may contain procedures as well as variables.

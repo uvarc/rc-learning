@@ -1,14 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Data Hiding and Inheritance"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 76
-
-menu:
-    fortran-introduction:
-        parent: Data Hiding and Inheritance
-        weight: 76
 ---
 
 Classes are fairly new to Fortran and we will mention only a few more of their features.  Some, such as inheritance, are applicable to all types.  We will describe some additional features below. 

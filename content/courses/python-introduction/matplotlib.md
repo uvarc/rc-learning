@@ -1,13 +1,7 @@
 ---
-title: Matplotlib
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Matplotlib"
 weight: 110
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: NumPy, Matplotlib, SciPy
 ---
 
 Most of our sample scripts in this section are taken directly from the Matplotlib [gallery](https://matplotlib.org/stable/gallery/index.html).

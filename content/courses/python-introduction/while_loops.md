@@ -1,13 +1,7 @@
 ---
-title: While Loops
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "While Loops"
 weight: 43
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Conditionals and Loops
 ---
 
 A _while_ loop uses a conditional to determine when to exit.  The loop must be coded to ensure that the conditional will become False at some point, or it will never terminate.

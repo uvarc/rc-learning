@@ -1,13 +1,7 @@
 ---
-title: IDEs
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "IDEs"
 weight: 13
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Introduction to Programming in Python
 ---
 
 Now we will switch to Spyder.  Spyder is an Integrated Development Environment, or __IDE__, aimed at Python.  It is well suited to developing longer, more modular programs.  To start it, return to the Anaconda Navigator and click on its tile.  It may take a while to open (watch the lower left of the Navigator).  Once it starts, you will see a layout with an editor pane on the left, an explorer pane at the top right, and an iPython console on the lower right.  This arrangement can be customized but we will use the default for our examples, but with a different theme. 

@@ -1,117 +1,105 @@
 ---
-title : "Getting Started"
-date : "2019-06-23T08:37:46-05:00"
-type: docs
-toc : true
+date: "2019-06-23"
+title: "Getting Started"
 weight: 111
-menu: 
-    matlab-programming:
-        parent: Fundamentals
 ---
 
 ### Entering Commands
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=2&section=4" target="_blank">Exercise: Order of Operations</a>**
+**[Exercise: Order of Operations](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=2&section=4)**
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=2&section=6" target="_blank">Exercise: Valid Variable Names and Cleaning Up</a>**
+**[Exercise: Valid Variable Names and Cleaning Up](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=2&section=6)**
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=2&section=9" target="_blank">Exercise: Change Output Display</a>**
+**[Exercise: Change Output Display](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=2&section=9)**
 
 ### Getting Data into Matlab
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=3&section=2"target="_blank">Video: Import Tool</a>**
+**[Video: Import Tool](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=3&section=2)**
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=3&section=4" target="_blank">Exercise: Using the Variable Editor</a>**
+**[Exercise: Using the Variable Editor](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=3&section=4)**
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=3&section=5" target="_blank">Exercise: Saving Modifications</a>**
+**[Exercise: Saving Modifications](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=3&section=5)**
 
 ### Obtaining Help
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=4&section=2"target="_blank">Video: Using MATLAB's Documentation</a>**
+**[Video: Using MATLAB's Documentation](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=4&section=2)**
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=4&section=3" target="_blank">Exercise: Open and Use Function Documentation</a>**
-
-
+**[Exercise: Open and Use Function Documentation](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=4&section=3)**
 
 ## Plotting and Common Modifications
 
 ### Plotting
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=2&section=2" target="_blank">Exercise: Plotting Gasoline Prices</a>**
+[Exercise: Plotting Gasoline Prices](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=2&section=2)
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=2&section=6" target="_blank">Exercise: Plot Options</a>**
+[Exercise: Plot Options](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=2&section=6)
 
 ### Annotating Plots
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=3&section=2" target="_blank">Exercise: Axis Labels and Title</a>**
+[Exercise: Axis Labels and Title](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=3&section=2) 
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=3&section=3" target="_blank">Exercise: More Plot Annotation Options</a>**
+[Exercise: More Plot Annotation Options](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=3&section=3)
 
 ### Axis Control
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=4&section=2" target="_blank">Exercise: Modify Axis Properties</a>**
+**[Exercise: Modify Axis Properties](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=4&section=2)**
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=4&section=4" target="_blank">Exercise: Modify Gasoline Price Plot Axes</a>**
-
+**[Exercise: Modify Gasoline Price Plot Axes](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=2&lesson=4&section=4)**
 
 ## Working with Live scripts
 
 ### Create and Run a Script
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=3&lesson=2&section=1" target="_blank">Exercise: Modifying and Running Scripts</a>**
+[Exercise: Modifying and Running Scripts](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=3&lesson=2&section=1)
 
 ### Code Sections
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=3&lesson=3&section=3" target="_blank">Exercise: International Gasoline Prices</a>**
+**[Exercise: International Gasoline Prices](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=3&lesson=3&section=3)**
 
 ### Comments and Text
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=3&lesson=3&section=3" target="_blank">Exercise: International Gasoline Prices</a>**
-
+**[Exercise: International Gasoline Prices](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=3&lesson=3&section=3)**
 
 ## Creating and Manipulating Arrays
 
 ### Manually Entering Arrays
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=4&lesson=2&section=1" target="_blank">Exercise: Creating Vectors</a>**
+[Exercise: Creating Vectors](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=4&lesson=2&section=1) 
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=4&lesson=2&section=2" target="_blank">Exercise: Creating Matrices</a>**
+[Exercise: Creating Matrices](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=4&lesson=2&section=2)
 
 ### Creating Evenly-Spaced Vectors
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=3&section=4" target="_blank">Exercise: Use Colon Operator and Linspace</a>**
+**[Exercise: Use Colon Operator and Linspace](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=3&section=4)**
 
 
 ### Concatenating Arrays
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=4&section=6" target="_blank">Exercise: Concatenating Arrays</a>**
+**[Exercise: Concatenating Arrays](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=4&section=6)**
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=4&section=9" target="_blank">Exercise: Creating and Concatenating Arrays</a>**
+**[Exercise: Creating and Concatenating Arrays](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=4&section=9)**
 
 
 ### Array Creation Functions
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=5&section=2" target="_blank">Exercise: Creating Arrays</a>**
+[Exercise: Creating Arrays](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=5&section=2) 
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=5&section=5" target="_blank">Exercise: Creating Arrays of Random Numbers</a>**
-
-
+[Exercise: Creating Arrays of Random Numbers](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=5&section=5)
 
 ### Reshaping Arrays
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=6&section=3" target="_blank">Exercise: Reshaping a Matrix</a>**
+[Exercise: Reshaping a Matrix](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=6&section=3) 
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=6&section=8" target="_blank">Exercise: Overall Average Electricity Revenue</a>**
+[Exercise: Overall Average Electricity Revenue](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=4&lesson=6&section=8)
 
 
 ## Accessing Data in Arrays
 
 ### Indexing into Vectors
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=5&lesson=2&section=2" target="_blank">Exercise: Accessing and Modifying Vector Values</a>**
+[Exercise: Accessing and Modifying Vector Values](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=5&lesson=2&section=2) 
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=5&lesson=2&section=3" target="_blank">Exercise: Index Using Variables and Keywords</a>**
-
+[Exercise: Index Using Variables and Keywords](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=mlac_mlbe_bod#chapter=5&lesson=2&section=3)
 
 ### Accessing Multiple Elements
 
@@ -400,14 +388,14 @@ menu:
 
 ### Code Analyzer
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=16&lesson=2&section=4" target="_blank">Exercise: Remove Code Analyzer Warnings</a>**
+**[Remove Code Analyzer Warnings](href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=16&lesson=2&section=4)**
 
 
 ### Debugging Run-Time Errors
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=16&lesson=3&section=3" target="_blank">Quiz: Matrix Indexing with Vectors</a>**
+**[Quiz: Matrix Indexing with Vectors](href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=16&lesson=3&section=3)>**
 
 
 ## Additional Resources
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=18&lesson=1&section=1" target="_blank">Resources available through the MathWorks</a>**
+**[Resources available through the MathWorks](https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe#chapter=18&lesson=1&section=1)**

@@ -1,13 +1,7 @@
 ---
-title: Function Arguments
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Function Arguments"
 weight: 52
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Functions and Modules
 ---
 
 ## Variable Passing

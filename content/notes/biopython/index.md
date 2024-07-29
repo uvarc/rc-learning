@@ -1,11 +1,7 @@
 ---
-title: Biopython
-author: khs
-highlight_style: "github"
-date: "2020-10-01T00:00:00"
-toc: true  
-type: article
-draft: false
+date: "2020-10-01"
+title: "Biopython"
+weight: 1
 ---
 
 # Introduction

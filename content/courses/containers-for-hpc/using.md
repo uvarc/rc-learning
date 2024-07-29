@@ -1,10 +1,7 @@
 ---
-date : "2024-6-03T00:00:00-05:00"
-title: Using Containers on HPC [Apptainer]
-toc: true
-type: book
+date: "2024-06-03"
+title: "Using Containers on HPC [Apptainer]"
 weight: 3
-
 ---
 
 Log on to our HPC cluster

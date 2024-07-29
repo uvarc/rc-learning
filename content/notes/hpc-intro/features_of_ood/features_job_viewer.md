@@ -1,14 +1,7 @@
 ---
-title: The OOD Job Viewer
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "The OOD Job Viewer"
 weight: 340
-
-menu:
-  hpc-intro:
-    parent: Features of Open OnDemand
 ---
 
 Open OnDemand allows you to check the status of your jobs easily.  Open the Jobs tab and go to Active Jobs.  The default view is All Jobs.

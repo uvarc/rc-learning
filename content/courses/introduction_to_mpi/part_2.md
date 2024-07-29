@@ -1,12 +1,7 @@
 ---
+date: "2020-05-21"
 title: "Part 2"
-toc: false
-type: docs
-date: "2020-05-21T00:00:00-05:00"
-menu:      
-    introduction-to-mpi:
-        parent: Introduction to Programming in MPI
-        weight: 3
+weight: 3
 ---
 
 Part 2 is an introduction to intermediate programming with MPI. Point-to-point communications are covered.

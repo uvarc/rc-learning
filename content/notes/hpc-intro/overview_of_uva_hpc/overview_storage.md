@@ -1,14 +1,7 @@
 ---
-title: Storage
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Storage"
 weight: 50
-
-menu:
-  hpc-intro:
-    parent: Overview of UVA HPC
 ---
 
 Active users can access free storage for active work.  Research groups that need more permanent storage, or wish to share storage space, can also lease storage.

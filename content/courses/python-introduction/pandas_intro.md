@@ -1,13 +1,7 @@
 ---
-title: Introduction to Pandas 
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Introduction to Pandas"
 weight: 131
-date: "2020-11-17T00:00:00"
-menu: 
-    python-introduction:
-        parent: Pandas
 ---
 
 Pandas introduces new data structures, the most important of which are the Series and the DataFrame.

@@ -1,15 +1,7 @@
 ---
+date: "2023-12-11"
 title: "More About Files"
-linktitle: "Tutorial 3: More About Files"
-date: 2019-04-29T11:06:47-04:00
-draft: false
-highlight_style: "github"
-toc: true
-type: docs
 weight: 40
-date: 2023-12-11-14T00:11:14Z
-menu:
-    unix-tutorials:
 ---
 
 

@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Subprogram Arguments"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 63
-
-menu:
-    fortran-introduction:
-        parent: Subprogram Arguments
-        weight: 63
-
 ---
 
 ## Pass by Reference and INTENT

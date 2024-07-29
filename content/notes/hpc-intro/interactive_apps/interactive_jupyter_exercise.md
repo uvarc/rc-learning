@@ -1,14 +1,7 @@
 ---
+date: "2022-10-01"
 title: "Exercise 1"
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
 weight: 295
-
-menu:
-  hpc-intro:
-    parent: Interactive Apps with Open OnDemand
 ---
 
 Start a JupyterLab interactive session.  Select the Python 3 kernel.  If you are familiar with Python, you may write any code you wish.  If you do not know Python, click on a cell and type the following

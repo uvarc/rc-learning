@@ -1,12 +1,11 @@
 ---
-title : "Statistical Methods with MATLAB"
-summary : "Using statistical methods with MATLAB&trade;"
-date : "2019-06-23T08:37:46-05:00"
-authors : [uvarc]
-tags: ["matlab","data"]
-categories: ["Matlab","Data Analytics"]
+date: "2019-06-23"
+title: "Statistical Methods with MATLAB"
+summary: "Using statistical methods with MATLAB&trade;"
+authors: [uvarc]
+categories: ["Matlab", "Data Analytics"]
+tags: [matlab, data]
 weight: 230
-
 notes: matlab-statistics
 ---
 

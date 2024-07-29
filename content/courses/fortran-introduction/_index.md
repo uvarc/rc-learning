@@ -1,19 +1,11 @@
 ---
-date : "2021-04-5T00:00:00-05:00"
-title : "Programming in Modern Fortran"
+date: "2021-04-05"
+title: "Programming in Modern Fortran"
 summary: "This short course is an introduction to programming in modern Fortran.  Experience programming in some other language is helpful but not required."
 authors: [kah]
-categories: ["Programming","Fortran"]
+categories: ["Programming", "Fortran"]
 tags: [programming, fortran]
-toc: true
-type: book
 weight: 1
-
-menu:
-    fortran-introduction:
-        name: Programming in Modern Fortran
-        weight: 1
-
 ---
 
 > I do not know what the scientific programming language of the year 2000 will look like but it will be called Fortran.

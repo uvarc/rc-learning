@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Point To Point Communications"
-toc: true
-type: docs
 weight: 60
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 We have so far discussed global communications, in which all members of a communicator group take part.  Most MPI programs rely primarily on _point-to-point_ communication, in which an individual process sends messages directly to one other individual processes.

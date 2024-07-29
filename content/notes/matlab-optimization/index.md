@@ -1,7 +1,7 @@
 ---
-title : "Optimization Techniques in MATLAB"
-date: 2020-03-03T21:13:14-05:00
-type: article
+date: "2020-03-03"
+title: "Optimization Techniques in MATLAB"
+weight: 1
 ---
 
 **<a href="https://www.mathworks.com/training-schedule/optimization-techniques-in-matlab.html" target="_blank"><font size="3">Matlab Course: Optimization Techniques in MATLAB<font/></a>**

@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Global Communication in MPI: Reduction"
-toc: true
-type: docs
 weight: 58
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 In a _reduction_, data are sent to a root process, which performs a specified binary operation on sequential pairs of data.

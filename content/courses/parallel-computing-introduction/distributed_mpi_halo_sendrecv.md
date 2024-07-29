@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Sending and Receiving with Halo Exchanges"
-toc: true
-type: docs
 weight: 150
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 From our examination of the illustrations for column-major and row-major languages, we conclude that we should split our two-dimensional grid by _columns_ for Fortran and similar languages, and by _rows_ for C++, Python, and others with that array orientation. 

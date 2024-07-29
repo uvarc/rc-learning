@@ -1,14 +1,7 @@
 ---
-title: Advanced String Handling
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Advanced String Handling"
 weight: 63
-date: "2020-11-17T00:00:00"
-
-menu:
-    python-introduction:
-        parent: Strings
 ---
 
 One of Python's strong points is its ability to do many things well, so both numerical and textual analysis can be done with the same language.  We will look at some of the many ways we can manipulate strings in Python.  It is important to distinguish between string _functions_, which take a string as an argument, e.g. `sfunc(mystring)`, and string _methods_ that follow the string variable, e.g. `mystr.amethod()`.  Both perform operations on the string.  The [classes](/courses/python-introduction/classes) chapter will make clear why the syntax differs.

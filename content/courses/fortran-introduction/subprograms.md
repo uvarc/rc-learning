@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Subprograms"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 61
-
-menu:
-    fortran-introduction:
-        parent: Subprograms
-        weight: 61
-
 ---
 
 A _subprogram_ is a self-contained, but not standalone, program unit.  It performs a specific task, usually by accepting _parameters_ and returning a result to the unit that invokes (calls) it.

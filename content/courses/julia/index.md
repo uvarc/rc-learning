@@ -1,10 +1,11 @@
 ---
-title: "The Julia Programming Language"
-type: article
-toc: true
+date: "2023-12-11"
+title: "Programming in Julia"
+summary: "Introduction to programming in Julia.  Experience programming in some other language is helpful but not required."
+authors: []
 tags: ["programming","julia"]
 categories: ["Programming","Julia"]
-date: 2023-12-11T00:00:00-05:00
+weight: 1
 ---
 
 Julia is a high-level programming language designed for high-performance numerical analysis and computational science. Distinctive aspects of Julia's design include a type system with parametric polymorphism and types in a fully dynamic programming language and multiple dispatch as its core programming paradigm. It allows concurrent, parallel and distributed computing, and direct calling of C and Fortran libraries without glue code. A just-in-time compiler that is referred to as "just-ahead-of-time" in the Julia community is used.

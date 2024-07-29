@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Distributed Parallel Programming"
-type: docs
-toc: true
 weight: 45
-date: "2020-11-17T00:00:00"
-menu: 
-    hp-python:
-        parent: High-Performance Python
 ---
 
 Nearly all recent computers, including personal laptops, are multicore systems.  The central-processing units (CPUs) of these machines are divided into multiple processor cores.  These cores share the main memory (RAM) of the computer and may share at least some of the faster memory (cache).  This type of system is called a **shared-memory processing** or **symmetric multiprocessing** (SMP) computer.  

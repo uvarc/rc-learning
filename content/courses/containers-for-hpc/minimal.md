@@ -1,10 +1,7 @@
 ---
-date : "2024-6-03T00:00:00-05:00"
-title: Appendix 2 - Minimal Containers [Docker]
-toc: true
-type: book
+date: "2024-06-03"
+title: "Appendix 2 - Minimal Containers [Docker]"
 weight: 11
-
 ---
 
 The industry standard of restricting containers to just the application and its dependencies often results in better security and smaller size. See how the use of multi-stage builds and scratch/distroless base images can reduce the image size by as much as 99% in real applications.

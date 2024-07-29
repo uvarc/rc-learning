@@ -1,13 +1,7 @@
 ---
-title: Strings in Python
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Strings in Python"
 weight: 61
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Strings
 ---
 
 String literals are indicated by double quotes `"a"`.  Unlike some other languages, Python is not too picky about single or double quotes to indicate strings, but double quotes are usually preferred for multi-character strings. If a string contains an apostrophe or its own quotes, the surrounding quotes must be of the other type.

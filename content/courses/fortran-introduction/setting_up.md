@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Setting Up Your Environment"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 12
-
-menu:
-    fortran-introduction:
-        parent: Building and Running Your Programs
-        weight: 12
-
 ---
 
 ### Linux

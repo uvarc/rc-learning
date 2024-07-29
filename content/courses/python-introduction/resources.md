@@ -1,12 +1,8 @@
 ---
-title: Resources
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Resources"
 weight: 300
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
+isSectionHeader: true
 ---
 
 ## Resources

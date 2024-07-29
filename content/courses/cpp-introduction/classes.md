@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00"
+date: "2021-06-23"
 title: "Object-Oriented Programming and Classes"
-toc: true
-type: book
 weight: 91
-
 ---
 
 ## Object-Oriented Programming

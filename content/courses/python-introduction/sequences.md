@@ -1,13 +1,7 @@
 ﻿---
-title: Sequences
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Sequences"
 weight: 30
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Compound Types
 ---
 
 A _sequence_ in Python is an ordered group of values that can be represented by a single variable. We can address individual elements or subgroups of a sequence with square brackets and possibly a _range_ of indices.  Square brackets hold the index or range. 

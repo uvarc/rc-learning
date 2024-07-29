@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00"
+date: "2021-06-23"
 title: "Variable Declarations"
-toc: true
-type: book
 weight: 22
-
 ---
 
 Like most compiled languages, C++ is _statically_  _typed_ .  All variables must be _declared_ to be of a specific type before they can be used.  A variable’s type cannot be changed once it is declared.

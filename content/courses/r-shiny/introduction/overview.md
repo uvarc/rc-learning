@@ -1,15 +1,7 @@
 ---
-title: What Is a Shiny App?
-date: "2023-05-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "What Is a Shiny App?"
 weight: 110
-
-menu:
-  r-shiny:
-      parent: Introduction to Shiny
-
 ---
 
 **Shiny is an R package for developing interactive web applications, or apps.** Shiny apps are just webpages!

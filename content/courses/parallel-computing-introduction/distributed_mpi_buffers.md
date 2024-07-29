@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Message Buffers"
-toc: true
-type: docs
 weight: 23
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 MPI documentation refers to "send buffers" and "receive buffers." These refer to  _variables_ in the program whose contents are to be sent or received.  These variables must be set up by the programmer.  The send and receive buffers cannot be the same unless the special "receive buffer" `MPI_IN_PLACE` is specified.

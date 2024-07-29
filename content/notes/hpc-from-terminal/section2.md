@@ -1,11 +1,7 @@
 ---
-title:  II - Files and Directories
-date: 2023-12-11T00:00:00-05:00
-type: docs
-toc : true 
+date: "2023-12-11"
+title: "II - Files and Directories"
 weight: 20
-menu: 
-    hpc-from-terminal:
 ---
 
 ## Files and Directories

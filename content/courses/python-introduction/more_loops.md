@@ -1,13 +1,7 @@
 ---
-title: More About Looping
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "More About Looping"
 weight: 44
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Conditionals and Loops
 ---
 
 ## Leaving Early

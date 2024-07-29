@@ -1,14 +1,7 @@
 ---
-title: Why Use Containers?
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "Why Use Containers?"
 weight: 20
-date: "2023-05-01T00:00:00Z"
-menu:
-  containers:
-      parent: Containers
 ---
 
 Have you ever tried using new code or software from an exciting paper you just read, only to end up spending hours figuring out which versions of the dependencies work on your own machine? Containers eliminate that issue altogether!

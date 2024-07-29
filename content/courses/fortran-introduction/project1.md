@@ -1,11 +1,9 @@
 ---
+date: "2021-04-05"
 title: "Project 1"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 32
-
 ---
+
 Write a program to compute the day of the week for any date of the Gregorian calendar. Here is the formula: 
 ```
 W=(C+Y+L+M+D ) mod 7 

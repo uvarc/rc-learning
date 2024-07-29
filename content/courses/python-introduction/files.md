@@ -1,13 +1,7 @@
 ---
-title: Files
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Files"
 weight: 83
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: IO and Exceptions
 ---
 
 Files are the main ingredients of our programs.  Our scripts are files; we may have input files; we will usually want some kind of output file.  We can manipulate files in Python without having to go through the operating system's user interface.

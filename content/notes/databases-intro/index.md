@@ -1,10 +1,7 @@
 ---
-
+date: "2023-01-20"
 title: "Introduction to Databases" 
-type: article 
-date: 2023-01-20T00:00:00-05:00 
-draft: false 
-
+weight: 1
 ---
 
 <p>

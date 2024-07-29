@@ -1,14 +1,7 @@
 ---
-title: Common Git Commands
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "Common Git Commands"
 weight: 320
-date: "2023-05-01T00:00:00Z"
-menu:
-  containers:
-      parent: Version Control
 ---
 
 As we make changes to our Shiny app or Dockerfile, we will need to push the updates to our GitHub repository. Typically this is done with a `git add` + `git commit` + `git push`.

@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00"
+date: "2021-06-23"
 title: "Conditionals"
-toc: true
-type: book
 weight: 41
-
 ---
 
 A _conditional_ is a programming construct that implements decisions. 

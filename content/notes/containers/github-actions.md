@@ -1,14 +1,7 @@
 ---
-title: GitHub Actions
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "GitHub Actions"
 weight: 340
-date: "2023-05-01T00:00:00Z"
-menu:
-  containers:
-      parent: Version Control
 ---
 
 GitHub Actions allow us to incorporate **Continuous Integration/Continuous Deployment** in our repository. We can automatically rebuild and redeploy our app whenever any changes are committed to the repo.

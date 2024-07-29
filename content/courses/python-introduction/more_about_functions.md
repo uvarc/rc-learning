@@ -1,13 +1,7 @@
 ---
-title: More About Functions
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "More About Functions"
 weight: 54
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Functions and Modules
 ---
 
 The __scope__ of a variable is the range over which it has a defined value.  In Python, the scope is the code block in which the variable is first referenced.  Therefore a calling program may have a variable `x`, a function may also have a variable `x`, and if `x` is not an argument to the function then it will be distinct in the two units.

@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Sending Modes"
-toc: true
-type: docs
 weight: 70
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 There are two basic types of messaging: **blocking** and **nonblocking**.  Blocking communications pause the processes until the message has been confirmed received.  Nonblocking communications initiate the message exchange, then continue without waiting for acknowledgement.  Nonblocking communications must be completed explicitly before the data can be used by the receiver.

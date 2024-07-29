@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00"
+date: "2021-06-23"
 title: "Character Variables"
-toc: true
-type: book
 weight: 23
-
 ---
 
 A `char` variable is 1 byte (8 bits).  It represents a single character.

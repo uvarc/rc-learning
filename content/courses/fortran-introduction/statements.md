@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Statements"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 25
-
-menu:
-    fortran-introduction:
-        parent: Statements
-        weight: 25
-
 ---
 
 If expressions are the "words," then statements are the "sentences" of a programming language.  A statement is a combination of expressions and operators such as assignment (`=` in most languages) which describes a command to the compiler.

@@ -1,13 +1,7 @@
 ---
-title: Sorting and Grouping Data with Pandas
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Sorting and Grouping Data with Pandas"
 weight: 138
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Pandas
 ---
 
 ## Sorting DataFrames

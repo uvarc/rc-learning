@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00"
+date: "2021-06-23"
 title: "Encapsulation and Data Hiding"
-toc: true
-type: book
 weight: 92
-
 ---
 
 There is more to object-oriented programming and classes than attributes and methods.  The basic principles are _encapsulation_, _abstraction_, _inheritance_, and _polymorphism_.  When we learned to write a C++ class, we were learning to deal with abstraction; how to express in code the _abstract data types_.  Now we will deal with encapsulation.

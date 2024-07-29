@@ -1,15 +1,7 @@
 ---
+date: "2019-04-29"
 title: "Wildcards and File Access"
-linktitle: "Tutorial 4: Wildcards and File Access"
-date: 2019-04-29T11:06:47-04:00
-draft: false
-highlight_style: "github"
-toc: true
-type: docs
 weight: 50
-date: 2023-12-11-14T00:11:14Z
-menu:
-    unix-tutorials:
 ---
 
 ## Wildcards

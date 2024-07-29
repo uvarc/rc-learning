@@ -1,14 +1,7 @@
 ---
-title: Pushing our Image to a Container Registry
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "Pushing our Image to a Container Registry"
 weight: 240
-date: "2023-05-01T00:00:00Z"
-menu:
-  containers:
-      parent: Serving a ShinyApp
 ---
 
 Once our container runs successfully, we can push it to a container registry so that others can pull the container. "Others" includes our Kubernetes cluster at UVA.

@@ -1,15 +1,7 @@
 ---
+date: "2023-05-01"
 title: "Boxes"
-date: "2023-05-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
 weight: 830
-
-menu:
-  r-shiny:
-      parent: Customization
-
 ---
 
 ## Add app components to the body with **boxes**

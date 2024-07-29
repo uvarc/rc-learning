@@ -1,11 +1,11 @@
 ---
-title: 'Introduction to R'
+date: "2020-11-17"
+title: "Introduction to R"
 summary: "This short course introduces the basics of the R statistical computing language and the RStudio environment."
-type: article
-toc: true
+authors: []
 tags: ["programming","r"]
 categories: ["Programming","R"]
-date: "2020-11-17T00:00:00Z"
+weight: 1
 ---
 
 <p class="lead"> We will introduce the R statistical computing environment as well as RStudio. We will cover very basic functionality, including variables, functions, importing data, and the fundamentals of inspecting data frame objects. The course assumes little to no experience with statistical computing or R.</p>

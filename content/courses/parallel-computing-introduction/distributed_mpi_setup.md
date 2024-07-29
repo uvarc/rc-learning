@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Setting Up and Running MPI"
-toc: true
-type: docs
 weight: 28
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 We are now ready to write our first MPI program.  Select your choice of language below for this example.

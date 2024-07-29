@@ -1,12 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Installing Globus on Your Computer"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3020
-
-menu:
-    globus
+weight: 20
 ---
 
 To transfer data to and from your computer, you will first need to install Globus Personal Connect. The following links provide instructions for installing Globus Personal Connect based on your machine's operating system.

@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "MPI_Sendrecv"
-toc: true
-type: docs
 weight: 85
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 The pattern of sending and receiving we have just seen is so common that the MPI standard provides a built-in function to handle it, `MPI_Sendrecv`.  This function is guaranteed not to deadlock for an exchange between _source_ and _dest_.  In general, sendcount and recvcount, and the sendtype and recvtype, should be the same.  Tags must also match appropriately.

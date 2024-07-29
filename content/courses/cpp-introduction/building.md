@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00"
+date: "2021-06-23"
 title: "Compilers and IDEs"
-toc: true
-type: book
 weight: 11
-
 ---
 
 The "traditional" development environment for compiled languages was a text editor and a command line.  Many programmers continue to use these successfully, but modern tools can greatly improve programmer productivity.  Some such tools are especially recommended for the Windows operating system, since it does not support command-line usage as cleanly as Linux or macOS.

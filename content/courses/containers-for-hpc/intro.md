@@ -1,10 +1,7 @@
 ---
-date : "2024-6-03T00:00:00-05:00"
-title: Introduction to Software Containers
-toc: true
-type: book
+date: "2024-06-03"
+title: "Introduction to Software Containers"
 weight: 2
-
 ---
 
 <https://www.docker.com/resources/what-container>

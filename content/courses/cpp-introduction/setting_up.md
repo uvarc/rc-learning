@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00-05:00"
+date: "2021-06-23"
 title: "Setting Up Your Environment"
-toc: true
-type: book
 weight: 12
-
 ---
 
 ### Linux

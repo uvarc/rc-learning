@@ -1,14 +1,7 @@
 ---
-title: Running WebApps in a Container
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "Running WebApps in a Container"
 weight: 120
-date: "2023-05-01T00:00:00"
-menu:
-  containers:
-      parent: Container Basics
 ---
 
 Just like with the whalesay/cowsay program, we can run web apps in a container. Let's try with this static website example.

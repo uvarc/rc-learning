@@ -1,14 +1,8 @@
 ---
-title: Version Control
-date: "2023-05-01:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2023-05-01"
+title: "Version Control"
 weight: 300
-date: "2023-05-01T00:00:00Z"
-menu:
-  containers:
-      name: Version Control
+isSectionHeader: true
 ---
 
 Tools like Git and GitHub are great keeping track of changes in our app. They also allow for easy collaboration and sharing of code.

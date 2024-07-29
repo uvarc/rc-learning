@@ -1,13 +1,7 @@
 ---
-title: Sets
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Sets"
 weight: 72
-date: "2020-11-17T00:00:00"
-menu: 
-    python-introduction:
-        parent: Dictionaries and Sets
 ---
 
 Sets are another _unordered_ type.  No element of a set may be duplicated.  The set is mutable but all elements must be immutable.

@@ -1,14 +1,7 @@
 ---
-title: System Specifications
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "System Specifications"
 weight: 40
-
-menu:
-  hpc-intro:
-    parent: Overview of UVA HPC
 ---
 
 Currently the supercomputer is made up of two systems, Rivanna and Afton, and between the two has 626 nodes with over 20448 cores and 8PB of various storage.

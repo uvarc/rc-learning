@@ -1,14 +1,7 @@
 ---
-title: Using and Closing an Interactive Session
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Using and Closing an Interactive Session"
 weight: 240
-
-menu:
-  hpc-intro:
-    parent: Interactive Apps with Open OnDemand
 ---
 
 If have not previously used the OOD JupyterLab interactive app, you must select a kernel before initiating the notebook.  Once JupyterLab is set up, you can also start another notebook with a different kernel by selecting File->New Notebook.  It will then show a dropdown with the kernels available to you.

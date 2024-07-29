@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "GPU acceleration"
-toc: true
-type: docs
 weight: 60
-date: "2020-11-17T00:00:00"
-menu:
-    hp-python:
-        parent: High-Performance Python
 ---
 
 Certain tasks can be greatly accelerated if run on a graphics processing unit (GPU).  A GPU can be regarded as a device that runs hundreds or thousands of threads.  The memory per thread is usually fairly limited but has a very high bandwidth.  Data must be moved to and from the host computer's memory to the GPU's memory.

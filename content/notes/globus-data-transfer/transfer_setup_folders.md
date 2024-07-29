@@ -1,11 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Setting Up Source and Destinations"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3043
-menu:
-    globus
+weight: 43
 ---
 
 First we must assign the source and destination collections.

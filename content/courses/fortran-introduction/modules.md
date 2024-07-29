@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Modules"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 71
-
-menu:
-    fortran-introduction:
-        parent: Modules
-        weight: 71
-
 ---
 
 Modules are subordinate program units that can contain multiple subprograms as well as associated variables.  

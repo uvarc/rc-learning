@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "MPI Buffers for Arrays"
-toc: true
-type: docs
 weight: 90
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 So far in our examples we have only discussed sending _scalar_ buffers.  In computing, a scalar is a variable that holds only one quantity. The exact meaning of _array_ varies from one programming language to another, but in all cases it refers to a variable that represents several quantities, each of which can be individually accessed by some form of subscripting the array.

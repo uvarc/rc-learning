@@ -1,11 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Start the Transfer"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3048
-menu:
-    globus
+weight: 48
 ---
 
 You can optionally click the transfer options box to set specific parameters for your transfer.

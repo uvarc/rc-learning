@@ -1,13 +1,8 @@
 ---
-title: Project Set 1
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Project Set 1"
 weight: 49
-date: "2020-11-17T00:00:00"
-menu: 
-    python-introduction:
-   
+isSectionHeader: true
 ---
 
 Basic operations, lists, conditionals, loops.

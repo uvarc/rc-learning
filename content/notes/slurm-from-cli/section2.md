@@ -1,11 +1,7 @@
 ---
-title:  II - Working with Slurm Scripts
-date: 2023-12-11-14T00:11:14Z
-type: docs
-toc : true 
+date: "2023-12-11"
+title: "II - Working with Slurm Scripts"
 weight: 20
-menu: 
-    slurm-from-cli:
 ---
 
 ## Writing Batch Scripts

@@ -1,13 +1,7 @@
 ---
-title: Pandas Example
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Pandas Example"
 weight: 139
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Pandas
 ---
 
 We are now ready to pull together what we have learned about Pandas and work through a detailed example.

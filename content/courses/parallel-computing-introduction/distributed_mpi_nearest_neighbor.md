@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Nearest Neighbor Send and Receive"
-toc: true
-type: docs
 weight: 80
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 One of the most common patterns in MPI programming is nearest-neighbor exchanges.  In this case, a process sends to its neighbor and receives from its neighbor. The definition of "neighbor" may depend on the _topology_ of the layout of ranks.  For a simple one-dimensional organization the neighbor to the left is `rank-` and the neighbor to the right is `rank+1`. 

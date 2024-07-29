@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Standard Blocking Send/Receive"
-toc: true
-type: docs
 weight: 75
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 The most widely used send is the "standard" form.  We will begin with the blocking version, since it is generally safer than the nonblocking form; it can be implemented intentionally or it can be used to develop a program and later replaced by nonblocking send/receive.

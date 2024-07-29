@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Higher Dimensional Data Decomposition"
-toc: true
-type: docs
 weight: 210
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 We chose to divide our computational grid into rows for C++ and Python and columns for Fortran because of the memory layouts used by the three languages. But it could be that a one-dimensional decomposition would not be sufficient to allow us to complete the solution in a reasonable amount of time or memory utilization, and we will need a two-dimensional decomposition.

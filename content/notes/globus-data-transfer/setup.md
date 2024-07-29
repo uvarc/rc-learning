@@ -1,12 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Setting Up Globus on Your Computer"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3025
-
-menu:
-    globus
+weight: 25
 ---
 
 Set up Globus once it is installed on your computer.

@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Timing and Benchmarking"
-toc: true
-type: docs
 weight: 35
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 We should always benchmark our parallel programs to make sure we are utilizing resources effectively, especially if we are running on multi-user systems that may require justifications, proposals, or charges for time.  MPI provides procedures to time all or portions of a program that can be used regardless of how many processes are invoked.  These routines are portable and are the same for all languages that support MPI.

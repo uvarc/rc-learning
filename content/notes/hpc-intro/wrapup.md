@@ -1,14 +1,8 @@
 ---
-title: Getting Help
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Getting Help"
 weight: 500
-
-menu:
-    hpc-intro:
-       name: Getting Help
+isSectionHeader: true
 ---
 
 If you have questions you can visit one of our [online office hours](https://www.rc.virginia.edu/support/#office-hours) Zoom sessions. Click on the "Join us via Zoom" button when a session is open.  Current hours are

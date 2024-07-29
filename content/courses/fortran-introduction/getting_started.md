@@ -1,15 +1,7 @@
 ---
-date : "2021-04-5T00:00:00-05:00"
-title : "Starting with Fortran"
-toc: true
-type: book
+date: "2021-04-05"
+title: "Starting with Fortran"
 weight: 1
-
-menu:
-    fortran-introduction:
-        parent: Starting with Fortran
-        weight: 2
-
 ---
 
 ## Some History

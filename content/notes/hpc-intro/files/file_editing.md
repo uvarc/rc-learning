@@ -1,14 +1,7 @@
 ---
-title: Editing Files
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Editing Files"
 weight: 490
-
-menu:
-  hpc-intro:
-    parent: Working with Files
 ---
 
 Once we have our files on the system, we may need to edit them.  It is a good idea to edit your files directly on the system, rather than editing on your local computer and then transferring them back and forth.

@@ -1,12 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Logging in to Globus"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3015
-
-menu:
-    globus
+weight: 15
 ---
 
 Most activities with globus will require logging in at their Website.

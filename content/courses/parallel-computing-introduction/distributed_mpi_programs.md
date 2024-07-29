@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "MPI"
-toc: true
-type: docs
 weight: 22
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 MPI stands for  _M_ essage  _P_ assing  _I_ nterface.  It is a standard established by a committee of users and vendors.  

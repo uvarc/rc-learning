@@ -1,13 +1,7 @@
 ---
-title: Managing Python Packages and Environments
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Managing Python Packages and Environments"
 weight: 14
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Introduction to Programming in Python
 ---
 
 ## Managing Packages in Anaconda

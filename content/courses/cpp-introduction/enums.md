@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00-05:00"
+date: "2021-06-23"
 title: "User-Defined Types: Enums and Typedef"
-toc: true
-type: book
 weight: 83
-
 ---
 
 The predefined types available in C++ are not sufficient for most non-trivial programming requirements.  

@@ -1,13 +1,7 @@
 ---
-title: SciPy
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "SciPy"
 weight: 120
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: NumPy, Matplotlib, SciPy
 ---
 
 The SciPy library is part of the "SciPy ecosystem" that also includes NumPy, Sympy, and Pandas.  We will not discuss Sympy but it is a well-developed computer algebra system (CAS) that is also incorporated into several other packages such as SageMath.

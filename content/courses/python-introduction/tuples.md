@@ -1,13 +1,7 @@
 ﻿---
-title: Tuples
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Tuples"
 weight: 33
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Compound Types
 ---
 
 A tuple is a Python ordered sequence object that is similar to a list but is __immutable__.  Tuples are indicated by parentheses (round brackets). Like all ordered sequences, we can refer to individual elements with [n] and slices with [lb:ub].  As for all other ordered sequences, numbering of elements starts at 0 and the upper bound of a range is excluded.

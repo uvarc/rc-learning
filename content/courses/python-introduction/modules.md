@@ -1,13 +1,7 @@
 ---
-title: Modules 
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Modules"
 weight: 55
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Functions and Modules
 ---
 
 Modules are fundamental to the programming model of Python.  Modules are programming units that (should) consist of _related_ variables and functions that form a coherent block of _data_+_procedures_ (functions).  They are an extension of the concept of packaging code that we have already studied with functions.

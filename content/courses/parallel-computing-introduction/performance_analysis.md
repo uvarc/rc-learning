@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Parallel Performance Analysis"
-toc: true
-type: docs
 weight: 4
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Introduction to Parallel Programming
 ---
 
 ## Speedup and Efficiency

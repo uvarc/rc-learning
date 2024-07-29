@@ -1,15 +1,7 @@
 ---
+date: "2023-05-01"
 title: "Preview Your App"
-date: "2023-05-01T00:00:00"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
 weight: 450
-
-menu:
-  r-shiny:
-      parent: Customization
-
 ---
 
 1. Add `bs_themer()` to your server function

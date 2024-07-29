@@ -1,13 +1,7 @@
 ---
-title: Working with Dataframes
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Working with Dataframes"
 weight: 132
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: Pandas
 ---
 
 ## Selecting and Manipulating Data

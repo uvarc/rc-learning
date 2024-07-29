@@ -1,12 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Sharing Data with Others"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3060
-
-menu:
-    globus
+weight: 60
 ---
 
 Globus users are able to share data with anyone with a Globus account. All UVA Rivanna and Ivy users have Globus accounts (authenticate with Netbadge).

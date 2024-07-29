@@ -1,12 +1,7 @@
 ---
+date: "2020-11-17"
 title: "The Heated Plate"
-toc: true
-type: docs
 weight: 190
-date: "2020-11-17T00:00:00"
-menu:
-    parallel_programming:
-        parent: Distributed-Memory Programming
 ---
 
 Suppose we have a very flat rectangular metal plate. We immerse one edge in an ice bath at 0C and the other three edges in steam at 100C.  The metal is a good conductor of heat.  Heat loss from the surfaces will be ignored.

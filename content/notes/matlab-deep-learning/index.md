@@ -1,8 +1,7 @@
 ---
+date: "2023-12-11"
 title: "Deep Learning with MATLAB"
-type: article
-toc: true
-date: 2023-12-11T00:00:00-05:00
+weight: 1
 ---
 
 {{< figure library=true src=matlab-logo.png width=30% height=30% >}}

@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Introduction to Arrays"
-date : "2021-04-5T00:00:00"
-toc: true
-type: book
 weight: 41
-
-menu:
-    fortran-introduction:
-        parent: Arrays
-        weight: 41
-
 ---
 
 Arrays are one of the most important types in Fortran. It can represent many mathematical entities such as grids, matrices, vectors, and so forth.

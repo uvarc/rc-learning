@@ -1,12 +1,7 @@
 ---
+date: "2020-05-21"
 title: "Part 1"
-toc: false
-type: docs
-date: "2020-05-21T00:00:00-05:00"
-menu: 
-    introduction-to-mpi:
-        parent: Introduction to Programming in MPI
-        weight: 2
+weight: 2
 ---
 
 Part 1 covers general concepts and collective communications.

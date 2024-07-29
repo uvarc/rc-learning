@@ -1,11 +1,7 @@
 ---
-title:  III - Jobs on the Cluster
-date: 2023-12-11-14T00:11:14Z
-type: docs
-toc : true 
+date: "2023-12-11"
+title: "III - Jobs on the Cluster"
 weight: 30
-menu: 
-    slurm-from-cli:
 ---
 
 ## Running Jobs from Scratch

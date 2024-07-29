@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Compilers and IDEs"
-date : "2021-04-5T00:00:00"
-toc: true
-type: book
 weight: 11
-
-menu:
-    fortran-introduction:
-        parent: Building and Running Your Programs
-        weight: 11
-
 ---
 
 The "traditional" development environment for compiled languages was a text editor and a command line.  Many programmers continue to use these successfully, but modern tools can greatly improve programmer productivity.  Some such tools are especially recommended for the Windows operating system, since it does not support command-line usage as cleanly as Linux or macOS.

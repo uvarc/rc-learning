@@ -1,14 +1,7 @@
 ---
-title: Conditionals 
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Conditionals"
 weight: 41
-date: "2020-11-17T00:00:00"
-
-menu:
-    python-introduction:
-        parent: Conditionals and Loops
 ---
 
 Conditionals are how scripts choose different paths, depending on the circumstances.

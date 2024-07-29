@@ -1,14 +1,7 @@
 ---
-title: Transferring Files
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Transferring Files"
 weight: 430
-
-menu:
-  hpc-intro:
-    parent: Working with Files
 ---
 
 You have several options for transferring data onto your home or scratch directories.

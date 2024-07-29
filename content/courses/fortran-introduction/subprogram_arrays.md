@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Array Arguments"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 64
-
-menu:
-    fortran-introduction:
-        parent: Array Arguments
-        weight: 64
-
 ---
 
 Passing scalar arguments is straightforward, but many, perhaps most, Fortran programs are oriented around arrays and must pass them to and from subprograms.

@@ -1,14 +1,7 @@
 ---
-title: Accessing Files on OOD
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Accessing Files on OOD"
 weight: 310
-
-menu:
-  hpc-intro:
-    parent: Features of Open OnDemand
 ---
 
 The "Files" tab on the menu bar gives access to all files in home or project (if applicable) directories.

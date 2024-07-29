@@ -1,13 +1,7 @@
 ---
-title: NumPy Functions
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "NumPy Functions"
 weight: 103
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-        parent: NumPy, Matplotlib, SciPy
 ---
 
 NumPy provides many built-in functions for array manipulations, mathematical/statistical calculations, and reading files.

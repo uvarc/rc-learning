@@ -1,13 +1,7 @@
 ---
-title: Filtering Data with Pandas
-toc: true
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Filtering Data with Pandas"
 weight: 137
-date: "2020-11-17T00:00:00"
-menu: 
-    python-introduction:
-        parent: Pandas
 ---
 
 We often need to extract data based on specified criteria, and to regroup and reorganize it.  Pandas provides a wealth of methods for these operations.

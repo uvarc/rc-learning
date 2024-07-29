@@ -1,11 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Getting Ready to Transfer"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3044
-menu:
-    globus
+weight: 44
 ---
 
 We are now ready to initialize our transfer.

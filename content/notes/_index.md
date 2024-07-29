@@ -1,10 +1,7 @@
 ---
-title: Notes
-layout: docs  # Do not modify.
-
-# Optional header image (relative to `static/img/` folder).
-header:
-  caption: ""
-  image: ""
+title: "Tutorials"
+cascade:  
+    type: book
+    highlight_style: "github"
+type: _default
 ---
-

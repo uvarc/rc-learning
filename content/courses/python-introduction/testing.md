@@ -1,13 +1,7 @@
 ---
+date: "2020-11-17"
 title: "Testing As You Go"
-draft: false
-toc: true
-type: docs
 weight: 255
-date: "2020-11-17T00:00:00"
-menu:
-    python-introduction:
-       parent: Testing and Debugging
 ---
 
 Suppose you have some data in a file and you wish to plot it. The file is 

@@ -1,14 +1,7 @@
 ---
-title: Connecting and Logging On To Rivanna
-date: "2022-10-01T00:00:00"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Connecting and Logging On To Rivanna"
 weight: 100
-
-menu:
-  hpc-intro:
-    name: Connecting to The System
 ---
 
 * There are three ways to connect to the HPC System:

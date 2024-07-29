@@ -1,12 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Using Globus to Transfer Data"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3000
-
-menu: 
-    globus:
+weight: 1
 ---
 
 {{< figure library="true" src="globus.png" width=50% >}}

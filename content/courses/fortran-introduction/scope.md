@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Variable Scope"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 66
-
-menu:
-    fortran-introduction:
-        parent: Variable Scope
-        weight: 66
-
 ---
 
 **Scope** is the range over which a particular variable is defined and can have a value.  In Fortran, scope is defined by the _program unit_.

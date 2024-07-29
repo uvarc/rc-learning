@@ -1,10 +1,11 @@
 ---
-title : "Introduction to Shared Memory Programming"
-authors : [kah]
-categories : ["HPC", "Parallel Computing","OpenMP", "GPU" ]
-tags : ["programming", "parallel-programming"]
-summary : "An introduction to parallel programming using shared memory, including some GPU."
-date : "2020-05-21T00:00:00-05:00"
+date: "2020-05-21"
+title: "Introduction to Shared Memory Programming"
+summary: "An introduction to parallel programming using shared memory, including some GPU."
+authors: [kah]
+categories: ["HPC", "Parallel Computing","OpenMP", "GPU" ]
+tags: ["programming", "parallel-programming"]
+weight: 1
 ---
 
 This short course is an introduction to programming for shared-memory devices, mostly for multicore systems but with some GPU programming. Attendees should be proficient at programming in Fortran, C/C++, or Python.

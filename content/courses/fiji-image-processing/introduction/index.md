@@ -1,9 +1,6 @@
 ---
-title: Getting Started
-draft: false
-date: 2023-05-30T00:00:00-05:00
-type: book
-toc: true
+date: 2023-05-30
+title: "Getting Started"
 weight: 15
 url_dataset: data/intro-fiji-images.zip
 ---

@@ -1,14 +1,7 @@
 ---
-title: Working with Files
-date: "2022-10-01T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
+date: "2022-10-01"
+title: "Working with Files"
 weight: 400
-
-menu:
-  hpc-intro:
-    name: Working with Files
 ---
 
 Files are the foundation of working with an HPC cluster.  We need to be able to

@@ -1,11 +1,7 @@
 ---
+date: "2023-02-02"
 title: "Troubleshooting"
-type: docs
-toc: true
-date: 2023-02-02T00:00:00-05:00
-weight: 3070
-menu:
-    globus
+weight: 70
 ---
 
 Some problems occur frequently. Here are a few tips to solve them:

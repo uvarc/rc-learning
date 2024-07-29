@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Variables and Types"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 21
-
-menu:
-    variables:
-        parent: Basic Programming Constructs
-        weight: 21
-
 ---
 
 In programming, a _variable_ is similar, but not identical to, the variable familiar from mathematics.  In mathematics, a variable represents an unknown or abstract entity.  In programming, a variable represents a _location in memory_.

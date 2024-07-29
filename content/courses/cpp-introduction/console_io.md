@@ -1,10 +1,7 @@
 ---
-date : "2021-06-23T00:00:00"
+date: "2021-06-23"
 title: "Console Input/Output"
-toc: true
-type: book
 weight: 61
-
 ---
 
 Most operating systems have some type of _console_.  Output written to the console appears as text on a terminal or equivalent.  Geany opens a window for console output when a program is executed.

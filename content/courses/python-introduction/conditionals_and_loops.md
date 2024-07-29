@@ -1,13 +1,8 @@
 ---
-title: Conditionals and Loops 
-toc: false
-type: docs
-draft: false
+date: "2020-11-17"
+title: "Conditionals and Loops"
 weight: 40
-date: "2020-11-17T00:00:00"
-
-menu:
-    python-introduction:
+isSectionHeader: true
 ---
 
 Now that we understand the basic data types, we can begin to study the fundamental programming constructs that all programs will use.  The two most important of these are _conditionals_ and _loops_.  Almost every script we write will require one or both of these.

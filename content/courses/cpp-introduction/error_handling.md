@@ -1,11 +1,7 @@
 ---
-date : "2021-06-23T00:00:00-05:00"
-title: Error Handling
-toc: true
-type: book
-draft: false
+date: "2021-06-23"
+title: "Error Handling"
 weight: 120
-
 ---
 
 Errors in code can be the result of a programmer's mistake (i.e. a bug) or they can occur at runtime due to invalid input, system errors, and so forth.  For debugging, C++ uses the `assert` statement.  For runtime errors, we can `try` something and handle the result if a problem occurs.

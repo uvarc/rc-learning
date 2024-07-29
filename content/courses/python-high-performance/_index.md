@@ -1,14 +1,11 @@
 ---
+date: "2020-11-17"
 title: "High Performance Programming in Python"
-type: docs
-toc: true
-date: "2020-11-17T00:00:00"
-tags: ["programming","python"]
+summary: "Techniques to speed up inefficient Python code"
+authors: []
 categories: ["Programming","Python"]
-menu:
-    hp-python:
-        name: High-Performance Python
-        weight: 1
+tags: ["programming","python"]
+weight: 1
 ---
 
 Python, like most interpreted languages, can be very slow. But there are best practices and some programming tricks that can speed it up considerably.  This can make the difference between finishing the work in an acceptable time, or being unable to finish a project.

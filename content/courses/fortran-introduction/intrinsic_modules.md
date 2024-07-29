@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Intrinsic Modules"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 72
-
-menu:
-    fortran-introduction:
-        parent: Intrinsic Modules
-        weight: 72
-
 ---
 
 Recent revisions of the Fortran standard support several intrinsic modules.  

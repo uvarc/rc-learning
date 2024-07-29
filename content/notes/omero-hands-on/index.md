@@ -1,7 +1,7 @@
 ---
-date: 2019-10-10T21:13:14-05:00
-type: article
-toc: true
+date: "2019-10-10"
+title: "OMERO Hands-On"
+weight: 1
 ---
 
 {{< slideshow folder="slides/omero-hands-on" ext="png" >}}

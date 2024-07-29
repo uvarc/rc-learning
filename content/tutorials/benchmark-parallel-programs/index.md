@@ -1,12 +1,10 @@
 ---
+date: "2020-10-29"
 title: "Benchmarking Parallel Programs"
-date: 2020-10-29T00:00:00-05:00
+summary: "Learn how to benchmark your program for parallel SLURM jobs."
 authors: [rs]
 categories: ["HPC","Parallel Computing","GPU"]
 tags: [parallel-programming,gpu,hpc]
-summary: Learn how to benchmark your program for parallel SLURM jobs.
-
-notes: benchmark-parallel-programs
-
 weight: 130
+notes: benchmark-parallel-programs
 ---

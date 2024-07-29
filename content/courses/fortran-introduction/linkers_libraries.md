@@ -1,15 +1,7 @@
 ---
+date: "2021-04-05"
 title: "Linkers and Libraries"
-date : "2021-04-5T00:00:00-05:00"
-toc: true
-type: book
 weight: 13
-
-menu:
-    fortran-introduction:
-        parent: Linkers and Libraries
-        weight: 13
-
 ---
 
 ## Linkers and Libraries
