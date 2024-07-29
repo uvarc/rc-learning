@@ -1,10 +1,10 @@
 ---
-title: ACCORD Intro
-summary: An introduction to ACCORD.
+date: "2021-10-25"
+title: "ACCORD Intro"
+summary: "An introduction to ACCORD."
 authors: []
 tags: []
 categories: []
-date: "2021-10-25T00:11:14Z"
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   theme: white

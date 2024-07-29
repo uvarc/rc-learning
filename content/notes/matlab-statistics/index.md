@@ -1,8 +1,7 @@
 ---
-date : "2019-06-23T08:37:46-05:00"
-title : "Statistical Methods with MATLAB"
-type: article
-toc : true
+date: "2019-06-23T08:37:46-05:00"
+title: "Statistical Methods with MATLAB"
+weight: 1
 ---
 
 # Overview

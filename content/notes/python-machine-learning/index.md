@@ -1,5 +1,5 @@
 ---
-title : "Machine Learning with Python"
+title: "Machine Learning with Python"
 ---
 
 {{< slideshow folder="slides/python-machine-learning" ext="JPG" >}}
