@@ -6,15 +6,15 @@ weight: 72
 
 Download the file [bodyfat.csv](/data/bodyfat.csv).  This is a dataset of body fat, age, height, and weight for a set of participants in a study. BMI categories are as follows:
 
-{{< table >}}
-|Severely underweight |  BMI < 16.0 |
-|Underweight          | 16 <= BMI < 18.5 |
-|Normal               | 18.5 <= BMI < 25 |
-|Overweight           | 25 <= BMI < 30 |
-|Obese Class I        | 30 <= BMI < 35 |
-|Obese Class II       | 35 <= BMI < 40 |
-|Obese Class III      | BMI > 40       |
-{{< /table >}}
+|                      |                  |
+|----------------------|------------------|
+| Severely underweight | BMI < 16.0       |
+| Underweight          | 16 <= BMI < 18.5 |
+| Normal               | 18.5 <= BMI < 25 |
+| Overweight           | 25 <= BMI < 30   |
+| Obese Class I        | 30 <= BMI < 35   |
+| Obese Class II       | 35 <= BMI < 40   |
+| Obese Class III      | BMI > 40         |
 
 Write a `bmi_calculator` module containing functions/subroutines for the following:
 1. Convert pounds to kilograms.  Use the actual conversion factor, not the approximate one.  Look it up on Google.

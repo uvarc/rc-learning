@@ -64,16 +64,15 @@ catch (...) {
 ### Standard Exceptions
 
 The C++ standard includes a base class for exceptions.  The `exception` header must be included. The programmer can derive custom exceptions, or use the built-in set provided by this class.  Some of the more commonly-seen ones are:
-{{< table >}}
-|   Exception     |    Cause    |
-|-----------------|-------------|
-| std::bad_alloc  | Can't allocate memory |   
-| std::invalid_argument  | Invalid argument to function |
-| std::length_error      | String too long |
-| std::out_of_range      | Can be thrown by at operator (vector etc.) |
-| std::overflow_error    | Numerical overflow error |
-| std::underflow_error    | Numerical underflow error |
-{{< /table >}}
+
+| Exception             | Cause                                      |
+|-----------------------|--------------------------------------------|
+| std::bad_alloc        | Can't allocate memory                      |   
+| std::invalid_argument | Invalid argument to function               |
+| std::length_error     | String too long                            |
+| std::out_of_range     | Can be thrown by at operator (vector etc.) |
+| std::overflow_error   | Numerical overflow error                   |
+| std::underflow_error  | Numerical underflow error                  |
 
 See the [documentation](https://en.cppreference.com/w/cpp/error/exception) for more information.
 

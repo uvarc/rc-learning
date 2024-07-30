@@ -44,16 +44,15 @@ print("Your BMI is",w/ht**2)
 Use Spyder or another IDE to write a <em>complete</em> program to compute BMI from weight and height input from a user.  First request the user's choice of units.  We have not spent much time with strings yet so you may use a digit to indicate the user's choice, but remember it will still be a string on input. Then request weight and height.  You will need to convert these from strings. Look up the correct conversion factors for Imperial to metric units. Compute the BMI. 
 
 The categories are 
-{{< table >}}
-|   BMI     |   Category |
-|-----------|------------|
-| less than 18.5    |  Underweight |
-| 18.5 to 25.0      |  Normal      |
-| 25.0 to 30.0      |  Overweight  |
-| 30.0 to 35.0      |  Obese Class I |
-| 35.0 to 40.0      |  Obese Class II |
-| more than 40.0      |  Obese Class III | 
-{{< /table >}}
+
+| BMI            | Category        |
+|----------------|-----------------|
+| less than 18.5 | Underweight     |
+| 18.5 to 25.0   | Normal          |
+| 25.0 to 30.0   | Overweight      |
+| 30.0 to 35.0   | Obese Class I   |
+| 35.0 to 40.0   | Obese Class II  |
+| more than 40.0 | Obese Class III |
 
 Print the user's BMI value and category.
 

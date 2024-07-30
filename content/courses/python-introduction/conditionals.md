@@ -81,17 +81,15 @@ BMI=weight/height**2
 
 The categories are as follows:
 
-{{< table >}}
-|  Range   |  Category   |
-|----------|-------------|
-|Under 18.5| underweight |
-|18.5 to 25| normal      |
-|over 25 to 30| overweight |
-|over 30 to 35| obese class I |
-|over 35 to 40| obese class II |
-|over 40 to 45| obese class III |
-|over 45: obese | class IV (morbidly obese) |
-{{< /table >}}
+| Range          | Category                  |
+|----------------|---------------------------|
+| Under 18.5     | underweight               |
+| 18.5 to 25     | normal                    |
+| over 25 to 30  | overweight                |
+| over 30 to 35  | obese class I             |
+| over 35 to 40  | obese class II            |
+| over 40 to 45  | obese class III           |
+| over 45: obese | class IV (morbidly obese) |
 
 Using whichever unit system you prefer, write some code to assign the weight and height, compute the number, and determine its classification.  Assign your own weight and height.  Try a few others.  Use an online calculator to check your results.
 

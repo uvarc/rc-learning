@@ -39,24 +39,22 @@ It is _not_ necessary to write keywords, or any source at all, in all capital le
 
 ## Declarations by Type
 
-{{< table >}}
-|   Fortran Name   |    Type   |   Standard?       |
-|------------------|-----------|----------------------------|
-|     INTEGER      |  32-bit integer |  Yes                  |
-|     INTEGER\*8   |  64-bit integer |  No, but nearly universal |
-|     INTEGER(ik)  |  Integer specified by KIND |  Yes |
-|     REAL         |  Single precision floating point | Yes  |
-| DOUBLE PRECISION |  Double precision floating point | Yes, but deprecated style |
-| REAL\*8 |  Double precision floating point |  No, but universal |
-| REAL(rk)|  Floating point denoted by KIND |  Yes |
-| LOGICAL |  Logical (Boolean)  |  Yes |
-| COMPLEX  |  Single precision complex  | Yes |
-| COMPLEX\*8 |  Double precision complex  | No, but nearly universal |
-| CHARACTER  |  One character  | Yes |
-| CHARACTER(LEN=10)  | Character variable with 10 characters | Yes |
-| CHARACTER\*10  | Character variable with 10 characters | Yes, but deprecated style |
-|     BYTE         |  One byte  | Yes  |
-{{< /table >}}
+| Fortran Name      | Type                                  | Standard?                 |
+|-------------------|---------------------------------------|---------------------------|
+| INTEGER           | 32-bit integer                        | Yes                       |
+| INTEGER\*8        | 64-bit integer                        | No, but nearly universal  |
+| INTEGER(ik)       | Integer specified by KIND             | Yes                       |
+| REAL              | Single precision floating point       | Yes                       |
+| DOUBLE PRECISION  | Double precision floating point       | Yes, but deprecated style |
+| REAL\*8           | Double precision floating point       | No, but universal         |
+| REAL(rk)          | Floating point denoted by KIND        | Yes                       |
+| LOGICAL           | Logical (Boolean)                     | Yes                       |
+| COMPLEX           | Single precision complex              | Yes                       |
+| COMPLEX\*8        | Double precision complex              | No, but nearly universal  |
+| CHARACTER         | One character                         | Yes                       |
+| CHARACTER(LEN=10) | Character variable with 10 characters | Yes                       |
+| CHARACTER\*10     | Character variable with 10 characters | Yes, but deprecated style |
+| BYTE              | One byte                              | Yes                       |
 
 Other types may be specified through [KIND].
 

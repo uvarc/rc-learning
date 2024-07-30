@@ -67,15 +67,15 @@ Initializing vectors:
 {{< code-download file="/courses/cpp-introduction/codes/std_vector.cxx" lang="c++" >}}
 
 Many operations are defined for a vector.  These are some of the most commonly used:
-{{< table >}}
-|---------------------|---------------------|
-|  V.push_back(item)  |  Append `item` to V |
-|  V.at(index)        |  Access `index` with bounds checking ([] does no checking) |
-|  V.start()          |  Starting point for iterator  |
-|  V.end()            |  End point (beyond last element) of iterator |
-|  V.size()           |  Number of elements
-|  V.clear()          |  Empty V and make it size 0
-{{< /table >}}
+
+|                   |                                                           |
+|-------------------|-----------------------------------------------------------|
+| V.push_back(item) | Append `item` to V                                        |
+| V.at(index)       | Access `index` with bounds checking ([] does no checking) |
+| V.start()         | Starting point for iterator                               |
+| V.end()           | End point (beyond last element) of iterator               |
+| V.size()          | Number of elements                                        |
+| V.clear()         | Empty V and make it size 0                                |
 
 Vectors make some tradeoffs with memory and speed that array containers do not; this is to allow for adding elements even if the initial declaration is static. The vector type is also built upon C-style arrays, so certain operations, especially insertion, can be relatively slow.  However, their flexibility usually more than makes up for this.
 

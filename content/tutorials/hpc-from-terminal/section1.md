@@ -99,8 +99,6 @@ This command stands for *p*rint *w*orking *d*irectory.  It prints the name of th
 
 Modern shells provide useful "hotkey" commands that can save considerable typing. The "control-" notation means that the `Ctrl` (control) key and the following key should be depressed at the same time.
 
-{{< table >}}
-
 | Function                                                               | Key                  |
 |------------------------------------------------------------------------|----------------------|
 | Tab completion: expand typed string to as far as it has a unique name. | tab                  |
@@ -108,7 +106,6 @@ Modern shells provide useful "hotkey" commands that can save considerable typing
 | Move to the beginning of the line                                      | control-a            |
 | Move to the end of the line                                            | control-e            |
 | Clear the screen                                                       | `clear` or control-l |
-{{< /table >}}
 
 ## Bash History
 

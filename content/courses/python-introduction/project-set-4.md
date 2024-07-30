@@ -10,15 +10,14 @@ These are in generally in order of difficulty, from easiest to most difficult. W
 
 ## Project 14
 Create a new dataframe using the following table:
-{{< table >}}
-|  Coach    |    School |  Email  |  Career Wins  | National Championships |
-|-----------|-----------|---------|---------------|------------------------|
-|Tony Bennett| Virginia | tbennett@virginia.edu | 346  | 1  |
-|Roy Williams | North Carolina | rwilliams@unc.edu | 871 | 3 |
-|Mike Krzyzewski | Duke | coachk@duke.edu | 1132 | 5 |
-|Tom Izzo | Michigan State | tizzo@msu.edu | 606 | 2 |
-|Jim Boeheim | Syracuse | jboeheim@syracuse.edu | 944 | 1 |
-{{< /table >}}
+
+| Coach           | School         | Email                 | Career Wins | National Championships |
+|-----------------|----------------|-----------------------|-------------|------------------------|
+| Tony Bennett    | Virginia       | tbennett@virginia.edu | 346         | 1                      |
+| Roy Williams    | North Carolina | rwilliams@unc.edu     | 871         | 3                      |
+| Mike Krzyzewski | Duke           | coachk@duke.edu       | 1132        | 5                      |
+| Tom Izzo        | Michigan State | tizzo@msu.edu         | 606         | 2                      |
+| Jim Boeheim     | Syracuse       | jboeheim@syracuse.edu | 944         | 1                      |
 
 - Begin by importing pandas
 - Create a new column that is the ratio of career wins to national championships.

@@ -34,17 +34,15 @@ USE ISO_FORTRAN_ENV
 INTEGER(int64)     :: i,j
 ```
 
-{{< table >}}
-|  KIND Parameter | IEEE Type |
-|-----------------|----------------|
-|  int8           | 8-bit integer  |
-|  int16          | 16-bit integer |
-|  int32          | 32-bit integer |
-|  int64          | 64-bit integer |
-|  real32         | 32-bit floating point |
-|  real64         | 64-bit floating point |
-|  real128        | 128-bit real          |
-{{< /table >}}
+| KIND Parameter | IEEE Type             |
+|----------------|-----------------------|
+| int8           | 8-bit integer         |
+| int16          | 16-bit integer        |
+| int32          | 32-bit integer        |
+| int64          | 64-bit integer        |
+| real32         | 32-bit floating point |
+| real64         | 64-bit floating point |
+| real128        | 128-bit real          |
 
 Not all the IEEE KINDs may be supported in the hardware, particularly real128.
 Not all compilers support all the above KINDs, in which case it should set it to a negative value.
@@ -88,16 +86,14 @@ Mixed-language programming is common, particularly mixing C with other languages
 
 A good reference for the content of this module is from [gfortran](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING). Note that this module provides C equivalents to Fortran types for a given platform; in particular, the C standard does not specify the length of an `int`, only a minimum, so on some platforms the default is 16 bits and on others it is 32 bits.  The variables defining the correspondence can be used as KIND parameters.  A subset of the most commonly used might include
 
-{{< table >}}
-|  Fortran Type |  Module Name     | C Type |
-|-----------------|----------------|--------|
-|  INTEGER        | C_INT          | int    |
-|  INTEGER(int64) | C_INT64_T     | int64_t |
-|  REAL           | C_FLOAT |       float   |
-|  REAL(real64)   | C_DOUBLE |      double  |
-|  LOGICAL        | C_BOOL   |      \_Bool  |
-|  CHARACTER      | C_CHAR   |     char     |
-{{< /table >}}
+| Fortran Type   | Module Name | C Type  |
+|----------------|-------------|---------|
+| INTEGER        | C_INT       | int     |
+| INTEGER(int64) | C_INT64_T   | int64_t |
+| REAL           | C_FLOAT     | float   |
+| REAL(real64)   | C_DOUBLE    | double  |
+| LOGICAL        | C_BOOL      | \_Bool  |
+| CHARACTER      | C_CHAR      | char    |
 
 If all the types can be matched, a C struct can be mapped to a Fortran type with the BIND(C) attribute.
 ```fortran

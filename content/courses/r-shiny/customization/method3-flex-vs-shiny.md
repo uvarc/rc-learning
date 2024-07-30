@@ -4,14 +4,12 @@ title: "flexdashboard vs shinydashboard"
 weight: 810
 ---
 
-{{< table >}}
-| **flexdashboard**    | **shinydashboard**      |
-|      ---           |       ---             |
+| **flexdashboard**  | **shinydashboard**    |
+|--------------------|-----------------------|
 | R Markdown         | Shiny UI code         |
 | Super easy         | Not quite as easy     |
 | Static or dynamic  | Dynamic               |
 | CSS flexbox layout | Bootstrap grid layout |
-{{< /table >}}
 
 We'll just touch on shinydashboard here
 

@@ -49,12 +49,10 @@ conversion.  Moreover, some numbers can be represented exactly given the availab
 
 The most common types of floating-point number supported by hardware are _single precision_, which occupies 32 bits, and _double precision_, which takes up 64 bits.  
 
-{{< table >}}
-|   Precision  |  Exponent Bits |  Significand Bits | Exponent Range (base 2) | Approximate Decimal Range  |  Approximate Decimal Precision |
-|--------------|----------------|-------------------|-------------------------|----------------------------|--------------------------------|
-| Single       |  8    |  23  |  -126/127 | &plusmn;2 x 10<sup>-38</sup> to &plusmn;3 x 10<sup>38</sup> | 7 digits |
-| Double       |  11   |  52  |  -1022/1023 |  &plusmn;2.23 x 10<sup>−308</sup> to &plusmn;1.80 x 10<sup>308</sup> |  16 digits |
-{{< /table >}}
+| Precision | Exponent Bits | Significand Bits | Exponent Range (base 2) | Approximate Decimal Range                                           | Approximate Decimal Precision |
+|-----------|---------------|------------------|-------------------------|---------------------------------------------------------------------|-------------------------------|
+| Single    | 8             | 23               | -126/127                | &plusmn;2 x 10<sup>-38</sup> to &plusmn;3 x 10<sup>38</sup>         | 7 digits                      |
+| Double    | 11            | 52               | -1022/1023              | &plusmn;2.23 x 10<sup>−308</sup> to &plusmn;1.80 x 10<sup>308</sup> | 16 digits                     |
 
 Quad precision (128 bits) is also defined, but rarely supported in hardware by modern computers.  Most compilers support it through software, but this will be slower than hardware operations.
 
@@ -88,21 +86,19 @@ _Literals_ are specific values corresponding to a particular type.
 
 **Examples**
 
-{{< table >}}
-| Value    |   Type      |
-|----------|-------------|
-|     3    | Integer     |
-|    3.2   |  Single precision floating point |
-|  3.213e0 | Single precision floating point  |
-|  3.213d0 | Double precision floating point |
-| 3.213_rk | Type determined by `kind` parameter `rk` |
-|  "This is a string" | Character string  |
-|  "Isn’t it true?"  |  Character string  |
-|  'Isn''t it true?' |  Character string  |
-|  .true.  |  Logical  |
-| (1.2,3.5) | Single precision complex  |
-| (1.2d0,3.5d0) | Double precision complex (compiler extension)  |
-{{< /table >}}
+| Value              | Type                                          |
+|--------------------|-----------------------------------------------|
+| 3                  | Integer                                       |
+| 3.2                | Single precision floating point               |
+| 3.213e0            | Single precision floating point               |
+| 3.213d0            | Double precision floating point               |
+| 3.213_rk           | Type determined by `kind` parameter `rk`      |
+| "This is a string" | Character string                              |
+| "Isn’t it true?"   | Character string                              |
+| 'Isn''t it true?'  | Character string                              |
+| .true.             | Logical                                       |
+| (1.2,3.5)          | Single precision complex                      |
+| (1.2d0,3.5d0)      | Double precision complex (compiler extension) |
 
 In Fortran the default floating-point literal is _single precision_.  Double precision literals _must_ include a d/D exponent indicator.  This is different from most languages, included C/C++, for which the default floating-point literal is double precision.
 Forgetting to write double-precision literals with `D` exponent indicator rather than `E` often causes a significant loss of numerical precision that is hard to find.

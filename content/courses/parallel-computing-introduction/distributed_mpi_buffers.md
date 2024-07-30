@@ -20,78 +20,66 @@ In every language, it is _imperative_ that the data types in the send and receiv
 
 MPI supports most C/C++ datatypes as well as some extensions. The most commonly used are listed below.
 
-{{< table >}}
-|   C/C++ type   |  MPI_Datatype  |
-|----------------|----------------|
-|   int          |    MPI_INT     |
-|   short        |    MPI_SHORT   |
-|   long         |    MPI_LONG    |
-|   long long    |    MPI_LONG_LONG_INT  |
-|   unsigned int |    MPI_UNSIGNED    |
-|   unsigned short |  MPI_UNSIGNED_SHORT  |
-|   unsigned long |  MPI_UNSIGNED_LONG |
-|   unsigned long long |  MPI_UNSIGNED_LONG_LONG |
-|   float        |  MPI_FLOAT      |
-|   double       |  MPI_DOUBLE     |
-|   long double  |  MPI_LONG_DOUBLE     |
-|   char         |  MPI_CHAR        |
-|   wchar         |  MPI_WCHAR        |
-{{< /table >}}
+| C/C++ type         | MPI_Datatype           |
+|--------------------|------------------------|
+| int                | MPI_INT                |
+| short              | MPI_SHORT              |
+| long               | MPI_LONG               |
+| long long          | MPI_LONG_LONG_INT      |
+| unsigned int       | MPI_UNSIGNED           |
+| unsigned short     | MPI_UNSIGNED_SHORT     |
+| unsigned long      | MPI_UNSIGNED_LONG      |
+| unsigned long long | MPI_UNSIGNED_LONG_LONG |
+| float              | MPI_FLOAT              |
+| double             | MPI_DOUBLE             |
+| long double        | MPI_LONG_DOUBLE        |
+| char               | MPI_CHAR               |
+| wchar              | MPI_WCHAR              |
 
 Specific to C:
 
-{{< table >}}
-|   C type       |  MPI_Datatype      |
-|----------------|----------------|
-|   bool         |  MPI_C_BOOL        |
-|   complex         |  MPI_C_COMPLEX        |
-|   double complex  |  MPI_C_DOUBLE_COMPLEX        |
-{{< /table >}}
+| C type         | MPI_Datatype         |
+|----------------|----------------------|
+| bool           | MPI_C_BOOL           |
+| complex        | MPI_C_COMPLEX        |
+| double complex | MPI_C_DOUBLE_COMPLEX |
 
 Specific to C++:
 
-{{< table >}}
-|   C++ type       |  MPI_Datatype      |
-|----------------|----------------|
-|   bool         |  MPI_CXX_BOOL        |
-|   complex         |  MPI_CXX_COMPLEX        |
-|   double complex  |  MPI_CXX_DOUBLE_COMPLEX        |
-{{< /table >}}
+| C++ type       | MPI_Datatype           |
+|----------------|------------------------|
+| bool           | MPI_CXX_BOOL           |
+| complex        | MPI_CXX_COMPLEX        |
+| double complex | MPI_CXX_DOUBLE_COMPLEX |
 
 Extensions
 
-{{< table >}}
-|   C/C++ type   |  MPI_Datatype  |
-|----------------|----------------|
-|   none         | MPI_BYTE         |
-|   none         | MPI_PACKED       |
-{{< /table >}}
+| C/C++ type | MPI_Datatype |
+|------------|--------------|
+| none       | MPI_BYTE     |
+| none       | MPI_PACKED   |
 
 #### Fortran
 
-{{< table >}}
-|   Fortran type |  MPI_Datatype      |
-|----------------|--------------------|
-|   integer      |    MPI_INTEGER     |
-|   integer\*8   |    MPI_INTEGER8    |
-|   real         |    MPI_REAL        |
-|   double precision    |    MPI_DOUBLE_PRECISION |
-|   complex      |  MPI_COMPLEX       |
-|   logical      |  MPI_LOGICAL       |
-|   character    |  MPI_CHARACTER     |
-|   none         |  MPI_BYTE          |
-|   none         |  MPI_PACKED        |
-{{< /table >}}
+| Fortran type     | MPI_Datatype         |
+|------------------|----------------------|
+| integer          | MPI_INTEGER          |
+| integer\*8       | MPI_INTEGER8         |
+| real             | MPI_REAL             |
+| double precision | MPI_DOUBLE_PRECISION |
+| complex          | MPI_COMPLEX          |
+| logical          | MPI_LOGICAL          |
+| character        | MPI_CHARACTER        |
+| none             | MPI_BYTE             |
+| none             | MPI_PACKED           |
 
 Most MPI distributions support the following types.  These are Fortran 77 style declarations; newer code should use `KIND` but care must be taken that the number of byes specified is correct.
 
-{{< table >}}
-|   Fortran type |  MPI_Datatype      |
-|----------------|--------------------|
-|   integer\*16      |    MPI_INTEGER16     |
-|   real\*8      |    MPI_REAL8     |
-|   real\*16      |    MPI_REAL16     |
-{{< /table >}}
+| Fortran type | MPI_Datatype  |
+|--------------|---------------|
+| integer\*16  | MPI_INTEGER16 |
+| real\*8      | MPI_REAL8     |
+| real\*16     | MPI_REAL16    |
 
 #### Python
 

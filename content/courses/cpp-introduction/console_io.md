@@ -19,12 +19,12 @@ The standard streams are incorporated with the header
 ```
 The iostream library is part of the C++ standard libraries set and contains _stream objects_ for standard streams.  They correspond to the standard streams of Unix or macOS.  Windows handles console IO differently, but iostream can map the stream objects to its equivalents.
 
-{{< table >}}
-| cin | standard input |
-| cout | standard output |
-| cerr | standard error |
+|      |                  |
+|------|------------------|
+| cin  | standard input   |
+| cout | standard output  |
+| cerr | standard error   |
 | clog | standard logging |
-{{< /table >}}
 
 The `cin` object is for input; it is a member of the _istream_ (input stream) class.  If a console is attached the others all output is to the same device (the screen).  They are members of the _ostream_ (output stream) class.  
 Unix and macOS shells can redirect standard output and standard error to separate files.
