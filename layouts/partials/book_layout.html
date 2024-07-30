@@ -35,7 +35,7 @@
 
           <h1>{{ .Title }}</h1>
 
-          {{ if eq .Parent.Section "tutorials"}}
+          {{ if and (eq .Parent.Section "tutorials") .IsSection}}
           <p class="page-subtitle">{{ .Params.summary | markdownify | emojify }}</p>
           {{ partial "page_metadata" (dict "page" . "is_list" 0 "share" true) }}
           {{ partial "page_links_div.html" . }}

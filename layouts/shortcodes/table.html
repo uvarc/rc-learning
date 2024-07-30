@@ -1,5 +1,4 @@
 {{ $htmlTable := .Inner | markdownify }}
-{{ $title := .Get "title" }}
 {{ $old := "<table>" }}
 {{ $new := "<table class=table-bordered>" }}
 {{ $htmlTable := replace $htmlTable $old $new }}

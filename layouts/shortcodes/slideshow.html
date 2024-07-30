@@ -5,20 +5,11 @@
 {{ $slideFolder := (delimit (slice "/" $folder) "")}}
 {{ $nofiles := len $files }}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
-
 <div class="section" id="carousel">
-  <div class="container" style="margin-top:0px;margin-bottom:150;">
+  <div class="container">
     <div class="row">
       <div class="col">
-        <div id="carouselIndicators" class="carousel slide" style="margin-bottom:150px" data-interval="false" data-ride="carousel">
+        <div id="carouselIndicators" class="carousel slide" data-interval="false" data-ride="carousel">
           <ol class="carousel-indicators">
             {{ range $key, $value := $files }}
               {{ $active := "" }}
@@ -56,12 +47,6 @@
 </div>
 
 <style>
-.carousel-inner > .item > img,
-.carousel-inner > .item > div,
-.carousel-inner > .item > a > img {
-    width: 85%;
-    margin: auto;
-  }
 
 .carousel-control-prev {
     width: 7.5%;
@@ -84,24 +69,23 @@
 }
 
 .carousel-indicators li {
-    border-radius: 10px;
-    margin: 1px 5px;
-    height: 10px;
-    max-width: 10px;
-    border: 1px solid #000;
-    background-color: transparent;
+    background-color: #999;
+    width: 10px;
+    height: 15px;
+    margin: 0 1px;
 }
 
 .carousel-indicators .active {
-    background-color: #000;
-    border: 1px solid #000;
-    max-width: 12px;
-    width: 12px;
-    margin: 0 0px;
-    height: 12px;
+  background-color: #999;
+  width: 15px;
+  height: 20px;
+  margin: 0 1px;
 }
 
-.carousel-indicators {
-    bottom: -150px;
+.carousel-indicators{
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
+
 </style>

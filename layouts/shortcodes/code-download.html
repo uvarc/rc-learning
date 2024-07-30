@@ -1,7 +1,9 @@
+<div style="position: relative">
 {{ $file := .Get "file" }}
-{{ $lang := .Get "language" }}
+{{ $lang := .Get "lang" }}
 {{ $code :=  readFile $file }}
 {{ (print "```" $lang "\n" $code "\n```") | markdownify }}
-<a href="{{ $file }}" download>
+<a href="{{ $file }}" download="" style="position: absolute; top: 10px; right: 10px; opacity: 70%;">
 <i class="fa fa-download" aria-hidden="true"></i>
 </a>
+</div>

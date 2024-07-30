@@ -1,6 +1,4 @@
-{{- $id := printf "spoiler-%d" .Ordinal -}}
-
-<details class="spoiler {{ .Get "class" }}" {{ with .Get "style" }}style="{{ . | safeCSS }}"{{ end }} id="{{$id}}">
+<details class="spoiler">
   <summary>{{ .Get "text" | markdownify | emojify }}</summary>
   <p>{{ .Inner | markdownify | emojify }}</p>
 </details>
