@@ -1,13 +1,8 @@
 ---
-type: docs
-toc: true
-date: "2015-07-23T00:00:00"
-draft: false
+date: "2015-07-23"
+title: "Bash Scripting"
+draft: true
 weight: 1
-
-menu:
-    bash-scripting:
-        name: Bash Scripting
 ---
 
 The `bash` interpreter is the default _shell_ on Linux.  A shell is the intermediary between the user and the Linux operating system when working at the command line.  Shells also can be programmed, much like other interpreted languages such as Python or R.  A program for an interpreter is usually called a _script_.

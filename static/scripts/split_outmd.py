@@ -25,7 +25,7 @@ for line in lines:
         newline2=newline.replace('![](img/','')
         line_end=newline2.find(')')
         image=newline2[:line_end]
-        newline="{{< figure src=/notes/"+base+"/img/"+image+" >}}\n"
+        newline="{{< figure src=/tutorials/"+base+"/img/"+image+" >}}\n"
     if line.startswith('#'):
         sections.append(section)
         #start over

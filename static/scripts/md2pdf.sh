@@ -12,7 +12,7 @@ startline=`grep "weight:" _index.md`
 start=${startline//"weight:"/}
 weight_array=($start)
 pdf_array[$start]=$folder".pdf"
-chromium-browser --headless --disable-gpu --print-to-pdf=$folder.pdf "https://staging.learning.rc.virginia.edu/notes/"$folder
+chromium-browser --headless --disable-gpu --print-to-pdf=$folder.pdf "https://staging.learning.rc.virginia.edu/tutorials/"$folder
 for path in $(find -type f -name "*md"); do
    file=$(sed 's/^.\///' <<< $path)
    if [[ "$file" == "_index.md" || "$file" == "index.md" ]]; then
@@ -28,7 +28,7 @@ for path in $(find -type f -name "*md"); do
    weight_array+=($key)
    pdf_array[$key]=$pdf_file
 
-   url="https://staging.learning.rc.virginia.edu/notes/"${folder}"/"${base}
+   url="https://staging.learning.rc.virginia.edu/tutorials/"${folder}"/"${base}
    echo "URL is " $url
    chromium-browser --headless --quiet --disable-gpu --print-to-pdf=$pdf_file $url
 done
