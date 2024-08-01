@@ -29,7 +29,7 @@ The built-in operations are the same for all languages.
 |  sum      |  MPI_SUM |
 |  product  |  MPI_PROD |
 |  maximum  |  MPI_MAX |
-|  minumum  |  MPI_MIN |
+|  minimum  |  MPI_MIN |
 |  maximum and its index   |  MPI_MAXLOC |
 |  minimum and its index   |  MPI_MINLOC |
 {{< /table >}}
@@ -72,7 +72,7 @@ MPI_REDUCE(sendbuf, recvbuf, count, datatype, op, root, comm, ierr)
 {{< /spoiler >}}
 
 {{< table >}}
-For MPI_MAXLOC and MPI_MINLOC, Fortran derived types are not accommodated at this time, so an array with two elements of the same type must be used. The index (the second element) can coerced to an integer if necessary.
+For MPI_MAXLOC and MPI_MINLOC, Fortran derived types are not accommodated at this time, so an array with two elements of the same type must be used. The index (the second element) can be coerced to an integer if necessary.
 
 |  Types (value, index)  |  MPI_Datatype |
 |-------------|---------|

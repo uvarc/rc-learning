@@ -54,7 +54,7 @@ We have two files in our project, [example.f90](/courses/fortran-introduction/co
 ```
 gfortran -o example example.o adder.o
 ```
-Notice that we name the executable the same as the main program, minus the file extension.  This follows the Geany convention for the executable.  It is not a requiment but if Geany is to execute it, that is the name for which it will look.
+Notice that we name the executable the same as the main program, minus the file extension.  This follows the Geany convention for the executable.  It is not a requirement but if Geany is to execute it, that is the name for which it will look.
 
 You can run the executable either from the command line (`./example` may be required for Linux) or through the Geany execute menu or gears icon.
 If Geany is to run a multi-file executable then the main program file must be selected as the current file as well as match the name of the executable.

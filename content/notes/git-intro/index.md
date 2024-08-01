@@ -7,7 +7,7 @@ date: "2023-05-01T00:00:00Z"
 
 ## Introduction
 
-Version control software provides a systematic way to keep track of changes made to files. There are a number of version control software (VCS) systems ... Git is one of them. It's a powerful tool for tracking and reconciling changes to text files from individual or multiple contributors. The basic unit of Git is the repository. Unlike some other VCS, Git tracks changes by storing **snapshots** of entire repository at different points in time. This is internally different than "delta-based" system that just keeps track of changes to the files. While Git can be used as a standalone piece of software, many people leverage web hosting platforms that expand the VCS functionality and have project management and collaborative features built in. Several examples of these services include [Bitbucket](https://bitbucket.org/), [GitLab](https://about.gitlab.com/) and [GitHub](https://github.com/).
+Version control software provides a systematic way to keep track of changes made to files. There are a number of version control software (VCS) systems ... Git is one of them. It's a powerful tool for tracking and reconciling changes to text files from individual or multiple contributors. The basic unit of Git is the repository. Unlike some other VCS, Git tracks changes by storing **snapshots** of entire repository at different points in time. This is internally different from "delta-based" system that just keeps track of changes to the files. While Git can be used as a standalone piece of software, many people leverage web hosting platforms that expand the VCS functionality and have project management and collaborative features built in. Several examples of these services include [Bitbucket](https://bitbucket.org/), [GitLab](https://about.gitlab.com/) and [GitHub](https://github.com/).
 
 ## GitHub
 
@@ -17,7 +17,7 @@ As we mentioned in the introduction, GitHub is a web-based platform for hosting 
 
 To begin with we'll log into [github.com](https://github.com/)
 
-If you haven't already created an account, make sure you follow the steps to do so.
+If you haven't already created an account, make sure you follow the steps create one.
 
 **2. Click the `+` icon and select "New repository"**
 
@@ -37,7 +37,7 @@ New repositories on GitHub require contents to initialize. To get started, we ca
 
 **5. Create a new file**
 
-GitHub provides a file editor in the browser. We're going to make use of that here to demonstrate some of the basic concepts of version control ... but **nb** that editing files this way is not a typical workflow, especially if you're storing versions of your code locally (on your computer) and remotely (on GitHub). More on that later ...
+GitHub provides a file editor in the browser. We're going to make use of that here to demonstrate some basic concepts of version control ... but **nb** that editing files this way is not a typical workflow, especially if you're storing versions of your code locally (on your computer) and remotely (on GitHub). More on that later ...
 
 ```
 smpl <- rnorm(1000)
@@ -78,7 +78,7 @@ As mentioned above, the fundamental unit of Git is the **repository**. The steps
 
 To illustrate the idea of **forking**, we'll need to start with an existing repository. For this exercise, we've created a repository that will include a comma separated value (.csv) file with data on our favorite foods. 
 
-Each of us will fork this original repository ... and in doing so create new repositories with all of the files and previous changes in our accounts. 
+Each of us will fork this original repository ... and in doing so create new repositories with all the files and previous changes in our accounts. 
 
 Navigate to https://github.com/uvasomrc/foods and click the `Fork` button in the upper right-hand corner of the page.
 
@@ -94,7 +94,7 @@ The **pull request** mechanism allows contributors to propose changes to the own
 
 ## Git (Command Line Interface)
 
-Thus far we've managed our version control actitivies using the GitHub platform, which has a Graphical User Interface (GUI). Git as a program also has a commmand line interface (CLI), which can be extremely useful whether you're managing repositories locally or remotely. In this part of the workshop we'll cover some common workflows using the Git CLI. 
+Thus far we've managed our version control activities using the GitHub platform, which has a Graphical User Interface (GUI). Git as a program also has a command line interface (CLI), which can be extremely useful whether you're managing repositories locally or remotely. In this part of the workshop we'll cover some common workflows using the Git CLI. 
 
 **1. Fork the `quality/` repository**
 
@@ -119,7 +119,7 @@ From the command line, confirm that Git is installed by calling it by name follo
 
 If the command above returns the version without error, then you have Git successfully installed. 
 
-There's one more step to configure the program post-installation. Each commit is associated with an author and email address. To check if you have a globablly conifgured user name and email address use the following command:
+There's one more step to configure the program post-installation. Each commit is associated with an author and email address. To check if you have a globally configured username and email address use the following command:
 
 `git config -l`
 
@@ -239,17 +239,17 @@ Note that sending the commit(s) we've made up to the remote GitHub repository re
 2. Authentication to GitHub (you need to essentially "log in" through the command line)
 3. Verification that the GitHub account you are using has permissions to update the remote repository
 
-If you have a SSH (Secure Shell) key set up, you'll see a message saying that the changes have been synchronized on GitHub. If not you'll need to enter your Github username and password.
+If you have a SSH (Secure Shell) key set up, you'll see a message saying that the changes have been synchronized on GitHub. If not you'll need to enter your GitHub username and password.
 
-You can persistently associate your computer with your GitHub account (so you don't have to enter your user name and password every time) you can set up an SSH key:
+You can persistently associate your computer with your GitHub account (so you don't have to enter your username and password every time) you can set up an SSH key:
 
 <https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/>
 
-If you visit the remote URL, you should see your the changes you made to `qcheck.py`, along with the hash / message associated with your commit.
+If you visit the remote URL, you should see the changes you made to `qcheck.py`, along with the hash / message associated with your commit.
 
-You may have noticed that not all of the files in your `quality/` folder on your computer appear on GitHub. For example, the if you look in the `plots/` folder on GitHub you won't see the `.png` files ... and that's intentional.
+You may have noticed that not all the files in your `quality/` folder on your computer appear on GitHub. For example, the if you look in the `plots/` folder on GitHub you won't see the `.png` files ... and that's intentional.
 
-One of the files we've included in our repository is a `.gitignore` file, which serves as a relay to Git regarding what *not* to track. You can use wildcards (`*`) to exclude all files that exist in a certain sub-directory, end in a certain suffix, start with a certain prefix, etc.
+One of the files we've included in our repository is a `.gitignore` file, which serves as a relay to Git regarding what *not* to track. You can use wildcards (`*`) to exclude all files that exist in a certain subdirectory, end in a certain suffix, start with a certain prefix, etc.
 
 ---
 
@@ -283,7 +283,7 @@ Is Git keeping track?
 
 `git status`
 
-Now stage and commit both at once (the `.` stages *all* of the files that have been changed):
+Now stage and commit both at once (the `.` stages *all* the files that have been changed):
 
 `git add . `
 
@@ -436,7 +436,7 @@ The exercises are intended to give you a chance to explore and use the tools dis
 
 **1. Learn Git Branching**
 
-Git branching is an important and sometimes difficult concept to learn. A group of developers have created a very helpful tool for exploring how branches behave.
+Git branching is an important and sometimes difficult concept to learn. A group of developers has created a very helpful tool for exploring how branches behave.
 
 Go through the **Learn Git Branching** exercises:
 
@@ -462,7 +462,7 @@ Try making a new commit locally to your `quality/` repository. Use a commit mess
 
 **3. Syncing a Fork**
 
-When you fork a repository, you bring along all of the files, commits and associated version control information ... *starting from the point in time when it was forked*.
+When you fork a repository, you bring along all the files, commits and associated version control information ... *starting from the point in time when it was forked*.
 
 As you continue to work on your fork, the *upstream* repository (from which you originally forked) may or may not be static. The owner or other contributors might modify the contents, creating commits that depart from the tree structure that you are tracking.
 

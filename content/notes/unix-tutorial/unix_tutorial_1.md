@@ -32,7 +32,7 @@ When you first log in, your current working directory is your _home directory_. 
 ```
 % ls
 ``` 
-This is short for "list."  Most Unix commands are two to four letters, sometimes with nonintuitive meanings.
+This is short for "list."  Most Unix commands are two to four letters, sometimes with unintuitive meanings.
 
 The `ls` command lists the contents of your current working directory. There may be no files visible in your home directory, in which case the prompt will be returned. Alternatively, there may already be some files or folders created when your account was set up. 
 
@@ -122,7 +122,7 @@ You will get a message like this:
 ```
 backups: No such file or directory
 ```
-The reason is that "backups" is not in your current working directory. To use a command on a file (or directory) not in the current working directory (the directory you are currently in), you must either cd to the correct directory, or specify its full _pathname_. To list the contents of your backups directory, you must type
+The reason is that "backups" is not in your current working directory. To use a command on a file (or directory) not in the current working directory (the directory you are currently in), you must either `cd` to the correct directory, or specify its full _pathname_. To list the contents of your `backups` directory, you must type
 ```bash
 % ls unixstuff/backups
 ```

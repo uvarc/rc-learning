@@ -15,11 +15,11 @@ menu:
 
 ##  Redirection
 
-Most processes initiated by Unix commands write to the _standard output_ (that is, they write to the terminal screen), and many take their input from the _standard input_ (that is, they read it from the keyboard). There is also the _standard error_, where processes write their error messages, by default to the terminal screen. Type `cat` without specifing a file to read
+Most processes initiated by Unix commands write to the _standard output_ (that is, they write to the terminal screen), and many take their input from the _standard input_ (that is, they read it from the keyboard). There is also the _standard error_, where processes write their error messages, by default to the terminal screen. Type `cat` without specifying a file to read
 ```bash
 % cat
 ```
-Then type a few words on the keyboard and press the [Return] key. Finally hold the [CTRL] key down and press `[d]` (written as `^D` for short) to end the input. What has happened? If you run the cat command without specifing a file to read, it reads the standard input (the keyboard), and on receiving the 'end of file' (`^D`), copies it to the standard output (the screen). In UNIX, we can redirect both the input and the output of commands.
+Then type a few words on the keyboard and press the [Return] key. Finally hold the [CTRL] key down and press `[d]` (written as `^D` for short) to end the input. What has happened? If you run the cat command without specifying a file to read, it reads the standard input (the keyboard), and on receiving the 'end of file' (`^D`), copies it to the standard output (the screen). In UNIX, we can redirect both the input and the output of commands.
 
 ## Redirecting the Output
 
@@ -92,7 +92,7 @@ One method to get a sorted list of names is to type
 % who > names.txt
 % sort < names.txt
 ```
-This is a bit slow and you have to remember to remove the temporary file called names.txt when you have finished. What you really want to do is connect the output of the who command directly to the input of the sort command. This is exactly what pipes do. The symbol for a pipe is the vertical bar | which, on a US keyboard, is above Enter on the right, with the backslash. For example, typing
+This is a bit slow and you have to remember to remove the temporary file called names.txt when you have finished. What you really want to do is connect the output of the `who` command directly to the input of the `sort` command. This is exactly what pipes do. The symbol for a pipe is the vertical bar | which, on a US keyboard, is above Enter on the right, with the backslash. For example, typing
 ```bash
 % who | sort
 ```

@@ -26,7 +26,7 @@ The following are specific to OPEN and describe the file type:
 ```fortran
 STATUS=stat
 ```
-The value of `stat` can be 'OLD', 'NEW' , 'REPLACE', 'SCRATCH', or  'UNKNOWN'.  (As usual, the strings are not case sensitive.)  The default is 'UNKNOWN' (read/write permission).  If 'OLD' it must exist, and if 'NEW' it must not exist.  A 'SCRATCH' file is automatically deleted after being closed.
+The value of `stat` can be 'OLD', 'NEW' , 'REPLACE', 'SCRATCH', or  'UNKNOWN'.  (As usual, the strings are not case-sensitive.)  The default is 'UNKNOWN' (read/write permission).  If 'OLD' it must exist, and if 'NEW' it must not exist.  A 'SCRATCH' file is automatically deleted after being closed.
 ```fortran
 POSITION=pos
 ```
@@ -35,7 +35,7 @@ Position `pos` is 'ASIS' (the default), 'REWIND', or 'APPEND'.  REWIND returns t
 ```fortran
 FORM=fmt
 ```
-The permitted values for `fmt` are 'FORMATTED' (the default, for a text file) or'UNFORMATTED' (a system-dependent binary format). This term is not related to whether the text is "formatted" for printing or not.
+The permitted values for `fmt` are 'FORMATTED' (the default, for a text file) or 'UNFORMATTED' (a system-dependent binary format). This term is not related to whether the text is "formatted" for printing or not.
 ```fortran
 ACCESS=acc
 ```

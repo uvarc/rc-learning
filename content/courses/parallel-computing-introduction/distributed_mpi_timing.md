@@ -75,7 +75,7 @@ In strong scaling, a fixed amount of work is distributed over a varying number o
 
 #### Weak Scaling
 
-Recall that weak scaling increases the amount of work as the process number increases.  Ideally, the quantity of work per process is the same across all proceses.  For weak scaling, we must compute the serial time for the _equivalent_ sized problem, so the serial code must be run for $8 \times 10^{7}$, $4 \times 10^{7}$, and $2 \times 10^{7}$ as well as for $10^{7}$ steps.  Plot the scaling compared to perfect scaling of $p$.  Compute and plot the parallel efficiency for these runs.  Was it similar to strong scaling?  Why might this be the case for this particular example?
+Recall that weak scaling increases the amount of work as the process number increases.  Ideally, the quantity of work per process is the same across all processes.  For weak scaling, we must compute the serial time for the _equivalent_ sized problem, so the serial code must be run for $8 \times 10^{7}$, $4 \times 10^{7}$, and $2 \times 10^{7}$ as well as for $10^{7}$ steps.  Plot the scaling compared to perfect scaling of $p$.  Compute and plot the parallel efficiency for these runs.  Was it similar to strong scaling?  Why might this be the case for this particular example?
 
 {{< spoiler text="Weak scaling example" >}}
 {{< figure src="/courses/parallel-computing-introduction/img/MPI_weak_scaling.png" caption="Graphs of speedup and efficiency for a weak-scaling example" >}}

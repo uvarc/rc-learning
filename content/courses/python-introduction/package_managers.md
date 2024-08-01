@@ -18,7 +18,7 @@ To install new packages from the Navigator, go to the Environments tab, change t
 
 {{< figure src="/courses/python-introduction/imgs/AnacondaPackageManager.png" caption="Anaconda Package Manager" >}}
 
-Conda can be also used from the command line.  In Linux and Mac OS, the terminal can be used for this.  In Windows, use the Anaconda Command Prompt, which can be accessed through the Apps menu in the Anaconda folder, should be opened for these commands, since it has the correct paths preset.
+Conda can be also used from the command line.  In Linux and macOS, the terminal can be used for this.  In Windows, use the Anaconda Command Prompt, which can be accessed through the Apps menu in the Anaconda folder, should be opened for these commands, since it has the correct paths preset.
 
 If you are updating many packages it may be better to do it through a command line. To upgrade a package type
 

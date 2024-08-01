@@ -303,7 +303,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
 
 ## Exercise: `fortune` from scratch
 
-This exercise illustrates how we can cherrypick files from the package manager that are essential to the application.
+This exercise illustrates how we can cherry-pick files from the package manager that are essential to the application.
 
 1. The Ubuntu base image shall be our basis of comparison. Copy the Dockerfile and build the image.
 
@@ -576,7 +576,7 @@ where $A_{mk}, B_{kn}, C_{mn}$ are matrices and $\alpha, \beta$ are constants. F
 This exercise illustrates that it is easier to build a minimal container of a static binary.
 
 ## Exercise: Linking against LibTorch
-LibTorch is the C++ frontend of PyTorch. This exericse is based on the ["Writing a Basic Application"](https://pytorch.org/tutorials/advanced/cpp_frontend.html#writing-a-basic-application) section of the PyTorch tutorial.
+LibTorch is the C++ frontend of PyTorch. This exercise is based on the ["Writing a Basic Application"](https://pytorch.org/tutorials/advanced/cpp_frontend.html#writing-a-basic-application) section of the PyTorch tutorial.
 
 1. Select an appropriate base image. (Hint: You will be compiling C++ code.)
 

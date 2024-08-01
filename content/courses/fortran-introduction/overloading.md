@@ -106,7 +106,7 @@ end subroutine
 
 ### Type-Bound Operators
 
-Operators may be overloaded to work on class members.  The syntax is somewhat different than for separate types in modules.
+Operators may be overloaded to work on class members.  The syntax is somewhat different from that for separate types in modules.
 Here is a snippet from a module defining a Fraction class.  The rules for the arguments are the same as for modules, but of course the instance variable must be declared CLASS.
 ```fortran
 private

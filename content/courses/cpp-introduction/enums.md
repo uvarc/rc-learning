@@ -93,7 +93,7 @@ typedef boost::multi_array<double,2> Array2D;
    Array2D gridArray(boost::extents[nrows][ncols]);
 ```
 
-Typdef is particularly useful when working with templated types whose declarations may be long and awkward, as in the Boost array example above.  Unlike user-defined types such as [structs](/courses/cpp-introduction/structs) the new "type" is merely an synonym for an existing type.
+Typdef is particularly useful when working with templated types whose declarations may be long and awkward, as in the Boost array example above.  Unlike user-defined types such as [structs](/courses/cpp-introduction/structs) the new "type" is merely a synonym for an existing type.
 
 Typedefs are very common in C code, because C requires using the `struct` keyword to declare variables of that type.
 ```c

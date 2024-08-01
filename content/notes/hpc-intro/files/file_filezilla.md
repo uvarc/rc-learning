@@ -1,5 +1,5 @@
 ---
-title: "Transferring with Graphical Clients: Mac OS and Linux"
+title: "Transferring with Graphical Clients: macOS and Linux"
 date: "2022-10-01T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
@@ -13,7 +13,7 @@ menu:
 
 ## Filezilla
 
-This illustration is from a Linux computer.  Mac OS is similar.
+This illustration is from a Linux computer.  macOS is similar.
 
 First click the Site Manager icon in the upper left.
 

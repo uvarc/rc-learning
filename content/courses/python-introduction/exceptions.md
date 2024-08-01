@@ -13,7 +13,7 @@ menu:
 Many situations can result in an error.  
 
 * An attempt to read a file that isn't present.
-* A attempt to cast a string to a number when the string does not represent a number.
+* An attempt to cast a string to a number when the string does not represent a number.
 * An index out of bounds.
 * A key requested is not in the dictionary.
 

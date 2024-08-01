@@ -11,7 +11,7 @@ menu:
     parent: Connecting to The System
 ---
 
-You can also terminate -- or restart -- a session from the My Sessions tab.  To terminate, click the `x` in the upper right of the session, or use the menu.
+You can also terminate -- or restart -- a session from the "My Sessions" tab.  To terminate, click the `x` in the upper right of the session, or use the menu.
 
 To restart instead of terminating, click the arrow for "run".
 

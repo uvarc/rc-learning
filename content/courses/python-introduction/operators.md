@@ -58,7 +58,7 @@ num_1=10
 num_2=14
 {{< /code-snippet >}}
 
-Type the following lines one at a time and examine the results. In JupyterLab each line must be in its own cell. In the Spyer interpreter pane it will evaluate each line when you go to the next one.
+Type the following lines one at a time and examine the results. In JupyterLab each line must be in its own cell. In the Spyder interpreter pane it will evaluate each line when you go to the next one.
 
 ```python
 x

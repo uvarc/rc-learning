@@ -51,11 +51,11 @@ WRITE(*,*) var1,var2,var3
 ```
 As for READ, the first option to WRITE is the unit identifier and the second is a format descriptor.  The asterisk as the format argument specifies a list-directed write in which the compiler formats the output based on its defaults.
 
-WRITE has optional arguments for error checking similar to READ: IOSTAT, IOMSG, and ERR.  It also has some optional arguments to control certain aspect of the output appearance, particularly those related to differences in conventional reprsentation of numbers, for example:
+WRITE has optional arguments for error checking similar to READ: IOSTAT, IOMSG, and ERR.  It also has some optional arguments to control certain aspect of the output appearance, particularly those related to differences in conventional representation of numbers, for example:
 ```fortran
 DECIMAL=dec
 ```
-where `dec` is a character variable or literal that evaluates to COMMMA or POINT.  This controls whether floating-point numbers are printed with a comma or decimal point.
+where `dec` is a character variable or literal that evaluates to COMMA or POINT.  This controls whether floating-point numbers are printed with a comma or decimal point.
 
 The PRINT statement always writes to the console (standard output for Unix).  The asterisk specifies list-directed IO.
 ```fortran

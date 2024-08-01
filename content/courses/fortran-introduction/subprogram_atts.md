@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Subprograms can be defined with attributes for particular conditions or behaviors.  They can call themeselves, or operate elementwise on arrays.
+Subprograms can be defined with attributes for particular conditions or behaviors.  They can call themselves, or operate elementwise on arrays.
 
 ## Pure and Elemental Procedures
 
@@ -91,11 +91,11 @@ Absent IMPURE, the procedure must obey the rules for PURE.
 
 Recursive procedures call themselves.  This may seem impossible, but the compiler sets up multiple copies, usually in a section of memory called the _stack_.  Without some care in implementing the algorithm, recursion can lead to stack overflow.  Even worse, a recursive procedure _must_ have a stopping condition or the result is infinite recursion, at least until the stack overflows and the executable or even the whole computer crashes.
 
-Most recursive algorithms have an interative (while loop) equivalent, which may perform better, but the recursive algorithm may be simpler and easier to understand.
+Most recursive algorithms have an iterative (while loop) equivalent, which may perform better, but the recursive algorithm may be simpler and easier to understand.
 
 Both functions and subroutines can be RECURSIVE.  Up to the F2008 standard, recursive functions require a RESULT clause.  Recursive subroutines do not support RESULT and do not require it. Starting with the F2018 standard, the default is for subprograms to be assumed RECURSIVE, so the keyword will no longer be required unless a compiler option is used to change the default behavior.  Another keyword NON_RECURSIVE can be used to make a subprogram explicitly iterative.
 
-One of the most famous examples of a recursive algorithm is the Fibonnaci sequence.  To compute the Nth number in the sequence, we can use
+One of the most famous examples of a recursive algorithm is the Fibonacci sequence.  To compute the Nth number in the sequence, we can use
 
 $$ F_0 = 0 $$
 $$ F_1 = 1 $$

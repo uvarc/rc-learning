@@ -66,7 +66,7 @@ This is an example of how we divide up work into separate “chunks” or
 punctuation such as periods, question marks, etc., at the end of a word in
 place.
 
-Look up the documentation for the random module to find some useful functions.  You can also import the string module to obtain a list of punctuaton marks.
+Look up the documentation for the random module to find some useful functions.  You can also import the string module to obtain a list of punctuation marks.
 
 - Hint: since you cannot overwrite strings you will need to convert them to a list and back again. Use [Example.txt](/data/Example.txt) as your sample input.
 - FYI this is an “urban legend” because: firstly, no such research was ever conducted at any university, and secondly it is true only for very practiced readers of English and even then only for familiar words that are easy to recognize in context.

@@ -218,7 +218,7 @@ The `pid` is the _process id_.
 
 You have accidentally started a production job on a loginnode node.  What to do?
 
-You can kill your forground process with `Crtl c`. 
+You can kill your foreground process with `Crtl c`. 
 ```bash
 #oops, I was supposed to run this through Slurm
 $./myexe  
@@ -235,7 +235,7 @@ To kill by executable name
 ```bash
 $killall -9 <executable name> 
 ```
-The kill command with -9 immediately kills the process without allowing the process to clean up or save data. The killall command can be used to kill all of the processes that match a specific name or pattern.
+The kill command with -9 immediately kills the process without allowing the process to clean up or save data. The killall command can be used to kill all the processes that match a specific name or pattern.
 
 If you find yourself in a jam and do not know what is wrong and you must start over, 
 ```bash

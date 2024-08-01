@@ -14,7 +14,7 @@ Now that we understand the basic data types, we can begin to study the fundament
 
 ## Code Blocks
 
-Both loops and conditionals, and many other constructs we will encountered later, work with _code blocks_.  A code block is a group of statements that function logically as a single statement.  
+Both loops and conditionals, as well as many other constructs we will encounter later, work with _code blocks_.  A code block is a group of statements that function logically as a single statement.  
 
 Most of the time, a block is introduced by a colon (`:`) following a declaration or expression.  In Python these blocks are indicated by the _indentation level_. You may indent each block by however many spaces you wish (3 or 4 is usually recommended), but each block level must be indented by exactly the same number.  Do not use tabs. The block is terminated by returning to the previous indentation level; there are no special characters or statements to delineate a block.
 

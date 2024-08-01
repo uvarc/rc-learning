@@ -64,7 +64,7 @@ Points to note:
   * MOD is most frequently used though MODULO is closer to other languages' `%` operator.  
   * Use for negatives is uncommon in all languages.
 
-`Mod` and `modulo` are defined for negative values and reals, as well as nonnegative integers, but the results, while well-defined mathematically, are not generally what most programmers are expecting.  For this reason they should generally be avoided for arguments other than nonnegative integers.
+`Mod` and `modulo` are defined for negative values and reals, as well as non-negative integers, but the results, while well-defined mathematically, are not generally what most programmers are expecting.  For this reason they should generally be avoided for arguments other than non-negative integers.
 
 **Example**
 {{< code-download file="/courses/fortran-introduction/codes/testmod.f90" lang="fortran" >}}

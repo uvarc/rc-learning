@@ -186,7 +186,7 @@ Under most circumstances, for a cpu-only job the "CPU" (core) efficiency should 
 
 Core efficiency is more problematic for GPU jobs, since the key to efficient GPU utilization is maximizing the GPU computations and minimizing CPU work. Seff does not provide a GPU utilization metric at this time, but we may be able to help you if you are concerned about GPU utilization.
 
-If your memory utilization is low and you have requested a specified amount, use `sacct -o` with at least the MaxRSS field to double check. If you do not need as much memory as you thought, you may be able to save SUs and have a shorter queue wait time if you decrease it. 
+If your memory utilization is low and you have requested a specified amount, use `sacct -o` with at least the MaxRSS field to double-check. If you do not need as much memory as you thought, you may be able to save SUs and have a shorter queue wait time if you decrease it. 
 
 ## Stream Output in Slurm
 

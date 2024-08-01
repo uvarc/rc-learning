@@ -19,7 +19,7 @@ from the Fiji website: [https://fiji.sc/](https://fiji.sc/). Fiji is a portable 
 meaning it doesn't require an installer. To use Fiji, simply download and unzip the application,
 and then you are able to start it.
 
-* **MacOS X:** The Fiji application should be installed in the user’s home directory rather than the default Applications folder.
+* **macOS:** The Fiji application should be installed in the user’s home directory rather than the default Applications folder.
 * **Windows 7 & 10:** The Fiji application should be installed in the user’s home directory rather than the default C:\Program Files directory.
 * **Linux:** The Fiji application should be installed in a directory where the user has read, execution, and write permissions, e.g. the user’s home directory.
 
@@ -37,7 +37,7 @@ and then you are able to start it.
 * Photography & cinematography
 * Digitization of non-digital documents -> text mining
 * Natural sciences, engineering
-* Forensics, e.g. finger print matching
+* Forensics, e.g. fingerprint matching
 * Quality control, e.g. in semiconductor fabrication
 * Satellite surveillance, e.g. weather forecasting, terrain usage analysis
 * Autonomously operating machinery (cars, etc.)
@@ -69,7 +69,7 @@ Pixels in ***grayscale images*** may be encoded as 8-bit integer (256 intensity 
 
 Image processing and analysis procedures often share a common workflow as shown here.
 
-The original image (or raw data) that serves as input for the image processing pipeline may contain background noise that may need to be removed by applying specifc image filters.
+The original image (or raw data) that serves as input for the image processing pipeline may contain background noise that may need to be removed by applying specific image filters.
 
 The cleaned-up image may then be processed to enhance certain features, e.g. highlight object edges.
 
@@ -91,7 +91,7 @@ The enhanced image can then be converted into binary image masks that define gro
 
 ## Working with Image Channels
 
-Fiji has built-in tools to manipulate multi-channel composite and RGB images. For this example, open the 5-dimensional (x, y, z, color, time) image stack.
+Fiji has built-in tools to manipulate multichannel composite and RGB images. For this example, open the 5-dimensional (x, y, z, color, time) image stack.
 
 {{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-5.png" >}}
 
@@ -120,7 +120,7 @@ Fiji has built-in tools to manipulate multi-channel composite and RGB images. Fo
 
 2) Go to `Image` > `Color` > `Split Channels`.
 
-Individual image channels are displayed in separate windows. This operation only works on multi-channel image stacks or RGB images.
+Individual image channels are displayed in separate windows. This operation only works on multichannel image stacks or RGB images.
 
 <br>
 
@@ -129,7 +129,7 @@ Individual image channels are displayed in separate windows. This operation only
 
 {{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-7.png" >}}
 
-Images displayed in separate windows can be ***merged*** into multi-channel composite images. The input ***images need to be of the same type*** (either 8-bit or 16-bit pixel encoding). You can merge up to 7 different images into a single multi-channel image.
+Images displayed in separate windows can be ***merged*** into multichannel composite images. The input ***images need to be of the same type*** (either 8-bit or 16-bit pixel encoding). You can merge up to 7 different images into a single multichannel image.
 
 1) Go to `File` > `Open Samples` > `Fluorescent Cells`.
 
@@ -152,7 +152,7 @@ For **single channel images**, you can change the LUT by running these commands:
 
 1) `Image` > `Lookup Tables`.
 
-For **multi-channel image**, you can change the LUT by running these commands:
+For a **multichannel image**, you can change the LUT by running these commands:
 
 1) `Image` > `Color` > `Channels Tools`.
 
@@ -167,7 +167,7 @@ For **multi-channel image**, you can change the LUT by running these commands:
 **Making an Image Montage**
 {{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-8.png" >}}
 
-Images can be layed out in a grid-like fashion, aka a ***montage***. Given the regular arrangement of the images in a grid layout, all image tiles used for the montage have to be of the same x-y dimension and same image type (e.g. all 8-bit, 8-bit, 32-bit, or RGB).
+Images can be laid out in a grid-like fashion, aka a ***montage***. Given the regular arrangement of the images in a grid layout, all image tiles used for the montage have to be of the same x-y dimension and same image type (e.g. all 8-bit, 8-bit, 32-bit, or RGB).
 
 The easiest way to create a montage is to create an image stack that contains all the images for the individual image tiles and then use the Fiji Montage tool. Here is an example:
 
@@ -343,7 +343,7 @@ Fiji provides several standard filters that can be applied to images. Here we ar
 
 **Removing Periodic Noise (Advanced)**
 
-Periodic noise as shown by the banding pattern observed in this image cannot be removed with the kernel-based standard filters described above. However applying ***Fast-Fourier Transform (FFT)*** analysis can reveal the periodicity of such noise represented by the high intensity spots in the the FFT image (top middle panel). By masking these hotspots (bottom middle panel) and applying the inverse FFT one can retrieve the original image without the periodic noise (right panel).
+Periodic noise as shown by the banding pattern observed in this image cannot be removed with the kernel-based standard filters described above. However applying ***Fast-Fourier Transform (FFT)*** analysis can reveal the periodicity of such noise represented by the high intensity spots in the FFT image (top middle panel). By masking these hotspots (bottom middle panel) and applying the inverse FFT one can retrieve the original image without the periodic noise (right panel).
 
 {{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-17.png" >}}
 
@@ -544,7 +544,7 @@ When we use the Particle Analyzer with the `Add to Manager` option, the ROI for 
 
 **ROI Properties**
 
-Via the `Properties` button, the ROI Manager provides functions to change propoerties of selected ROIs, e.g. name, Z-position, outline color & width, and fill color. Multiple ROIs can be selected by holding the `Ctrl` (`command` on a Mac) or `Shift` keys while clicking on the ROIs.
+Via the `Properties` button, the ROI Manager provides functions to change properties of selected ROIs, e.g. name, Z-position, outline color & width, and fill color. Multiple ROIs can be selected by holding the `Ctrl` (`command` on a Mac) or `Shift` keys while clicking on the ROIs.
 
 **ROI Import & Export**
 
@@ -782,7 +782,7 @@ colors (the default). Click **OK**.
 
 5) Go to **Image > Color > Edit LUT**. The window shows the LUT color palette
 
-6) Double click on a LUT tile and edit its RGB values to pure blue. Click **OK** and repeat this for other LUT
+6) Double-click on a LUT tile and edit its RGB values to pure blue. Click **OK** and repeat this for other LUT
 entries, change the color representation as you wish.
 
 What do you observe?
@@ -821,7 +821,7 @@ having to go through steps 1-5 again.
 8) Click **OK**.
 
 Select the image stack created in step 5 (or reopen the stack saved in step 6) and create new montages with
-modified montage settings. To change the foreground color for the border, double click on the **Color Picker** in
+modified montage settings. To change the foreground color for the border, double-click on the **Color Picker** in
 the Fiji toolbar.
 
 {{< figure src="/courses/fiji-image-processing/introduction/intro-fiji-45.png" >}}
@@ -868,7 +868,7 @@ open images, otherwise the scale will be removed for the current image only.
 
 ### 5. Custom Image Filters
 
-To apply a filter to images, a convolution kernel has to be created. The built in filters have standardized
+To apply a filter to images, a convolution kernel has to be created. The built-in filters have standardized
 convolution kernels. You can create your own convolution kernels to create custom filters. In this example we
 create a simple edge detector, called the Sobel operator.
 

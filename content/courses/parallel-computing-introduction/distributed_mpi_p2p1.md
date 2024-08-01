@@ -9,8 +9,7 @@ menu:
         parent: Distributed-Memory Programming
 ---
 
-We have so far discussed global communications, in which all members of a communicator group take part.  Most MPI programs rely primarily on
-on _point-to-point_ communication, in which an individual process sends messages directly to one other individual processes.
+We have so far discussed global communications, in which all members of a communicator group take part.  Most MPI programs rely primarily on _point-to-point_ communication, in which an individual process sends messages directly to one other individual processes.
 
 ## Send and Receive
 

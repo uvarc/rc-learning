@@ -17,7 +17,7 @@ _Remember that computers do not use base 10 internally_.
 
 _Precision_ is the number of digits that are accurate, according to the requirements of the IEEE standard.  Please note that compilers will happily output more digits than are accurate if asked to print unformatted values.
 
-Like most programming languages, C++ is _case sensitive_.  Variables `Mean` and `mean` and even `mEan` are different to the compiler.  
+Like most programming languages, C++ is _case-sensitive_.  Variables `Mean` and `mean` and even `mEan` are different to the compiler.  
 
 Moreover, like most compiled languages. C++ is _statically typed_ .  All variables must be _declared_ to be of a specific type before they can be used.  A variable’s type cannot be changed once it is declared.
 
@@ -40,7 +40,7 @@ Variables and other _identifiers_ may not be the same as the list of _reserved w
 
 ### Integers
 
-Integers are quantities with no fractional part.  C++ supports _signed_ and _unsigned_ integers.  Signed integers take on all values within the available range.  Unsigned integers represent only nonnegative values.
+Integers are quantities with no fractional part.  C++ supports _signed_ and _unsigned_ integers.  Signed integers take on all values within the available range.  Unsigned integers represent only non-negative values.
 
 Signed integers are represented internally by a sign bit followed by a value in _binary_.  Remember that computers _do not_ use base 10 internally.
 Unsigned integers omit the sign bit and use all the available bits for the value.
@@ -72,7 +72,7 @@ The output for this code on an Intel-based Linux computer using the g++ compiler
 
 ### Floating Point Numbers
 
-loating-point numbers are representations of the mathematical real numbers.
+Floating-point numbers are representations of the mathematical real numbers.
 However, due to the inherent finiteness of the computer, they have distinct
 properties.
 

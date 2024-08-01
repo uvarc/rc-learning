@@ -26,9 +26,9 @@ To obtain this:
 4. If your date is January 1-February 29 of a leap year, subtract 1. 
 Try to devise a method to obtain the last two digits on your own. Print the day of the week as a word (Monday, Tuesday, etc.). Remember that Sunday is the first day of the week and it will be counted as 0 in this algorithm. 
 
-Test your program first with your own birth date. Then test with the following dates: 
+Test your program first with your own birthdate. Then test with the following dates: 
 * Today’s date 
-* December 25, 1642 (Note: this is Newton’s birth date in the Julian calendar, but use it as a Gregorian date) 
+* December 25, 1642 (Note: this is Newton’s birthdate in the Julian calendar, but use it as a Gregorian date) 
 * October 12, 1492 
 * January 20, 2000 
 * December 11, 2525

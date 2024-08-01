@@ -35,7 +35,7 @@ The Python scripts and data files for this workshop can be [downloaded from here
 
 **Python programming environment**
 
-The Anaconda environment from [Anaconda Inc.](https://anaconda.com/) is widely used because it bundles a Python interpreter, most of the popular packages, and development environments. It is cross platform and freely available. There are two somewhat incompatible versions of Python; version 2.7 is deprecated but still fairly widely used. Version 3 is the supported version. 
+The Anaconda environment from [Anaconda Inc.](https://anaconda.com/) is widely used because it bundles a Python interpreter, most of the popular packages, and development environments. It is cross-platform and freely available. There are two somewhat incompatible versions of Python; version 2.7 is deprecated but still fairly widely used. Version 3 is the supported version. 
 
 **Note: We are using Python 3 for this workshop.**
 
@@ -55,7 +55,7 @@ If you have a Rivanna account, you can work through this tutorial using an [Open
 
     >**Note:** Workshop participants may specify `rivanna-training` in the `Allocation (SUs)` field. Alternatively, you may use any other Rivanna allocation that you are a member of.  
 
-5. Click `Launch` at the bottom of the screen. Your dekstop session will be queued up -- this may take a few minutes until the requested resources become available.
+5. Click `Launch` at the bottom of the screen. Your desktop session will be queued up -- this may take a few minutes until the requested resources become available.
 
 ## Option 2 - Use your own computer
 
@@ -63,7 +63,7 @@ If you have a Rivanna account, you can work through this tutorial using an [Open
 
 2. Launch the downloaded installer, follow the onscreen prompts and install the Anaconda distribution on your local hard drive.
 
-The [Anaconda Documentation](https://docs.anaconda.com/anaconda/user-guide/getting-started/) provides an introduction to the Ananconda environment and bundled applications. For the purpose of this workshop we focus on the `Anaconda Navigator` and `Spyder`. 
+The [Anaconda Documentation](https://docs.anaconda.com/anaconda/user-guide/getting-started/) provides an introduction to the Anaconda environment and bundled applications. For the purpose of this workshop we focus on the `Anaconda Navigator` and `Spyder`. 
 
 # Using Anaconda
 
@@ -111,7 +111,7 @@ This command will install the latest `opencv-python` package version in your cur
 module load anaconda
 pip install --user opencv-python matplotlib scikit-image pandas
 ```
-> **Note:** You have to use the `--user` flag which instructs the interpreter to install the package in your home directory. Alternativley, create your own custom [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) first and run the `pip install opencv-python matplotlib pandas` command in that environment (without the `--user` flag) 
+> **Note:** You have to use the `--user` flag which instructs the interpreter to install the package in your home directory. Alternatively, create your own custom [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) first and run the `pip install opencv-python matplotlib pandas` command in that environment (without the `--user` flag) 
 
 To confirm successful package installation, start the **Spyder IDE** by typing the following command in the terminal:
 ```bash
@@ -128,7 +128,7 @@ If the package is installed correctly, the output will show the openCV version n
 
 ## Example scripts and images
 
-Download the example scripts and images from [this link](/notes/opencv/data/opencv-examples.zip). Unzip the downloaded file and start your Python IDE, e.g Spyder.
+Download the example scripts and images from [this link](/notes/opencv/data/opencv-examples.zip). Unzip the downloaded file and start your Python IDE, e.g. Spyder.
 
 If you are on Rivanna, run the following command to copy the examples to your home directory:
 ```bash
@@ -141,7 +141,7 @@ cp -R /share/resources/tutorials/opencv-examples ~/
 
 ## Loading Images
 
-The `imread` function is used to read images from files. Images are represented as a multi-dimensional [NumPy](https://numpy.org) arrays. Learn more about NumPy arrays [here](/courses/python_introduction/numpy_ndarrays/). The multi-dimensional properties are stored in an image's `shape` attribute, e.g. number of rows (height) x number of columns (width) x number of channels (depth).
+The `imread` function is used to read images from files. Images are represented as a multidimensional [NumPy](https://numpy.org) arrays. Learn more about NumPy arrays [here](/courses/python_introduction/numpy_ndarrays/). The multidimensional properties are stored in an image's `shape` attribute, e.g. number of rows (height) x number of columns (width) x number of channels (depth).
 
 
 ```python:
@@ -173,7 +173,7 @@ cv2.destroyAllWindows()
 
 The `cv2.imshow()` method displays the image on our screen. The `cv2.waitKey()` function waits for a key to be pressed. This is important otherwise our image would display and immediately disappear before we even see the image. The call of `destroyAllWindows()` should be placed at the end of any script that uses the `imshow` function.
 
->**Note:** Before you run the code through the Spyder IDE, go to `Run` > `Run configuration per file` and select `Execute in dedicated console` first. Then, when you run the code uyou need to actually click the image window opened by OpenCV and press a key on your keyboard to advance the script. OpenCV cannot monitor your terminal for input so if you a press a key in the terminal OpenCV will not notice.  
+>**Note:** Before you run the code through the Spyder IDE, go to `Run` > `Run configuration per file` and select `Execute in dedicated console` first. Then, when you run the code uyou need to actually click the image window opened by OpenCV and press a key on your keyboard to advance the script. OpenCV cannot monitor your terminal for input so if you press a key in the terminal OpenCV will not notice.  
 
 Alternatively, we can use the `matplotlib` package to display an image.
 
@@ -197,7 +197,7 @@ cv2.imwrite(filename, image)
 
 ## Accessing Image Pixels
 
-Since an image's underlying pixel information is stored in multi-dimensional numpy arrays, we can use common numpy operations to slice and dice image regions, including the images channels.
+Since an image's underlying pixel information is stored in multidimensional numpy arrays, we can use common numpy operations to slice and dice image regions, including the images channels.
 
 We can use the following code to extract the red, green and blue intensity values of a specific image pixel at position x=100 and y=50.
 
@@ -438,7 +438,7 @@ Original             | Gradient (edges)
 
 # Exercises
 
-1. Experiment with different kernel sizes an number of iterations. What do you observe?
+1. Experiment with different kernel sizes and number of iterations. What do you observe?
 
 --- 
 
@@ -449,11 +449,11 @@ Image Segmentation is the process that groups related pixels to define higher le
 1. Thresholding - conversion of input image into binary image
 2. Edge detection - see above
 3. Region based - expand/shrink/merge object boundaries from object seed points
-4. Clustering  - use statistal analysis of proximity to group pixels as objects
+4. Clustering  - use statistical analysis of proximity to group pixels as objects
 5. Watershed - separates touching objects
 6. Artificial Neural Networks - train object recognition from examples
 
-Let's try to identify and measure the area of the nuclei in this image with fluorescently labeled cells. This is the `fluorescent-cells.png` image in the examples folder. We will explore the use of morphology filters, thresholding and watershed to accomplish this.
+Let's try to identify and measure the area of the nuclei in this image with fluorescent labeled cells. This is the `fluorescent-cells.png` image in the `examples` folder. We will explore the use of morphology filters, thresholding and watershed to accomplish this.
 
 The complete code is in the `segmentation.py` script.
 
@@ -472,7 +472,7 @@ nuclei = image[:,:,0] # get blue channel
 
 ![](nuclei.png)
 
-To eliminate noise, we apply a Gaussian filter with 3x3 kernel, then apply the Otsu thresholding alogorithm. The thresholding converts the grayscale intensity image into a black and white binary image. The function returns two values, we store them in `ret` (the applied threshold value) and `thresh` (the thresholded black & white binary image).  White pixels represent nuclei; black pixel represent background. 
+To eliminate noise, we apply a Gaussian filter with 3x3 kernel, then apply the Otsu thresholding algorithm. The thresholding converts the grayscale intensity image into a black and white binary image. The function returns two values, we store them in `ret` (the applied threshold value) and `thresh` (the thresholded black & white binary image).  White pixels represent nuclei; black pixel represent background. 
 
 ```python:
 # apply Gaussian filter to smoothen image, then apply Otsu threshold

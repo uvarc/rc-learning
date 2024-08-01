@@ -31,7 +31,7 @@ the_file=fin.read()
 file_list=the_file.split("\r\n")
 ```
 
-We can now process through the list using a loop.  Note that we use `\r\n` to make sure we accommodate Windows, MacOS, and Linux operating systems.  
+We can now process through the list using a loop.  Note that we use `\r\n` to make sure we accommodate Windows, macOS, and Linux operating systems.  
 
 If we have numeric data, one way to obtain a list of floats for each line of the file is to employ `map` with `readlines`:
 ```python

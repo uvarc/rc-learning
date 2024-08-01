@@ -12,7 +12,7 @@ menu:
 
 ---
 
-Building a UI is comprised of three parts:
+There are 3 steps to building a UI:
 
 1. Instantiating input and output widgets
 

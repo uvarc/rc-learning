@@ -92,7 +92,7 @@ gfortran: fatal error: no input files
 We will show Geany and VSCode on Windows.  Both look similar on the other platforms.  
 
 Open Geany (or VSCode).  Type in the following
-{{< code file="courses/fortran-introduction/codes/hello.f90" lang=no-hightlight >}}
+{{< code file="courses/fortran-introduction/codes/hello.f90" lang=no-highlight >}}
 
 {{< figure src="/courses/fortran-introduction/img/Geany1.png" width=500px  >}}
 Syntax coloring will not be enabled until the file is saved with a file extension that corresponds to the language.  Save this file as `hello.f90`.  The coloring will appear.

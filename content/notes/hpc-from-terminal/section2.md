@@ -31,7 +31,7 @@ $ls
 '10. directories.md'
 '15. streams.md'
 ```
-The quotes indicate that a space is part of the file name.  While most modern Unix tools can handle spaces, the shell does not always do so, and special precautions must be taken to avoid suprises. For that reason, underscores or hyphens are preferred instead of spaces.
+The quotes indicate that a space is part of the file name.  While most modern Unix tools can handle spaces, the shell does not always do so, and special precautions must be taken to avoid surprises. For that reason, underscores or hyphens are preferred instead of spaces.
 
 ## Paths
 
@@ -66,7 +66,7 @@ graph TD
     bin--> cd["cd"]
 {{< /diagram >}}
 
-The **home** directory is the usual name on Linux and similar Unix-based operating systems for the folder that holds user directories and files.  On MacOS it is called User.  On both, the _separator_ between branches of the tree is the forward slash.
+The **home** directory is the usual name on Linux and similar Unix-based operating systems for the folder that holds user directories and files.  On macOS it is called User.  On both, the _separator_ between branches of the tree is the forward slash.
 
 {{< hl >}}
 /home/mst3k/myfile
@@ -76,7 +76,7 @@ The **home** directory is the usual name on Linux and similar Unix-based operati
 /Users/Misty Tea/Documents/Homework.pages
 {{< /hl >}}
 
-Windows files and folders also have paths.  In Windows, drive letters or _volumes_ are the top-level folders, and usually there is more than one.  User files are in Users, similar to MacOS.
+Windows files and folders also have paths.  In Windows, drive letters or _volumes_ are the top-level folders, and usually there is more than one.  User files are in Users, similar to macOS.
 
 {{< hl >}}
 C:\Users\Misty Tea\Documents\Homework.docx
@@ -86,7 +86,7 @@ C:\Users\Misty Tea\Documents\Homework.docx
 
 Paths may be _absolute_ or _relative_.
 
-An __absolute path__ is path to a file or folder starting at the root. On Unix it will begins with `/`, to designate the root.
+An __absolute path__ is path to a file or folder starting at the root. On Unix it will begin with `/`, to designate the root.
 
 An absolute path is guaranteed to get you to the location you want.
 
@@ -101,7 +101,7 @@ Absolute paths:
 /home/mst3k/projects/project1
 /home/mst3k/projects/project1/output.txt
 ```
-Note that `/home/mst3k/file.txt` and `/home/mst3k/files/file.txt` are _different files_ unless you explictly _link_ them.
+Note that `/home/mst3k/file.txt` and `/home/mst3k/files/file.txt` are _different files_ unless you explicitly _link_ them.
 
 Relative paths.  Suppose we are in the `/home/mst3k/files` folder.
 ```no-highlight
@@ -138,7 +138,7 @@ Like most Unix commands, it has many options.  They may be combined.
 |-------|-----|
 |-l  | long listing, includes file date, size, and permissions |
 |-a  | displays all files including hidden (dotfiles) |
-|-h  | show file sizes in human readable terms |
+|-h  | show file sizes in human-readable terms |
 |-C  | lay out listing in columns |
 |-1  | (digit one) list one file per line, no header |
 |-t  | show the newest files first |

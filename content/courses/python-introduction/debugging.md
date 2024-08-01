@@ -22,7 +22,7 @@ In Spyder, click the blue "Play" icon to start debugging.  Set a breakpoint by c
 
 {{< figure src="/courses/python-introduction/imgs/Spyder_debug.png" >}}
 
-In a debugger-enabled JupyterLab, first paste the function into a cell, and the main body into another cell.  At the right of the top ribbon, click on the "bug" icon next to the kernel name so that it turns orange. Also expand the "bug" icon on the right-hand sidebar to open views of the equivalent of the Variable Explorer.  Then breakpoints may be set by clicking on a line.  In JupyterLab with an appropriate kernel, the functions to move through the code are the icons above the "Callstack" pane on the right-hand "debug" sidebar.  Hovering over the icons shows which is which. They are very similar to the correponding Spyder icons.
+In a debugger-enabled JupyterLab, first paste the function into a cell, and the main body into another cell.  At the right of the top ribbon, click on the "bug" icon next to the kernel name so that it turns orange. Also expand the "bug" icon on the right-hand sidebar to open views of the equivalent of the Variable Explorer.  Then breakpoints may be set by clicking on a line.  In JupyterLab with an appropriate kernel, the functions to move through the code are the icons above the "Callstack" pane on the right-hand "debug" sidebar.  Hovering over the icons shows which is which. They are very similar to the corresponding Spyder icons.
 
 {{< figure src="/courses/python-introduction/imgs/Jupyter_debug.png" >}}
 
@@ -78,7 +78,7 @@ July 4, 1971
 July 4, 1776
 ```
 
-It's easy to find day of the week calculators online, but test against two of them to make sure all the methods agree. You can try your own birth date as well.
+It's easy to find day of the week calculators online, but test against two of them to make sure all the methods agree. You can try your own birthdate as well.
 
 {{< spoiler text="Corrected dow.py" >}}
 {{< code-download file="/courses/python-introduction/exercises/dow.py" lang="python" >}}

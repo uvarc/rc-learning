@@ -92,7 +92,7 @@ Strings can be compared to one another.
 These operators use _lexical ordering_, which is based on the ordering in the _character set_ along with rules for comparing multiple-character strings one 
 character at a time.  The usual operators `==`,`/=`,`<`,`<=`,`>`,`>=` may be used, as well as the functions below.  The standard operators use ASCII ordering, whereas the functions use the character set on a particular platform, which may not use ASCII ordering.
 
-String comparisons _are_ case sensitive.
+String comparisons _are_ case-sensitive.
 
 ```fortran
 ! Returns .true. if stringA is lexically greater than or equal to stringB, 

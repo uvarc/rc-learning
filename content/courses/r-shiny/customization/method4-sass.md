@@ -20,7 +20,7 @@ menu:
 
 <br>
 
-## Syntatically Awesome Style Sheets
+## Syntactically Awesome Style Sheets
 
 CSS with Superpowers
 

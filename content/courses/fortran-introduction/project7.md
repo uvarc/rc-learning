@@ -13,7 +13,7 @@ weight: 220
 ```
 For your first attempt it is not necessary to reduce the fraction, i.e. it is acceptable to have fractions like 6/8. Be sure to check for division by zero in your division procedure.
 
-2. Add a reduce method that finds the [least common multiple](https://en.wikipedia.org/wiki/Least_common_multiple) to obtain the lowest common denominatorand reduce the fraction.
+2. Add a reduce method that finds the [least common multiple](https://en.wikipedia.org/wiki/Least_common_multiple) to obtain the lowest common denominator and reduce the fraction.
 
 3. Set fractions with a denominator of 0 to 0/0 (this is arbitrary).
 

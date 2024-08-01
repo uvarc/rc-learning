@@ -97,7 +97,7 @@ PRODUCT(A [,DIM] [,MASK])
 A has shape(4,5,6). Then
 `SUM(A,2)` has shape (4,6) and elements `SUM(A(i,:,j))`.
 
-Pay attention to how sum and product work when a dimension is specified.  It can be nonintuitive.
+Pay attention to how sum and product work when a dimension is specified.  It can be unintuitive.
 {{< code file="/courses/fortran-introduction/codes/arraysum.f90" lang="fortran" >}}
 
 ## Masking Array Intrinsics

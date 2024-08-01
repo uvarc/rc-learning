@@ -49,7 +49,7 @@ Notice the use of tuple packing in the third example.  An equally valid, but not
 
 **Exercise**
 
-If you have not already done so, type in the three functions from the example.  Run the cell or script.  Then type into the interpeter
+If you have not already done so, type in the three functions from the example.  Run the cell or script.  Then type into the interpreter
 
 ```python
 sum_vals(1,2,3)

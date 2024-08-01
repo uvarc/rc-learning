@@ -79,7 +79,7 @@ To use a for loop, you need to know in advance how many iterations are required.
 {{< figure src="/courses/matlab-programming/function3.png"  >}}
 <br/>
 <br/>
-# Storing Heterogenous Data
+# Storing Heterogeneous Data
 
 ## Matlab Data Types
 <br/>
@@ -121,7 +121,7 @@ To use a for loop, you need to know in advance how many iterations are required.
 
 
 
-# Structuring Heterogenous Data
+# Structuring Heterogeneous Data
 
 
 ## Structuring Data Considerations
@@ -311,7 +311,7 @@ To use a for loop, you need to know in advance how many iterations are required.
 <br/>
 **[Slide: Elements of a Test](https://matlabacademy.mathworks.com/R2019a/portal.html?course=mlpr#chapter=7&lesson=2&section=1)**
 
-### is Functions
+### "is" Functions
 {{< figure src="/courses/matlab-programming/isFunction.png"  >}}
 
 <br/>

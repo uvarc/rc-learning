@@ -10,7 +10,7 @@ menu:
    bash-scripting:
 ---
 
-A shell script is a text file so should be created using a text editor.  Do not use a word-processing program such as LibreOffice Write. Shell scripts should always be created on the operating system (Linux, Mac OS) on which they will run.
+A shell script is a text file so should be created using a text editor.  Do not use a word-processing program such as LibreOffice Write. Shell scripts should always be created on the operating system (Linux, macOS) on which they will run.
 
 The first line should be
 ```bash

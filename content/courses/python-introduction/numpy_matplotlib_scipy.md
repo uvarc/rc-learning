@@ -15,7 +15,7 @@ The NumPy package adds many features important or useful to scientific and numer
 
 * True multidimensional arrays
 * Linear algebra functions
-* Fast Fourer Transform (FFT) Functions
+* Fast Fourier Transform (FFT) Functions
 * Random number generators
 * Tools for integrating Fortran, C, and C++ libraries.
 

@@ -63,7 +63,7 @@ Some of the peculiarities of the first versions of Fortran, such as FORTRAN IV, 
 
 {{< figure src="/courses/fortran-introduction/img/PunchCard.jpg" width=500px caption="80-column punch card" >}}
 
-Punch cards were prepared on machines called _keypunches_. The character set on a keypunch was limited, so Fortran used all capital letters and few other characters.  There was no opportunity to correct typograpical errors, which may account for early Fortran ignoring spacing within keywords. The layout in Fortran was determined by the physical layout of the cards; this, combined with the need to write a simple, memory-conserving compiler, resulted in a strict column-oriented syntax.  
+Punch cards were prepared on machines called _keypunches_. The character set on a keypunch was limited, so Fortran used all capital letters and few other characters.  There was no opportunity to correct typographical errors, which may account for early Fortran ignoring spacing within keywords. The layout in Fortran was determined by the physical layout of the cards; this, combined with the need to write a simple, memory-conserving compiler, resulted in a strict column-oriented syntax.  
 This is called _fixed format_.  It required that the first column be reserved for the `C` that introduced a comment.  The next four columns were for numerical statement labels.  Column six was reserved for _continuation_ characters.  Statements began in column 7 and could extend through column 72; anything from column 72 to 80 was ignored by the compiler.  These columns were frequently used to number the cards.
 
 Algol, on the other hand, was written for _paper tape_.  Whereas punch cards are _record_ (i.e. line) _oriented_, paper tape is a continuous medium, so the semicolon marked the end of a statement.  Algol's descendants, which include C and C++, were also written for paper tape.  Semicolons continue to be used in many languages to mark the end of a sentence; such languages do not use continuation markers.  Record-oriented languages such as Fortran and Python do not require statement markers (though both modern Fortran and Python allow them) and provide for continuations.
@@ -112,11 +112,11 @@ interpreted languages such as Python, R, and MATLAB should be aware that
 compiled languages are generally more complex than interpreted languages and 
 require more steps in the development process. 
 
-A __compiler__ produces a stand-alone program for a given _platform_ (cpu+operatingsystem).  The output of a compiler is an _object file_, represented with a.osuffix on Unix.  Object files are in machine language but cannot be run independently.
+A __compiler__ produces a stand-alone program for a given _platform_ (cpu+operating system).  The output of a compiler is an _object file_, represented with a .o suffix on Unix.  Object files are in machine language but cannot be run independently.
 
 A __linker__ takes the .o files and any external _libraries_ and links them into the _executable_.  Normally the linker is invoked through the compiler.
 
-An __interpreter__ interprets line by line.  The executable that is run is the interpreter itself.  Programs for interpreters are often called _scripts_.  Scripts are frequently cross platform, but the interpreter itself must be appropriate to the platform.
+An __interpreter__ interprets line by line.  The executable that is run is the interpreter itself.  Programs for interpreters are often called _scripts_.  Scripts are frequently cross-platform, but the interpreter itself must be appropriate to the platform.
 
 Compared to interpreted languages such as Python, compiled languages are:
   * Generally stricter about typing (static typing) and memory allocation.
