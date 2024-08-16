@@ -24,6 +24,10 @@ You can also use [Open OnDemand's](https://www.rc.virginia.edu/userinfo/rivanna/
 
 Editors available at the command line are [nano](https://www.nano-editor.org/), [vim](https://www.vim.org/), and [emacs](https://www.gnu.org/software/emacs/).  Nano is a simple text-only editor.  Vim is also available text-only from a command line, but a graphical version called `gvim` can be invoked from a MATE Desktop through the Applications&rarr;Accessories menu. Emacs can also be started from the Accessories menu but, if a graphical environment, will start a graphical user interface.  If invoked within a text-only environment, it will fall back to a text interface.
 
+### Open OnDemand Tool
+
+For a user-friendly introduction to creating Slurm scripts on-demand, we have implemented a Slurm script generator on Open OnDemand. To access the generator, go through Utilities&rarr;Slurm Script Generator on the top bar. This will present you with a fillable web form that generates a text file in real time with the details of your resource requests. You can then download the script created by the generator to your local workstation once completed. You can upload it to the cluster using any file transfer method you prefer.
+
 ## Our First Slurm Script
 
 This example illustrates the main parts of a Slurm script. 
