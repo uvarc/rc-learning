@@ -10,10 +10,12 @@ menu:
         parent: Introduction to Programming in Python
 ---
 
-We will begin with JupyterLab. Select the JupyterLab icon in the Anaconda Navigator.  Launching it will cause a tab to open in your Web browser. 
-When JupyterLab starts up, you will see a list of your files on the left and three icons to select the mode.  JupyterLab incorporates a Jupyter notebook server as well as a plain Python or iPython console and a simple text editor.  We want to start a Jupyter notebook so click on the top tile.
+We will begin with JupyterLab. To start it, from the terminal or miniforge prompt, type
+```bash
+jupyter-lab
+```
 
-{{< figure src="/courses/python-introduction/imgs/JupyterLabSetup.png" caption="Setting up JupyterLab" >}}
+When JupyterLab starts up, you will see a list of your files on the left and three icons to select the mode.  JupyterLab incorporates a Jupyter notebook server as well as a plain Python or iPython console and a simple text editor.  We want to start a Jupyter notebook so click on the top tile.
 
 A browser tab will open with a text entry area.
 ![JupyterLabInput](/courses/python-introduction/imgs/JupyterLabInput.png)

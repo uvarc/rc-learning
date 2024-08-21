@@ -40,7 +40,7 @@ c=linalg.solve(A, b)
 print(c)
 ```
 
-See examples of simple image processing [here](https://www.tutorialspoint.com/scipy/scipy_ndimage.htm) and [here](https://data-flair.training/blogs/image-processing-with-scipy-and-numpy/) and [here](https://note.nkmk.me/en/python-numpy-image-processing/) as well as many other sites.  Anaconda should have the PIL or Pillow (Python Imaging Library) pre-installed.
+See examples of simple image processing [here](https://www.tutorialspoint.com/scipy/scipy_ndimage.htm) and [here](https://data-flair.training/blogs/image-processing-with-scipy-and-numpy/) and [here](https://note.nkmk.me/en/python-numpy-image-processing/) as well as many other sites.
 Use the SciPy `ndimage` to tint a photograph.
 1. Import numpy and matplotlab.pyplot. Import the scipy misc package
 2. Extract the sample picture "face" (a raccoon).

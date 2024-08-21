@@ -14,7 +14,7 @@ A function, module, or class is a _unit_ of code.  Testing each unit is thus cal
 
 ## Unit Testing Frameworks
 
-We have constructed our own attempt at testing our unit, the function `DoW`.  More formalized unit-testing frameworks exist for Python scripts.  The built-in standard package is [PyUnit](https://docs.python.org/3/library/unittest.html) (formerly called, and still imported as, unittest).  [Nose2](https://docs.nose2.io/en/latest/) can be installed to add extensions and plugins to PyUnit.  PyUnit may be somewhat cumbersome for a beginner, since it involves subclassing and writing methods.  A fairly simple, and very popular, framework is _PyTest_.  It should be preinstalled in Anaconda, but in other cases it may be necessary to install it using conda or pip. 
+We have constructed our own attempt at testing our unit, the function `DoW`.  More formalized unit-testing frameworks exist for Python scripts.  The built-in standard package is [PyUnit](https://docs.python.org/3/library/unittest.html) (formerly called, and still imported as, unittest).  [Nose2](https://docs.nose2.io/en/latest/) can be installed to add extensions and plugins to PyUnit.  PyUnit may be somewhat cumbersome for a beginner, since it involves subclassing and writing methods.  A fairly simple, and very popular, framework is _PyTest_.  It should be installed by default with Spyder or the VSCode Python extension, or it can be explicitly installed if needed.
 
 Other, more sophisticated or special-purpose, frameworks exist, but we will focus on PyTest for our example.
 
@@ -39,7 +39,7 @@ Depending on your working directory in Spyder, you may need to provide a path, s
 ```
 This test is intentionally written to fail.  You should see a message.
 
-The pytest executable can also be run from a command line, such as a Linux or Mac OS terminal, or the Anaconda prompt.
+The pytest executable can also be run from a command line, such as a Linux or Mac OS terminal, or the Miniforge prompt.
 ```no-highlight
 pytest /Users/myid/Python/scripts/test_example.py
 ```
@@ -64,7 +64,7 @@ Pytest has a number of other capabilities, including [fixtures](https://docs.pyt
 
 #### PyTest with Juyter Notebooks
 
-There are a few options for using PyTest with Jupyter notebooks.  A popular package is [testbook](https://testbook.readthedocs.io/en/latest/).  It can be installed from conda-forge in Anaconda, or with pip. Testbook is not run within a notebook, but loads the notebook into a Python script and runs the tests.
+There are a few options for using PyTest with Jupyter notebooks.  A popular package is [testbook](https://testbook.readthedocs.io/en/latest/).  It can be installed from conda-forge in Miniforge, or with pip. Testbook is not run within a notebook, but loads the notebook into a Python script and runs the tests.
 
 **Example**
 

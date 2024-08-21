@@ -15,6 +15,8 @@ This concludes our overview of programming in Python.  The high popularity of Py
 
 Other online tutorials include [Tutorialspoint](https://www.tutorialspoint.com/python/index.htm) and [DataCamp](https://www.datacamp.com/learn/python?utm_source=adwords_ppc&utm_medium=cpc&utm_campaignid=1565610360&utm_adgroupid=63334253950&utm_device=c&utm_keyword=python%20programming&utm_matchtype=p&utm_network=g&utm_adpostion=&utm_creative=591601772809&utm_targetid=kwd-116884689&utm_loc_interest_ms=&utm_loc_physical_ms=9008336&gclid=CjwKCAjw682TBhATEiwA9crl3zjHzq2mV9cH_c7P2DpHXcUwsWqcFt3bFLyFSh8U-A6q2kv9lDR9cRoCzIMQAvD_BwE).
 
+Many, many online resources refer to Anaconda, but Anaconda's licensing terms have changed, so be sure that you read and understand them before downloading and installing it. We have recommended Miniforge in this tutorial because it remains free for all users.
+
 Happy programming!
 
 ### UVA Specific Resources

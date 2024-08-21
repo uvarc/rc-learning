@@ -9,7 +9,7 @@ menu:
     python-introduction:
 ---
 
-NumPy, Matplotlib, and SciPy are packages that are fundamental to many applications of Python, particularly in numerically-oriented programming.  They are not part of the set of base Python packages, but are included in distributions such as Anaconda and can be easily added to other Python installations.  
+NumPy, Matplotlib, and SciPy are packages that are fundamental to many applications of Python, particularly in numerically-oriented programming.  They are not part of the set of base Python packages, can be easily added to a Python environment.  
 
 The NumPy package adds many features important or useful to scientific and numeric computing.  These include
 
