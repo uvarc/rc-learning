@@ -11,17 +11,13 @@ menu:
 ## Running Jobs from Scratch
 
 We recommend that you run your jobs out of your /scratch directory.
-    * Your personal /scratch/mst3k folder has much more storage space than your home directory. 
-    * /scratch is on a Weka filesystem, a storage system designed specifically for fast access.
-    * /scratch is connected to the compute nodes with Infiniband, a very fast network connection.
+ * Your personal /scratch/mst3k folder has much more storage space than your home directory. 
+ * /scratch is on a Weka filesystem, a storage system designed specifically for fast access.
+ * /scratch is connected to the compute nodes with Infiniband, a very fast network connection.
 
 {{< alert >}}
 The scratch system is not permanent storage, and files older than 90 days will be marked for deleting (purging). You should keep copies of your programs and data in more permanent locations such as your home directory, leased storage such as /project or /standard, or on your lab workstation. After your jobs finish, copy the results to permanent storage.
 {{< /alert >}}
-
-**Exercise 3**
-
-Move or copy the hello.slurm script and the hello.py script to the new folder you created in your scratch directory in Exercise 2.  Submit hello.slurm.
 
 ## Submitting a Job
 
@@ -38,8 +34,11 @@ We do not make the script executable.  The system handles that.
 $sbatch myjob.slurm
 Submitted batch job 36805
 ```
-
 Always remember that you submit your **job script** and not your executable or interpreter script.
+
+**Exercise**
+
+From your working directory where  hello.slurm is, submit the job.
 
 ## Monitoring a Job
 
@@ -107,7 +106,7 @@ Write a Slurm script that requests 30 minutes of time. Submit a job that will ru
 ```bash
 sleep 30m
 ```
-as the command.  You won't need to request a specific amount of memory. Submit this script and monitor your job's status.  Once it starts, let it run for a few minutes, then cancel it.
+as the command.  You won't need to request a specific amount of memory. Submit this script and monitor your job’s status in the queue with `squeue` or the Active Jobs tab. Once it starts, get information about your job with `scontrol`, let it run for a minute, then cancel it with `scancel`. Practice with the terminal commands or the OOD GUI. Note that you will need your job’s ID for the last two commands.
 
 {{< spoiler text="Example script" >}}
 {{< code-download file="/notes/slurm-from-cli/scripts/slow.slurm" lang="bash" >}}
