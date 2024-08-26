@@ -7,7 +7,7 @@ weight: 84
 
 ---
 
-Even the standard templated types such as vectors are not sufficiently flexible for many applications; while they can be set up for several different underlying types, all elements must consist of a single type.  Frequently we wish to collect different types together in some form of cohesive data structure.  To address this, a variety of avenues are available for programmers to define their own types.
+Even the standard templated types such as vectors are not sufficiently flexible for many applications; while they can be set up for many underlying types, all elements must consist of a single type.  Frequently we wish to collect different types together in some form of cohesive data structure.  To address this, a variety of avenues are available for programmers to define their own types.
 
 For example, consider a program to update employee information.  We can define several variables relevant for an employee; for example we might use salary, name of manager, name of department, employee ID number, and so forth.  Each of these is potentially a different type.  Salary would be floating point, the names would be strings, and the ID number would generally be an integer.  We have more than one employee to handle, so we must use some form of list or array.  In most languages we cannot define a single array to accommodate all these _fields_.  
 This leads to the need for a way to keep all the information about one employee coordinated.

@@ -19,15 +19,15 @@ In order to wrap code written in a compiled language, you must have a compiler f
 
 #### Windows
 
-If you will not use Fortran, you can install MS Visual Studio. A community edition is available free for personal use and includes C and C++ compilers. If you might use Fortran, a good option is [MinGW-64](https://www.mingw-w64.org/). This may also provide good compatibility with Anaconda even if you do not expect to use Fortran.  MinGW-64 provides several options for builds of the `gcc` (Gnu Compiler Collection).  The `ucrt` build is recommended but may be a little rough around the edges, at least for Fortran users.  The older `mingw64` build may be more suitable.  Either or both can be installed on the same system; the path will select the compiler used by Python or the IDE.  A nice tutorial on installing MingGW-64 and using it with the free [VSCode IDE](https://code.visualstudio.com/) is [here](https://code.visualstudio.com/docs/cpp/config-mingw). You must install VSCode extensions for C/C++ and, if appropriate, Fortran. To install the mingw64 version, simply substitute that name for ucrt in the `pacman` instructions. For Fortran, after the basic toolchain is installed, run 
+If you do not use Fortran, you can install MS Visual Studio. A community edition is available free for personal use and includes C and C++ compilers. If you might use Fortran, a good option is [MinGW-64](https://www.mingw-w64.org/). This may also provide good compatibility with Anaconda even if you do not expect to use Fortran.  MinGW-64 provides several options for builds of the `gcc` (Gnu Compiler Collection).  The `ucrt` build is recommended but may be a little rough around the edges, at least for Fortran users.  The older `mingw64` build may be more suitable.  Either or both can be installed on the same system; the path will select the compiler used by Python or the IDE.  A nice tutorial on installing MingGW-64 and using it with the free [VSCode IDE](https://code.visualstudio.com/) is [here](https://code.visualstudio.com/docs/cpp/config-mingw). You must install VSCode extensions for C/C++ and, if appropriate, Fortran. To install the mingw64 version, simply substitute that name for ucrt in the `pacman` instructions. For Fortran, after the basic toolchain is installed, run 
 ```no-highlight
 pacman -S mingw-w64-x86_64-gcc-fortran
 ```
-Now go to Settings and edit your system environment variables to add `C:\msys2\mingw64\bin` to `path`.  Once that is done, you can use a command line or the Anaconda power shell to run f2py as shown below for Linux. After that move the resulting library to an appropriate location in your PYTHONPATH.
+Now go to Settings and edit your system environment variables to add `C:\msys2\mingw64\bin` to `path`.  Once that is done, you can use a command line or the Anaconda PowerShell to run f2py as shown below for Linux. After that move the resulting library to an appropriate location in your PYTHONPATH.
 
 #### Mac OS
 
-Install XCode from the Mac App Store for the C/C++ compilers, then if appropriate install gfortran from the [Wiki](https://gcc.gnu.org/wiki/GFortranBinaries).  MinGW-64 is also an option for Mac OS. Once installed you can run commands in a Terminal shell. In newer Mac OS versions the shell is `zsh` and not `bash`, but the commands shown for Linux should work without modification.
+Install XCode from the Mac App Store for the C/C++ compilers, then if appropriate install gfortran from the [Wiki](https://gcc.gnu.org/wiki/GFortranBinaries).  MinGW-64 is also an option for macOS. Once installed you can run commands in a Terminal shell. In newer macOS versions the shell is `zsh` and not `bash`, but the commands shown for Linux should work without modification.
 
 #### Linux
 
@@ -35,7 +35,7 @@ The gcc compiler should be installed by default but you may have to add the corr
 
 ### Wrapping Fortran
 
-* If you have Fortran source code you can use f2py.  It is included as part of NumPy.  It can work for C as well, but requires some knowledge of Fortran interfaces to do so.  It can wrap nearly all legacy Fortran 77 and some of the newer Fortran 90 constructs, in particular, modules. It must be used from a command line, which is simple on Linux and Mac OS but a little more complicated on Windows. 
+* If you have Fortran source code you can use f2py.  It is included as part of NumPy.  It can work for C as well, but requires some knowledge of Fortran interfaces to do so.  It can wrap nearly all legacy Fortran 77 and some newer Fortran 90 constructs, in particular, modules. It must be used from a command line, which is simple on Linux and macOS but a little more complicated on Windows. 
 
 http://docs.scipy.org/doc/numpy-dev/f2py/
 
@@ -66,7 +66,7 @@ It is also possible to wrap the Fortran code in C by various means, such as the 
 
 ### Wrapping C
 
-The [CFFI] (https://cffi.readthedocs.io/en/latest/overview.html) package can be used to wrap C code.  CFFI (C Foreign Function Interface) wraps C _libraries_ into Python code. To use it, prepare a shared (dynamic) library of functions.  This requires a C compiler, and the exact steps vary depending on your operating system.  Windows compilers produce a file called a _DLL_, Unix/Linux shared libraries end in `.so`, and Mac OS shared libraries end in `.dylib`.  
+The [CFFI] (https://cffi.readthedocs.io/en/latest/overview.html) package can be used to wrap C code.  CFFI (C Foreign Function Interface) wraps C _libraries_ into Python code. To use it, prepare a shared (dynamic) library of functions.  This requires a C compiler, and the exact steps vary depending on your operating system.  Windows compilers produce a file called a _DLL_, Unix/Linux shared libraries end in `.so`, and macOS shared libraries end in `.dylib`.  
 
 CFFI is not a base package, but is often included in Python distributions such as Anaconda. It may also be included as an add-on for other installations such as system Pythons, since some other package such as a cryptography library may require it. Before installing CFFI, first attempt to import it
 ```python
@@ -95,7 +95,7 @@ python build_arith.py
 ```
 On Linux the name may be lengthy, such as `_arithlib.cpython-39-x86_64-linux-gnu.so`.  When importing we may use only the first part `_arithlib`.
 
-We now utilize it from the intepreter as follows:
+We now utilize it from the interpreter as follows:
 ```
 >>>from _arithlib import ffi, lib
 >>>lib.sum(11.1,12.8)

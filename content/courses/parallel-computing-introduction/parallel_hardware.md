@@ -24,7 +24,7 @@ Much of the classification for parallel computing is based on [_Flynn's taxonomy
     Single instruction multiple data.  The processor applies a code instruction to multiple threads of data at a time.  Most modern graphical processing units (GPUs) are SIMD devices.
 
 - MISD
-    Multiple instruction single data.  Not widely encountered outside of special-purpose computers such as those used for the Space Shuttle.  In this category, multiple computers work on one set of data, such as sensor data.
+    Multiple instruction single data.  Not widely encountered outside special-purpose computers such as those used for the Space Shuttle.  In this category, multiple computers work on one set of data, such as sensor data.
 
 - MIMD
     Multiple instruction multiple data.  Nearly all modern hardware falls into this category.  This can apply either to multicore single computers or to distributed computing clusters.
@@ -69,7 +69,7 @@ program.
 
 ## Hybrid Parallelism
 
-Hybrid parallel programming is a combination of shared and distributed memory programming.  Tasks and possibly some of the data are divided among the distributed executables that will run.  Each exectable also uses a threading library
+Hybrid parallel programming is a combination of shared and distributed memory programming.  Tasks and possibly some of the data are divided among the distributed executables that will run.  Each executable also uses a threading library
 to split the work among the cores available on the node where it is running.
 Most commonly, this involves a combination of MPI for larger-scale data
 distribution and OpenMP at a smaller scale, often at the level of loops over

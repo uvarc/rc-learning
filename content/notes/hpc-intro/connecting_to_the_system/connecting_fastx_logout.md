@@ -11,7 +11,7 @@ menu:
     parent: Connecting to The System
 ---
 
-If you simply close your session browser tab, FastX _suspends_ your session rather than terminates it.  It is generally preferable to terminate rather than suspend so you will not accidentally have multiple sessions running.
+If you simply close your session browser tab, FastX _suspends_ your session rather than terminates it.  It is generally preferable to terminate rather than suspend so that you will not accidentally have multiple sessions running.
 
 One way to terminate is to log out.  Go to the System menu in the top ribbon and select `Log Out mst3k` (with your ID).
 

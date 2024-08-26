@@ -23,14 +23,14 @@ One way to check your storage utilization is with the ```hdquota``` command. Thi
 
 {{< figure src="/notes/hpc-intro/img/features_hdquota.png" caption="Disk Usage" >}}
 
-This is a useful command to check whether or not you're running out of storage space or to see where files need to be cleaned up. For more detailed information on disk utilization you may also use the ```du``` command to investiage specific directories.
+This is a useful command to check whether you're running out of storage space or to see where files need to be cleaned up. For more detailed information on disk utilization you may also use the ```du``` command to investigate specific directories.
 
 
 To gain information on the different queues you can type ```qlist``` on the command line:
 
 {{< figure src="/notes/hpc-intro/img/features_qlist.png" caption="Queues" >}}
 
-This will show the list of paritions, their occupancy, and the SU charge rate. You can type ```qlimits``` for information on each queue's limits:
+This will show the list of partitions, their occupancy, and the SU charge rate. You can type ```qlimits``` for information on each queue's limits:
 
 {{< figure src="/notes/hpc-intro/img/features_qlimits.png" caption="Queue Limits" >}}
 

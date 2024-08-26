@@ -14,13 +14,13 @@ Files are the main ingredients of our programs.  Our scripts are files; we may h
 
 ## Files, Folders, and Paths
 
-Three major operating systems are in use today; Windows, MacOS, and Linux. Each one does things a little differently.
+Three major operating systems are in use today; Windows, macOS, and Linux. Each one does things a little differently.
 
 ### Paths and Platforms
 
 The location of a file is specified by its _path_.  The exact format of the path varies somewhat by operating system.  Python uses _forward slashes_ to separate folders, even on Windows where the backslash (`\`) is "native."
 
-Python tends to be rooted in the Linux operating system so some of the vocabulary comes from there.  "Folders" in Windows and MacOS are called **directories** in Linux.  The full path to a file is the tree of all folders/directories that must be traversed to reach it. 
+Python tends to be rooted in the Linux operating system so some of the vocabulary comes from there.  "Folders" in Windows and macOS are called **directories** in Linux.  The full path to a file is the tree of all folders/directories that must be traversed to reach it. 
 
 ```python
 #Windows

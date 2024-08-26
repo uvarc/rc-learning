@@ -22,7 +22,7 @@ Theoretically, for N steps the distance is $\sqrt{N}$. We want to test this empi
 This algorithm has the properties that:
   * Each trial is independent of the others
   * There is a fixed number of tasks
-  * No communications is needed between tasks to obtain independent results.
+  * No communications are needed between tasks to obtain independent results.
 
 ### Serial Code 
 

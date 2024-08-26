@@ -19,7 +19,7 @@ For your first attempt it is not necessary to reduce the fraction, i.e. it is ac
 
 3. Write a driver to test all your procedures.
 
-4. Add a reduce method that finds the [least common multiple](https://en.wikipedia.org/wiki/Least_common_multiple) to obtain the lowest common denominatorand reduce the fraction.
+4. Add a reduce method that finds the [least common multiple](https://en.wikipedia.org/wiki/Least_common_multiple) to obtain the lowest common denominator and reduce the fraction.
 
 Extra: Look up how to overload `<<` so that you can write
 ```c++

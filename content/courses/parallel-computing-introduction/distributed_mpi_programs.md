@@ -35,7 +35,7 @@ Usually when MPI is run the number of processes is determined and fixed for the 
 
 MPI distributions ship with a process manager called  `mpiexec`  or  `mpirun`. In some environments, such as many using Slurm, we use the Slurm process manager  `srun`.
 
-When run outside of a resource-managed system, we must specify the number of processes through a command-line option.  If more than one host is to be used, the name of a hostlist file must be provided, or only the local host will be utilized.  The options may vary depending on the distribution of MPI but will be similar to that below:
+When run outside a resource-managed system, we must specify the number of processes through a command-line option.  If more than one host is to be used, the name of a hostlist file must be provided, or only the local host will be utilized.  The options may vary depending on the distribution of MPI but will be similar to that below:
 ```
 mpiexec –np 16 -hosts compute1,compute2  ./myprog
 ```
@@ -45,7 +45,7 @@ srun ./myprog
 ```
 ### Message Envelopes
 
-Just as a letter needs an envelope with a unambiguous address, a message needs to be uniquely identified. The _message envelope_ provides that identification. It consists of several components. 
+Just as a letter needs an envelope with an unambiguous address, a message needs to be uniquely identified. The _message envelope_ provides that identification. It consists of several components. 
 
 A _communicator_ is an object that specifies a group of processes that will communicate with one another. The default communicator is
 `MPI_COMM_WORLD`. It includes all processes.  The programmer can create new communicators, usually of subsets of the processes, but this is beyond our scope at this point.

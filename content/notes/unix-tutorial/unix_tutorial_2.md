@@ -74,7 +74,7 @@ Now delete it:
 % ls
 ```
 
-You can use the `rmdir` command to remove a directory, but only if it is empty. Try to remove the backups directory. You will not be able to since Unix will not let you remove a non-empty directory.
+You can use the `rmdir` command to remove a directory, but only if it is empty. Try to remove the `backups` directory. You will not be able to since Unix will not let you remove a non-empty directory.
 
 To remove a non-empty directory use 
 ```bash
@@ -123,7 +123,7 @@ The command `more` prints the contents of a file onto the screen a page at a tim
 ```bash
 % more science.txt
 ```
-Press the [spacebar] if you want to see another page. Type [q] if you want to quit reading. 
+Press the [space bar] if you want to see another page. Type [q] if you want to quit reading. 
 
 The `more` command is an example of a **pager**, a program that "pages" through a text file.
 
@@ -168,12 +168,12 @@ The `more` command finds and highlights the keyword. Type [n] to search for the 
 ```bash
 % grep science science.txt
 ```
-As you can see, grep has printed out each line containg the word science... or has it? Try typing
+As you can see, grep has printed out each line containing the word science... or has it? Try typing
 
 ```bash
 % grep Science science.txt
 ```
-The `grep` command is case sensitive; it distinguishes between Science and science. To ignore upper/lower case distinctions, use the -i option, i.e. type
+The `grep` command is case-sensitive; it distinguishes between Science and science. To ignore upper/lower case distinctions, use the -i option, i.e. type
 
 ```bash
 % grep -i science science.txt
@@ -185,7 +185,7 @@ To search for a phrase or pattern, you must enclose it in single quotes (the apo
 % grep -i 'spinning top' science.txt
 ```
 
-Some of the other options of `grep` are: `-v` (display those lines that do NOT match); `-n` (precede each maching line with the line number); and `-c` (print only the total count of matched lines). Try some of them and see the different results. Don't forget, you can use more than one option at a time, for example, the number of lines without the words `science` or `Science` is
+Some other options for `grep` are: `-v` (display those lines that do NOT match); `-n` (precede each matching line with the line number); and `-c` (print only the total count of matched lines). Try some of them and see the different results. Don't forget, you can use more than one option at a time, for example, the number of lines without the words `science` or `Science` is
 
 ```bash
 % grep -ivc science science.txt

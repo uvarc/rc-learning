@@ -17,14 +17,14 @@ Reading from and writing to the console works for simple programs, and is often 
 
 A file must be _opened_ before it can be accessed by the executable.  In general, we associate some type of _file descriptor_ with the name of the file, then after making that connection, henceforth the file is referenced by its descriptor.
 
-In Fortran, files are identified with integers called _unit numbers._ They are not generated automatically, but must be chosed by the programmer.
+In Fortran, files are identified with integers called _unit numbers._ They are not generated automatically, but must be chosen by the programmer.
 ```fortran
 OPEN(UNIT=iunit,FILE=fname)
 ```
 The open command has many other options.  Only UNIT and FILE are required.  If the unit argument is first it does not need the "UNIT=" keyword.
 
-On Unix file names will be _case sensitive_ .
-In Unix unit 5 is conventionally standard input and unit 6 is standard output.  Standard error is not as uniform but it is usually unit 2.
+On Unix file names will be _case-sensitive_ .
+In Unix unit 5 is conventionally standard input and unit 6 is standard output.  Standard error is not as uniform, but it is usually unit 2.
 
 Programmers can reassign units 2, 5, and 6, but it is strongly advised that you not do so.
 

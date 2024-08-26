@@ -50,7 +50,7 @@ To follow along, you can download the Jython scripts presented in this tutorial 
 
 1. If you are accessing the OMERO Database from an off-Grounds location, you have to connect through a UVA Virtual Private Network (VPN).  Please follow these [instructions to set up your VPN](https://virginia.service-now.com/its?id=itsweb_kb_article&sys_id=f24e5cdfdb3acb804f32fb671d9619d0).
 
-2. Open a webbrowser and go to http://omero.hpc.virginia.edu. Login to the OMERO web interface is described [here](/courses/omero/#logging-in-with-omeroweb).
+2. Open a web browser and go to http://omero.hpc.virginia.edu. Login to the OMERO web interface is described [here](/courses/omero/#logging-in-with-omeroweb).
 
     * **Username:** Your computing ID
     
@@ -62,7 +62,7 @@ To follow along, you can download the Jython scripts presented in this tutorial 
 
 3. You may be a member of multiple groups. For this workshop we want to specify  `omero-demo ` as the default group.
  
-If you cannot login, please submit a [support request](https://www.rc.virginia.edu/form/support-request/).  Select **Omero Image Analysis** as Support Category.  
+If you cannot log in, please submit a [support request](https://www.rc.virginia.edu/form/support-request/).  Select **Omero Image Analysis** as Support Category.  
 
 ---
 
@@ -131,11 +131,11 @@ Let's create a new project and dataset through the OMERO web client.
 
 1. In the left `Explore` panel, click on `omero-demo` label and switch to `All Members`.  Now you can see all data shared within the `omero-demo` group.
 
-2. Right click on the avatar with your name (or the All Members label). You can also just right click folder icon labeled `Fiji Omero Workshop`. In the popup menu, select `Create new` > `Project`. 
+2. Right-click on the avatar with your name (or the "All Members" label). You can also just right click folder icon labeled `Fiji Omero Workshop`. In the popup menu, select `Create new` > `Project`. 
 
 2. Name the new Project `<YOUR_UID>_workshop`, for example `mst3k_workshop`. 
     
-3. Click on the blue folder icon of your new project and take note of the `Project ID`. We will need this to direct Fiji where to load data from or save data to.  No right click on your blue project folder icon and create a new dataset.  Right click on the dataset icon and take note of the `Dataset ID`.
+3. Click on the blue folder icon of your new project and take note of the `Project ID`. We will need this to direct Fiji where to load data from or save data to.  No right click on your blue project folder icon and create a new dataset.  Right-click on the dataset icon and take note of the `Dataset ID`.
 
 After the project is generated, your user interface should look like this:
     ![](/courses/fiji-omero/fiji-omero-datasetid.png)
@@ -202,13 +202,13 @@ Before you begin, you need to know the dataset ID that the image should be linke
 
 ### Uploading Results with Fiji
 
-1. In the OMERO.web client, make note of a dataset ID where you would like to upload an new image and associated results file to.  You make pick the dataset ID from the previous exercise.
+1. In the OMERO.web client, make note of a dataset ID where you would like to upload a new image and associated results file to.  You make pick the dataset ID from the previous exercise.
 
 2. In Fiji, go to `File` > `Open Samples` > `Blobs (25K)`
 
 3. Let's apply some basic filtering and simple image segmentation to identify all cellular outlines in the image:
 
-	a. Go to `Process` > `Filter` > `Median`.  In the popup dialog enter a `Radius` of  `3.0` and click `OK`.  This will smooth out some of the image intrinsic noise without degrading the object outlines.
+	a. Go to `Process` > `Filter` > `Median`.  In the popup dialog enter a `Radius` of  `3.0` and click `OK`.  This will smooth out some of the image's intrinsic noise without degrading the object outlines.
 
 	b. Go to `Image` > `Adjust Threshold`.  In the popup dialog choose the `Default` thresholding algorithm, uncheck the `Dark Background` box and click `Apply`. The image should have been converted to a binary mask with white objects ona black background.
 			<img src="/courses/fiji-omero/fiji-omero-setthreshold.png" style="float:left;width:47%;height:auto">
@@ -229,7 +229,7 @@ Before you begin, you need to know the dataset ID that the image should be linke
 	
 4. Click on the `Results` table window and go to `File` > `Save As`.  Save the file as `Results.csv` on your computer.  Repeat the same for the `Summary` table.  
 
-5. **Upload the results files:** Go to the OMERO web client, open the Dataset folder that you had chosen for the image upload. In the right side of the webpage, expand the `Attachments` pane and click on the `+` icon. In the popup dialog, click `Choose File` and select the saved csv files. Click `Accept`.  
+5. **Upload the results files:** Go to the OMERO web client, open the Dataset folder that you had chosen for the image upload. On the right side of the webpage, expand the `Attachments` pane and click on the `+` icon. In the popup dialog, click `Choose File` and select the saved csv files. Click `Accept`.  
 
 Now you have analyzed the image and uploaded the image as well as all results to the OMERO dataset.
 
@@ -330,7 +330,7 @@ gateway.disconnect()
 OMERO organizes users in groups. Each user can be a member of multiple groups. Images are organized in Projects and Datasets, or in Screens and Plates. The following script, `Omero_Info.py`, connects a user to a remote OMERO instance and shows a list of:
 
 * the groups that the user belongs to and the associated group ID. This ID is important when you want to access images stored for a particular group;
-* the projects and datasets for a particular group (specified via unique grpup ID);
+* the projects and datasets for a particular group (specified via unique group ID);
 * and a list of images, organized by project and dataset, that the user has access to in a particular group.
 
 The following script, `Omero_info.py` establishes a connection to the OMERO database and outputs your OMERO group memberships, as well as a list of all of your projects, datasets, and images. The code contains separate functions to connect to the database, retrieve information from the database, and parse the data into a set of tables.  If you're just starting with programming, you may find it helpful to work through our [Fiji Scripting](/tutorials/fiji-scripting/) and other tutorials on our [learning portal](/categories/).
@@ -583,7 +583,7 @@ Let's try to upload an image from Fiji to OMERO.
 
     If you see an error, make sure you entered the correct password and Dataset ID.  **Note: you have to use your own project/dataset.** 
 
-4. Go to the OMERO website and refresh the page. Double click on your `xxx_workshop` dataset icon to expand it. You should see the blobs.gif image.
+4. Go to the OMERO website and refresh the page. Double-click on your `xxx_workshop` dataset icon to expand it. You should see the blobs.gif image.
 
 ---
 
@@ -592,7 +592,7 @@ Let's try to upload an image from Fiji to OMERO.
 {{< figure src="/courses/fiji-omero/fiji-omero-keyvalue.png" >}}
 OMERO allows you to link other pieces of information to your Project, Dataset, Screen, Plate or Image objects. This additional information is displayed on the right side in the OMERO web client, labeled under the `General` tab as `Image Details`, `Tags`, `Key-Value Pairs`, `Tables`, `Attachments`, `Comments`, and `Ratings`. In addition, there is the `Acquisition` tab that provides metadata information that was automatically extracted from the image file headers during import.  
 
-For the remainder of this workshop, we will focus on `Key-Value` pairs and `Attachments`.  The key-value pairs are implemented as a dictionary (or HashMaps) that can be used to annotate individul images or whole datasets/project or plates/screens with additional information. Such information may include experimental conditions etc.. 
+For the remainder of this workshop, we will focus on `Key-Value` pairs and `Attachments`.  The key-value pairs are implemented as a dictionary (or HashMaps) that can be used to annotate individual images or whole datasets/project or plates/screens with additional information. Such information may include experimental conditions etc.. 
 
 Let's look at an example:
 
@@ -703,7 +703,7 @@ gateway.disconnect()
 
 ### Batch Processing and Results Tables for OMERO Datasets
 
-The previous examples demonstrated how to export local images to OMERO, or how to import OMERO images to a local workstation. As the final exercise, let's explore how an entire dataset comprised of many images can be downloaded from the remote OMERO instance, processed and analyzed locally, followed by an upload of the processed images and created results filesback to the OMERO database.
+The previous examples demonstrated how to export local images to OMERO, or how to import OMERO images to a local workstation. As the final exercise, let's explore how an entire dataset comprised of many images can be downloaded from the remote OMERO instance, processed and analyzed locally, followed by an upload of the processed images and created results files back to the OMERO database.
 
 The example script, `Omero_Batch_Processing.py`, consists of five key functions:
 

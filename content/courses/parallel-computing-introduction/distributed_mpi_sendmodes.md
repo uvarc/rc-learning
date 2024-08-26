@@ -59,7 +59,7 @@ Buffered sends do not incur the _synchronization overhead_ of the synchronous se
 
 ### Ready 
 
-In a ready send, the sender completes the send without checking whether the receiver is ready.  It may be analogized to the sender tossing the "letter" into a bin at the post office and expecting the receiver to find it.  The sender then returns to work.  If the receiver fails to fetch the message, the result is undefinied, so a ready send could be unpredictable.
+In a ready send, the sender completes the send without checking whether the receiver is ready.  It may be analogized to the sender tossing the "letter" into a bin at the post office and expecting the receiver to find it.  The sender then returns to work.  If the receiver fails to fetch the message, the result is undefined, so a ready send could be unpredictable.
 
 ### Standard
 
@@ -98,5 +98,5 @@ The syntax for `MPI_Irecv` is similar:
 ```c++
 int MPI_Irecv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Request * request)
 ```
-We will discuss nonblocking point-to-point communications later, including the meaming of a "request."
+We will discuss nonblocking point-to-point communications later, including the meaning of a "request."
 

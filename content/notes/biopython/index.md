@@ -28,7 +28,7 @@ The Python scripts and data files for this workshop can be [downloaded from here
 
 **Python programming environment**
 
-The Anaconda environment from [Anaconda Inc.](https://anaconda.com/) is widely used because it bundles a Python interpreter, most of the popular packages, and development environments. It is cross platform and freely available. There are two somewhat incompatible versions of Python; version 2.7 is deprecated but still fairly widely used. Version 3 is the supported version. 
+The Anaconda environment from [Anaconda Inc.](https://anaconda.com/) is widely used because it bundles a Python interpreter, most of the popular packages, and development environments. It is cross-platform and freely available. There are two somewhat incompatible versions of Python; version 2.7 is deprecated but still fairly widely used. Version 3 is the supported version. 
 
 **Note: The latest Biopython package version (1.77+) requires Python 3.**
 
@@ -36,7 +36,7 @@ The Anaconda environment from [Anaconda Inc.](https://anaconda.com/) is widely u
 
 2. Launch the downloaded installer, follow the onscreen prompts and install the Anaconda distribution on your local hard drive.
 
-The [Anaconda Documentation](https://docs.anaconda.com/anaconda/user-guide/getting-started/) provides an introduction to the Ananconda environment and bundled applications. For the purpose of this workshop we focus on the `Anaconda Navigator` and `Spyder`. 
+The [Anaconda Documentation](https://docs.anaconda.com/anaconda/user-guide/getting-started/) provides an introduction to the Anaconda environment and bundled applications. For the purpose of this workshop we focus on the `Anaconda Navigator` and `Spyder`. 
 
 ## Navigator
 
@@ -82,7 +82,7 @@ This command will install the latest biopython package version in your current A
 module load anaconda
 pip install --user biopython
 ```
-**Note:** You have to use the `--user` flag which instructs the interpreter to install the package in your home directory. Alternativley, create your own custom [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) first and run the `pip install biopython` command in that environment (without `--user` flag) 
+**Note:** You have to use the `--user` flag which instructs the interpreter to install the package in your home directory. Alternatively, create your own custom [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) first and run the `pip install biopython` command in that environment (without `--user` flag) 
 
 ## Testing the Biopython Installation
 
@@ -138,7 +138,7 @@ In this workshop we will explore options to download nucleotide and protein sequ
 
 The `Bio.Entrez` submodule provides access to the Entrez databases. When you use this module you need to know the String descriptor of the database you want to query (aka its name).  A list of valid database names is provided in  [column three of this table](https://www.ncbi.nlm.nih.gov/books/NBK25497/table/chapter2.T._entrez_unique_identifiers_ui/?report=objectonly).
 
-**Note:** Please review the [General Introduction to the E-utilities](https://www.ncbi.nlm.nih.gov/books/NBK25497/) for accessing the Entrez Application Programming Interface Programm. The E-utilities limit the frequency of API calls and your IP address may be blocked if you contineously exceed the limit.
+**Note:** Please review the [General Introduction to the E-utilities](https://www.ncbi.nlm.nih.gov/books/NBK25497/) for accessing the Entrez Application Programming Interface Program. The E-utilities limit the frequency of API calls and your IP address may be blocked if you continuously exceed the limit.
 
 **Basic Steps:**
 
@@ -209,7 +209,7 @@ with open('HsPax6-protein.fasta', 'w') as f:
    f.write(fastaseq)
 ```
 
-Alternatively, we can pull individual sequences one at a time and save each sequence into a separate file. To do this we implement a [for loop](https://docs.python.org/3/tutorial/controlflow.html?highlight=loops#for-statements) that iterates over this list and use the `Entrez.efetch` function to retrieve the FASTA sequence record associated with each id.  We wrap this for loop in a [open](https://docs.python.org/3/library/functions.html?highlight=open#open) file operation block to save the retrieved FASTA records into a single .fasta text file.
+Alternatively, we can pull individual sequences one at a time and save each sequence into a separate file. To do this we implement a [for loop](https://docs.python.org/3/tutorial/controlflow.html?highlight=loops#for-statements) that iterates over this list and use the `Entrez.efetch` function to retrieve the FASTA sequence record associated with each id.  We wrap this for loop in an [open](https://docs.python.org/3/library/functions.html?highlight=open#open) file operation block to save the retrieved FASTA records into a single .fasta text file.
 
 Let's retrieve the **nucleotide** sequences of our previous top 5 ID hits as **GenBank** files. We specify the database with the `db="nucleotide"` and format with the `rettype="gb"` keyword arguments. 
 
@@ -535,7 +535,7 @@ Peptide: MSTL*
 </details>
 <br>
 
-Like Strings, Seq objects are immutable; this means that the sequence is read-only and cannot be modified in place. However, you can convert a `Seq` object into a `MutableSeq` object that allows you to manipulate he sequence after object initialization.
+Like Strings, Seq objects are immutable; this means that the sequence is read-only and cannot be modified in place. However, you can convert a `Seq` object into a `MutableSeq` object that allows you to manipulate the sequence after object initialization.
 
 ```python
 my_dna[2] = 'A' # error, immutable Seq object

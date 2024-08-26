@@ -48,7 +48,7 @@ print(1.+2.)
 print("1"+"2")
 ```
 
-We can overload operators in our classes so that we can, say, add two instances of our class.  Of course "adding" the instances should make sense. Python defines a number of _special methods_ which are distinguised by having a double underscore before and after the name; for this reason they are sometimes called "dunders" or they may be called "magic methods."  We have already encountered the `__init__` dunder but there are many others.
+We can overload operators in our classes so that we can, say, add two instances of our class.  Of course "adding" the instances should make sense. Python defines a number of _special methods_ which are distinguished by having a double underscore before and after the name; for this reason they are sometimes called "dunders" or they may be called "magic methods."  We have already encountered the `__init__` dunder but there are many others.
 
 **Example**
 We would like to create a Point class to define points in a three-dimensional Euclidean space.  Points are added by adding corresponding components; i.e.

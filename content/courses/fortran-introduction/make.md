@@ -74,7 +74,7 @@ Pattern for creating the .o:
 **Example**
 {{< code-download file="/courses/fortran-introduction/codes/Makefile" lang="make" >}}
 
-In this example, notice that the suffix rule applies the global compiler flags and explicitly includes the `-c` option.  If a particular file does not fit this pattern, a rule can be written for it and it will override the suffix rule.  The link rule includes the loader flags and the `-o` flag.  The compilation suffix rule uses the special symbol for the prequisite; the link rule applies to the current target.
+In this example, notice that the suffix rule applies the global compiler flags and explicitly includes the `-c` option.  If a particular file does not fit this pattern, a rule can be written for it and it will override the suffix rule.  The link rule includes the loader flags and the `-o` flag.  The compilation suffix rule uses the special symbol for the prerequisite; the link rule applies to the current target.
 
 The example also demonstrates switching back and forth between "debug" and "optimized" versions.  The "debug" version would be created this time.  The `-g` flag is required for debugging.  The `-C` flag is a very useful flag specific to Fortran that enables bounds checking for arrays.  Both these flags, but especially `-C`, will create a slower, sometimes much slower, executable, so when debugging is completed, always recompile with the optimization flag or flags enabled, of which `-O` is the minimum and will activate the compiler's default level.  You must _always_ `make clean` anytime you change compiler options.
 

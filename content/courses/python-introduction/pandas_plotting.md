@@ -48,7 +48,7 @@ In addition, there are separate methods `df.hist()` and `df.boxplot()` that have
 
 If multiple columns of a dataframe are compatible numerically, they can be specified and the `plot` method will create a superimposed chart with a legend.  Remember that the index is not a column of the dataframe, so it can be a date.
 
-This example is a modification of another one from Pandas documention.
+This example is a modification of another one from Pandas documentation.
 
 {{< code-download file="/courses/python-introduction/scripts/multiplot.py" lang="python" >}}
 

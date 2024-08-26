@@ -156,7 +156,7 @@ ACCORD is a web-accessible secure platform which allows researchers from Virgini
  </div>
  <div>
     <ul>
-      <li>To access ACCORD, you need to login through InCommon</li>
+      <li>To access ACCORD, you need to log in through InCommon</li>
 <br>
       <li>Select your home institution from the dropdown menu (or UVA if you have a sponsored account)</li>
     </ul>
@@ -182,7 +182,7 @@ ACCORD is a web-accessible secure platform which allows researchers from Virgini
 
 ### ACCORD dashboard
 
-  * Once you login, you will see the ACCORD dashboard
+  * Once you log in, you will see the ACCORD dashboard
   * Your name will appear in the top right corner, along with any recent or currently running sessions
 
 ![](img/ACCORD_Intro_2021102215.png)
@@ -192,7 +192,7 @@ ACCORD is a web-accessible secure platform which allows researchers from Virgini
 ### Start a new session
 
   * A session is an individual instance running one of the available containers (RStudio, JupyterLab, etc.)
-  * To create a new session, click on the "*Start A New Session*” button in the top right
+  * To create a new session, click on the "*Start A New Session*" button in the top right
 
 ![](img/ACCORD_Intro_2021102216.png)
 
@@ -222,7 +222,7 @@ ACCORD is a web-accessible secure platform which allows researchers from Virgini
 
   * Your new session will be in the “*Current Sessions*” section
   * __Note:__ Your session may show pending as the system waits for resources to become available
-  * Once you session is ready, click the “*Connect*” button to launch your session
+  * Once your session is ready, click the “*Connect*” button to launch your session
 
 ---
 

@@ -36,7 +36,7 @@ If you allow the compiler to compute the total field width, note that it will no
 
 ### Common Edit Descriptors
 
-As usual, they are not case sensitive.
+As usual, they are not case-sensitive.
 ```fortran
 I  !integer
 F  !real (decimal output)
@@ -169,7 +169,7 @@ read(*,*) value
 ```
 Non-advancing IO _must_ be formatted
   * ‘yes’ for advance is valid also but is the default.
-  * The argument to `advance` can be a character variable so you can decide based on conditionals to advance or not.
+  * The argument to `advance` can be a character variable so that you can decide based on conditionals whether to advance.
   * If you do _not_ want to advance, use `advance='no'`
 
 **Exercises**

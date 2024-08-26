@@ -11,12 +11,12 @@ One of the most popular add-on libraries for C++, especially numerical or scient
 
 ### Installing Boost
 
-Boost uses its own build system on Unix and Mac OS.  On Windows there is an experimental CMake system but generally the "bjam" builder is still used.
+Boost uses its own build system on Unix and macOS.  On Windows there is an experimental CMake system but generally the "bjam" builder is still used.
 In all cases, installing Boost requires some familiarity with using a command line.
 
-#### Unix and Mac OS
+#### Unix and macOS
 
-On a Linux system, the simplest way to install Boost is to utilize the package manager of the distribution.  For example on Ubunutu the command is
+On a Linux system, the simplest way to install Boost is to utilize the package manager of the distribution.  For example on Ubuntu the command is
 ```no-highlight
 sudo apt install libboost-all-dev
 ```
@@ -25,9 +25,9 @@ or on Fedora (or Centos 8 and beyond)
 sudo dnf install boost
 sudo dnf install boost-devel
 ```
-If you do not have superuser (sudo) permission or you wish to install Boost somewhere other than the main system libraries, follow the general [instructions](
+If you do not have superuser (sudo) permission, or you wish to install Boost somewhere other than the main system libraries, follow the general [instructions](
 https://www.boost.org/doc/libs/1_76_0/more/getting_started/unix-variants.html).
-The default prefix for installation from `b2 install` is `/usr/local`.  This is true for both Linux and Mac OS.  If you wish to install to `/usr/local`, which is normally in the system search paths, you will need to run the installation command with sudo
+The default prefix for installation from `b2 install` is `/usr/local`.  This is true for both Linux and macOS.  If you wish to install to `/usr/local`, which is normally in the system search paths, you will need to run the installation command with sudo
 ```no-highlight
 cd path/to/boost/source
 ./bootstrap.sh
@@ -59,11 +59,11 @@ Installation on Windows is somewhat more complicated than on Unix variants.  Fir
 
 Using Boost is probably simplest with a Makefile.  The [example](/courses/cpp-introduction/codes/makefile.windows_boost) is for Windows with a particular choice of location for the boost header files and libraries.  Change the locations for `-I` and `-L` as appropriate if they are located elsewhere on your system.  Please refer to the earlier [chapter](/courses/cpp-introduction/make) for a review of setting up Makefiles.  This example goes with a standard Boost [example](/courses/cpp-introduction/codes/boost_example.cxx).
 
-If you have installed Boost onto a Linux or Mac OS system to a system default search location such as `/usr` or `/usr/local` you will not need to specify the `-I` or `-L` paths at all.  The example [makefile](/courses/cpp-introduction/codes/makefile.linux_mac_boost) assumes installation in system paths in the compiler's default search paths.
+If you have installed Boost onto a Linux or macOS system to a system default search location such as `/usr` or `/usr/local` you will not need to specify the `-I` or `-L` paths at all.  The example [makefile](/courses/cpp-introduction/codes/makefile.linux_mac_boost) assumes installation in system paths in the compiler's default search paths.
 
 ## Boost MultiArrays
 
-C-style arrays are widely used but lack some important features, such as the ability to check that index references do not occur outside of the arrays bounds.
+C-style arrays are widely used but lack some important features, such as the ability to check whether indexes outside the array bounds are referenced.
 The C++ STL array type has more features, but is limited to one dimension.  A workaround is to "stack" vectors, since a vector of a vector amounts to a 2-dimensional structure.
 ```c++
 #include <vector>

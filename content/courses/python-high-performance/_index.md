@@ -28,7 +28,7 @@ For this tutorial, it is assumed that you have experience with programming in Py
 
 To follow along for the [Serial Optimization](#serial-optimization-strategies) and [Multiprocessing](#multiprocessing) examples, you can execute the code examples on your own computer or on UVA's high-performance computing cluster.  Examples described in the last section, [Distributed Parallelization](#distributed-parallelization), are best executed on UVA's high-performance computing platform.
 
-If you are using your local computer, we recommend the Anaconda distribution (<a href="https://www.anaconda.com/distribution/" target="balnk_">download</a>) to run the code examples. Anaconda provides multiple Python versions, an integrated development environment (IDE) with editor and profiler, Jupyter notebooks, and an easy to use package environment manager.
+If you are using your local computer, we recommend the Anaconda distribution (<a href="https://www.anaconda.com/distribution/" target="balnk_">download</a>) to run the code examples. Anaconda provides multiple Python versions, an integrated development environment (IDE) with editor and profiler, Jupyter notebooks, and an easy-to-use package environment manager.
 
 **If you are using UVA HPC, follow these steps to verify that your account is active:**
 
@@ -54,7 +54,7 @@ Now type
 spyder &
 ```
 
-For Jupyterlab you can use [Open OnDemand](https://ood.hpc.virginia.edu).  Jupyterlab is one of the Interactive Apps.  Note that these apps submit a job to the compute nodes.  If you are working on quick development and testing and you wish to use the frontend, to run Jupyter or Jupyterlab on the FastX portal you can run 
+For Jupyterlab you can use [Open OnDemand](https://ood.hpc.virginia.edu).  Jupyterlab is one of the Interactive Apps.  Note that these apps submit jobs to compute nodes.  If you are working on quick development and testing and you wish to use the frontend, to run Jupyter or Jupyterlab on the FastX portal you can run 
 ```
 module load anaconda
 anaconda-navigator &

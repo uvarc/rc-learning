@@ -19,7 +19,7 @@ module load geany
 geany&
 ```
 
-For personal use, compilers, Geany, and the other cross-platform IDEs are available for all popular Linux distributions and can be installed through the distribution's package manager or by downloading from the vendor (e.g. the NVIDIA HPC SDK).  Most workstation users do not install environment modules, so the module command would not be required.  However, it may be convenient if you wish to instal multiple compilers.  At least one implementation of software modules is usually available for a given distribution.
+For personal use, compilers, Geany, and the other cross-platform IDEs are available for all popular Linux distributions and can be installed through the distribution's package manager or by downloading from the vendor (e.g. the NVIDIA HPC SDK).  Most workstation users do not install environment modules, so the module command would not be required.  However, it may be convenient if you wish to install multiple compilers.  At least one implementation of software modules is usually available for a given distribution.
 
 _GCC_
 The gcc compiler is a standard part of all Linux distributions.  However, it is usually necessary to add g++ and gfortran separately.
@@ -73,8 +73,7 @@ A discussion of installing MinGW-64 compilers for use with VSCode has been poste
 
 _Intel oneAPI_
 First install [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
-  Individual developers and most academic users are eligible for the free commun
-ity edition.  After installing VS, download and install the Basic Toolkit.  The HPC Toolkit is also recommended; it is installed after Basic.
+  Individual developers and most academic users are eligible for the free community edition.  After installing VS, download and install the Basic Toolkit.  The HPC Toolkit is also recommended; it is installed after Basic.
 
 _NVIDIA HPC SDK_
 Download and install the package when it is available.
@@ -101,7 +100,7 @@ g++: fatal error: no input files
 We will show Geany and VSCode on Windows.  Both look similar on the other platforms.  
 
 Open Geany (or VSCode).  Type in the following
-{{< code file="courses/cpp-introduction/codes/hello.cxx" lang=no-hightlight >}}
+{{< code file="courses/cpp-introduction/codes/hello.cxx" lang=no-highlight >}}
 
 {{< figure src="/courses/cpp-introduction/img/Geany1.png" width=500px  >}}
 Syntax coloring will not be enabled until the file is saved with a file extension that corresponds to the language.  Save this file as `hello.cxx`.  The coloring will appear.

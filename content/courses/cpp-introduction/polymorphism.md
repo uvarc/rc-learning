@@ -77,7 +77,7 @@ makes intuitive sense.  We would not want to overload multiplication with this d
 
 Most of the standard C++ operators, including several we have not discussed, can be overloaded. Exceptions are `.` (member selection), `.*` (pointer to member selection), `::` (scope resolution), and `:?` (conditional).  No preprocessor arguments (`#`) may be redefined.
 
-In general, operator redefinitions do not have to be class members, but typically they are when it is possible.  If they are not members, they must be global (not recommmended) or a friend function (better).  Some operators, such as `<<` for printing, cannot be members because they must take the instance as an argument.
+In general, operator redefinitions do not have to be class members, but typically they are when it is possible.  If they are not members, they must be global (not recommended) or a friend function (better).  Some operators, such as `<<` for printing, cannot be members because they must take the instance as an argument.
 
 Assignment has a few extra requirements.  It must be a member function of a struct or class.  The argument is the _right_ side of the equality and must be declared `const`.  
 ```c++

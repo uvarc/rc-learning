@@ -11,9 +11,9 @@ A _subprogram_ is a self-contained, but not standalone, program unit.  It perfor
 Subprograms are essential to good coding practice.  Among other benefits, they are
   * Reusable.  They can be called anywhere the task is to be performed.
   * Easier to test and debug than a large, catch-all unit.
-  * Effective at reducing errors such as cut and paste mistakes.
+  * Effective at reducing errors such as cut-and-paste mistakes.
 
-Other general names for subprograms are _routines_, _procedures_, and _methods_. The word "method" is generally reserved for procedures defined within an _object_, but it is not conceptionally different from any other subprogram. 
+Other general names for subprograms are _routines_, _procedures_, and _methods_. The word "method" is generally reserved for procedures defined within an _object_, but it is not conceptually different from any other subprogram. 
 
 Subprograms must be invoked or _called_ in order for any of their code to be executed.  
 

@@ -51,7 +51,7 @@ The argument `vals` can be of any primitive type that corresponds to a supported
 comm.bcast(data, root=0)  #general object
 comm.Bcast([sendvals,MPI.TYPE], root=0)  #NumPy array
 ```
-The pickled version does not use `MPI.TYPE` because a pickled object is a binary stream and mpi4py handles the data description passed to MPI.  In the NumPy version we may specify the type, although it is optional because an Ndarray is aware of its type.  The array and type should be a list.
+The pickled version does not use `MPI.TYPE` because a pickled object is a binary stream and mpi4py handles the data description passed to MPI.  In the NumPy version we may specify the type, although it is optional because a Ndarray is aware of its type.  The array and type should be a list.
 
 {{< spoiler text="Python Example" >}}
 {{< code-download file="/courses/parallel-computing-introduction/codes/bcast.py" lang="python" >}}

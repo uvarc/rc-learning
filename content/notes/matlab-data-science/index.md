@@ -12,7 +12,7 @@ page are links to short videos, including the data science tutorial shown in the
 The 4 links following the data science examples link are to the MathWork's Matlab Academy online courses in data science.
 The two 'onramp' links are introductions to machine learning and deep learning using Matlab.
 The next two links are in-depth courses in machine learning and deep learning using Matlab. Next to each section is an
-estimate of the of the amount of time it would take to go through the material in the corresponding link.
+estimate of the amount of time it would take to go through the material in the corresponding link.
 The last link is to a video of using Matlab for data analytics.
 
 
