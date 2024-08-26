@@ -174,7 +174,7 @@ The available software is also listed on our [website](https://www.rc.virginia.e
 
 **Exercise 2**
 
-Some exercise related to knowing when python is loaded or not.
+Try typing the command `python` in a terminal window. Why was it unable to find the executable? Now, load a module of your choosing that has python. Try the `python` command again. Purge your current modules and try `python` again.
 
 Use ```module spider R``` to show the available R modules and how to load them. Using this information, why does the command ```module load R``` give an error?
 
