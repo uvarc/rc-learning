@@ -4,7 +4,7 @@ title:   Introduction to Fiji/ImageJ
 summary: "An introduction to using and scripting the Fiji/ImageJ image analysis packages."
 authors: [khs,cag]
 categories: ["Fiji"]
-tags: ["imaging","fiji"]
+tags: ["Image_Processing","Fiji"]
 #weight: 1
 
 date: "2020-11-17T00:00:00"

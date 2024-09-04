@@ -92,11 +92,18 @@ int main (int argc, char *argv[]) {
          }
     }
 
-    MPI_Sendrecv(&w[1][1],ncl, MPI_DOUBLE,up,tag,&w[nrl+1][1],
-                           ncl, MPI_DOUBLE,down,tag,MPI_COMM_WORLD,&status);
+    MPI_Request requests[4];
+    int nrequests=4;
 
-    MPI_Sendrecv(&w[nrl][1],ncl,MPI_DOUBLE,down,tag,&w[0][1],
-                             ncl,MPI_DOUBLE,up,tag,MPI_COMM_WORLD,&status);
+    MPI_Irecv(&w[nrl+1][1], ncl, MPI_DOUBLE, down, tag, MPI_COMM_WORLD, &requests[0]);
+    MPI_Irecv(&w[0][1], ncl, MPI_DOUBLE, up, tag, MPI_COMM_WORLD, &requests[1]);
+
+    MPI_Isend(&w[1][1], ncl, MPI_DOUBLE, up, tag, MPI_COMM_WORLD, &requests[2]);
+    MPI_Isend(&w[nrl][1],ncl,MPI_DOUBLE, down, tag, MPI_COMM_WORLD, &requests[3]);
+
+    MPI_Status status_arr[4];
+
+    MPI_Waitall(nrequests,requests,status_arr);
 
     //Spot-check results
     for (i=0;i<nprocs;++i) {

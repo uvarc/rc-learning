@@ -2,7 +2,7 @@
 title: "MPI Derived Types"
 toc: true
 type: docs
-weight: 220
+weight: 320
 date: "2020-11-17T00:00:00"
 menu:
     parallel_programming:

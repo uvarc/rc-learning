@@ -5,7 +5,7 @@ authors: [kah,khs]
 date: 2020-02-02T00:06:47-04:00
 draft: false
 categories: ["Python", "Programming", "HPC"]
-tags: ["python","programming","HPC"]
+tags: ["Python","Programming","HPC"]
 authors: ["kah"]
 draft: true
 

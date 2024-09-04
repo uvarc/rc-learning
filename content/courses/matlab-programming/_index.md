@@ -4,7 +4,7 @@ summary : "An introduction to programming in MATLAB"
 authors : [uvarc]
 date : "2019-06-23T08:37:46-05:00"
 categories : ["MATLAB","Programming"]
-tags : ["matlab","programming"]
+tags : ["MATLAB","Programming"]
 toc: true
 type: docs
 weight: 1

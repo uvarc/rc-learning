@@ -5,7 +5,7 @@ summary: "This set of tutorials is an introduction to using the Unix operating s
 # Schedule page publish date (NOT talk date).
 publishDate: "2017-01-01T00:00:00"
 categories: ["Unix","HPC"]
-tags: [hpc,unix]
+tags: ["Unix","HPC"]
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.

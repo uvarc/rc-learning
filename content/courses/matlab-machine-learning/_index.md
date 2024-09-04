@@ -4,7 +4,7 @@ summary: Machine learning in Matlab, based on Mathworks online tutorials.
 authors: [cag]
 date: 2019-10-16T21:13:14-05:00
 categories: ["MATLAB","Machine Learning"]
-tags: [matlab,ml]
+tags: ["MATLAB","Machine_Learning"]
 toc: true
 type: docs
 

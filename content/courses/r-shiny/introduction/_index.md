@@ -2,7 +2,7 @@
 # Course title, summary, and position.
 authors: [cag]
 categories: ["R","Shiny", "App Development"]
-tags: ["r","shiny","app-development"]
+tags: ["R","Shiny","App_Development"]
 
 # Page metadata.
 date: "2023-05-01T00:00:00"

@@ -5,7 +5,7 @@ summary: "This tutorial provides an introduction to deep learning using high pow
 date: 2024-06-27T21:13:14-05:00
 authors: [uvarc]
 categories: ["GPU","Machine Learning","Deep Learning"]
-tags: [ml,dl]
+tags: ["GPU","Machine_Learning","Deep_Learning"]
 
 
 notes: deep-learning-hpc

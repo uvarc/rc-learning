@@ -47,7 +47,11 @@ The _status_ variable contains information about the message.
     * Python
         status.Get_error()
 
+Note that mpi4py implements some C/C++/Fortran procedures as methods in the `status` object.
+
 The MPI_SOURCE and MPI_TAG items may be especially useful for the special dummy variables defined for source and tag.
+
+If the programmer does not intend to examine the status field, the special value MPI_STATUS_IGNORE may be passed as the status parameter (C++/Fortran) or in Python, by omitting the argument, since it is optional. 
 
 ## Special Source and Tag Variables
 

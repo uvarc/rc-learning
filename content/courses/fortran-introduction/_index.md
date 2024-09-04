@@ -4,7 +4,7 @@ title : "Programming in Modern Fortran"
 summary: "This short course is an introduction to programming in modern Fortran.  Experience programming in some other language is helpful but not required."
 authors: [kah]
 categories: ["Programming","Fortran"]
-tags: [programming, fortran]
+tags: [Programming, Compilers, Fortran]
 toc: true
 type: book
 weight: 1

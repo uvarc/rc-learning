@@ -1,5 +1,5 @@
 program halo
-   use mpi
+   use mpi_f08
 
    double precision, allocatable, dimension(:,:)  :: w
    integer            :: N=500
@@ -9,7 +9,9 @@ program halo
    integer            :: nr, nc, nrl, ncl
    integer            :: rank, nprocs, tag=0
    integer            :: errcode, ierr
-   integer, dimension(MPI_STATUS_SIZE) :: mpi_stat
+   type(MPI_Status),  dimension(:), allocatable :: mpi_status_arr
+   type(MPI_Request), dimension(:), allocatable :: mpi_requests
+   integer            :: nrequests
    integer, parameter :: root=0
    integer            :: left, right
 
@@ -70,13 +72,23 @@ program halo
    w(1:nrl,1:ncl)=50.
 
    ! Exchange halo values
-   call MPI_SENDRECV(w(1:nrl,1)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,         &
-                     w(1:nrl,ncl+1),nrl,MPI_DOUBLE_PRECISION,right,tag,        &
-                                        MPI_COMM_WORLD,mpi_stat,ierr)
+   nrequests=4
+   allocate(mpi_requests(nrequests),mpi_status_arr(nrequests))
 
-   call MPI_SENDRECV(w(1:nrl,ncl)  ,nrl,MPI_DOUBLE_PRECISION,right,tag,        &
-                     w(1:nrl,0)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,         &
-                                        MPI_COMM_WORLD,mpi_stat,ierr)
+   call MPI_Irecv(w(1:nrl,ncl+1),nrl,MPI_DOUBLE_PRECISION,right,tag,           &
+                                     MPI_COMM_WORLD,mpi_requests(1),ierr)
+
+   call MPI_Irecv(w(1:nrl,0)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,            &
+                                     MPI_COMM_WORLD,mpi_requests(2),ierr)
+
+
+   call MPI_Isend(w(1:nrl,1)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,            &
+                                     MPI_COMM_WORLD,mpi_requests(3),ierr)
+
+   call MPI_Isend(w(1:nrl,ncl)  ,nrl,MPI_DOUBLE_PRECISION,right,tag,           &
+                                     MPI_COMM_WORLD,mpi_requests(4),ierr)
+
+   call MPI_Waitall(nrequests,mpi_requests,mpi_status_arr)
 
    !Spot-check result
    do i=0,nprocs-1

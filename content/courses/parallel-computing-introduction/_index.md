@@ -3,7 +3,7 @@
 summary: Introduction to Parallel Programming
 authors: [kah]
 categories: ["Programming","Parallel Computing","Fortran","C/C++"]
-tags: ["parallel-programming","programming","fortran","c/c++"]
+tags: ["Programming","Parallel_Programming","Fortran","C++"]
 
 # Page metadata.
 title: Introduction to Parallel Programming

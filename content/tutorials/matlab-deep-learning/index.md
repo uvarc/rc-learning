@@ -4,7 +4,7 @@ summary: "This hands-on tutorial will show you how to classify images with a pre
 date: 2019-10-16T21:13:14-05:00
 authors: [cag]
 categories: ["MATLAB","Machine Learning","Deep Learning"]
-tags: [matlab,ml,dl]
+tags: ["MATLAB","Machine_Learning","Deep_Learning"]
 weight: 350
 
 notes: matlab-deep-learning

@@ -4,7 +4,7 @@ title : "Software Containers for HPC"
 summary: "An Introduction to using and building software containers."
 authors: [rs]
 categories: ["Containers","HPC"]
-tags: [containers, hpc]
+tags: [Containers, HPC]
 toc: true
 type: book
 weight: 1

@@ -6,7 +6,7 @@ summary: "This tutorial is an introduction to using several popular bioinformati
 publishDate: "2021-03-02T00:00:00"
 
 authors: [gka]
-tags: [hpc,bioinformatics]
+tags: [HPC,Bioinformatics]
 categories: ["HPC","Bioinformatics"]
 
 # Markdown Slides (optional).

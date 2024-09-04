@@ -4,7 +4,7 @@ summary: "This hands-on workshop provides an overview of neural networks with a 
 date: "2024-06-06T00:00:00"
 authors: [as,jmh]
 categories: ["GPU","Machine Learning","Python","Deep Learning"]
-tags: [python,gpu,ml,dl]
+tags: ["GPU","Machine_Learning","Python","Deep_Learning"]
 weight: 300
 
 notes: deep-learning-distributed

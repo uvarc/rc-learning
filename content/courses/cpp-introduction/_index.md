@@ -3,8 +3,8 @@ date : "2021-06-23T00:00:00-05:00"
 title : "Programming in C++"
 summary: " This short course is an introduction to programming in C++.  Experience programming in some other language is helpful but not required." 
 authors: [kah]
-categories: ["Programming","C++"]
-tags: [programming, c++]
+categories: ["Programming","Compilers"]
+tags: [Programming, Compilers, C++]
 toc: true
 type: book
 weight: 1

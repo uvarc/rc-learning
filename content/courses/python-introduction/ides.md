@@ -122,9 +122,5 @@ Now re-run your sine-plotting code and observe how the variables acquire values.
 
 Other popular IDEs for Python include the "fremium" [PyCharm](https://www.jetbrains.com/pycharm/).  The "Community" (free) edition is adequate for most casual programmer's needs.  Some organizations, such as the UVA Computer Science Department, hold licenses that students or employees can access.
 
-<<<<<<< HEAD:content/courses/python-introduction/ides.md
 [VSCode](https://code.visualstudio.com/docs/languages/python) is another IDE that is very popular.  It is multilanguage and integrates source control with [git](https://github.com/).  Full support for most languages requires the use of an _extension_.  Extensions are installed from the Extensions menu.  Click on the stacked-boxes icon, or View->Extensions from the top bar.  We recommend the Python extension supported by Microsoft.  It will install several Python packages for syntax checking and debugging.
-=======
-[VSCode](https://code.visualstudio.com/docs/languages/python) is another IDE.  It is multi-language but can be easily extended to support Python.
->>>>>>> 6a198f065e2a33f7e1411ff16f3c3c7858f3694c:content/courses/python-introduction/spyder.md
 

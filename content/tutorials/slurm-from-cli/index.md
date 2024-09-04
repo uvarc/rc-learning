@@ -6,8 +6,8 @@ summary: "This tutorial is an introduction to submitting Slurm jobs through a te
 publishDate: "2023-01-04T00:00:00Z"
 
 authors: [as,kah]
-tags: [hpc]
-categories: ["HPC"]
+tags: ["HPC","Slurm"]
+categories: ["HPC","Slurm"]
 
 notes: slurm-from-cli
 

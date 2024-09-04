@@ -6,7 +6,7 @@ summary: "An introduction to using the Biopython package to develop Python scrip
 
 date: 2020-10-01T00:00:00-05:00
 authors: ["khs"]
-tags: [python,bioinformatics]
+tags: [Python,Bioinformatics]
 categories: ["Python", "Bioinformatics"]
 weight: 520
 

@@ -4,7 +4,7 @@ summary: "This tutorial is an introduction to basic data analysis and visualizat
 authors: [cag]
 date: 2019-10-16T21:13:14-05:00
 categories: ["MATLAB","Data Analytics"]
-tags: [matlab,data]
+tags: ["MATLAB","Data_Analytics"]
 weight: 250
 
 notes: matlab-data-visualization

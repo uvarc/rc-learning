@@ -2,8 +2,6 @@
 title: Distributed Deep Learning
 date: "2024-06-06T00:00:00"
 authors: [uvarc,as,jmh]
-categories: ["GPU","Machine Learning","Python","Deep Learning"]
-tags: [python,ml,dl]
 type: docs 
 weight: 1 
 
