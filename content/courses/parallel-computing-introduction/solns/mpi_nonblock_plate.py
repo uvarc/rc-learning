@@ -88,6 +88,7 @@ ncl=M
 u=np.zeros((nrl+2,ncl+2))
 w=np.zeros((nrl+2,ncl+2))
 
+#Set physical boundary conditions
 bc1,bc2,bc3,bc4=set_bcs(u,nrl,ncl,rank)
 
 #Set up the up and down rank for each process
@@ -112,12 +113,19 @@ global_diff=np.zeros(1)
 if rank==root:
     print(f'Running until the difference is < {epsilon:}, global size {N:}x{M:}')
 
+
 while iterations<=max_iterations:
 
-   # Send up and receive down
-    comm.Sendrecv([u[1,1:ncl+1], MPI.DOUBLE], up, tag, [u[nrl+1,1:ncl+1], MPI.DOUBLE], down, tag)
-    # Send down and receive up
-    comm.Sendrecv([u[nrl, 1:ncl+1], MPI.DOUBLE], down, tag, [u[0,1:ncl+1], MPI.DOUBLE], up, tag)
+   # Initiate communications
+    rcv_down=comm.Irecv([u[nrl+1,1:ncl+1],MPI.DOUBLE],down)
+    rcv_up=comm.Irecv([u[0,1:ncl+1],MPI.DOUBLE],up)
+
+    send_up=comm.Isend([u[1,1:ncl+1],MPI.DOUBLE], up)
+    send_down=comm.Isend([u[nrl,1:ncl+1],MPI.DOUBLE], down)
+    requests=[rcv_down,rcv_up,send_up,send_down]
+
+    # Complete communications
+    MPI.Request.Waitall(requests)
 
     w[1:-1,1:-1]=0.25*(u[:-2,1:-1]+u[2:,1:-1]+u[1:-1,:-2]+u[1:-1,2:])
 

@@ -1,5 +1,5 @@
 program heatedplate
-  use mpi
+  use mpi_f08
   implicit none
 
   integer, parameter:: maxiter=10000000
@@ -14,10 +14,12 @@ program heatedplate
 
   !Add for MPI
   integer            :: nrl, ncl
-  integer            :: rank, nprocs, tag=0
+  integer            :: rank, nprocs
   integer            :: errcode, ierr
-  integer, dimension(MPI_STATUS_SIZE) :: mpi_stat
-  integer, parameter :: root=0
+  type(MPI_Status),  dimension(:), allocatable :: mpi_status_arr
+  type(MPI_Request), dimension(:), allocatable :: mpi_requests
+  integer            :: nrequests
+  integer, parameter :: root=0, tag=0
   integer            :: left, right
   double precision   :: gdiff
   character(len=24)  :: fname
@@ -95,9 +97,6 @@ program heatedplate
       right = rank + 1
   endif
 
-  ! Set boundary values and compute mean boundary value. 
-  ! This has the ice bath on the top edge.
-
   ! Allocate arrays)
   lb=0
   allocate(u(lb:nrl+1,lb:ncl+1),w(lb:nrl+1,lb:ncl+1))
@@ -105,33 +104,42 @@ program heatedplate
   u=0.d0
   w=0.d0
 
-  ! Set physical boundaries
   call set_bcs(lb,nrl,ncl,rank,nprocs,bc1,bc2,bc3,bc4,u)
-
-  diff_interval=1
 
   ! Walltime from process 0 is good enough for me
   if (rank .eq. 0) then
     time0=MPI_WTIME()
   endif
 
+  diff_interval=1
+
   if (rank==0) then
       write (*,'(a,es15.8,a,i6,a,i6)') 'Running until the difference is <= ',  &
                                               eps,' for global size ',N,'x',M
   endif
 
+  nrequests=4
+  allocate(mpi_requests(nrequests),mpi_status_arr(nrequests))
+
   ! Compute steady-state solution
   do while ( iterations<=maxiter )
 
-     ! Exchange halo values
-     call MPI_SENDRECV(u(1:nrl,1)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,       &
-                       u(1:nrl,ncl+1),nrl,MPI_DOUBLE_PRECISION,right,tag,      &
-                                          MPI_COMM_WORLD,mpi_stat,ierr)
+     ! Initiate communications 
+     call MPI_Irecv(u(1:nrl,ncl+1),nrl,MPI_DOUBLE_PRECISION,right,tag,         &
+                                       MPI_COMM_WORLD,mpi_requests(1),ierr)
 
-     call MPI_SENDRECV(u(1:nrl,ncl)  ,nrl,MPI_DOUBLE_PRECISION,right,tag,      &
-                       u(1:nrl,0)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,       &
-                                          MPI_COMM_WORLD,mpi_stat,ierr)
+     call MPI_Irecv(u(1:nrl,0)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,          &
+                                       MPI_COMM_WORLD,mpi_requests(2),ierr)
 
+
+     call MPI_Isend(u(1:nrl,1)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,          &
+                                       MPI_COMM_WORLD,mpi_requests(3),ierr)
+
+     call MPI_Isend(u(1:nrl,ncl)  ,nrl,MPI_DOUBLE_PRECISION,right,tag,         &
+                                       MPI_COMM_WORLD,mpi_requests(4),ierr)
+
+     ! Complete communications
+     call MPI_Waitall(nrequests,mpi_requests,mpi_status_arr)                   
      do j=1,ncl
         do i=1,nrl
            w(i,j) = 0.25*(u(i-1,j) + u(i+1,j) + u(i,j-1) + u(i,j+1))
@@ -154,8 +162,6 @@ program heatedplate
      ! Reset physical boundaries (they get overwritten in the halo exchange)
      call set_bcs(lb,nrl,ncl,rank,nprocs,bc1,bc2,bc3,bc4,u)
 
-     iterations = iterations + 1
-
      !If this happens we will exit at next conditional test.
      !Avoids explicit break here
      if (iterations>maxiter) then
@@ -163,6 +169,9 @@ program heatedplate
                write(*,*) "Warning: maximum iterations exceeded"
            endif
      endif
+
+     iterations = iterations + 1
+
   enddo
 
   if (rank==root) then

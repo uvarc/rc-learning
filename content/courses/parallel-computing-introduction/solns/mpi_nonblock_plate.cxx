@@ -126,6 +126,10 @@ int main (int argc, char *argv[]) {
   double *wptr=new double[(nrows)*(ncols)];
   double *dptr=new double[(nrows)*(ncols)];
 
+  MPI_Request requests[4];
+  MPI_Status  status_arr[4];
+  int nrequests=4;
+
   for (i=0;i<nrows;++i,uptr+=ncols)
      u[i] = uptr;
   for (i=0;i<nrows;++i,wptr+=ncols)
@@ -133,7 +137,6 @@ int main (int argc, char *argv[]) {
   for (i=0;i<nrows;++i,dptr+=ncols)
      diffs[i] = dptr;
 
-  // Set physical boundary conditions (overwrites estimate on physical edges)
   set_bcs(u, nrl, ncl, rank, nprocs, bc1, bc2, bc3, bc4);
 
   diffInterval=1;
@@ -152,12 +155,15 @@ int main (int argc, char *argv[]) {
      // max_element doesn't work great for twod arrays and is often slow
      diff=.8*epsilon;  
 
-     //Exchange halo values (one ghost row each side)
-     MPI_Sendrecv(&u[1][1],ncl, MPI_DOUBLE,up,tag,&u[nrl+1][1],
-                           ncl, MPI_DOUBLE,down,tag,MPI_COMM_WORLD,&status);
+      //Initialize communications
+     MPI_Irecv(&u[nrl+1][1], ncl, MPI_DOUBLE, down, tag, MPI_COMM_WORLD, &requests[0]);
+    MPI_Irecv(&u[0][1], ncl, MPI_DOUBLE, up, tag, MPI_COMM_WORLD, &requests[1]);
 
-     MPI_Sendrecv(&u[nrl][1],ncl,MPI_DOUBLE,down,tag,&u[0][1],
-                             ncl,MPI_DOUBLE,up,tag,MPI_COMM_WORLD,&status);
+    MPI_Isend(&u[1][1], ncl, MPI_DOUBLE, up, tag, MPI_COMM_WORLD, &requests[2]);
+    MPI_Isend(&u[nrl][1],ncl,MPI_DOUBLE, down, tag, MPI_COMM_WORLD, &requests[3]);
+
+     //Complete communications
+     MPI_Waitall(nrequests,requests,status_arr);
 
      for (i=1; i<=nrl;i++) {
         for (j=1;j<=ncl;j++) {
