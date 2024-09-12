@@ -66,10 +66,10 @@ Python
 ```python
 filename = filename + str( rank )
 ```  
-To plot the results you will have to stitch the files together appropriately. If you have no other preference you may use the `contour_ranks.py` code below. Add the `-f` command-line option for Fortran. The script must be given an argument that is the "base" of the filenames, and all the output files must be in the same folder and numbered appropriately.
+To plot the results you will have to stitch the files together appropriately. If you have no other preference you may use the `contour.py` code below. Add the `-f` command-line option for Fortran. The script must be given an argument that is the "base" of the filenames, and all the output files must be in the same folder and numbered appropriately.
 
 {{< spoiler text="Python script to merge output files and contour" >}}
-{{< code-download file="/courses/parallel-computing-introduction/scripts/contour_ranks.py" lang="python" >}}
+{{< code-download file="/courses/parallel-computing-introduction/scripts/contour.py" lang="python" >}}
 {{< /spoiler >}}
 
 Feel free to use the example solutions provided as your basis, but we recommend that you attempt to write your own serial version first.
