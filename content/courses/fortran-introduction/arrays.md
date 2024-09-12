@@ -12,7 +12,7 @@ menu:
 
 ---
 
-The arrays is one of the most important types in Fortran. It can represent many mathematical entities such as grids, matrices, vectors, and so forth.
+Arrays are one of the most important types in Fortran. It can represent many mathematical entities such as grids, matrices, vectors, and so forth.
 The members of an array are frequently called _elements_.
 From the computational point of view, an  _array_ is a data structure that contains data of the __same type__ with each scalar element addressed by _indexing_ into the array.  Indices must be integers.
 An array has one or more _dimensions_ .  The _bounds_ are the lowest and highest indexes.  The _rank_ is the number of dimensions.  The _size_ of an array is the number of elements.  The _shape_ is a tuple giving the size in each individual dimension.
@@ -105,7 +105,7 @@ The `RANK(ARRAY)` function returns the rank (number of dimensions).
 
 ## Where
 
-Where functions like a “vectorized”loop+conditional.
+`where` functions like a “vectorized” loop+conditional.
 The clauses must be array assignments.
 ```fortran
 where ( A>=0.0 )

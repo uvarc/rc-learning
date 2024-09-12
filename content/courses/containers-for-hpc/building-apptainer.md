@@ -292,7 +292,7 @@ While our container is functional, there is room for improvement. We shall look 
 
 ### 1. Clean up
 
-Package managers usually leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs.
+Package managers usually leave behind some cache files after installation that can be safely removed. Depending on your application, they can easily accumulate up to several GBs.
 
 {{< code-snippet >}}Bootstrap: docker
 From: ubuntu:22.04
@@ -424,7 +424,7 @@ A container registry is a repository for container images. Here we examine two p
 
 The Apptainer/Singularity SIF is supported by Docker Hub. Register for a free account.
 
-{{< info >}}Replace "myname" with your actual user name in the following commands.{{< /info >}}
+{{< info >}}Replace "myname" with your actual username in the following commands.{{< /info >}}
 
 Login:
 ```bash
@@ -486,7 +486,7 @@ Your project requires PyTorch 2.1.2, Numpy, Seaborn, and Pandas. Write the corre
 
 Hints:
 - Find the appropriate base image from [here](https://hub.docker.com/r/pytorch/pytorch/tags).
-- Pull the base image and examine it first. Does it already provide some of the packages?
+- Pull the base image and examine it first. Does it already provide some packages?
 
 {{< info >}}While PyTorch runs on a GPU, you do not need to build the container on a GPU.{{< /info >}}
 
@@ -507,7 +507,7 @@ Your project requires R 4.3.2, dplyr, ggplot2, and RcppGSL. Write the correspond
 
 Hints:
 - Pick an appropriate base image - there are two viable choices here.
-- Pull the base image and examine it first. Does it already provide some of the packages?
+- Pull the base image and examine it first. Does it already provide some packages?
 - In the definition file, install CRAN packages via `R -e "install.packages('...')"`.
 - Load the three packages. Do they all succeed? If not, how can you fix it?
 

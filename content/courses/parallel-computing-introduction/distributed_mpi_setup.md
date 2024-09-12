@@ -1,5 +1,5 @@
 ---
-title: "Setting Up and Running MPI"
+title: "Setting Up MPI"
 toc: true
 type: docs
 weight: 28
@@ -8,24 +8,6 @@ menu:
     parallel_programming:
         parent: Distributed-Memory Programming
 ---
-
-We are now ready to write our first MPI program.  Select your choice of language below for this example.
-
-## A Hello World example.
-
-{{< spoiler text="C++" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/mpi1.cxx" lang="c++" >}}
-{{< /spoiler >}}
-
-{{< spoiler text="Fortran" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/mpi1.f90" lang="fortran" >}}
-{{< /spoiler >}}
-
-{{< spoiler text="Python" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/mpi1.py" lang="python" >}}
-{{< /spoiler >}}
-
-## Preparing and Running MPI Codes
 
 ### On a Remote Cluster
 
@@ -44,13 +26,13 @@ If you have access to a multicore computer, you can run MPI programs on it.
 
 If using a compiled language, before you can build MPI codes you must install a compiler, and possibly some kind of IDE.  See our guides for [C++](/courses/cpp_introduction/setting_up) or [Fortran](/courses/fortran_introduction/setting_up).
 
-For Python, on all operating systems install [mpi4py](https://mpi4py.readthedocs.io/en/stable/index.html). To install mpi4py you must have a working `mpicc` compiler.  For Anaconda this generally requires installing the `gcc_linux-64` package using `conda`. Instructions are [here](https://conda.io/projects/conda-build/en/latest/resources/compiler-tools.html) for Linux and command-line MacOS. For Windows use the Anaconda [package manager](/courses/python-introduction/package_managers) interface and install `m2w64-gcc`. 
+For Python, on all operating systems install [mpi4py](https://mpi4py.readthedocs.io/en/stable/index.html). To install mpi4py you must have a working `mpicc` compiler.  If you use `conda` or `mamaba` from a distribution like [miniforge](https://github.com/conda-forge/miniforge), the required compiler will be installed as a dependency.  For `pip` installations you must provide your own compiler setup. 
 
-The author of mpi4py [recommends](https://mpi4py.readthedocs.io/en/stable/install.html) using pip even with an Anaconda environment. This command will be similar on a local system to that used for installation on a multiuser system. 
+The author of mpi4py [recommends](https://mpi4py.readthedocs.io/en/stable/install.html) using pip even with a conda environment. This command will be similar on a local system to that used for installation on a multiuser system. 
 ```no-highlight
 python -m pip install mpi4py
 ```
-This may avoid some issues that occasionally arise in prebuilt mpi4py packages. Be sure that an appropriate `mpicc` executable is in the path.
+This may avoid some issues that occasionally arise in prebuilt mpi4py packages. Be sure that an appropriate `mpicc` executable is in the path.  Alternatively, use the `conda-forge` channel (recommended in general for most scientific software). 
 
 #### Linux
 
@@ -65,7 +47,7 @@ Installing the HPC Toolkit will also install IntelMPI.
 _NVIDIA HPC SDK_
 The NVIDIA software ships with a precompiled version of OpenMPI.
 
-The headers and libraries for MPI _must_ match.  Using a header from one MPI and libraries from another, or using headers from a version from one compiler and libraries from a different compiler, usually results in some difficult-to-interpret bugs.  Moreover, the process manager must be compatible with the MPI used to compile the code.  Because of this, if more than one compiler and especially more than one MPI version is installed, the use of _modules_ ([environment modules](http://modules.sourceforge.net/) or [lmod](https://lmod.readthedocs.io/en/latest/) becomes particularly beneficial.  Both Intel and NVIDIA provide scripts for the environment modules package (lmod can also read these), with possibly some setup required.  If you plan to use mpi4py as well as compiled-language versions, creating a module for Anaconda would also be advisable.
+The headers and libraries for MPI _must_ match.  Using a header from one MPI and libraries from another, or using headers from a version from one compiler and libraries from a different compiler, usually results in some difficult-to-interpret bugs.  Moreover, the process manager must be compatible with the MPI used to compile the code.  Because of this, if more than one compiler and especially more than one MPI version is installed, the use of _modules_ ([environment modules](http://modules.sourceforge.net/) or [lmod](https://lmod.readthedocs.io/en/latest/)) becomes particularly beneficial.  Both Intel and NVIDIA provide scripts for the environment modules package (lmod can also read these), with possibly some setup required.  If you plan to use mpi4py as well as compiled-language versions, creating a module for your Python distribution would also be advisable.
 
 #### Mac OS
 
@@ -93,67 +75,3 @@ MPI codes must generally be compiled and run through a command line on Windows. 
 
 The Intel oneAPI Basic Toolkit includes a customized command prompt in its folder in the Apps menu.
 
-### Build It
-
-In a terminal window on the frontend `rivanna.hpc.virginia.edu` run
-```bash
-module load gcc openmpi
-```
-
-For Python add
-```bash
-module load anaconda
-```
-This will also load the correct MPI libraries. You must have already installed mpi4py.  Activate the conda environment if appropriate.
-
-Use mpiexec and –np **only** on the frontends!  Use for short tests only!
-
-Compiling C 
-```bash
-mpicc –o mpihello mpi1.c
-```
-
-Compiling C++
-```bash
-mpicxx –o mpihello mpi1.cxx
-```
-
-Compiling Fortran
-```bash
-mpif90 –o mpihello mpi1.f90
-```
-
-### Execute it
-C/C++/Fortran
-```bash
-mpiexec –np 4 ./mpihello
-```
-
-Python
-```python
-mpiexec –np 4 python mpi1.py
-```
-
-### Submit It
-
-Write a SLURM script to run your program.  Request 1 node and 10 cores on the standard partition.  The process manager will know how many cores were requested from SLURM.
-```bash
-srun ./mpihello
-```
-Or
-```bash
-srun python mpihello\.py
-```
-
-## Using the Intel Compilers and MPI
-
-Intel compilers, MPI, and math libraries (the MKL) are widely used for high-performance applications such as MPI codes, especially on Intel-architecture systems.  The appropriate MPI wrapper compilers are
-```bash
-#C
-mpiicc -o mpihello mpi1.c
-# C++
-mpiicpc -o mpihello mpi1.cxx
-# Fortran
-mpiifort -o mpihello mpi1.f90
-```
-Do not use mpicc, mpicxx, or mpif90 with Intel compilers.  Those are provided by Intel but use the gcc suite and can result in conflicts.

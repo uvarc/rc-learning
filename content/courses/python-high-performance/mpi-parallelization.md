@@ -11,13 +11,13 @@ menu:
 
 The most widely used general-purpose communications library for distributed parallelization is MPI, the Message Passing Interface.  
 
-MPI works on multicore systems as well as multinode, but the programming model is still different from threads.  MPI starts a specified number of _independent_ copies of the program, which then communicate with one another through the MPI library.
+MPI works on multicore systems as well as multi-node, but the programming model is still different from threads.  MPI starts a specified number of _independent_ copies of the program, which then communicate with one another through the MPI library.
 
 In MPI each process has an ID called its _rank_.  Ranks are numbered from 0 to _n-1_, for _n_ processes. No process shares memory with any other process whether running on the same node or not.  All communications occur over the network.  To use MPI the programmer must manage the distribution of the data to different processes and the communication among the processes. Each process runs the same script or program, so any difference in behavior by rank must be programmed.  
 
 MPI messages are identified by an "envelope" of metadata. This consists of the _destination_, the _source_ (the "return address"), a _communicator_ (a group of processes that will be exchanging information), and optionally a _tag_.  A communicator consisting of all processes, called COMM_WORLD, is set up when the MPI program is initiated.
 
-The process with rank 0 is usually called the **root process**.  Since the mimumum number of processes is 1, the root process is the only one that is guaranteed to be present.  For this reason it is usually used to manage various bookkeeping tasks as well as input/output.
+The process with rank 0 is usually called the **root process**.  Since the minimum number of processes is 1, the root process is the only one that is guaranteed to be present.  For this reason it is usually used to manage various bookkeeping tasks as well as input/output.
 
 ## The mpi4py Package
 
@@ -28,7 +28,7 @@ When installing it into your environment in an HPC cluster, you should not use `
 conda create -n "mpienv" python=3.11
 ```
 In recent versions of Anaconda, it is best to install mpi4py from the `conda-forge` channel following their instructions [here](https://conda-forge.org/docs/user/tipsandtricks/#using-external-message-passing-interface-mpi-libraries). 
-This will install dummies into your environment that will be replaced by the external library when the package is imported.  Do not try to install both MPICH and OpenMPI; use the one most appropropriate to your system. In our example, we will install mpi4py with OpenMPI.
+This will install dummies into your environment that will be replaced by the external library when the package is imported.  Do not try to install both MPICH and OpenMPI; use the one most appropriate to your system. In our example, we will install mpi4py with OpenMPI.
 
 First load the closest gcc to the current version of Anaconda. In our current example, this is gcc 11.4.0. Then check for available versions of OpenMPI (please use OpenMPI on UVA HPC systems) with
 ```bash

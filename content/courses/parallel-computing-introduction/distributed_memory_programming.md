@@ -38,7 +38,7 @@ Communication by messages means that a byte stream is transmitted from Process $
 - Logical task number
 - Process ID
 
-The software that implements message passing is usually implemented as a library.  Programmers use the application programming interface (API) to manage interprocess communication.  Most libraries will use internal networks among processes running on the same node, but must use the external interconnection network for internode communications.  Therefore, network bandwith and especially latency are important for distributed parallel computing.
+The software that implements message passing is usually implemented as a library.  Programmers use the application programming interface (API) to manage interprocess communication.  Most libraries will use internal networks among processes running on the same node, but must use the external interconnection network for internode communications.  Therefore, network bandwidth and especially latency are important for distributed parallel computing.
 
 ## Partitioning
 
@@ -46,7 +46,7 @@ Partitioning refers to dividing computation and data into pieces or chunks. Ther
 
 **Domain decomposition**
 
-Domain decomposion divides the data into chunks.  Typically these data are represent in some array-like form, though other data structures are possible.  The portion of the data known only to a particular process is often said to be _local_ to that process.  Data that is known to all processes is _global_.  The programmer must then determine how to associate computations with the local data for each process.
+Domain decomposition divides the data into chunks.  Typically these data are represent in some array-like form, though other data structures are possible.  The portion of the data known only to a particular process is often said to be _local_ to that process.  Data that is known to all processes is _global_.  The programmer must then determine how to associate computations with the local data for each process.
 
 **Functional decomposition**
 
@@ -74,5 +74,5 @@ Due to overhead, it is better to send fewer, larger messages than more, smaller 
 
 Mapping is the process of assigning tasks to processes or threads. For threading (SMP), the mapping done by operating system. In a distributed memory system, the user chooses how many processes, how many nodes, and how many cores per node.  These choices can affect performance.
 
-Mapping has the often conflicting goals of maximizing processor utilization and minimizing interprocess communication.  Optimal mapping is probably unsolvable in general, so the programmer must use heuristics and approximations.  Frequently, determing the best mapping requires experimentation (scaling studies).
+Mapping has the often conflicting goals of maximizing processor utilization and minimizing interprocess communication.  Optimal mapping is probably unsolvable in general, so the programmer must use heuristics and approximations.  Frequently, determining the best mapping requires experimentation (scaling studies).
 

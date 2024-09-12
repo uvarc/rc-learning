@@ -45,7 +45,7 @@ Variables can be declared and initialized anywhere in the body of the code as lo
 
 ### Auto
 
-A recent introduction to the C++ (since C++11) standard is the `auto` declaration.  We have learned that the compiler is able to infer the type of literals.  Thus it can deduce the type of a variable that is initialized to a literal value.  Moreover, if a variable is initialized to a variable previously declared to be a named type, the compiler can assign the same type to the new variable.
+A recent introduction to the C++ (since C++11) standard is the `auto` declaration.  We have learned that the compiler is able to infer the type of literals.  Thus, it can deduce the type of variables that are initialized to literal values.  Moreover, if a variable is initialized to a variable previously declared to be a named type, the compiler can assign the same type to the new variable.
 ```c++
 float x=12;
 auto  y=x;

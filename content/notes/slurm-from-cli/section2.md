@@ -24,6 +24,10 @@ You can also use [Open OnDemand's](https://www.rc.virginia.edu/userinfo/rivanna/
 
 Editors available at the command line are [nano](https://www.nano-editor.org/), [vim](https://www.vim.org/), and [emacs](https://www.gnu.org/software/emacs/).  Nano is a simple text-only editor.  Vim is also available text-only from a command line, but a graphical version called `gvim` can be invoked from a MATE Desktop through the Applications&rarr;Accessories menu. Emacs can also be started from the Accessories menu but, if a graphical environment, will start a graphical user interface.  If invoked within a text-only environment, it will fall back to a text interface.
 
+### Open OnDemand Tool
+
+For a user-friendly introduction to creating Slurm scripts on-demand, we have implemented a Slurm script generator on Open OnDemand. To access the generator, go through Utilities&rarr;Slurm Script Generator on the top bar. This will present you with a fillable web form that generates a text file in real time with the details of your resource requests. You can then download the script created by the generator to your local workstation once completed. You can upload it to the cluster using any file transfer method you prefer.
+
 ## Our First Slurm Script
 
 This example illustrates the main parts of a Slurm script. 
@@ -48,16 +52,17 @@ The lines starting with `#SBATCH` are the resource requests.  They are called "p
 ```bash
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1 # total cores per task
 #SBATCH --mem=32000 # mb total memory
 #SBATCH --time=2:00:00
 #SBATCH --partition=interactive
 #SBATCH --account=hpc_training
 ```
 Here we are requesting
-  * 1 node, 1 task
+  * 1 node, 1 task, 1 core
   * 32GB of memory (measured in MB). Strictly speaking this will be "Gibibyes."
   * 2 hours of running time.
-  * The standard partition (queue).  A partition must be specified.
+  * The interactive partition (queue).  A partition must be specified.
   * The account (allocation) group `hpc_training`
 
 The next lines set up the environment to run our job.
@@ -77,11 +82,18 @@ We have chosen to name this script `hello.slurm`, but it can have any name.
 
 **Exercise 1**
 
-Download the hello.slurm and hello.py scripts. Transfer them to the cluster by whatever means you wish.  Modify the Slurm script to use your own allocation group name.
+Using the Open OnDemand Slurm Script Generator, create a slurm script with the following resource requests:
+ * 1 node, 1 task, 1 core.
+ * 32GB of memory.
+ * 2 hours of running time.
+ * The interactive partition (queue).
+ * The account (allocation) group `hpc_training`.
+
+Using the displayed text file, compare your slurm script with our example `hello.slurm`. The requested resources should be the same. Once completed, download your slurm script and transfer it to the cluster by whatever means you wish. Also, download `hello.py` and transfer it to the cluster as it will be needed later.
 
 ## Common Slurm Directives
 
-The most commonly used Slurm directives are listed in the table below.  Many options have two versions, one with a single hyphen `-` followed by one letter, or two hyphens `--` followed by an equals sign `=` and a word.  Some commands have no single-letter equivalent.
+The most commonly used Slurm directives are listed in the table below.  Many options have two versions, one with a single hyphen `-` followed by one letter, or two hyphens `--` followed by a word and an equals sign `=`.  Some commands have no single-letter equivalent.
 
 Angle brackets `< >` indicate a value to be specified, and are not typed.
 
@@ -123,7 +135,7 @@ $ module load matlab
 $ module load anaconda
 $ module load goolf R
 ```
-Modules need to be loaded any time that a new shell is created to setup the same working environment. This includes every time that you log out and back in, and every time that you run a batch job on a compute node.
+Modules need to be loaded any time that a new shell is created to set up the same working environment. This includes every time that you log out and back in, and every time that you run a batch job on a compute node.
 
 ### Module Details
 
@@ -160,9 +172,13 @@ $ module key bio
 
 The available software is also listed on our [website](https://www.rc.virginia.edu/userinfo/rivanna/software/complete-list/)
 
-**Question:**
+**Exercise 2**
 
-Why does the command `module load R` give an error?
+Try typing the command `python` in a terminal window. Why was it unable to find the executable? Now, load a module of your choosing that has python. Try the `python` command again. Purge your current modules and try `python` again.
+
+Use ```module spider R``` to show the available R modules and how to load them. Using this information, why does the command ```module load R``` give an error?
+
+Open hello.slurm using any text editor you prefer and add the lines needed to purge existing modules, load a module that provides python, and execute the hello.py script. For reference, check our example hello.slurm.
 
 
 ## Working with Files and Folders
@@ -210,9 +226,8 @@ $pwd
 /home/mst3k/shakespeare
 ```
 
-**Exercise 2**
+**Exercise 3**
 
-Use FastX or Open OnDemand or the command line to create a new folder under your scratch directory. Practice changing into and out of it.
+Use FastX or Open OnDemand or the command line to create a new folder under your scratch directory. Practice changing into and out of it. Move hello.slurm and hello.py into the newly created folder.
 
-Use FastX and Caja to navigate to your `/scratch` directory. To get there, click `Go` in the Caja menu.  A textbox will open. Be sure that "search for files" is unchecked.  Erase whatever is in the textbox and type `/scratch/mst3k` (substituting your own user ID).  Still in FastX, open a terminal (the black box, or in the System Tools menu) and navigate to your new scratch folder.
-
+Use FastX and Caja to navigate to your /scratch directory. To get there, click Go in the Caja menu. A textbox will open. Be sure that “search for files” is unchecked. Erase whatever is in the textbox and type /scratch/mst3k (substituting your own user ID). Still in FastX, open a terminal (the black box, or in the System Tools menu) and navigate to your new scratch folder.

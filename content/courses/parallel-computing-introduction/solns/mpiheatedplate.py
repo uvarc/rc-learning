@@ -90,14 +90,6 @@ w=np.zeros((nrl+2,ncl+2))
 
 bc1,bc2,bc3,bc4=set_bcs(u,nrl,ncl,rank)
 
-#Initialize interior values to the boundary mean.  This value really
-#doesn't matter much, it just affects the convergencle rate somewhat.
-#Using all zeroes would be fine.
-mean = 0.25*(bc1+bc2+bc3+bc4)
-
-#Be sure not to overwrite the boundary values
-u[1:nrl+1,1:ncl+1]=mean
-
 #Set up the up and down rank for each process
 if rank == 0 :
     up = MPI.PROC_NULL
@@ -122,12 +114,12 @@ if rank==root:
 
 while iterations<=max_iterations:
 
-    w[1:-1,1:-1]=0.25*(u[:-2,1:-1]+u[2:,1:-1]+u[1:-1,:-2]+u[1:-1,2:])
-
    # Send up and receive down
-    comm.Sendrecv([w[1,1:ncl+1], MPI.DOUBLE], up, tag, [w[nrl+1,1:ncl+1], MPI.DOUBLE], down, tag)
+    comm.Sendrecv([u[1,1:ncl+1], MPI.DOUBLE], up, tag, [u[nrl+1,1:ncl+1], MPI.DOUBLE], down, tag)
     # Send down and receive up
-    comm.Sendrecv([w[nrl, 1:ncl+1], MPI.DOUBLE], down, tag, [w[0,1:ncl+1], MPI.DOUBLE], up, tag)
+    comm.Sendrecv([u[nrl, 1:ncl+1], MPI.DOUBLE], down, tag, [u[0,1:ncl+1], MPI.DOUBLE], up, tag)
+
+    w[1:-1,1:-1]=0.25*(u[:-2,1:-1]+u[2:,1:-1]+u[1:-1,:-2]+u[1:-1,2:])
 
     if iterations%diff_interval==0:
         my_diff[0]=np.max(np.abs(w[1:-1,1:-1]-u[1:-1,1:-1]))
@@ -136,7 +128,7 @@ while iterations<=max_iterations:
         if global_diff[0]<=epsilon:
             break
 
-    np.copyto(u,w)
+    u[:,:]=w[:,:]
     #Reapply physical boundary conditions
     set_bcs(u,nrl,ncl,rank)
 

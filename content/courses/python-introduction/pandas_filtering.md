@@ -105,7 +105,7 @@ With no row specification, the `loc` is optional in the above code.
 
 ### Where
 
-The `where` method returns a dataframe with NaN values for rows where the conditional is not satisified, and the original values where it is true.
+The `where` method returns a dataframe with NaN values for rows where the conditional is not satisfied, and the original values where it is true.
 
 ```python
 >>>grade_record.where(grade_record["Test4"]>85)
@@ -127,7 +127,7 @@ Teddy Salad   98.5   96.3   96.8   93.9
 **Exercise**
 Return to the weather_data.ipynb notebook from the previous section. Loop through the dataframe and use some things you have learned about strings to find the first line for the station location of Richmond, Virginia.  Get the corresponding station code.
 Use this to extract the data for Richmond, Virginia into a new dataframe.
-Print the overall mean temperature and the means of the minumum and maximum to two decimal places. 
+Print the overall mean temperature and the means of the minimum and maximum to two decimal places. 
 (If using f strings, don't forget the rule about writing quotes inside the f-string.)
 Print the number of days with a minimum below freezing. Hint: "False" is 0 and True is 1.
 

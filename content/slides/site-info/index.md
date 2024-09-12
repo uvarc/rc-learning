@@ -182,4 +182,4 @@ View example [here](learning.rc.virginia.edu/courses/parallel_computing_introduc
 ## Aesthetics
 
 - The title in the frontmatter will be Header 1
-- I tend to prefer to avoide Header 1 subsequently unless you have only one file
+- I tend to prefer to avoid Header 1 subsequently unless you have only one file

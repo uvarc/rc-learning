@@ -37,7 +37,7 @@ There are other functions that can be used to initialize but these are among the
 
 ### Array Attributes
 
-An Ndarray is an object with _attributes_ that can be accessed.
+A Ndarray is an object with _attributes_ that can be accessed.
 
 ```no-highlight
 >>>A=np.random.random((10,10))
@@ -81,7 +81,7 @@ print(C)
  [ 4.  5.  6.]]
 ```
 
-However, this is not very practical for large arrays.  If we can declare an array as a linear sequence of numbers, we can use the built-in function `arange`.  The syntax is similar to `range` but it can take arguments of any numerical type, and it returns an Ndarray.
+However, this is not very practical for large arrays.  If we can declare an array as a linear sequence of numbers, we can use the built-in function `arange`.  The syntax is similar to `range` but it can take arguments of any numerical type, and it returns a Ndarray.
 
 ```python
 V=np.arange(10,30,5)  # start,end,stride 

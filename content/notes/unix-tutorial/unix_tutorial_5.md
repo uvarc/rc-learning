@@ -30,9 +30,9 @@ This will wait 10 seconds before returning the command prompt %. Until the comma
 
 [1] 6259
 ```
-The `&` runs the process in the background and returns the prompt immediately, allowing you to run other programs while waiting for that one to finish. The first line in the above example is typed in by the user; the next line, indicating _job number_ and PID, is returned by the machine. The user is be notified of a job number (numbered from 1) enclosed in square brackets, together with a PID and is notified when a background process is finished.  Backgrounding is useful for jobs which will take a long time to complete.
+The `&` runs the process in the background and returns the prompt immediately, allowing you to run other programs while waiting for that one to finish. The first line in the above example is typed in by the user; the next line, indicating _job number_ and PID, is returned by the machine. The user is notified of a job number (numbered from 1) enclosed in square brackets, together with a PID and is notified when a background process is finished.  Backgrounding is useful for jobs which will take a long time to complete.
 
-To the system, a "job" represents a group of processes (often just one) to which _signals_ should be sent. Signals include backgrounding, forgrounding, and cancelling. This meaning of "job" must be distinguished from "jobs" submitted to a queueing system such as Slurm.  To a resource manager (queueing system) a "job" is a set of instructions to be executed.
+To the system, a "job" represents a group of processes (often just one) to which _signals_ should be sent. Signals include backgrounding, foregrounding, and cancelling. This meaning of "job" must be distinguished from "jobs" submitted to a queueing system such as Slurm.  To a resource manager (queueing system) a "job" is a set of instructions to be executed.
 
 ### Backgrounding a Current Foreground Process
 

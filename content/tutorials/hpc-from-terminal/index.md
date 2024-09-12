@@ -6,7 +6,7 @@ summary: "This tutorial is an introduction to using the Unix command line on UVA
 publishDate: "2023-01-04T00:00:00"
 
 authors: [as,gka,kah]
-tags: [hpc,unix]
+tags: ["HPC","Unix"]
 categories: ["HPC","Unix"]
 
 notes: hpc-from-terminal

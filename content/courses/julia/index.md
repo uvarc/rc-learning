@@ -2,7 +2,7 @@
 title: "The Julia Programming Language"
 type: article
 toc: true
-tags: ["programming","julia"]
+tags: ["Programming","Julia"]
 categories: ["Programming","Julia"]
 date: 2023-12-11T00:00:00-05:00
 ---
@@ -33,7 +33,7 @@ and an extensive set of Julia code examples.
 
 ## The Julia Language Tutorials
 
-* The Julia Programming Language (Offical site) <br />
+* The Julia Programming Language (Official site) <br />
   https://julialang.org/
 
 * Julia 1.5 Documentation <br />

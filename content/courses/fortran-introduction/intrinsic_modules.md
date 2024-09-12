@@ -83,7 +83,7 @@ CALL IEEE_SET_HALTING_MODE(flag,halt)
 
 ### IEEE Arithmetic
 
-The IEEE_ARITHEMETIC encompasses and extends the IEEE_EXCEPTIONS module.
+The IEEE_ARITHMETIC encompasses and extends the IEEE_EXCEPTIONS module.
 Several useful procedures and included. IEEE_SELECTED_REAL_KIND chooses only KINDs corresponding to IEEE-supported types. Other procedures determine whether arithmetic operations conform to IEEE specifications.  
 
 For more elegant handling of errors, the IEEE_IS_NAN, IEEE_IS_FINITE, and some others can be used to test a result and handle it in some manner other than halting the execution.
@@ -94,7 +94,7 @@ For more elegant handling of errors, the IEEE_IS_NAN, IEEE_IS_FINITE, and some o
 
 Mixed-language programming is common, particularly mixing C with other languages.  In the past, invoking C procedures from Fortran was tedious and error-prone, due to differences in conventions such as character termination, name-mangling of subprograms, and so forth.  The ISO_C_BINDING module was added to simplify this.
 
-A good reference for the content of this module is from [gfortran](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING). Note that this module provides C equivalents to Fortran types for a given platform; in particular, the C standard does not specify the length of an `int`, only a mimimum, so on some platforms the default is 16 bits and on others it is 32 bits.  The variables defining the correspondence can be used as KIND parameters.  A subset of the most commonly used might include
+A good reference for the content of this module is from [gfortran](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING). Note that this module provides C equivalents to Fortran types for a given platform; in particular, the C standard does not specify the length of an `int`, only a minimum, so on some platforms the default is 16 bits and on others it is 32 bits.  The variables defining the correspondence can be used as KIND parameters.  A subset of the most commonly used might include
 
 {{< table >}}
 |  Fortran Type |  Module Name     | C Type |

@@ -167,7 +167,7 @@ ENTRYPOINT fortune | cowsay | lolcat
 
 ### 1. Clean up
 
-Almost all package managers leave behind some cache files after installation that can be safely removed. Dependending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache in a separate `RUN` statement.
+Almost all package managers leave behind some cache files after installation that can be safely removed. Depending on your application, they can easily accumulate up to several GBs. Let's see what happens if we try to clean up the cache in a separate `RUN` statement.
 
 ```dockerfile
 FROM ubuntu:22.04

@@ -3,7 +3,7 @@ title: "Introduction to Building and Deploying Containers"
 summary: ""
 authors: [cag]
 date: 2023-5-12T00:00:00-05:00
-tags: ["containers","r","shiny","app-development"]
+tags: ["Containers","R","Shiny","App_Development"]
 categories: ["Containers","Docker", "R", "Shiny", "App Development"]
 draft: false
 toc: True

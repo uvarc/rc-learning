@@ -5,7 +5,7 @@ It focuses on Machine Learning, Deep Learning, and Data Analytics"
 date: 2020-09-08T21:13:14-05:00
 authors: [teh]
 categories: ["MATLAB","Machine Learning","Data Analytics","Deep Learning"]
-tags: [matlab,data,ml,dl]
+tags: ["MATLAB","Machine_Learning","Data_Analytics","Deep_Learning"]
 weight: 240
 
 notes: matlab-data-science

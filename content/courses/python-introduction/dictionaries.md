@@ -10,7 +10,7 @@ menu:
         parent: Dictionaries and Sets
 ---
 
-Dictionaries are _mappings_.  Elements are accessed by a _key_ which may be of any immutable type. Tuples may used as a key, but in that case no elements of the tuple may be mutable.  Keys must be _unique_ (no duplication).
+Dictionaries are _mappings_.  Elements are accessed by a _key_ which may be of any immutable type. Tuples may be used as a key, but in that case no elements of the tuple may be mutable.  Keys must be _unique_ (no duplication).
 
 The key corresponds to a _value_.  The value may be of any type, including mutable types such as lists. The dictionary consists of all key-value pairs.  Dictionaries themselves are _mutable_ and may be of any length up to the limits of the system.  Dictionaries can be nested, i.e. the value may itself be a dictionary.
 
@@ -67,7 +67,7 @@ data={}
 data[0]=12
 data[1]=4
 ```
-Are both correct? Is either correct?
+Are both correct? Are either correct?
 
 ### More Key Handling Methods
 
@@ -97,7 +97,7 @@ Type into Spyder or JupyterLab and run
 
 {{< code-download file="/courses/python-introduction/exercises/dictionary_demo.py" lang="python" >}}
 
-Use the following lists to create a dictionary `teams` where the key is taken from the first list with the value from the second list.  Use your dictionary to print the team located in Chicago.  Note that there are two teams in Los Angeles so you must make the values a list, most of which will have only one element. Hint: for neat printing, use the `join` function to create a string from a list.
+Use the following lists to create a dictionary `teams` where the key is taken from the first list with the value from the second list.  Use your dictionary to print the team located in Chicago.  Note that there are two teams in Los Angeles, so you must make the values a list, most of which will have only one element. Hint: for neat printing, use the `join` function to create a string from a list.
 
 {{< code-snippet  >}}
 cities=["Boston","Brooklyn","New York","Philadelphia","Toronto",

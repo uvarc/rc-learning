@@ -27,7 +27,7 @@ MPI_Sendrecv(u, nelem, MPI_DOUBLE,neighbor,sendtag,
 ```
 Normally in C++ an array variable will be declared a pointer and so it is not passed by reference to the MPI subprograms. 
 
-Fortran and Python are straightfoward.
+Fortran and Python are straightforward.
 ```fortran
 ! In the nonexecutable part we declare u and w. They can be allocatable or static.
 ! Fill in u with some values
@@ -49,7 +49,7 @@ comm.Sendrecv([u,MPI.DOUBLE],neighbor,0,[w,MPI.DOUBLE],neighbor,0,MPI.Status())
 Use the above syntax for your language to write a complete program to implement the sending and receiving as specified above.  For `u` you should fill it with 
 ```nohighlight
 u[i]=20.+i*rank  C++ and Python
-u(i)=20.+(i-1)*rank Fortran (just so the answer is the same
+u(i)=20.+(i-1)*rank Fortran (just so the answer is the same)
 ```
 
 {{< spoiler text="C++" >}}

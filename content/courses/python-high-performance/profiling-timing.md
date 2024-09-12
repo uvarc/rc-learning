@@ -15,7 +15,7 @@ Profilers are statistical in nature.  They query the program to find out what it
 ### Python Profiler in the Spyder IDE
 The Anaconda Spyder IDE provides an integrated Profiler that is easy to use. To profile your Python code follow these steps:
 
-1. Open the Python script in the Editor pane.  If your program is comprised of multiple files, open the script that contains the the main function.
+1. Open the Python script in the Editor pane.  If your program contains multiple files, open the script that contains the main function.
 2. In the Spyder menu, go to `Run` -> `Profile`.
 
 The results will be shown in the `Profiler` pane. 
@@ -25,7 +25,7 @@ The results will be shown in the `Profiler` pane.
 Open the `fibonacci.py` file and execute it with the Spyder Profiler.  The code deliberately uses an inefficient algorithm.  Let's look at the output in the `Profiler` pane.  What function was called most frequently and has the largest cumulative run time?
 {{% code-download file="/courses/python-high-performance/codes/fibonacci.py" lang="python" %}}
 
-{{< figure src="/courses/python-high-performance/fibonacci-profiler.png" caption="Profiler output for the Fibonnaci example" >}}
+{{< figure src="/courses/python-high-performance/fibonacci-profiler.png" caption="Profiler output for the Fibonacci example" >}}
 
 A more detailed description of the Profiler option for Spyder can be found <a href="http://docs.spyder-ide.org/profiler.html" target="_blank">here</a>.
 

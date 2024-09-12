@@ -20,7 +20,7 @@ MATLAB is an integrated technical computing environment from the MathWorks that 
 
 ## Course Overview
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=stats#chapter=1&lesson=1&section=1" target="_blank"><font size="3">Video: Statistical Mehtods with Matlab<font/></a>**
+**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=stats#chapter=1&lesson=1&section=1" target="_blank"><font size="3">Video: Statistical Methods with Matlab<font/></a>**
 
 ## Exploring Data
 

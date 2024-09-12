@@ -35,7 +35,7 @@ assert doW=="Monday", f"Should be Monday, got {doW}"
 
 NumPy adds some additional array assertion [functions](https://numpy.org/doc/stable/reference/routines.testing.html), several of which are particularly useful for floating-point numbers, which cannot be reliably compared for strict equality.
 
-The assert statement is intended for debugging only; use standard `try` and `except`, or other validation methods such as `if` statements, for checking production cases such as file errors, type errors, erroneous input to functions, and so forth.  This is just good practice in general, but it is also because the Python intepreter can be told to suppress assert statements.  One way to do so is to run from the command line with the `-O` (optimize) option.
+The assert statement is intended for debugging only; use standard `try` and `except`, or other validation methods such as `if` statements, for checking production cases such as file errors, type errors, erroneous input to functions, and so forth.  This is just good practice in general, but it is also because the Python interpreter can be told to suppress assert statements.  One way to do so is to run from the command line with the `-O` (optimize) option.
 
 **Example**
 Run the following code from the command line (or use !python in an iPython console, or open a terminal in JupyterLab), first with `python assert_it.py` and then with `python -O assert_it.py`.  What should you do instead of using `assert` in this code?

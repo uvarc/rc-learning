@@ -16,7 +16,7 @@ In Python every file you write is a module.  The name of the module is the file 
 
 Modules that are not run as the main program must be _imported_ for its contents to be accessible.  When a module is imported, it is compiled to a special representation called __bytecode__.  A new file of the same base name with the suffix `.pyc` will be created.  
 
-Many modules and packages (collections of modules) are available through a base Python installation.  Anaconda provides dozens more, with others available for installation through the Environments tab of the Navigator.  We have already seen a handful of these built-in modules.  
+Many modules and packages (collections of modules) are available through a base Python installation.  Conda-forge provides thousands more.  We have already seen a handful of these built-in modules.  
 
 ```python
 import math 

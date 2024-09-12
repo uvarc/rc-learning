@@ -23,6 +23,6 @@ Before submitting the job, ```your_allocation``` on the ```#SBATCH --account=you
 
 {{< figure src="/notes/hpc-intro/img/features_job_output.png" caption="Default Template Output" >}}
 
-There are several different job templates that can be run in addition to the default hello world option under New Job > From Template:
+There are several job templates that can be run in addition to the default hello world option under New Job > From Template:
 
 {{< figure src="/notes/hpc-intro/img/features_templates.png" caption="Template Options" >}}

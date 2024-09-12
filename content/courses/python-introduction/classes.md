@@ -136,4 +136,4 @@ The pickle module is built into Python but it is limited.  It cannot handle seve
 ```python
 import dill as pickle
 ```
-Dill is not included in the base Anaconda but can be installed through [conda](/courses/python-introduction/package_managers).
+Dill is not included in the base Python distribution but can be installed through [conda or mamba](/courses/python-introduction/package_managers).

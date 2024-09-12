@@ -98,6 +98,7 @@ int main (int argc, char *argv[]) {
     MPI_Sendrecv(&w[nrl][1],ncl,MPI_DOUBLE,down,tag,&w[0][1],
                              ncl,MPI_DOUBLE,up,tag,MPI_COMM_WORLD,&status);
 
+    //Spot-check results
     for (i=0;i<nprocs;++i) {
         if (i==rank) {
 	    cout<<i<<" "<<w[0][ncl/2]<<" "<<w[nrl+1][ncl/2]<<endl;

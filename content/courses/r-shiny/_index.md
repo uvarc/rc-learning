@@ -4,7 +4,7 @@ title:   Introduction to Shiny
 summary: "An introduction to creating Web apps with R and Shiny."
 authors: [cag]
 categories: ["R","Shiny", "App Development"]
-tags: ["r","shiny","app-development"]
+tags: ["R","Shiny","App_Development"]
 
 date: "2020-11-17T00:00:00Z"
 draft: false  # Is this a draft? true/false

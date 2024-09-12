@@ -11,7 +11,7 @@ menu:
         weight: 33
 ---
 
-Much computing is repetetive work.  Evaluate an expression many times with different values.  Read lines of a file.  Update a large number of variables.  To accomplish this, we use _loops_.
+Much computing is repetitive work.  Evaluate an expression many times with different values.  Read lines of a file.  Update a large number of variables.  To accomplish this, we use _loops_.
 
 ## DO Loop
 

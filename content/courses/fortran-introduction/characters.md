@@ -103,7 +103,7 @@ Hello world          today
 
 ### String Length
 A useful string function, especially for variable-length strings, is `LEN(S)`.
-A fixed-length string will always occupy the specified number of characters. The default is to left-justify nonblank characters in the field.  This can be modified with [intrinsics](courses/fortran-introduction/character_intrinsics).
+A fixed-length string will always occupy the specified number of characters. The default is to left-justify non-blank characters in the field.  This can be modified with [intrinsics](courses/fortran-introduction/character_intrinsics).
 
 **Exercises**
 * Declare character variables large enough to hold the indicated strings.  Make full_title at least 5 characters longer than you think necessary.

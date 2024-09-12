@@ -14,10 +14,10 @@ program heatedplate
 
   !Add for MPI
   integer            :: nrl, ncl
-  integer            :: rank, nprocs
+  integer            :: rank, nprocs, tag=0
   integer            :: errcode, ierr
   integer, dimension(MPI_STATUS_SIZE) :: mpi_stat
-  integer, parameter :: root=0, tag=0
+  integer, parameter :: root=0
   integer            :: left, right
   double precision   :: gdiff
   character(len=24)  :: fname
@@ -105,13 +105,8 @@ program heatedplate
   u=0.d0
   w=0.d0
 
+  ! Set physical boundaries
   call set_bcs(lb,nrl,ncl,rank,nprocs,bc1,bc2,bc3,bc4,u)
-
-  ! Initialize interior values to the boundary mean, more or les
-  ! Doesn't matter much, starting from all zeroes works too. May speed
-  ! up convergencle a bit.
-  mean = 0.25d0*(bc1+bc2+bc3+bc4)
-  u(1:nrl,1:ncl)=mean
 
   diff_interval=1
 
@@ -127,20 +122,21 @@ program heatedplate
 
   ! Compute steady-state solution
   do while ( iterations<=maxiter )
+
+     ! Exchange halo values
+     call MPI_SENDRECV(u(1:nrl,1)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,       &
+                       u(1:nrl,ncl+1),nrl,MPI_DOUBLE_PRECISION,right,tag,      &
+                                          MPI_COMM_WORLD,mpi_stat,ierr)
+
+     call MPI_SENDRECV(u(1:nrl,ncl)  ,nrl,MPI_DOUBLE_PRECISION,right,tag,      &
+                       u(1:nrl,0)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,       &
+                                          MPI_COMM_WORLD,mpi_stat,ierr)
+
      do j=1,ncl
         do i=1,nrl
            w(i,j) = 0.25*(u(i-1,j) + u(i+1,j) + u(i,j-1) + u(i,j+1))
         enddo
      enddo
-
-     ! Exchange halo values
-     call MPI_SENDRECV(w(1:nrl,1)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,       &
-                       w(1:nrl,ncl+1),nrl,MPI_DOUBLE_PRECISION,right,tag,       &
-                                     MPI_COMM_WORLD,mpi_stat,ierr)
-
-     call MPI_SENDRECV(w(1:nrl,ncl)  ,nrl,MPI_DOUBLE_PRECISION,right,tag,      &
-                       w(1:nrl,0)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,         &
-                                     MPI_COMM_WORLD,mpi_stat,ierr)
 
      if (mod(iterations,diff_interval)==0) then
            if (diff_interval==-1) continue  !disable convergence test
@@ -161,6 +157,7 @@ program heatedplate
      iterations = iterations + 1
 
      !If this happens we will exit at next conditional test.
+     !Avoids explicit break here
      if (iterations>maxiter) then
            if (rank==0) then
                write(*,*) "Warning: maximum iterations exceeded"

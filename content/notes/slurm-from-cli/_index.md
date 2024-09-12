@@ -14,4 +14,4 @@ menu:
 
 Resource managers are used to submit _jobs_ on a computing cluster to compute nodes from an access point generally called a  login node.
 
-Login nodes are intended for editing, compiling, and very short test runs.  Production jobs go to the compute nodes through the queueing system.
+Login nodes are intended for editing, compiling, and very short test runs.  Production jobs go to compute nodes through the queueing system.

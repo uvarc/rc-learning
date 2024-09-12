@@ -35,7 +35,7 @@ partner=rank-npes//2
 ```
 where the `//` indicates integer division (no fractional part).
 
-Each tasks sends its rank to its partner.  Each task receives the partner's rank.  Print the message received when done.  You may assume that the number of processes is even, but check that this is the case before proceding.
+Each tasks sends its rank to its partner.  Each task receives the partner's rank.  Print the message received when done.  You may assume that the number of processes is even, but check that this is the case before proceeding.
 
 Hints: do not overwrite the receiver's rank.  As always, Python programmers should take care that NumPy arrays are declared with the correct type.
 

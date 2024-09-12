@@ -112,7 +112,7 @@ _Literals_ are specific values corresponding to a particular type.
 | (1.2d0,3.5d0) | Double precision complex (compiler extension)  |
 {{< /table >}}
 
-In Fortran the default floating-point literal is _single precision_.  Double precision literals _must_ include a d/D exponent indicator.  This is different from most languages, included C/C++, for which the default floating-point literal is double precison.
+In Fortran the default floating-point literal is _single precision_.  Double precision literals _must_ include a d/D exponent indicator.  This is different from most languages, included C/C++, for which the default floating-point literal is double precision.
 Forgetting to write double-precision literals with `D` exponent indicator rather than `E` often causes a significant loss of numerical precision that is hard to find.
 
 ## KIND

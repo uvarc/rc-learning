@@ -30,7 +30,7 @@ Python programmers: once your code is working, try to use NumPy array operations
 
 Fortran programmers: when writing double `do` loops over array indices, whenever possible arrange the loops in order of the indices from _right_ to _left_, for cache efficiency. Correct loop ordering can be approximately a factor of 50 faster than incorrect for a double loop.
 
-Use whatever plotting package you know to make a contour plot of the result. If you do not have a preference, you may use `contour.py` below. It assumes a single output file and will transpose the result for Fortran, if output is written by column rather than row, so the orientation is the same.
+Use whatever plotting package you know to make a contour plot of the result. If you do not have a preference, you may use `contour.py` below. It reads files starting with a specified base name and followed by any number of digits, including none. It will assemble them into one image and show a contour plot; if given a command-line option of `-f` it will transpose each subimage for Fortran.
 
 When plotting, the top of an array (row 0) is the bottom of the plot.
 
@@ -66,10 +66,10 @@ Python
 ```python
 filename = filename + str( rank )
 ```  
-To plot the results you will have to stitch the files together appropriately. If you have no other preference you may use the `contour_ranks.py` code below. Add the `-f` command-line option for Fortran. The script must be given an argument that is the "base" of the filenames, and all the output files must be in the same folder and numbered appropriately.
+To plot the results you will have to stitch the files together appropriately. If you have no other preference you may use the `contour.py` code below. Add the `-f` command-line option for Fortran. The script must be given an argument that is the "base" of the filenames, and all the output files must be in the same folder and numbered appropriately.
 
 {{< spoiler text="Python script to merge output files and contour" >}}
-{{< code-download file="/courses/parallel-computing-introduction/scripts/contour_ranks.py" lang="python" >}}
+{{< code-download file="/courses/parallel-computing-introduction/scripts/contour.py" lang="python" >}}
 {{< /spoiler >}}
 
 Feel free to use the example solutions provided as your basis, but we recommend that you attempt to write your own serial version first.

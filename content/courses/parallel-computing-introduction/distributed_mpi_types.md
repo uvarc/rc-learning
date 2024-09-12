@@ -2,7 +2,7 @@
 title: "MPI Derived Types"
 toc: true
 type: docs
-weight: 220
+weight: 320
 date: "2020-11-17T00:00:00"
 menu:
     parallel_programming:
@@ -11,7 +11,7 @@ menu:
 
 Modern programming languages provide data structures that may be called "structs," or "classes," or "types."  These data structures permit grouping of different quantities under a single variable name.
 
-MPI also provides a general type that enables programmer-defined datatypes. Unlike arrays, which must be adjacent in memory, MPI derived datatypes may consist of elements in noncontiguous locations in memory.
+MPI also provides a general type that enables programmer-defined datatypes. Unlike arrays, which must be adjacent in memory, MPI derived datatypes may consist of elements in non-contiguous locations in memory.
 
 While more general derived MPI datatypes are available, one of the most commonly used is the `MPI_TYPE_VECTOR`. This creates a group of elements of size _blocklength_ separated by a constant interval, called the _stride_, in memory. Examples would be generating a type for columns in a row-major-oriented language, or rows in a column-major-oriented language.  
 

@@ -57,7 +57,7 @@ u[:-1,:]
 
 ### More Advanced Indexing
 
- An Ndarray can take as its index an integer or Boolean array.
+ A Ndarray can take as its index an integer or Boolean array.
 
 ```python
 A=np.array([-2.,3.,-8.,-11.,12.,12.,45.,19.])

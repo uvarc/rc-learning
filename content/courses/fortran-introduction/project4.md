@@ -28,7 +28,7 @@ Write a `bmi_calculator` module containing functions/subroutines for the followi
 1. Convert pounds to kilograms.  Use the actual conversion factor, not the approximate one.  Look it up on Google.
 2. Convert feet/inches to meters.  Look up the conversion factor, do not guess at it.   
 3. Compute BMI.
-4. Determine where the user falls in the table supplied and return that informationin an appropriate form. 
+4. Determine where the user falls in the table supplied and return that information an appropriate form. 
 
 Write a module `stats` that implements the following:
 1. Mean of an array 

@@ -8,7 +8,7 @@ weight: 120
 
 ---
 
-Errors in code can be the result of a programmer's mistake (i.e. a bug) or they can occur at runtime due to invalid input, system errors, and so forth.  For degugging, C++ uses the `assert` statement.  For runtime errors, we can `try` something and handle the result if a problem occurs.
+Errors in code can be the result of a programmer's mistake (i.e. a bug) or they can occur at runtime due to invalid input, system errors, and so forth.  For debugging, C++ uses the `assert` statement.  For runtime errors, we can `try` something and handle the result if a problem occurs.
 
 ## Exceptions
 
@@ -50,7 +50,7 @@ catch (char c){ cout << "Character exception \n";}
 
 ### Generic Exceptions
 
-If we do not know what type of exception might occur, we can replace the paraneters to `catch` with an elipsis `...`
+If we do not know what type of exception might occur, we can replace the parameters to `catch` with an ellipsis `...`
 ```c++
 try {
     if (y != 0) {

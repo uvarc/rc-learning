@@ -4,7 +4,7 @@ summary: "Getting started with the OMERO image database."
 authors: [cag]
 date: "2019-10-10T21:13:14-05:00"
 categories: ["Image Processing","Omero"]
-tags: [imaging,omero]
+tags: ["Image_Processing","Omero"]
 draft: true
 
 notes: omero-hands-on

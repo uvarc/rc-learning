@@ -115,7 +115,7 @@ plt.xticks(year)                #shows all years in label
 ```
 {{< figure src="/courses/python-introduction/imgs/stackedbar1.png" >}}
 
-To make a grouped bar chart, do the same as a stacked bar and move the position of one of the bars as shown below. Notice that for the second bar(), the first argument is 'year+.2'. This shifts the position on the x axis .2 units to the right of the default starting point.
+To make a grouped bar chart, do the same as a stacked bar and move the position of one of the bars as shown below. Notice that for the second bar(), the first argument is 'year+.2'. This shifts the position on the x-axis .2 units to the right of the default starting point.
 ```python
 plt.xlabel('Year')
 plt.xticks(rotation=45)

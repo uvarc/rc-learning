@@ -25,7 +25,7 @@ The instructions below show how to create a **shared endpoint**, a folder in whi
 4. Enter a name and description for the Shared Endpoint. This should be unique and easy to remember.
 5. Click "Create Guest Collection".
 6. Click "Add Permissions  Share With".
-7. Enter the UVA or Globus ID of the user you want to share with. Your collaboraters must have a Globus ID; email is not sufficient.
+7. Enter the UVA or Globus ID of the user you want to share with. Your collaborators must have a Globus ID; email is not sufficient.
 8. Click "Add" and "Add Permission".
 
 Optional: Add write permissions so the user can upload data. Enter an email message to the recipient if you wish.

@@ -133,18 +133,8 @@ int main (int argc, char *argv[]) {
   for (i=0;i<nrows;++i,dptr+=ncols)
      diffs[i] = dptr;
 
+  // Set physical boundary conditions (overwrites estimate on physical edges)
   set_bcs(u, nrl, ncl, rank, nprocs, bc1, bc2, bc3, bc4);
-
-  //Initialize to something like the mean boundary. Not important, can use zeros
-  //but this may speed convergence a bit.
-  double mean = 0.25*(bc1+bc2+bc3+bc4);
-
-  // Initialize interior values
-  for (i = 1; i <= nrl; i++ ) {
-      for (j = 1; j <= ncl; j++ ) {
-          u[i][j] = mean;
-      }
-  }
 
   diffInterval=1;
 
@@ -161,20 +151,20 @@ int main (int argc, char *argv[]) {
      // reset diff each time through to get max abs diff
      // max_element doesn't work great for twod arrays and is often slow
      diff=.8*epsilon;  
+
+     //Exchange halo values (one ghost row each side)
+     MPI_Sendrecv(&u[1][1],ncl, MPI_DOUBLE,up,tag,&u[nrl+1][1],
+                           ncl, MPI_DOUBLE,down,tag,MPI_COMM_WORLD,&status);
+
+     MPI_Sendrecv(&u[nrl][1],ncl,MPI_DOUBLE,down,tag,&u[0][1],
+                             ncl,MPI_DOUBLE,up,tag,MPI_COMM_WORLD,&status);
+
      for (i=1; i<=nrl;i++) {
         for (j=1;j<=ncl;j++) {
             w[i][j] = (u[i-1][j] + u[i+1][j] + u[i][j-1] + u[i][j+1])/4.0;
      	    diffs[i][j] = abs(w[i][j] - u[i][j]);
          }
      }
-
-      //Exchange halo values (one ghost row each side)
-      MPI_Sendrecv(&w[1][1],ncl, MPI_DOUBLE,up,tag,&w[nrl+1][1],
-                            ncl, MPI_DOUBLE,down,tag,MPI_COMM_WORLD,&status);
-
-      MPI_Sendrecv(&w[nrl][1],ncl,MPI_DOUBLE,down,tag,&w[0][1],
-                              ncl,MPI_DOUBLE,up,tag,MPI_COMM_WORLD,&status);
-
 
      if (iterations%diffInterval==0) {
         for (i=1; i<=nrl;i++) {

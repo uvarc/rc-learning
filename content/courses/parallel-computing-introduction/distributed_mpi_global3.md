@@ -61,7 +61,7 @@ Test it with four processes on the frontend or on your workstation.
 
 ## Allreduce
 
-As the examples in the previous chapter demonstrated, when MPI_Reduce is called, _only_ the root process knows the result.  This can lead to bugs since it is fairly common that all processes should be aware of the global value.  The `MPI_Allreduce` procedure performs the reduction and distributes the result.  It should aways be used rather than a Reduce followed by a Bcast, since the implemention should carry this out more efficiently than with an explicit broadcast.
+As the examples in the previous chapter demonstrated, when MPI_Reduce is called, _only_ the root process knows the result.  This can lead to bugs since it is fairly common that all processes should be aware of the global value.  The `MPI_Allreduce` procedure performs the reduction and distributes the result.  It should always be used rather than a Reduce followed by a Bcast, since the implementation should carry this out more efficiently than with an explicit broadcast.
 
 The syntax for `MPI_Allreduce` is identical to that of `MPI_Reduce` but with the root number omitted.
 

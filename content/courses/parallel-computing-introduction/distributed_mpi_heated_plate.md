@@ -17,7 +17,7 @@ We will skip to the equation that describes this steady state.  It is the _Lapla
 
 $$ \nabla^{2}{u} = 0 $$
 
-Writing out the Lapacian operator $\nabla^2$ in two dimensions, we have
+Writing out the Laplacian operator $\nabla^2$ in two dimensions, we have
 
 $$ \frac{\partial^{2}{u}}{\partial{x}^{2}} + \frac{\partial^{2}{u}}{\partial{y}^{2}} = 0 $$
 

@@ -25,7 +25,7 @@ C++ permits multiple parents, but this is generally discouraged.
 ```no-highlight
 class child-class: access-mode parent1, access-mode parent2;
 ```
-The `access-mode` specifier for the base class affects how the members of that class are transmitted to the derived class. If it is `public` the public and protected members of the base class retain that access mode in the derived class.  If it is `protected`, both public and protected members are transmitted as `protected`.  In the private case, _all_ members are transmitted as `private`.  In all cases, private members in the base class are not accessible directly to the derived class and an accessor must be provided if they should be available.  Declaring the base class `public` is most common due to the restrictions imposed by the other access modes.
+The `access-mode` specifier for the base class affects how the members of that class are transmitted to the derived class. If it is `public` the public and protected members of the base class retain that access mode in the derived class.  If it is `protected`, both public and protected members are transmitted as `protected`.  In the private case, _all_ members are transmitted as `private`.  In all cases, private members in the base class are not accessible directly to the derived class and an accessor must be provided if they should be available.  Declaring the base class `public` is the most common due to the restrictions imposed by the other access modes.
 
 **Example**
 
@@ -79,7 +79,7 @@ The Parent constructor cannot be used to set the new member `age`, so a mutator 
 
 **Exercises**
 
-1. Add a new class Mammal as sketched above.  Derive Antelope from that. Add an attibute `scaleColor` to the Reptile class.
+1. Add a new class Mammal as sketched above.  Derive Antelope from that. Add an attribute `scaleColor` to the Reptile class.
 
 {{< spoiler text="Example solution" >}}
 {{< code-download file="/courses/cpp-introduction/solns/inherit_chain.cxx" lang="c++" >}}

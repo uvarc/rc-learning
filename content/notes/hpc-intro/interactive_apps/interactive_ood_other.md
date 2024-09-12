@@ -21,7 +21,7 @@ The most general OOD interactive app is the Desktop.  It will start a desktop id
 
 ## MATLAB
 
-The MATLAB interactive app starts a MATLAB Desktop environment on a Desktop (VNC). Similar to Rstudio Server, in the Webform you can choose a version of MATLAB from a dropdown menu.  Once there, you are in a less complete desktop environment.  Your files may not be visible on the Desktop, but you can access them from the Places menu or from the Caja (filing cabinet) icon in the ribbon at the top of the screen.  If you exit the MATLAB Desktop, it will also exit the session.
+The MATLAB interactive app starts a MATLAB Desktop environment on a Desktop (VNC). Similar to Rstudio Server, in the form you can choose a version of MATLAB from a dropdown menu.  Once there, you are in a less complete desktop environment.  Your files may not be visible on the Desktop, but you can access them from the Places menu or from the Caja (filing cabinet) icon in the ribbon at the top of the screen.  If you exit the MATLAB Desktop, it will also exit the session.
 
 ## Reconnecting
 

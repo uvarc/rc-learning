@@ -60,7 +60,7 @@ Several methods are available to determine whether a string represents letters o
     * `mystr.index(s)`
   * `rindex(s)`
     * searches right to left
-* Count the number of occurrences of substring `s`.  It is case sensitive.
+* Count the number of occurrences of substring `s`.  It is case-sensitive.
   * `count`
     * `mystr.count(s)`
 * Determine whether a string ends with a particular substring
@@ -72,7 +72,7 @@ Several methods are available to determine whether a string represents letters o
 
 ### Modifying and Filling
 
-* Remove characters from the beginning and end (if no arguments, i.e. the parenteses are left empty, remove spaces and tabs). The angle brackets indicate an option that can be omitted and are not typed out.
+* Remove characters from the beginning and end (if no arguments, i.e. the parentheses are left empty, remove spaces and tabs). The angle brackets indicate an option that can be omitted and are not typed out.
   * `mystr.strip(<chars>)`
     * `mystr.rstrip(<chars>)`, `string.lstrip(<chars>)`
     * The default is _whitespace_ (spaces and tabs)

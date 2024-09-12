@@ -82,7 +82,7 @@ Download [cville_2017_april.xlsx](/data/cville_2017_april.xlsx), which contains 
 - Read the file into a pandas dataframe
 - Make a line plot of average wind speed for each day
 - Add main titles, and label axes to be more descriptive
-- Play with the bottom axis (x axis) to make sure all dates are visible
+- Play with the bottom axis (x-axis) to make sure all dates are visible
 - Make a bar and line plot showing average wind speed (in bars) and max wind gust (as a line). Add legend to distinguish between the two.
 - Make stacked bar chart of minimum and maximum temperatures for each day
 - Make grouped bar chart of minimum and maximum temperatures for each day

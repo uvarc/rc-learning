@@ -4,7 +4,7 @@ title : "Programming in Modern Fortran"
 summary: "This short course is an introduction to programming in modern Fortran.  Experience programming in some other language is helpful but not required."
 authors: [kah]
 categories: ["Programming","Fortran"]
-tags: [programming, fortran]
+tags: [Programming, Compilers, Fortran]
 toc: true
 type: book
 weight: 1
@@ -22,7 +22,7 @@ menu:
 
 Please note that the official spelling is Fortran, not FORTRAN.
 
-Most of the material will be oriented toward the Fortran 2003 standard, which is well supported in recent compilers and includes a number of constructs for modern programming paradigms.
+Most of the material will be oriented toward the Fortran 2003 standard, which is well-supported in recent compilers and includes a number of constructs for modern programming paradigms.
 
 Fortran was introduced in October 1957.  It was developed by a team at IBM led by John Backus and was among the earliest of the high-level programming languages, which replaced the machine-oriented assembler programming model widely used at the time with more natural human-readable syntax.  Algol and COBOL followed in the next few years.
 

@@ -1,7 +1,7 @@
 ---
 title: "MATLAB Data Processing and Visualization"
 type: article
-hightlight_style: "github"
+highlight_style: "github"
 toc: true
 date: 2023-12-11T00:00:00-05:00
 menu:
@@ -254,7 +254,7 @@ Remove rows with missing data
 A(missingRows,:) = [];
 ```
 
-Using our logical array `missingRows`, we can index into our table `A` and select all of the 
+Using our logical array `missingRows`, we can index into our table `A` and select all the 
 rows in A that have missing data. With the colon operator `:`, we can also select the data from all 
 the columns in those rows. If we select that data in `A` and set it equal to empty brackets, that will 
 remove all those rows from `A`.

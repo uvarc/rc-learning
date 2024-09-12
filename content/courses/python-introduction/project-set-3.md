@@ -98,7 +98,7 @@ Download [cville_2017_april.csv](/data/cville_2017_april.csv), which contains Ap
 - Read the file into appropriate NumPy arrays
 - Make a line plot of average wind speed for each day
 - Add main titles, and label axes to be more descriptive
-- Play with the bottom axis (x axis) to make sure all dates are visible
+- Play with the bottom axis (x-axis) to make sure all dates are visible
 - Make a bar and line plot showing average wind speed (in bars) and max wind gust (as a line). Add legend to distinguish between the two.
 - Make stacked bar chart of minimum and maximum temperatures for each day
 - Make grouped bar chart of minimum and maximum temperatures for each day

@@ -4,7 +4,7 @@ summary: "In this hands-on workshop, you will be introduced to parallel and dist
 authors: [teh]
 date: "2019-06-23T08:37:46-05:00"
 categories: [ "HPC", "Parallel Computing", "MATLAB" ]
-tags: ["matlab", "hpc", "parallel-programming"]
+tags: [ "HPC", "Parallel_Programming", "MATLAB" ]
 weight: 280
 
 url_slides: slides/matlab-parallel/Parallel_Computing_with_MATLAB.pptx

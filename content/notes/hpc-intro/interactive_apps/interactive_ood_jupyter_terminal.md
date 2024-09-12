@@ -17,4 +17,4 @@ You are also able to access the terminal through a JupyterLab session.
 
 Here, you can execute Linux commands to create custom conda environments and JupyterLab kernels. Additionally, you can access and run singularity containers through this functionality.
 
-JupyterLab sessions will be saved in your ```/home/computingID/ondemand/data/sys/dashboard/batch_connect/sys/jupyter_lab/output/``` directory; however, you can navigate to any part of the filesystem in the JupyerLab terminal.
+Your JupyterLab sessions will be saved in your ```/home/computingID/ondemand/data/sys/dashboard/batch_connect/sys/jupyter_lab/output/``` directory; however, you can navigate to any part of the filesystem in the JupyterLab terminal.

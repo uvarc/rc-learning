@@ -7,10 +7,10 @@ program halo
    integer            :: i
 
    integer            :: nr, nc, nrl, ncl
-   integer            :: rank, nprocs
+   integer            :: rank, nprocs, tag=0
    integer            :: errcode, ierr
    integer, dimension(MPI_STATUS_SIZE) :: mpi_stat
-   integer, parameter :: root=0, tag=0
+   integer, parameter :: root=0
    integer            :: left, right
 
    !Initialize MPI, get the local number of columns
