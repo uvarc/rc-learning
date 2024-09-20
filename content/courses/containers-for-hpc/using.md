@@ -13,7 +13,7 @@ Log on to our HPC cluster
 - Run `hdquota`
     - Make sure you have a few GBs of free space
 - Run `allocations`
-    - Check if you have `rivanna-training`
+    - Check if you have `hpc_training`
 
 ---
 
@@ -212,7 +212,7 @@ Examine Slurm script:
 
 ```bash
 #!/bin/bash
-#SBATCH -A rivanna-training      # account name
+#SBATCH -A hpc_training      # account name
 #SBATCH -p gpu                   # partition/queue
 #SBATCH --gres=gpu:1             # request 1 gpu
 #SBATCH -c 1                     # request 1 cpu core
@@ -320,11 +320,11 @@ jkrollout /path/to/sif "Tensorflow 2.11" gpu
 
 ### Test your new kernel
 
-- Go to https://rivanna-portal.hpc.virginia.edu
+- Go to https://ood.hpc.virginia.edu
 - Select JupyterLab
     - Partition: GPU
     - Work Directory: (location of your `mnist_example.ipynb`)
-    - Allocation: `rivanna-training`
+    - Allocation: `hpc_training`
 - Select the new "TensorFlow 2.11" kernel
 - Run `mnist_example.ipynb`
 
