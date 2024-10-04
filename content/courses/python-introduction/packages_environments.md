@@ -3,7 +3,7 @@ title: Managing Python Packages and Environments
 toc: true
 type: docs
 draft: false
-weight: 14
+weight: 12
 date: "2020-11-17T00:00:00"
 menu:
     python-introduction:
@@ -13,6 +13,8 @@ menu:
 ## Managing Packages with Conda and Mamba
 
 Conda is a package manager from the developers of [Anaconda](anaconda.com).  It is free, but if you use a conda supplied by Anaconda, please pay attention to their licensing terms.  We recommend Miniforge, which provides its own build of conda, as well as an alternative called Mamba.  Mamba is for most purposes a drop-in replacement for conda.  It is generally faster than conda.  Miniforge will draw packages from the `conda-forge` channel, which is a collection of community-built and maintained packages that are free for use.
+
+On the UVA HPC system, please use `conda` rather than `mamba` to create environments.  Once an environment has been created, `mamba` can be used to install packages.  On a personal system, either `conda` or `mamba` may be used to create environments.
 
 Conda or mamba can be used from a command line.  In Linux and Mac OS, the terminal can be used for this.  In Windows, use the Miniforge Prompt, which can be accessed through the Apps menu in the Miniforge folder, since it has the correct paths preset.  
 
@@ -37,11 +39,24 @@ A common use for conda/mamba environments is to create "sandboxes" to avoid dupl
 
 From the command line, run
 ```bash
+conda create --name geodat --python=3.11
+```
+or
+```bash
 mamba create --name geodat --python=3.11
 ```
 Python must be explicitly included and its version must be specified.  To switch to the new environment, from the command line run 
 ```bash
+conda activate geodat
+```
+or
+```bash
 mamba activate geodat
+```
+
+On the UVA HPC system, please use
+```bash
+source activate geodat
 ```
 
 Once activated, run

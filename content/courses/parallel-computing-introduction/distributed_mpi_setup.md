@@ -13,12 +13,36 @@ menu:
 
 Refer to the instructions from your site, for example [UVA Research Computing](https://www.rc.virginia.edu/userinfo/howtos/rivanna/mpi-howto/) for our local environment.  Nearly always, you will be required to prepare your code and run it through a _resource manager_ such as [Slurm](https://www.rc.virginia.edu/userinfo/rivanna/slurm/).
 
-For Python, you will need to install mpi4py.  You may wish to create a conda environment for it.  On the UVA system you must use `pip` rather than conda. 
+It is generally preferable, and may be required, that mpi4py be installed from the conda-forge repository.  On a cluster, mpi4py will need to link to a locally-built version of MPI that can communicate with the resource manager.  The conda-forge maintainers provide instructions for this [here]((https://conda-forge.org/docs/user/tipsandtricks/#using-external-message-passing-interface-mpi-libraries). In our example, we will use openmpi.  First we must load the modules for the compiler and MPI version:
+
 ```bash
 module load gcc openmpi
-module load anaconda
-pip install --user mpi4py
 ```
+We must not install OpenMPI directly from conda-forge; rather we make use of the "hooks" they have provided.  
+```bash
+module list openmpi
+```
+In our example, the module list returns
+```bash
+Currently Loaded Modules Matching: openmpi
+  1) openmpi/4.1.4
+```
+Now we check that our version of OpenMPI is available
+```bash
+conda search -f openmpi -c conda-forge
+```
+Most versions are there, so we can install the one we need
+```bash
+conda install -c conda-forge "openmpi=4.1.4=external_*"
+```
+Be sure to include the `external_*` string.  
+
+After this completes, we can install mpi4py
+```bash
+conda install -c conda-forge mpi4py
+```
+
+
 
 ### On a Local Computer
 

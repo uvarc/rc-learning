@@ -21,16 +21,23 @@ The process with rank 0 is usually called the **root process**.  Since the minim
 
 ## The mpi4py Package
 
-The most popular direct way to use MPI with Python is the `mpi4py` package.  It is not included in the base Anaconda distribution.  If you are running on your own multicore system you can install it directly with `conda` as usual. If you are running on an HPC cluster that uses a resource manager such as Slurm, the process is more complicated.
+The most popular direct way to use MPI with Python is the `mpi4py` package.  If you are running on your own multicore system you can install it directly with `conda` as usual. If you are running on an HPC cluster that uses a resource manager such as Slurm, the process is more complicated.
 
 When installing it into your environment in an HPC cluster, you should not use `conda install` because conda will install precompiled binaries and you must use a version of MPI that will correctly communicate with the system network and the resource manager. We suggest creating a conda environment for your MPI programs.
 ```bash
 conda create -n "mpienv" python=3.11
 ```
-In recent versions of Anaconda, it is best to install mpi4py from the `conda-forge` channel following their instructions [here](https://conda-forge.org/docs/user/tipsandtricks/#using-external-message-passing-interface-mpi-libraries). 
-This will install dummies into your environment that will be replaced by the external library when the package is imported.  Do not try to install both MPICH and OpenMPI; use the one most appropriate to your system. In our example, we will install mpi4py with OpenMPI.
+In a cluster environment, it is best to install mpi4py from the `conda-forge` channel following their instructions [here](https://conda-forge.org/docs/user/tipsandtricks/#using-external-message-passing-interface-mpi-libraries). 
+This will install dummies into your environment that will be replaced by the external library when the package is imported.  Do _not_ try to install both MPICH and OpenMPI; use the one most appropriate to your system. In our example, we will install mpi4py with OpenMPI.
 
-First load the closest gcc to the current version of Anaconda. In our current example, this is gcc 11.4.0. Then check for available versions of OpenMPI (please use OpenMPI on UVA HPC systems) with
+First load a compiler. Generally you will want to use a version of gcc that is compatible with that used for your installation of Python. Running the python interpreter from the command line will show this
+```
+python
+Python 3.11.6 | packaged by conda-forge | (main, Oct  3 2023, 10:40:35) [GCC 12.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+For the above example, with the versions of gcc available on our system, this is gcc 11.4.0. Then check for available versions of OpenMPI (please use OpenMPI on UVA HPC systems) with
 ```bash
 module spider openmpi
 ```
@@ -42,7 +49,9 @@ For this example, we will use OpenMPI 4.1.4.
 ```bash
 conda install -c conda-forge "openmpi=4.1.4=external_*"
 ```
-Once this has completed, you can install mpi4py
+You *must* use the `external` hook so that mpi4py will link to a version of MPI that will communicate with the cluster resource manager.  Do _not_ install openmpi directly from conda-forge.
+
+Once this installation has completed, you can install mpi4py
 ```
 conda install -c conda-forge mpi4py
 ```

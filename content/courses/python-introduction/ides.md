@@ -3,14 +3,18 @@ title: IDEs
 toc: true
 type: docs
 draft: false
-weight: 13
+weight: 16
 date: "2020-11-17T00:00:00"
 menu:
     python-introduction:
         parent: Introduction to Programming in Python
 ---
 
-Our first example of an Integrated Development Environment, or __IDE__, is Spyder.  Spyder is aimed specifically at Python.  It is well suited to developing longer, more modular programs.  To start it, go to the Miniforge Prompt (Windows) or a terminal (Linux or MacOS) and type
+Our first example of an Integrated Development Environment, or __IDE__, is Spyder.  Spyder is aimed specifically at Python.  It is well suited to developing longer, more modular programs.  
+
+The authors generally recommend the standalone version referenced [earlier](courses/python-introduction/setting_up_environment).  If using this application, always start it from your operating system's launcher.  Remember that each environment must include the `ipython` package for it to be recognized by this application.
+
+In an HPC system, or if not using the standalone version, you must activate the environment and spyder must be installed. Go to the Miniforge Prompt (Windows) or a terminal (Linux or MacOS) and type
 ```bash
 spyder
 ```
@@ -118,9 +122,27 @@ The same effect can be achieved through the trash-can icon in the Variable Explo
 
 Now re-run your sine-plotting code and observe how the variables acquire values.  Change `sin` to `cos` and rerun your script.
 
+#### Environments in Spyder
+
+If you are running Spyder from within an environment, it should automatically set that interpreter as its "internal" interpreter.  However, if you have installed a standalone spyder, it will generally be necessary to set the Python interpreter to one of your environments, even if it a base environment, since the standalone bundle includes only the Python packages required for Spyder itself. 
+
+To activate a conda/mamba environment in Spyder, go to the Tools->Preferences->Python Interpreter menu.  Select the "Use the following interpreter" button, then click the down arrow for the dropdown.  It will see your environments as long as they are in a standard location and include the necessary support packages.  Choose an environment by highlighting and clicking the path to the interpeter located in that environment; this is equivalent to activating it.
+
+{{< figure src="/courses/python-introduction/imgs/Spyder_envs.png" width=500px >}}
+
 ## Other IDEs
 
 Other popular IDEs for Python include the "fremium" [PyCharm](https://www.jetbrains.com/pycharm/).  The "Community" (free) edition is adequate for most casual programmer's needs.  Some organizations, such as the UVA Computer Science Department, hold licenses that students or employees can access.
 
 [VSCode](https://code.visualstudio.com/docs/languages/python) is another IDE that is very popular.  It is multilanguage and integrates source control with [git](https://github.com/).  Full support for most languages requires the use of an _extension_.  Extensions are installed from the Extensions menu.  Click on the stacked-boxes icon, or View->Extensions from the top bar.  We recommend the Python extension supported by Microsoft.  It will install several Python packages for syntax checking and debugging.
+
+The VSCode interface has some similarities to the Spyder editor pane's interface.
+
+{{< figure src="/courses/python-introduction/imgs/VSCode_python.png" width=500px >}}
+
+Environments are selected in VSCode in much the same way as in Spyder.  Open the Command Palette with Ctrl-Shift-P.  If an appropriate extension is installed, a `Python: Select Interpreter` dropdown will be available. 
+
+{{< figure src="/courses/python-introduction/imgs/VSCode_envs.png" width=500px >}}
+
+See their [documentation](https://code.visualstudio.com/docs/python/environments) for more details.
 

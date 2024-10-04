@@ -1,24 +1,30 @@
 ---
-title: JupyterLab 
+title: Jupyterlab 
 toc: true
 type: docs
 draft: false
-weight: 12
+weight: 13
 date: "2020-11-17T00:00:00"
 menu:
     python-introduction:
         parent: Introduction to Programming in Python
 ---
 
-We will begin with JupyterLab. To start it, from the terminal or miniforge prompt, type
+We will begin with JupyterLab. If using the Jupyterlab Desktop, start it from the application launcher of your operating system.  If using it directly from the terminal or miniforge prompt, type
 ```bash
 jupyter-lab
 ```
 
+For users of the University of Virginia's HPC systems, Jupyterlab can be started through its _interactive app_ on the [Open OnDemand](https://www.rc.virginia.edu/userinfo/hpc/ood/) interactive login.  Your request will be submitted to the appropriate partition and you can work on a compute node with a full Jupyterlab graphical interface.
+
+The Jupyterlab Desktop will start with a splash screen.
+{{< figure src="/courses/python-introduction/imgs/Jupyterlab-Desktop_start.png" width=500px >}}
+
+If started from a prompt, Jupyterlab will open in your default browser.
+
 When JupyterLab starts up, you will see a list of your files on the left and three icons to select the mode.  JupyterLab incorporates a Jupyter notebook server as well as a plain Python or iPython console and a simple text editor.  We want to start a Jupyter notebook so click on the top tile.
 
-A browser tab will open with a text entry area.
-![JupyterLabInput](/courses/python-introduction/imgs/JupyterLabInput.png)
+A tab will open with a text entry area.
 {{< figure src="/courses/python-introduction/imgs/JupyterLabInput.png" >}}
 
 Your notebook is untitled.  Open the File menu and click Rename.  Name your notebook `first_script.ipynb`, then click the Rename button.
@@ -99,6 +105,16 @@ import hello_func
 ```
 Then run the cell.
 
+## Managing Environments
+
+If started from a prompt within an environment, Jupyterlab should use that environment by default.  If started from a local Jupyterlab Desktop, you can select an environment. Find the menu icon next to the name of your current environment. Click on it, and a list will be presented.  
+
+{{< figure src="/courses/python-introduction/imgs/Jupyterlab-Desktop_manage_envs.png" width=500px >}}
+
+Select the environment you wish to activate.
+
+{{< figure src="/courses/python-introduction/imgs/Jupyterlab-Desktop_envs.png" width=500px >}}
+
 ## Exporting your Notebook
 
 ### Exporting to a Script
@@ -107,7 +123,7 @@ You can export embedded text in your notebook into a script.  First make sure yo
 
 ### Exporting to Other Formats
 
-If you have installed Anaconda on your local computer, other export options are available to you.  PDF, HTML, and Markdown are popular formats.  These are not all available for Rivanna Open OnDemand users due to the need for certain translation software, but exporting can be done from the command line.  See the [documentation](https://www.rc.virginia.edu/userinfo/howtos/rivanna/convert-jupyter-pdf/) for more information.
+If you have installed Anaconda on your local computer, other export options are available to you.  PDF, HTML, and Markdown are popular formats.  These are not all available for Open OnDemand users due to the need for certain translation software, but exporting can be done from the command line.  See the [documentation](https://www.rc.virginia.edu/userinfo/howtos/rivanna/convert-jupyter-pdf/) for more information.
 
 ## Plotting in JupyterLab
 
