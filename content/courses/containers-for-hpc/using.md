@@ -115,7 +115,7 @@ $ apptainer exec lolcow_latest.sif which fortune
 
 - Apptainer bind mounts these host directories at runtime:
     - Personal directories: `/home`, `/scratch`
-    - Leased storage shared by your research group: `/project`, `/standard`, `/nv`
+    - Leased storage shared by your research group: `/project`, `/standard`
     - Your current working directory
 - To bind mount additional host directories/files, use `--bind`/`-B`:
 
@@ -170,11 +170,11 @@ The corresponding `run` command is displayed upon loading a module.
 ```bash
 $ module load tensorflow
 To execute the default application inside the container, run:
-apptainer run --nv $CONTAINERDIR/tensorflow-2.10.0.sif
+apptainer run --nv $CONTAINERDIR/tensorflow-2.13.0.sif
 
 $ module list
 Currently Loaded Modules:
-  1) apptainer/1.2.2   2) tensorflow/2.10.0
+  1) apptainer/1.2.2   2) tensorflow/2.13.0
 ```
 
 - `$CONTAINERDIR` is an environment variable. It is the directory where containers are stored.
@@ -204,7 +204,7 @@ Currently Loaded Modules:
 Copy these files:
 
 ```bash
-cp /share/resources/tutorials/apptainer_ws/tensorflow-2.10.0.slurm .
+cp /share/resources/tutorials/apptainer_ws/tensorflow-2.13.0.slurm .
 cp /share/resources/tutorials/apptainer_ws/mnist_example.{ipynb,py} .
 ```
 
@@ -213,25 +213,26 @@ Examine Slurm script:
 ```bash
 #!/bin/bash
 #SBATCH -A hpc_training      # account name
-#SBATCH -p gpu                   # partition/queue
-#SBATCH --gres=gpu:1             # request 1 gpu
-#SBATCH -c 1                     # request 1 cpu core
-#SBATCH -t 00:05:00              # time limit: 5 min
-#SBATCH -J tftest                # job name
-#SBATCH -o tftest-%A.out         # output file
-#SBATCH -e tftest-%A.err         # error file
+#SBATCH -p gpu               # partition/queue
+#SBATCH --gres=gpu:1         # request 1 gpu
+#SBATCH -c 1                 # request 1 cpu core
+#SBATCH -t 00:05:00          # time limit: 5 min
+#SBATCH -J tftest            # job name
+#SBATCH -o tftest-%A.out     # output file
+#SBATCH -e tftest-%A.err     # error file
 
+VERSION=2.13.0
 # start with clean environment
 module purge
-module load apptainer tensorflow/2.10.0
+module load apptainer tensorflow/$VERSION
 
-apptainer run --nv $CONTAINERDIR/tensorflow-2.10.0.sif mnist_example.py
+apptainer run --nv $CONTAINERDIR/tensorflow-$VERSION.sif mnist_example.py
 ```
 
 Submit job:
 
 ```bash
-sbatch tensorflow-2.10.0.slurm
+sbatch tensorflow-2.13.0.slurm
 ```
 
 #### What does `--nv` do?
@@ -239,10 +240,10 @@ sbatch tensorflow-2.10.0.slurm
 See [Apptainer GPU user guide](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
 
 ```bash
-$ apptainer shell $CONTAINERDIR/tensorflow-2.10.0.sif
+$ apptainer shell $CONTAINERDIR/tensorflow-2.13.0.sif
 Apptainer> ls /.singularity.d/libs
 
-$ apptainer shell --nv $CONTAINERDIR/tensorflow-2.10.0.sif
+$ apptainer shell --nv $CONTAINERDIR/tensorflow-2.13.0.sif
 Apptainer> ls /.singularity.d/libs
 libEGL.so		  libGLX.so.0		       libnvidia-cfg.so			  libnvidia-ifr.so
 libEGL.so.1		  libGLX_nvidia.so.0	       libnvidia-cfg.so.1		  libnvidia-ifr.so.1
@@ -255,13 +256,13 @@ libEGL.so.1		  libGLX_nvidia.so.0	       libnvidia-cfg.so.1		  libnvidia-ifr.so.
 
 ### "Can I use my own container on JupyterLab?"
 
-Suppose you need to use TensorFlow 2.11.0 on JupyterLab. First, note we do not have `tensorflow/2.11.0` as a module:
+Suppose you need to use TensorFlow 2.17.0 on JupyterLab. First, note we do not have `tensorflow/2.17.0` as a module:
 
 ```bash
 module spider tensorflow
 ```
 
-Go to [TensorFlow's Docker Hub page](https://hub.docker.com/r/tensorflow/tensorflow/tags?page=1&name=2.11.0) and search for the tag (i.e. version). You'll want to use one that has the `-gpu-jupyter` suffix. Pull the container in your account.
+Go to [TensorFlow's Docker Hub page](https://hub.docker.com/r/tensorflow/tensorflow) and search for the tag (i.e. version). You'll want to use one that has the `-gpu-jupyter` suffix. Pull the container in your account.
 
 ### Installation
 
@@ -269,7 +270,7 @@ Go to [TensorFlow's Docker Hub page](https://hub.docker.com/r/tensorflow/tensorf
 1. Create kernel directory
 
 ```bash
-DIR=~/.local/share/jupyter/kernels/tensorflow-2.11.0
+DIR=~/.local/share/jupyter/kernels/tensorflow-2.17.0
 mkdir -p $DIR
 cd $DIR
 ```
@@ -279,11 +280,11 @@ cd $DIR
 ```
 {
  "argv": [
-  "/home/<user>/.local/share/jupyter/kernels/tensorflow-2.11.0/init.sh",
+  "/home/<user>/.local/share/jupyter/kernels/tensorflow-2.17.0/init.sh",
   "-f",
   "{connection_file}"
  ],
- "display_name": "Tensorflow 2.11",
+ "display_name": "Tensorflow 2.17",
  "language": "python"
 }
 ```
@@ -315,7 +316,7 @@ Usage: jkrollout sif display_name [gpu]
 ```
 
 ```bash
-jkrollout /path/to/sif "Tensorflow 2.11" gpu
+jkrollout /path/to/sif "Tensorflow 2.17" gpu
 ```
 
 ### Test your new kernel
@@ -325,13 +326,13 @@ jkrollout /path/to/sif "Tensorflow 2.11" gpu
     - Partition: GPU
     - Work Directory: (location of your `mnist_example.ipynb`)
     - Allocation: `hpc_training`
-- Select the new "TensorFlow 2.11" kernel
+- Select the new "TensorFlow 2.17" kernel
 - Run `mnist_example.ipynb`
 
 ### Remove a custom kernel
 
 ```bash
-rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.11.0
+rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.17.0
 ```
 
 ---
