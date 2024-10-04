@@ -29,8 +29,6 @@ mamba install newpackage
 ```
 Many more options are available.  
 
-{{< figure src="/courses/python-introduction/imgs/Conda.png" caption="Conda from a command line." >}}
-
 ## Environments
 
 When you use conda or mamba, you always have an _environment_; the one with which you start is called _base_.  An environment is a "bundle" of a Python version, which need not be the same as your base, along with a set of packages installed against that version.  Only one environment can be active at a time (for Linux users, in a given shell) but environments can be activated and deactivated at will.  
