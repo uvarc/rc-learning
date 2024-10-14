@@ -25,6 +25,7 @@ These create new arrays from old. `PACK` and `UNPACK` can be used to "flatten" m
 
 ```fortran
 ! Convert an array from one shape to another (total size must match)
+! SHAPE must be a rank-one array whose elements are sizes in each dimension
 RESHAPE(SOURCE,SHAPE[,PAD][,ORDER])
 ! Combine two arrays of same shape and size according to MASK
 !   Take from ARR1 where MASK is .true., ARR2 where it is .false.
@@ -37,8 +38,10 @@ SPREAD(SOURCE,DIM,NCOPIES)
 ```
 **Example**
 ```fortran
+!Array and mask are of size NxM
 mask=A<0
 merge(A,0,mask)
+B=reshape(A,(/M,N/))
 ! for C=1, D=[1,2]
 print *, spread(C, 1, 2)            ! "1 1"
 print *, spread(D, 1, 2)            ! "1 1 2 2"

@@ -7,9 +7,10 @@ program sendrows
 
    integer            :: nr, nc
    integer            :: rank, nprocs, tag=0
-   integer            :: errcode
-   type(MPI_Status)   :: recv_status
+   integer            :: err, errcode
    integer            :: ncount, blocklength, stride
+   type(MPI_Status),  dimension(:), allocatable  :: mpi_status_arr
+   type(MPI_Request), dimension(:), allocatable  :: mpi_requests
    type(MPI_Datatype) :: rows
 
    integer, parameter :: root=0
@@ -25,13 +26,19 @@ program sendrows
    nc=nprocs
 
    allocate(u(nr,nc),w(nr,nc))
+   allocate(mpi_requests(2*nprocs),mpi_status_arr(2*nprocs))
    u=0.0d0
    w=0.0d0
 
    !Cyclic sending
-   if (rank /= nprocs-1) then
+   if (rank == nprocs-1) then
+       src=rank-1
        dest=0
+   else if (rank==0) then
+       src=nprocs-1
+       dest=rank+1
    else
+       src=rank-1
        dest=rank+1
    endif
 
@@ -46,10 +53,22 @@ program sendrows
    do i=0,nprocs-1
        if (rank==i) then
            tag=i
-           call MPI_Recv(w(i+2,1),1,rows,source,tag,MPI_COMM_WORLD,recv_status)
-           call MPI_Send(u(i+1,1),1,rows,dest,tag,MPI_COMM_WORLD)
+           print *, i,i+1,i+nprocs+1
+           if (i==0) then
+               call MPI_Irecv(w(nprocs,1),1,rows,src,tag,MPI_COMM_WORLD,mpi_requests(i+1))
+               call MPI_Isend(u(i+1,1),1,rows,dest,tag,MPI_COMM_WORLD,mpi_requests(i+nprocs+1))
+            else if (i==nprocs-1) then
+               call MPI_Irecv(w(1,1),1,rows,src,tag,MPI_COMM_WORLD,mpi_requests(i+1))
+               call MPI_Isend(u(nprocs,1),1,rows,dest,tag,MPI_COMM_WORLD,mpi_requests(i+nprocs+1))
+            else
+               call MPI_Irecv(w(i+2,1),1,rows,src,tag,MPI_COMM_WORLD,mpi_requests(i+1))
+               call MPI_Isend(u(i+1,1),1,rows,dest,tag,MPI_COMM_WORLD,mpi_requests(i+nprocs+1))
+            endif
         endif
    enddo
+
+   call MPI_Waitall(size(mpi_requests),mpi_requests,mpi_status_arr)
+
 
    call MPI_TYPE_FREE(rows)
 

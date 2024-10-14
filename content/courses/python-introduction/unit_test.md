@@ -39,7 +39,7 @@ Depending on your working directory in Spyder, you may need to provide a path, s
 ```
 This test is intentionally written to fail.  You should see a message.
 
-The pytest executable can also be run from a command line, such as a Linux or macOS terminal, or the Anaconda prompt.
+The pytest executable can also be run from a command line, such as a Linux or macOS terminal, or the Miniforge prompt.
 ```no-highlight
 pytest /Users/myid/Python/scripts/test_example.py
 ```

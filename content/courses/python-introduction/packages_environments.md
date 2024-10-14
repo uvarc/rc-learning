@@ -12,7 +12,7 @@ menu:
 
 ## Managing Packages with Conda and Mamba
 
-Conda is a package manager from the developers of [Anaconda](anaconda.com).  It is free, but if you use a conda supplied by Anaconda, please pay attention to their licensing terms.  We recommend Miniforge, which provides its own build of conda, as well as an alternative called Mamba.  Mamba is for most purposes a drop-in replacement for conda.  It is generally faster than conda.  Miniforge will draw packages from the `conda-forge` channel, which is a collection of community-built and maintained packages that are free for use.
+Conda is a package manager from the developers of [Anaconda](anaconda.com).  It is free, but if you use a conda supplied by Anaconda, please pay attention to their licensing terms.  We recommend Miniforge, which provides its own build of conda, as well as an alternative called mamba.  Mamba is for most purposes a drop-in replacement for conda.  It is generally faster than conda.  Miniforge will draw packages from the `conda-forge` channel, which is a collection of community-built and maintained packages that are free for use.
 
 On the UVA HPC system, please use `conda` rather than `mamba` to create environments.  Once an environment has been created, `mamba` can be used to install packages.  On a personal system, either `conda` or `mamba` may be used to create environments.
 
