@@ -214,7 +214,7 @@ Our actual scaling in this case is quite close to perfect.  This has a lot to do
 
 ### Combining Approaches
 
-If we are using Anaconda we can use Numba and Multiprocessing together.  On the same workstation this reduced the serial time to 12.8 seconds and the time on 4 cores to 5.8 seconds.  The poorer scaling here could be due to the time required being so small that the overhead became dominant.
+If we have installed Numba,  we can use it and Multiprocessing together.  On the same workstation this reduced the serial time to 12.8 seconds and the time on 4 cores to 5.8 seconds.  The poorer scaling here could be due to the time required being so small that the overhead became dominant.
 
 ## Further Information
 

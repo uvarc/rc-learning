@@ -131,7 +131,7 @@ $sbatch --array=0-30
 ```
 In your Slurm script you would use a command such as
 ```bash
-python myscript.py myinput.${SLURM_ARRAY_TASK_ID}.in}
+python myscript.py myinput.${SLURM_ARRAY_TASK_ID}.in
 ```
 
 The script should be prepared to request resources for _one_ instance of your program.

@@ -21,7 +21,7 @@ In most cases, it may be advisable to set up a separate environment for differen
 
 [CuPy](https://cupy.dev/) is an implementation of many of the features of NumPy and SciPy that takes advantage of the GPU.  It is one of the simplest introductions to GPU programming.
 It can be [installed](https://docs.cupy.dev/en/stable/install.html) with conda through the `conda-forge` channel.
-If using the Anaconda Navigator GUI, install the channel, then switch to it and install cuPy through the interface.  For installing from the command line, use
+For installing from the command line, a terminal in MacOS or Linux or a Miniforge or Anaconda shell on Windows , use
 ```bash
 conda install -c conda-forge cupy
 ```
