@@ -92,8 +92,8 @@ int main (int argc, char *argv[]) {
          }
     }
 
-    MPI_Request requests[4];
     int nrequests=4;
+    MPI_Request requests[nrequests];
 
     MPI_Irecv(&w[nrl+1][1], ncl, MPI_DOUBLE, down, tag, MPI_COMM_WORLD, &requests[0]);
     MPI_Irecv(&w[0][1], ncl, MPI_DOUBLE, up, tag, MPI_COMM_WORLD, &requests[1]);

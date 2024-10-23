@@ -38,9 +38,10 @@ SPREAD(SOURCE,DIM,NCOPIES)
 ```
 **Example**
 ```fortran
-!Array and mask are of size NxM
+!Array and mask are of shape NxM
 mask=A<0
 merge(A,0,mask)
+!B of shape MxN
 B=reshape(A,(/M,N/))
 ! for C=1, D=[1,2]
 print *, spread(C, 1, 2)            ! "1 1"
