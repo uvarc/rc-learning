@@ -41,6 +41,8 @@ Because you are a part of the UVA community, you have many places to go for help
 
 - [Python Documentation](https://www.python.org/) - The Home of python's documentation, background info, events, etc.
 
+- [Miniforge](https://github.com/conda-forge/miniforge)
+
 - [Anaconda](https://www.anaconda.com/) - View the Anaconda project's homepage.
 
 - [Conda](https://www.conda.io) - A package manager for Python.

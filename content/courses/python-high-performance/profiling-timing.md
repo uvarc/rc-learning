@@ -13,7 +13,7 @@ The first step is usually to _profile_ the code.  Profiling can help us find a p
 Profilers are statistical in nature.  They query the program to find out what it is doing at a snapshot during the run, then compile the results into a kind of frequency chart.  
 
 ### Python Profiler in the Spyder IDE
-The Anaconda Spyder IDE provides an integrated Profiler that is easy to use. To profile your Python code follow these steps:
+The Spyder IDE provides an integrated Profiler that is easy to use. To profile your Python code follow these steps:
 
 1. Open the Python script in the Editor pane.  If your program contains multiple files, open the script that contains the main function.
 2. In the Spyder menu, go to `Run` -> `Profile`.
@@ -102,7 +102,7 @@ You can also install the `line_profiler` and `memory_profiler` tools. It may be 
 conda install line_profiler
 conda install -c conda-forge memory_profiler
 ```
-You can use `pip` if you are not working with Anaconda.  If using Windows or Mac, you can install from the Anaconda-command application. If using the Anaconda Navigator GUI, switch to the conda-forge channel before installing.
+You can use `pip` if you are not working with conda. From the command line, be sure to use the conda-forge channel with `-c conda-forge` if it is not the default channel (as it is for Miniforge). If using the Anaconda Navigator GUI, switch to the conda-forge channel before installing.
 
 The line_profiler tool provides a special version of the Python interpreter, `kernprof` and defines a decorator `@profile`.  To use it from the command line, add the decorator to any function you wish to profile.
 ```python

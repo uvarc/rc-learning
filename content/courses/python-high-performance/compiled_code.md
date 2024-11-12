@@ -19,11 +19,11 @@ In order to wrap code written in a compiled language, you must have a compiler f
 
 #### Windows
 
-If you do not use Fortran, you can install MS Visual Studio. A community edition is available free for personal use and includes C and C++ compilers. If you might use Fortran, a good option is [MinGW-64](https://www.mingw-w64.org/). This may also provide good compatibility with Anaconda even if you do not expect to use Fortran.  MinGW-64 provides several options for builds of the `gcc` (Gnu Compiler Collection).  The `ucrt` build is recommended but may be a little rough around the edges, at least for Fortran users.  The older `mingw64` build may be more suitable.  Either or both can be installed on the same system; the path will select the compiler used by Python or the IDE.  A nice tutorial on installing MingGW-64 and using it with the free [VSCode IDE](https://code.visualstudio.com/) is [here](https://code.visualstudio.com/docs/cpp/config-mingw). You must install VSCode extensions for C/C++ and, if appropriate, Fortran. To install the mingw64 version, simply substitute that name for ucrt in the `pacman` instructions. For Fortran, after the basic toolchain is installed, run 
+If you do not use Fortran, you can install MS Visual Studio. A community edition is available free for personal use and includes C and C++ compilers. If you might use Fortran, a good option is [MinGW-64](https://www.mingw-w64.org/). This may also provide good compatibility with a Python installation such as Miniforge, even if you do not expect to use Fortran.  MinGW-64 provides several options for builds of the `gcc` (Gnu Compiler Collection).  The `ucrt` build is recommended but may be a little rough around the edges, at least for Fortran users.  The older `mingw64` build may be more suitable.  Either or both can be installed on the same system; the path will select the compiler used by Python or the IDE.  A nice tutorial on installing MingGW-64 and using it with the free [VSCode IDE](https://code.visualstudio.com/) is [here](https://code.visualstudio.com/docs/cpp/config-mingw). You must install VSCode extensions for C/C++ and, if appropriate, Fortran. To install the mingw64 version, simply substitute that name for ucrt in the `pacman` instructions. For Fortran, after the basic toolchain is installed, run 
 ```no-highlight
 pacman -S mingw-w64-x86_64-gcc-fortran
 ```
-Now go to Settings and edit your system environment variables to add `C:\msys2\mingw64\bin` to `path`.  Once that is done, you can use a command line or the Anaconda PowerShell to run f2py as shown below for Linux. After that move the resulting library to an appropriate location in your PYTHONPATH.
+Now go to Settings and edit your system environment variables to add `C:\msys2\mingw64\bin` to `path`.  Once that is done, you can use a command line or a local PowerShell, such as the Miniforge shell, to run f2py as shown below for Linux. After that move the resulting library to an appropriate location in your PYTHONPATH.
 
 #### Mac OS
 
@@ -68,7 +68,7 @@ It is also possible to wrap the Fortran code in C by various means, such as the 
 
 The [CFFI] (https://cffi.readthedocs.io/en/latest/overview.html) package can be used to wrap C code.  CFFI (C Foreign Function Interface) wraps C _libraries_ into Python code. To use it, prepare a shared (dynamic) library of functions.  This requires a C compiler, and the exact steps vary depending on your operating system.  Windows compilers produce a file called a _DLL_, Unix/Linux shared libraries end in `.so`, and macOS shared libraries end in `.dylib`.  
 
-CFFI is not a base package, but is often included in Python distributions such as Anaconda. It may also be included as an add-on for other installations such as system Pythons, since some other package such as a cryptography library may require it. Before installing CFFI, first attempt to import it
+CFFI is not a base package, but is often included in Python distributions such as Miniforge. It may also be included as an add-on for other installations such as system Pythons, since some other package such as a cryptography library may require it. Before installing CFFI, first attempt to import it
 ```python
 import cffi
 ```
@@ -175,7 +175,7 @@ More detailed information describing the use of Cython can be found <a href="htt
 
 ## Numba
 
-Numba is available with the Anaconda Python distribution.   It compiles selected functions using the LLVM compiler.  Numba is accessed through a decorator.  Decorators in Python are wrappers that modify the functions without the need to change the code.
+Numba is available through the Miniforge Python distribution.   It compiles selected functions using the LLVM compiler.  Numba is accessed through a decorator.  Decorators in Python are wrappers that modify the functions without the need to change the code.
 
 **Exercise:**
 A well-known but slow way to compute pi is by a Monte Carlo method.  Given a circle of unit radius inside a square with side length 2, we can estimate the area inside and outside the circle by throwing “darts” (random locations).  Since the area of the circle is pi and the area of the square is 4, the ratio of hits inside the circle to the total thrown is pi/4.  

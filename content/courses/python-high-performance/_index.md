@@ -28,7 +28,7 @@ For this tutorial, it is assumed that you have experience with programming in Py
 
 To follow along for the [Serial Optimization](#serial-optimization-strategies) and [Multiprocessing](#multiprocessing) examples, you can execute the code examples on your own computer or on UVA's high-performance computing cluster.  Examples described in the last section, [Distributed Parallelization](#distributed-parallelization), are best executed on UVA's high-performance computing platform.
 
-If you are using your local computer, we recommend the Anaconda distribution (<a href="https://www.anaconda.com/distribution/" target="balnk_">download</a>) to run the code examples. Anaconda provides multiple Python versions, an integrated development environment (IDE) with editor and profiler, Jupyter notebooks, and an easy-to-use package environment manager.
+If you are using your local computer for your personal applications, not related to work, you can install the Anaconda distribution (<a href="https://www.anaconda.com/distribution/" target="balnk_">download</a>) to run the code examples. Anaconda provides multiple Python versions, an integrated development environment (IDE) with editor and profiler, Jupyter notebooks, and an easy-to-use package environment manager.  If you will or might use the installation for work, or just prefer a more minimal setup that you can more easily customize, we suggest Miniforge (https://github.com/conda-forge/miniforge).
 
 **If you are using UVA HPC, follow these steps to verify that your account is active:**
 
@@ -40,26 +40,33 @@ If you are using your local computer, we recommend the Anaconda distribution (<a
   * **User name:** Your UVA computing id (e.g. mst3k; don't enter your entire email address)
   * **Password:** Your UVA Netbadge password 
 
-3. Starting Spyder (Anaconda's IDE): Open a terminal window and type
+3. Starting Spyder: You must first activate an environment and install Spyder into it.  Open a terminal window and type
 ```
-module load anaconda
+module load miniforge
 python -V
 ```
 You will obtain a response like
 ```
 Python 3.11.3
 ```
+If your environment does not include it, install the package
+```
+conda install spyder
+```
 Now type
 ```
 spyder &
 ```
 
-For Jupyterlab you can use [Open OnDemand](https://ood.hpc.virginia.edu).  Jupyterlab is one of the Interactive Apps.  Note that these apps submit jobs to compute nodes.  If you are working on quick development and testing and you wish to use the frontend, to run Jupyter or Jupyterlab on the FastX portal you can run 
+For Jupyterlab you can use [Open OnDemand](https://ood.hpc.virginia.edu).  Jupyterlab is one of the Interactive Apps.  Note that these apps submit jobs to compute nodes. If you need to use Jupyterlab outside of the OOD interactive app, you should install it into your environment similarly to installng Spyder.
 ```
-module load anaconda
-anaconda-navigator &
+conda install jupyterlab nbconvert
 ```
-This will allow you to choose Jupyter, Jupyterlab, or Spyder.  Jupyter and Jupyterlab will open an instance of Firefox.  You can ignore the error messages as long as Jupyter or Jupyterlab opens and works.  You will not be able to install anything on the Navigator home page that does not have a `launch` button.
+The `nbconvert` paackages allows Jupyter to export your cells to various formats, including Python scripts.  You can then invoke it with
+```
+jupyter-lab &
+```
+It will open in the default Web browser.
 
 Please note that parallelization methods may not work well or at all in Jupyter.
 <br>
