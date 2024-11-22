@@ -1,88 +1,145 @@
 ---
-title: Tackling data-intensive problems on desktops and clusters
+title: Scaling up to cluster and cloud resources
 date: 2024-11-16-20:28:40Z
 type: docs 
-weight: 250
+weight: 200
 menu: 
     matlab-parallel-programming:
 ---
 
 
-## Extend Big Data Capabilities in MATLAB with Parallel Computing
+## Take Advantage of Cluster Hardware
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new29.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new19.png >}}
 
----
+There are several compelling reasons to offload your Parallel Computing Toolbox workflow from a desktop computer to a cluster. By doing so, you can **free up your desktop** for other tasks and take advantage of **more powerful computing resources** available on the cluster. For instance, you can submit jobs to the cluster and retrieve the results once they’re completed, allowing you to shut down your local computer while the job runs.
 
-- **MATLAB** provides a single, high-performance environment for working with big data. You can:
-  - Access data that does not fit in memory from standard big data sources.
-  - Use data from a **Hadoop Distributed File System** (HDFS) in MATLAB.
-  - Create repositories of large amounts of images, spreadsheets, and custom files (datastore).
-  
-- MATLAB offers capabilities customized for both beginners and power users of big data applications. These include:
-  - Using **tall arrays** for working with columnar data containing millions or billions of rows.
-  - Partitioning data, which is too large for a single computer, across computers in a cluster using **distributed arrays**.
-  - Leveraging hundreds of **MATLAB** and toolbox functions that are supported with tall, distributed, and sparse arrays.
-  - Creating your own big data algorithms using **MATLAB MapReduce** or the **MATLAB API for Spark**.
+One key benefit of using a cluster is the ability to **scale speed-up**. By utilizing more cores, you can reduce computation time significantly—what would normally take hours can be reduced to just minutes. This enables faster iterations, allowing you to make updates to your code and run multiple experiments in a single day.
 
-- You can **program once** and scale to many execution environments, including:
-  - Desktop machines.
-  - Compute clusters.
-  - Spark clusters.
-  
-- MATLAB allows you to easily access data, regardless of how it is stored. It also supports:
-  - Prototyping algorithms quickly using small datasets.
-  - Scaling up to large datasets running on big clusters, all while using the same intuitive **MATLAB syntax**.
+Additionally, clusters offer the ability to **scale memory**. If your array is too large to fit into your local computer's memory, you can use **distributed arrays** to split the data across multiple computers. Each computer stores only a portion of the array, making it possible to work with much larger datasets. Many MATLAB matrix operations and functions are enhanced to work with these distributed arrays, enabling you to operate on the entire array as a single entity within your desktop session, without needing to recode your algorithms. For more details on which functions have been enhanced for distributed arrays, refer to the **Release Notes** for recent updates to the Parallel Computing Toolbox.
 
-- **Parallel Computing Toolbox** extends the tall array and MapReduce capabilities built into MATLAB, allowing you to run on local workers for improved performance. You can then scale tall arrays and MapReduce to additional resources with **MATLAB Parallel Server**, either on traditional clusters or **Apache Spark™** and **Hadoop® clusters**.
+## Parallel Computing ParadigmClusters and Clouds
 
-## Overcoming Single Machine Memory Limitations Distributed Arrays
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new30.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new20.png >}}
 
 ---
 
-- **Distributed Data**: MATLAB offers a tool for working with large datasets through **distributed arrays**. These arrays enable you to manipulate large matrices using the combined memory of a cluster. On your desktop, distributed arrays appear just like normal MATLAB variables, but their data is distributed across MATLAB workers on the cluster. When you perform an operation on a distributed array, the work happens out in the cluster, but the workflow remains unchanged from your normal MATLAB experience. You can prototype distributed arrays on your desktop and then scale up to additional resources with **MATLAB Parallel Server**.
+The problems or challenges you work on might need additional computational resources or memory than what is available on a single multicore desktop computer.
 
-- **Common Actions**:
-  - **Matrix Manipulation**
-  - **Linear Algebra and Signal Processing**
+You can also scale up and access additional computational power or memory of multiple computers in a cluster in your organization or on the cloud. When we say scale up it essentially means that your pool or workers are now located on the cluster computers instead of the cores of your desktop computer. Irrespective of where your pool of workers are, your interface remains in the MATLAB Desktop. We've separated the algorithm from the infrastructure so you can write your code as you always do. 
 
-  A large number of **standard MATLAB functions** work with distributed arrays just as they do for normal variables. This means you can program a **distributed-array algorithm** in the same way as you would program a normal in-memory algorithm. 
+You might want to perform computations on a cluster to free up your desktop computer for other work.   You can submit jobs to a cluster and retrieve the results when they're done.   You can even shut down your local computer while you wait.   
 
-MATLAB also provides **overloaded functions** that work transparently with variables stored across the memory of multiple physical computers. These functions allow you to write one application that can work with both local data and distributed data, without needing to be an expert in message passing. The goal is to make complex tasks easier, allowing you to focus on your algorithms and research, rather than on the underlying details of parallel computing.
+You can also use a cluster to scale an application that you've developed on your desktop.   Getting computations to take minutes rather than hours allows you to make updates to code and execute multiple runs all in the same day. 
 
-## Tall Arrays
+---
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new31.png >}}
+## **batch Simplifies Offloading Serial Computations**  
+### Submit jobs from MATLAB, free up MATLAB for other work, access results later  
 
-- **Applicable when**:
-  - Data is **columnar** with **many** rows.
-  - The overall data size is **too big to fit into memory**.
-  - Operations are mathematical or statistical in nature.
+To offload work from your MATLAB session and run in the background in another session, use the `batch` command inside a script.  
+Jobs will run in the background, allowing you to access results later.  
 
-- **Statistical and Machine Learning Applications**:
-  - Hundreds of functions are supported in MATLAB and the **Statistics and Machine Learning Toolbox**.
+#### Example Commands:  
+1. Basic usage:  
+   ```matlab
+   job = batch('myfunc');
+   ```  
+2. With a parallel pool:  
+   ```matlab
+   job = batch('myfunc', 'Pool', 3);
+   ```  
 
-**Tall arrays** are designed to handle large datasets that do not fit into memory by automatically breaking the data into small "chunks" that fit into memory. These arrays process the data one "chunk" at a time, allowing you to work with data that would otherwise be too large for your system's memory.
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new22.png width="500px" >}}
 
-The processing code for tall arrays is the same as it would be for ordinary arrays, making it easy to integrate tall arrays into your existing MATLAB workflows. Tall arrays wrap around a datastore and treat the entire dataset as a single, continuous table or array. When you need to perform calculations, the datastore allows you to work through the array one piece at a time, without requiring you to manage the data chunks manually.
+---
 
-For example, when working with CSV files containing tabular data, the resulting tall array is actually a **tall table**. You can then use standard table functions, such as `summary` or dot references to access columns, and apply operations like `max`, `min`, `plus`, and `minus` just as you would with a non-tall table.
+## Why parallel computing matters
+### Scaling with a compute cluster
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new32.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/image_copy.png >}}
 
-## Demo: Predicting Cost of Taxi Ride in NYC Working with tall arrays in MATLAB
+---
 
-* **Objective:** Create a model to predict the cost of a taxi ride in New York City
-* **Inputs:**
-  * Monthly taxi ride log files
-  * The local data set contains > 2 million rows
-* **Approach:**
-  * Preprocess and explore data
-  * Work with subset of data for prototyping
-  * Fit linear model
-  * Predict fare and validate model
+In this example, you see a parameter sweep in which we run up to 160,000 different configurations.
+If my problem is well-sized, I can get more than a 90x speed-up with 100 workers.
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new33.png >}}
+Just adding more workers is not a guarantee of more speed-up, though.  Every application has its limits, and eventually overhead will dominate.
 
+When choosing how many workers you should use, it's best to think about your overall needs,  in this case, even with 64 workers, I can go from 4 hours to just 4 minutes, which might be good enough.  
+
+As mentioned previously, the sweet spot is ultimate execution  on the order of a few minutes.
+
+## Parallel Computing with Matlab
+
+### Useful Links:
+
+**[Scale Up from Desktop to Cluster](https://www.mathworks.com/help/parallel-computing/scale-up-from-desktop-to-cluster.html)**
+
+**[Choose a Parallel Computing Solution](https://www.mathworks.com/help/parallel-computing/choosing-a-parallel-computing-solution.html)**
+
+**[Parallel Computing Toolbox Documentation](https://www.mathworks.com/help/parallel-computing/)**
+
+**[Benchmarks for Matlab Parallel Code](https://www.mathworks.com/help/parallel-computing/benchmarks.html)**
+
+**[Parallel Computing Toolbox Release Notes](https://www.mathworks.com/help/parallel-computing/release-notes.html)**
+
+## Key functionality
+
+|  | Description | Functionality | Ease of use | Control |
+| :-: | :-: | :-: | :-: | :-: |
+| **Parallel Enabled Toolboxes** | Ready to use parallelized functions in MathWorks tools | MATLAB and Simulink parallel enabled functions<br />Toolbox integration | Turnkey-automatic | Minimal (presets) |
+| **Common programming constructs** | Constructs that enable you to easily parallelize your code | parfor<br />gpuArray<br />batch<br />distributed/tall<br />parsim<br />parfeval | Simple | Some |
+| **Advanced programming constructs** | Advanced parallelization techniques | spmd<br />arrayfun/pagefun<br />CUDAKernel<br />MapReduce<br />MATLAB Spark API | Advanced | Extensive |
+
+## Migrate to Cluster / Cloud
+
+Use MATLAB Parallel Server
+
+Change hardware without changing algorithm
+
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new25.png >}}
+
+## Use Multiple Nodes to Quickly Find the Optimal Network
+
+* Experiment Manager App
+  * Manage experiments and reduce manual coding
+  * Sweep through a range of hyperparameter values
+  * Compare the results of using different data sets
+  * Test different neural network architectures
+* MATLAB Parallel Server
+  * Enables multiple nodes to train networks in parallel -> greatly reduce testing time
+  * Running many experiments to train networks and compare the results in parallel
+
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new26.png >}}
+
+## Broad Range of Needs and Cloud Environments Supported
+
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new28.png >}}
+
+| Access requirements | Desktop in the cloud | Cluster in the cloud<br />(Client can be any cloud on on-premise desktop) |
+| :-: | :-: | :-: |
+| **Any user could set up** | NVIDIA GPU Cloud  | MathWorks Cloud Center |
+| **Customizable template-based set up** |  MathWorks Cloud Reference Architecture | MathWorks Cloud Reference Architecture |
+| **Full set-up in custom environment** | Custom installation - DIY | Custom installation - DIY |
+
+Learn More: [Parallel Computing on the Cloud](http://www.mathworks.com/products/parallel-computing/parallel-computing-on-the-cloud/index.html)
+
+---
+
+
+Parallel Computing Toolbox and MATLAB Parallel Server allow you to easily extend your execution of  MATLAB and Simulink to more resources.
+
+In the parallel computing workflow, you start with MATLAB on the desktop, and incorporate parallel features from Parallel Computing Toolbox to use more resources.   
+
+You can use Parallel Computing Toolbox in a range of environments, from those which can be set up by users on their own laptop to cloud installations for enterprise deployment.
+
+When you need to scale beyond the desktop, you will need access to a cluster that has MATLAB Parallel Server installed.  This might be a cluster managed by your IT department, or it could be a cloud cluster that you set up on your own with Cloud Center or a MathWorks reference architecture.
+
+Again, there are a range of environments and ways you can access MATLAB Parallel Server, from self-serve options like Cloud Center and the customizable reference architectures to integration with your existing cluster and cloud infrastructure.
+
+Once you have access to MATLAB Parallel Server, you can use parallel resources on the cluster in the same way you did on the desktop, without needing to re-code algorithms.
+
+Note: NVIDIA GPU Cloud is actually a container, and can be run in the cloud or on-premise.
+
+For MATLAB Parallel Server, see: https://www.mathworks.com/products/matlab-parallel-server/get-started.html

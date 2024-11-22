@@ -1,109 +1,86 @@
 ---
-title: Accelerating applications with NVIDIA GPUs
+title: Tackling data-intensive problems on desktops and clusters
 date: 2024-11-16-20:28:40Z
 type: docs 
-weight: 300
+weight: 250
 menu: 
     matlab-parallel-programming:
 ---
 
-- **Why MATLAB with NVIDIA GPUs**  
-  - Easy access to NVIDIA GPUs with 990+ GPU-enabled functions  
-  - MATLAB users can work with NVIDIA GPUs without CUDA programming  
-  - NVIDIA GPUs accelerate many applications like AI/Deep Learning  
 
-- **Graphics Processing Units (GPUs)**  
-  - For graphics acceleration and scientific computing  
-  - Many parallel processors  
-  - Dedicated high-speed memory  
+## Extend Big Data Capabilities in MATLAB with Parallel Computing
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new34.png >}}
-
-## GPU Requirements
-
-Parallel Computing Toolbox requires NVIDIA GPUs
-
-[nvidia.com/object/cuda_gpus.html](http://www.nvidia.com/object/cuda_gpus.html)
-
-| MATLAB Release | Required Compute Capability |
-| :-: | :-: |
-| MATLAB R2018a and later releases | 3.0 or greater |
-| MATLAB R2014b - MATLAB R2017b | 2.0 or greater |
-| MATLAB R2014a and earlier releases | 1.3 or greater |
-
-## GPU Computing ParadigmNVIDIA CUDA-enabled GPUs
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new35.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new29.png >}}
 
 ---
 
-Our tools can both be used to speed up your calculation using multiple CPUs and by using GPUs.  
+MATLAB provides a single, high-performance environment for working with big data. You can:
 
-Although GPUs have hundreds of cores, we treat the GPU as a single  unit, and access directly from a  MATLAB computation engine.   For example,  any single Worker can access the entire GPU.       
+- Access data that does not fit in memory from standard big data sources and use data from a Hadoop Distributed File System (HDFS) in MATLAB.
+- Create repositories of large amounts of images, spreadsheets, and custom files using a datastore.
+- Utilize capabilities tailored for both beginners and power users of big data applications.
+- Use tall arrays for working with columnar data containing millions or billions of rows.
+- Partition data too large for a single computer across multiple computers in a cluster using distributed arrays.
+- Take advantage of hundreds of MATLAB and toolbox functions supported with tall, distributed, and sparse arrays.
+- Create your own big data algorithms using MATLAB MapReduce or the MATLAB API for Spark.
+- Program once and scale to many execution environments, including desktop machines, compute clusters, and Spark clusters.
+- Easily access data, regardless of how it is stored.
+- Prototype algorithms quickly using small datasets.
+- Scale up to big datasets running on large clusters, all while using the same intuitive MATLAB syntax you're accustomed to.
 
-Expected speed-up varies with problem specifics as well as the avaialable hardware.
-
-## Programming with GPUs
-
-|  | Easiest to use: Parallel-enabled toolboxes |  |
-| :-: | :-: | :-: |
-|  | Moderate ease of use and moderate control: Common programming constructs(gpuArray, gather)<br /> |  |
-|  | Greatest control: Advanced programming constructs |  |
-
-## Demo: Wave EquationAccelerating scientific computing in MATLAB with GPUs
-
-* Objective: Solve 2nd order wave equation with spectral methods
-* Approach:
-  * Develop code for CPU
-  * Modify the code to use GPUcomputing using gpuArray
-  * Compare performance ofthe code using CPU and GPU
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new36.png >}}
+The Parallel Computing Toolbox extends the capabilities of tall arrays and MapReduce built into MATLAB, allowing you to run on local workers for improved performance. You can then scale tall arrays and MapReduce up to additional resources with MATLAB Parallel Server, on traditional clusters or Apache Spark™ and Hadoop® clusters.
 
 ---
 
-## Speed-up using NVIDIA GPUs
+## Overcoming Single Machine Memory Limitations Distributed Arrays
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new37.png >}}
-
-* Ideal Problems
-  * Massively Parallel and/or Vectorized operations
-  * Computationally Intensive
-* 500+ GPU-enabled MATLAB functions
-* Simple programming constructs
-  * gpuArray, gather
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new30.png >}}
 
 ---
 
-In the case of GPUs, it's slightly different.  
-Ideal problems for GPU computing :
+- **Distributed Data**: MATLAB offers a tool for working with large datasets through **distributed arrays**. These arrays enable you to manipulate large matrices using the combined memory of a cluster. On your desktop, distributed arrays appear just like normal MATLAB variables, but their data is distributed across MATLAB workers on the cluster. When you perform an operation on a distributed array, the work happens out in the cluster, but the workflow remains unchanged from your normal MATLAB experience. You can prototype distributed arrays on your desktop and then scale up to additional resources with **MATLAB Parallel Server**.
 
-1. Massively parallel—The computations can be broken down into hundreds or thousands of independent units of work.  You will see the best performance all of the cores are kept busy, exploiting the inherent parallel nature of the GPU. 
-2. Computationally intensive—The time spent on computation significantly exceeds the time spent on transferring data to and from GPU memory. Because a GPU is attached to the host CPU via the PCI Express bus, the memory access is slower than with a traditional CPU. This means that your overall computational speedup is limited by the amount of data transfer that occurs in your algorithm. 
-3. Algorithm consists of supported functions
+- **Common Actions**:
+  - **Matrix Manipulation**
+  - **Linear Algebra and Signal Processing**
 
-Our developers have written CUDA versions of key MATLAB and toolbox functions and presented them as overloaded  functions - We have over 500 GPU-enabled functions in MATLAB and a growing number of GPU-enabled functions in additional toolboxes as well.
+A large number of **standard MATLAB functions** work with distributed arrays just as they do for normal variables. This means you can program a **distributed-array algorithm** in the same way as you would program a normal in-memory algorithm. 
 
-The diagram pretty much sums up the easiest way to do GPU computing in MATLAB - Transfer/create data on the GPU using the “gpuArray”, run your function as you would normally - if the inputs are available on the GPU, we do the right thing and run on the GPU and then “gather” the data back to the CPU. This seamless support allows you to run the same code on both the CPU and the GPU.
+MATLAB also provides **overloaded functions** that work transparently with variables stored across the memory of multiple physical computers. These functions allow you to write one application that can work with both local data and distributed data, without needing to be an expert in message passing. The goal is to make complex tasks easier, allowing you to focus on your algorithms and research, rather than on the underlying details of parallel computing.
 
-## GPU Computing with Matlab
+## Tall Arrays
 
-**Useful Links**
+{{< figure src="/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new31.png" height="200" >}}
 
-**[GPU Computing](https://www.mathworks.com/help/parallel-computing/gpu-computing.html?s_tid=CRUX_lftnav)**
+- **Applicable when**:
+  - Data is **columnar** with **many** rows.
+  - The overall data size is **too big to fit into memory**.
+  - Operations are mathematical or statistical in nature.
 
-**[GPU Computing in MATLAB](https://www.mathworks.com/help/parallel-computing/gpu-computing-in-matlab.html)**
+- **Statistical and Machine Learning Applications**:
+  - Hundreds of functions are supported in MATLAB and the **Statistics and Machine Learning Toolbox**.
 
-**[MATLAB GPU Computing Support for NVIDIA CUDA-Enabled GPUs](https://www.mathworks.com/solutions/gpu-computing.html)**
+**Tall arrays** are designed to handle large datasets that do not fit into memory by automatically breaking the data into small "chunks" that fit into memory. These arrays process the data one "chunk" at a time, allowing you to work with data that would otherwise be too large for your system's memory.
 
-**[Run MATLAB Functions on Multiple GPUs](https://www.mathworks.com/help/parallel-computing/run-matlab-functions-on-multiple-gpus.html)**
+The processing code for tall arrays is the same as it would be for ordinary arrays, making it easy to integrate tall arrays into your existing MATLAB workflows. Tall arrays wrap around a datastore and treat the entire dataset as a single, continuous table or array. When you need to perform calculations, the datastore allows you to work through the array one piece at a time, without requiring you to manage the data chunks manually.
 
-**[Boost MATLAB algorithms using NVIDIA GPUs](https://www.mathworks.com/videos/boost-matlab-algorithms-using-nvidia-gpus-1624894710218.html)**
+For example, when working with CSV files containing tabular data, the resulting tall array is actually a **tall table**. You can then use standard table functions, such as `summary` or dot references to access columns, and apply operations like `max`, `min`, `plus`, and `minus` just as you would with a non-tall table.
 
-## Programming with GPUs
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new32.png >}}
 
-|  | Easiest to use: Parallel-enabled toolboxes |  |
-| :-: | :-: | :-: |
-|  | Moderate ease of use, moderate control: Common programming constructs |  |
-|  | Greatest control: Advanced programming constructs(spmd,arrayfun,CUDAKernel,mex) |  |
+---
+
+## Demo: Predicting Cost of Taxi Ride in NYC Working with tall arrays in MATLAB
+
+* **Objective:** Create a model to predict the cost of a taxi ride in New York City
+* **Inputs:**
+  * Monthly taxi ride log files
+  * The local data set contains > 2 million rows
+* **Approach:**
+  * Preprocess and explore data
+  * Work with subset of data for prototyping
+  * Fit linear model
+  * Predict fare and validate model
+
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new33.png >}}
 

@@ -1,151 +1,38 @@
 ---
-title: Scaling up to cluster and cloud resources
+title: Accelerating and Parallelizing MATLAB Code
 date: 2024-11-16-20:28:40Z
 type: docs 
-weight: 200
+weight: 150
 menu: 
     matlab-parallel-programming:
 ---
 
+To optimize the performance of your MATLAB® code, it’s important to first analyze and address potential bottlenecks before considering approaches like parallel computing or code generation. One effective way to accelerate your MATLAB code is by optimizing your **serial code** through techniques like **preallocation** and **vectorization**.
 
-## Take Advantage of Cluster Hardware
+- **Preallocation** involves initializing an array with its final size before use, which helps prevent the dynamic resizing of arrays, especially in loops (e.g., for and while loops).  
+- **Vectorization** replaces loops with matrix and vector operations, enabling MATLAB to process data more efficiently.
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new19.png >}}
+Additionally, replacing sections of your code with **MEX-functions**—MATLAB executable files—can yield significant performance improvements. Using **MATLAB Coder™**, you can generate readable and portable C code, which is then compiled into a MEX-function to replace the equivalent MATLAB code.
 
-There are several compelling reasons to offload your Parallel Computing Toolbox workflow from a desktop computer to a cluster. By doing so, you can **free up your desktop** for other tasks and take advantage of **more powerful computing resources** available on the cluster. For instance, you can submit jobs to the cluster and retrieve the results once they’re completed, allowing you to shut down your local computer while the job runs.
+Before modifying your code, it's important to focus on the most critical areas. The **Code Analyzer** and **MATLAB Profiler** are two essential tools to help identify where optimizations are most needed:
 
-One key benefit of using a cluster is the ability to **scale speed-up**. By utilizing more cores, you can reduce computation time significantly—what would normally take hours can be reduced to just minutes. This enables faster iterations, allowing you to make updates to your code and run multiple experiments in a single day.
+- The **Code Analyzer** works in the MATLAB Editor, checking your code as you write it. It flags potential issues and suggests modifications to improve performance.
+- The **MATLAB Profiler** provides detailed timing information about your code’s execution. It shows where your code spends the most time, which functions are called the most, and which lines of code are the most time-consuming. This information helps pinpoint bottlenecks and enables you to streamline your serial code.
 
-Additionally, clusters offer the ability to **scale memory**. If your array is too large to fit into your local computer's memory, you can use **distributed arrays** to split the data across multiple computers. Each computer stores only a portion of the array, making it possible to work with much larger datasets. Many MATLAB matrix operations and functions are enhanced to work with these distributed arrays, enabling you to operate on the entire array as a single entity within your desktop session, without needing to recode your algorithms. For more details on which functions have been enhanced for distributed arrays, refer to the **Release Notes** for recent updates to the Parallel Computing Toolbox.
-
-## Parallel Computing ParadigmClusters and Clouds
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new20.png >}}
-
----
-
-The problems or challenges you work on might need additional computational resources or memory than what is available on a single multicore desktop computer
-
-You can also scale up and access additional computational power or memory of multiple computers in a cluster in your organization or on the cloud. When we say scale up it essentially means that your pool or workers are now located on the cluster computers instead of the cores of your desktop computer. Irrespective of where your pool of workers are, your interface remains in the MATLAB Desktop. We've separated the algorithm from the infrastructure so you can write your code as you always do. 
-
-You might want to perform computations on a cluster to free up your desktop computer for other work.   You can submit jobs to a cluster and retrieve the results when they're done.   You can even shut down your local computer while you wait.   
-
-You can also use a cluster to scale an application that you've developed on your desktop.   Getting computations to take minutes rather than hours allows you to make updates to code and execute multiple runs all in the same day. 
-
-
-## batch Simplifies Offloading Serial Computations
-### Submit jobs from MATLAB and free up MATLAB for other work
-
-`job = batch('myfunc');`
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new21.png >}}
+Once your serial code is optimized, you can further improve performance by leveraging additional computing resources. **MATLAB parallel computing tools** allow you to tap into the power of multicore processors, computer clusters, and GPUs to accelerate your workflows, ensuring that your code runs more efficiently even as your computational needs scale.
 
 ---
 
-To offload work from your MATLAB session to run in the background in another session, you can use the batch command inside a script.
-Just submit your jobs and they will run in the background, you can then access results later
+## Run MATLAB on multicore machines
 
+{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new5.jpg >}}
 
-## batch Simplifies Offloading Serial Computations
-### Submit jobs from MATLAB, free up MATLAB for other work, access results later
+MATLAB provides two main approaches to parallel computing: **implicit multithreading** and **explicit parallel computing**.
 
-`job = batch('myfunc','Pool',3);`
+### Built-in Multithreading (Implicit)
+MATLAB automatically enables implicit multithreading, where multiple threads operate within a single MATLAB computation engine. Functions such as `fft`, `eig`, `svd`, and `sort` are multithreaded, meaning they can perform operations using multiple cores without needing any special configuration. This feature leverages underlying multi-threaded libraries and is automatically applied in MATLAB, as well as in many toolboxes like the Image Processing Toolbox, which benefits from core MATLAB function support. However, this implicit support has limitations—some MATLAB functions do not support multithreading, and any performance gains are confined to the local workstation.
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new22.png >}}
+### Parallel Computing Using Explicit Techniques
+For more control, MATLAB offers **explicit parallel computing**, which involves using multiple computation engines (workers) controlled by a single session. This allows you to explicitly distribute computations across multiple cores or even scale your applications to **clusters** and **clouds**. With tools like the **Parallel Computing Toolbox**, you can use syntax such as `parfor` to control how portions of your workflow are distributed to different cores. This explicit parallelism provides more flexibility and can be extended beyond a single machine to larger computing resources using **MATLAB Parallel Server**. Additionally, MATLAB enables parallel computing on **GPUs**, allowing for even greater computational power when needed.
 
-## Why parallel computing matters
-### Scaling with a compute cluster
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new23.png >}}
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new24.png >}}
-
----
-
-In this example, you see a parameter sweep in which we run up to 160,000 different configurations
-Doc example https://www.mathworks.com/help/distcomp/examples/plot-progress-during-parallel-computations-using-parfor-and-dataqueue.html?searchHighlight=dataqueue&s_tid=doc_srchtitle
-If my problem is well-sized, I can get more than a 90x speed-up with 100 workers.
-
-Just adding more workers is not a guarantee of more speed-up, though.  Every application has its limits, and eventually overhead will dominate.
-
-When choosing how many workers you should use, it's best to think about your overall needs,  in this case, even with 64 workers, I can go from 4 hours to just 4 minutes, which might be good enough.  
-
-As mentioned previously, the sweet spot is ultimate execution  on the order of a few minutes.
-
-## Parallel Computing with Matlab
-
-### Useful Links:
-
-**[Scale Up from Desktop to Cluster](https://www.mathworks.com/help/parallel-computing/scale-up-from-desktop-to-cluster.html)**
-
-**[Choose a Parallel Computing Solution](https://www.mathworks.com/help/parallel-computing/choosing-a-parallel-computing-solution.html)**
-
-**[Parallel Computing Toolbox Documentation](https://www.mathworks.com/help/parallel-computing/)**
-
-**[Benchmarks for Matlab Parallel Code](https://www.mathworks.com/help/parallel-computing/benchmarks.html)**
-
-**[Parallel Computing Toolbox Release Notes](https://www.mathworks.com/help/parallel-computing/release-notes.html)**
-
-## Key functionality
-
-|  | Description | Functionality | Ease of use | Control |
-| :-: | :-: | :-: | :-: | :-: |
-| Parallel Enabled Toolboxes | Ready to use parallelized functions in MathWorks tools | MATLAB and Simulink parallel enabled functions<br />Toolbox integration | Turnkey-automatic | Minimal (presets) |
-| Common programming constructs | Constructs that enable you to easily parallelize your code | parfor<br />gpuArray<br />batch<br />distributed/tall<br />parsim<br />parfeval | Simple | Some |
-| Advanced programming constructs | Advanced parallelization techniques | spmd<br />arrayfun/pagefun<br />CUDAKernel<br />MapReduce<br />MATLAB Spark API | Advanced | Extensive |
-
-## Migrate to Cluster / Cloud
-
-Use MATLAB Parallel Server
-
-Change hardware without changing algorithm
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new25.png >}}
-
-## Use Multiple Nodes to Quickly Find the Optimal Network
-
-* Experiment Manager App
-  * Manage experiments and reduce manual coding
-  * Sweep through a range of hyperparameter values
-  * Compare the results of using different data sets
-  * Test different neural network architectures
-* MATLAB Parallel Server
-  * Enables multiple nodes to train networks in parallel -> greatly reduce testing time
-  * Running many experiments to train networks and compare the results in parallel
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new26.png >}}
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new27.png >}}
-
-## Broad Range of Needs and Cloud Environments Supported
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new28.png >}}
-
-| Access requirements | Desktop in the cloud | Cluster in the cloud<br />(Client can be any cloud on on-premise desktop) |
-| :-: | :-: | :-: |
-| Any user could set up | NVIDIA GPU Cloud  | MathWorks Cloud Center |
-| Customizable template-based set up |  MathWorks Cloud Reference Architecture | MathWorks Cloud Reference Architecture |
-| Full set-up in custom environment | Custom installation - DIY | Custom installation - DIY |
-
-Learn More: [Parallel Computing on the Cloud](http://www.mathworks.com/products/parallel-computing/parallel-computing-on-the-cloud/index.html)
-
----
-
-
-Parallel Computing Toolbox and MATLAB Parallel Server allow you to easily extend your execution of  MATLAB and Simulink to more resources.
-
-In the parallel computing workflow, you start with MATLAB on the desktop, and incorporate parallel features from Parallel Computing Toolbox to use more resources.   
-
-You can use Parallel Computing Toolbox in a range of environments, from those which can be set up by users on their own laptop to cloud installations for enterprise deployment.
-
-When you need to scale beyond the desktop, you will need access to a cluster that has MATLAB Parallel Server installed.  This might be a cluster managed by your IT department, or it could be a cloud cluster that you set up on your own with Cloud Center or a MathWorks reference architecture.
-
-Again, there are a range of environments and ways you can access MATLAB Parallel Server, from self-serve options like Cloud Center and the customizable reference architectures to integration with your existing cluster and cloud infrastructure.
-
-…and once you have access to MATLAB Parallel Server, you can use parallel resources on the cluster in the same way you did on the desktop, without needing to re-code algorithms.
-
-Note: NVIDIA GPU Cloud is actually a container, and can be run in the cloud or on-premise.
-
-For MATLAB Parallel Server, see: https://www.mathworks.com/products/matlab-parallel-server/get-started.html
-
-
+In summary, implicit multithreading in MATLAB is automatically enabled for many core functions, while explicit parallel computing provides greater flexibility and scalability for large-scale applications across multiple cores, clusters, or clouds.

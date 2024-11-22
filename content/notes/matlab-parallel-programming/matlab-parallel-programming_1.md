@@ -29,7 +29,6 @@ However, the challenge lies in effectively utilizing this powerful hardware, whi
 
 {{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new0.png >}}
 
----
 
 Let's look at some examples of customer across multiple industries who have been using MathWorks parallel computing tools and why they chose parallel computing 
 
@@ -37,30 +36,16 @@ Let's look at some examples of customer across multiple industries who have been
 
 ---
 
-Here are some examples of where people are successfully using our parallel computing tools.  All of these people are scaling up their problems to run on additional hardware and seeing significant benefits from it.  
+| {{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new1.png width="300px" >}} | {{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new2.png width="300px" >}} |
+|:-----------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------:|
+| **Automotive Test Analysis and Visualization**                                                                   | **Discrete-Event Model of Fleet Performance**                                                                    |
+| - 3–4 months of development time saved                                                                           | - Simulation time reduced from months to hours                                                                   |
+| - Validation time sped up 2X                                                                                     | - Simulation time sped up 20X                                                                                    |
 
-Our parallel computing tools are all about enabling you to scale to more hardware without needing to be an expert in parallel computing.  
+| {{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new3.png width="300px" >}} | {{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new4.jpg width="300px" >}} |
+|:-----------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------:|
+| **Heart Transplant Studies**                                                                                     | **Calculating Derived Market Data**                                                                              |
+| - 4 weeks reduced to 5 days                                                                                      | - Implementation time reduced by months                                                                          |
+| - Process time sped up 6X                                                                                        | - Updates sped up 8X                                                                                             |
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new1.png >}}
-
-**Automotive Test Analysis and Visualization**
-* 3-4 months of development time saved
-* Validation time sped up 2X
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new2.png >}}
-
-**Discrete-Event Model of Fleet Performance**
-* Simulation time reduced from months to hours
-* Simulation time sped up 20X
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new3.png >}}
-
-**Heart Transplant Studies**
-* 4 weeks reduced to 5 days
-* Process time sped up 6X
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new4.jpg >}}
-
-**Calculating Derived Market Data**
-* Implementation time reduced by months
-* Updates sped up 8X
+---
