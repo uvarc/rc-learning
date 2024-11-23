@@ -10,7 +10,7 @@ menu:
 
 ## Take Advantage of Cluster Hardware
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new19.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/hardware-cluser-diagram.png >}}
 
 There are several compelling reasons to offload your Parallel Computing Toolbox workflow from a desktop computer to a cluster. By doing so, you can **free up your desktop** for other tasks and take advantage of **more powerful computing resources** available on the cluster. For instance, you can submit jobs to the cluster and retrieve the results once they’re completed, allowing you to shut down your local computer while the job runs.
 
@@ -18,9 +18,11 @@ One key benefit of using a cluster is the ability to **scale speed-up**. By util
 
 Additionally, clusters offer the ability to **scale memory**. If your array is too large to fit into your local computer's memory, you can use **distributed arrays** to split the data across multiple computers. Each computer stores only a portion of the array, making it possible to work with much larger datasets. Many MATLAB matrix operations and functions are enhanced to work with these distributed arrays, enabling you to operate on the entire array as a single entity within your desktop session, without needing to recode your algorithms. For more details on which functions have been enhanced for distributed arrays, refer to the **Release Notes** for recent updates to the Parallel Computing Toolbox.
 
-## Parallel Computing ParadigmClusters and Clouds
+## Parallel Computing Paradigm
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new20.png >}}
+*Clusters and Clouds*
+
+{{< figure src=/notes/matlab-parallel-programming/img/matlab-parallel-clusters.png >}}
 
 ---
 
@@ -50,14 +52,14 @@ Jobs will run in the background, allowing you to access results later.
    job = batch('myfunc', 'Pool', 3);
    ```  
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new22.png width="500px" >}}
+{{< figure src="/notes/matlab-parallel-programming/img/parallel-pool.png" width="500px" >}}
 
 ---
 
 ## Why parallel computing matters
 ### Scaling with a compute cluster
 
-{{< figure src=/notes/matlab-parallel-programming/img/image_copy.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/cluster-scaling-example.png >}}
 
 ---
 
@@ -94,11 +96,10 @@ As mentioned previously, the sweet spot is ultimate execution  on the order of a
 
 ## Migrate to Cluster / Cloud
 
-Use MATLAB Parallel Server
+-Use MATLAB Parallel Server
+- Change hardware without changing algorithm
 
-Change hardware without changing algorithm
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new25.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/change-cluser-matlab.png >}}
 
 ## Use Multiple Nodes to Quickly Find the Optimal Network
 
@@ -111,11 +112,11 @@ Change hardware without changing algorithm
   * Enables multiple nodes to train networks in parallel -> greatly reduce testing time
   * Running many experiments to train networks and compare the results in parallel
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new26.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/matlab-parallel-server-sweep.png >}}
 
 ## Broad Range of Needs and Cloud Environments Supported
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new28.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/matlab-hardware-diagram.png >}}
 
 | Access requirements | Desktop in the cloud | Cluster in the cloud<br />(Client can be any cloud on on-premise desktop) |
 | :-: | :-: | :-: |

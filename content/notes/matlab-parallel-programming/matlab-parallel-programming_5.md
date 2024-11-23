@@ -10,7 +10,7 @@ menu:
 
 ## Extend Big Data Capabilities in MATLAB with Parallel Computing
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new29.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/matlab-parallel-diagram.png >}}
 
 ---
 
@@ -34,7 +34,7 @@ The Parallel Computing Toolbox extends the capabilities of tall arrays and MapRe
 
 ## Overcoming Single Machine Memory Limitations Distributed Arrays
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new30.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/distributed-arrays.png >}}
 
 ---
 
@@ -50,7 +50,7 @@ MATLAB also provides **overloaded functions** that work transparently with varia
 
 ## Tall Arrays
 
-{{< figure src="/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new31.png" height="200" >}}
+{{< figure src="/notes/matlab-parallel-programming/img/tall-data.png" height="200" >}}
 
 - **Applicable when**:
   - Data is **columnar** with **many** rows.
@@ -66,7 +66,7 @@ The processing code for tall arrays is the same as it would be for ordinary arra
 
 For example, when working with CSV files containing tabular data, the resulting tall array is actually a **tall table**. You can then use standard table functions, such as `summary` or dot references to access columns, and apply operations like `max`, `min`, `plus`, and `minus` just as you would with a non-tall table.
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new32.png >}}
+{{< figure src="/notes/matlab-parallel-programming/img/tall-arrays-diagram.png" height="300px" >}}
 
 ---
 
@@ -82,5 +82,5 @@ For example, when working with CSV files containing tabular data, the resulting 
   * Fit linear model
   * Predict fare and validate model
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new33.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/taxi-example.png >}}
 

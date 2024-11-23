@@ -36,7 +36,7 @@ I've also shown you the specific steps needed.   MathWorks provides tools and in
 
 Every month, over  **2 million** MATLAB & Simulink users visit MATLAB Central to get questions answered, download code and improve programming skills.
 
-{{< figure src="/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new38.png" height="200px" >}}
+{{< figure src="/notes/matlab-parallel-programming/img/matlab-central-logo.png" height="200px" >}}
 
 **[MATLAB Answers](http://www.mathworks.com/matlabcentral/answers/index)** : Q&A forum; most questions get answered in only  **60 minutes**
 
@@ -52,7 +52,7 @@ And more for you to explore…
 
 ## Get Help
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new39.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/get-help-example.png >}}
 
 Quick access to:
 - Self-serve tools
@@ -119,11 +119,11 @@ matlab -nodisplay -r \
 
 ## SLURM Script end-of-job email
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new40.png >}}
+{{< figure src="/notes/matlab-parallel-programming/img/slurm-email-example.png" width="500px" >}}
 
-* When the job finishes, the end-of-job email sent by SLURM will contain the output of the SLURM seff command.
+When the job finishes, the end-of-job email sent by SLURM will contain the output of the SLURM seff command.
 
-GPU Computations
+**GPU Computations**
 
 The gpu queue provides access to compute nodes equipped with RTX2080Ti, RTX3090, A6000, V100, and A100 NVIDIA GPU device
 
@@ -146,19 +146,18 @@ The second argument to gres can be rtx2080, rtx3090, v100, or a100 for the diffe
 
 As artificial intelligence (AI) and machine learning (ML) continue to change how academic research is conducted, the NVIDIA DGX BasePOD, or BasePOD, brings new AI and ML functionality to Rivanna, UVA's High-Performance Computing (HPC) system. The BasePOD is a cluster of high-performance GPUs that allows large deep-learning models to be created and utilized at UVA.
 
-* The NVIDIA DGX BasePOD™ on Rivanna and Afton, hereafter referred to as the POD, is comprised of:
+The NVIDIA DGX BasePOD™ on Rivanna and Afton, hereafter referred to as the POD, is comprised of:
 * 10 DGX A100 nodes with
   * 2TB of RAM memory per node
   * 80 GB GPU memory per GPU device
   * Compared to the regular GPU nodes, the POD contains  **advanced features**  such as:
-* NVLink for fast multi-GPU communication* GPUDirect RDMA Peer Memory for fast multi-node multi-GPU communication
-* GPUDirect Storage with 200 TB IBM ESS3200 (NVMe) SpectrumScale storage array
-* which makes it ideal for the following types of jobs:
-* The job needs multiple GPUs on a single node or even multiple nodes.
-* The job (can be single- or multi-GPU) is I/O intensive.
-* The job (can be single- or multi-GPU) requires more than 40 GB GPU memory. (The non-POD nodes with the highest GPU memory are the regular A100 nodes with 40 GB GPU memory.)
+    - NVLink for fast multi-GPU communication* GPUDirect RDMA Peer Memory for fast multi-node multi-GPU communication
+    - GPUDirect Storage with 200 TB IBM ESS3200 (NVMe) SpectrumScale storage array, which makes it ideal for the following types of jobs:
+      - The job needs multiple GPUs on a single node or even multiple nodes.
+      - The job (can be single- or multi-GPU) is I/O intensive.
+      - The job (can be single- or multi-GPU) requires more than 40 GB GPU memory. (The non-POD nodes with the highest GPU memory are the regular A100 nodes with 40 GB GPU memory.)
 
-[https://](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[www.rc.virginia.edu](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[/](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[userinfo](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[/](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[rivanna](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[/](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[basepod](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[/](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)
+[Learn more about basepod](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)
 
 
 Slurm script additional constraint
@@ -169,7 +168,7 @@ Slurm script additional constraint
 #SBATCH -C gpupod
 ```
 
-Remarks
+**Remarks**
 - Before running on multiple nodes, please make sure the job can scale well to 8 GPUs on a single node.
 - Multi-node jobs on the POD should request all GPUs on the nodes, i.e. --gres=gpu:a100:8.
 - You may have already used the POD by simply requesting an A100 node without the constraint, since 18 out of the total 20 A100 nodes are POD nodes.
@@ -201,7 +200,7 @@ Shell script to monitor and record cpu/memory usage using top
 
 Shell script to monitor job resource usage output file
 
-{{< figure src="/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new41.png" style="height: 200px;" >}}
+{{< figure src="/notes/matlab-parallel-programming/img/slurm-output-file.png" width="500px" >}}
 
 ## Parallel/GPU Computing
 
@@ -217,25 +216,25 @@ The only way to definitively answer this question is to perform a scaling study 
 
 ## Presenting scaling results (the right way)
 
-Plotting the same data on log axes gives a lot more insight. Note the different scales for the left axes on the two plots. Including a line showing linear scaling and plotting the parallel efficiency on the right axis adds even more value
+Plotting the same data on log axes gives a lot more insight. Note the different scales for the left axes on the two plots. Including a line showing linear scaling and plotting the parallel efficiency on the right axis adds even more value.
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new42.jpg >}}
+{{< figure src=/notes/matlab-parallel-programming/img/scaling-logs-graphs.jpg >}}
 
 ## Where should I be on the scaling curve?
 
 If your work is not particularly sensitive to the time to complete a single run, consider using a CPU/GPU count at or very close to 100% efficiency, even if that means running on a single core.
 
-This specially makes sense for parameter sweep workloads where the same calculation is run many times with a different set of inputs
+This specially makes sense for parameter sweep workloads where the same calculation is run many times with a different set of inputs.
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new43.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/second-scaling-law.png >}}
 
 Go a little further out on the scaling curve if the job would take an unreasonably long time at lower core counts or if a shorter time to solution helps you make progress in your research.
 
 If code does not have checkpoint-restart capabilities and the run time would exceed queue limits, you'll have no choice but to run at higher core counts.
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new44.png >}}
+{{< figure src="/notes/matlab-parallel-programming/img/scaling-comparison-1.png" width="400px" >}}
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new45.png >}}
+{{< figure src="/notes/matlab-parallel-programming/img/scaling-comparison-2.png" width="400px" >}}
 
 If the time to solution is absolutely critical, it's okay to run at lower efficiency.
 

@@ -17,13 +17,11 @@ menu:
   - Many parallel processors  
   - Dedicated high-speed memory  
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new34.png >}}
+{{< figure src="/notes/matlab-parallel-programming/img/gpu-cores.png" width="300px" >}}
 
 ## GPU Requirements
 
-*Note: Parallel Computing Toolbox requires NVIDIA GPUs.*
-
-[nvidia.com/object/cuda_gpus.html](http://www.nvidia.com/object/cuda_gpus.html)
+*Note: Parallel Computing Toolbox requires NVIDIA GPUs. [Learn more here.](http://www.nvidia.com/object/cuda_gpus.html)*
 
 | MATLAB Release | Required Compute Capability |
 | :-: | :-: |
@@ -34,7 +32,7 @@ menu:
 ## GPU Computing Paradigm
 ### NVIDIA CUDA-enabled GPUs
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new35.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/parallel-toolbox-to-gpus.png >}}
 
 ---
 
@@ -59,13 +57,13 @@ Expected speed-up varies with problem specifics as well as the avaialable hardwa
   * Modify the code to use GPUcomputing using gpuArray
   * Compare performance ofthe code using CPU and GPU
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new36.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/second-order-wave-equation-example.png >}}
 
 ---
 
 ## Speed-up using NVIDIA GPUs
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new37.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/speed-up-gpu.png >}}
 
 * Ideal Problems
   * Massively Parallel and/or Vectorized operations

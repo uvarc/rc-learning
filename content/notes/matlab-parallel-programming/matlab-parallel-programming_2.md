@@ -9,7 +9,7 @@ menu:
 
 ### Parallel Computing Paradigm Multicore Desktops
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new6.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/parallel-computing-toolbox.png >}}
 
 ---
 
@@ -31,13 +31,15 @@ See also:  https://www.mathworks.com/discovery/matlab-multicore.html
 
 ## Accelerating MATLAB and Simulink Applications
 
-{{< figure src=/notes/matlab-parallel-programming/img/image.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/explicit-parallelism.png >}}
 
 ---
 
-## Demo: Classification Learner AppAnalyze sensor data for human activity classification
+## Demo: Classification Learner App
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new7.png >}}
+*Analyze sensor data for human activity classification*
+
+{{< figure src="/notes/matlab-parallel-programming/img/classification-demo.png" height="200px" >}}
 
 * Objective: visualize and classify cellphone sensor data of human activity
 * Approach:
@@ -46,7 +48,7 @@ See also:  https://www.mathworks.com/discovery/matlab-multicore.html
 
 ---
 
-https://insidelabs-git.mathworks.com/ltc-ae/demos/HumanActivityRecognition
+Check out more here: https://insidelabs-git.mathworks.com/ltc-ae/demos/HumanActivityRecognition
 
 Let's open MATLAB and try out a demonstration of using built in parallel functionality invoked by setting a toggle to invoke parallel. 
 In this demo, we are loading IOT sensor data from a mobile phone and then using this sensor data to classify the data into activity-standing, sitting, running, etc. 
@@ -59,7 +61,7 @@ The demo will utilize the multiple cores in my parallel pool to train multiple c
 * Set flags to run optimization in parallel
 * Use pool of MATLAB workers to enable parallelism
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new8.png >}}
+{{< figure src="/notes/matlab-parallel-programming/img/cellphone-optimization-demo.png" height="200px" >}}
 
 ## Parallel-enabled Toolboxes (MATLAB® Product Family)
 
@@ -67,19 +69,21 @@ The demo will utilize the multiple cores in my parallel pool to train multiple c
 
 ---
 
-{{< figure src=/notes/matlab-parallel-programming/img/image_copy_copy_copy.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/matlab-toolboxes.png >}}
 
 ---
 
 
-If you want a bit more control, then Parallel Computing Toolbox adds some parallel keywords into the MATLAB language.  An example of this is Parfor or batch commands.
+If you want a bit more control, then Parallel Computing Toolbox adds some parallel keywords into the MATLAB language. An example of this is Parfor or batch commands.
 
 
-## Explicit Parallelism: Independent Tasks or IterationsSimple programming constructs: parfor
+## Explicit Parallelism: Independent Tasks or Iterations
+
+*Simple programming constructs: parfor*
 
 Examples of this include parameter sweeps, and Monte Carlo simulations. There are no dependencies or communications between tasks.
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new16.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/explicit-parallelism-diagram.png >}}
 
 ---
 
@@ -89,16 +93,16 @@ If you are dealing with problems that are computationally intensive and are just
 
 Real-world examples of such problems are parameter sweeps or Monte Carlo simulations.
 
-For example, lets say you have 5 tasks to be completed - If you run these in a FOR loop, they run serially one after the other - you wait for one to get done, then start the next iteration - However if they're all independent tasks with no dependencies or communication between individual iterations - you can distribute these tasks to the MATLAB workers we spoke about - multiple tasks can execute simultaneously  you'll maximize the utilization of the cores on your desktop machine and save up on a lot of time !
-Requirements for parfor loops 
-Task independent
-Order independent
+For example, lets say you have 5 tasks to be completed - If you run these in a FOR loop, they run serially one after the other - you wait for one to get done, then start the next iteration - However if they're all independent tasks with no dependencies or communication between individual iterations - you can distribute these tasks to the MATLAB workers we spoke about - multiple tasks can execute simultaneously  you'll maximize the utilization of the cores on your desktop machine and save up on a lot of time!
 
-Constraints on the loop body
-Cannot “introduce” variables (e.g. load, etc.)
-Cannot contain break or return statements
-Cannot contain another parfor loop
+**Requirements for parfor loops:**
+- Task independent
+- Order independent
 
+**Constraints on the loop body**
+- Cannot “introduce” variables (e.g. load, etc.)
+- Cannot contain break or return statements
+- Cannot contain another parfor loop
 
 ## Explicit Parallelism: Independent Tasks or Iterations
 
@@ -113,16 +117,13 @@ parfor i = 1:5
   y(i) = myFunc(myVar(i));
 end
 ```
-
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new17.png >}}
-
 ---
 
 For example, lets say you have 5 tasks to be completed - If you run these in a FOR loop, they run serially one after the other - you wait for one to get done, then start the next iteration- However if they're all independent tasks with no dependencies or communication between individual iterations - you can distribute these tasks to the MATLAB workers we spoke about - multiple tasks can execute simultaneously  you'll maximize the utilization of the cores on your desktop machine and save up on a lot of time !
 
 ## Mechanics of parfor Loops
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new18.png >}}
+{{< figure src=/notes/matlab-parallel-programming/img/parforloop-mechanics.png >}}
 
 ## Tips for Leveraging parfor
 

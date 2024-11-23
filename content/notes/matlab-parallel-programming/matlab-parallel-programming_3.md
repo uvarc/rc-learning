@@ -25,7 +25,7 @@ Once your serial code is optimized, you can further improve performance by lever
 
 ## Run MATLAB on multicore machines
 
-{{< figure src=/notes/matlab-parallel-programming/img/Matlab-Parallel-ProgrammingFall23_new5.jpg >}}
+{{< figure src=/notes/matlab-parallel-programming/img/matlab-multicore-machines.jpg >}}
 
 MATLAB provides two main approaches to parallel computing: **implicit multithreading** and **explicit parallel computing**.
 
