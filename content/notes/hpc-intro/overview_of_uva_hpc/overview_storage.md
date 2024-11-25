@@ -19,7 +19,7 @@ Each user has access to a _home directory_ and a _scratch directory_.
 
 ### Home Directory
 
-When you log in, you will be in your home directory, e.g. /home/mst3k.  Each home directory on has 50GB of storage capacity.  The home directory is for individual use and is not shareable with other users.
+When you log in, you will be in your home directory, e.g. /home/mst3k.  Each home directory on has 200GB of storage capacity.  The home directory is for individual use and is not shareable with other users.
 
 ### Scratch Directory
 
