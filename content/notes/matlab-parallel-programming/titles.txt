@@ -1,0 +1,7 @@
+Parallel Matlab on Rivanna
+Why parallel computing?
+Accelerating and Parallelizing MATLAB Code
+Scaling up to cluster and cloud resources
+Tackling data-intensive problems on desktops and clusters
+Accelerating applications with NVIDIA GPUs
+Summary and resources

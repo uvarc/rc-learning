@@ -28,7 +28,7 @@ For this tutorial, it is assumed that you have experience with programming in Py
 
 To follow along for the [Serial Optimization](#serial-optimization-strategies) and [Multiprocessing](#multiprocessing) examples, you can execute the code examples on your own computer or on UVA's high-performance computing cluster.  Examples described in the last section, [Distributed Parallelization](#distributed-parallelization), are best executed on UVA's high-performance computing platform.
 
-If you are using your local computer for your personal applications, not related to work, you can install the Anaconda distribution (<a href="https://www.anaconda.com/distribution/" target="balnk_">download</a>) to run the code examples. Anaconda provides multiple Python versions, an integrated development environment (IDE) with editor and profiler, Jupyter notebooks, and an easy-to-use package environment manager.  If you will or might use the installation for work, or just prefer a more minimal setup that you can more easily customize, we suggest Miniforge (https://github.com/conda-forge/miniforge).
+If you are using your local computer for your personal applications, not related to work, you can install the [Anaconda](https://www.anaconda.com) distribution to run the code examples. Anaconda provides multiple Python versions, an integrated development environment (IDE) with editor and profiler, Jupyter notebooks, and an easy-to-use package environment manager.  If you will or might use the installation for work, or just prefer a more minimal setup that you can more easily customize, we suggest Miniforge (https://github.com/conda-forge/miniforge).
 
 **If you are using UVA HPC, follow these steps to verify that your account is active:**
 
