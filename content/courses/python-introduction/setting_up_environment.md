@@ -28,14 +28,22 @@ On Windows, Miniforge will install a _miniforge prompt_ which will appear in you
 
 The default installation of Miniforge creates a _base environment_ consisting of a very minimal number of packages.  It uses a [package manager](/courses/python-introduction/packages_environments) to install further packages.  You can choose `conda` or `mamba` to install packages.  In general, we recommend mamba as it is usually much faster than conda.
 
-If you wish to install some of the more popular packages into your base environnment, open a terminal (Linux and MacOS) or a Miniforge prompt (Windows).  A good "starter pack" would be NumPy, Matplotlib, Pandas, Seaborn, Jupyterlab, and Spyder.  We would also like to upgrade our Python from the 3.10.4 in our current release version.  At your prompt type, all on one line,
+If you wish to install some of the more popular packages into your base environnment, open a terminal (Linux and MacOS) or a Miniforge prompt (Windows).  A good "starter pack" would be NumPy, Matplotlib, Pandas, Seaborn, Jupyterlab, and Spyder.  We would also like to upgrade our Python from the 3.10.4 in our current release version. In this example, our python version distributed with miniforge3 is 3.11.  At your prompt type, all on one line,
 
 ```bash
-(base)$mamba install python=3.11 numpy pandas scipy mkl seaborn numba jupyterlab ipython ipywidgets spyder
+(base)$mamba install python=3.11 numpy pandas scipy mkl seaborn numba jupyterlab ipython ipywidgets
 ```
 This will install many more packages than just those requested, since each will have packages on which they depend. 
 
-You may also decide to keep your base minimal and set up at least one new environment that contains more packages.
+You can choose to keep your base minimal and set up at least one new environment that contains more packages.  This is highly advisable in general, and will avoide potential library conflicts as your system is updated. For detailed instructions, see the [instructions](/courses/python-introduction/packages_environments), but to summarize, decide on a name for your environment, let's call it `work`, then type
+```bash
+conda create -n work python=3.11
+conda activate work
+mamba install numpy pandas scipy mkl seaborn numba jupyterlab ipython ipywidgets```
+When done, deactivate the environment
+```bash
+conda deactivate
+```
 
 In order to work with Python scripts, you will need a _development environment_. We will emphasize [Jupyterlab](/courses/python-introduction/jupyter) as well as _integrated development environments_, particularly [Spyder](/courses/python-introduction/ides).  Miniforge environments do not include either by default, so they must be installed.
 ```bash
