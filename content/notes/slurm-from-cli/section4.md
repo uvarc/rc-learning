@@ -98,7 +98,7 @@ GPU job scripts are similar to CPU scripts, but do require the addition of the -
 
 {{< code-download file="/notes/slurm-from-cli/scripts/gpu.slurm" lang="bash" >}}
 
-The example script uses a Pytorch container that we have installed on the system. The Python command it is performing prints True if CUDA (A set of GPU libraries) is visible to the GPU. This is an important indicator if Pytorch can use communicate with the GPU. If this prints False, something is wrong with the setup and requires attention.
+The script uses the command nvidia-smi which detects GPU activity.
 
 We have several different GPU types equipped on our nodes each offering varying amounts of memory. See our website for Hardware Specifications. In the example above, Slurm will choose whatever GPU is available. If you are working with larger models you may find that you need a GPU with more memory. To request a specific GPU, you add it to the --gres Slurm option. If a GPU type has multiple options (for instance, we offer 40GB and 80GB A100 GPUs), there will be a --constraint you can use to specify even further. Example Slurm script requesting 1 80GB A100 GPU node:
 
