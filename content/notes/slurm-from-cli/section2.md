@@ -68,10 +68,10 @@ Here we are requesting
 The next lines set up the environment to run our job.
 ```bash
 module purge
-module load anaconda
+module load miniforge
 ```
 
-It is good practice to purge all modules first, since Slurm "remembers" any modules set in the environment where the script is launched.  Next we load the module we need to run our program, the Python distribution Anaconda.
+It is good practice to purge all modules first, since Slurm "remembers" any modules set in the environment where the script is launched.  Next we load the module we need to run our program, the Python distribution Miniforge.
 
 Finally, we execute our job.
 ```bash
@@ -132,7 +132,7 @@ For example:
 
 ```
 $ module load matlab
-$ module load anaconda
+$ module load miniforge
 $ module load goolf R
 ```
 Modules need to be loaded any time that a new shell is created to set up the same working environment. This includes every time that you log out and back in, and every time that you run a batch job on a compute node.
