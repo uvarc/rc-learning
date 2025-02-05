@@ -8,6 +8,6 @@
 #SBATCH --account=hpc_training
 
 module purge
-module load anaconda
+module load miniforge
 
 python hello.py

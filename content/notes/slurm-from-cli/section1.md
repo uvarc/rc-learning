@@ -34,7 +34,7 @@ Slurm began when cpus had only one core each. Beginning around 2005, cpus began 
 
 **Memory** refers to _random-access memory_.  It is not the same thing as storage.  If a process reports running out of memory, it means RAM memory. Running out of disk space will result in a different error.
 
-For more details about the structure of a computational cluster, see our [introduction](https://learning.rc.virginia.edu/notes/rivanna-intro/).
+For more details about the structure of a computational cluster, see our [introduction](https://learning.rc.virginia.edu/notes/hpc-intro/).
 ## Processes and Tasks
 
 A **process** can be envisioned an instance of an executable that is running on a particular computer.  Most executables run only a single process.  Some executables run _threads_ within the _root_ process.

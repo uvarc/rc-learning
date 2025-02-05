@@ -187,6 +187,27 @@ Core efficiency is more problematic for GPU jobs, since the key to efficient GPU
 
 If your memory utilization is low and you have requested a specified amount, use `sacct -o` with at least the MaxRSS field to double-check. If you do not need as much memory as you thought, you may be able to save SUs and have a shorter queue wait time if you decrease it. 
 
+### jobstats
+
+Jobstats is an open-source job monitoring platform that can be used to gain more utilization statistics about your completed jobs. It is designed for CPU and GPU clusters that use the Slurm workload manager. It is not built in to Slurm like seff or sacct, so it needs to be loaded as a module:
+
+```
+module load jobstats
+```
+
+Once you have a completed job, you can run the command `jobstats` to receive a utilization report:
+
+```
+example goes here
+```
+To highlight some of the information the software reports on:
+ * Both CPU and GPU utilization efficiency
+ * CPU utilization across multiple nodes
+ * Utilization across multiple GPUs
+ * Notes on areas of job improvement (might not be included in our version)
+
+If you try to use jobstats on an old or short job, it will not be able to collect useful information and will provide an error. It will recommend to instead use seff for utilization details. Because of the soft time limit, it may be useful to immediately run a report on a completed job and save the report in a file for later use. 
+
 ## Stream Output in Slurm
 
 When running a program interactively, any output to the Unix [standard streams](https://learning.rc.virginia.edu/notes/unix-tutorial/unix_tutorial_3/) will be printed directly to the user's console window.  However, programs running under the control of Slurm will not have a console attached. 
