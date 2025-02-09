@@ -165,7 +165,8 @@ Running `sacct` puts a load on the system and can be very slow, so please use it
 
 ### seff
 
-The `seff` command returns information about the utilization (called the "efficiency") of core and memory.  
+The `seff` command returns information about the utilization (called the "efficiency") of core and memory. The output of seff will be returned in an email if you use END in Slurm's emailing feature. 
+
 ```bash
 $seff 56221192
 Job ID: 56221192
@@ -186,27 +187,6 @@ Under most circumstances, for a cpu-only job the "CPU" (core) efficiency should 
 Core efficiency is more problematic for GPU jobs, since the key to efficient GPU utilization is maximizing the GPU computations and minimizing CPU work. Seff does not provide a GPU utilization metric at this time, but we may be able to help you if you are concerned about GPU utilization.
 
 If your memory utilization is low and you have requested a specified amount, use `sacct -o` with at least the MaxRSS field to double-check. If you do not need as much memory as you thought, you may be able to save SUs and have a shorter queue wait time if you decrease it. 
-
-### jobstats
-
-Jobstats is an open-source job monitoring platform that can be used to gain more utilization statistics about your completed jobs. It is designed for CPU and GPU clusters that use the Slurm workload manager. It is not built in to Slurm like seff or sacct, so it needs to be loaded as a module:
-
-```
-module load jobstats
-```
-
-Once you have a completed job, you can run the command `jobstats` to receive a utilization report:
-
-```
-example goes here
-```
-To highlight some of the information the software reports on:
- * Both CPU and GPU utilization efficiency
- * CPU utilization across multiple nodes
- * Utilization across multiple GPUs
- * Notes on areas of job improvement (might not be included in our version)
-
-If you try to use jobstats on an old or short job, it will not be able to collect useful information and will provide an error. It will recommend to instead use seff for utilization details. Because of the soft time limit, it may be useful to immediately run a report on a completed job and save the report in a file for later use. 
 
 ## Stream Output in Slurm
 
