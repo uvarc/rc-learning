@@ -42,7 +42,7 @@ Most HPC sites, including UVa's, restrict the memory and time allowed to process
 2. Short development jobs,
 3. "Computational steering" in which a program runs for an interval, then the output is examined and parameters may be adjusted.
 
-For most of these cases, we strongly recommend the use of the Open OnDemand [Interactive Applications](/notes/rivanna-intro/interactive_apps/interactive/).  Jupyterlab is available to run notebooks.  Rstudio and Matlab Desktop are also available to run through this interface.  For more general work, including command-line options, the Desktop is usually the best option. It provides a basic terminal, but also access to other applications should they be needed.
+For most of these cases, we strongly recommend the use of the Open OnDemand [Interactive Applications](/notes/hpc-intro/interactive_apps/interactive/).  Jupyterlab is available to run notebooks.  Rstudio and Matlab Desktop are also available to run through this interface.  For more general work, including command-line options, the Desktop is usually the best option. It provides a basic terminal, but also access to other applications should they be needed.
 
 For general-purpose interactive work with graphics, please use the Open OnDemand Desktop.  The X11 service that Linux uses for graphics is very slow over a network.  Even with a fast connection between two systems, the Desktop will perform better since the X11 server process and the programs that use it are running on the same computer.
 
@@ -100,7 +100,7 @@ GPU job scripts are similar to CPU scripts, but do require the addition of the -
 
 The script uses the command nvidia-smi which detects GPU activity.
 
-We have several different GPU types equipped on our nodes each offering varying amounts of memory. See our website for Hardware Specifications. In the example above, Slurm will choose whatever GPU is available. If you are working with larger models you may find that you need a GPU with more memory. To request a specific GPU, you add it to the --gres Slurm option. If a GPU type has multiple options (for instance, we offer 40GB and 80GB A100 GPUs), there will be a --constraint you can use to specify even further. Example Slurm script requesting 1 80GB A100 GPU node:
+We have several different GPU types equipped on our nodes each offering varying amounts of memory. See our website for [Hardware Specifications](https://www.rc.virginia.edu/userinfo/hpc/#system-details). In the example above, Slurm will choose whatever GPU is available. If you are working with larger models you may find that you need a GPU with more memory. To request a specific GPU, you add it to the gres Slurm option. If a GPU type has multiple options (for instance, we offer 40GB and 80GB A100 GPUs), there will be a constraint you can use to specify even further. Example Slurm script requesting 1 80GB A100 GPU node:
 
 {{< code-download file="/notes/slurm-from-cli/scripts/gpua100.slurm" lang="bash" >}}
 

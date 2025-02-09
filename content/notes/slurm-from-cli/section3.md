@@ -165,7 +165,8 @@ Running `sacct` puts a load on the system and can be very slow, so please use it
 
 ### seff
 
-The `seff` command returns information about the utilization (called the "efficiency") of core and memory.  
+The `seff` command returns information about the utilization (called the "efficiency") of core and memory. The output of seff will be returned in an email if you use END in Slurm's emailing feature. 
+
 ```bash
 $seff 56221192
 Job ID: 56221192
