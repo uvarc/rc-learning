@@ -346,55 +346,42 @@ Source and more information: [https://medium.com/@harshapulletikurti/choosing-th
 
 Source and more information: [https://medium.com/@harshapulletikurti/choosing-the-correct-llm-model-from-hugging-face-hub-183fc6198295](https://medium.com/@harshapulletikurti/choosing-the-correct-llm-model-from-hugging-face-hub-183fc6198295)
 
-# Finding Model Size on Hugging Face - 1
+# Finding Model Size on Hugging Face 
 
 ![](img/LLMS_on_HPC_7.png)
 
-Use the information on the model card
+* Use the information on the model card
 
-Model size (B) = (# of parameters) * (bytes/parameter)
+* Model size (B) = (# of parameters) * (bytes/parameter)
 
-Source: [https://huggingface.co/facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn)
+---
 
 ![](img/LLMS_on_HPC_8.png)
 
-Use information on the Files and versions tab
+* Use information on the Files and versions tab
 
-Look for the pytorch model in the list of files.  (It will have a .bin extension.)
+* Look for the pytorch model in the list of files.  (It will have a .bin extension.)
 
-The size of the model will be given
-
-Source: [https://huggingface.co/facebook/bart-large-cnn/tree/main](https://huggingface.co/facebook/bart-large-cnn/tree/main)
+* The size of the model will be given
 
 # Benchmarking LLMs
-
-
 
 * Once you have narrowed down your choice of LLMs to a few, benchmarking can help you make a final decision on a model
 * Benchmarking results may be given in the model documentation on standard (or other) datasets.
 * It is always good to test models on your data!
 
+# Inference
 
-# INFERENCE
-
-# What is Inference?
-
-
+## What is Inference?
 
 * __Inference__  is the process in which a trained (or fine-tuned) LLM makes a prediction for a given input.
 
 
 ![](img/LLMS_on_HPC_9.png)
 
-Graphic Source: [Generative AI as a Service in 6G Edge-Cloud: Generation Task Offloading by In-context Learning](https://arxiv.org/abs/2408.02549) by Zhou, et al.
-
----
-
 EOS: end of sequence
 
 # Using an LLM
-
-
 
 * LLMs can be used as-is (i.e., out-of-the-box) or after fine-tuning
 * Hugging Face model cards will generally provide code for how to get started
@@ -406,10 +393,7 @@ EOS: end of sequence
 * Code for at least loading the model (directly and using the pipeline) is provided by clicking the “Use this model” button on Hugging Face
   * You may have to dig through the links to find the code you need
 
-
 # Transformers Pipeline
-
-
 
 * Consists of a tokenizer, model, and post processing for getting model output
 * Pros
@@ -427,17 +411,20 @@ Source and more information: [https://huggingface.co/docs/transformers/pipeline_
 ---
 
 Pipeline “Hides” details from the programmer – good and bad
+
 Tokenizer runs on CPU
+
 Model runs on GPU
 
+# Exercise 3a 
 
-# Exercise 3a – Direct LLM Usage vs PipelineText Summarization
+## Direct LLM Usage vs Pipeline - Text Summarization
 
-Open the ex3a.ipynb file from the workshop folder.
+* Open the ex3a.ipynb file from the workshop folder.
 
-Run each cell of this notebook and complete the EXERCISES as you go.
+* Run each cell of this notebook and complete the EXERCISES as you go.
 
-Watch the GPU memory using GPU Dashboard as you run the cells.
+* Watch the GPU memory using GPU Dashboard as you run the cells.
 
 # Pipeline Debugging Tips
 
@@ -447,17 +434,17 @@ Run the pipeline tokenizer and model separately to see where the error is being 
 
 Check out the data you are feeding to the pipeline that is causing the error.  Is it somehow different than other pieces of data?
 
-If you get stuck, please [submit a ticket to RC](https://www.rc.virginia.edu/form/support-request/).  We can help 
+If you get stuck, please [submit a ticket to RC](https://www.rc.virginia.edu/form/support-request/).  We can help!
 
-# Ex 3b – Hugging Face Datasets & DebuggingText Summarization
+# Ex 3b 
+
+## Hugging Face Datasets & Debugging - Text Summarization
 
 Open the ex3b.ipynb file from the workshop folder.
 
 We will go over this file together.
 
 # Pipeline Batching with GPU
-
-
 
 * Data (sequences) are passed in batches to the GPU, instead of one at a time
 * This allows the GPU to stay busy computing without waiting on more data to be passed from the CPU
@@ -472,31 +459,26 @@ Source and more information: [https://huggingface.co/docs/transformers/en/main_c
 
 ---
 
-Do not use batching on cpu
-
-
+Note: Do not use batching on cpu.
 
 # Batch Size and GPU Memory
-
-
 
 * As batch_size increases, so does GPU memory usage
 * If you get an OOM (out of memory) error while using the GPU, try decreasing the LLM batch size.
 
-
 Source and more information: [https://huggingface.co/docs/transformers/en/main_classes/pipelines#pipeline-batching](https://huggingface.co/docs/transformers/en/main_classes/pipelines#pipeline-batching)
 
-# Ex 3c – Batch Size and Num WorkersText Summarization
+# Ex 3c 
 
-Open the ex3c.ipynb file from the workshop folder.
+## Batch Size and Num Workers - Text Summarization
 
-Run each cell of this notebook and complete the EXERCISES as you go.
+* Open the ex3c.ipynb file from the workshop folder.
 
-Watch the GPU memory using GPU Dashboard as you run the cells.
+* Run each cell of this notebook and complete the EXERCISES as you go.
+
+* Watch the GPU memory using GPU Dashboard as you run the cells.
 
 # CPU Resource Allocation for Inference
-
-
 
 * __CPU memory__
   * __Interactive Partition: __ 6GB RAM per core requested
@@ -509,9 +491,6 @@ Watch the GPU memory using GPU Dashboard as you run the cells.
   * Use multiple cores - especially if you are using a dataset from the Datasets package and a GPU.  (So that DataLoader can utilize multiple cores under the hood.)
   * I usually start with 8
 
-
-Source: [https://timdettmers.com/2018/12/16/deep-learning-hardware-guide/](https://timdettmers.com/2018/12/16/deep-learning-hardware-guide/)
-
 ---
 
 Check your resource usage using GPU Dashboard, seff (completed jobs), or sstat (running jobs)
@@ -519,10 +498,7 @@ Check your resource usage using GPU Dashboard, seff (completed jobs), or sstat (
 It may be the case that even if CPU Efficiency is a low percentage, you need all of the requested CPU cores for a specific part of the code, e.g., data preprocessing.
 In this case, request the number of CPU cores that you need for the compute intensive part of the code.
 
-
 # Selecting a GPU for Inference
-
-
 
 * Select a GPU based on how much GPU memory you will need.
 * The GPU memory will contain:
@@ -534,14 +510,13 @@ In this case, request the number of CPU cores that you need for the compute inte
 * __GPU Memory Estimate for Inference (B): __ 1.2 * (LLM Memory in B)
 * __NOTE: __ I have found this formula to underestimate UVA GPU memory.  It is most likely a ballpark estimate, but I recommend tracking GPU memory using the GPU Dashboard to make a more informed GPU selection.
 
-
-Source: [https://blog.eleuther.ai/transformer-math/](https://blog.eleuther.ai/transformer-math/)
-
 ---
 
-B is for bytes
+Note: B is for bytes.
 
-# Exercise 4 – Select a GPU for Inference
+# Exercise 4 
+
+## Select a GPU for Inference
 
 Suppose you are going to run inference using the model [google-](https://huggingface.co/google-bert/bert-base-uncased)[bert](https://huggingface.co/google-bert/bert-base-uncased)[/](https://huggingface.co/google-bert/bert-base-uncased)[bert](https://huggingface.co/google-bert/bert-base-uncased)[-base-uncased](https://huggingface.co/google-bert/bert-base-uncased).  Which UVA GPU would you select and why?
 
@@ -554,34 +529,25 @@ Suppose you are going to run inference using the model [google-](https://hugging
 | RTX2080Ti | NVIDIA GeForce RTX 2080 Ti | 2018 | 11GB | 544 (2nd gen) |
 | V100 | NVIDIA V100 | 2018 | 32GB | 640 (1st gen) |
 
-# FINE-TUNING
+# Fine-Tuning
+
+## What is Fine-Tuning?
 
 ![](img/LLMS_on_HPC_10.png)
-
-# What is Fine-Tuning?
-
-
 
 * LLMs are pre-trained on huge amounts of text data to learn general language patterns
 * LLMs can be fine-tuned on a much smaller amount of data to excel at a particular task (e.g., classification of financial text)
 
 
-Graphic Source: [https://nexla.com/enterprise-ai/llm-fine-tuning/](https://nexla.com/enterprise-ai/llm-fine-tuning/)
-
----
-
-LLM pre-training is generally unsupervised
+Note: LLM pre-training is generally unsupervised.
 
 # Types of Fine-Tuning
-
-
 
 * Fine-tuning can be a supervised or unsupervised process and involves:
   * Changing some of the LLM weights,
   * __Changing all of the LLM weights (full fine-tuning), __ or
   * Parameter Efficient Fine-Tuning (PEFT), i.e., keeping the LLM weights the same but updating a small number of additional parameters that will adjust the LLM weights (e.g., LoRA).
 * The more weights you update, the more computational resources you need
-
 
 # Why use Fine-Tuning?
 
@@ -593,11 +559,8 @@ Example:
 
 ![](img/LLMS_on_HPC_11.png)
 
-Graphic Source: [https://intuitivetutorial.com/2023/06/18/large-language-models-in-deep-learning/](https://intuitivetutorial.com/2023/06/18/large-language-models-in-deep-learning/)
 
 # Example - Supervised Full Fine-Tuning
-
-
 
 * The data for supervised learning includes labels, e.g., a text review and sentiment label (positive or negative).
 * An LLM is generally pre-trained for the task of masked language modeling
@@ -605,10 +568,7 @@ Graphic Source: [https://intuitivetutorial.com/2023/06/18/large-language-models-
   * This means that the LLM head (the last layers) will change to text classification layers
   * There is a transformers function that will do this for us
 
-
 # Hugging Face Trainer Class
-
-
 
 * The Trainer class allows a user to train or fine-tune a model using a convenient function, rather than using native PyTorch.
 * When training, the Trainer will automatically use the GPU if one is present.
@@ -617,15 +577,15 @@ Graphic Source: [https://intuitivetutorial.com/2023/06/18/large-language-models-
 * The Trainer will not automatically evaluate the LLM, so we will pass it an evaluation metric.
 
 
-# Ex 5 – Supervised Full Fine-TuningText Classification
+# Exercise 5 
 
-Open the ex4.ipynb file from the workshop folder.
+## Supervised Full Fine-Tuning - Text Classification
 
-We will go over this file together.
+* Open the ex4.ipynb file from the workshop folder.
+
+* We will go over this file together.
 
 # CPU Resource Allocation for Fine-Tuning
-
-
 
 * __CPU memory__
   * __Interactive Partition: __ 6GB RAM per core requested
@@ -638,10 +598,9 @@ We will go over this file together.
   * Use multiple cores - especially if you are using a dataset from the Datasets package and a GPU.  (So that DataLoader can utilize multiple cores under the hood.)
   * I usually start with 8
 
-
-Source: [https://timdettmers.com/2018/12/16/deep-learning-hardware-guide/](https://timdettmers.com/2018/12/16/deep-learning-hardware-guide/)
-
 ---
+
+Notes: 
 
 Check your resource usage using GPU Dashboard, seff (completed jobs), or sstat (running jobs)
 
@@ -651,8 +610,6 @@ In this case, request the number of CPU cores that you need for the compute inte
 
 # Selecting a GPU for Fine-Tuning
 
-
-
 * Select a GPU based on how much GPU memory you will need.
 * But, it is a hard problem to determine how much GPU memory a LLM will need for training  __before__  training the model
 * A training iteration requires a forward and backward pass of the model. In addition to storing the LLM, training also requires additional storage space such as
@@ -661,23 +618,13 @@ In this case, request the number of CPU cores that you need for the compute inte
   * Activations
   * Data (how much is determined by the batch size)
 
-
-Source: [https://blog.eleuther.ai/transformer-math/](https://blog.eleuther.ai/transformer-math/)
-
-# Selecting a GPU for Fine-Tuning cont.
-
-
+---
 
 * According to the [Hugging Face Model Memory Calculator](https://huggingface.co/spaces/hf-accelerate/model-memory-usage), for a batch size of 1,  __GPU Memory Estimate for Fine-Tuning (B): __ 4 * (LLM Memory in B)
   * While this formula can help ballpark an estimate, I recommend tracking GPU memory using the GPU Dashboard to make a more informed GPU selection.
 * For a more specific formula, see [https://blog.eleuther.ai/transformer-math/](https://blog.eleuther.ai/transformer-math/)
   * This blog requires some understanding of transformers
 * Determining LLM memory for fine-tuning is an active area of research.  The paper [LLMem](https://arxiv.org/abs/2404.10933)[: Estimating GPU Memory Usage for Fine-Tuning Pre-Trained LLMs](https://arxiv.org/abs/2404.10933) by Kim, et al. (April 2024) presents a method for doing so within 3% of the actual memory required.
----
-
-B is for bytes
-
-
 
 # General Advice
 
@@ -691,11 +638,9 @@ If you are getting OOM (out of memory) GPU errors, try lowering the batch size.
 
 There are other advanced techniques to reduce the amount of memory used in fine-tuning.
 
-# SLURM SCRIPTS
+# Slurm Scripts
 
-# What is a Slurm Script?
-
-
+## What is a Slurm Script?
 
 * HPC environments are generally shared resources among a group of users.
 * In order to manage user jobs, we use Slurm, a resource manager for Linux clusters.
@@ -704,9 +649,6 @@ There are other advanced techniques to reduce the amount of memory used in fine-
   * Computational resources
   * Necessary software
   * Command(s) to execute the code file
-
-
-Source: [https://www.rc.virginia.edu/userinfo/rivanna/slurm/](https://www.rc.virginia.edu/userinfo/rivanna/slurm/)
 
 ---
 
@@ -742,26 +684,22 @@ Source: [https://www.rc.virginia.edu/userinfo/rivanna/software/pytorch/#pytorch-
 
 -The default command defined in each container is “python” so using “run” basically executes “python file_name.py”
 - The load software and run code lines are what a user would use to run their script at the command line
-- TF example: https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/#tensorflow-slurm-jobs 
+- TF example: [https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/#tensorflow-slurm-jobs](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/#tensorflow-slurm-jobs) 
 
 
 # More Slurm Options
 
-
-
 * To request a specific amount of memory per node:
-  * Ex) --mem=64G
+  * Ex: --mem=64G
   * Units are given with a suffix (K, M, G, or T).  If no unit is given, megabytes is assumed.
 * Other options available at [https://slurm.schedmd.com/sbatch.html](https://slurm.schedmd.com/sbatch.html)
 * For more information, see the RC tutorial [Using SLURM from a Terminal](https://learning.rc.virginia.edu/tutorials/slurm-from-cli/).
 * Tip: if you have a Jupyter notebook file (.ipynb) that you would like to run using a SLURM script, first convert it to a .py file using the following command (make sure you are in the directory that contains the file): jupyter nbconvert --to python file_name.ipynb
 
 
-# WRAP-UP
+# Wrap-up
 
-# Recap
-
-
+## Recap
 
 * We learned…
   * What an LLM is, the types of problems LLMs can solve, and LLM terminology
@@ -771,7 +709,6 @@ Source: [https://www.rc.virginia.edu/userinfo/rivanna/software/pytorch/#pytorch-
   * How to select an LLM from Hugging Face for a given task
   * LLM inference and supervised full fine-tuning on UVA HPC
   * How to write a Slurm script for LLM code using PyTorch
-
 
 # Research Computing Data Analytics Center
 
@@ -795,8 +732,6 @@ Zoom Links are available at https://www.rc.virginia.edu/support/#office-hours
   * https://rc.virginia.edu
 
 
-# Survey
-
-
+## Survey
 
   * [https://virginia.az1.qualtrics.com/jfe/form/SV_a5INnAn5S8HAScC](https://virginia.az1.qualtrics.com/jfe/form/SV_a5INnAn5S8HAScC)

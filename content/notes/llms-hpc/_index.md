@@ -1,7 +1,7 @@
 ---
 title: Large Language Models (LLMs) on HPC
 date: 2024-06-28-01:51:43Z
-authors: []
+authors: [kal, abd, mab]
 type: docs 
 weight: 1 
 date: "2025-02-27T00:00:00"
@@ -12,6 +12,7 @@ menu:
 
 
 In this tutorial, we will be discussing the following topics:
+
 * LLM overview
 * Setup/Installation
 * HPC Resources for LLMs

@@ -58,7 +58,7 @@ TODO:
 ---
 title: "Large Language Models (LLMs) on HPC" 
 date: "2025-02-27T00:00:00"
-authors: []
+authors: [kal, abd, mab]
 categories: ["Hpc", "Machine learning"]
 tags: ["Hpc", "Machine learning"]
 summary: "This tutorial is an introduction to running large language models on UVA's HPC system."

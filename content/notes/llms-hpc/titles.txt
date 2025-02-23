@@ -1,5 +1,5 @@
 Large Language Models (LLMs) on HPC
-Introduction
+What is an LLM?
 Set up/Installation
 HPC Resources for LLMs
 Model Selection

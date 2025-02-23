@@ -1,0 +1,21 @@
+---
+title: Computations on the CPU or GPU
+date: 2025-02-23-19:06:23Z
+type: docs 
+weight: 950
+menu: 
+    llms-hpc:
+        parent: HPC Resources for LLMs
+---
+
+
+| Task | CPU or GPU |
+| :-: | :-: |
+| Tokenization | CPU |
+| LLM Training/Fine-tuning | GPU |
+| LLM Inference | Either, but GPU recommended |
+
+**When you request memory for HPC, that is CPU memory.**
+
+If you request a GPU, you will receive all of that GPU’s memory.
+
