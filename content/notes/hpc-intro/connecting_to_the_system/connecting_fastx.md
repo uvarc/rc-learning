@@ -8,7 +8,7 @@ weight: 130
 
 menu:
   hpc-intro:
-    parent: Connecting to The System
+    parent: Connecting to Afton and Rivanna
 ---
 
 FastX is a Web-based desktop environment for HPC. It is accessible either through the [Open OnDemand Interactive Apps](https://ood.hpc.virginia.edu/pun/sys/dashboard) menu, or directly at [fastx.hpc.virginia.edu](https://fastx.hpc.virginia.edu).

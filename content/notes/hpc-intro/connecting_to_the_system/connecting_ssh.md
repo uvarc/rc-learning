@@ -8,7 +8,7 @@ weight: 190
 
 menu:
   hpc-intro:
-    parent: Connecting to The System
+    parent: Connecting to Afton and Rivanna
 ---
 
 SSH client provides direct access to the command line.
