@@ -11,7 +11,7 @@ menu:
     parent: Connecting to The System
 ---
 
-FastX is a Web-based desktop environment for HPC. It is accessible either through the [Open OnDemand Interactive Apps](/notes/hpc-intro/ood_interactive_apps) menu, or directly at [rivanna-desktop.hpc.virginia.edu](https://rivanna-desktop.hpc.virginia.edu).
+FastX is a Web-based desktop environment for HPC. It is accessible either through the [Open OnDemand Interactive Apps](/notes/hpc-intro/ood_interactive_apps) menu, or directly at [fastx.hpc.virginia.edu](https://fastx.hpc.virginia.edu).
 
 FastX requires the VPN.  If the VPN is not active, the start page _will not_ load.
 
