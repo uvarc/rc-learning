@@ -12,7 +12,8 @@ menu:
 ---
 
 SSH client provides direct access to the command line.
-Use the command 
+Use the command
+ 
 ```
 ssh -Y mst3k@login.hpc.virginia.edu```
 
