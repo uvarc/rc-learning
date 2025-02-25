@@ -4,14 +4,14 @@ date: "2022-10-01T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 310
+weight: 210
 
 menu:
   hpc-intro:
     parent: Features of Open OnDemand
 ---
 
-The "Files" tab on the menu bar gives access to all files in home or project (if applicable) directories.
+The "Files" tab on the menu bar gives access to all files in home, scratch, standard or project (if applicable) directories.
 
 {{< figure src="/notes/hpc-intro/img/OOD_files_tab.png" caption="OOD Files Menu" >}}
 
