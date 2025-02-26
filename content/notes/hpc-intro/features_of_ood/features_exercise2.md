@@ -1,5 +1,5 @@
 ---
-title: "Exercise"
+title: "Exercise (Open OnDemand)"
 date: "2022-10-01T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
