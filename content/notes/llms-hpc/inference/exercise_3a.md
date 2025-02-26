@@ -8,7 +8,9 @@ menu:
         parent: Inference
 ---
 
-## Direct LLM Usage vs Pipeline - Text Summarization
+## Direct LLM Usage vs Pipeline 
+
+### Text Summarization
 
 * Open the ex3a.ipynb file from the workshop folder.
 

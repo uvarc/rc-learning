@@ -23,7 +23,7 @@ __Generate__ : create a story
 
 __Search__ : question answering from a text passage
 
-__Applications: __ chatbots, virtual assistants, recommendation systems
+__Applications:__ chatbots, virtual assistants, recommendation systems
 
 Source: [https://attri.ai/blog/introduction-to-large-language-models](https://attri.ai/blog/introduction-to-large-language-models)
 

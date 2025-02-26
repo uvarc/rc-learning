@@ -8,7 +8,9 @@ menu:
         parent: Inference
 ---
 
-## Hugging Face Datasets & Debugging - Text Summarization
+## Hugging Face Datasets & Debugging
+ 
+### Text Summarization
 
 Open the ex3b.ipynb file from the workshop folder.
 

@@ -10,9 +10,9 @@ menu:
 
 
 * __CPU memory__
-  * __Interactive Partition: __ 6GB RAM per core requested
-  * __Standard Partition: __ 9GB RAM per core requested (no GPU)
-  * __GPU partition__ : you can select the amount of CPU RAM
+  * __Interactive Partition:__ 6GB RAM per core requested
+  * __Standard Partition:__ 9GB RAM per core requested (no GPU)
+  * __GPU partition:__  you can select the amount of CPU RAM
   * “You should have enough RAM to comfortably work with your GPU.”
   * In other words, request at least as much RAM as the GPU you select.
   * If you are using a large dataset and/or want to do extensive preprocessing, more RAM is probably helpful

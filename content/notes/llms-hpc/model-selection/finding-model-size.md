@@ -13,9 +13,7 @@ menu:
 
 * Use the information on the model card
 
-$$
-\text{Model size (B)} = (\# \text{ of parameters}) \times (\text{bytes/parameter})
-$$
+Model Size (B) = (Number of parameters) * (bytes/parameter)
 
 ---
 
