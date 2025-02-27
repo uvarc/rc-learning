@@ -35,7 +35,7 @@ Next, we will need a submission script to submit this code to run on a compute n
 #SBATCH --account=your_allocation
 
 module purge
-module load minoforge
+module load miniforge
 python hello.py
 ```
 
