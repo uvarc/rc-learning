@@ -1,10 +1,10 @@
 ---
-title: "Exercise 2"
+title: "Exercise (Open OnDemand)"
 date: "2022-10-01T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 390
+weight: 290
 
 menu:
   hpc-intro:

@@ -1,10 +1,10 @@
 ---
-title: Rivanna Shell Access
+title: HPC Shell Access
 date: "2022-10-01T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 360
+weight: 260
 
 menu:
   hpc-intro:
@@ -15,5 +15,6 @@ The "Clusters" tab on the menu bar open a new browser tab with a Linux command l
 
 {{< figure src="/notes/hpc-intro/img/features_shell_access.png" caption="Command line Shell Access" >}}
 
+To get a feel of how to use the command line, type the command `allocations` after the `$` prompt to display information on your allocations.
 
-Here, you are able to upload and download small files to and from the cluster from your local computer. You can also create and delete new files and directories in addition to copying or renaming them. The Filter search bar searches for files or directories in the file system.
+This is a suitable method to access the cluster through command line without connecting to the UVA VPN. 

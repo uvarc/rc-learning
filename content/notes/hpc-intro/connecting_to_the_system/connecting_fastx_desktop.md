@@ -8,7 +8,7 @@ weight: 160
 
 menu:
   hpc-intro:
-    parent: Connecting to The System
+    parent: Connecting to Afton and Rivanna
 ---
 
 A MATE desktop looks a little like an older Windows desktop. In the ribbon at the top are `Caja`, a file manager; a `Terminal` application, and the Firefox Web browser.   
