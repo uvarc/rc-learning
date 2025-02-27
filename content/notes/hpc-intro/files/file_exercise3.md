@@ -1,5 +1,5 @@
 ---
-title: Exercise 3
+title: "Exercise (Job Submission)"
 date: "2022-10-01T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
@@ -35,7 +35,7 @@ Next, we will need a submission script to submit this code to run on a compute n
 #SBATCH --account=your_allocation
 
 module purge
-module load anaconda
+module load minoforge
 python hello.py
 ```
 
