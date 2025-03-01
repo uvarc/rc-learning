@@ -8,7 +8,7 @@ weight: 150
 
 menu:
   hpc-intro:
-    parent: Connecting to The System
+    parent: Connecting to Afton and Rivanna
 ---
 
 Most users should choose the MATE session.  
