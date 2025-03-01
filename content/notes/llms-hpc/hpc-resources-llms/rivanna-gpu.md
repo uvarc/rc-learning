@@ -10,9 +10,9 @@ menu:
 
 __General__
 
-Choose “GPU” or “Interactive” as the Rivanna Partition in OOD
+Choose “GPU” or “Interactive” as the Rivanna Partition in OOD.
 
-Optional: choose GPU type and number of GPUs
+Optional: choose GPU type and number of GPUs.
 
 __POD nodes__
 

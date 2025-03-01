@@ -13,7 +13,7 @@ menu:
   * CPU memory
   * CPU cores
   * GPU
-* The resources you choose will depend on your LLM use
+* The resources you choose will depend on your LLM use.
   * Inference
   * Fine-tuning
   * Training an LLM from scratch (we are not covering this today)

@@ -13,17 +13,17 @@ menu:
 
 __Examples:__
 
-__Classify__ : sentiment analysis of Tweets
+__Classify__ : An example of classification is sentiment analysis of Tweets. 
 
-__Rewrite__ : text translation
+__Rewrite__ : An example of rewriting is text translation.
 
-__Extract__ : find company names in news articles
+__Extract__ : An example of extraction is finding company names in news articles.
 
-__Generate__ : create a story
+__Generate__ : An example of generation is creating a story.
 
-__Search__ : question answering from a text passage
+__Search__ : An example of search is question answering from a text passage.
 
-__Applications:__ chatbots, virtual assistants, recommendation systems
+__Applications:__ Examples of applications of solutions to NLP problems are chatbots, virtual assistants, and recommendation systems.
 
 Source: [https://attri.ai/blog/introduction-to-large-language-models](https://attri.ai/blog/introduction-to-large-language-models)
 

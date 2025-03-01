@@ -14,7 +14,7 @@ Using the PyTorch container:
 
 <small>```apptainer exec $CONTAINERDIR/pytorch-2.4.0.sif pip install transformers datasets```</small>
 
-* These packages are provided by Hugging Face (more details on Hugging Face in a bit)
+* These packages are provided by Hugging Face (more details on Hugging Face in a bit).
 * For the fine-tuning example we will do later today, we will also need to install the accelerate and evaluate packages.
 
 <small>```apptainer exec $CONTAINERDIR/pytorch-2.4.0.sif pip install accelerate evaluate```</smallç>

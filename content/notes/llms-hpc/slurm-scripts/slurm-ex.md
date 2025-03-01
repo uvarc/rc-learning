@@ -14,8 +14,8 @@ menu:
 
 ---
 
--The default command defined in each container is “python” so using “run” basically executes “python file_name.py”
-- The load software and run code lines are what a user would use to run their script at the command line
+-The default command defined in each container is “python” so using “run” basically executes “python file_name.py”.
+- The load software and run code lines are what a user would use to run their script at the command line.
 - TF example: [https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/#tensorflow-slurm-jobs](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/#tensorflow-slurm-jobs) 
 
 

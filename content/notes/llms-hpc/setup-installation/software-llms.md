@@ -8,12 +8,12 @@ menu:
       name: Setup/Installation
 ---
 
-* We will use Python deep learning libraries to run and fine tune LLMs
+* We will use Python deep learning libraries to run and fine tune LLMs.
   * PyTorch
   * TensorFlow/Keras
 * The [transformers](https://huggingface.co/docs/transformers/en/index) package:
-  * Works with PyTorch and TensorFlow
-  * “Transformers provides APIs and tools to easily download and train state-of-the-art pretrained models”
+  * Works with PyTorch and TensorFlow.
+  * “Transformers provides APIs and tools to easily download and train state-of-the-art pretrained models.”
     * Natural Language Processing (our focus for today)
     * Computer Vision
     * Audio
@@ -21,5 +21,5 @@ menu:
 
 ---
 
-- There are packages in R/Rstudio that can do deep learning and/or use LLMs.  We are not using those in this workshop
+- There are packages in R/Rstudio that can do deep learning and/or use LLMs.  We are not using those in this workshop.
 

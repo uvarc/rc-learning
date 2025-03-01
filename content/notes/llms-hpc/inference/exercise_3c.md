@@ -10,7 +10,7 @@ menu:
 
 ## Batch Size and GPU Memory
 
-* As batch_size increases, so does GPU memory usage
+* As batch_size increases, so does GPU memory usage.
 * If you get an OOM (out of memory) error while using the GPU, try decreasing the LLM batch size.
 
 Source and more information: [https://huggingface.co/docs/transformers/en/main_classes/pipelines#pipeline-batching](https://huggingface.co/docs/transformers/en/main_classes/pipelines#pipeline-batching)

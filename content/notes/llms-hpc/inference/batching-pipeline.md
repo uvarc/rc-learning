@@ -9,9 +9,9 @@ menu:
 ---
 
 
-* Data (sequences) are passed in batches to the GPU, instead of one at a time
-* This allows the GPU to stay busy computing without waiting on more data to be passed from the CPU
-* Batching can be used if the pipeline is passed a list of data or a dataset from the datasets package
+* Data (sequences) are passed in batches to the GPU, instead of one at a time.
+* This allows the GPU to stay busy computing without waiting on more data to be passed from the CPU.
+* Batching can be used if the pipeline is passed a list of data or a dataset from the datasets package.
 * Batching may or may not speed up your code!  You will need to test it.
 * The default batch_size for a pipeline is 1.
 * If a dataset from the datasets package is used, DataLoader is being called under the hood in the pipeline.
@@ -22,5 +22,5 @@ Source and more information: [https://huggingface.co/docs/transformers/en/main_c
 
 ---
 
-Note: Do not use batching on cpu.
+Note: Do not use batching on CPU.
 

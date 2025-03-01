@@ -9,10 +9,10 @@ menu:
 ---
 
 
-* A Large Language Model (LLM) is a deep learning model that generally solves a natural language processing problem
+* A Large Language Model (LLM) is a deep learning model that generally solves a natural language processing problem.
   * Ex: ChatGPT
-* There are many different types of LLMs that are suited to particular tasks
-* Hubs such as [Hugging Face](https://huggingface.co/) provide many LLMs for download
+* There are many different types of LLMs that are suited to particular tasks.
+* Hubs such as [Hugging Face](https://huggingface.co/) provide many LLMs for download.
 
 {{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_0.png >}}
 
