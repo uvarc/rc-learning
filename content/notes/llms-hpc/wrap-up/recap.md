@@ -20,7 +20,7 @@ menu:
 
 ## Research Computing Data Analytics Center
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_13.png >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_13.png width=80% height=80% >}}
 
 [https://www.rc.virginia.edu/service/dac/](https://www.rc.virginia.edu/service/dac/)
 

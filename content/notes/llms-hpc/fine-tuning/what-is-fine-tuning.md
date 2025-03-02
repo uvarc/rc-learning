@@ -9,7 +9,7 @@ menu:
 ---
 
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_10.png >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_10.png width=80% height=80% >}}
 
 * LLMs are pre-trained on huge amounts of text data to learn general language patterns.
 * LLMs can be fine-tuned on a much smaller amount of data to excel at a particular task (e.g., classification of financial text).

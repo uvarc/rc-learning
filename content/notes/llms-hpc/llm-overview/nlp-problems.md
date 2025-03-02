@@ -9,7 +9,7 @@ menu:
 ---
 
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_1.png >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_1.png height=75% width=75% >}}
 
 __Examples:__
 

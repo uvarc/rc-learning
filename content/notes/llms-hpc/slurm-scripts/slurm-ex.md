@@ -9,7 +9,7 @@ menu:
 ---
 
 
-{{< figure src=/notes/llms-hpc/img/slurm-script.png >}}
+{{< figure src=/notes/llms-hpc/img/slurm-script.png height=90% width=90% >}}
 
 
 ---

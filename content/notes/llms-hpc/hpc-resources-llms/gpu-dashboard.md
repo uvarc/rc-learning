@@ -9,7 +9,7 @@ menu:
 ---
 
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_5.png >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_5.png width=50% height=50% >}}
 
 * GPU Dashboard is included in OOD (Open On Demand).
 * This will be demoed during the exercises in today’s workshop.

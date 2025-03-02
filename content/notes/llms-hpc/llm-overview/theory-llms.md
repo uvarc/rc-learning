@@ -8,7 +8,7 @@ menu:
       parent: Overview of LLMs
 ---
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_2.png >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_2.png height=50% width=50% >}}
 
 * LLMs are based on the transformer architecture.
 * We are not covering this in today’s workshop.

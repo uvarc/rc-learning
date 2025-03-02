@@ -9,7 +9,7 @@ menu:
 ---
 
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_7.png >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_7.png height=80% width=80% >}}
 
 * Use the information on the model card.
 
@@ -17,7 +17,7 @@ Model Size (B) = (Number of parameters) * (bytes/parameter)
 
 ---
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_8.png >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_8.png height=60% width=60% >}}
 
 * Use information on the Files and versions tab.
 
