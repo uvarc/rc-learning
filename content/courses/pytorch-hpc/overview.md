@@ -12,18 +12,18 @@ weight: 5
 ### **Background**
 PyTorch is a widely used deep learning platform known for its flexibility and speed. Originally developed by Facebook AI (now Meta AI), it has grown into one of the most popular frameworks for deep learning research and applications. Researchers and industry professionals widely adopt it due to its ease of use, dynamic computation graph, and easy integration with GPU acceleration.
 
-PyTorch evolved from the Torch library, which was an open-source deep learning framework written in C. Although Torch is no longer actively developed, many of its libraries and functionalities have been incorporated into PyTorch. Today, PyTorch is used by corporations, laboratories, and universities to develop software like Autopilot and Full Self-Driving (FSD) models (Tesla), ChatGPT (OpenAI), reinforcement learning models for robotics (Boston Dynamics), and much
+PyTorch evolved from the Torch library, which was an open-source deep learning framework written in C. Although Torch is no longer actively developed, many of its libraries and functionalities have been incorporated into PyTorch. Today, PyTorch is used by corporations, laboratories, and universities to develop software like Autopilot and Full Self-Driving (FSD) models (Tesla), ChatGPT (OpenAI), reinforcement learning models for robotics (Boston Dynamics), and much more.
 
 ---
 
 ### **Overview of PyTorch and Its Core Components**
 
-PyTorch provides a comprehensive set of tools and features that enable efficient deep learning model development and training. Below are some of its key components:
+PyTorch provides a comprehensive set of tools and features that enable efficient deep learning model development and training. Below are some of its core components:
 
 
 #### **1. Torch Tensors**
 
-A **tensor** is a multi-dimensional array, similar to NumPy arrays, but with the added benefit of GPU acceleration and automatic differentiation.Tensors are the core data structure in PyTorch, used to store and manipulate data for deep learning models. Every input in PyTorch is represented as a tensor, features, responses, parameters, etc. PyTorch does not accept numpy arrays as input like Keras/TensorFlow does, but numpy arrays are easily converted to and from Torch tensors.
+A **tensor** is a multi-dimensional array, similar to NumPy arrays, but with the added benefit of GPU acceleration and automatic differentiation.Tensors are the core data structure in PyTorch, used to store and manipulate data for deep learning models. Every input in PyTorch is represented as a tensor; features, responses, parameters, etc. PyTorch does not accept numpy arrays as input like Keras/TensorFlow does, but numpy arrays are easily converted to and from Torch tensors.
 
 
 ##### **Creating Tensors**

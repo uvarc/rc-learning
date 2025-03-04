@@ -51,7 +51,7 @@ layer_norm = nn.LayerNorm(normalized_shape=128)
 There are two ways to define a neural network, the Sequential Class and the Module Class. 
 
 ##### Defining a Model with the Sequential Class
-The Sequential class is a PyTorch object used to simplify the creation of NN. It allows stacking layers sequentially in the order they are defined without explicitly writing a forward() method.It's best used for simple models or prototyping.
+The Sequential class is a PyTorch object used to simplify the creation of NN. It allows stacking layers sequentially in the order they are defined without explicitly writing a forward() method. It's best used for simple models or prototyping.
 ```python
 import torch.nn as nn
 

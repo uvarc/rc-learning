@@ -15,9 +15,7 @@ weight: 1
 
 This short course provides a practical introduction to building artificial neural networks using PyTorch, a powerful and flexible deep l
 earning framework. The course covers the fundamentals of PyTorch, including tensors, automatic differentiation, and model building. Participants will 
-learn how to construct, train, and optimize neural networks while exploring real-world applications. The course also includes best practices for experiment 
-tracking and project setup. By the end of the course, participants will have a solid foundation in PyTorch and be able to develop deep learning models for a 
-variety of tasks.
+learn how to construct, train, and optimize neural networks while exploring real-world applications. The course also includes best practices for experiment tracking and project setup. By the end of the course, participants will have a solid foundation in PyTorch and be able to develop deep learning models for a variety of tasks.
 
 ### Table of Contents
 
@@ -55,8 +53,6 @@ variety of tasks.
  - Creating reproducible experiments
  - Using `torch.utils.data.DataLoader` for efficient batch processing  
  - Debugging PyTorch models
-
-  
 
 
 This course is not an introduction to deep learning. It will not cover deep learning theory or mathematical concepts. This course will cover how to develop ANNs and CNNs.

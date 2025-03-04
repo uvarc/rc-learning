@@ -9,7 +9,7 @@ weight: 25
 
 
 ### **Optimizers and Learning Rate Adjustments**
-Optimizers control how a model updates its weights during training. Choosing the right optimizer and learning rate can significantly impact training efficiency.
+Optimizers control how a model updates its weights during training. Most optimizers are based on SGD. Choosing the right optimizer and learning rate can significantly impact training efficiency.
 
 #### **Types of Optimizers**
 | Optimizer  | Description |
@@ -72,6 +72,7 @@ A common data split:
  - Training Set (70-80%) – Used to train the model.
  - Validation Set (10-20%) – Used to tune hyperparameters.
  - Test Set (10-20%) – Used for final evaluation.
+ 
 #### Using a Validation Set in PyTorch
 ```python
 from sklearn.model_selection import train_test_split
