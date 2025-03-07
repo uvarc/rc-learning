@@ -1,5 +1,5 @@
 ---
-title: Computations on the CPU or GPU
+title: When to Use CPU vs. GPU
 date: 2025-02-23-19:06:23Z
 type: docs 
 weight: 950
@@ -8,12 +8,13 @@ menu:
         parent: HPC Resources for LLMs
 ---
 
-
+{{< table >}}
 | Task | CPU or GPU |
 | :-: | :-: |
 | Tokenization | CPU |
 | LLM Training/Fine-tuning | GPU |
 | LLM Inference | Either, but GPU recommended |
+{{< /table >}}
 
 **When you request memory for HPC, that is CPU memory.**
 

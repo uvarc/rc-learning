@@ -10,24 +10,28 @@ menu:
 
 __PyTorch__
 
-* Correct GPU memory usage will be reported by GPU Dashboard.
+Correct GPU memory usage will be reported by GPU Dashboard.
 
-**TensorFlow/Keras** 
+__TensorFlow/Keras__ 
 
-* By default, TF automatically allocates ALL of the GPU memory so GPU Dashboard may show that all (or almost all) of the GPU memory is being used.
-* To track the amount of GPU memory actually used, you can add these lines to your python script:
+By default, TF automatically allocates ALL of the GPU memory so GPU Dashboard may show that all (or almost all) of the GPU memory is being used.
 
-```import os```
+To track the amount of GPU memory actually used, you can add these lines to your python script:
 
-```os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'```
+```python
+import os
 
-More Info: [https://www.tensorflow.org/guide/gpu#limiting_gpu_memory_growth](https://www.tensorflow.org/guide/gpu#limiting_gpu_memory_growth)
+os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
----
+```
+
+[More Info](https://www.tensorflow.org/guide/gpu#limiting_gpu_memory_growth)
 
 Homework for Keras users: try out GPU dashboard and see if it reports all of the GPU memory as used.
 
-## Resource Allocation for LLMs
+
+### Resource Allocation for LLMs
+
 
 Resource needs will vary based on LLM use (inference, fine-tuning, etc.)
 

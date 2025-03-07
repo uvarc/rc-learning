@@ -8,25 +8,22 @@ menu:
       parent: Inference
 ---
 
+The transformers pipeline consists of a tokenizer, model, and post processing for getting model output.
 
-* The transformers pipeline consists of a tokenizer, model, and post processing for getting model output.
-* Pros
+Pros:
   * Easy to use.
   * Efficiently manages data batching and gpu memory for you – good for HPC!
-* Cons
+
+Cons:
   * Harder to debug when something goes wrong.
-* Recommendation:
-  * Use pipeline first.
-  * If you get errors, you may have to use the model directly to diagnose the problem.
 
+Recommendation: Use the pipeline first.
+If you get errors, you may have to use the model directly to diagnose the problem.
 
-Source and more information: [https://huggingface.co/docs/transformers/pipeline_tutorial](https://huggingface.co/docs/transformers/pipeline_tutorial)
+The pipeline "hides" details from the programmer, which can be good and bad. 
 
----
+The tokenizer runs on CPU, and the model runs on GPU.
 
-Pipeline “Hides” details from the programmer – good and bad
+[Source and more information](https://huggingface.co/docs/transformers/pipeline_tutorial)
 
-Tokenizer runs on CPU
-
-Model runs on GPU
 

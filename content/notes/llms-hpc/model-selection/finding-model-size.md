@@ -11,17 +11,17 @@ menu:
 
 {{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_7.png height=80% width=80% >}}
 
-* Use the information on the model card.
+Use the information on the model card.
 
-Model Size (B) = (Number of parameters) * (bytes/parameter)
+$$ \text{Model Size (B)} = \text{(Number of parameters)} \times \text{(bytes/parameter)} $$
 
 ---
 
 {{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_8.png height=60% width=60% >}}
 
-* Use information on the Files and versions tab.
+Use information on the Files and versions tab.
 
-* Look for the pytorch model in the list of files.  (It will have a .bin extension.)
+Look for the pytorch model in the list of files.  (It will have a .bin extension.)
 
-* The size of the model will be given.
+The size of the model will be given.
 

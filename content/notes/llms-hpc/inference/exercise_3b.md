@@ -10,7 +10,7 @@ menu:
 
 ## Hugging Face Datasets & Debugging
  
-### Text Summarization
+__Text Summarization__
 
 Open the ex3b.ipynb file from the workshop folder.
 

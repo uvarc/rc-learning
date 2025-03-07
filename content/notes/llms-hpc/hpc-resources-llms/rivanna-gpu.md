@@ -1,5 +1,5 @@
 ---
-title: GPU access on Rivanna
+title: GPU Access on Rivanna
 date: 2025-02-23-19:06:23Z
 type: docs 
 weight: 1200
@@ -18,12 +18,20 @@ __POD nodes__
 
 POD nodes are contained in the gpu partition with a specific Slurm constraint.
 
-* Slurm script:
-  * #SBATCH -p gpu
-  * #SBATCH --gres=gpu:a100:X	# X number of GPUs
-  * #SBATCH -C gpupod
-* Open OnDemand:
-  * --constraint=gpupod
+Slurm script:
+
+```bash
+#SBATCH -p gpu
+#SBATCH --gres=gpu:a100:X	# X number of GPUs
+#SBATCH -C gpupod
+
+```
+
+Open OnDemand:
+
+```bash
+ --constraint=gpupod
+```
 
 ---
 

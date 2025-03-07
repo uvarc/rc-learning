@@ -9,14 +9,13 @@ menu:
 ---
 
 
-* Create data on the CPU.
+1. Create data on the CPU.
 
-* Send data from the CPU to the GPU (for DL this is done in batches).
+2. Send data from the CPU to the GPU (for DL this is done in batches).
 
-* Compute result on the GPU.
+3. Compute result on the GPU.
 
-* Send the result back to the CPU.
+4. Send the result back to the CPU.
 
-
-* Depending on the DL framework/LLM pipeline you are using, some of these steps may be automatically done for you.
+Depending on the DL framework/LLM pipeline you are using, some of these steps may be automatically done for you.
 

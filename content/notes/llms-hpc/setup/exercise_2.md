@@ -5,7 +5,7 @@ type: docs
 weight: 800
 menu: 
     llms-hpc:
-        parent: Setup/Installation
+        parent: Setup
 ---
 
 ## Installing LLM Software

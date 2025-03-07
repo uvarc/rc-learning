@@ -10,11 +10,11 @@ menu:
 
 ## Direct LLM Usage vs Pipeline 
 
-### Text Summarization
+__Text Summarization__
 
-* Open the ex3a.ipynb file from the workshop folder.
+1. Open the ex3a.ipynb file from the workshop folder.
 
-* Run each cell of this notebook and complete the EXERCISES as you go.
+2. Run each cell of this notebook and complete the EXERCISES as you go.
 
-* Watch the GPU memory using GPU Dashboard as you run the cells.
+3. Watch the GPU memory using GPU Dashboard as you run the cells.
 

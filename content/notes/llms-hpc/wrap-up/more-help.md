@@ -17,8 +17,6 @@ Thursdays:     	10 am - noon
 
 Zoom Links are available at https://www.rc.virginia.edu/support/#office-hours
 
-
-  * Website:
-  * https://rc.virginia.edu
+  * [RC Website](https://rc.virginia.edu)
 
 

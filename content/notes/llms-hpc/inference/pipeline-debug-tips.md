@@ -9,7 +9,7 @@ menu:
 ---
 
 
-Use the CPU: error messages for code running on the CPU tend to be more helpful than those for code running on the GPU.
+Use the CPU. Error messages for code running on the CPU tend to be more helpful than those for code running on the GPU.
 
 Run the pipeline tokenizer and model separately to see where the error is being generated.
 

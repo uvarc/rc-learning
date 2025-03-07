@@ -5,7 +5,7 @@ type: docs
 weight: 600
 menu: 
     llms-hpc:
-        parent: Setup/Installation
+        parent: Setup
 ---
 
 
