@@ -1,6 +1,6 @@
 ---
 title: GPUs on UVA HPC
-date: 2025-02-23-19:06:23Z
+date: "2025-02-23T00:00:00"
 type: docs 
 weight: 1050
 menu: 
@@ -10,7 +10,7 @@ menu:
 
 {{< table >}}
 | GPU | Full Name | Year Launched | Memory | # of Tensor Cores |
-| :-: | :-: | :-: | :-: | :-: |
+| --- | --- | --- | --- | --- |
 | A100 | NVIDIA A100 | 2020 | 40GB or 80GB | 432 (3rd gen) |
 | A6000 | NVIDIA RTX A6000 | 2020 | 48GB | 336 (3rd gen) |
 | A40 | NVIDIA A40 | 2020 | 48GB | 336 (3rd gen) |

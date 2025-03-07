@@ -1,6 +1,6 @@
 ---
 title: Exercise 3c
-date: 2025-02-23-19:06:23Z
+date: "2025-02-23T00:00:00"
 type: docs 
 weight: 2250
 menu: 
