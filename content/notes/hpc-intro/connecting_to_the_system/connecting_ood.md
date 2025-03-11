@@ -8,7 +8,7 @@ weight: 110
 
 menu:
   hpc-intro:
-    parent: Connecting to The System
+    parent: Connecting to Afton and Rivanna
 ---
 
 To connect to Open OnDemand, open your web browser and type
