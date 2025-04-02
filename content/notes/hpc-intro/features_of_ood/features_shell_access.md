@@ -17,4 +17,6 @@ The "Clusters" tab on the menu bar open a new browser tab with a Linux command l
 
 To get a feel of how to use the command line, type the command `allocations` after the `$` prompt to display information on your allocations.
 
-This is a suitable method to access the cluster through command line without connecting to the UVA VPN. 
+This is a suitable method to access the cluster through command line without connecting to the UVA VPN.
+
+On this tab is also a System Status page. This will show an overview of the usage of the entire cluster. This may not be informative since it does not show usage by partition.
