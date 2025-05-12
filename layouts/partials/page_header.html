@@ -68,8 +68,7 @@
   style="max-width: {{$image.Width}}px; max-height: {{$image.Height}}px;">
   <div style="position: relative">
     <img src="{{ $image.RelPermalink }}" alt="{{ with $.Params.image.alt_text }}{{.}}{{ end }}" class="featured-image">
-    {{ with $.Params.image.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end
-    }}
+    {{ with $.Params.image.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
   </div>
 </div>
 {{else}}
