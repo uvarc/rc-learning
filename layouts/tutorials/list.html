@@ -4,19 +4,22 @@
     {{ with .Content }}
     <div class="article-style">{{ . }}</div>
     {{ end }}
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <div class="filter" style="margin-bottom:2em;">
         <p>
-            <a href="#" data-filter="*" class="current"><button class="btn btn-warning active">All Tutorials</button></a>
+            <a href="#" data-filter="*" class="current"><button class="btn btn-warning active">All
+                    Tutorials</button></a>
             {{ range $name, $taxonomy := where .Site.Taxonomies.tags ".Page.Section" "tutorials" }}
-            <a href="#" data-filter=".{{ lower $name }}"><button class="btn btn-info">{{ $name | humanize }}</button></a>
+            <a href="#" data-filter=".{{ lower $name }}"><button class="btn btn-info">{{ replaceRE `([^\\])_` "$1 "
+                    .Page.Title }}</button></a>
             {{ end }}
         </p>
     </div>
     <div class="page-list">
         {{ range .Pages }}
-        <div class = "{{ lower (delimit .Params.tags " ") }}">
+        <div class="{{ lower (delimit .Params.tags " ") }}">
             <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
             <div class="article-style">
                 {{ if .Params.summary }}
@@ -31,25 +34,25 @@
         {{ end }}
     </div>
     <script type="text/javascript">
-         var $container = $('.page-list');
+        var $container = $('.page-list');
 
-            $('.filter a').click(function(){
-                $('.filter .current .btn').removeClass('active');
-                $('.filter .current').removeClass('current');
-                $(this).addClass('current');
-                $('.btn', this).addClass('active');
+        $('.filter a').click(function () {
+            $('.filter .current .btn').removeClass('active');
+            $('.filter .current').removeClass('current');
+            $(this).addClass('current');
+            $('.btn', this).addClass('active');
 
-                var selector = $(this).attr('data-filter');
-                $container.isotope({
-                    filter: selector,
-                    animationOptions: {
-                        duration: 750,
-                        easing: 'linear',
-                        queue: false
-                    }
-                });
-                return false;
+            var selector = $(this).attr('data-filter');
+            $container.isotope({
+                filter: selector,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
             });
+            return false;
+        });
 
     </script>
 </div>
