@@ -263,7 +263,7 @@ libEGL.so.1		  libGLX_nvidia.so.0	       libnvidia-cfg.so.1		  libnvidia-ifr.so.
 
 ### "Can I use my own container on JupyterLab?"
 
-Suppose you need to use TensorFlow 2.17.0 on JupyterLab. First, note we do not have `tensorflow/2.17.0` as a module:
+Suppose you need to use TensorFlow 2.19.0 on JupyterLab. First, note we do not have `tensorflow/2.19.0` as a module:
 
 ```bash
 module spider tensorflow
@@ -277,7 +277,7 @@ Go to [TensorFlow's Docker Hub page](https://hub.docker.com/r/tensorflow/tensorf
 1. Create kernel directory
 
 ```bash
-DIR=~/.local/share/jupyter/kernels/tensorflow-2.17.0
+DIR=~/.local/share/jupyter/kernels/tensorflow-2.19.0
 mkdir -p $DIR
 cd $DIR
 ```
@@ -287,11 +287,11 @@ cd $DIR
 ```
 {
  "argv": [
-  "/home/<user>/.local/share/jupyter/kernels/tensorflow-2.17.0/init.sh",
+  "/home/<user>/.local/share/jupyter/kernels/tensorflow-2.19.0/init.sh",
   "-f",
   "{connection_file}"
  ],
- "display_name": "Tensorflow 2.17",
+ "display_name": "Tensorflow 2.19",
  "language": "python"
 }
 ```
@@ -323,7 +323,7 @@ Usage: jkrollout sif display_name [gpu]
 ```
 
 ```bash
-jkrollout /path/to/sif "Tensorflow 2.17" gpu
+jkrollout /path/to/sif "Tensorflow 2.19" gpu
 ```
 
 ### Test your new kernel
@@ -333,13 +333,13 @@ jkrollout /path/to/sif "Tensorflow 2.17" gpu
     - Partition: GPU
     - Work Directory: (location of your `mnist_example.ipynb`)
     - Allocation: `hpc_training`
-- Select the new "TensorFlow 2.17" kernel
+- Select the new "TensorFlow 2.19" kernel
 - Run `mnist_example.ipynb`
 
 ### Remove a custom kernel
 
 ```bash
-rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.17.0
+rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.19.0
 ```
 
 ---
