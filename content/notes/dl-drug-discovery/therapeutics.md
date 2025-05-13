@@ -5,17 +5,22 @@ type: docs
 weight: 200
 menu: 
     dl-drug-discovery:
+    parent: Accelerating Discovery with AI
 ---
 
-Peptide-based therapeutics
+In drug discovery, two major types of treatments are peptide therapeutics and small-molecule therapeutics. These are especially relevant for deep learning applications, as both involve designing and optimizing molecules to interact with specific targets.
 
-{{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_2.png >}}
+**Peptide-based therapeutics:**
 
-Peptidomimetics: A synthetic tool for inhibiting protein-protein interactions in cancer,  _Int J_  _Pept_  _Res_ _and_  _Ther_ , _2020_
+Peptide-based drug discovery involves designing peptides that can effectively bind to a target, such as a protein involved in disease. One key challenge is improving the affinity—or strength—of the binding. This is done by modifying peptides to enhance their stability, selectivity, and binding performance.
 
-Small – molecule therapeutics
+{{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_2.png caption="_Peptidomimetics: A synthetic tool for inhibiting protein-protein interactions in cancer_,  Int J  Pept  Res and  Ther, 2020" >}}
+
+
+**Small – molecule therapeutics:**
+
+Small-molecule drug discovery starts with combining chemical structures and elements to form potential drug candidates. These molecules are then refined through target selection and validation, hit identification, lead generation, profiling, and optimization before advancing to clinical trials.
 
 {{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_3.png >}}
 
-Google search image!
 

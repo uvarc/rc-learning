@@ -1,13 +1,12 @@
 ---
-title: Deep learning in drug discovery
+title: Deep Learning in Drug Discovery
 date: 2025-03-11-13:24:11Z
 type: docs 
 weight: 100
 menu: 
     dl-drug-discovery:
+    name: Deep Learning in Drug Discovery
 ---
-
-{{< figure src=/notes/dl-drug-discovery/img/drug-disc.png >}}
 
 ##  Computational chemistry application
 

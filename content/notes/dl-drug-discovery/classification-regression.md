@@ -1,28 +1,25 @@
 ---
-title: Classification/Regression in ML
+title: Classification and Regression in ML
 date: 2025-03-11-13:24:11Z
 type: docs 
 weight: 400
 menu: 
     dl-drug-discovery:
+    parent: Chemprop
 ---
-
 
 {{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_10.png >}}
 
+Classification categorizes data into classes, while regression predicts continuous values based on relationships between variables.
+
+Regression models seek to uncover and quantify the relationship between variables.
+
 {{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_11.png >}}
 
-{{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_12.png >}}
+Classification models can have binary or multivariate classification.
 
-Regression example in drug discovery
+Chemprop gives researchers the ability to do both classification and regression. This tutorial will show an example of regression.
 
-Input is in CSV file format
 
-{{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_13.png >}}
 
-Regression example in drug discovery
-
-Discuss the training example – Jupyter example
-
-{{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_14.png >}}
 

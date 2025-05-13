@@ -1,28 +1,23 @@
 ---
-title: Deep learning in drug discovery Chemprop
+title: Chemprop
 date: 2025-03-11-13:24:11Z
 type: docs 
 weight: 350
 menu: 
     dl-drug-discovery:
+    parent: Deep Learning in the Optimization Stage
 ---
-
-
-d-Message passing neural network (MPNN)
-
-{{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_8.png >}}
-
-Original Article:  _Analyzing learned Molecular Representations for Property Prediction, _  _Yang et al, _  _JCIM 2019_
-
-Chemprop – a directed MPNN
-
-MPNN operates in two phases:
-
-(1) a message passing phase – in the context of chemical structures it is transmitting information across the molecule to build a neural representation of the molecule
-
-(2) a readout phase – This uses the final representation of the molecule for predictions
-
-D-MPNN uses information associated with edges – accumulative type
 
 {{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_9.png >}}
 
+Chemprop is a deep learning tool for predicting small molecule properties using a Directed Message Passing Neural Network (D-MPNN).
+
+D-MPNNs operate in two phases:
+
+* Message Passing Phase – Transmits information across atoms and bonds to build a learned representation of the molecule.
+
+* Readout Phase – Uses this final representation to make property predictions.
+  
+D-MPNNs use edge-based information in an accumulative way. 
+
+They start with a binary representation of the chemical structure, where the position of each substructure is encoded. Carbon atoms are implied when not explicitly shown, and the compound of interest is often nitrogen. The encoding captures directionality of both atoms and bonds, generating vectors that are merged and used to train the model. This approach is enhanced by deep learning.

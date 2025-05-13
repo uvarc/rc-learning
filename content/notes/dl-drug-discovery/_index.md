@@ -1,7 +1,7 @@
 ---
 title: dl-drug-discovery
 date: 2025-03-11-13:24:11Z
-authors: [uvarc]
+authors: [ppr]
 categories: [Fill]
 tags: [fill]
 type: docs 
@@ -12,4 +12,4 @@ menu:
     dl-drug-discovery:
 ---
 
-Title of Session
+Deep Learning in Drug Discovery
