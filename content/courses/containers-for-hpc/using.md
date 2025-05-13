@@ -14,6 +14,7 @@ Log on to our HPC cluster
     - Make sure you have a few GBs of free space
 - Run `allocations`
     - Check if you have `hpc_training`
+- Run `module load apptainer`
 
 ---
 
@@ -170,11 +171,17 @@ The corresponding `run` command is displayed upon loading a module.
 ```bash
 $ module load tensorflow
 To execute the default application inside the container, run:
-apptainer run --nv $CONTAINERDIR/tensorflow-2.13.0.sif
+apptainer run --nv $CONTAINERDIR/tensorflow-2.17.0.sif
+
+This container is based on NGC 24.11
+https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel-24-11.html#rel-24-11
 
 $ module list
 Currently Loaded Modules:
-  1) apptainer/1.2.2   2) tensorflow/2.13.0
+  1) apptainer/1.3.4   2) tensorflow/2.17.0 (g)
+
+  Where:
+   g:  built for GPU
 ```
 
 - `$CONTAINERDIR` is an environment variable. It is the directory where containers are stored.
@@ -204,7 +211,7 @@ Currently Loaded Modules:
 Copy these files:
 
 ```bash
-cp /share/resources/tutorials/apptainer_ws/tensorflow-2.13.0.slurm .
+cp /share/resources/tutorials/apptainer_ws/tensorflow-2.17.0.slurm .
 cp /share/resources/tutorials/apptainer_ws/mnist_example.{ipynb,py} .
 ```
 
@@ -221,7 +228,7 @@ Examine Slurm script:
 #SBATCH -o tftest-%A.out     # output file
 #SBATCH -e tftest-%A.err     # error file
 
-VERSION=2.13.0
+VERSION=2.17.0
 # start with clean environment
 module purge
 module load apptainer tensorflow/$VERSION
@@ -232,7 +239,7 @@ apptainer run --nv $CONTAINERDIR/tensorflow-$VERSION.sif mnist_example.py
 Submit job:
 
 ```bash
-sbatch tensorflow-2.13.0.slurm
+sbatch tensorflow-2.17.0.slurm
 ```
 
 #### What does `--nv` do?
@@ -240,10 +247,10 @@ sbatch tensorflow-2.13.0.slurm
 See [Apptainer GPU user guide](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
 
 ```bash
-$ apptainer shell $CONTAINERDIR/tensorflow-2.13.0.sif
+$ apptainer shell $CONTAINERDIR/tensorflow-2.17.0.sif
 Apptainer> ls /.singularity.d/libs
 
-$ apptainer shell --nv $CONTAINERDIR/tensorflow-2.13.0.sif
+$ apptainer shell --nv $CONTAINERDIR/tensorflow-2.17.0.sif
 Apptainer> ls /.singularity.d/libs
 libEGL.so		  libGLX.so.0		       libnvidia-cfg.so			  libnvidia-ifr.so
 libEGL.so.1		  libGLX_nvidia.so.0	       libnvidia-cfg.so.1		  libnvidia-ifr.so.1
