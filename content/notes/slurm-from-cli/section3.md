@@ -114,7 +114,7 @@ as the command.  You won't need to request a specific amount of memory. Submit t
 
 ## Examining Your Utilization
 
-When your jobs have finished, you may wish to find out how much of the resource you utilized.  Two commands can be used for this purpose, `sacct` and `seff`.
+When your jobs have finished, you may wish to find out how much of the resource you utilized. `sacct` and `seff` are two commands and a software module called Jobstats can be used for this purpose. 
 
 ### sacct
 
@@ -187,6 +187,30 @@ Under most circumstances, for a cpu-only job the "CPU" (core) efficiency should 
 Core efficiency is more problematic for GPU jobs, since the key to efficient GPU utilization is maximizing the GPU computations and minimizing CPU work. Seff does not provide a GPU utilization metric at this time, but we may be able to help you if you are concerned about GPU utilization.
 
 If your memory utilization is low and you have requested a specified amount, use `sacct -o` with at least the MaxRSS field to double-check. If you do not need as much memory as you thought, you may be able to save SUs and have a shorter queue wait time if you decrease it. 
+
+### jobstats
+
+Jobstats is an open-source job monitoring software that can be used to gain more utilization statistics about completed jobs. It is designed for CPU and GPU clusters that use the Slurm workload manager. It is not built in to Slurm like seff or sacct, so it needs to be loaded as a module first:
+
+```
+module load jobstats
+```
+
+Once a job has finished, you can run the command `jobstats <JobID>` to receive a utilization report. Here is an example of what a report looks like:
+
+{{< spoiler text="Example Report" >}}
+{{< code-download file="/notes/slurm-from-cli/scripts/jobstatsexample.txt" lang="bash" >}}
+{{< /spoiler >}}
+
+To highlight some of the information jobstats reports on:
+ - Both CPU and GPU utilization efficiency
+ - CPU utilization across multiple nodes
+ - Utilization across multiple GPUs
+ - Notes on areas of job improvement
+
+Note that the suggestions provided at the end of the report may or may not be applicable to your jobs. The provided example was a job run on a GPU, where CPU memory is utilized less. A low utilization report on CPU memory usage would not be of concern versus a report on low GPU memory utilization. Please contact us if you have any questions or concerns about your utilization report.
+
+Jobstats reports are only kept in the database for so long, so older jobs will give an error. Jobstats will also not be able to collect useful information for short jobs and will provide the same error. The output will recommend instead to use seff for utilization details. Because of the soft time limit, it may be useful to immediately run a report on a completed job and save the report in a file for later use. 
 
 ## Stream Output in Slurm
 
