@@ -1,8 +1,8 @@
 ---
-date : "2024-6-03T00:00:00-05:00"
 title: Using Containers on HPC [Apptainer]
 toc: true
 type: book
+date: "2025-05-13T00:00:00"
 weight: 3
 
 ---
@@ -50,9 +50,9 @@ Inspect an image before running it via `inspect`.
 ```bash
 $ apptainer inspect lolcow_latest.sif 
 org.label-schema.build-arch: amd64
-org.label-schema.build-date: Monday_8_January_2024_10:21:0_EST
+org.label-schema.build-date: Wednesday_14_May_2025_10:20:6_EDT
 org.label-schema.schema-version: 1.0
-org.label-schema.usage.apptainer.version: 1.2.2
+org.label-schema.usage.apptainer.version: 1.3.4
 org.label-schema.usage.singularity.deffile.bootstrap: docker
 org.label-schema.usage.singularity.deffile.from: rsdmse/lolcow
 ```
