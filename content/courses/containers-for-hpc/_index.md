@@ -43,5 +43,5 @@ The chapters are mutually independent, except for "Minimal Containers" that requ
 
 ## Prerequisites
 - Linux command line.
-- Rivanna account for the main chapters.
+- HPC account for the main chapters.
 - Docker installation and DockerHub account for the appendices.
