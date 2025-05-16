@@ -2,10 +2,10 @@
 title: Accelerating Discovery with AI
 date: 2025-03-11-13:24:11Z
 type: docs 
-weight: 700
+weight: 180
 menu: 
     dl-drug-discovery:
-    parent: Drug Discovery
+        parent: Drug Discovery
 ---
 
 The discovery phase is long and often unsuccessful. To speed things up, AI is now being used to make parts of drug discovery faster and more efficient.

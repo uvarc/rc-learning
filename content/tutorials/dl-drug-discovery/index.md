@@ -1,14 +1,11 @@
 ---
 title: "Deep Learning in Drug Discovery" 
-date: "year-month-dayT00:00:00-05:00"
-authors: []
-categories: []
-tags: []
-summary: ""
+date: "2025-05-14T00:00:00"
+authors: [ppr]
+categories: ["HPC","Deep learning"]
+tags: ["HPC","Deep learning"]
+summary: "This tutorial introduces the deep learning approach to computational drug discovery."
 
-notes: 
-url_code: 
+notes: dl-drug-discovery
 
 ---
-
-Optionally, this space can be used to introduce your tutorial

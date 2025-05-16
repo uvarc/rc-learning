@@ -5,10 +5,10 @@ type: docs
 weight: 350
 menu: 
     dl-drug-discovery:
-    parent: Deep Learning in the Optimization Stage
+        parent: Deep Learning in the Optimization Stage
+        
 ---
 
-{{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_9.png >}}
 
 Chemprop is a deep learning tool for predicting small molecule properties using a Directed Message Passing Neural Network (D-MPNN).
 
@@ -21,3 +21,5 @@ D-MPNNs operate in two phases:
 D-MPNNs use edge-based information in an accumulative way. 
 
 They start with a binary representation of the chemical structure, where the position of each substructure is encoded. Carbon atoms are implied when not explicitly shown, and the compound of interest is often nitrogen. The encoding captures directionality of both atoms and bonds, generating vectors that are merged and used to train the model. This approach is enhanced by deep learning.
+
+{{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_9.png width=70% height=70% caption="Visualization of D-MPNN message passing. Each bond vector is updated by aggregating incoming bond information and applying a learned transformation, preserving directionality. ">}}

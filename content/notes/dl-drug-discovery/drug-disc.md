@@ -5,10 +5,10 @@ type: docs
 weight: 150
 menu: 
     dl-drug-discovery:
-    parent: Deep Learning in Drug Discovery
+      
 ---
 
-{{< figure src=/notes/dl-drug-discovery/img/drug-disc.png >}}
+{{< figure src=/notes/dl-drug-discovery/img/drug-disc.png width=90% height=90% >}}
 
 Drug discovery is a vast field with many specializations. Each step in the process focuses on a different part of finding and developing new drugs.
 

@@ -1,26 +1,15 @@
 ---
-title: Application of Chemprop resulted in a novel antibiotic
+title: Chemprop Application Case Study
 date: 2025-03-11-13:24:11Z
 type: docs 
-weight: 600
+weight: 580
 menu: 
     dl-drug-discovery:
+        name: Chemprop Application Case Study
 ---
 
+### Applying Deep Learning in Antibiotic Discovery
 
-__A deep learning approach to antibiotic discovery, Stokes et al, Cell, 2020__
+This case study explores how Chemprop was used to identify potential new antibiotics. 
 
-US-FDA approved drug library containing 1760 molecules of diverse structure and function
-
-800 natural products from plants, animals, and microbial sources
-
-A total of 2,560 molecules tested for relative growth
-
-Red = inhibitory action; Blue = non-inhibitory action
-
-Deduplication resulted in 2,335 molecules
-
-{{< figure src=/notes/dl-drug-discovery/img/Deep-Learning-Drug-Discovery_23.png >}}
-
-Small dataset hence learning is augmented by several features such as by including hundreds of molecular features, hyperparameter optimizations, ensembling
-
+The work is based on the paper _"A Deep Learning Approach to Antibiotic Discovery"_ by Stokes et al., published in _Cell_ (2020). This study demonstrates the real-world importance of machine learning in drug discovery. Pharmaceutical companies often hesitate to invest in antibiotic development due to the high costs and risks involved. Many antibiotic candidates eventually fail due to resistance, making the process expensive and often unrewarding.

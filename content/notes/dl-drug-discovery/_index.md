@@ -1,15 +1,26 @@
 ---
-title: dl-drug-discovery
-date: 2025-03-11-13:24:11Z
+title: Deep Learning in Drug Discovery
 authors: [ppr]
-categories: [Fill]
-tags: [fill]
 type: docs 
 weight: 1 
-date: 2025-03-11-13:24:11Z
-
+date: "2025-03-11-13:24:11Z"
 menu: 
     dl-drug-discovery:
 ---
 
-Deep Learning in Drug Discovery
+__Computational chemistry application__
+
+Outline of the workshop:
+
+* Introduction to drug discovery (computer-aided drug design, CADD)
+
+* General idea about the tools for CADD
+
+* Deep-learning based drug discovery (example: chemprop)
+
+* Jupyter-notebook – highlighting chemprop’s abilities
+
+* Slurm scripts for chemprop
+
+* Application of chemprop - demonstrating its abilities
+

@@ -5,10 +5,11 @@ type: docs
 weight: 300
 menu: 
     dl-drug-discovery:
-    parent: Computational Simulations 
+        parent: Drug Discovery
+        
 ---
 
-{{< figure src=/notes/dl-drug-discovery/img/cheminformatics-photo.png caption="Inspired by _Cheminformatics: An introductory review_, Chonde and Kumara – conference contribution Penn State">}}
+{{< figure src=/notes/dl-drug-discovery/img/cheminformatics-photo.png width=80% height=80% caption="Inspired by _Cheminformatics: An introductory review_, Chonde and Kumara – conference contribution Penn State">}}
 
 Cheminformatics is a key area in small-molecule therapeutics that focuses on representing and analyzing chemical data in a form computers can understand. This typically involves creating graphs, fingerprints, or using chemical descriptors to encode molecular structures-—sometimes converting 3D structures into simplified 2D formats.
 
