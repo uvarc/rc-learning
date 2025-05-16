@@ -10,7 +10,7 @@ menu:
 
 __Computational chemistry application__
 
-Outline of the workshop:
+Outline of the tutorial:
 
 * Introduction to drug discovery (computer-aided drug design, CADD)
 
