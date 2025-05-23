@@ -1,6 +1,6 @@
 // Override this file to add your own SCSS styling.
 .container {
-    max-width: 90%;
+  max-width: 90%;
 }
 
 .article-container {
@@ -14,7 +14,12 @@
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $sta-font-heading, sans-serif;
   font-weight: 700;
   margin-top: 1rem;
@@ -33,25 +38,31 @@ h1, h2, h3, h4, h5, h6 {
   -ms-hyphens: manual;
   hyphens: manual;
 }
+
 h1 {
   font-size: 2.25rem;
 }
+
 h2 {
   margin-top: 1rem;
   font-size: 1.5rem;
 }
+
 h3 {
   margin-top: 1.5rem;
   font-size: 1.25rem;
 }
-h4, h5, h6 {
+
+h4,
+h5,
+h6 {
   margin-top: 1rem;
   font-size: 1rem;
 }
 
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 /* Change the colors for the "light" button */
@@ -59,48 +70,109 @@ html {
 .btn-light {
   color: #212529;
   background-color: #6699ff;
-  border-color: #6699ff; }
-  .btn-light:hover {
-    color: #212529;
-    background-color: #e2e6ea;
-    border-color: #dae0e5; }
-  .btn-light:focus, .btn-light.focus {
-    color: #212529;
-    background-color: #e2e6ea;
-    border-color: #dae0e5;
-    box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5); }
-  .btn-light.disabled, .btn-light:disabled {
-    color: #212529;
-    background-color: #f8f9fa;
-    border-color: #f8f9fa; }
-  .btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active, .show > .btn-light.dropdown-toggle {
-    color: #212529;
-    background-color: #dae0e5;
-    border-color: #d3d9df; }
-    .btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus, .show > .btn-light.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5); }
+  border-color: #6699ff;
+}
+
+.btn-light:hover {
+  color: #212529;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+.btn-light:focus,
+.btn-light.focus {
+  color: #212529;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
+
+.btn-light.disabled,
+.btn-light:disabled {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.btn-light:not(:disabled):not(.disabled):active,
+.btn-light:not(:disabled):not(.disabled).active,
+.show>.btn-light.dropdown-toggle {
+  color: #212529;
+  background-color: #dae0e5;
+  border-color: #d3d9df;
+}
+
+.btn-light:not(:disabled):not(.disabled):active:focus,
+.btn-light:not(:disabled):not(.disabled).active:focus,
+.show>.btn-light.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
 
 //Changes tutorial buttons to cyan color
 .btn-info {
   color: #fff;
   background-color: #009FDF;
-  border-color: #009FDF; }
-  .btn-info:hover {
-    color: #fff;
-    background-color: #04709b;
-    border-color: #04709b; }
-  .btn-info:focus, .btn-info.focus {
-    color: #fff;
-    background-color: #04709b;
-    border-color: #04709b;
-    box-shadow: 0 0 0 0.2rem rgba(0, 168, 194, 0.5); }
-  .btn-info.disabled, .btn-info:disabled {
-    color: #fff;
-    background-color: #009FDF;
-    border-color: #009FDF; }
-  .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
-    color: #fff;
-    background-color: #007bac;
-    border-color: #009FDF; }
-        .btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus, .show > .btn-info.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(0, 168, 194, 0.5); }
+  border-color: #009FDF;
+}
+
+.btn-info:hover {
+  color: #fff;
+  background-color: #04709b;
+  border-color: #04709b;
+}
+
+.btn-info:focus,
+.btn-info.focus {
+  color: #fff;
+  background-color: #04709b;
+  border-color: #04709b;
+  box-shadow: 0 0 0 0.2rem rgba(0, 168, 194, 0.5);
+}
+
+.btn-info.disabled,
+.btn-info:disabled {
+  color: #fff;
+  background-color: #009FDF;
+  border-color: #009FDF;
+}
+
+.btn-info:not(:disabled):not(.disabled):active,
+.btn-info:not(:disabled):not(.disabled).active,
+.show>.btn-info.dropdown-toggle {
+  color: #fff;
+  background-color: #007bac;
+  border-color: #009FDF;
+}
+
+.btn-info:not(:disabled):not(.disabled):active:focus,
+.btn-info:not(:disabled):not(.disabled).active:focus,
+.show>.btn-info.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 168, 194, 0.5);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+}
+
+.hero-lead {
+  font-size: 1.1rem;
+}
+
+.wg-hero {
+  padding: 2em 0;
+}
+
+.tag-cloud {
+  text-align: center;
+}
+
+.tag-cloud a {
+  text-decoration: none;
+  transition-property: background-color;
+}
+
+.tag-cloud a:hover,
+.tag-cloud a:focus {
+  background-color: rgba(0, 0, 0, .2);
+  transform: scale(1);
+}
