@@ -1,0 +1,51 @@
+================================================================================
+                              Slurm Job Statistics
+================================================================================
+         Job ID: REDACTED
+  NetID/Account: REDACTED
+       Job Name: REDACTED
+          State: COMPLETED
+          Nodes: 1
+      CPU Cores: 1
+     CPU Memory: 50GB
+           GPUs: 1
+  QOS/Partition: normal/bii-gpu
+        Cluster: shen
+     Start Time: Wed May 14, 2025 at 9:39 AM
+       Run Time: 00:32:33
+     Time Limit: 05:00:00
+
+                              Overall Utilization
+================================================================================
+  CPU utilization  [|||||||||||||||||||||||||||||||||||||||||||||||97%]
+  CPU memory usage [||                                              4%]
+  GPU utilization  [|||||||||||||||||||||||||||||||||||||||||||||||97%]
+  GPU memory usage [||                                              5%]
+
+                              Detailed Utilization
+================================================================================
+  CPU utilization per node (CPU time used/run time)
+      10.153.10.145: 00:31:32/00:32:33 (efficiency=96.9%)
+
+  CPU memory usage per node - used/allocated
+      10.153.10.145: 2.0GB/48.8GB (2.0GB/48.8GB per core of 1)
+
+  GPU utilization per node
+      10.153.10.145 (GPU 0): 96.7%
+
+  GPU memory usage per node - maximum used/total
+      10.153.10.145 (GPU 0): 1.6GB/32.0GB (5.1%)
+
+                                     Notes
+================================================================================
+  * This job only needed 11% of the requested time which was 05:00:00. For
+    future jobs, please request less time by modifying the --time Slurm
+    directive. This will lower your queue times and allow the Slurm job
+    scheduler to work more effectively for all users. For more info:
+      https://www.rc.virginia.edu/userinfo/hpc/slurm/
+
+  * This job only used 4% of the 50GB of total allocated CPU memory. For
+    future jobs, please allocate less memory by using a Slurm directive such
+    as --mem-per-cpu=3G or --mem=3G. This will reduce your queue times and
+    make the resources available to other users. For more info:
+      https://www.rc.virginia.edu/userinfo/hpc/slurm/#options
