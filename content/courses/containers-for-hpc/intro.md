@@ -1,20 +1,22 @@
 ---
-date : "2024-6-03T00:00:00-05:00"
 title: Introduction to Software Containers
 toc: true
 type: book
+date: "2025-05-15T00:00:00"
 weight: 2
 
 ---
 
-<https://www.docker.com/resources/what-container>
+"A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another." (<https://www.docker.com/resources/what-container>)
 
 ## Why use software containers?
+
 - **Simple** Containers simplify software installation and management.
 - **Portable** You can build an image on one machine and run it on another.
 - **Reproducible** Versioning and freezing of containers enable data reproducibility.
 
 ## Characteristics
+
 Containers
 - share the OS kernel of the host
 - virtualize the OS instead of hardware
