@@ -3,7 +3,7 @@ title: "Working with Jobs in Open OnDemand"
 date: 2020-02-28T00:00:00-05:00
 authors: [kah,rs]
 categories: ["HPC","Open OnDemand"]
-tags: [HPC,Open_ondemand]
+tags: [HPC,Open_OnDemand]
 summary: This tutorial will explain how to view and create jobs on UVA HPC through Open OnDemand.
 
 
