@@ -1,5 +1,5 @@
 ---
-date : "2024-6-03T00:00:00"
+date: "2025-06-04T00:00:00"
 title: "Building Containers on HPC [Apptainer]"
 toc: true
 type: book
