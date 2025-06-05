@@ -1,5 +1,5 @@
 ---
-date : "2024-6-03T00:00:00"
+date: "2025-06-04T00:00:00"
 title: "Building Containers on HPC [Apptainer]"
 toc: true
 type: book
@@ -185,11 +185,11 @@ Steps:
 
 ### Step 1: Choose a base image
 
-Use `Bootstrap` and `From` to specify the base image. In this example, we'll use Ubuntu 22.04. You do not need to install this on your computer - Apptainer will pull from Docker Hub when you build it.
+Use `Bootstrap` and `From` to specify the base image. In this example, we'll use Ubuntu 24.04. You do not need to install this on your computer - Apptainer will pull from Docker Hub when you build it.
 
 ```bash
 Bootstrap: docker
-From: ubuntu:22.04
+From: ubuntu:24.04
 ```
 
 - OS: `ubuntu`, `debian`, `centos`, ...
@@ -205,7 +205,7 @@ For this application the package manager will take care of all the dependencies.
 In `%post` specify the actual commands to be executed (as if you were to type them on the command line).
 
 {{< code-snippet >}}Bootstrap: docker
-From: ubuntu:22.04
+From: ubuntu:24.04
 
 %post
     apt-get install fortune cowsay lolcat
@@ -216,7 +216,7 @@ Save this file as `lolcow.def` and run `apptainer build lolcow.sif lolcow.def`. 
 We need to update our package list. Let's modify our definition file and build again.
 
 {{< code-snippet >}}Bootstrap: docker
-From: ubuntu:22.04
+From: ubuntu:24.04
 
 %post
     apt-get update
@@ -226,7 +226,7 @@ From: ubuntu:22.04
 This time it still failed due to the prompt for confirmation. To pass "yes" automatically, add `-y`.
 
 {{< code-snippet >}}Bootstrap: docker
-From: ubuntu:22.04
+From: ubuntu:24.04
 
 %post
     apt-get update
@@ -256,7 +256,7 @@ But it only returns a shell prompt where `fortune`, `cowsay`, `lolcat` don't see
 This is equivalent to `export PATH=/usr/games:${PATH}` but it is preserved at runtime. In doing so we can execute `fortune`, `cowsay`, and `lolcat` directly without specifying the full path.
 
 {{< code-snippet >}}Bootstrap: docker
-From: ubuntu:22.04
+From: ubuntu:24.04
 
 %post
     apt-get update
@@ -270,7 +270,7 @@ From: ubuntu:22.04
 ### Use `%runscript` to set default command
 
 {{< code-snippet >}}Bootstrap: docker
-From: ubuntu:22.04
+From: ubuntu:24.04
 
 %post
     apt-get update
@@ -295,7 +295,7 @@ While our container is functional, there is room for improvement. We shall look 
 Package managers usually leave behind some cache files after installation that can be safely removed. Depending on your application, they can easily accumulate up to several GBs.
 
 {{< code-snippet >}}Bootstrap: docker
-From: ubuntu:22.04
+From: ubuntu:24.04
 
 %post
     apt-get update
@@ -317,7 +317,7 @@ Save this as `lolcow_1.def`.
 The `apt` package manager often recommends related packages that are not really necessary. To disable recommendation, use `--no-install-recommends`.
 
 {{< code-snippet >}}Bootstrap: docker
-From: ubuntu:22.04
+From: ubuntu:24.04
 
 %post
     apt-get update
@@ -343,9 +343,9 @@ Save this as `lolcow_2.def`.
 
 ```bash
 $ ll -h lolcow*.sif
-... 86M ... lolcow_0.sif
-... 54M ... lolcow_1.sif
-... 48M ... lolcow_2.sif
+... 89M ... lolcow_0.sif
+... 56M ... lolcow_1.sif
+... 49M ... lolcow_2.sif
 ```
 
 <style scoped>table { font-size: 65%; }</style>
@@ -353,9 +353,9 @@ $ ll -h lolcow*.sif
 | Version | Description | Reduction (MB) | % |
 |---|---|---:|---:|
 |0  |(Basis of comparison) | - | - |
-|1  |Clean up              |32 | 37 |
-|-  |Install only what's needed  |6 | 7 |
-|2  |Combination of previous two |38 | 44 |
+|1  |Clean up              |33 | 37 |
+|-  |Install only what's needed  |7 | 8 |
+|2  |Combination of previous two |40 | 45 |
 
 ## Sandbox
 
@@ -388,7 +388,7 @@ FATAL:   While performing build: while running engine: exit status 1
 Let's try to build a lolcow container in Alpine via a sandbox.
 
 ```bash
-$ apptainer build --sandbox alpine docker://alpine:3.17
+$ apptainer build --sandbox alpine docker://alpine:3.22
 $ apptainer shell -w alpine
 Apptainer> echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 Apptainer> apk add fortune cowsay@testing lolcat@testing
@@ -410,7 +410,7 @@ $ apptainer exec lolcow_3.sif sh -c "fortune|cowsay|lolcat"
                 ||     ||
 ```
 
-Note the container size - only 14MB! This is 84% smaller than what we had before.
+Note the container size - only 15MB! This is 83% smaller than what we had before.
 
 {{< info >}}
 Why can't you run "apptainer exec lolcow_3.sif fortune|cowsay|lolcat"?
@@ -482,7 +482,7 @@ While you can create a conda environment locally, you cannot directly migrate it
 {{< info >}}Base images already exist for popular deep learning frameworks such as PyTorch and Tensorflow. There is no need to install them by yourself.{{< /info >}}
 
 #### Exercise
-Your project requires PyTorch 2.1.2, Numpy, Seaborn, and Pandas. Write the corresponding Apptainer definition file.
+Your project requires PyTorch, Numpy, Seaborn, and Pandas. Write the corresponding Apptainer definition file.
 
 Hints:
 - Find the appropriate base image from [here](https://hub.docker.com/r/pytorch/pytorch/tags).
@@ -503,7 +503,7 @@ Rocker provides many base images for all R versions (see [here](https://rocker-p
 {{< info >}}If you want to build a custom R container start with one of the Rocker images. Building R, RStudio Server, etc. from source can be very tedious!{{< /info >}}
 
 #### Exercise
-Your project requires R 4.3.2, dplyr, ggplot2, and RcppGSL. Write the corresponding Apptainer definition file.
+Your project requires R, dplyr, ggplot2, and RcppGSL. Write the corresponding Apptainer definition file.
 
 Hints:
 - Pick an appropriate base image - there are two viable choices here.
