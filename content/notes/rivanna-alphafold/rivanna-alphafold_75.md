@@ -5,6 +5,7 @@ type: docs
 weight: 3800
 menu: 
     rivanna-alphafold:
+    parent: Sample Slurm Scripts 
 ---
 
 
