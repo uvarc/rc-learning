@@ -8,7 +8,7 @@ weight: 170
 
 menu:
   hpc-intro:
-    parent: Connecting to The System
+    parent: Connecting to Afton and Rivanna
 ---
 
 If you simply close your session browser tab, FastX _suspends_ your session rather than terminates it.  It is generally preferable to terminate rather than suspend so that you will not accidentally have multiple sessions running.

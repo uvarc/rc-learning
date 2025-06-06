@@ -8,7 +8,7 @@ weight: 120
 
 menu:
   hpc-intro:
-    parent: Connecting to The System
+    parent: Connecting to Afton and Rivanna
 ---
 
 The Open OnDemand home page is the Dashboard. 

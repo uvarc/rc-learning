@@ -201,7 +201,7 @@ Use the File Manager to create, rename, or move your folders.
 
 #### Command Line
 
-If you are familiar with the command line, you can use that. If you wish to learn it, you can go through our [Unix Tutorials for Beginners](https://learning.rc.virginia.edu/notes/unix-tutorial/), especially Tutorials 1--3.  You can also go through our [HPC from the Terminal](https://learning.rc.virginia.edu/tutorials/rivanna-command-line/) tutorial if you have not already done so.
+If you are familiar with the command line, you can use that. If you wish to learn it, you can go through our [Unix Tutorials for Beginners](https://learning.rc.virginia.edu/notes/unix-tutorial/), especially Tutorials 1--3.  You can also go through our [HPC from the Terminal](https://learning.rc.virginia.edu/tutorials/hpc-from-terminal/) tutorial if you have not already done so.
 
 #### Changing into a Directory
 

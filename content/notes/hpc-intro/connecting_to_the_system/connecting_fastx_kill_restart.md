@@ -8,7 +8,7 @@ weight: 180
 
 menu:
   hpc-intro:
-    parent: Connecting to The System
+    parent: Connecting to Afton and Rivanna
 ---
 
 You can also terminate -- or restart -- a session from the "My Sessions" tab.  To terminate, click the `x` in the upper right of the session, or use the menu.

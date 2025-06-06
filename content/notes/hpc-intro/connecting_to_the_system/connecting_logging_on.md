@@ -8,7 +8,7 @@ weight: 100
 
 menu:
   hpc-intro:
-    name: Connecting to The System
+    name: Connecting to Afton and Rivanna
 ---
 
 * There are three ways to connect to the HPC System:

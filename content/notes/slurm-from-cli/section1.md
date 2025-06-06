@@ -34,7 +34,7 @@ Slurm began when cpus had only one core each. Beginning around 2005, cpus began 
 
 **Memory** refers to _random-access memory_.  It is not the same thing as storage.  If a process reports running out of memory, it means RAM memory. Running out of disk space will result in a different error.
 
-For more details about the structure of a computational cluster, see our [introduction](https://learning.rc.virginia.edu/notes/rivanna-intro/).
+For more details about the structure of a computational cluster, see our [introduction](https://learning.rc.virginia.edu/notes/hpc-intro/).
 ## Processes and Tasks
 
 A **process** can be envisioned an instance of an executable that is running on a particular computer.  Most executables run only a single process.  Some executables run _threads_ within the _root_ process.
@@ -51,7 +51,7 @@ SLURM refers to queues as  __partitions__ .  We do not have a default partition;
 | :-: | :-: | :-: | :-: | :-: |
 | standard | For jobs on a single compute node | 7 days | 1462 GB | 96 |
 | gpu | For jobs that can use general purpose GPU’s<br /> (A40,A100,A6000,V100,RTX3090) | 3 days | 1953 GB | 128 |
-| parallel | For large parallel jobs on up to 50 nodes (<= 1500 CPU cores) | 3 days | 750 GB | 96<br /> |
+| parallel | For large parallel jobs on up to 64 nodes (<= 6000 CPU cores) | 3 days | 750 GB | 96<br /> |
 | interactive | For quick interactive sessions (up to two RTX2080 GPUs) | 12 hours | 216 GB |  96  |
 {{< /table >}}
 

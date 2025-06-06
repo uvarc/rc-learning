@@ -1,12 +1,12 @@
 ---
-date : "2022-11-03T00:00:00-05:00"
-title : "Software Containers for HPC"
+title: "Software Containers for HPC"
 summary: "An Introduction to using and building software containers."
 authors: [rs]
 categories: ["Containers","HPC"]
 tags: [Containers, HPC]
 toc: true
 type: book
+date: "2025-05-15T00:00:00"
 weight: 1
 
 ---
@@ -43,5 +43,5 @@ The chapters are mutually independent, except for "Minimal Containers" that requ
 
 ## Prerequisites
 - Linux command line.
-- Rivanna account for the main chapters.
+- HPC account for the main chapters.
 - Docker installation and DockerHub account for the appendices.
