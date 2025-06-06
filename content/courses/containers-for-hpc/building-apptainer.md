@@ -418,7 +418,41 @@ Why can't you run "apptainer exec lolcow_3.sif fortune|cowsay|lolcat"?
 
 ## Registry
 
-A container registry is a repository for container images.
+A container registry is a repository for container images.  Here we examine two popular choices.
+
+### Docker Hub
+
+The Apptainer/Singularity SIF is supported by Docker Hub. Register for a free account.
+
+{{< info >}}Replace "myname" with your actual username in the following commands.{{< /info >}}
+
+Login:
+```bash
+$ apptainer registry login --username myname oras://index.docker.io
+
+$ apptainer registry list
+
+URI                     SECURE?
+oras://index.docker.io  ✓
+```
+
+Push:
+```bash
+$ apptainer push lolcow_0.sif oras://myname/lolcow:0
+```
+
+Check:
+`https://hub.docker.com/r/myname/lolcow/tags`
+
+{{< info >}}Best practice: Sign your containers; see [here](https://apptainer.org/docs/user/latest/signNverify.html).{{< /info >}}
+
+{{< warning >}}While Apptainer can convert a Docker image into SIF, you cannot run SIF with Docker. You are simply using Docker Hub to host your SIF - it is not converted into Docker.{{< /warning >}}
+
+#### UVA Research Computing container resources
+
+[Docker Hub account](https://hub.docker.com/u/uvarc)
+
+[Repository of Dockerfiles and definition files](https://github.com/uvarc/rivanna-docker)
 
 ### GitHub Packages
 
@@ -433,12 +467,6 @@ A container registry is a repository for container images.
     apptainer push lolcow_0.sif oras://ghcr.io/myname/lolcow
     ```
 1. Check `https://github.com/users/myname/packages/container/package/lolcow`
-
-### UVA Research Computing container resources
-
-[Docker Hub account](https://hub.docker.com/u/uvarc)
-
-[Repository of Dockerfiles and definition files](https://github.com/uvarc/rivanna-docker)
 
 ## Case Studies
 
