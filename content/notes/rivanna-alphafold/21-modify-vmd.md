@@ -5,7 +5,7 @@ type: docs
 weight: 2150
 menu: 
     rivanna-alphafold:
-    parent: Visualizing 3D Structures
+        parent: Visualizing 3D Structures
 ---
 
 Once your PDB file is loaded in VMD, you can change the visual style using the Graphical Representations menu.

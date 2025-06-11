@@ -5,7 +5,7 @@ type: docs
 weight: 550
 menu: 
     rivanna-alphafold:
-    parent: AlphaFold
+        parent: AlphaFold
 ---
 
 When AlphaFold completes a prediction run, it generates the following output files and directories:

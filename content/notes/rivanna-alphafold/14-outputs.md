@@ -5,7 +5,7 @@ type: docs
 weight: 1650
 menu: 
     rivanna-alphafold:
-    name: Outputs
+        name: Outputs
 ---
 
 {{< figure src=/notes/rivanna-alphafold/img/Alphafold_24.png >}}

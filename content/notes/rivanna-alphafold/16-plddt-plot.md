@@ -5,7 +5,7 @@ type: docs
 weight: 1750
 menu: 
     rivanna-alphafold:
-    parent: Outputs
+        parent: Outputs
 ---
 
 ###  `ranked_0_pLDDT.png`

@@ -5,7 +5,7 @@ type: docs
 weight: 650
 menu: 
     rivanna-alphafold:
-    name: Running AlphaFold On Rivanna
+        name: Running AlphaFold On Rivanna
 ---
 
 # Steps:
@@ -14,7 +14,7 @@ menu:
    - Install `alphapickle` and download the script for sequence coverage plot.
 
 2. Get the Input 
-   - Get a FASTA file and put it on Rivanna via your preferred method (Globus, scp, etc). 
+   - Get a `FASTA` file and put it on Rivanna via your preferred method (Globus, scp, etc). 
 
 3. Slurm Script
    - Create a SLURM script based on UVA RC AlphaFold documentation.

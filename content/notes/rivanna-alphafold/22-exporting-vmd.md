@@ -5,7 +5,7 @@ type: docs
 weight: 2200
 menu: 
     rivanna-alphafold:
-    parent: Visualizing 3D Structures
+        parent: Visualizing 3D Structures
 ---
 
 ### Screen Capture Using Snapshot 

@@ -5,7 +5,7 @@ type: docs
 weight: 600
 menu: 
     rivanna-alphafold:
-    parent: AlphaFold
+        parent: AlphaFold
 ---
 
 AlphaFold's confidence metrics: 

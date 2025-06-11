@@ -5,7 +5,7 @@ type: docs
 weight: 2250
 menu: 
     rivanna-alphafold:
-    parent: Visualizing 3D Structures
+        parent: Visualizing 3D Structures
 ---
 
 VMD is very customizable. You can change colors of almost anything, select different parts of your molecule, etc.

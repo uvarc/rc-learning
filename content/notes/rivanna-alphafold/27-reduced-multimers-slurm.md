@@ -1,13 +1,14 @@
 ---
-title: Slurm Script for Multimers - Reduced DBs
+title: SLURM Script for Multimers - Reduced DBs
 date: 2025-05-20-00:23:54Z
 type: docs 
 weight: 2450
 menu: 
     rivanna-alphafold:
-    parent: Sample Slurm Scripts
+        parent: Sample SLURM Scripts
 ---
-This script uses reduced databases to save time and storage. 
+
+This multimer script runs AlphaFold using reduced databases to save time and storage. 
 
 > **Note:** As a consequence of the `singularity --pwd` flag, the `--fasta_paths` and `--output_dir` arguments must use **full paths** (e.g., `/scratch/$USER/mydir`) instead of relative paths (e.g., `./mydir`).  
 > You can use `$PWD` to reference the directory where your SLURM script is located.  

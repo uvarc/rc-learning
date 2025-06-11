@@ -1,14 +1,14 @@
 ---
-title: Slurm Script for Multimers - Full DBs
+title: SLURM Script for Multimers - Full DBs
 date: 2025-05-20-00:23:54Z
 type: docs 
 weight: 2900
 menu: 
     rivanna-alphafold:
-    parent: Sample Slurm Scripts
+        parent: Sample SLURM Scripts
 ---
 
-This script runs AlphaFold Multimer using the full database preset. 
+This multimer script runs AlphaFold using the full database preset for higher accuracy. 
 
 ```bash
 #!/bin/bash​

@@ -5,7 +5,7 @@ type: docs
 weight: 1700
 menu: 
     rivanna-alphafold:
-    parent: Outputs
+        parent: Outputs
 ---
 
 ### `CB1_short_msa_sequence_coverage.pdf`

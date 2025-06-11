@@ -5,10 +5,10 @@ type: docs
 weight: 3350
 menu: 
     rivanna-alphafold:
-    parent: Sample Slurm Scripts
+        parent: Sample SLURM Scripts
 ---
 
-This script runs AlphaFold in monomer PTM mode using reduced databases, providing a faster option for predicting the structure of a single protein, such as Ubiquitin B (UBB).
+This monomer script runs AlphaFold in monomer PTM (Predicted Template Modelling) mode using reduced databases, providing a faster option for predicting the structure of a single protein.
 
 ```bash
 #!/bin/bash​
@@ -63,6 +63,6 @@ Below are runtime examples for the same UBB input file run under different setti
 | Reduced databases (16 cores)      | 49472327   | 00:46:38   |
 | Full databases                    | 49066363   | 00:54:00   |
 | Reduced databases (unspecified)   | 49062003   | 00:39:00   |
-{{< \table >}}
+{{< /table >}}
 
 > Using reduced databases significantly shortens runtime.  

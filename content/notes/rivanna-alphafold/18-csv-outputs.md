@@ -5,7 +5,7 @@ type: docs
 weight: 1850
 menu: 
     rivanna-alphafold:
-    parent: Outputs
+        parent: Outputs
 ---
 
 AlphaPickle generates CSV files that can be used for downstream analysis and plotting.
