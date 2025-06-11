@@ -14,7 +14,7 @@ The above image shows the 3D structure from the `ranked_0.pdb` file. The structu
 CB1 is a 7-transmembrane domain (7TM) septa-helical protein with less-structured tails on both termini.
 This is reflected in the 3D structure, where disordered regions ("ribbons") are low-confidence and helices are high-confidence.
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_35.png caption="caption="Topology diagram of CB1.">}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_35.png caption="Topology diagram of CB1.">}}
 
 This schematic complements the 3D model by showing the membrane topology of CB1. The arrangement of helices and loops explains the structured and unstructured regions seen in the AlphaFold prediction.
 

@@ -5,7 +5,7 @@ type: docs
 weight: 2300
 menu: 
     rivanna-alphafold:
-    name: AlphaFold Protein Structure Database
+        name: AlphaFold Protein Structure Database
 ---
 
 {{< figure src=/notes/rivanna-alphafold/img/Alphafold_57.png >}}

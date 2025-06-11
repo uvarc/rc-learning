@@ -5,7 +5,7 @@ type: docs
 weight: 400
 menu: 
     rivanna-alphafold:
-    name: AlphaFold
+        name: AlphaFold
 ---
 
 **AlphaFold** is a protein structure prediction system developed by DeepMind, an artificial intelligence company. It uses deep learning to predict the 3D structure of proteins directly from their amino acid sequence.

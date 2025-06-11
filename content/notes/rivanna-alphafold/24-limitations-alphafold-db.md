@@ -5,7 +5,7 @@ type: docs
 weight: 2350
 menu: 
     rivanna-alphafold:
-    parent: AlphaFold Protein Structure Database
+        parent: AlphaFold Protein Structure Database
 ---
 The AlphaFold DB uses a monomeric model similar to the CASP14 version. As a result, many of the same limitations are expected:
 

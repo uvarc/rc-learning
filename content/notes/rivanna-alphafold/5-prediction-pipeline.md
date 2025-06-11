@@ -5,7 +5,7 @@ type: docs
 weight: 450
 menu: 
     rivanna-alphafold:
-    parent: AlphaFold
+      parent: AlphaFold
 ---
 
 {{< figure src=/notes/rivanna-alphafold/img/pipeline-steps.png caption="Prediction pipeline" >}}
