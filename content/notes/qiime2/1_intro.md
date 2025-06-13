@@ -22,10 +22,7 @@ __Key features:__
 
 QIIME 2 is a complete redesign and rewrite of the [QIIME 1](http://qiime.org/) microbiome analysis pipeline. QIIME 2  addresses many of the limitations of QIIME 1, while retaining the features that makes QIIME 1 a powerful and widely-used analysis pipeline.
 
-\ \
-hello
-
-__High-level features__
+__High-level features:__
 
 * Latest and greatest microbiome bioinformatics methods and visualizations
 * Accessibility through accurate, detailed, and interesting documentation and well-designed interfaces
