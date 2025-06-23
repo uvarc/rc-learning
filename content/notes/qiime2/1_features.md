@@ -1,5 +1,5 @@
 ---
-title: What is QIIME 2?
+title: QIIME 2 Features
 date: 2025-06-13-14:45:04Z
 type: docs 
 weight: 50
@@ -12,8 +12,7 @@ menu:
 {{< figure src=/notes/qiime2/img/logo.png width=70% height=70% >}}
 
 
-__Key features:__
-
+__Key Features__
   * Integrated and automatic tracking of data provenance
   * Semantic type system
   * Plugin system for extending microbiome analysis functionality
@@ -22,15 +21,13 @@ __Key features:__
 
 QIIME 2 is a complete redesign and rewrite of the [QIIME 1](http://qiime.org/) microbiome analysis pipeline. QIIME 2  addresses many of the limitations of QIIME 1, while retaining the features that makes QIIME 1 a powerful and widely-used analysis pipeline.
 
-__High-level features:__
-
+__High-level Features__
 * Latest and greatest microbiome bioinformatics methods and visualizations
 * Accessibility through accurate, detailed, and interesting documentation and well-designed interfaces
 * A community of microbiome scientists, developers, and bioinformaticians
 
 
-__Interfaces__
-
+__Interfaces__  
 QIIME 2 has many available interfaces. Choose the interface that helps you work most efficiently.
 
 {{< figure src=/notes/qiime2/img/interfaces.png width=70% height=70% >}}

@@ -11,7 +11,7 @@ menu:
 
 {{< figure src=/notes/qiime2/img/view.png width=70% height=70% >}}
 
-__Features:__
+__Features__
 * Reads QIIME 2 outputs (QZAs and QZVs)
 * No installation required
 * Easily share links using Dropbox with collaborators
