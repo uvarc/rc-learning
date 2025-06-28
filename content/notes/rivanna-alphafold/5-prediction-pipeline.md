@@ -8,7 +8,7 @@ menu:
       parent: AlphaFold
 ---
 
-{{< figure src=/notes/rivanna-alphafold/img/pipeline-steps.png caption="Prediction pipeline" >}}
+{{< figure src=/notes/rivanna-alphafold/img/pipeline-steps.png caption="Prediction pipeline" width=70% height=70% >}}
 
 1. **User Input (FASTA)**  
    The user provides a FASTA file: one sequence for monomer predictions or multiple sequences for multimer predictions.
@@ -43,6 +43,6 @@ menu:
 5.  **Ranking**  
    The five models are ranked based on a confidence score, and the highest-ranking structures are output as **PDB files**.
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_10.png caption="AlphaFold model architecture." >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_10.png width=90% height=90% caption="AlphaFold model architecture." >}}
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_12.png caption="Each of AlphaFold’s five model predictions is run in parallel, relaxed independently, and ranked by confidence." >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_12.png width=70% height=70% caption="Each of AlphaFold’s five model predictions is run in parallel, relaxed independently, and ranked by confidence." >}}

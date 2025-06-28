@@ -12,10 +12,12 @@ AlphaFold's confidence metrics:
 
 ### **PAE: Predicted Aligned Error**
 - Expected position error at residue X when predicted and true structures are aligned on residue Y.
-- [More information](https://alphafold.ebi.ac.uk/entry/Q9Y223)
+
+<small>[More information](https://alphafold.ebi.ac.uk/entry/Q9Y223)</small>
 
 ### **pLDDT: Predicted Local Distance Difference Test**
 - Per-residue confidence score (0–100).
 - A "superposition-free score that evaluates local distance differences of all atoms in a model, including validation of stereochemical plausibility."
-- [More information](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3799472/)
+
+<small>[More information](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3799472/)</small>
 

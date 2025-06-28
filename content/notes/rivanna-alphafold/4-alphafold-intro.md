@@ -17,9 +17,8 @@ AlphaFold's operational stages:
 - It passes these homologous sequences into a pre-trained neural network to predict the 3D positions of atoms in the protein.
 - The neural network output is refined using molecular dynamics simulations to produce PDB files. A PDB file is the standard format for representing 3D protein structures. 
 
-AlphaFold features: 
-- It has both monomer and multimer versions. 
-- It is based largely on coevolutionary information.
+AlphaFold has both monomer and multimer versions. It is based largely on coevolutionary information.
 
-*"AlphaFold directly predicts 3D coordinates of all heavy atoms for a given protein using the primary amino acid sequence and aligned sequences of homologues as input”* 
-> Jumper, J., Evans, R., Pritzel, A. et al. *Highly accurate protein structure prediction with AlphaFold*.
+>"AlphaFold directly predicts 3D coordinates of all heavy atoms for a given protein using the primary amino acid sequence and aligned sequences of homologues as input”
+
+<small>Jumper, J., Evans, R., Pritzel, A. et al. *Highly accurate protein structure prediction with AlphaFold*.</small>

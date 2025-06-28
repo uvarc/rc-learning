@@ -1,5 +1,5 @@
 ---
-title: rivanna-alphafold
+title: AlphaFold on Rivanna
 date: 2025-05-20-00:23:54Z
 authors: [uvarc]
 categories: [Fill]
@@ -16,6 +16,6 @@ This workshop will cover:
 
 - Introduction to GPU Computing
 
-- Introduction to Alphafold
+- Introduction to AlphaFold
 
-- Running Alphafold on Rivanna Live Demo
+- Running AlphaFold on Rivanna 

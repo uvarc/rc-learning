@@ -7,7 +7,7 @@ menu:
     rivanna-alphafold:
 ---
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_2.jpg >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_2.jpg width=70% height=70% >}}
 
 - The **CPU (Central Processing Unit)** is the general-purpose processor responsible for handling most computing tasks in a system.
 - The **GPU (Graphics Processing Unit)** is now widely used for accelerating scientific and high-performance computing tasks.
@@ -25,11 +25,11 @@ menu:
 {{< /table >}}
 
 
-## Metaphor: GPU vs CPU 
+ **Metaphor: GPU vs CPU** 
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_3.png >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_3.png width=50% height=50% >}}
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_4.png >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_4.png width=50% height=50% >}}
 
 - **CPUs are like scooters**: simple, efficient, and great for quickly handling one task or a few tasks at a time.
 - **GPUs are like sports cars**: powerful, fast, and ideal for processing many tasks in parallel.

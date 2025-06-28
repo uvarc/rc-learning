@@ -10,7 +10,7 @@ menu:
 
 When AlphaFold completes a prediction run, it generates the following output files and directories:
 
-- **`msas/` directory**: Contains the multiple sequence alignments used as input for the model.
+- **`msas` directory**: Contains the multiple sequence alignments used as input for the model.
 - **`features.pkl`**: A machine-readable pickle file containing input features extracted from the MSA and templates.
 - **`ranking_debug.json`**: Stores the ranking information used to order the five model outputs.
 - **`relax_metrics.json`**: Contains metrics from the AMBER relaxation step.

@@ -13,12 +13,12 @@ Participants are challenged to predict structures of proteins whose experimental
 
 CASP uses the **Global Distance Test - Total Score** (GDT-TS) as a performance metric, which measures what percentage of α-carbons are within a threshold distance (in angstroms) of the experimental structure. The higher the GDT-TS score, the more accurate the model's prediction is.
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_5.png caption="Example of a predicted protein structure (orange) compared to the experimentally solved structure (black). CASP evaluates prediction accuracy using these kinds of comparisons." >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_5.png width=75% height=75% caption="Example of a predicted protein structure (orange) compared to the experimentally solved structure (black). CASP evaluates prediction accuracy using these kinds of comparisons." >}}
 
 AlphaFold’s strong performance in **CASP13** and **CASP14** proved its ability to predict protein structures with near-experimental accuracy. This established AlphaFold as a game changer in the world of structural biology and computational science. 
 [Learn More](https://www.nature.com/articles/d41586-020-03348-4)
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_7.png >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_7.png width=75% height=75% >}}
 
 
 
