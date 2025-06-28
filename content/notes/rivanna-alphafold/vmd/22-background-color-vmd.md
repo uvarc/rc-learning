@@ -1,8 +1,8 @@
 ---
-title: VMD -  Change Background Color
+title: Change Background Color
 date: 2025-05-20-00:23:54Z
 type: docs 
-weight: 2250
+weight: 2200
 menu: 
     rivanna-alphafold:
         parent: Visualizing 3D Structures
@@ -18,8 +18,8 @@ To change the background color:
 4. In the *Names* list, select **Background**.
 5. Choose a new color from the *Colors* list or modify the RGB sliders in the *Color Definitions* tab.
 
-{{< figure src=/notes/rivanna-alphafold/img/background-colors.png >}}
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_54.png >}}
+{{< figure src=/notes/rivanna-alphafold/img/background-colors.png width=75% height=75% >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_54.png width=65% height=65% >}}
 
 
 >This isn’t a full VMD tutorial, but it is beneficial to play around with it as needed to help you in your research.

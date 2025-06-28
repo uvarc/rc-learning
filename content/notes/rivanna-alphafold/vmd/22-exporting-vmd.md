@@ -2,7 +2,7 @@
 title: Exporting in VMD
 date: 2025-05-20-00:23:54Z
 type: docs 
-weight: 2200
+weight: 2250
 menu: 
     rivanna-alphafold:
         parent: Visualizing 3D Structures
@@ -13,17 +13,17 @@ The simplest way to produce raster image files in VMD is to use the `Snapshot` f
 
 To use the snapshot feature, simply open the Render form and choose the snapshot option. VMD will capture the contents of the graphics window, and attempt to save the resulting image to the filename given in the Render form. You may find that it is important not to have other windows or cursors in front of the VMD graphics display when using snapshot, since the resulting images may include obscuring windows or cursors. This is a platform-dependent behavior, so you will need to determine if your system does this or not. 
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_50.png >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_50.jpg width=60% height=60% >}}
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_51.png >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_51.png width=60% height=60% >}}
 
 In the pop-up `imagemagick` window, right-click and hit `save` (see below).
 
-{{< figure src=/notes/rivanna-alphafold/img/vmd-export.png >}}
+{{< figure src=/notes/rivanna-alphafold/img/vmd-export.png width=50% height=50% >}}
 
 Next, hit `format`, and a new popup appears. 
 
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_53.png >}}
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_53.png width=75% height=75% >}}
 
 Select your image format (`TIFF` or `PNG` is recommended) and hit `select`.
 Type the file name, including the extension, and hit `save`.

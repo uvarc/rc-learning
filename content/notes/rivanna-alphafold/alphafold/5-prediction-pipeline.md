@@ -31,14 +31,16 @@ menu:
    - **Evoformer blocks**, which perform pairwise updates on the numerical MSA representation and a 2D amino acid pair representation, and
    - **Structure module blocks**, which generate the folded 3D structure.
 
+
    These modules are iteratively recycled three times, meaning the output structure from one iteration is reused as a template for the next.
    
-   The **Evoformer** and **Structure modules** are run **in parallel across the five models**, generating five distinct predictions. Each model output is then passed to relaxation and ranking steps independently.
+   The **Evoformer** and **Structure modules** are run in parallel across the five models, generating five distinct predictions. Each model output is then passed to relaxation and ranking steps independently.
 
 4. **AMBER Relaxation**  
    The predicted structure is refined using **AMBER relaxation**, which eliminates side chain stereochemical violations (clashing side chains).
    The exact enforcement of peptide bond geometry is only achieved in the post-prediction relaxation of the structure by gradient descent in the Amber32 force field.
 	- Empirically, this final relaxation does not improve the accuracy of the model as measured by the global distance test (GDT)33 or lDDT-Cα34, but does remove distracting stereochemical violations without the loss of accuracy.
+ 
   
 5.  **Ranking**  
    The five models are ranked based on a confidence score, and the highest-ranking structures are output as **PDB files**.

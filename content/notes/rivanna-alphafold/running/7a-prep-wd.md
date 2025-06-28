@@ -5,13 +5,16 @@ type: docs
 weight: 610
 menu: 
     rivanna-alphafold:
+      parent: Running AlphaFold On Rivanna
 ---
 
-* Navigate to your chosen directory (e.g., cd /scratch/$USER/alphafold)
+Steps to manually build an AlphaFold working directory:
+
+* Navigate to your chosen directory (e.g., `cd /scratch/$USER/alphafold`)
 * Make a directory to hold `fasta` files (`mkdir fasta`)
 * Make an output directory to hold AlphaFold outputs (`mkdir outdir`)
 * Make a directory to hold `conda` environment (`mkdir conda`)
-* AlphaFold doesn’t output QC metrics in plot or human-readable formats. We can access this info with an add-on, alphapickle, a python package from GitHub that makes QC plots and human-readable QC metric files (`.csv`/`.txt`) from the pickle file output of AlphaFold. Install alphapickle from GitHub:
+* AlphaFold doesn’t output QC metrics in plot or human-readable formats. We can access this info with an add-on, `alphapickle`, a python package from GitHub that makes QC plots and human-readable QC metric files (`.csv`/`.txt`) from the pickle file output of AlphaFold. Install `alphapickle` from GitHub:
 ```bash
   git clone [https://github.com/mattarnoldbio/alphapickle.git](https://github.com/mattarnoldbio/alphapickle.git)
 ```

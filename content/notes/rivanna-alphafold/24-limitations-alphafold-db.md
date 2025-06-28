@@ -1,11 +1,11 @@
 ---
-title: Limitations of AlphaFold DB
+title: Limitations
 date: 2025-05-20-00:23:54Z
 type: docs 
 weight: 2350
 menu: 
     rivanna-alphafold:
-        parent: AlphaFold Protein Structure Database
+        parent: Protein Structure Database
 ---
 The AlphaFold DB uses a monomeric model similar to the CASP14 version. As a result, many of the same limitations are expected:
 
@@ -28,9 +28,7 @@ The model relies to some extent upon co-evolutionary information across similar 
 **Practical Limitations**
 
 The model only predicts one conformation for proteins with multiple structural states.  
-It does not account for cofactors or post-translational modifications (PTMs), which can limit biological relevance.  
-For example, 50–70% of human proteins** may be incomplete without attached glycans.  
-However, because the model was trained on PDB entries that often contain such modifications, predicted structures are frequently consistent with the presence of ions or cofactors.  
+It does not account for cofactors or post-translational modifications (PTMs), which can limit biological relevance. For example, 50–70% of human proteins** may be incomplete without attached glycans. However, because the model was trained on PDB entries that often contain such modifications, predicted structures are frequently consistent with the presence of ions or cofactors.  
 
 The DB excludes proteins smaller than 16 or longer than 2700 amino acids, though full human proteome predictions are available via batch download.  
 

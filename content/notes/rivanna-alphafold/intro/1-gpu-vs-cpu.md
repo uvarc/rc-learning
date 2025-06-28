@@ -2,9 +2,10 @@
 title: CPU vs. GPU
 date: 2025-05-20-00:23:54Z
 type: docs 
-weight: 200
+weight: 210
 menu: 
     rivanna-alphafold:
+        parent: Introduction
 ---
 
 {{< figure src=/notes/rivanna-alphafold/img/Alphafold_2.jpg width=70% height=70% >}}
@@ -31,10 +32,13 @@ menu:
 
 {{< figure src=/notes/rivanna-alphafold/img/Alphafold_4.png width=50% height=50% >}}
 
-- **CPUs are like scooters**: simple, efficient, and great for quickly handling one task or a few tasks at a time.
-- **GPUs are like sports cars**: powerful, fast, and ideal for processing many tasks in parallel.
-- When you have **many packages to deliver**, a fleet of scooters (parallel delivery) can outperform one fast car — just like GPUs excel at parallel processing.
-- When you need to **deliver one package as fast as possible**, a sports car is the better choice — similar to how CPUs can be better for low-latency or interactive tasks.
+**CPUs are like scooters**: simple, efficient, and great for quickly handling one task or a few tasks at a time.
+
+**GPUs are like sports cars**: powerful, fast, and ideal for processing many tasks in parallel.
+
+When you have many packages to deliver, a fleet of scooters (parallel delivery) can outperform one fast car — just like GPUs excel at parallel processing.
+
+When you need to deliver one package as fast as possible, a sports car is the better choice — similar to how CPUs can be better for low-latency or interactive tasks.
 
 **The best option depends on your use case!**
 

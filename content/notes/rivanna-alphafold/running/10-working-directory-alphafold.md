@@ -5,37 +5,22 @@ type: docs
 weight: 800
 menu: 
     rivanna-alphafold:
+      parent: Running AlphaFold On Rivanna
 ---
 
-## Prep the Working Directory
-
-Inside the OOD Desktop terminal, navigate to your `scratch` directory. 
-
+AlphaFold is available as a module on Rivanna. Load it using:
 ```bash
-cd /scratch/$USER
+module load apptainer/1.3.4 alphafold/2.3.0
 ```
-
-Next, copy the working directory to your `scratch`.
-
+View available AlphaFold versions:
 ```bash
-cp -r /project/rivanna-training/alphafold .​
+module spider alphafold
 ```
-
-View files in your the working directory. 
-
-```bash
-cd alphafold​
-ls -lh​
-```
-
-{{< figure src=/notes/rivanna-alphafold/img/Alphafold_21.png caption="Working directory contents in /scratch/$USER/alphafold">}}
+[More information on available versions](https://www.rc.virginia.edu/userinfo/hpc/software/alphafold/)
 
 ## Directory Contents
 
-The `alphafold` directory includes the following:
-
-- **`alphafold_2.3.0.sif`**  
-  This is a singularity container file used to run AlphaFold in a reproducible and isolated environment.
+The `alphafold` directory can contain the following:
 
 - **SLURM job scripts (`*.slurm`)**  
   Several SLURM scripts are provided for submitting AlphaFold jobs for different use cases.
@@ -56,3 +41,11 @@ The `alphafold` directory includes the following:
   This directory is the destination for output files produced during AlphaFold runs. 
 
 
+View the files in your working directory:
+
+```bash
+cd alphafold​
+ls -lh​
+```
+
+{{< figure src=/notes/rivanna-alphafold/img/Alphafold_21.png width=90% height=90% caption="Example of AlphaFold working directory contents">}}

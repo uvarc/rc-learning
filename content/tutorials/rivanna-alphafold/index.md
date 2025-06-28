@@ -1,5 +1,5 @@
 ---
-title: "Alphafold on Rivanna" 
+title: "AlphaFold on Rivanna" 
 date: "2025-05-20"
 authors: []
 categories: ""
