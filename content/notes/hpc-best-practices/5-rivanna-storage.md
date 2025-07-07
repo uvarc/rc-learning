@@ -8,13 +8,13 @@ menu:
     hpc-best-practices:
 ---
 
-# Rivanna File Systems
+## Rivanna File Systems
 
 The default home directory on Rivanna has 50GB of storage capacity, e.g., `/home/gka6a`. Each user will have access to 10 TB of __temporary__ storage, e.g., `/scratch/gka6a`. The `/home` and `/scratch` directories are for personal use and not shareable with other users.
 
 __Important:__ `/scratch` is __NOT permanent__ storage, and files that have not been accessed for more than __90 days__ will be marked for deletion.
 
-# Running Jobs from Scratch
+## Running Jobs from Scratch
 
 We recommend that you run your jobs out of your `/scratch` directory for two reasons:
 * `/scratch` is on Weka filesystem (a storage system designed specifically for parallel access)
@@ -25,7 +25,7 @@ We also recommend:
 * After your jobs finish, you copy the results to more permanent storage
 
 
-# Leased Storage
+## Leased Storage
 
 {{< table >}}
 | Feature | Research Project Storage | Research Standard Storage |
@@ -40,7 +40,7 @@ We also recommend:
 {{< /table >}}
 
 
-# Checking Your Storage
+## Checking Your Storage
 
 To see how much disk space you have used in your home and scratch directories, open a terminal window and type `hdquota` at the command-line prompt.
 
@@ -48,10 +48,10 @@ To see how much disk space you have used in your home and scratch directories, o
 hdquota
 ```
 
-Example output:
-{{< figure src="/notes/hpc-best-practices/img/hdquota.png" width=70% height=70%>}}
+Example output:  
+{{< figure src="/notes/hpc-best-practices/img/hdquota.png" width=70% height=70% >}}
 
-# FAQs
+## FAQs
 
 __If I'm over my disk quota in either my `/home` directory or my `/scratch` directory, how can I determine my disk usage?__
 

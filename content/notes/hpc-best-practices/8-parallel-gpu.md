@@ -13,7 +13,7 @@ __Why go parallel?__
 * __Scale__ - Solve a larger, more complex problem with higher fidelity
 * __Throughput__ - Solve many (simple) problems more quickly
 
-# Parallel Computing Myths
+## Parallel Computing Myths
 
 __Myth #1: Throwing more hardware at a problem will automatically reduce the time to solution.__
 
@@ -26,7 +26,7 @@ Most users of parallel computers are not programmers. Instead, they use mature 3
 {{< figure src="/notes/hpc-best-practices/img/othercode.png" width=70% height=70% caption="Many of you will be using someone else's code(s)" >}}
 
 
-# Processes and Threads
+## Processes and Threads
 
 Threads and processes are both independent sequences of execution.
 * __Process:__ instance of a program, with access to its own memory, state, and file descriptors (can open and close files)
@@ -52,13 +52,13 @@ The type of parallelization will determine how-where you will run your code.
 In addition, being aware of threads and processes will help you to understand how your code is utilizing the hardware and identify common problems.
 
 
-# Message Passing Interface
+## Message Passing Interface
 
 MPI is a standard for parallelizing C, C++, and Fortran code to run on distributed memory (multiple compute node) systems. While not officially adopted by any major standard bodies, it has become the *de facto* standard (i.e., almost everyone uses it).
 
 There are multiple open-source implementations, including OpenMPI, MVAPICH, and MPICH along with vendor-supported versions. MPI applications can be run within a shared-memory node. All widely-used MPI implementations are optimized to take advantage of the faster intranode communications. MPI is portable and can be used anywhere. Although MPI is often synonymous with distributed memory parallelization, other options are gaining adoption (Charm++, UPC, X10).
 
-# OpenMP
+## OpenMP
 
 OpenMP is an application programming interface (API) for shared-memory (within a node) parallel programming in C, C++, and Fortran.
 
@@ -67,7 +67,7 @@ OpenMP provides a collection of compiler directives, library routines, and envir
 {{< figure src="/notes/hpc-best-practices/img/mpi-openmp.png" width=70% height=70% >}}
 
 
-# Amdahl's Law and Limits on Scalability
+## Amdahl's Law and Limits on Scalability
 
 Amdahl's law describes the absolute limit on the speedup of a code as a function of the proportion of the code that can be parallelized and the number of processors. This is the most fundamental law of parallel computing!
 
@@ -84,7 +84,7 @@ That doesn't look so bad, but as you'll see next, it doesn't take much serial co
 {{< figure src="/notes/hpc-best-practices/img/amdahl3.png" width=70% height=70% >}}
 
 
-# Other Limits on Scalability
+## Other Limits on Scalability
 
 Amdahl's law sets a __theoretical upper limit__ on speedup, but there are other factors that affect scalability:
 * Communications overhead
@@ -94,20 +94,20 @@ Amdahl's law sets a __theoretical upper limit__ on speedup, but there are other 
 In real-life applications that involve communications, synchronization (all threads or processes must complete their work before proceeding), or irregular problems (non-cartesian grids), the speedup can be much less than predicted by Amdahl's law.
 
 
-# Running Parallel Applications
+## Running Parallel Applications
 
 So far, we've covered the basic concepts of parallel computing - hardware, threads, processes, hybrid applications, implementing parallelization (MPI and OpenMP), Amdahl's law, and other factors that affect scalability.
 
 Theory and background are great, but how do we know how many CPU's GPUs to use when running our parallel application? The only way to definitively answer this question is to perform a __scaling study__ where a __representative problem__ is run on different number of processors. A representative problem is one with the same size (grid dimensions; number of particles, images, genomes, etc.) and complexity (e.g., level of theory, type of analysis, physics, etc.) as the research problems you want to solve.
 
 
-# Presenting Scaling Results
+## Presenting Scaling Results
 
 Plotting the same data on log axes gives a lot more insight. Note the different scales for the left axes on the two plots. Including a line showing linear scale and plotting the parallel efficiency on the right axis adds even more value.
 
 {{< figure src="/notes/hpc-best-practices/img/scale1.png" width=70% height=70% >}}
 
-# Where should I be on the scaling curve?
+### Where should I be on the scaling curve?
 
 If your work is not particularly sensitive to the time to complete a single run, consider using a CPU/GPU count at or very close to 100% efficiency, even if that means running on a single core. This especially makes sense for parameter sweep workloads where the same calculation is run many times with different sets of inputs.
 
@@ -122,7 +122,7 @@ If the time to solution is absolutely critical, it's okay to run at lower effici
 {{< figure src="/notes/hpc-best-practices/img/scale4.png" width=70% height=70% >}}
 
 
-# Parallel Computing Summary
+## Parallel Computing Summary
 
 * Parallel computing is for everyone who wants to accomplish more research and solve more challenging problems
 * You don't need to be a programmer, but you do need to know some of the fundamentals to effectively use parallel computers
@@ -133,7 +133,7 @@ If the time to solution is absolutely critical, it's okay to run at lower effici
 For code used to generate some figures in these notes, see https://github.com/sinkovit/Parallel-concepts
 
 
-# GPU vs CPU Architecture
+## GPU vs CPU Architecture
 
 __CPU:__
 * Few processing cores with sophisticated hardware
@@ -148,7 +148,7 @@ __GPU:__
 * Need to manage memory hierarchy
 
 
-# GPU Accelerated Software
+## GPU Accelerated Software
 
 __Examples can be found from virtually any field:__
 * Chemistry
@@ -166,7 +166,7 @@ __Examples can be found from virtually any field:__
 Exhaustive list of software can be found here: https://www.nvidia.com/en-us/data-center/gpu-accelerated-applications/
 
 
-# GPU Accelerated Libraries
+## GPU Accelerated Libraries
 
 __Ease of use:__
 * GPU acceleration without in-depth knowledge of GPU programming
@@ -185,7 +185,7 @@ Use libraries if you can - do not write your own matrix multiplication.
 See https://developer.nvidia.com/gpu-accelerated-libraries for more info.
 
 
-# Numerical Computing in Python
+## Numerical Computing in Python
 
 {{< figure src="/notes/hpc-best-practices/img/numpy.png" width=70% height=70% >}}
 
@@ -207,7 +207,7 @@ __CuPy:__
 * Uses high tuned NVIDIA libraries
 * Can write custom CUDA functions
 
-## CuPy: a NumPy like interface to GPU-acceleration ND-Array operations
+### CuPy: a NumPy like interface to GPU-acceleration ND-Array operations
 
 __Before (with NumPy):__
 ```python
@@ -232,6 +232,6 @@ Q, R = np.lingalg.qr(A)
 {{< figure src="/notes/hpc-best-practices/img/speedup.png" width=70% height=70% >}}
 
 
-# Processing Flow
+## Processing Flow
 
 {{< figure src="/notes/hpc-best-practices/img/flow.png" width=70% height=70% >}}

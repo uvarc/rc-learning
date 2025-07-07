@@ -8,7 +8,7 @@ menu:
     hpc-best-practices:
 ---
 
-# Prerequisites
+## Prerequisites
 
 We assume you already know the Linux basics, such as
 * Listing files (`ls`)
@@ -18,15 +18,13 @@ We assume you already know the Linux basics, such as
 * Ability to use one or more standard editors (`vi`, `vim`, `emacs`, `nano`)
 * Relative and absolute paths
 
-
-# Rivanna
+## Rivanna
 
 Rivanna is the university's primary resource for high-performance computation. It provides a platform for computationally-intensive research across disciplines.
 
-{{< figure src="/notes/hpc-best-practices/img/rivanna.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/rivanna.png" width=70% height=70% >}}
 
-
-# Logging In
+## Logging In
 
 There are several ways to log in to UVA's HPC system.
 
@@ -38,11 +36,10 @@ MobaXterm (Windows): [https://www.rc.virginia.edu/userinfo/rivanna/logintools/mo
 
 __Terminal (Mac, Linux):__
 ```bash
-$ ssh -Y gka6a@rivanna.hpc.virginia.edu
+ssh -Y gka6a@rivanna.hpc.virginia.edu
 ```
 
-
-# Transfer Files
+## Transfer Files
 To transfer files between computers, you can use commands like `scp`, `rsync`, or `sftp` in your command line interface.
 
 __scp__
@@ -64,9 +61,9 @@ Sftp> put myfile    # transfer from local to Rivanna
 Sftp> get myfile    # transfer from Rivanna to local
 ```
 
-__Globus Data Transfer__
+### Globus Data Transfer
 
-{{< figure src="/notes/hpc-best-practices/img/globus.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/globus.png" width=70% height=70% >}}
 
 Globus is a simple, reliable, and fast way to access and move your research data between systems. Globus allows you to transfer data to and from systems such as:
 
@@ -85,7 +82,7 @@ Is your data stored at a different institution? At a supercomputing facility? Al
 For more info, visit [https://www.rc.virginia.edu/userinfo/globus/](https://www.rc.virginia.edu/userinfo/globus/)
 
 
-# Creating & Editing Files
+## Creating & Editing Files
 
 There are a wide variety of text editors you can use to create and edit files.
 
@@ -103,4 +100,3 @@ There are a wide variety of text editors you can use to create and edit files.
     * enter `module load code-server/4.16.1`
     * enter `code-server`
     * Open the browser and copy the given url from terminal (http://127.0.0.1:8080/)
-

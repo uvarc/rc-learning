@@ -20,13 +20,13 @@ The files we're typically interested in being version controlled are *software s
 Best Practices for Scientific Computing  
 Wilson et al. 2012 (arXiv:1210.0530)
 
-# Git and GitHub
+## Git and GitHub
 
 __What is Git?__
 
 Git is a distributed version control system. It was designed to be *simple*, *fast*, and *fully-distributed*, with support for large projects and nonlinear development workflows. Git was originally created in 2005 by Linus Torvalds and other Linux kernel developers when the free use of the proprietary version control system they had been using for kernel development was revoked by its copyright holder.
 
-## Private vs Public Repositories
+### Private vs Public Repositories
 
 {{< figure src="/notes/hpc-best-practices/img/privatevspublic.png" width=70% height=70% >}}
 
@@ -34,7 +34,7 @@ When using Git, each contributor who is sharing changes with others on a project
 * A __private repository__ is the one that exists on your local computer and is the one you make commits to
 * A __public repository__ is the one that you use to share your changes with collaborators
 
-# The Git Workflow
+## The Git Workflow
 
 1. Update your private repository by `fetch`ing all recent changes committed by your team of collaborators from the shared public repository (or their individual public repositories).
 
@@ -46,25 +46,25 @@ When using Git, each contributor who is sharing changes with others on a project
 
 5. Rinse and repeat.
 
-# Getting Started with GitHub
+## Getting Started with GitHub
 
 {{< figure src="/notes/hpc-best-practices/img/git1.png" width=70% height=70% >}}
 
 GitHub website: https://github.com
 
-## Your GitHub Profile
+### Your GitHub Profile
 
 {{< figure src="/notes/hpc-best-practices/img/git2.png" width=70% height=70% >}}
 
-## Creating a New GitHub Repository
+### Creating a New GitHub Repository
 
 {{< figure src="/notes/hpc-best-practices/img/git3.png" width=70% height=70% >}}
 
-## Your GitHub Repository After the First `git push`
+### Your GitHub Repository After the First `git push`
 
 {{< figure src="/notes/hpc-best-practices/img/git4.png" width=70% height=70% >}}
 
-# Using GitHub with Rivanna
+## Using GitHub with Rivanna
 
 __I need to push and commit code changes from Rivanna/Afton to my GitHub account. How do I set that up?__
 
@@ -76,7 +76,7 @@ You must first generate an ssh key and then copy it to your Git repository. Here
 
 3. The next step is to clone the repository using the ssh link. If you have already cloned the repository using the http link and made a number of changes to your files, you won’t want to redo them. Rename the directory that was created when you first cloned the repository. Then, re-clone the repository using the ssh link and copy all of the files you had changed to the new directory. Finally, push those changes back to the repository.
 
-# Benefits of Version Control
+## Benefits of Version Control
 
 * __Archiving:__ You *must* regularly save the changes you make
 
@@ -88,7 +88,7 @@ You must first generate an ssh key and then copy it to your Git repository. Here
 
 * __Recoverability:__ Each contributor has their own local, recent copy of the project and its complete history, making it highly unlikely you'll ever lose a significant portion of the project
 
-# References
+## References
 
 * __Version Control with Git__ by D. Huang and I. Gonzalez: https://swcarpentry.github.io/git-novice/
 * __Pragmatic Version Control Using Git__ by T. Swicegood

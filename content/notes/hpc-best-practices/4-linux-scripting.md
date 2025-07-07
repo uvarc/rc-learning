@@ -8,7 +8,7 @@ menu:
     hpc-best-practices:
 ---
 
-# Introduction
+## Introduction
 
 Shell scripts are programs that are executed by the Linux shell. They can contain comments, simple commands, and programming constructs for loops, branches, variable assignment, and more. Scripts can be run in three ways:
 
@@ -18,45 +18,45 @@ Shell scripts are programs that are executed by the Linux shell. They can contai
 
 Shell scripts can be as simple as a list of Linux commands. The first (`#!` is pronounced "shebang") defines the shell that will be used. It's a good idea to set this, but if you forget, you'll normally get the bash shell. Note that on Linux systems, `/bin/sh` is a symbolic link to bash.
 
-{{< figure src="/notes/hpc-best-practices/img/scriptintro1.png" width=70% height=70%>}}
-{{< figure src="/notes/hpc-best-practices/img/scriptintro2.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/scriptintro1.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/scriptintro2.png" width=70% height=70% >}}
 
-# Loops
+## Loops
 
 Loops let you iterate over the items in a list. The list can be defined in multiple ways, including a whitespace separated set of items, wildcard expansion, or the backtick-captured output from executing a command. The alternative to backticks is `$( )`.
 
-{{< figure src="/notes/hpc-best-practices/img/loop1.png" width=70% height=70%>}}
-{{< figure src="/notes/hpc-best-practices/img/loop2.png" width=70% height=70%>}}
-{{< figure src="/notes/hpc-best-practices/img/loop3.png" width=70% height=70%>}}
-{{< figure src="/notes/hpc-best-practices/img/loop4.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/loop1.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/loop2.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/loop3.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/loop4.png" width=70% height=70% >}}
 
 All four versions produce the same output (assuming the directory contains file[123].txt):  
-{{< figure src="/notes/hpc-best-practices/img/loop5.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/loop5.png" width=70% height=70% >}}
 
-# Iterating Over a Range of Numbers
+## Iterating Over a Range of Numbers
 
 If you need to iterate over a range of numbers, you can use one of two approaches: the `seq` command or curly bracket notation. Note that if you define a stride, it is the second argument for the `seq` command, but the third argument for curly bracket notation.
 
-{{< figure src="/notes/hpc-best-practices/img/iter1.png" width=70% height=70%>}}
-{{< figure src="/notes/hpc-best-practices/img/iter2.png" width=70% height=70%>}}
-{{< figure src="/notes/hpc-best-practices/img/iter3.png" width=70% height=70%>}}
-{{< figure src="/notes/hpc-best-practices/img/iter4.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/iter1.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/iter2.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/iter3.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/iter4.png" width=70% height=70% >}}
 
-# Command Line Arguments
+## Command Line Arguments
 
 Shell scripts can accept command line arguments, with `$1`, `$2`, `$3`... storing the first, second third... arguments (`$0` stores the name of the script). Using command line arguments can make your scripts much more flexible.
 
 Example script and output:
 
-{{< figure src="/notes/hpc-best-practices/img/arg1.png" width=70% height=70%>}}
-{{< figure src="/notes/hpc-best-practices/img/arg2.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/arg1.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/arg2.png" width=70% height=70% >}}
 
 This next script is the same as the previous example, except that we used indirect redirection to simplify capturing the character, word, and line counts, and we use `$( )` in place of backticks.
 
-{{< figure src="/notes/hpc-best-practices/img/arg3.png" width=70% height=70%>}}
-{{< figure src="/notes/hpc-best-practices/img/arg4.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/arg3.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/arg4.png" width=70% height=70% >}}
 
-# Conditional Statements
+## Conditional Statements
 
 Here is the formatting for a simple IF construct. Shell scripts are very picky about required white space around brackets:
 
@@ -110,7 +110,7 @@ fi
 
 Example output:  
 
-{{< figure src="/notes/hpc-best-practices/img/if1.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/if1.png" width=70% height=70% >}}
 
 Strings can be compared using `==`, `!=`, `\<`, and `\>`, with the comparisons done using lexicographical (ASCII) order. Integer literals are treated as strings in this context.
 
@@ -131,9 +131,9 @@ fi
 
 Example output:
 
-{{< figure src="/notes/hpc-best-practices/img/if1.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/if1.png" width=70% height=70% >}}
 
-# Summary
+## Summary
 
 Learning intermediate Linux skills will help you to become a more effective user of advanced cyberinfrastructure. This tutorial provides you with the tools to customize your environment, automate tasks, and construct simple workflows.
 

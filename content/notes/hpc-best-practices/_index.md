@@ -20,4 +20,4 @@ VI - Batch Processing with SLURM commands
 VII - Interactive Computing  
 VIII - Parallel/GPU computing  
 IV - Performance Optimization  
-X - Git and GitHub  
+X - Git and GitHub

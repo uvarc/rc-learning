@@ -8,14 +8,13 @@ menu:
     hpc-best-practices:
 ---
 
-
-# Standard Streams
+## Standard Streams
 
 Each executable has associated with it, three I/O streams: __standard input__, __standard error__, and __standard output__. Normally these streams come from or go to your console (i.e. your shell).
 
 Most Unix commands read from standard input and/or write to standard output. They are often represented as __stdin__, __stderr__, and __stdout__ (these are the data streams that bash creates).
 
-# Stream Redirection
+## Stream Redirection
 
 Redirect standard input with `<`
 ```bash
@@ -37,8 +36,7 @@ Redirection of standard error depends on the shell. For bash, redirect standard 
 make >& make.out
 ```
 
-
-# Pipes
+## Pipes
 
 One of the most powerful properties of Unix is that you can __pipe__ the standard output of one command into the standard input of another.
 The pipe symbol `|` is above the backslash on most US keyboards.
@@ -49,8 +47,7 @@ grep "@H-148:116" SP_R1.fastq | head
 ```
 `grep` searches for the pattern in the file, and `head` looks at the first 10 lines of the `grep` output.
 
-
-# Wildcards and Globbing
+## Wildcards and Globbing
 
 __Wildcards__ let you express a pattern for matching multiple file names using any combination of the following:
 * `?` matches any single character
@@ -111,8 +108,7 @@ $ ls [a-c]x*         # multiple matches using range of letters
 axcde.exe   bxedf.exe   cxefg.exe
 ```
 
-
-# Aliases
+## Aliases
 
 Aliases are just shortcuts for Linux commands. They're useful for keeping you out of trouble (e.g., accidentally deleting all files) and abbreviating complex commands.
 
@@ -133,7 +129,7 @@ alias partitions='sinfo -o "%15P %6a %6D %11s %15F %7c %8m %101 %10L %10G"'
         /cm/shared/apps/slurm/current/bin/sinfo
 ```
 
-# Command History
+## Command History
 
 You can inspect your command history using `history`. You can navigate this history with the arrow keys so you can execute or modify a previous command (so you do not have to remember and/or type everything again). You can also search for previous commands using emacs key bindings (__ctrl+R__ for reverse search) or switch your bash shell to vi key bindings.
 
@@ -172,7 +168,7 @@ ls file*.txt
 file1.txt file2.txt file776.txt
 ```
 
-# More Bash Shortcuts
+## More Bash Shortcuts
 
 {{< table >}}
 | Shortcut | Action |
@@ -184,8 +180,7 @@ file1.txt file2.txt file776.txt
 | `clear` or __ctrl+L__ | Clear the screen |
 {{< /table >}}
 
-
-# Shell and Environment Variables
+## Shell and Environment Variables
 
 Shell and environment variables allow you to customize your environment and control how applications behave on a Linux system.
 
@@ -223,8 +218,7 @@ All environment variables can be displayed using the `env` command.
 env
 ```
 
-
-# Running Executables
+## Running Executables
 
 Executables are often called __binaries__, especially by Unix types and computer programmers. The terms are synonymous in most cases.
 
@@ -245,13 +239,11 @@ __export PATH=$PATH:.__
 ```
 In this case, it is essential to add the first `$PATH` or you will lose the default path set by the system.
 
-
-# The Modules Environment
+## The Modules Environment
 
 The modules environment is not strictly a part of Unix, though it is widely used by many HPC sites, including ours. The modules environment enables the user to set complex paths, environment variables, and so forth, by loading a module (running a script). The environment is set up automatically when you log in. Loaded modules only affect the shell in which the command is run. Modules required for a job must be loaded in the batch job script.
 
-
-# Modules Commands
+## Modules Commands
 
 {{< table >}}
 | Command | Action |
@@ -266,8 +258,7 @@ The modules environment is not strictly a part of Unix, though it is widely used
 | `module swap \<package\>/\<current\> \<package\>/\<newver\>` | Exchange one version of a package for another |
 {{< /table >}}
 
-
-# Dotfiles - Configuration Files
+## Dotfiles - Configuration Files
 
 "Dotfiles" are files that describe resources to programs that look for them. They begin with a period or “dot” (hence the name). Dotifles are hidden from `ls`, but `ls -a` shows them. (Sometimes `ls` is aliased to `ls -a`.)
 
@@ -275,8 +266,8 @@ Bash has two dotfiles: `.bash_profile` and `.bashrc`. If no `.bash_profile` is p
 
 Use `~/.bash_profile` for commands that should be run only once, such as customizing environment variables (e.g., `$PATH`)
 
-{{< figure src="/notes/hpc-best-practices/img/config1.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/config1.png" width=70% height=70% >}}
 
 Use `~/.bashrc` for commands that should run for every new shell
 
-{{< figure src="/notes/hpc-best-practices/img/config2.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/config2.png" width=70% height=70% >}}

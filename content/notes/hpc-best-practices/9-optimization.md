@@ -10,7 +10,7 @@ menu:
 
 To access GitHub resources for these notes, visit https://github.com/sdsc/sdsc-summer-institute-2022/tree/main/4.3a_performance_tuning
 
-# Why Write Efficient Scalar/Serial Code
+## Why Write Efficient Scalar/Serial Code
 
 * __Optimizing your code will reduce your time to solution__
     * Challenging problems become doable and routine calculations can be done more quickly. You'll be able to do more science in the same amount of time and shorten the cycle between job submission and results.
@@ -19,7 +19,7 @@ To access GitHub resources for these notes, visit https://github.com/sdsc/sdsc-s
 * __Computing uses a lot of energy__
     * Estimated that several percent of U.S. energy consumption is used to power computers and networking equipment
 
-# Guidelines for Software Optimization
+## Guidelines for Software Optimization
 
 * Don't break your code - make sure you still get correct results
 * Profile your code so that you know where to focus your effort
@@ -45,7 +45,7 @@ __Why should you profile your code?__
 * Figure out why those portions of your code take so much time
     * Understanding why a section of code is so time consuming can provide valuable insights into how it can be improved
 
-# Manually Instrumenting C/C++ Codes
+## Manually Instrumenting C/C++ Codes
 
 __Generalizable for any user-written code__
 
@@ -61,7 +61,7 @@ gettimeofday(&tv_end, NULL);
 elapsed = (tv_end.tv_sec - tv_start.tv_sec) + (tv_end.tv_usec - tv_start.tv_usec) / 1000000.0;
 ```
 
-# Use a Code Profiler
+## Use a Code Profiler
 
 __Profiling your code with `gprof`__
 
@@ -75,7 +75,7 @@ __Profiling your code with `gprof`__
 * Introduces virtually no overhead
 * Output is easy to interpret
 
-# Make Sure Multidimensional Arrays are Indexed Properly
+## Make Sure Multidimensional Arrays are Indexed Properly
 
 __Multidimensional arrays - array addition example__
 
@@ -97,7 +97,7 @@ for (i=0; i<n; i++) {   // Note loop nesting
 }
 ```
 
-# Summary
+## Summary
 
 * Optimizing your code reduces time to solution, saves energy and make resources go further
 * Before you get started, make sure it's worth your effort
@@ -110,7 +110,7 @@ for (i=0; i<n; i++) {   // Note loop nesting
 * Optimizing for cache is critical - exploit spatial & temporal locality
 * The biggest payoffs often come from a deep understanding of the semantics and structure of your code
 
-# Using the Linux `top/htop` Utility
+## Using the Linux `top/htop` Utility
 
 The `top` utility is found on all Linux systems and provides a high level view of running processes. It does not give any information at the source code level (profiling), but can still be very useful for answering questions such as:
 
@@ -123,7 +123,7 @@ The `top` utility is found on all Linux systems and provides a high level view o
 * Is the memory usage growing over time? (Useful for identifying memory leaks)
 * How many threads are my processes using?
 
-## Customizing `top`
+### Customizing `top`
 
 `top` has the following defaults, but is easily customizable:
 
@@ -138,37 +138,37 @@ The `top` utility is found on all Linux systems and provides a high level view o
 * Ordered by CPU usage
     * Type __M__ to order by memory usage
 
-## Non-Threaded Code
+### Non-Threaded Code
 
 {{< figure src="/notes/hpc-best-practices/img/top1.png" width=70% height=70% >}}
 
 The above output shows 16 processes, each using anywhere from 21.3% to 100% of a computer core. The memory footprint (RES) is minimal, with each process only using up to 76 MB. CPU times range from 0.11s (just started) to 1:31.
 
-## Threaded Code (Thread Display Off)
+### Threaded Code (Thread Display Off)
 
 {{< figure src="/notes/hpc-best-practices/img/top2.png" width=70% height=70% >}}
 
 This output shows threaded code with thread display toggled to the "off" position. Note the heavy CPU usage, which is very close to 1600%.
 
-## Threaded Code (Thread Display On)
+### Threaded Code (Thread Display On)
 
 {{< figure src="/notes/hpc-best-practices/img/top3.png" width=70% height=70% >}}
 
 This output shows 16 threads, with only one thread making good use of CPU. The total memory usage is 5.8 GB (9.2% of available memory).
 
-## Threaded Code (Thread Display On)
+### Threaded Code (Thread Display On)
 
 {{< figure src="/notes/hpc-best-practices/img/top4.png" width=70% height=70% >}}
 
 This output shows 16 threads, all making good (but not ideal) use of the computer cores.
 
-## `htop`
+### `htop`
 
 {{< figure src="/notes/hpc-best-practices/img/htop.png" width=70% height=70% >}}
 
 `htop` is like `top`, but with better interface, vertical and horizontal scrolling, process tree view, etc.
 
-# Constructing Resource-Efficient Slurm Scripts
+## Constructing Resource-Efficient Slurm Scripts
 
 Shell script to monitor and record CPU/memory usage using `top`:
 
@@ -187,14 +187,14 @@ Output file from shell script to monitor job resource usage:
 
 {{< figure src="/notes/hpc-best-practices/img/shelloutput.png" width=70% height=70% >}}
 
-# Further Resources
+## Further Resources
 
 * Writing Clean Scientific Software: http://ideas-productivity.org/wordpress/wp-content/uploads/2023/07/hpcbp-076-cleanssw.pdf
 * San Diego Supercomputing Center: Advanced Training: https://www.sdsc.edu/education_and_training/training_hpc.html
 * SDSC Advanced Computing Training Catalog: https://www.sdsc.edu/education_and_training/training_catalog.html
 * SDSC Interactive Video Training Catalog: https://education.sdsc.edu/training/interactive/ciml_si21/index.html
 
-# Additional References
+## Additional References
 
 * Slurm Quick Start User Guide: https://slurm.schedmd.com/quickstart.html
 * HPCWIKI: Scheduling Basics: https://hpc-wiki.info/hpc/Scheduling_Basics

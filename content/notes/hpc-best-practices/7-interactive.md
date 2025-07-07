@@ -14,7 +14,7 @@ __Interactive HPC computing__ involves *real-time* user inputs to perform tasks 
 * User inputs come via command line interface or application GUI (Jupyter Notebooks, Matlab, R-studio)
 * Actions performed on remote compute nodes as a result of user input or program out
 
-# Interactive Jobs
+## Interactive Jobs
 
 Most HPC sites, including UVA's, restrict the memory and time allowed to processes on the frontend. The basic SLURM command to request interactive resources is `salloc`. However, it requires several options to work well, so we have a local script called `ijob`. `ijob` takes the same arguments as the SLURM command `salloc`.
 ```bash
@@ -37,7 +37,7 @@ salloc: Granted job allocation 25394
 For all interactive jobs, the allocated node(s) will remain reserved as long as the terminal session is open, up to the walltime limit, so it is extremely important that users exit their interactive sessions as soon as their work is done so that the user is not charged for unused time.
 
 
-# Application Examples
+## Application Examples
 
 Jupyter-lab
 ```bash
@@ -57,25 +57,23 @@ module load matlab/R2023a
 matlab &
 ```
 
-# Constructing Resource-Efficient SLURM Scripts
+## Constructing Resource-Efficient SLURM Scripts
 
 Monitoring Rivanna queues: `qlist`
 
-{{< figure src="/notes/hpc-best-practices/img/qlist.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/qlist.png" width=70% height=70% >}}
 
 Monitoring specific queues: `qlist -p`
 
-{{< figure src="/notes/hpc-best-practices/img/qlist-p1.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/qlist-p1.png" width=70% height=70% >}}
 
 Monitoring specific queues: `qlist -p`
 
-{{< figure src="/notes/hpc-best-practices/img/qlist-p2.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/qlist-p2.png" width=70% height=70% >}}
 
 Partition node usage display:
 
-{{< figure src="/notes/hpc-best-practices/img/display.png" width=70% height=70%>}}
-
-__Constructing Resource-Efficient SLURM Scripts__
+{{< figure src="/notes/hpc-best-practices/img/display.png" width=70% height=70% >}}
 
 Want to know the strategy for submitting jobs to busy queues? Request fewer cores, less time, or less memory (and corresponding cores). It's also important to know exactly what compute/memory resources your job needs, as detailed in the `seff` output.
 

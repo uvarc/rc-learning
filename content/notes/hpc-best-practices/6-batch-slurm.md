@@ -8,18 +8,17 @@ menu:
     hpc-best-practices:
 ---
 
+## SLURM Resource Manager
 
-# SLURM Resource Manager
-
-{{< figure src="/notes/hpc-best-practices/img/slurm.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/slurm.png" width=70% height=70% >}}
 
 SLURM (Simple Linux Utility for Resource Management) is a __resource manager__ (RM), also known as a *queueing system*. Resource managers are used to submit jobs to compute nodes from an access point generally called a *frontend*. Frontends are intended for editing, compiling, and very short test runs. Production jobs go to the compute nodes through the RM.
 
-# Resource Requests
+## Resource Requests
 
 A __job__ (aka __batch job__) is described through a special form of shell script which contains directives to the RM to request resources. Directives are pseudocomments that take a particular form. They are read by the RM to determine the resource requirement.  The job is then placed into the queue. Once a resource becomes available, the job is started on a master compute node. The master runs the job script, treating the directives as comments.
 
-# How a Scheduler Schedules Jobs
+## How a Scheduler Schedules Jobs
 
 Let's consider a simple example where there is a 6 node system, and a user wants to run 9 jobs. The scheduler places the jobs in the queue, and then on to the available nodes as they open up. Many parameters affect scheduling: number of jobs submitted, required runtime, required number of cores, required main memory, accelerators, libraries, etc.
 
@@ -33,7 +32,7 @@ In general, every scheduler has three main goals:
 For more info on how schedulers work, visit [https://hpc-wiki.info/hpc/Scheduling_Basics](https://hpc-wiki.info/hpc/Scheduling_Basics)
 
 
-# Batch Processing with SLURM Commands
+## Batch Processing with SLURM Commands
 
 Note that most Slurm options have two forms: a short (single-letter) form that is preceded by a single hyphen and followed by a space, and a longer form preceded by a double hyphen and followed by an equals sign. In a job script, these options are preceded by a pseudocomment `#SBATCH`. They may also be used as command-line options on their own.
 
@@ -53,7 +52,7 @@ Note that most Slurm options have two forms: a short (single-letter) form that i
 Note: the `--mem ` and `--mem-per-cpu` options are mutually exclusive. Job scripts should specify one or the other, but not both.
 
 
-# Common Slurm Command Examples
+## Common Slurm Command Examples
 
 Submit jobs using the `sbatch` command:
 ```bash
@@ -81,10 +80,10 @@ $ scancel 8718049
 ```
 
 
-# SLURM Environment Variables
+## SLURM Environment Variables
 These are internal environment variables that exist when a job is submitted.
 
-## Input Environment Variables
+### Input Environment Variables
 
 Upon startup, `sbatch` will read and handle the options set in the following environment variables:
 * SBATCH_JOB_NAME (same as `-J`, `--job-name`)
@@ -92,7 +91,7 @@ Upon startup, `sbatch` will read and handle the options set in the following env
 * SBATCH_TIMELIMIT (same as `-t`, `--time`)
 * More...
 
-## Output Environment Variables
+### Output Environment Variables
 
 The Slurm controller will set the following variables in the environment of the batch script:
 * SLURM_EXPORT_ENV (same as `--export`)
@@ -101,11 +100,11 @@ The Slurm controller will set the following variables in the environment of the 
 * More...
 
 
-# Batch Scripts Contents
+## Batch Scripts Contents
 
-{{< figure src="/notes/hpc-best-practices/img/batchscripts.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/batchscripts.png" width=70% height=70% >}}
 
-# Queues/Partitions
+## Queues/Partitions
 
 SLURM refers to queues as  __partitions__. We do not have a default partition; each job must request one explicitly.
 
@@ -120,7 +119,7 @@ SLURM refers to queues as  __partitions__. We do not have a default partition; e
 {{< /table >}}
 
 
-# Job Arrays
+## Job Arrays
 
 A large number of jobs can be submitted through one request if all the files used follow a strict pattern. For example, if input files are named input_1.dat, ..., input_1000.dat, we could write a job script requesting the appropriate resources for a single one of these jobs with:
 ```bash
@@ -159,7 +158,7 @@ sbatch --array=1,3,4,5,7,9 myjobs.sh
 Each job will be provided an environment variable __SLURM_ARRAY_JOB_ID__. Each task will be assigned __SLURM_ARRAY_TASK_ID__ based on the numbers in the specified range or list.
 
 
-# File Specifications
+## File Specifications
 
 It would be prudent to separate stdout and stderror:
 ```bash
@@ -175,7 +174,7 @@ Invoke your program with a line such as:
 ./myexec myinput.${SLURM_ARRAY_TASK_ID}.in
 ```
 
-# Example Job Array Script
+Example job array script:
 
 ```bash
 #SBATCH -N 1
@@ -189,7 +188,7 @@ Invoke your program with a line such as:
 ./mccode < input${SLURM_ARRAY_TASK_ID}.dat
 ```
 
-# Using Files with Job Arrays
+## Using Files with Job Arrays
 
 For more complex commands, you can prepare a file containing the text you wish to use. Your job script can read the file line by line. In the following example, you must number your subtasks starting from 1 sequentially. You must prepare the `options_file.txt` in advance and each line must be the options you wish to pass to your program.
 
@@ -210,7 +209,7 @@ The double quotes and curly brace are required.
 For more info on using job arrays, visit [https://www.rc.virginia.edu/userinfo/hpc/slurm/#job-arrays](https://www.rc.virginia.edu/userinfo/hpc/slurm/#job-arrays)
 
 
-# Job Dependency
+## Job Dependency
 
 With the `sbatch` command, you can invoke options that prevent a job from starting until a previous job has finished. This constraint is especially useful when a job requires an output file from another job in order to perform its tasks.
 
@@ -227,50 +226,50 @@ Notice that the `–dependency` has its own condition, in this case `afterok`. W
 * `afterany`: the dependent job is started after the specified job_id terminates either successfully or with a failure
 * `afternotok`: the dependent job is started only if the specified job_id terminates with a failure
 
-{{< figure src="/notes/hpc-best-practices/img/dependency.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/dependency.png" width=70% height=70% >}}
 
 For more info on specifying job dependencies, visit [https://www.rc.virginia.edu/userinfo/hpc/slurm/#specifying-job-dependencies](https://www.rc.virginia.edu/userinfo/hpc/slurm/#specifying-job-dependencies)
 
-# More Example Slurm Scripts
+## More Example Slurm Scripts
 
 Using one core on one node:
 
-{{< figure src="/notes/hpc-best-practices/img/exscript1.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/exscript1.png" width=70% height=70% >}}
 
 Using multiple cores on one node:
 
-{{< figure src="/notes/hpc-best-practices/img/exscript2.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/exscript2.png" width=70% height=70% >}}
 
-# SLURM Script End-of-Job Email
+## SLURM Script End-of-Job Email
 
 When the job finishes, the end-of-job email sent by SLURM will contain the output of the SLURM `seff` command.
 
-{{< figure src="/notes/hpc-best-practices/img/email.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/email.png" width=70% height=70% >}}
 
 
-# Threaded Jobs (OpenMP or Pthreads)
+## Threaded Jobs (OpenMP or Pthreads)
 
 Slurm considers a task to correspond to a process. Specifying a number of CPUs (cores) per node ensures that they are on the same node. Slurm does not set standard environment variables such as OMP_NUM_THREADS or NTHREADS, so the script must transfer that information explicitly. This example is for OpenMP:
 
-{{< figure src="/notes/hpc-best-practices/img/openmp.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/openmp.png" width=70% height=70% >}}
 
-# Distributed Memory Jobs
+## Distributed Memory Jobs
 
 If the executable is a parallel program using the Message Passing Interface (MPI), then it will require multiple processors of the cluster to run. This information is specified in the Slurm nodes resource requirement. The script `srun` is used to invoke the parallel executable. This example is a Slurm job command file to run a parallel (MPI) job using the OpenMPI implementation:
 
-{{< figure src="/notes/hpc-best-practices/img/openmpi.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/openmpi.png" width=70% height=70% >}}
 
 Both OpenMPI and IntelMPI are able to obtain the number of processes and the host list from Slurm, so these are not specified. In general, MPI jobs should use all of a node, so we’d recommend `ntasks-per-node=40` on the parallel partition.
 
-# GPU Computations
+## GPU Computations
 
 The gpu queue provides access to compute nodes equipped with RTX2080Ti, RTX3090, A6000, V100, and A100 NVIDIA GPU device.
 
-{{< figure src="/notes/hpc-best-practices/img/gpuscript.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/gpuscript.png" width=70% height=70% >}}
 
 The second argument to `gres` can be rtx2080, rtx3090, v100, or a100 for the different GPU architectures. The third argument to `gres` specifies the number of devices to be requested. If unspecified, the job will run on the first available GPU node with a single GPU device regardless of architecture.
 
-# NVIDIA GPU BasePOD
+## NVIDIA GPU BasePOD
 
 As artificial intelligence (AI) and machine learning (ML) continue to change how academic research is conducted, the NVIDIA DGX BasePOD, or BasePOD, brings new AI and ML functionality to Rivanna, UVA’s High-Performance Computing (HPC) system. The BasePOD is a cluster of high-performance GPUs that allows large deep-learning models to be created and utilized at UVA.
 
@@ -286,7 +285,7 @@ Which makes it ideal for the following types of jobs:
 
 Slurm script additional constraint:
 
-{{< figure src="/notes/hpc-best-practices/img/basepod.png" width=70% height=70%>}}
+{{< figure src="/notes/hpc-best-practices/img/basepod.png" width=70% height=70% >}}
 
 __Remarks:__
 1. Before running on multiple nodes, please make sure the job can scale well to 8 GPUs on a single node.
