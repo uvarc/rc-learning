@@ -1,5 +1,5 @@
 ---
-title: VII - Interactive Computing
+title: Interactive Computing
 date: 2025-06-14-14:47:30Z
 type: docs 
 weight: 350
@@ -9,10 +9,10 @@ menu:
 ---
 
 __Interactive HPC computing__ involves *real-time* user inputs to perform tasks on a set of compute node(s) including:
-* Code development, real-time data exploration, and visualizations
-* Used when applications have large data sets or are too large to download to local device, software is difficult to install, etc.
-* User inputs come via command line interface or application GUI (Jupyter Notebooks, Matlab, R-studio)
-* Actions performed on remote compute nodes as a result of user input or program out
+* Developing code, exploring data in real-time, and creating visualizations
+* Running applications with large datasets when data is too large to download to a local device or when software is difficult to install
+* Receiving user inputs via a command line interface or application GUI (Jupyter Notebooks, Matlab, R-studio)
+* Performing actions on remote compute nodes as a result of user input or program output
 
 ## Interactive Jobs
 

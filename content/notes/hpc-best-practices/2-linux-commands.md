@@ -1,5 +1,5 @@
 ---
-title: II - Linux Commands and Environment
+title: Linux Commands and Environment
 date: 2025-06-14-14:47:30Z
 type: docs 
 weight: 100
@@ -131,7 +131,7 @@ alias partitions='sinfo -o "%15P %6a %6D %11s %15F %7c %8m %101 %10L %10G"'
 
 ## Command History
 
-You can inspect your command history using `history`. You can navigate this history with the arrow keys so you can execute or modify a previous command (so you do not have to remember and/or type everything again). You can also search for previous commands using emacs key bindings (__ctrl+R__ for reverse search) or switch your bash shell to vi key bindings.
+You can inspect your command history using `history`. You can navigate this history with the arrow keys so you can execute or modify a previous command (so you do not have to remember and/or type everything again). You can also search for previous commands using emacs key bindings (__ctrl+R__ for reverse search) or switch your bash shell to `vi` key bindings.
 
 There are special commands to execute previous commands.
 

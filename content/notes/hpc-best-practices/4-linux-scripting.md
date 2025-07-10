@@ -1,5 +1,5 @@
 ---
-title: IV - Linux Shell Scripting
+title: Linux Shell Scripting
 date: 2025-06-14-14:47:30Z
 type: docs 
 weight: 200

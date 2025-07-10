@@ -1,5 +1,5 @@
 ---
-title: III - Linux Tools For Text Processing
+title: Linux Tools For Text Processing
 date: 2025-06-14-14:47:30Z
 type: docs 
 weight: 150

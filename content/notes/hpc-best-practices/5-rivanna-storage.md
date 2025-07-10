@@ -1,5 +1,5 @@
 ---
-title: V - Rivanna Storage Systems
+title: Rivanna Storage Systems
 date: 2025-06-14-14:47:30Z
 type: docs 
 weight: 250

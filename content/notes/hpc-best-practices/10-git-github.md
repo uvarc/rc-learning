@@ -1,5 +1,5 @@
 ---
-title: X - Git and GitHub
+title: Git and GitHub
 date: 2025-06-14-14:16:03Z
 type: docs 
 weight: 500
@@ -16,9 +16,9 @@ __What do we version control?__
 
 The files we're typically interested in being version controlled are *software source code* files. However, you can version control almost any type of file.
 
-*"In practice, everything that has been created manually should be put in version control, including programs, original field observations, and the source files for papers."*  
-Best Practices for Scientific Computing  
-Wilson et al. 2012 (arXiv:1210.0530)
+>"In practice, everything that has been created manually should be put in version control, including programs, original field observations, and the source files for papers."
+>
+> Best Practices for Scientific Computing, Wilson et al. 2012 (arXiv:1210.0530)
 
 ## Git and GitHub
 
@@ -48,7 +48,7 @@ When using Git, each contributor who is sharing changes with others on a project
 
 ## Getting Started with GitHub
 
-{{< figure src="/notes/hpc-best-practices/img/git1.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/git1.png" width=40% height=40% >}}
 
 GitHub website: https://github.com
 

@@ -1,5 +1,5 @@
 ---
-title: IV - Performance Optimization
+title: Performance Optimization
 date: 2025-06-14-14:47:30Z
 type: docs 
 weight: 450
@@ -10,14 +10,16 @@ menu:
 
 To access GitHub resources for these notes, visit https://github.com/sdsc/sdsc-summer-institute-2022/tree/main/4.3a_performance_tuning
 
-## Why Write Efficient Scalar/Serial Code
+## The Importance of Writing Efficient Scalar/Serial Code
 
-* __Optimizing your code will reduce your time to solution__
-    * Challenging problems become doable and routine calculations can be done more quickly. You'll be able to do more science in the same amount of time and shorten the cycle between job submission and results.
-* __Computer time, particularly on high-end resources is limited__
-    * If you're running on XSEDE-allocated resources, such as *Expanse*, you need to compete with other users for access. If you're running on the cloud, you'll need to pay.
-* __Computing uses a lot of energy__
-    * Estimated that several percent of U.S. energy consumption is used to power computers and networking equipment
+__Optimizing your code will reduce your time to solution.__  
+Challenging problems become doable and routine calculations can be done more quickly. You'll be able to do more science in the same amount of time and shorten the cycle between job submission and results.
+
+__Computer time, particularly on high-end resources is limited.__  
+If you're running on XSEDE-allocated resources, such as *Expanse*, you need to compete with other users for access. If you're running on the cloud, you'll need to pay.
+
+__Computing uses a lot of energy.__  
+It is estimated that a significant percentage of U.S. energy consumption is used to power computers and networking equipment.
 
 ## Guidelines for Software Optimization
 

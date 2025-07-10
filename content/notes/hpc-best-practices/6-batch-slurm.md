@@ -1,5 +1,5 @@
 ---
-title: VI - Batch Processing with SLURM Commands
+title: Batch Processing with SLURM Commands
 date: 2025-06-14-14:47:30Z
 type: docs 
 weight: 300
@@ -10,7 +10,7 @@ menu:
 
 ## SLURM Resource Manager
 
-{{< figure src="/notes/hpc-best-practices/img/slurm.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/slurm.png" width=40% height=40% >}}
 
 SLURM (Simple Linux Utility for Resource Management) is a __resource manager__ (RM), also known as a *queueing system*. Resource managers are used to submit jobs to compute nodes from an access point generally called a *frontend*. Frontends are intended for editing, compiling, and very short test runs. Production jobs go to the compute nodes through the RM.
 
@@ -121,7 +121,7 @@ SLURM refers to queues as  __partitions__. We do not have a default partition; e
 
 ## Job Arrays
 
-A large number of jobs can be submitted through one request if all the files used follow a strict pattern. For example, if input files are named input_1.dat, ..., input_1000.dat, we could write a job script requesting the appropriate resources for a single one of these jobs with:
+A large number of jobs can be submitted through one request if all the files used follow a strict pattern. For example, if input files are named `input_1.dat`, ..., `input_1000.dat`, we could write a job script requesting the appropriate resources for a single one of these jobs with:
 ```bash
 #!/bin/bash
 #SBATCH --ntasks=1
@@ -213,7 +213,7 @@ For more info on using job arrays, visit [https://www.rc.virginia.edu/userinfo/h
 
 With the `sbatch` command, you can invoke options that prevent a job from starting until a previous job has finished. This constraint is especially useful when a job requires an output file from another job in order to perform its tasks.
 
-The `–dependency` option allows for the specification of additional job attributes. For example, suppose that we have two jobs where job_2 must run after job_1 has completed. Using the corresponding Slurm command files, we can submit the jobs as follows:
+The `–dependency` option allows for the specification of additional job attributes. For example, suppose that we have two jobs where `job_2.slurm` must run after `job_1.slurm` has completed. Using the corresponding Slurm command files, we can submit the jobs as follows:
 
 ```bash
 sbatch job_1.slurm

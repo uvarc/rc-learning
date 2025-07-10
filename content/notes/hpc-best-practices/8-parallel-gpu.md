@@ -1,5 +1,5 @@
 ---
-title: VIII - Parallel/GPU Computing
+title: Parallel/GPU Computing
 date: 2025-06-14-14:47:30Z
 type: docs 
 weight: 400
@@ -21,7 +21,7 @@ Parallel computing will only help if you have an application that has been writt
 
 __Myth #2: You need to be a programmer or software developer to make use of parallel computing.__
 
-Most users of parallel computers are not programmers. Instead, they use mature 3rd party software that had been developed elsewhere and made available to the community.
+Most users of parallel computers are not programmers. Instead, they use mature third-party software that had been developed elsewhere and made available to the community.
 
 {{< figure src="/notes/hpc-best-practices/img/othercode.png" width=70% height=70% caption="Many of you will be using someone else's code(s)" >}}
 
@@ -38,16 +38,16 @@ Threads and processes are both independent sequences of execution.
     * Are less flexible - multiple threads associated with a process can only be run within a compute node (shared memory)
 
 Online resources describing the differences between thread and processes tend to be geared towards computer scientists, but the following resources do a reasonable job of addressing the topic:
-* https://stackoverflow.com/questions/200469/what-is-the-difference-between-a-process-and-a-thread (nerdier)
+* https://stackoverflow.com/questions/200469/what-is-the-difference-between-a-process-and-a-thread (more technical)
 * https://www.educba.com/process-vs-thread/ (more informal)
 
-__Processes and threads - why do I care?__
+__The Importance of Processes and Threads__
 
-The type of parallelization will determine how-where you will run your code.
-* Distributed-memory applications (multiple processes/instances of a program) can be run on one or more nodes
-* Shared-memory (threaded) applications should be run on a single node
-* Hybrid applications can be run on one or more nodes, but should consider the balance between threads and processes (discussed later)
-* In all cases, may need to consider how processes and threads are mapped and bound to cores
+The type of parallelization will determine how and where you will run your code.
+* Distributed-memory applications (multiple processes/instances of a program) can be run on one or more nodes.
+* Shared-memory (threaded) applications should be run on a single node.
+* Hybrid applications can be run on one or more nodes, but you should consider the balance between threads and processes (discussed later).
+* In all cases, you may need to consider how processes and threads are mapped and bound to cores.
 
 In addition, being aware of threads and processes will help you to understand how your code is utilizing the hardware and identify common problems.
 
@@ -96,7 +96,7 @@ In real-life applications that involve communications, synchronization (all thre
 
 ## Running Parallel Applications
 
-So far, we've covered the basic concepts of parallel computing - hardware, threads, processes, hybrid applications, implementing parallelization (MPI and OpenMP), Amdahl's law, and other factors that affect scalability.
+So far, we've covered the basic concepts of parallel computing – hardware, threads, processes, hybrid applications, implementing parallelization (MPI and OpenMP), Amdahl's law, and other factors that affect scalability.
 
 Theory and background are great, but how do we know how many CPU's GPUs to use when running our parallel application? The only way to definitively answer this question is to perform a __scaling study__ where a __representative problem__ is run on different number of processors. A representative problem is one with the same size (grid dimensions; number of particles, images, genomes, etc.) and complexity (e.g., level of theory, type of analysis, physics, etc.) as the research problems you want to solve.
 
