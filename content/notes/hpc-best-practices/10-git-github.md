@@ -48,7 +48,7 @@ When using Git, each contributor who is sharing changes with others on a project
 
 ## Getting Started with GitHub
 
-{{< figure src="/notes/hpc-best-practices/img/git1.png" width=40% height=40% >}}
+{{< figure src="/notes/hpc-best-practices/img/git1.png" width=30% height=30% >}}
 
 GitHub website: https://github.com
 

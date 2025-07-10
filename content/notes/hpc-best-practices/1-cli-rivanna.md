@@ -63,7 +63,7 @@ Sftp> get myfile    # transfer from Rivanna to local
 
 ### Globus Data Transfer
 
-{{< figure src="/notes/hpc-best-practices/img/globus.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/globus.png" width=50% height=50% >}}
 
 Globus is a simple, reliable, and fast way to access and move your research data between systems. Globus allows you to transfer data to and from systems such as:
 

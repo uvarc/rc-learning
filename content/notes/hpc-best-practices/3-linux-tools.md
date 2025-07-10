@@ -69,26 +69,26 @@ Line 20
 ## `sort`
 
 The `sort` command is used to sort lines of text files. It can be restricted to listing unique values by specifying the `-u` option:  
-{{< figure src="/notes/hpc-best-practices/img/sort1.png" width=70% height=70% >}}
-{{< figure src="/notes/hpc-best-practices/img/sort2.png" width=70% height=70% >}}
-{{< figure src="/notes/hpc-best-practices/img/sort3.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/sort1.png" width=20% height=20% >}}
+{{< figure src="/notes/hpc-best-practices/img/sort2.png" width=20% height=20% >}}
+{{< figure src="/notes/hpc-best-practices/img/sort3.png" width=20% height=20% >}}
 
 You can also choose the field to be used for sorting using the `-k` option, with the `-n` option used to sort by numeric value. In the second example, sorting numerically is probably the desired behavior:  
-{{< figure src="/notes/hpc-best-practices/img/sort4.png" width=70% height=70% >}}
-{{< figure src="/notes/hpc-best-practices/img/sort5.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/sort4.png" width=25% height=25% >}}
+{{< figure src="/notes/hpc-best-practices/img/sort5.png" width=25% height=25% >}}
 
 ## `grep`
 
 The `grep` command will print lines that match a pattern. At its simplest, `grep` returns all lines in a file containing the given search string. Upper and lower case letters are different characters (you'll need the `-i` flag if you want your matches to be case insensitive).  
-{{< figure src="/notes/hpc-best-practices/img/grep1.png" width=70% height=70% >}}
-{{< figure src="/notes/hpc-best-practices/img/grep2.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/grep1.png" width=25% height=25% >}}
+{{< figure src="/notes/hpc-best-practices/img/grep2.png" width=25% height=25% >}}
 
 The `grep` command also provides options for listing lines that occur before or after the matching line. This is extremely useful when the desired content can vary, but occurs in a known location relative to the matching pattern.  
 {{< figure src="/notes/hpc-best-practices/img/grep3.png" width=70% height=70% >}}
 
 The `grep` command can also do an inverted match and print lines that do not match the pattern:  
-{{< figure src="/notes/hpc-best-practices/img/grep4.png" width=70% height=70% >}}
-{{< figure src="/notes/hpc-best-practices/img/grep5.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/grep4.png" width=30% height=30% >}}
+{{< figure src="/notes/hpc-best-practices/img/grep5.png" width=40% height=40% >}}
 
 Up to this point, our pattern has been a string literal (e.g., lime or banana). However, `grep` can recognize more complex patterns that use character classes, anchors, and even regular expressions.  
 {{< figure src="/notes/hpc-best-practices/img/grep6.png" width=70% height=70% >}}
@@ -97,8 +97,8 @@ Up to this point, our pattern has been a string literal (e.g., lime or banana). 
 
 The `sed` command works as a stream editor for filtering and transforming text. It can be used to apply a substitution to each line of a file. While *some* of these operations can easily be done using a global replace in a traditional editor (vi, emacs), `sed` has the advantage that it can be scripted. In addition, since it works on a stream of data, the entire file does not need to fit into memory.  
 {{< figure src="/notes/hpc-best-practices/img/sed1.png" width=70% height=70% >}}
-{{< figure src="/notes/hpc-best-practices/img/sed2.png" width=70% height=70% >}}
-{{< figure src="/notes/hpc-best-practices/img/sed3.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/sed2.png" width=30% height=30% >}}
+{{< figure src="/notes/hpc-best-practices/img/sed3.png" width=30% height=30% >}}
 
 The `sed` command can also print out specific lines. There are a lot of options, but we'll just focus on a few things that aren't easy to do using other tools:  
 {{< figure src="/notes/hpc-best-practices/img/sed4.png" width=70% height=70% >}}

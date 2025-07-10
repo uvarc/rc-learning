@@ -266,7 +266,7 @@ Bash has two dotfiles: `.bash_profile` and `.bashrc`. If no `.bash_profile` is p
 
 Use `~/.bash_profile` for commands that should be run only once, such as customizing environment variables (e.g., `$PATH`)
 
-{{< figure src="/notes/hpc-best-practices/img/config1.png" width=70% height=70% >}}
+{{< figure src="/notes/hpc-best-practices/img/config1.png" width=80% height=80% >}}
 
 Use `~/.bashrc` for commands that should run for every new shell
 
