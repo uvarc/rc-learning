@@ -27,5 +27,5 @@ Models are given in parameter counts (billions) at specific precisions (i.e., fl
 * **27B**: 62 Layers, 5376 Embedding Dim
 
 
-Each calculation is a breakdown of M (Model Size) + N (QKV Cache Size) from [Calculating GPU Memory Requirements](notes/multigpu-inference/calculating-gpu.md).
+Each calculation is a breakdown of M (Model Size) + N (QKV Cache Size) from [Calculating GPU Memory Requirements](../memory-reqs/).
 

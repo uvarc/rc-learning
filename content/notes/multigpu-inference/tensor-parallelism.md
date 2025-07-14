@@ -9,7 +9,7 @@ menu:
 ---
 
 
-{{< figure src=/notes/multigpu-inference/img/Multi_GPU_LLM_Inference_29.png width=40% height=40% caption="Matrix Multiplication Example." >}}
+{{< figure src=/notes/multigpu-inference/img/Multi_GPU_LLM_Inference_29.png width=60% height=60% caption="Matrix Multiplication Example." >}}
 
 Tensor parallelism (intra-layer) splits tensor computations across GPUs. Each GPU contains part of the tensor. GPUs compute on their part in parallel. THis is good for transformer layers. However, it requires frequent communication/fast interconnect (e.g. NVLink, which UVA HPC has in the BasePOD).
 

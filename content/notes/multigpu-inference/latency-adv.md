@@ -10,7 +10,7 @@ menu:
 
 {{< figure src=/notes/multigpu-inference/img/Multi_GPU_LLM_Inference_38.jpg width=90% height=90% caption="Transformer module latency reductions per module." >}}
 
-The diagram below highlights key transformer components and shows how latency can be reduced in each part using optimized operations, such as fused QKV and faster bias-add kernels.
+The diagram above highlights key transformer components and shows how latency can be reduced in each part using optimized operations, such as fused QKV and faster bias-add kernels.
 
 
 
