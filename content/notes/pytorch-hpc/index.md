@@ -1,7 +1,7 @@
 ---
 # Course title, summary, and position.
 title: "Introduction to Pytorch for HPC"
-authors: [ab]
+authors: [abd]
 
 # Page metadata.
 date: "2025-02-26T00:00:00"
