@@ -7,57 +7,23 @@ menu:
     genomics:
 ---
 
+The construction of a sequence begins with __short-insert sequence reads__. These short reads are then combined to form longer, contiguous sequences called __contigs__. Contigs are then combined to form even larger __scaffolds__, though there often gaps between the contigs where the sequence is unknown. __Long-read sequencing__ technologies can help order contigs in a sequence, as well as estimate the size of gaps (represented by the string of Ns).
 
+{{< figure src="/notes/genomics/img/construction.png" width=60% height=60% >}}
 
+## Assembly Construction - Long Reads
 
-short-insert
+The assembly construction for long reads is still hierarchical, but proceeds in two rounds. The first round of assembly involves the selection of __seed reads__, or the longest reads in the dataset (wiht a user-defined length cutoff). In the second round, all shorter reads are aligned to the seed reads, in order to generate consensus sequences with high accuracy. We refer to these as __pre-assembled reads__, but they can also be thought of as “error corrected” reads. During the pre-assembly process, seed reads may be split or trimmed at regions of low read coverage (with a user-defined _min cov_ for FALCON sense option). The performance of the pre-assembly process is captured in the pre-assembly stats file.
 
-sequence
+{{< figure src="/notes/genomics/img/constructionlong.png" width=60% height=60% >}}
 
-reads
+## Repetitive Regions
 
-Long read sequencing
+Repetitive regions of DNA are often challenging during genome sequencing and assembly, as it is difficult to figure out where a section belongs in the overall sequence. Over 50% of mammalian genomes are repetitive, and large plant genomes tend to be even worse. For example, the _Arabidopsis thaliana_ plant has a relatively small genome, yet 10% of its genome is made up of repetitive regions.
 
-Scaffold - sequence of contigs, separated by gaps - Ns are predicted gap size
-
->GTAGTATTCTAGAAAATGTTTTAAATATAGATAGTTGTTTTANATCTGTTAGTTGTCAGATGCTTACTGAATAGTTGGAANNNNNNNNNNNNNNNNNNNNNNNNTGTGAGGTTTTTAGCTCATGAAAGTTTATGATTATTGCACCCCTACTCACAACGAATCCCTATTCTTATCTTTTNNNNNNNNNNNNNNCATGTCACTGGTTTATTTATTTTTTGTGGCTGCAGAAGTCCTTTGTCGCTGTTAATTTTTTGGGAGTTCTCCTGTCGTATATTAAAGCTTTCTTTCTTTTCAGTTTTAAATTTATTTGAACCTTACTATCTTTCTAACAATAAATTGTGGAATTATCAACGAAAACATAGGNNNNNNNNNNNGTCCTTTATACGAAAGCTATATAGTGTTAGGCTTTTCTTTTTTTTTNNNNNNNNGGTGATGTTGTTAATGGTGCCCTTTTCTGGTAATCTTACTAAATCAGTTTGCTTGTTACTTGTATAGTTGT
-
----
-
-Long-read scaffolding
-
-Assembly Construction - long reads
-
-Still hierarchical but proceeds in two rounds
-
-1. Seed read selection – longest reads in dataset
-
-2. Shorter reads aligned to seed reads for consensus
-
-![](img/genomics_12.png)
-
-![](img/genomics_13.png)
-
----
-
-The hierarchical genome assembly process proceeds in two rounds. The first round of assembly involves the selection of seed reads, or the longest reads in the dataset (user-defined length cutoff). All shorter reads are aligned to the seed reads, in order to generate consensus sequences with high accuracy. We refer to these as pre-assembled reads but they can also be thought of as “error corrected” reads. During the pre-assembly process, seed reads may be split or trimmed at regions of low read coverage (user-defined min_cov for falcon_sense_option). The performance of the pre-assembly process is captured in the pre-assembly stats file.
-
-Repetitive Regions
-
-
-
-* Over 50% of mammalian genomes are repetitive
-  * Large plant genomes tend to be even worse
-  * _Arabidopsis_  - 10% composition
-  * SINEs - Short Interspersed Nuclear Elements
-  * LINES - Long Interspersed Nuclear Elements
-  * LTR - Long Terminal Repeats, retrotransposons
-  * Segmental duplications
-  * Low-complexity - Microsatellites or homopolymers
-
-
-![](img/genomics_14.png)
-
----
-
-mariner TE found in Drosophila – mosaic eye color
+There are different categories of repetitive regions:
+* SINEs - Short Interspersed Nuclear Elements
+* LINES - Long Interspersed Nuclear Elements
+* LTR - Long Terminal Repeats, retrotransposons
+* Segmental duplications
+* Low-complexity - microsatellites or homopolymers

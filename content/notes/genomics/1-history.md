@@ -17,7 +17,7 @@ __1995__ - Fleischmann et al. assemble the first complete genome (1.8Mb) of a fr
 
 __1998__ - The first complete genome (97Mbp) of a multicellular organism, _C. elegans_, is assembled. The assembly was done using the BAC-by-BAC strategy with Phrap software.
 
-__2000__ - Myers et al. assemble the _Drosophila melanogaster_ genome (116 Mbp). The assemble was done with the WGS Assembly strategy and Celera Assembler software.
+__2000__ - Myers et al. assemble the _Drosophila melanogaster_ (fruit fly) genome (116 Mbp). The assemble was done with the WGS Assembly strategy and Celera Assembler software.
 
 There are many more sequencing projects involving a diverse variety of living organisms.
 
