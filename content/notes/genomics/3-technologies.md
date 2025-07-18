@@ -7,114 +7,59 @@ menu:
     genomics:
 ---
 
+There are many sequencing technologies in the field of DNA sequencing. Some of the most popular technologies currently include:
 
-Sequencing Technologies
+* __Illumina__ - produces short read sequences (< 1kb), commonly used for whole genome sequencing, exomes, micro RNA, and single-cell apps
+* __PacBio__ - produces long read sequences (~ 25 kb), used in the Revio sequencer at UVA
+* __Nanopore__ - produces “ultra-long” sequences (up to 1Mb)
+* __Hi-C__ -  a crosslinking technique that captures interactions within genome
+
+## PacBio HiFi Reads
+
+PacBio produces long reads typically around 25kb, with a 99.9% read quality (Q30), which is better than some short-read contigs. PacBio HiFi reads also distinguish repeats rather than spanning full repeats. However, their reads are limited in length and have lower throughput than Nanopore.
+
+{{< figure src="/notes/genomics/img/pacbio.png" width=70% height=70% >}}
+
+### Phased Genome Assemblies
+
+Standard assemblies produce __unphased__ sequences, where the variation from two chromosomes is collapsed into a __pseudo-haplotype__ (a single, mixed sequence). PacBio assemblies allow for the production of __phased__ sequences, where the variation from two chromosomes is preserved in two seperate sequences.
+
+{{< figure src="/notes/genomics/img/phased1.jpg" width=50% height=50% >}}
+
+{{< figure src="/notes/genomics/img/phased2.png" width=70% height=70% >}}
+
+## Nanopore Sequencing
+
+{{< figure src="/notes/genomics/img/nanopore.jpg" width=70% height=70% >}}
+
+Nanopore is able to produce “ultra-long” reads up to 4 Mb. Its accuracy is at about 95% read quality, and it is able to span repeat regions. The quality is limited compared to other technologies, and it has taken a while for Nanopore's technology to reach where it is today.
+
+{{< figure src="/notes/genomics/img/nanoporedevice.jpg" width=50% height=50% caption="A sample-to-sequence portable Nanopore device" >}}
+
+{{< figure src="/notes/genomics/img/katerubins.png" width=50% height=50% caption="Kate Rubins using Nanopore on the ISS" >}}
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+  {{< figure src="/notes/genomics/img/nanoporedevice.jpg" style="width: 45%;" >}}
+  {{< figure src="/notes/genomics/img/katerubins.png" style="width: 45%;" >}}
+</div>
+
+Nanopore uses long reads and coverage to detect repeats.
+
+{{< figure src="/notes/genomics/img/nanoporerepeat.png" width=50% height=50% >}}
 
 
+## Hi-C
 
-* Illumina - short read sequences (< 1kb)
-* - whole genome sequencing, exomes, micro RNA, single-cell apps
-* PacBio - long read sequences (~ 25 kb)
-  * - Revio sequencer at UVA
-* Nanopore -  “ultra-long” sequences (up to 1Mb)
-* HiC -  crosslinking technique to capture interactions within genome
+Hi-C is a genomic technique used to capture chromatin information. It involves detecting and analyzing the frequency of contacts between regions of DNA, in order to determine the correct order and orientation of the DNA segments. For example, segments with more contact are likely to be adjacent or closer to each other.
 
+{{< figure src="/notes/genomics/img/hic1.png" width=50% height=50% >}}
 
-![](img/genomics_15.png)
+{{< figure src="/notes/genomics/img/hic2.png" width=70% height=70% >}}
 
-PacBio Hi Fi reads
+## References
 
-![](img/genomics_16.png)
-
-Long reads - 25kb
-
-99.9% read quality (Q30)  - better than some short-read contigs
-
-Distinguish repeats rather than spanning full repeats
-
-Limited length
-
-Lower throughput than Nanopore
-
-Wenger et al. 2019  _Nature Biotechnology_
-
----
-
-Not know for when first appeared on the market. ~2010
-
-Phased Genome Assemblies
-
-![](img/genomics_17.jpg)
-
-“Pseudo-haplotypes” - mixture of both types
-
-How do we get phased genomes?
-
-Chin et al.  _Nat Meth _ 2016
-
-Phased Genome Assemblies
-
-![](img/genomics_18.png)
-
-https://www.pacb.com/blog/ploidy-haplotypes-and-phasing/
-
-![](img/genomics_19.tiff)
-
-Nanopore sequencing
-
-“Ultra-long” reads
-
-Up to 4 Mb read length
-
-95% read quality
-
-Engineered
-
-Long lengths
-
-Able to span repeat regions
-
-Limited quality
-
-Took a while for technology to catch up
-
-![](img/genomics_20.jpg)
-
-![](img/genomics_21.png)
-
-Sample-to-sequence
-
-Kate Rubins, ISS
-
-Shafin et al.  _Nature Biotechnology_ , 2020
-
----
-
-Oxford - Long and noisy data
- To scale it – 8cm string through Human fist – 3.2kb rope in minutes, reading nucletides as you pass it 
-
-Nanopore sequencing - detecting repeats
-
-Using long reads and coverage to detect repeats
-
-![](img/genomics_22.png)
-
-![](img/genomics_23.png)
-
-More frequently sequenced ligated, closer are in genome
-
-Junctions between adjacent sequences
-
-![](img/genomics_24.png)
-
-Ligations are paired-end sequenced and reads mapped against draft genome
-
-https://www.youtube.com/watch?v=-MxEw3IXUWU
-
----
-
-Proximity lkigation
-
-Hi-C - genomic technique to capture chromatin conformation
-
-Contact map with frequency of contact: black - more contact, dotted red - less
+* Wenger et al. _Nature Biotechnology_ 2019
+* Chin et al. _Nat Meth_ 2016
+* https://www.pacb.com/blog/ploidy-haplotypes-and-phasing/
+* Shafin et al. _Nature Biotechnology_ 2020
+* How it Works: Proximo Hi-C Genome Scaffolding https://www.youtube.com/watch?v=-MxEw3IXUWU
