@@ -8,6 +8,55 @@ menu:
 ---
 
 
+Reference Genome
+
+Reference:
+
+Multiple sequencing technologies
+
+Complete representation
+
+Minimal sequencing gaps
+
+Higher cost
+
+Conventional:
+
+Single sequencing technology
+
+Specific goal: genetic variants
+
+Sequencing gaps
+
+Lower cost
+
+__Many t__  __ypes of genomic analyses require a strong assembly:__
+
+Variant calling, gene expression, regulatory elements
+
+![](img/genomics_31.png)
+
+https://www.ncbi.nlm.nih.gov
+
+https://www.ebi.ac.uk/interpro/entry/pfam/#table
+
+![](img/genomics_32.png)
+
+![](img/genomics_33.png)
+
+https://www.ensembl.org/index.html
+
+https://data.faang.org/home
+
+![](img/genomics_34.png)
+
+![](img/genomics_35.png)
+
+https://www.ebi.ac.uk
+
+![](img/genomics_36.png)
+
+https://rgd.mcw.edu
 
 Reference Genome
 
