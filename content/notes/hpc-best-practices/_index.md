@@ -11,13 +11,13 @@ menu:
 The goal of this tutorial is to make users of the Rivanna compute cluster aware of various techniques and strategies to efficiently use the cluster and get faster turn-around on computational results.
 
 Table of Contents:  
-I - Command line interface to Rivanna  
-II - Linux Commands and Environment  
-III - Linux Commands for Text Processing  
-IV - Linux Shell Scripting  
-V - Rivanna Storage Systems  
-VI - Batch Processing with SLURM commands  
-VII - Interactive Computing  
-VIII - Parallel/GPU computing  
-IV - Performance Optimization  
-X - Git and GitHub
+Command line interface to Rivanna  
+Linux Commands and Environment  
+Linux Commands for Text Processing  
+Linux Shell Scripting  
+Rivanna Storage Systems  
+Batch Processing with SLURM commands  
+Interactive Computing  
+Parallel/GPU computing  
+Performance Optimization  
+Git and GitHub
