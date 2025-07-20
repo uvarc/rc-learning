@@ -37,7 +37,6 @@ Most modern sequencing platforms perform base calling and then return that data 
 
 {{< figure src="/notes/genomics/img/fastq2.png" width=50% height=50% >}}
 
-
 ## SAM/BAM
 
 Both SAM (Sequence Alignment Format) and BAM are file formats for sequence alignment files. THese sequence alignment files provide context for raw data. Each file has eleven columns (tab delimited), and one alignment is recorded for each line. SAM is a plain-text format (human readable), while BAM is a binary format. SAM/BAM files are often used with SAMTools (a suite of utilities for SAM/BAM files) and Picard (a collection of tools for sequencing data).
