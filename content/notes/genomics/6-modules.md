@@ -7,7 +7,6 @@ menu:
     genomics:
 ---
 
-
 ## Research Computing Resources
 
 UVA Research Computing Learning Portal:  
@@ -35,7 +34,6 @@ pwd
 
 The `/home/user_id` directory is your home directory and provides 200GB of permanent storage. The `/scratch/user_id` directory provides up to 10TB of temporary storage. Scratch files not accessed for 90 days are automatically purged. You can check which files will be purged through our [Open OnDemand utilities](https://www.rc.virginia.edu/userinfo/hpc/ood/).
 
-
 ## HPC Allocations & Storage
 
 To check your disk space usage:
@@ -50,11 +48,11 @@ To check your active allocations and balances:
 allocations
 ```
 
-If you sign up for one of our HPC workshops, you will be assigned to the allocation `hpc_training`. After the workshop, the `hpc_training ` allocation will be removed.
+If you sign up for one of our HPC workshops, you will be assigned to the allocation `hpc_training`. After the workshop, the `hpc_training` allocation will be removed.
 
 ## Modules
 
-A module is a software utility that allows multiple versions of a software to exist on the same system. It helps to simplify the management and access of software applications.
+A module is a software utility that allows multiple versions of a software to exist on the same system. It helps to simplify the management and access of software applications. Below are a list of helpful commands for using modules through the command-line interface.
 
 {{< table >}}
 | Command | Action |
@@ -70,7 +68,6 @@ A module is a software utility that allows multiple versions of a software to ex
 | `module purge` | Remove all module modifications to the environment |
 | `module swap \<package\>/\<current\> \<package\>/\<newver\>` | Exchange one version of a package for another |
 {{< /table >}}
-
 
 Overall, there are three main approaches to running HPC jobs: interactively, using modules, or downloading software locally.
 

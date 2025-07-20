@@ -9,7 +9,7 @@ menu:
 
 
 
-![](img/genomics_57.png)
+
 
 __BUSCO: assessing genome assembly and annotation completeness with single-copy __  __orthologs__
 
@@ -21,7 +21,7 @@ BUSCO assessment workflow and relative run-times
 
 Quality of genome vs. completeness
 
-![](img/genomics_59.png)
+
 
 ![](img/genomics_60.png)
 
@@ -43,7 +43,7 @@ $ cp /project/rivanna-training/genomics-hpc .
 
 $ ls -lh  check to make sure all files transferred
 
-![](img/genomics_61.png)
+
 
 $ module spider busco
 
@@ -113,7 +113,7 @@ Job started: Slurm Job_id=4972539 Name=busco-test Began, Queued time 00:00:46
 
 ![](img/genomics_62.png)
 
-![](img/genomics_63.png)
+
 
 Running Busco – slurm script
 
@@ -133,7 +133,7 @@ CG - exiting
 
 Should have same output files as when run interactively
 
-![](img/genomics_64.png)
+
 
 If we place our contigs from largest to smallest on the genome,
 
@@ -239,7 +239,7 @@ Downloading raw annotation:
 
 https://www.repeatmasker.org/genomicDatasets/RMGenomicDatasets.html
 
-![](img/genomics_66.png)
+
 
 Running StringTie
 
@@ -251,7 +251,6 @@ Can use outputs to estimate expression values
 
 https://ccb.jhu.edu/software/stringtie/
 
-![](img/genomics_67.png)
 
 Running StringTie – slurm script
 
@@ -307,7 +306,7 @@ Loading modules
 
 Downloading software locally
 
-![](img/genomics_68.png)
+
 
 Running StringTie
 
@@ -331,7 +330,7 @@ $ cd stringtie
 
 $ make -j4 release
 
-![](img/genomics_69.png)
+
 
 Running StringTie
 
@@ -353,7 +352,6 @@ $ ls -lh stringtie
 
 - file permissions
 
-![](img/genomics_70.png)
 
 Running StringTie
 
@@ -413,7 +411,8 @@ We are going to run Test 7 - Mixed reads with annotation guides:
 
 $  __stringtie__  --mix -G mix_guides.gff  -o mix_reads_guided.out.gtf mix_short.bam mix_long.bam
 
-![](img/genomics_72.png)
+
+
 
 Running StringTie
 
@@ -473,7 +472,6 @@ $  __stringtie__  --mix -G mix_guides.gff  -o mix_reads_guided.out.gtf mix_shor
 
 - .gtf output file
 
-![](img/genomics_73.png)
 
 PacBio - SMRTLink
 
@@ -509,43 +507,29 @@ HPC orientation session and office hours:
 
 https://www.rc.virginia.edu/support/#office-hours
 
-![](img/genomics_75.png)
+
+
 
 Additional bioinformatics software installed
 
-Trimmomatic:  _http://_  _www.usadellab.org_  _/_  _cms_  _/?page=_  _trimmomatic_  _ _
+Trimmomatic: http://www.usadellab.org/cms/?page=trimmomatic 
+Qualimap: http://qualimap.conesalab.org 
+HISAT2: https://daehwankimlab.github.io/hisat2
+StringTie: https://ccb.jhu.edu/software/stringtie
+STAR: https://github.com/alexdobin/STAR
+Trinity: https://github.com/trinityrnaseq/trinityrnaseq/wiki
+RSEM: https://github.com/deweylab/RSEM
+DESeq2: https://bioconductor.org/packages/release/bioc/html/DESeq2.html
+Salmon: https://salmon.readthedocs.io/en/latest/salmon.html
+edgeR: https://bioconductor.org/packages/release/bioc/html/edgeR.html
+bedtools: https://bedtools.readthedocs.io/en/latest/index.html
+vcftools: https://vcftools.github.io
+picard: https://broadinstitute.github.io/picard/
+canu: https://canu.readthedocs.io/en/latest
+bcftools: https://samtools.github.io/bcftools/bcftools
 
-Qualimap:  _http://_  _qualimap.conesalab.org_  _ _
 
-HISAT2:  _https://_  _daehwankimlab.github.io_  _/hisat2_
-
-StringTie:  _https://_  _ccb.jhu.edu_  _/software/_  _stringtie_
-
-STAR:  _https://_  _github.com_  _/_  _alexdobin_  _/STAR_
-
-Trinity:  _https://_  _github.com_  _/_  _trinityrnaseq_  _/_  _trinityrnaseq_  _/wiki_
-
-RSEM:  _https://_  _github.com_  _/_  _deweylab_  _/RSEM_
-
-DESeq2:  _https://_  _bioconductor.org_  _/packages/release/_  _bioc_  _/html/DESeq2.html_
-
-Salmon:  _https://_  _salmon.readthedocs.io_  _/_  _en_  _/latest/_  _salmon.html_
-
-edgeR:  _https://_  _bioconductor.org_  _/packages/release/_  _bioc_  _/html/_  _edgeR.html_
-
-bedtools:  _https://_  _bedtools.readthedocs.io_  _/_  _en_  _/latest/_  _index.html_
-
-vcftools:  _https://_  _vcftools.github.io_
-
-picard:  _https://_  _broadinstitute.github.io_  _/_  _picard_  _/_
-
-canu:  _https://_  _canu.readthedocs.io_  _/_  _en_  _/latest_
-
-bcftools:  _https://_  _samtools.github.io_  _/_  _bcftools_  _/_  _bcftools_
-
-![](img/genomics_76.png)
-
-Genomics software
+Genomics Software
 
 Verkko Telomere-to-telomere assemblies
 
