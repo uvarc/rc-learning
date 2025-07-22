@@ -7,17 +7,6 @@ menu:
     genomics:
 ---
 
-## Research Computing Resources
-
-UVA Research Computing Learning Portal:  
-https://learning.rc.virginia.edu
-
-Using UVA’s HPC system from the terminal:  
-https://learning.rc.virginia.edu/notes/hpc-from-terminal/
-
-HPC orientation session and office hours:  
-https://www.rc.virginia.edu/support/#office-hours
-
 ## Logging In
 
 To log in to the HPC system, open a terminal and use the following command:
@@ -71,5 +60,13 @@ A module is a software utility that allows multiple versions of a software to ex
 
 Overall, there are three main approaches to running HPC jobs: interactively, using modules, or downloading software locally.
 
-For more information on how to navigate our HPC system, check out
-https://learning.rc.virginia.edu/notes/hpc-from-terminal/section5/.
+## More Research Computing Resources
+
+UVA Research Computing Learning Portal:  
+https://learning.rc.virginia.edu
+
+Using UVA’s HPC system from the terminal:  
+https://learning.rc.virginia.edu/notes/hpc-from-terminal/
+
+HPC orientation session and office hours:  
+https://www.rc.virginia.edu/support/#office-hours
