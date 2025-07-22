@@ -241,7 +241,7 @@ https://www.repeatmasker.org/genomicDatasets/RMGenomicDatasets.html
 
 
 
-Running StringTie
+## Running StringTie
 
 StringTie aligns bulk RNA-Seq reads to a reference genome and estimates abundance
 
@@ -252,53 +252,37 @@ Can use outputs to estimate expression values
 https://ccb.jhu.edu/software/stringtie/
 
 
-Running StringTie – slurm script
+## Running StringTie – slurm script
 
-__stringtie__  ___slurm_submit.sh__  __ __
+The `stringtie_slurm_submit.sh` script below is a Slurm scipt that will run StringTie. Slurm is a resource manager that can be used to run your code.
 
+```bash
 #!/bin/bash
-
 #SBATCH -A hpc_training                    # account name (--account)
-
 #SBATCH -p standard                        # partition/queue (--partition)
-
 #SBATCH --nodes=1                          # number of nodes
-
 #SBATCH --ntasks=1                         # 1 task – how many copies of code to run
-
 #SBATCH --cpus-per-task=1                  # total cores per task – for multithreaded code
-
 ##SBATCH --mem=3200                        # total memory (Mb) *Note ##comment
-
 #SBATCH -t 00:20:00                        # time limit: 20 min
-
 #SBATCH -J stringtie-test                  # job name
-
 #SBATCH -o stringtie-test-%A.out           # output file
-
 #SBATCH -e stringtie-test-%A.err           # error file
-
 #SBATCH --mail-user=dtriant@virginia.edu   # where to send email alerts
-
 #SBATCH --mail-type=ALL                    # receive email when starts/stops/fails
 
-__module purge__   # good practice to purge all modules
-
-__module load __ stringtie/2.2.1
+module purge   # good practice to purge all modules
+module load stringtie/2.2.1
 
 cd /project/rivanna-training/genomics-hpc/stringtie/tests_3 # working directory
-
-__stringtie__  --mix -G mix_guides.gff -o mix_reads_guided.out.gtf mix_short.bam mix_long.bam
-
+stringtie  --mix -G mix_guides.gff -o mix_reads_guided.out.gtf mix_short.bam mix_long.bam
 # -- mix both short and long reads aligning
-
 # -G reference annotation for guided alignment with short (1st) & long (2nd) read bam alignment files
-
 # generates .gtf file with assembled transcripts and expression levels
+```
 
----
 
-Slurm – resource manager, how you can run your codes
+## Running Jobs
 
 Interactively
 
@@ -308,7 +292,7 @@ Downloading software locally
 
 
 
-Running StringTie
+## Running StringTie
 
 What if the module is not installed?
 
@@ -324,13 +308,11 @@ Installing software “locally”
 
 https://github.com/gpertea/stringtie
 
-$ git clone https://github.com/gpertea/stringtie
-
-$ cd stringtie
-
-$ make -j4 release
-
-
+```bash
+git clone https://github.com/gpertea/stringtie
+cd stringtie
+make -j4 release
+```
 
 Running StringTie
 
@@ -338,11 +320,11 @@ Installing software “locally”
 
 https://github.com/gpertea/stringtie
 
-$ git clone https://github.com/gpertea/stringtie
-
-$ cd stringtie
-
-$ make -j4 release
+```bash
+git clone https://github.com/gpertea/stringtie
+cd stringtie
+make -j4 release
+```
 
 Look for a README file - often has download/installation instructions
 
@@ -353,7 +335,7 @@ $ ls -lh stringtie
 - file permissions
 
 
-Running StringTie
+## Running StringTie
 
 File permissions
 
@@ -391,70 +373,91 @@ x   File is  executable
 
 ![](img/genomics_71.png)
 
-Running StringTie
+## Running StringTie
 
 Installing software “locally”
 
 https://github.com/gpertea/stringtie
 
-$ git clone https://github.com/gpertea/stringtie
-
-$ cd stringtie
-
-$ make -j4 release
+```bash
+git clone https://github.com/gpertea/stringtie
+cd stringtie
+make -j4 release
+```
 
 To download and test sample data:
 
-$ ./run_test.sh          Is there a README there too?
+```bash
+./run_test.sh
+```
 
 We are going to run Test 7 - Mixed reads with annotation guides:
 
-$  __stringtie__  --mix -G mix_guides.gff  -o mix_reads_guided.out.gtf mix_short.bam mix_long.bam
+```bash
+stringtie --mix -G mix_guides.gff -o mix_reads_guided.out.gtf mix_short.bam mix_long.bam
+```
 
 
 
+## Running StringTie
 
-Running StringTie
+Run `./run_test.sh` to download and test sample data.
 
-./run_test.sh - to download and test sample data
+__Test 1__: Short reads
 
-__Test 1__ : Short reads
+```bash
+../stringtie -o short_reads.out.gtf short_reads.bam
+```
 
-Running: ../stringtie  -o short_reads.out.gtf short_reads.bam
+__Test 2__: Short reads and super-reads
 
-__Test 2__ : Short reads and super-reads
+```bash
+../stringtie -o short_reads_and_superreads.out.gtf short_reads_and_superreads.bam
+```
 
-Running: ../stringtie  -o short_reads_and_superreads.out.gtf short_reads_and_superreads.bam
+__Test 3__: Short reads with annotation guides
 
-__Test 3__ : Short reads with annotation guides
+```bash
+../stringtie -G mix_guides.gff -o short_guided.out.gtf mix_short.bam
+```
 
-Running: ../stringtie -G mix_guides.gff -o short_guided.out.gtf mix_short.bam
+__Test 4__: Long reads
 
-__Test 4__ : Long reads
+```bash
+../stringtie -L -o long_reads.out.gtf long_reads.bam
+```
 
-Running: ../stringtie -L -o long_reads.out.gtf long_reads.bam
+__Test 5__: Long reads with annotation guides
 
-__Test 5__ : Long reads with annotation guides
+```bash
+../stringtie -L -G human-chr19_P.gff -o long_reads_guided.out.gtf long_reads.bam
+```
 
-Running: ../stringtie -L -G human-chr19_P.gff -o long_reads_guided.out.gtf long_reads.bam
+__Test 6__: Mixed reads
 
-__Test 6__ : Mixed reads
+```bash
+../stringtie --mix -o mix_reads.out.gtf mix_short.bam mix_long.bam
+```
 
-Running: ../stringtie --mix -o mix_reads.out.gtf mix_short.bam mix_long.bam
+__Test 7__: Mixed reads with annotation guides
 
-__Test 7: Mixed reads with annotation guides__
+```bash
+../stringtie --mix -G mix_guides.gff -o mix_reads_guided.out.gtf mix_short.bam mix_long.bam
+```
 
-__Running: ../__  __stringtie__  __ --mix -G __  __mix_guides.gff__  __ -o __  __mix_reads_guided.out.gtf__  __ __  __mix_short.bam__  __ __  __mix_long.bam__
+__Test 8__: Short reads with `-N`
 
-__Test 8__ : Short reads with -N
+```bash
+../stringtie -N -G mix_guides.gff -o mix_short_N_guided.out.gtf mix_short.bam
+```
 
-Running: ../stringtie -N -G mix_guides.gff -o mix_short_N_guided.out.gtf mix_short.bam
+__Test 9__: Short reads with `--nasc`
 
-__Test 9__ : Short reads with --nasc
+```bash
+../stringtie --nasc -G mix_guides.gff -o mix_short_nasc_guided.out.gtf mix_short.bam
+```
 
-Running: ../stringtie --nasc -G mix_guides.gff -o mix_short_nasc_guided.out.gtf mix_short.bam
-
-Running StringTie
+## Running StringTie
 
 Note your pathway
 
@@ -473,7 +476,7 @@ $  __stringtie__  --mix -G mix_guides.gff  -o mix_reads_guided.out.gtf mix_shor
 - .gtf output file
 
 
-PacBio - SMRTLink
+## PacBio - SMRTLink
 
 SMRTLink - PacBio analysis software
 
@@ -493,24 +496,8 @@ analysis and manipulation
 
 https://docslib.org/doc/175362/smrt%C2%AE-tools-reference-guide-v8-0
 
-Research Computing resources
 
-UVA Research Computing Learning Portal:
-
-https://learning.rc.virginia.edu
-
-Using UVA’s HPC system from the terminal:
-
-https://learning.rc.virginia.edu/notes/hpc-from-terminal/
-
-HPC orientation session and office hours:
-
-https://www.rc.virginia.edu/support/#office-hours
-
-
-
-
-Additional bioinformatics software installed
+## Additional Bioinformatics Software Installed
 
 Trimmomatic: http://www.usadellab.org/cms/?page=trimmomatic 
 Qualimap: http://qualimap.conesalab.org 
@@ -522,40 +509,31 @@ RSEM: https://github.com/deweylab/RSEM
 DESeq2: https://bioconductor.org/packages/release/bioc/html/DESeq2.html
 Salmon: https://salmon.readthedocs.io/en/latest/salmon.html
 edgeR: https://bioconductor.org/packages/release/bioc/html/edgeR.html
-bedtools: https://bedtools.readthedocs.io/en/latest/index.html
-vcftools: https://vcftools.github.io
-picard: https://broadinstitute.github.io/picard/
-canu: https://canu.readthedocs.io/en/latest
-bcftools: https://samtools.github.io/bcftools/bcftools
+Bedtools: https://bedtools.readthedocs.io/en/latest/index.html
+VCFtools: https://vcftools.github.io
+Picard: https://broadinstitute.github.io/picard/
+Canu: https://canu.readthedocs.io/en/latest
+BCFtools: https://samtools.github.io/bcftools/bcftools
 
+And much more!
 
-Genomics Software
+## Genomics Software
 
-Verkko Telomere-to-telomere assemblies
+Verkko Telomere-to-telomere assemblies: https://github.com/marbl/verkko
+FALCON & FALCON-unzip - PacBio: https://pb-falcon.readthedocs.io/en/latest/about.html
+MaSuRCA - Illumina, PacBio, Nanopore: https://github.com/alekseyzimin/masurca
+SPAdes - Illumina, PacBio, Nanopore: https://github.com/ablab/spades
+Hinge - PacBio, Nanopore: https://github.com/HingeAssembler/HINGE
+Abyss - Illumina: https://github.com/bcgsc/abyss
+Shasta - Nanopore: https://github.com/paoloshasta/shasta
 
-https://github.com/marbl/verkko
+## Research Computing Resources
 
-FALCON & FALCON-unzip - PacBio
+UVA Research Computing Learning Portal:  
+https://learning.rc.virginia.edu
 
-https://pb-falcon.readthedocs.io/en/latest/about.html
+Using UVA’s HPC system from the terminal:  
+https://learning.rc.virginia.edu/notes/hpc-from-terminal/
 
-MaSuRCA - Illumina, PacBio, Nanopore
-
-https://github.com/alekseyzimin/masurca
-
-SPAdes - Illumina, PacBio, Nanopore
-
-https://github.com/ablab/spades
-
-Hinge - PacBio, Nanopore
-
-https://github.com/HingeAssembler/HINGE
-
-Abyss - Illumina
-
-https://github.com/bcgsc/abyss
-
-Shasta - Nanopore
-
-https://github.com/paoloshasta/shasta
-
+HPC orientation session and office hours:  
+https://www.rc.virginia.edu/support/#office-hours

@@ -8,7 +8,7 @@ menu:
     genomics:
 ---
 
-Table of Contents:
+## Table of Contents:
 
 History of Genome Assembly  
 Genome Assembly Construction  
