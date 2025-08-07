@@ -17,12 +17,7 @@ categories: ["HPC"]
 
 notes: hpc-intro
 
-
-
 weight: 10
-
 ---
 
-This tutorial is an introduction to using UVA's high-performance computing (HPC) system.
-
-{{< youtube id="iPbAc6mnZJ8" >}}
+See our [YouTube playlist](https://www.youtube.com/playlist?list=PLT4bryHgBcRP7N-hB9u6EWs6tq_2nMoRO) for a full video series covering this tutorial.
