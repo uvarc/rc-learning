@@ -1,5 +1,5 @@
 ---
-title: Connecting and Logging On To Rivanna
+title: Connecting and Logging On To HPC
 date: "2022-10-01T00:00:00"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
