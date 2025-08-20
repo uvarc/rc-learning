@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Linear Dimension Reduction (PCA)
+title: Linear Dimension Reduction (PCA)
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 650
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 PCA (Principal Components Analysis) reduces the number of variables (here, genes) while preserving as much information as possible. The first principal component accounts for the __largest possible variance__ in the dataset. 

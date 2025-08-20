@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Visualize PCA Results
+title: Visualize PCA Results
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 700
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 You can examine and visualize PCA results in several different ways. 

@@ -14,7 +14,8 @@ Seurat is an R package that takes the output from Cell Ranger and other pipeline
   * Multimodal analysis (e.g., paired scRNA-seq & scATAC-seq)
   * Spatial datasets (transcriptomic or multiplexed imaging-based)
   * Data integration (multiple sources of single cell data)
-* [Read More](https://satijalab.org/seurat/)
+
+[Read More](https://satijalab.org/seurat/)
 
 
 In this tutorial, we will use Seurat to analyze a dataset of 2,700 Peripheral Blood Mononuclear Cells (PBMCs) made publicly available by 10X Genomics.

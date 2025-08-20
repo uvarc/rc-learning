@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Known Biomarkers
+title: Known Biomarkers
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 1000
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 

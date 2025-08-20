@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Filter & Normalize
+title: Filter & Normalize
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 550
 menu: 
     seurat-bioinformatics:
+     parent: Interactive Workshop
 ---
 
 ### Filter the Data

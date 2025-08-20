@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Modifying Plots
+title: Modifying Plots
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 1050
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 Using the canonical biomarkers, we can assign meaningful names to each cluster and update the plots, allowing for easier interpretation. 

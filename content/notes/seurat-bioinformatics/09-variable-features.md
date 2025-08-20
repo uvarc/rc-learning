@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Identify Highly Variable Features
+title: Identify Highly Variable Features
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 600
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 Next, identify the subset of features that exhibit high cell-to-cell variation. In other words, they are highly expressed in some cells, and lowly expressed in others. 

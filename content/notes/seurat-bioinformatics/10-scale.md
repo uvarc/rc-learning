@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Scale the Data
+title: Scale the Data
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 625
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 Linear transformation is the standard pre-processing step prior to dimensional reduction (PCA, etc.)

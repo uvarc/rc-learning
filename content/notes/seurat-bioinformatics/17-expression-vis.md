@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Visualize Expression Across Clusters
+title: Visualize Expression Across Clusters
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 950
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 ### Violin Plots

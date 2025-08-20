@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Differential Expression (Identify Biomarkers)
+title: Differential Expression (Identify Biomarkers)
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 900
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 Now that we have clustered the data, we want to identify biomarkers for each cluster. 

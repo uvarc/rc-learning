@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Data Access & Loading
+title: Data Access & Loading
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 450
 menu: 
     seurat-bioinformatics:
+      parent: Interactive Workshop
 ---
 
 Note: The rest of this interactive tutorial uses the PBMC 3k dataset as an example. You can either download it yourself from 10x Genomics or use the built-in copy available via the `SeuratData` package.

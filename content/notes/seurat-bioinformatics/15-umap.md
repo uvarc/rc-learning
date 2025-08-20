@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Non-Linear Dimensionality Reduction (UMAP)
+title: Non-Linear Dimensionality Reduction (UMAP)
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 850
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 The goal of non-linear dimensionality reduction is to learn the underlying manifold of the data in order to place similar cells together in low-dimensional space. 

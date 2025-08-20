@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Setup/Loading Seurat
+title: Setup/Loading Seurat
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 400
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 Rivanna does not ship Seurat as a prebuild module, but you can access it through installing it into your R library. 

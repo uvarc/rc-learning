@@ -1,5 +1,5 @@
 ---
-title: 10X Genomics Cell Ranger Pipeline
+title: 10X Genomics Pipeline
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 150
@@ -12,7 +12,7 @@ menu:
 The Chromium platform is used for sequencing individual cells.
 The resulting data is then processed using the Cell Ranger pipeline.
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_1.jpg >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_1.png >}}
 
 Cell Ranger Pipeline:
 
@@ -22,27 +22,27 @@ Cell Ranger Pipeline:
 * UMIs (unique molecular identifiers) are counted to quantify transcripts.
 * Finally, expression matrices are generated for downstream analysis.
 
-(More Information)[https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger]
+[More Information](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger)
 
 UVA RC has Cell Ranger on Rivanna, so you can use it to process your scRNAseq data. This tutorial will not go into details about that, instead focusing on visualization/downstream analysis. 
 
 ### 10X Genomics Cell Ranger Output
 
-__barcodes.tsv__
+__`barcodes.tsv`__
 
-1 barcode per cell
+This file lists 1 barcode per cell.
 
 {{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_2.png >}}
 
-__genes.tsv__
+__`genes.tsv`__
 
-Ensembl IDs & gene symbols
+This file contains the **Ensembl** IDs and gene symbols.
 
 {{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_3.png >}}
 
-__matrix.mtx__
+__`matrix.mtx`__
 
-actual data
+This file contains the actual expression data.
 
 {{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_4.png >}}
 

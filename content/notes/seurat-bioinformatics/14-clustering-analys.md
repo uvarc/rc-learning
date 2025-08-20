@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Clustering Analysis
+title: Clustering Analysis
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 800
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 Clustering helps you to zoom in on your scRNA-Seq data like a microscope and find interesting observations through noise. 

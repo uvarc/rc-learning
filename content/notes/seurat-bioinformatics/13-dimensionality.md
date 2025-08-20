@@ -1,10 +1,11 @@
 ---
-title: Interactive Workshop - Determine Dimensionality via PCA Results
+title: Determine Dimensionality via PCA Results
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 750
 menu: 
     seurat-bioinformatics:
+        parent: Interactive Workshop
 ---
 
 
