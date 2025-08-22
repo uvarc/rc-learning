@@ -1,5 +1,5 @@
 ---
-title: Differential Expression (Identify Biomarkers)
+title: Differential Expression 
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 900
@@ -30,7 +30,7 @@ pbmc.markers %>%
 
 Output: 
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_36.png >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_36.png width=75% height=75% >}}
 
 The table shows output from the last 3 lines of code. It finds markers for every cluster compared to all remaining cells, reports only the positive ones, and shows the top 2 for each cluster. 
 

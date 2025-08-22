@@ -12,7 +12,7 @@ The goal of non-linear dimensionality reduction is to learn the underlying manif
 
 Seurat supports two methods: t-SNE and UMAP. This tutorial will only cover UMAP. 
 
-Read about the difference: [https://blog.bioturing.com/2022/01/14/umap-vs-t-sne-single-cell-rna-seq-data-visualization/](https://blog.bioturing.com/2022/01/14/umap-vs-t-sne-single-cell-rna-seq-data-visualization/)
+> Read about the difference: [https://blog.bioturing.com/2022/01/14/umap-vs-t-sne-single-cell-rna-seq-data-visualization/](https://blog.bioturing.com/2022/01/14/umap-vs-t-sne-single-cell-rna-seq-data-visualization/)
 
 Cells within the graph-based clusters determined previously should co-localize on these dimension reduction plots.
   
@@ -30,11 +30,11 @@ DimPlot(pbmc, reduction = "umap")
 saveRDS(pbmc, file = "./output/pbmc_tutorial.rds")
 ```
 
-output: 
+Output: 
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_34.png >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_34.png width=80% height=80% >}}
 
 The plot is colored by clusters previously identified in KNN clustering. Note the colocalization of cells in each cluster. 
 
-More information: [https://pair-code.github.io/understanding-umap/](https://pair-code.github.io/understanding-umap/)
+[More Information](https://pair-code.github.io/understanding-umap/)
 

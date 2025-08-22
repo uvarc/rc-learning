@@ -24,6 +24,6 @@ baseplot + labs(title = "Clustering of 2,700 PBMCs")
 
 Output: 
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_47.png >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_47.png width=85% height=85% >}}
 
 

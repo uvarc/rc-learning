@@ -1,5 +1,5 @@
 ---
-title: Setup/Loading Seurat
+title: Loading Seurat
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 400

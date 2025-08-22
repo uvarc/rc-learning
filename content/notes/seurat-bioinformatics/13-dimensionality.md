@@ -1,5 +1,5 @@
 ---
-title: Determine Dimensionality via PCA Results
+title: Determine Dimensionality
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 750
@@ -8,10 +8,7 @@ menu:
         parent: Interactive Workshop
 ---
 
-
-
-
-_How many components should we choose to include?_
+Next, we determine dimensionality (how many components to include) using the PCA results.
 
 The top principal components represent a robust compression of the dataset. 
 
@@ -29,9 +26,9 @@ pbmc <- ScoreJackStraw(pbmc, dims = 1:20)
 JackStrawPlot(pbmc, dims = 1:15)
 ```
 
-output: 
+Output: 
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_28.png >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_28.png width=70% height=70% >}}
 
 The plot provides a visualization of the statistical test that calculates the significance of your principal components.
 
@@ -48,11 +45,11 @@ ElbowPlot(pbmc)
 
 Output:
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_30.png >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_30.png width=60% height=60% >}}
 
 This shows a ranking of principle components based on the percentage of variance explained by each one
 
-Observe an ‘elbow’ around PC9-10, suggesting that the majority of true signal is captured in the first 10 PCs.
+Observe an 'elbow' around PC 9-10, suggesting that the majority of true signal is captured in the first 10 PCs.
 
 This 'elbow' starts at ~PC 7, and definitely flattens off by PC 10, so we will choose PC10 as our cutoff for significant PCs.
 

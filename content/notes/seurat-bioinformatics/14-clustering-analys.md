@@ -26,7 +26,7 @@ pbmc <- FindNeighbors(pbmc, dims = 1:10)
 pbmc <- FindClusters(pbmc, resolution = 0.5)
 ```
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_32.png >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_32.png width=90% height=90% >}}
 
 
 

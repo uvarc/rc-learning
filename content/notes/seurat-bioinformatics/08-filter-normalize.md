@@ -12,7 +12,7 @@ menu:
 
 Visualized QC metrics are then used to filter cells.  
 
-Remove cells with unique features (genes) over 2,500 or less than 200, and remove cells that have >5 % mitochondrial counts. 
+Remove cells with unique features (genes) over 2,500 or less than 200, and remove cells that have greater than 5% mitochondrial counts. 
 
 Note that `subset()` arguments define cells you want to _keep_ (e.g., `percent.mt` < 5).
 

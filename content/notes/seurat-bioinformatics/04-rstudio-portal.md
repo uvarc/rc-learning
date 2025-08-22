@@ -1,5 +1,5 @@
 ---
-title: OpenOnDemand RStudio Server
+title: OOD RStudio Server
 date: 2025-07-16-17:52:00Z
 type: docs 
 weight: 250
@@ -14,7 +14,7 @@ Access the RStudio Server on UVA Open OnDemand.
 
 2. From the Interactive Apps menu, select RStudio Server (see below).
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_5.png width=60% height=60% >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_5.png width=70% height=70% >}}
 
 3. Fill the job parameters and hit Launch (see below).
 

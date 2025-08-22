@@ -20,9 +20,9 @@ VlnPlot(pbmc, features = c("NKG7", "PF4"), slot = "counts", log = TRUE)
 ```
 Outputs: 
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_38.png >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_38.png width=75% height=75% >}}
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_39.png >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_39.png width=75% height=75% >}}
 
 Observations: 
 
@@ -46,9 +46,7 @@ RidgePlot(pbmc, features = features, ncol = 2)
 
 Output:
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_41.png >}}
-
-todo: check that that image makes sense 
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_41.png width=70% height=70% >}}
 
 ### Feature Plots
 
@@ -58,9 +56,7 @@ Feature plots overlay gene expression on the UMAP embedding.
 FeaturePlot(pbmc, features = c("MS4A1", "GNLY", "CD3E", "CD14", "FCER1A", "FCGR3A", "LYZ", "PPBP", "CD8A"))
 ```
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_43.png >}}
-
-todo maybe crop image like it is on the slide 
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_43.png width=60% height=60% >}}
 
 ### Heatmaps
 
@@ -77,4 +73,4 @@ DoHeatmap(pbmc, features = top10$gene) + NoLegend()
 
 Output: 
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_45.png >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_45.png  width=95% height=95% >}}

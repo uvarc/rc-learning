@@ -10,7 +10,7 @@ menu:
 
 PCA (Principal Components Analysis) reduces the number of variables (here, genes) while preserving as much information as possible. The first principal component accounts for the __largest possible variance__ in the dataset. 
 
-Read more: [https://builtin.com/data-science/step-step-explanation-principal-component-analysis](https://builtin.com/data-science/step-step-explanation-principal-component-analysis)
+[Read More](https://builtin.com/data-science/step-step-explanation-principal-component-analysis)
 
 PCA is performed on the scaled data. By default, only the previously determined variable features are used as input (top 2000). The input can be defined using the `features` argument if you wish to choose a different subset. 
 

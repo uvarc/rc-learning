@@ -30,7 +30,7 @@ plot1
 
 Output:
 
-{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_15.png >}}
+{{< figure src=/notes/seurat-bioinformatics/img/seurat_workshop_20230407_15.png width=85% height=85% >}}
 
 We measure average expression against standardized variance to identify genes that are more variable than expected given their mean expression. Standardizing the variance removes the natural relationship where genes with higher mean expression also tend to have higher variance.
 
