@@ -18,6 +18,6 @@ Time on the HPC cluster is _allocated_.
   * Students must be sponsored by a faculty or research staff.
   * All individuals on a given allocation share the service units.
 * Allocations may be requested at [https://www\.rc\.virginia\.edu/userinfo/rivanna/allocations/](https://www.rc.virginia.edu/userinfo/rivanna/allocations/)
-* Allocations are measured in service units (SUs), where __1 SU = 1 core\-hour__ in most cases.  Nodes equipped with GPUs may charge more than one SU per core-hour.
+* Allocations are measured in service units (SUs), which represent the total usage of hardware resources over a period of time (i.e., CPU+Memory+GPU per core-hour). The SU charge rate can vary based on the [hardware](https://www.rc.virginia.edu/userinfo/hpc/#system-details) used. Newer hardware and GPUs will charge more SUs.
 
 
