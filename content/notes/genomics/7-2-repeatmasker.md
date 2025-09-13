@@ -44,7 +44,7 @@ cd /project/rivanna-training/genomics-hpc/RepeatMasker
 RepeatMasker genome_raw.fasta -lib Muco_library_EDTA.fasta -gff
 ```
 
-After running the slurm job, your output files will include masked sequence files, repeat statistics tables and .gff files.
+After running the Slurm job, your output files will include masked sequence files, repeat statistics tables and `.gff` files.
 
 {{< figure src="/notes/genomics/img/repeatmaskerstats.png" width=50% height=50% caption="RepeatMasker output example" >}}
 

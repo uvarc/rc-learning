@@ -7,4 +7,4 @@ menu:
     genomics:
 ---
 
-Click on the subpages to view our demos on how to use BUSCO, RepeatMasker, StringTie, and PacBio on our HPC system.
+Click on the subpages to view our demos on how to use BUSCO, RepeatMasker, StringTie, and SMRTLink on our HPC system.

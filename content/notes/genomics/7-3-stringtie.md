@@ -8,23 +8,9 @@ menu:
         parent: Software Demos
 ---
 
+StringTie aligns bulk RNA-Seq reads to a reference genome and estimates the abundance of a particular transcript or gene. It uses a metric called FPKM values, which stands for Fragments Per Kilobase of transcript per Million mapped reads. You can use the outputs from StringTie to estimate expression values.
 
-
-
-
-
-## Running StringTie
-
-StringTie aligns bulk RNA-Seq reads to a reference genome and estimates abundance
-
-Based on FPKM values (Fragments Per Kilobase of transcript per Million mapped reads)
-
-Can use outputs to estimate expression values
-
-https://ccb.jhu.edu/software/stringtie/
-
-
-## Running StringTie – slurm script
+## Running StringTie with a Slurm Script
 
 The `stringtie_slurm_submit.sh` script below is a Slurm scipt that will run StringTie. Slurm is a resource manager that can be used to run your code.
 
@@ -53,32 +39,10 @@ stringtie  --mix -G mix_guides.gff -o mix_reads_guided.out.gtf mix_short.bam mix
 # generates .gtf file with assembled transcripts and expression levels
 ```
 
+# Installing StringTie
 
-## Running Jobs
+If your desired module is not installed, you can submit a request via our ticket system (the wait time can vary depending on how popular the request is). You can also install and run StringTie locally.
 
-Interactively
-
-Loading modules
-
-Downloading software locally
-
-
-
-## Running StringTie
-
-What if the module is not installed?
-
-- Submit a request via ticket system - waiting time, popular request
-
-- Install it yourself and run locally
-
-- Run from your directory but submitted to computing nodes via
-
-slurm script
-
-Installing software “locally”
-
-https://github.com/gpertea/stringtie
 
 ```bash
 git clone https://github.com/gpertea/stringtie
@@ -86,90 +50,15 @@ cd stringtie
 make -j4 release
 ```
 
-Running StringTie
+Look for a README file in the GithHub repository; the README often has download/installation instructions.
 
-Installing software “locally”
-
-https://github.com/gpertea/stringtie
+To check if your permissions are set to run StringTie, use the `ls -lh` command:
 
 ```bash
-git clone https://github.com/gpertea/stringtie
-cd stringtie
-make -j4 release
+ls -lh stringtie
 ```
 
-Look for a README file - often has download/installation instructions
-
-$ ls -lh stringtie
-
--rwxrwx---+ 1 dat2g rc-staff 14M Jun  3 22:37 stringtie
-
-- file permissions
-
-
-## Running StringTie
-
-File permissions
-
-$ ls -lh stringtie -rwxrwx---+ 1 dat2g rc-staff 14M Jun  3 22:37 stringtie
-
-- file permissions
-
--rw-r--r-- 12 linuxize users 12.0K Apr  8 20:51 filename.txt
-
-|[-][-][-]-   [------] [---]
-
-| |  |  | |      |       |
-
-| |  |  | |      |       +-----------> 7. Group
-
-| |  |  | |      +-------------------> 6. Owner
-
-| |  |  | +--------------------------> 5. Alternate Access Method
-
-| |  |  +----------------------------> 4. Others Permissions
-
-| |  +-------------------------------> 3. Group Permissions
-
-| +----------------------------------> 2. Owner Permissions
-
-+------------------------------------> 1. File Type. - regular file, d directory
-
-File not readable
-
-r    File is readable
-
-w   File is  writeable
-
-x   File is  executable
-
-![](img/genomics_71.png)
-
-## Running StringTie
-
-Installing software “locally”
-
-https://github.com/gpertea/stringtie
-
-```bash
-git clone https://github.com/gpertea/stringtie
-cd stringtie
-make -j4 release
-```
-
-To download and test sample data:
-
-```bash
-./run_test.sh
-```
-
-We are going to run Test 7 - Mixed reads with annotation guides:
-
-```bash
-stringtie --mix -G mix_guides.gff -o mix_reads_guided.out.gtf mix_short.bam mix_long.bam
-```
-
-
+{{< figure src="/notes/genomics/img/permissions.png" width=60% height=60% caption="How to read file permission settings from example output" >}}
 
 ## Running StringTie
 
@@ -229,20 +118,17 @@ __Test 9__: Short reads with `--nasc`
 ../stringtie --nasc -G mix_guides.gff -o mix_short_nasc_guided.out.gtf mix_short.bam
 ```
 
-## Running StringTie
+# Running StringTie Example
 
-Note your pathway
+Note your pathway when running StringTie: `/project/rivanna-training/genomics-hpc/stringtie/stringtie`.
 
-/project/rivanna-training/genomics-hpc/stringtie/stringtie
+We are going to run Test 7.
 
-$ cd tests_3
+```bash
+cd tests_3
+stringtie --mix -G mix_guides.gff -o mix_reads_guided.out.gtf mix_short.bam mix_long.bam
+```
+In the command above, `--mix` sets the option to read short and long `.bam` files. The order of listed `.bam` files is important; the short `.bam` should be listed first, and the long `.bam` should be listed second. `-G` indicates that the annotation guide is a `.gff` file. The `.gtf` file is the output file.
 
-$  __stringtie__  --mix -G mix_guides.gff  -o mix_reads_guided.out.gtf mix_short.bam mix_long.bam
-
-- m - mixed reads short/long
-
-- G - .gff file - annotation guide
-
-- order of bams important: short first, long second
-
-- .gtf output file
+For more information on StringTie:
+https://ccb.jhu.edu/software/stringtie/

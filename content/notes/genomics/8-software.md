@@ -1,35 +1,11 @@
 ---
-title: PacBio
+title: Additional Software
 date: 2025-7-10T00:00:00
 type: docs 
-weight: 550
+weight: 600
 menu: 
     genomics:
-        parent: Software Demos
 ---
-
-
-
-## PacBio - SMRTLink
-
-SMRTLink - PacBio analysis software
-
-New Revio sequencing machine in SOM genomics core
-
-$ module spider SMRT
-
-$ module load smrtlink/25.2.0
-
--LOTS of tools available for sequence
-
-analysis and manipulation
-
--  _bam2fasta, bam2fastq, _  _blasr_  _, _  _pbmm_  _, _  _pbalign_  _, isoseq3, _
-
-![](img/genomics_74.png)
-
-https://docslib.org/doc/175362/smrt%C2%AE-tools-reference-guide-v8-0
-
 
 ## Additional Bioinformatics Software Installed
 
