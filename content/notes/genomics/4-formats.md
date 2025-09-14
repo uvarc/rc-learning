@@ -45,7 +45,7 @@ Both SAM (Sequence Alignment Map) and BAM are file formats for sequence alignmen
 
 GTF (Gene Transfer Format) is a common format for annotating gene info on a genome.
 
-{{< figure src="/notes/genomics/img/gtf.png" width=50% height=50% >}}
+{{< figure src="/notes/genomics/img/gtf.png" width=80% height=80% >}}
 
 ## References
 

@@ -118,7 +118,7 @@ __Test 9__: Short reads with `--nasc`
 ../stringtie --nasc -G mix_guides.gff -o mix_short_nasc_guided.out.gtf mix_short.bam
 ```
 
-# Running StringTie Example
+## Running StringTie Example
 
 Note your pathway when running StringTie: `/project/rivanna-training/genomics-hpc/stringtie/stringtie`.
 

@@ -12,7 +12,7 @@ __BUSCO__ (Benchmarking Universal Single-Copy Orthologs) is a tool used to asses
 
 {{< figure src="/notes/genomics/img/busco1.png" width=70% height=70% caption="BUSCO assessment workflow and relative run-times" >}}
 
-{{< figure src="/notes/genomics/img/busco2.png" width=70% height=70% caption="Key properties of BUSCO's benchmark orthologs" >}}
+{{< figure src="/notes/genomics/img/busco2.png" width=50% height=50% caption="Key properties of BUSCO's benchmark orthologs" >}}
 
 ## Running Busco Interactively
 

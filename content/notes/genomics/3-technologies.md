@@ -30,14 +30,13 @@ Standard assemblies produce __unphased__ sequences, where the variation from two
 
 ## Nanopore Sequencing
 
-{{< figure src="/notes/genomics/img/nanopore.jpg" width=70% height=70% >}}
+{{< figure src="/notes/genomics/img/nanopore.jpg" width=40% height=40% >}}
 
 Nanopore is able to produce “ultra-long” reads up to 4 Mb. Its accuracy is at about 95% read quality, and it is able to span repeat regions. The quality is limited compared to other technologies, and it has taken a while for Nanopore's technology to reach where it is today.
 
-<div style="display: flex; justify-content: center; gap: 20px;">
-  {{< figure src="/notes/genomics/img/nanoporedevice.jpg" style="width: 45%;" >}}
-  {{< figure src="/notes/genomics/img/katerubins.png" style="width: 45%;" >}}
-</div>
+{{< figure src="/notes/genomics/img/nanoporedevice.jpg" width=50% height=50% caption="A sample-to-sequence portable Nanopore device" >}}
+
+{{< figure src="/notes/genomics/img/katerubins.png" width=40% height=40% caption="Kate Rubins using Nanopore on the ISS" >}}
 
 Nanopore uses long reads and coverage to detect repeats.
 
