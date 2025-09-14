@@ -9,7 +9,7 @@ menu:
 
 There are many sequencing technologies in the field of DNA sequencing. Some of the most popular technologies currently include:
 
-* __Illumina__ - produces short read sequences (< 1kb), commonly used for whole genome sequencing, exomes, micro RNA, and single-cell apps
+* __Illumina__ - produces short read sequences (< 1kb), commonly used for whole genome sequencing, exomes, microRNA, and single-cell apps
 * __PacBio__ - produces long read sequences (~ 25 kb), used in the Revio sequencer at UVA
 * __Nanopore__ - produces “ultra-long” sequences (up to 1Mb)
 * __Hi-C__ -  a crosslinking technique that captures interactions within genome
@@ -22,7 +22,7 @@ PacBio produces long reads typically around 25kb, with a 99.9% read quality (Q30
 
 ### Phased Genome Assemblies
 
-Standard assemblies produce __unphased__ sequences, where the variation from two chromosomes is collapsed into a __pseudo-haplotype__ (a single, mixed sequence). PacBio assemblies allow for the production of __phased__ sequences, where the variation from two chromosomes is preserved in two seperate sequences.
+Standard assemblies produce __unphased__ sequences, where the variation from two chromosomes is collapsed into a __pseudo-haplotype__ (a single, mixed sequence). PacBio assemblies allow for the production of __phased__ sequences, where the variation from two chromosomes is preserved in two separate sequences.
 
 {{< figure src="/notes/genomics/img/phased1.jpg" width=50% height=50% >}}
 
@@ -34,10 +34,6 @@ Standard assemblies produce __unphased__ sequences, where the variation from two
 
 Nanopore is able to produce “ultra-long” reads up to 4 Mb. Its accuracy is at about 95% read quality, and it is able to span repeat regions. The quality is limited compared to other technologies, and it has taken a while for Nanopore's technology to reach where it is today.
 
-{{< figure src="/notes/genomics/img/nanoporedevice.jpg" width=50% height=50% caption="A sample-to-sequence portable Nanopore device" >}}
-
-{{< figure src="/notes/genomics/img/katerubins.png" width=50% height=50% caption="Kate Rubins using Nanopore on the ISS" >}}
-
 <div style="display: flex; justify-content: center; gap: 20px;">
   {{< figure src="/notes/genomics/img/nanoporedevice.jpg" style="width: 45%;" >}}
   {{< figure src="/notes/genomics/img/katerubins.png" style="width: 45%;" >}}
@@ -46,7 +42,6 @@ Nanopore is able to produce “ultra-long” reads up to 4 Mb. Its accuracy is a
 Nanopore uses long reads and coverage to detect repeats.
 
 {{< figure src="/notes/genomics/img/nanoporerepeat.png" width=50% height=50% >}}
-
 
 ## Hi-C
 

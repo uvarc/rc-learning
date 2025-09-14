@@ -13,7 +13,7 @@ The construction of a sequence begins with __short-insert sequence reads__. Thes
 
 ## Assembly Construction - Long Reads
 
-The assembly construction for long reads is still hierarchical, but proceeds in two rounds. The first round of assembly involves the selection of __seed reads__, or the longest reads in the dataset (wiht a user-defined length cutoff). In the second round, all shorter reads are aligned to the seed reads, in order to generate consensus sequences with high accuracy. We refer to these as __pre-assembled reads__, but they can also be thought of as “error corrected” reads. During the pre-assembly process, seed reads may be split or trimmed at regions of low read coverage (with a user-defined _min cov_ for FALCON sense option). The performance of the pre-assembly process is captured in the pre-assembly stats file.
+The assembly construction for long reads is still hierarchical, but proceeds in two rounds. The first round of assembly involves the selection of __seed reads__, or the longest reads in the dataset (with a user-defined length cutoff). In the second round, all shorter reads are aligned to the seed reads, in order to generate consensus sequences with high accuracy. We refer to these as __pre-assembled reads__, but they can also be thought of as “error corrected” reads. During the pre-assembly process, seed reads may be split or trimmed at regions of low read coverage (with a user-defined _min cov_ for FALCON sense option). The performance of the pre-assembly process is captured in the pre-assembly stats file.
 
 {{< figure src="/notes/genomics/img/constructionlong.png" width=60% height=60% >}}
 

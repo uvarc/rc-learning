@@ -8,13 +8,12 @@ menu:
         parent: Software Demos
 ---
 
-
-SMRTLink is a software suite used to analyze data from PacBio sequencers, such as the New Revio sequencing machine in SOM genomics core.
+SMRT Link is a software suite used to analyze data from PacBio sequencers, such as the New Revio sequencing machine in the UVA School of Medicine Genomics Core.
 
 To show what versions of SMRT Link are available, use the `module spider` command:
 
 ```bash
-module spider SMRT
+module spider smrtlink
 ```
 
 To load a specific version of SMRT Link, such as 25.2.0, use `module load`:

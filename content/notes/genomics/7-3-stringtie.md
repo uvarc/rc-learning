@@ -12,7 +12,7 @@ StringTie aligns bulk RNA-Seq reads to a reference genome and estimates the abun
 
 ## Running StringTie with a Slurm Script
 
-The `stringtie_slurm_submit.sh` script below is a Slurm scipt that will run StringTie. Slurm is a resource manager that can be used to run your code.
+The `stringtie_slurm_submit.sh` script below is a Slurm script that will run StringTie. Slurm is a resource manager that can be used to run your code.
 
 ```bash
 #!/bin/bash

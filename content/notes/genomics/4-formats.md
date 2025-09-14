@@ -25,7 +25,7 @@ There are many different file formats that can be used for storing info about DN
 
 ## FASTA
 
-Here is an example of what a FASTA file looks like after the first time opened assembly.
+Here is an example of what a FASTA file looks like after the first time an assembly is opened.
 
 {{< figure src="/notes/genomics/img/fasta.png" width=50% height=50% >}}
 
@@ -39,7 +39,7 @@ Most modern sequencing platforms perform base calling and then return that data 
 
 ## SAM/BAM
 
-Both SAM (Sequence Alignment Format) and BAM are file formats for sequence alignment files. THese sequence alignment files provide context for raw data. Each file has eleven columns (tab delimited), and one alignment is recorded for each line. SAM is a plain-text format (human readable), while BAM is a binary format. SAM/BAM files are often used with SAMTools (a suite of utilities for SAM/BAM files) and Picard (a collection of tools for sequencing data).
+Both SAM (Sequence Alignment Map) and BAM are file formats for sequence alignment files. These sequence alignment files provide context for raw data. Each file has eleven columns (tab-delimited), and one alignment is recorded for each line. SAM is a plain-text format (human readable), while BAM is a binary format. SAM/BAM files are often used with SAMTools (a suite of utilities for SAM/BAM files) and Picard (a collection of tools for sequencing data).
 
 ## GTF
 

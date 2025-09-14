@@ -39,7 +39,7 @@ pwd
 Then copy the test files using the `cp` command (the dot at the end of the command means that the destination of the copied files will be the directory you are currently in):
 
 ```bash
-$ cp /project/rivanna-training/genomics-hpc .
+cp /project/rivanna-training/genomics-hpc .
 ```
 
 To check that all the files transferred correctly:
@@ -85,7 +85,7 @@ Slurm is a resource manager that can be used to run your code for you. Below is 
 #SBATCH --nodes=1                          # number of nodes
 #SBATCH --ntasks=1                         # 1 task – how many copies of code to run
 #SBATCH --cpus-per-task=4                  # total cores per task – for multithreaded code
-##SBATCH --mem=3200                        # total memory (Mb) *Note ##comment
+##SBATCH --mem=3200                        # total memory (Mb)
 #SBATCH -t 01:00:00                        # time limit: 1-hour
 #SBATCH -J busco-test                      # job name
 #SBATCH -o busco-test-%A.out               # output file

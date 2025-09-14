@@ -9,7 +9,7 @@ menu:
 
 ## Reference Genome vs Conventional Genome
 
-Assembling a conventional genome typically makes use of a single sequencing technology. There tends to be a specific goal, such as identifying genetic variations within a population. The resulting sequence has gaps, but the overall cost is lower. On the other hand, a __reference genome__ makes use of multiple sequencing technologies to assemble, and results in a complete representation of a genome. There are minimal sequencing gaps, and the overall cost is higher. Many types of genomic analyses such as variant calling, gene expression, and identifying regulatory elements require a strong assembly of a reference genome.
+Assembling a conventional genome typically makes use of a single sequencing technology. There tends to be a specific goal, such as identifying genetic variations within a population. The resulting sequence has gaps, but the overall cost is lower. On the other hand, a __reference genome__ makes use of multiple sequencing technologies to assemble and results in a complete representation of a genome. There are minimal sequencing gaps, and the overall cost is higher. Many types of genomic analyses such as variant calling, gene expression, and identifying regulatory elements require a strong assembly of a reference genome.
 
 ## Databases
 
@@ -31,6 +31,6 @@ In the example research paper below, researchers constructed a pangenome for soy
 
 {{< figure src="/notes/genomics/img/soybeans.png" width=70% height=70% caption="https://doi.org/10.1016/j.cell.2020.05.023" >}}
 
-OVerall, genome projects vary greatly in difficulty, reflecting the diverse DNA structures of different organisms. Some organisms are easier to sequence and assemble, such as the Fugu with its relatively small genome, or the Anopheles mosquito with simpler chromosomes. On the other hand, some organisms such as the axolotl have extremely large genomes, while organisms like the platypus have unique chromosomal structures.
+Overall, genome projects vary greatly in difficulty, reflecting the diverse DNA structures of different organisms. Some organisms are easier to sequence and assemble, such as the Fugu with its relatively small genome, or the Anopheles mosquito with simpler chromosomes. On the other hand, some organisms such as the axolotl have extremely large genomes, while organisms like platypuses have unique chromosomal structures.
 
 {{< figure src="/notes/genomics/img/projects.png" width=70% height=70% >}}

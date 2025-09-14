@@ -25,18 +25,14 @@ There are many more sequencing projects involving a diverse variety of living or
 
 ### The Human Genome Project
 
-There were both public and private efforts to complete the human genome sequence. In 1990, The Department of Energy and the NIH begand funding a $3 billion project to assemble the human genome from millions of small DNA fragments. The project was officially announced as complete in 2003. In 1998, Craig Venter and his company Celera Genomics begain a privately funded effort to sequence the human genome, costing about 300 million dollars. Later on, the courts established that human genes could not be patented.
-
-{{< figure src="/notes/genomics/img/naturemag.png" width=70% height=70% >}}
-
-{{< figure src="/notes/genomics/img/sciencemag.png" width=70% height=70% >}}
+There were both public and private efforts to complete the human genome sequence. In 1990, The Department of Energy and the National Institutes of Health began funding a $3 billion project to assemble the human genome from millions of small DNA fragments. The project was officially announced as complete in 2003. In 1998, Craig Venter and his company Celera Genomics began a privately funded effort to sequence the human genome, costing about 300 million dollars. Later on, the courts established that human genes could not be patented.
 
 <div style="display: flex; justify-content: center; gap: 20px;">
   {{< figure src="/notes/genomics/img/naturemag.png" style="width: 45%;" >}}
   {{< figure src="/notes/genomics/img/sciencemag.png" style="width: 45%;" >}}
 </div>
 
-Though the Human Genome project was "completed" in 2003, the project was actually only 99% finished, with the remaining 1% comprising of highly repetitive DNA (heterochromatic regions, centromeres, telomeres, tandem duplications) that was difficult to assemble with the technology at the time. Later, advancements in technology were able to produce longers reads, making the sequencing of highly repetitive DNA much easier. Crucial technological advancements included:
+Though the Human Genome project was "completed" in 2003, the project was actually only 99% finished, with the remaining 1% consisting of highly repetitive DNA (heterochromatic regions, centromeres, telomeres, tandem duplications) that was difficult to assemble with the technology at the time. Later, advancements in technology were able to produce longer reads, making the sequencing of highly repetitive DNA much easier. Crucial technological advancements included:
 
 * 120x Nanopore
 * 70x PacBio
@@ -49,7 +45,7 @@ Though the Human Genome project was "completed" in 2003, the project was actuall
 
 Technologies like Nanopore and PacBio were able to produce complete long reads, while 10X single cell sequencing allowed for the analysis of DNA from individual cells. Arima Hi-C was able to map the three dimensional architecture of the genome, helping scientists understand gene regulation. Optical mapping techniques like Bionano provided a large-scale view of DNA, helping to order fragments, estimate gap sizes, and fill in gaps by detecting structural variants.
 
-As a result of these new technologies, the human genome was able to be sequenced from telomere to telomere. Previously unresolvable regions like centromeres could now be successfully assembled, and previous gaps on the genome were filled. Tecnology has improved so much that in 2023, scientists were able to fully sequence a human Y chromosome (known to contain an extremely high proportion of repetitive DNA sequences).
+As a result of these new technologies, the human genome was able to be sequenced from telomere to telomere. Previously unresolvable regions like centromeres could now be successfully assembled, and previous gaps on the genome were filled. Technology has improved so much that in 2023, scientists were able to fully sequence a human Y chromosome (known to contain an extremely high proportion of repetitive DNA sequences).
 
 {{< figure src="/notes/genomics/img/sciencemag2.jpg" width=70% height=70% >}}
 
@@ -63,12 +59,12 @@ Reads can be broken down further into __k-mers__ (substrings of length k), and t
 
 ### Layout
 
-The reads are then arranged in a graph (often a de Brujin graph) so that the path through the graph represents the assembled sequence. The path should explain every read while maximizing overlaps.
+The reads are then arranged in a graph (often a de Bruijn graph) so that the path through the graph represents the assembled sequence. The path should explain every read while maximizing overlaps.
 
 {{< figure src="/notes/genomics/img/layout.png" width=60% height=60% >}}
 
 ### Consensus
 
-All the assembled sequences are then compared to one another. If there are different nucleotides at a certain position, the most frequent nucleotide is used to reach a consensus. This helps to correct errors that might have occured earlier during the sequencing process, producing a final DNA sequence.
+All the assembled sequences are then compared to one another. If there are different nucleotides at a certain position, the most frequent nucleotide is used to reach a consensus. This helps to correct errors that might have occurred earlier during the sequencing process, producing a final DNA sequence.
 
 {{< figure src="/notes/genomics/img/consensus.png" width=50% height=50% >}}
