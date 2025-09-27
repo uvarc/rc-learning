@@ -1,9 +1,9 @@
 ---
 title: Matlab Parallel Programming
 date: 2024-11-16-20:28:40Z
-authors: [Ed Hall]
+authors: [teh]
 categories: [matlab, parallel computing]
-tags: [matlab, parallel computing]
+tags: [matlab, Parallel_Computing]
 type: docs 
 weight: 1 
 

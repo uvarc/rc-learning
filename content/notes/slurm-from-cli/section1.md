@@ -50,8 +50,9 @@ SLURM refers to queues as  __partitions__ .  We do not have a default partition;
 | Queue Name | Purpose | Job Time Limit | Max Memory / Node / Job | Max Cores / Node |
 | :-: | :-: | :-: | :-: | :-: |
 | standard | For jobs on a single compute node | 7 days | 1462 GB | 96 |
-| gpu | For jobs that can use general purpose GPU’s<br /> (A40,A100,A6000,V100,RTX3090) | 3 days | 1953 GB | 128 |
 | parallel | For large parallel jobs on up to 50 nodes (<= 1500 CPU cores) | 3 days | 750 GB | 96<br /> |
+| gpu | For jobs that can use general purpose GPUs<br /> (A40,A100,A6000,V100,H200) | 3 days | 141 GB/1 GPU | 8 (gpus) |
+| gpu-mig | For smaller GPU jobs on a sliced GPU node | 3 days | 10 GB/1 slice | 56 (gpu slices) |
 | interactive | For quick interactive sessions (up to two RTX2080 GPUs) | 12 hours | 216 GB |  96  |
 {{< /table >}}
 
