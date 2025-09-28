@@ -18,7 +18,7 @@ There are many sequencing technologies in the field of DNA sequencing. Some of t
 
 PacBio produces long reads typically around 25kb, with a 99.9% read quality (Q30), which is better than some short-read contigs. PacBio HiFi reads also distinguish repeats rather than spanning full repeats. However, their reads are limited in length and have lower throughput than Nanopore.
 
-{{< figure src="/notes/genomics/img/pacbio.png" width=70% height=70% >}}
+{{< figure src="/notes/genomics/img/pacbio.jpg" width=100% height=100% >}}
 
 ### Phased Genome Assemblies
 
@@ -46,9 +46,9 @@ Nanopore uses long reads and coverage to detect repeats.
 
 Hi-C is a genomic technique used to capture chromatin information. It involves detecting and analyzing the frequency of contacts between regions of DNA, in order to determine the correct order and orientation of the DNA segments. For example, segments with more contact are likely to be adjacent or closer to each other.
 
-{{< figure src="/notes/genomics/img/hic1.png" width=50% height=50% >}}
+{{< figure src="/notes/genomics/img/hic1.png" width=90% height=90% >}}
 
-{{< figure src="/notes/genomics/img/hic2.png" width=70% height=70% >}}
+{{< figure src="/notes/genomics/img/hic2.png" width=100% height=100% >}}
 
 ## References
 

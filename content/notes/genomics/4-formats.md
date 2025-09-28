@@ -27,15 +27,15 @@ There are many different file formats that can be used for storing info about DN
 
 Here is an example of what a FASTA file looks like after the first time an assembly is opened.
 
-{{< figure src="/notes/genomics/img/fasta.png" width=50% height=50% >}}
+{{< figure src="/notes/genomics/img/fasta.png" width=70% height=70% >}}
 
 ## FASTQ
 
 Most modern sequencing platforms perform base calling and then return that data in FASTQ format, with quality scores included. (These quality scores are encoded using ASCII characters.) The FASTQ data can then be used for quality control and trimming.
 
-{{< figure src="/notes/genomics/img/fastq1.png" width=70% height=70% >}}
+{{< figure src="/notes/genomics/img/fastq1.png" width=70% height=70% caption="The basic structure of a FASTQ file" >}}
 
-{{< figure src="/notes/genomics/img/fastq2.png" width=50% height=50% >}}
+{{< figure src="/notes/genomics/img/fastq2.png" width=70% height=70% caption="An example of a FASTQ file with multiple sequencing reads" >}}
 
 ## SAM/BAM
 
@@ -45,7 +45,7 @@ Both SAM (Sequence Alignment Map) and BAM are file formats for sequence alignmen
 
 GTF (Gene Transfer Format) is a common format for annotating gene info on a genome.
 
-{{< figure src="/notes/genomics/img/gtf.png" width=80% height=80% >}}
+{{< figure src="/notes/genomics/img/gtf.png" width=100% height=100% caption="An example of a GTF file" >}}
 
 ## References
 
