@@ -7,7 +7,7 @@ menu:
     genomics:
 ---
 
-The construction of a sequence begins with __short-insert sequence reads__. These short reads are then combined to form longer, contiguous sequences called __contigs__. Contigs are then combined to form even larger __scaffolds__, though there often gaps between the contigs where the sequence is unknown. __Long-read sequencing__ technologies can help order contigs in a sequence, as well as estimate the size of gaps (represented by the string of Ns).
+The construction of a sequence begins with __short-insert sequence reads__. These short reads are then combined to form longer, contiguous sequences called __contigs__. Contigs are then combined to form even larger __scaffolds__, though there often gaps between the contigs where the sequence is unknown. __Long-read sequencing__ technologies can help order contigs in a sequence, as well as estimate the size of gaps (represented by the string of `N`s).
 
 {{< figure src="/notes/genomics/img/construction.png" width=60% height=60% >}}
 

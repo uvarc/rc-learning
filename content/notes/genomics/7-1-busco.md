@@ -60,13 +60,13 @@ For this example, we will load version 5.8.2:
 module load busco/5.8.2
 ```
 
-To verify that the module was loaded, you can run:
+To verify that the module was loaded, run:
 
 ```bash
 module list
 ```
 
-To actually run BUSCO on our `Cyglarus-subset.fasta` file, we will enter the command:
+To actually run BUSCO on our `Cyglarus-subset.fasta` file, enter the command:
 
 ```bash
 busco -i Cyglarus-subset.fasta -o Lep-Blue_out -m genome -l lepidoptera_odb10

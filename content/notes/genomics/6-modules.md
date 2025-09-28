@@ -59,14 +59,3 @@ A module is a software utility that allows multiple versions of a software to ex
 {{< /table >}}
 
 Overall, there are three main approaches to running HPC jobs: interactively, using modules, or downloading software locally.
-
-## More Research Computing Resources
-
-UVA Research Computing Learning Portal:  
-https://learning.rc.virginia.edu
-
-Using UVA’s HPC system from the terminal:  
-https://learning.rc.virginia.edu/notes/hpc-from-terminal/
-
-HPC orientation session and office hours:  
-https://www.rc.virginia.edu/support/#office-hours

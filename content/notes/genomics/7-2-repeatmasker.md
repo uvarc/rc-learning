@@ -10,11 +10,11 @@ menu:
 
 Repetitive DNA sequences (biased nucleotide composition, tandem repeats, dispersed repeats, palindrome-hairpin structures, etc.) can prove to be issues when they are longer than the read length. __RepeatMasker__ is a software tool helps tackle this problem by screening DNA sequences for interspersed repeats, and then masking/marking those repeats. The masking helps to prevent ambiguous alignments to regions of high similarity.
 
-RepeatMasker uses two types of masking: soft and hard. Soft masking indicates masked regions by using lower-case letters. Hard masking (indicated with the `-hardmask` option) overwrites masked regions with a wildcard letter, using N for nucleotides or X for proteins.
+RepeatMasker uses two types of masking: soft and hard. Soft masking indicates masked regions by using lower-case letters. Hard masking (indicated with the `-hardmask` option) overwrites masked regions with a wildcard letter, using `N` for nucleotides or X for proteins.
 
 {{< figure src="/notes/genomics/img/repeatmaskerex.png" width=50% height=50% caption="RepeatMasker masking example" >}}
 
-RepeatMasker is able to generate detailed annotations of the repeats in the DNA sequence, as well as a modified version of the DNA sequence in which all the annotated repeats have been masked (by default, replaced by Ns). Masking tools play a huge part in genomics research; for example, currently over 56% of the human genomic sequence is identified and masked by these programs.
+RepeatMasker is able to generate detailed annotations of the repeats in the DNA sequence, as well as a modified version of the DNA sequence in which all the annotated repeats have been masked (by default, replaced by `N`s). Masking tools play a huge part in genomics research; for example, currently over 56% of the human genomic sequence is identified and masked by these programs.
 
 ## Running RepeatMasker with a Slurm Script
 

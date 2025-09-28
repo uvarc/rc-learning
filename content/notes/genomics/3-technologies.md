@@ -54,6 +54,6 @@ Hi-C is a genomic technique used to capture chromatin information. It involves d
 
 * Wenger et al. _Nature Biotechnology_ 2019
 * Chin et al. _Nat Meth_ 2016
-* https://www.pacb.com/blog/ploidy-haplotypes-and-phasing/
+* PacBio: Sequencing 101 https://www.pacb.com/blog/ploidy-haplotypes-and-phasing/
 * Shafin et al. _Nature Biotechnology_ 2020
 * How it Works: Proximo Hi-C Genome Scaffolding https://www.youtube.com/watch?v=-MxEw3IXUWU

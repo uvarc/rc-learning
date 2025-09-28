@@ -50,7 +50,7 @@ cd stringtie
 make -j4 release
 ```
 
-Look for a README file in the GithHub repository; the README often has download/installation instructions.
+Look for a README file in the GitHub repository; the README often has download/installation instructions.
 
 To check if your permissions are set to run StringTie, use the `ls -lh` command:
 
