@@ -11,6 +11,7 @@ menu:
  hpc-intro:
     name: Features of Open OnDemand
 ---
+{{< youtube id="MpzThi43iak" >}}
 
 Open OnDemand has many features accessible directly from the menu bar.
 
