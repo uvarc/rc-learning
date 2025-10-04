@@ -10,7 +10,14 @@ menu:
   hpc-intro:
     name: Working with Files
 ---
-{{< youtube id="asN63Ujhzks" title="Working with Files video" >}}
+<style>
+.embedded-video {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 600px;
+}
+</style>  
+<iframe class="embedded-video" src="https://www.youtube.com/embed/asN63Ujhzks?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Files are the foundation of working with an HPC cluster.  We need to be able to
 
