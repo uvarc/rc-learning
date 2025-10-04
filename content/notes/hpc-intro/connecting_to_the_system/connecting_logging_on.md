@@ -10,7 +10,17 @@ menu:
   hpc-intro:
     name: Connecting to Afton and Rivanna
 ---
-{{< youtube id="BpaFQG4JOEU" >}}
+<style>
+.video-container {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 600px;
+    padding-bottom: 10.5px;
+}
+</style>
+<div class="video-container">
+{{< youtube id="BpaFQG4JOEU" title="Connecting to HPC video" >}}
+</div>
 
 * There are three ways to connect to the HPC System:
   * Open OnDemand, a graphical user interface through a web browser

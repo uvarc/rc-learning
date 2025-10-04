@@ -10,7 +10,7 @@ menu:
   hpc-intro:
     name: Working with Files
 ---
-{{< youtube id="asN63Ujhzks" >}}
+{{< youtube id="asN63Ujhzks" title="Working with Files video" >}}
 
 Files are the foundation of working with an HPC cluster.  We need to be able to
 
