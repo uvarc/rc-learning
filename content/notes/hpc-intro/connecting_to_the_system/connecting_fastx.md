@@ -17,5 +17,5 @@ FastX requires the VPN.  If the VPN is not active, the start page _will not_ loa
 
 Always use either the OOD link or the `fastx` URL.  The underlying name of the host may change from time to time.
 
-{{< figure src="/notes/hpc-intro/img/FastX_splash_screen.png" caption="Logging in to FastX" alt="FastX login page with a logo on the left. On the right are fields for username and password, a link to manage private keys, and a button labeled SSH Login. Text at the bottom right shows it is powered by FastX, build 3.3.59." >}}
+{{< figure src="/notes/hpc-intro/img/FastX_splash_screen.png" caption="Logging in to FastX" alt="FastX login page with fields for username and password, a link to manage private keys, and a button labeled SSH Login." >}}
 

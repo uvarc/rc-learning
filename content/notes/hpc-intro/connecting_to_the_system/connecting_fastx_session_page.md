@@ -13,5 +13,5 @@ menu:
 
 FastX starts a _session_ on a frontend. A new session is started by selecting either the _MATE_ or _Terminal_ icon under Applications on the right side of the page.
 
-{{< figure src="/notes/hpc-intro/img/FastX_session_page.png" caption="Starting a new session" alt="FastX dashboard showing no sessions running. The left panel has buttons for available applications: MATE and Terminal. The right panel has an Announcements section with links to Documentation and Desktop Clients. User profile is shown in the top right." >}}
+{{< figure src="/notes/hpc-intro/img/FastX_session_page.png" caption="Starting a new session" alt="FastX dashboard with buttons for available applications: MATE and Terminal." >}}
 

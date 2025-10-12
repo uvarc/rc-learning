@@ -17,6 +17,6 @@ Most users should choose the MATE session.
 
 Click the icon, then click the play button on the MATE session under "Disconnected Sessions" on the page. This will open a new window with two options: Browser Client, and Desktop Client.
 
-{{< figure src="/notes/hpc-intro/img/FastX_connect_options.png" caption="Browser or Desktop Client" alt="Webpage prompting user to choose a connection method. Two options are shown: 'Browser Client' with a browser icon and the text 'Connect with the browser. No download required!', and 'Desktop Client' with a desktop icon and the text 'Connect with the desktop client for the best user experience!'" >}}
+{{< figure src="/notes/hpc-intro/img/FastX_connect_options.png" caption="Browser or Desktop Client" alt="Webpage prompting user to choose a connection method. Two options are shown: 'Browser Client' and the text 'Connect with the browser. No download required!', and 'Desktop Client' with the text 'Connect with the desktop client for the best user experience!'" >}}
 
 Select the Browser Client to connect to your session.
