@@ -17,7 +17,8 @@ menu:
     max-width: 600px;
 }
 </style>  
-<iframe class="embedded-video" src="https://www.youtube.com/embed/FUZbumfxGyY?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe class="embedded-video" src="https://www.youtube.com/embed/FUZbumfxGyY?rel=0" title="Open OnDemand Interactive Apps video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 Open OnDemand's File Explorer, the FastX Web interface, and various command-line interfaces, can be used to prepare work for the cluster. This includes transferring and editing files, looking at output, and so forth. However, all production work must be run on the compute nodes, not on the frontends.
 
