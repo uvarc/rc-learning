@@ -15,9 +15,9 @@ menu:
 
 Start an SFTP session in MobaXterm.  Use one of the specific hosts `login1.hpc.virginia.edu`, `login2.hpc.virginia.edu`, `login3.hpc.virginia.edu`
 
-{{< figure src="/notes/hpc-intro/img/Moba_sftp_session.png" caption="New SFTP session in MobaXTerm" >}}
+{{< figure src="/notes/hpc-intro/img/Moba_sftp_session.png" caption="New SFTP session in MobaXTerm" alt="The MobaXterm session screen. SFTP is selected." >}}
 
 A double-paned window will open.  Drag and drop files between your local machine and the remote server.
 
-{{< figure src="/notes/hpc-intro/img/Moba_sftp_pane.png" caption="Drag and drop" width=1000px >}}
+{{< figure src="/notes/hpc-intro/img/Moba_sftp_pane.png" caption="Drag and drop" width=1000px alt="A multi-pane window. The left shows local files, the right shows remote files. The bottom shows status messages." >}}
 

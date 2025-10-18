@@ -15,7 +15,7 @@ menu:
 
 Globus is a non-profit service for secure, reliable research data management developed and operated by the University of Chicago and Argonne National Laboratory, supported by funding from the Department of Energy, NSF, and the NIH. With Globus, subscribers can move, share, & discover data via a single interface – whether your files live on a supercomputer, lab cluster, tape archive, public cloud or your laptop, you can manage this data from anywhere, using your existing identities, via just a web browser.
 
-{{< figure src="/notes/hpc-intro/img/globus.png" >}}
+{{< figure src="/notes/hpc-intro/img/globus.png" alt="Globus Logo" >}}
 
 ## Advantages of Using Globus
 
