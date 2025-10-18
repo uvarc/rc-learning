@@ -19,5 +19,7 @@ notes: hpc-intro
 
 weight: 10
 ---
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLT4bryHgBcRP7N-hB9u6EWs6tq_2nMoRO" title="RC Video Tutorials embedded playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 See our [YouTube playlist](https://www.youtube.com/playlist?list=PLT4bryHgBcRP7N-hB9u6EWs6tq_2nMoRO) for a full video series covering this tutorial.
