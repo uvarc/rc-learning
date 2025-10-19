@@ -19,6 +19,6 @@ Set up Globus once it is installed on your computer.
 4. **Do NOT click the High Assurance checkbox!** The UVA Ivy Data Transfer Node (UVA IVY-DTN) is already configured for sensitive data transfer. Checking the box is redundant conflicts with the default configuration.  The checkbox is not required at all for the Standard Security Storage collection. 
 5. Click "Save" then "Exit Setup".
 
-{{< figure src="/notes/globus-data-transfer/imgs/globus_setup_personal_connector.png" caption="Setting up the Globus Personal Connector" width=700px >}}
+{{< figure src="/notes/globus-data-transfer/imgs/globus_setup_personal_connector.png" caption="Setting up the Globus Personal Connector" width=700px alt="A Collection Details page with text boxes for Owner Identity, Collection Name, and Description, and a checkbox for High Assurance." >}}
 
 

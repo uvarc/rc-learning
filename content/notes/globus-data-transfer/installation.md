@@ -31,8 +31,8 @@ The screenshots and set of instructions below show how to navigate to the instal
 
 Download the software for your operating system:
 
-{{< figure src="/notes/globus-data-transfer/imgs/globus_download_personal_connector.png" caption="Find the link to download for your operating system" width=700px >}}
+{{< figure src="/notes/globus-data-transfer/imgs/globus_download_personal_connector.png" caption="Find the link to download for your operating system" width=700px alt="A screenshot of a Globus docs page with a download link and instructions for installing Globus Connect Personal." >}}
 
 Install the software:
 
-{{< figure src="/notes/globus-data-transfer/imgs/globus_install_personal_connector.png" caption="Download the application" width=700px >}}
+{{< figure src="/notes/globus-data-transfer/imgs/globus_install_personal_connector.png" caption="Download the application" width=700px alt="A Globus page, for granting permissions to Globus Connect Personal Setup. There is a text box to 'Provide a label for future reference.'" >}}
