@@ -19,7 +19,7 @@ menu:
 }
 </style>
 
-<iframe class="embedded-video" src="https://www.youtube.com/embed/MpzThi43iak?rel=0" title="Features of Open OnDemand video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{{< youtube-reduced-width id="MpzThi43iak" maxwidth="600px" alt="Features of OOD" >}}
 
 Open OnDemand has many features accessible directly from the menu bar.
 
