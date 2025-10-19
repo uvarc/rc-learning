@@ -19,7 +19,7 @@ menu:
 }
 </style>
 
-{{< youtube-reduced-width id="MpzThi43iak" maxwidth="600px" alt="Features of OOD" >}}
+{{< youtube-reduced-width id="MpzThi43iak" maxwidth="600px" alt="Features of Open OnDemand video" title="Features of Open OnDemand video" >}}
 
 Open OnDemand has many features accessible directly from the menu bar.
 
