@@ -11,15 +11,8 @@ menu:
  hpc-intro:
     name: Features of Open OnDemand
 ---
-<style>
-.embedded-video {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    max-width: 600px;
-}
-</style>
 
-{{< youtube-reduced-width id="MpzThi43iak" maxwidth="600px" title="goopy vid" >}}
+{{< youtube-reduced-width id="MpzThi43iak" maxwidth="600px" title="Features of Open OnDemand video" >}}
 
 Open OnDemand has many features accessible directly from the menu bar.
 
