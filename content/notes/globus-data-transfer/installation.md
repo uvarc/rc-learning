@@ -14,16 +14,16 @@ To transfer data to and from your computer, you will first need to install Globu
 {{< table >}}
 | Platform | Installation instructions |
 | --- | --- |
-| Mac | https://docs.globus.org/how-to/globus-connect-personal-mac |
-| Linux | https://docs.globus.org/how-to/globus-connect-personal-linux |
-| Windows | https://docs.globus.org/how-to/globus-connect-personal-windows |
+| Mac | [Install Globus for Mac](https://docs.globus.org/how-to/globus-connect-personal-mac) |
+| Linux | [Install Globus for Linux](https://docs.globus.org/how-to/globus-connect-personal-linux) |
+| Windows | [Install Globus for Windows](https://docs.globus.org/how-to/globus-connect-personal-windows) |
 {{< /table >}}
 
 The screenshots and set of instructions below show how to navigate to the installation links from the Globus homepage.
 
-**Instructions**
+## Instructions
 
-1. Go to https://www.globus.org/
+1. Go to [the Globus homepage](https://www.globus.org/)
 2. Click **“I Want To…”** > **“Enable Globus on my system”**
 3. Scroll down to “Globus Connect Personal” (light blue box) and click the **“Get Globus Connect Personal”** link
 4. Scroll down to “Install Globus Connect Personal” (light blue box)

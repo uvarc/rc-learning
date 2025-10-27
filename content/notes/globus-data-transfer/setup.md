@@ -11,7 +11,7 @@ menu:
 
 Set up Globus once it is installed on your computer.
 
-**Instructions**
+## Instructions
 
 1. Start the Globus Personal Connector application.
 2. Choose a label for consent and click “Allow”. (The label you choose doesn't really matter.)
