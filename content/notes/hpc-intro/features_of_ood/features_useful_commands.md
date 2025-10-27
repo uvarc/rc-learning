@@ -34,5 +34,5 @@ This will show the list of partitions, their occupancy, and the SU charge rate. 
 
 {{< figure src="/notes/hpc-intro/img/features_qlimits.png" caption="Queue Limits" alt="A list of queues with their maximum submit, max cores, max and default memory, and max nodes per job." >}}
 
-Finally, the ```sinfo``` command will provide some more detailed information on the health of each queue and the number of active nodes available. These commands can be useful in diagnosing why a job may not be running, or in better understanding queue usage for more efficient job throughput. More information on hardware specifications and queue information can be found on our [website](https://www.rc.virginia.edu/userinfo/rivanna/overview/#system-details).
+Finally, the ```sinfo``` command will provide some more detailed information on the health of each queue and the number of active nodes available. These commands can be useful in diagnosing why a job may not be running, or in better understanding queue usage for more efficient job throughput. More information on hardware specifications and queue information can be found on [the main RC website](https://www.rc.virginia.edu/userinfo/rivanna/overview/#system-details).
 

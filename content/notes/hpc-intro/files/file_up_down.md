@@ -19,4 +19,4 @@ You have several options for transferring data onto your home or scratch directo
 * Use the web browser in the FastX desktop to download data from UVA Box or other cloud locations.
 * Use the git clone command to copy git repositories
 * Set up a [Globus](https://globus.org) endpoint on your laptop and use the Globus web interface to transfer files.
-See [https://www.rc.virginia.edu/userinfo/globus/](https://www.rc.virginia.edu/userinfo/globus/) for details.
+See [the RC website's Globus page](https://www.rc.virginia.edu/userinfo/globus/) for details.

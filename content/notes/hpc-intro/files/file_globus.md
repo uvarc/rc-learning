@@ -48,4 +48,4 @@ Globus users are able to share data with anyone with a Globus account. All UVA H
 
 External collaborators don’t need to be affiliated with an institution using Globus in order to share data with them. Anyone can create a Globus account using @globusid.org
 
-More information on using Globus can be found on our learning [website](https://learning.rc.virginia.edu/tutorials/globus-data-transfer/) and from our [documentation](https://www.rc.virginia.edu/userinfo/globus/).
+More information on using Globus can be found on [our learning website](https://learning.rc.virginia.edu/tutorials/globus-data-transfer/) and from [our documentation](https://www.rc.virginia.edu/userinfo/globus/).
