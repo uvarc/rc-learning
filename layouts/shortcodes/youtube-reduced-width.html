@@ -14,5 +14,5 @@
         max-width: {{ $maxwidth }};
     }
 </style>
-<iframe class="embedded-video" src="https://{{ $ytHost }}/embed/{{ $id }}?rel=0{{ with .Get "autoplay" }}{{ if eq . "true" }}&autoplay=1{{ end }}{{ end }}" title="{{ $title }}" alt="{{ $alt }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe class="embedded-video" src="https://{{ $ytHost }}/embed/{{ $id }}?rel=0{{ with .Get "autoplay" }}{{ if eq . "true" }}&autoplay=1{{ end }}{{ end }}" title="{{ $title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 {{ end -}}
