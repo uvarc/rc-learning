@@ -11,7 +11,7 @@ menu:
 
 Globus provides a secure, unified interface to your research data. Use Globus to "fire and forget" high-performance data transfers between systems within and across organizations.
 
-{{< figure src="/notes/globus-data-transfer/imgs/globus_advantages.png" width=50% >}}
+{{< figure src="/notes/globus-data-transfer/imgs/globus_advantages.png" width=50% alt="A circle connecting HPC systems, local storage, institutional storage, tape archives, and commercial clouds.">}}
 
 There are many advantages to using Globus: 
 

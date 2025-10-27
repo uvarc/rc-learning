@@ -18,8 +18,8 @@ menu:
      - They may have specialty hardware like graphical processing units.
 
   * Two types of nodes
-    * <span style="color:#0000FF">Head Node </span> – a server used for logging in and submitting jobs.
-    * <span style="color:#0000FF">Compute Node </span> \-\-  a server that carries out the computational work.
+    * **Head Node** – a server used for logging in and submitting jobs.
+    * **Compute Node** – a server that carries out the computational work.
 
 * Core – an individual processor on a computer
    * The cluster's nodes have many cores (typically 40 each)

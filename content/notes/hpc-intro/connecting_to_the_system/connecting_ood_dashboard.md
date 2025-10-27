@@ -13,5 +13,5 @@ menu:
 
 The Open OnDemand home page is the Dashboard. 
 
-{{< figure src="/notes/hpc-intro/img/OOD_Dashboard.png" caption="OOD Dashboard" >}}
+{{< figure src="/notes/hpc-intro/img/OOD_Dashboard.png" caption="OOD Dashboard" alt="Screenshot of the UVA OpenOnDemand web portal. The top navigation bar includes menus for Files, Jobs, Clusters, and Interactive Apps, along with icons for my interactive sessions, help, user account, and logout." >}}
 

@@ -13,7 +13,7 @@ menu:
 
 The "Clusters" tab on the menu bar open a new browser tab with a Linux command line interface for shell access:
 
-{{< figure src="/notes/hpc-intro/img/features_shell_access.png" caption="Command line Shell Access" >}}
+{{< figure src="/notes/hpc-intro/img/features_shell_access.png" caption="Command line Shell Access" alt="The Open OnDemand menu bar, with the Clusters dropdown and 'HPC Shell Access' selected, which opens a command line." >}}
 
 To get a feel of how to use the command line, type the command `allocations` after the `$` prompt to display information on your allocations.
 

@@ -10,7 +10,7 @@ menu:
   hpc-intro:
     name: Connecting to Afton and Rivanna
 ---
-{{< youtube id="BpaFQG4JOEU" >}}
+{{< youtube-reduced-width id="BpaFQG4JOEU" maxwidth="600px" title="Connecting to HPC video" >}}
 
 * There are three ways to connect to the HPC System:
   * Open OnDemand, a graphical user interface through a web browser

@@ -15,5 +15,5 @@ To submit an interactive job, from the Open OnDemand dashboard click on the menu
 
 We will focus on JupyterLab, Rstudio Server, and the Desktop for now.
 
-{{< figure src="/notes/hpc-intro/img/OOD_Interactive_Apps.png" caption="OOD Interactive Apps menu" >}}
+{{< figure src="/notes/hpc-intro/img/OOD_Interactive_Apps.png" caption="OOD Interactive Apps menu" alt="The Interactive Apps menu open in the Open OnDemand toolbar, displaying a list of available applications." >}}
 

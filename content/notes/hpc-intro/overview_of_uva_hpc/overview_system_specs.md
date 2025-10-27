@@ -15,4 +15,4 @@ Currently the supercomputer is made up of two systems, Rivanna and Afton, and be
 
 Several queues (or “partitions”) are available to users for different types of jobs. One queue is restricted to single-node (serial or threaded) jobs; another for multi-node parallel programs, and others are for access to specialty hardware such as nodes offering GPUs.
 
-More information on queueing policies and hardware configurations can be found on our [website](https://www.rc.virginia.edu/userinfo/rivanna/overview/).
+More information on queueing policies and hardware configurations can be found on [our website](https://www.rc.virginia.edu/userinfo/rivanna/overview/ "The RC website's HPC overview page").

@@ -19,5 +19,5 @@ Some problems occur frequently. Here are a few tips to solve them:
 | I can’t connect to UVA Standard Security Storage. | When leaving UVA, your Eservices account can expire before your email – meaning no Globus access. |
 {{< /table >}}
 
-{{< figure src="/notes/globus-data-transfer/imgs/globus_transfer_option_skip_files_with_errors.png" width=50% >}}
+{{< figure src="/notes/globus-data-transfer/imgs/globus_transfer_option_skip_files_with_errors.png" width=50% alt="The Transfer Settings screen, with only the sixth option (Skip files on source with errors) selected.">}}
 

@@ -11,5 +11,5 @@ menu:
     weight: 20
 ---
 
-{{< figure src="/notes/hpc-intro/img/allocation_schematic.png" caption="Requesting an Allocation" >}}
+{{< figure src="/notes/hpc-intro/img/allocation_schematic.png" caption="Requesting an Allocation" alt="Diagram showing the process of accessing Research Computing resources: A Principal Investigator (PI) requests an allocation from Research Computing, receives an allocation and account(s), and then allows access for researchers." >}}
 

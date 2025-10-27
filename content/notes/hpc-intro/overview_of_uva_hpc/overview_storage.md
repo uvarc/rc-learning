@@ -33,7 +33,7 @@ The `/scratch` directory is for individual use and is not shareable with other u
 
 ## Leased Storage
 
-We offer two tiers of leased storage. For rates and offerings see our [website](https://www.rc.virginia.edu/userinfo/storage/).
+We offer two tiers of leased storage. For rates and offerings see [our website](https://www.rc.virginia.edu/userinfo/storage/ "The RC website's Research Data Storage page").
 
 ### Research Standard Storage
 

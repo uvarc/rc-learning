@@ -15,5 +15,5 @@ If you simply close your session browser tab, FastX _suspends_ your session rath
 
 One way to terminate is to log out.  Go to the System menu in the top ribbon and select `Log Out mst3k` (with your ID).
 
-{{< figure src="/notes/hpc-intro/img/FastX_logout.png" caption="Logging out of the desktop." >}}
+{{< figure src="/notes/hpc-intro/img/FastX_logout.png" caption="Logging out of the desktop." alt="FastX MATE desktop with the 'System' menu open in the top left. The dropdown menu displays options including Preferences, Administration, Control Center, Help, About MATE, Lock Screen, Log Out username, and Shut Down.">}}
 

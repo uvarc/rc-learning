@@ -10,7 +10,8 @@ menu:
   hpc-intro:
     name: Interactive Apps with Open OnDemand
 ---
-{{< youtube id="FUZbumfxGyY" >}}
+{{< youtube-reduced-width id="FUZbumfxGyY" maxwidth="600px" title="Open OnDemand Interactive Apps video" >}}
+
 
 Open OnDemand's File Explorer, the FastX Web interface, and various command-line interfaces, can be used to prepare work for the cluster. This includes transferring and editing files, looking at output, and so forth. However, all production work must be run on the compute nodes, not on the frontends.
 

@@ -17,7 +17,7 @@ Some other widely-used interactive apps are MATLAB and the Desktop.
 
 The most general OOD interactive app is the Desktop.  It will start a desktop identical to the FastX desktop, but on a compute node rather than a frontend.  From the desktop you can open a variety of applications from the menu, such as the Caja file manager.  You can also open a terminal window and type any valid commands into it.  In this illustration, the user has loaded a module to build a program for running. The OOD interactive desktop is the preferred method for interactive jobs.
 
-{{< figure src="/notes/hpc-intro/img/OOD_Desktop_terminal.png" caption="The OOD Desktop." >}}
+{{< figure src="/notes/hpc-intro/img/OOD_Desktop_terminal.png" caption="The OOD Desktop." alt="A terminal window on the OOD Desktop with a module loaded." >}}
 
 ## MATLAB
 
