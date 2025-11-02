@@ -1,0 +1,349 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.400 --> 00:00:05.920
+Hello everyone and thank you for joining us for&nbsp;
+this tutorial on the Globus File Transfer Service.
+
+00:00:05.920 --> 00:00:08.720
+We'll start at the Research&nbsp;
+Computing learning portal.
+
+00:00:08.720 --> 00:00:12.160
+We will go through installing&nbsp;
+a Globus personal connector,&nbsp;&nbsp;
+
+00:00:12.160 --> 00:00:15.840
+connecting to UVA data transfer nodes or DTNs,
+
+00:00:15.840 --> 00:00:18.880
+transferring files, and then&nbsp;
+we'll go over some common&nbsp;&nbsp;
+
+00:00:18.880 --> 00:00:22.240
+errors that you might experience in using Globus.
+
+00:00:22.240 --> 00:00:27.520
+Globus is a non-profit service for fast,&nbsp;
+secure, and reliable data transfer.
+
+00:00:27.520 --> 00:00:31.440
+It allows you to transfer files&nbsp;
+between one computer to another,&nbsp;&nbsp;
+
+00:00:31.440 --> 00:00:38.320
+such as between your laptop or lab workstation and&nbsp;
+our central computing resources, Rivanna or Ivy.
+
+00:00:38.320 --> 00:00:43.520
+Globus has several advantages, especially&nbsp;
+for transferring large files or folders.
+
+00:00:43.520 --> 00:00:48.160
+It is fast, it is error correcting,&nbsp;
+and it runs in the background.
+
+00:00:48.160 --> 00:00:53.280
+Using a VPN is not needed to&nbsp;
+transfer to and from UVA systems.
+
+00:00:53.280 --> 00:01:00.160
+In fact, the high-security VPN cannot&nbsp;
+be enabled when you are using Globus.
+
+00:01:00.160 --> 00:01:06.720
+Globus is approved for transferring sensitive&nbsp;
+data to or from the UVA high-security zone
+
+00:01:06.720 --> 00:01:13.200
+since our DTNs encrypt files in transit,&nbsp;
+so PII and HIPAA data are protected.
+
+00:01:13.200 --> 00:01:16.800
+Now let's go over some basic Globus terminology.
+
+00:01:16.800 --> 00:01:21.600
+A collection refers to a computer&nbsp;
+server or folder containing data.
+
+00:01:21.600 --> 00:01:25.840
+A collection can exist on&nbsp;
+Rivanna or your personal machine.
+
+00:01:25.840 --> 00:01:29.920
+Your personal collection is a set&nbsp;
+of folders on your local computer.
+
+00:01:29.920 --> 00:01:34.400
+Globus starts with a default set&nbsp;
+of folders but you can add more.
+
+00:01:34.400 --> 00:01:40.000
+The personal connector is a software package&nbsp;
+that you install to your local computer.
+
+00:01:40.000 --> 00:01:44.720
+It runs in the background and manages&nbsp;
+transfers to and from that computer.
+
+00:01:45.360 --> 00:01:49.920
+UVA Standard Security Storage is&nbsp;
+the collection for Rivanna storage&nbsp;
+
+00:01:49.920 --> 00:01:53.920
+as well as Research Standard&nbsp;
+and Research Project storage.
+
+00:01:53.920 --> 00:01:58.800
+UVA Ivy DTN is the collection&nbsp;
+for Ivy central storage.
+
+00:01:58.800 --> 00:02:03.680
+A shared collection is a collection that&nbsp;
+you can share with other Globus users.
+
+00:02:03.680 --> 00:02:07.600
+We'll start by installing the Globus&nbsp;
+personal connector on a computer.
+
+00:02:07.600 --> 00:02:11.760
+In this example I will be&nbsp;
+installing it on a Windows computer.
+
+00:02:11.760 --> 00:02:15.760
+First, I'll open this link and&nbsp;
+download Globus Connect Personal.
+
+00:02:15.760 --> 00:02:18.560
+Be sure it's for your operating system.
+
+00:02:18.560 --> 00:02:24.400
+Once it is downloaded, install it in&nbsp;
+the usual way for your operating system.
+
+00:02:24.400 --> 00:02:27.840
+You must provide a unique name&nbsp;
+to your personal collection.
+
+00:02:27.840 --> 00:02:30.960
+Make it distinctive and&nbsp;
+easy to find with a search.
+
+00:02:30.960 --> 00:02:34.640
+The name that I choose for my&nbsp;
+collection is "eubanksdesktop".
+
+00:02:34.640 --> 00:02:39.760
+Once the installation completes, you can add&nbsp;
+more folders to your collection if you wish.
+
+00:02:39.760 --> 00:02:45.760
+Right click the Globus icon and select&nbsp;
+Options. Under Access, click the plus icon.
+
+00:02:45.760 --> 00:02:47.680
+When the dialog box appears,&nbsp;&nbsp;
+
+00:02:47.680 --> 00:02:52.080
+browse to the folder you want to make&nbsp;
+accessible to Globus and click "Choose".
+
+00:02:52.080 --> 00:02:54.320
+We are now ready to transfer files.
+
+00:02:54.320 --> 00:02:56.800
+We'll go to the Globus website.
+
+00:02:56.800 --> 00:02:59.280
+Click "Login" at the upper right.
+
+00:02:59.280 --> 00:03:03.760
+You should sign in under "Use your&nbsp;
+existing organizational login".
+
+00:03:03.760 --> 00:03:07.120
+Type "University of Virginia" as the organization.
+
+00:03:07.120 --> 00:03:10.720
+This will bring up a NetBadge login page.
+
+00:03:10.720 --> 00:03:13.920
+Once logged in, you'll be in the File Manager.
+
+00:03:13.920 --> 00:03:18.320
+In the collection text box, start typing&nbsp;
+the name of your personal collection.
+
+00:03:18.320 --> 00:03:24.000
+For this example, I will be transferring files&nbsp;
+to Rivanna, but the process is the same for Ivy.
+
+00:03:24.000 --> 00:03:28.880
+Once it appears, the icon on the left&nbsp;
+should be green, showing that it's active.
+
+00:03:28.880 --> 00:03:34.000
+Here we see the contents of the default directory,&nbsp;
+which is Documents for Windows and macOS.
+
+00:03:34.000 --> 00:03:39.360
+I can navigate to other folders starting&nbsp;
+from the up arrow, up one folder icon.
+
+00:03:39.360 --> 00:03:42.480
+Suppose I want to transfer the JeffersonAI folder.
+
+00:03:42.480 --> 00:03:44.800
+First I must select a destination.
+
+00:03:44.800 --> 00:03:48.160
+Go to the collections text box&nbsp;
+on the right and start typing.
+
+00:03:48.160 --> 00:03:49.840
+A search box will appear.
+
+00:03:49.840 --> 00:03:54.400
+For standard security storage,&nbsp;
+choose UVA Standard Security Storage.
+
+00:03:54.400 --> 00:03:57.040
+The green icon on the left confirms it's active,&nbsp;
+
+00:03:57.040 --> 00:04:02.000
+while the green columns icon on the right&nbsp;
+indicates it's a managed collection.
+
+00:04:02.000 --> 00:04:03.520
+Choose that collection.
+
+00:04:03.520 --> 00:04:06.400
+You should be returned to the file manager page.
+
+00:04:06.400 --> 00:04:10.240
+The standard security folders to&nbsp;
+which you have access will fill in.
+
+00:04:10.240 --> 00:04:15.360
+You may need to click through to your specific&nbsp;
+folder in home, scratch, and so forth.
+
+00:04:15.360 --> 00:04:19.760
+I'll now select my JeffersonAI folder&nbsp;
+in my personal collection pane,
+
+00:04:19.760 --> 00:04:24.400
+select a folder in my UVA storage if&nbsp;
+I want it deeper than the top level,
+
+00:04:24.400 --> 00:04:28.080
+then click start with the arrow&nbsp;
+pointing towards the destination.
+
+00:04:28.080 --> 00:04:30.480
+The transfer should begin automatically.
+
+00:04:30.480 --> 00:04:36.080
+Transfers to and from the Ivy DTN are done&nbsp;
+the same way, but we would start by choosing
+
+00:04:36.080 --> 00:04:38.800
+that DTN as the destination.
+
+00:04:38.800 --> 00:04:41.840
+You can share folders on the managed DTNs.
+
+00:04:41.840 --> 00:04:45.440
+Only managed DTNs can create shared collections.
+
+00:04:45.440 --> 00:04:49.040
+You cannot share folders from&nbsp;
+your personal collection.
+
+00:04:49.040 --> 00:04:52.480
+Check the box by the folder&nbsp;
+or file you wish to share.
+
+00:04:52.480 --> 00:04:55.360
+Click the share icon on the left of the pane.
+
+00:04:55.360 --> 00:04:58.320
+You will be asked to create a collection name.
+
+00:04:58.320 --> 00:05:01.600
+As usual, be sure it is unique and memorable.
+
+00:05:01.600 --> 00:05:04.800
+You can then invite people to join the collection.
+
+00:05:04.800 --> 00:05:08.640
+Now let's talk about some common&nbsp;
+errors that we have with Globus.
+
+00:05:08.640 --> 00:05:12.240
+So if you have more questions, you&nbsp;
+can simply go to this website and get&nbsp;&nbsp;
+
+00:05:12.240 --> 00:05:16.480
+a more in-depth answer to some of your&nbsp;
+problems that you may be encountering.
+
+00:05:16.480 --> 00:05:21.760
+Health System users may find that there's a&nbsp;
+firewall that prevents Globus from connecting.
+
+00:05:21.760 --> 00:05:26.400
+You'll need to ask HIT to complete&nbsp;
+the connector installation for you.
+
+00:05:26.400 --> 00:05:29.360
+It's important to note as&nbsp;
+well that Globus does not work&nbsp;
+
+00:05:29.360 --> 00:05:33.120
+while connected to the UVA High Security VPN.
+
+00:05:33.120 --> 00:05:38.400
+Be sure to disconnect from the High&nbsp;
+Security VPN before attempting a transfer.
+
+00:05:38.400 --> 00:05:42.960
+Another common error is that you may&nbsp;
+find your transferred folders are empty.
+
+00:05:42.960 --> 00:05:47.440
+Most often this happens because you&nbsp;
+have a file somewhere in that folder&nbsp;
+
+00:05:47.440 --> 00:05:51.040
+with bad permissions or bad&nbsp;
+characters in the file name.
+
+00:05:51.040 --> 00:05:54.000
+If you see this, when you start your transfer,&nbsp;&nbsp;
+
+00:05:54.000 --> 00:05:58.800
+be sure to choose "Skip files&nbsp;
+with errors" in the options.
+
+00:05:58.800 --> 00:06:03.760
+And then finally, if you can't connect&nbsp;
+to UVA Standard Security Storage at all,
+
+00:06:03.760 --> 00:06:08.240
+it might be because your&nbsp;
+eServices account has expired.
+
+00:06:08.240 --> 00:06:11.840
+You can refer to the notes&nbsp;
+at the RC Learning site.
+
+00:06:11.840 --> 00:06:15.440
+Globus also has a lot of&nbsp;
+documentation at their site.
+
+00:06:15.440 --> 00:06:18.320
+Thank you for watching this&nbsp;
+tutorial and we hope it was helpful.
+
