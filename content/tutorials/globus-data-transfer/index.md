@@ -7,6 +7,6 @@ tags : ["Data_Transfer", "Globus"]
 date : 2024-2-10T00:00:00-05:00
 
 notes: globus-data-transfer
-url_video: /videos/globus-data-transfer.mp4
+url_video: https://youtu.be/bMcSqbDiFuo
 weight: 50
 ---
