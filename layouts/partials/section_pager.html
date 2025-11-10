@@ -1,0 +1,28 @@
+{{ $str := "" }}
+<div class="post-nav">
+  {{if .NextInSection}}
+  {{/* For the docs layout, prev/next labels are reversed. */}}
+  {{ if or (eq .Type "docs") (eq .Type "book") }}{{ $str = "previous" }}{{else}}{{ $str = "next" }}{{end}}
+  <div class="post-nav-item">
+    <div class="meta-nav">{{ i18n $str }}</div>
+    <a href="{{.NextInSection.RelPermalink}}" rel="next">{{.NextInSection.Title}}</a>
+  </div>
+  {{else if eq .Kind "section"}}
+  {{/* For section index pages, link to first page in section */}}
+  {{ $firstPage := index (.Pages.ByWeight) 0 }}
+  {{ if $firstPage }}
+  {{ if or (eq .Type "docs") (eq .Type "book") }}{{ $str = "next" }}{{else}}{{ $str = "previous" }}{{end}}
+  <div class="post-nav-item">
+    <div class="meta-nav">{{ i18n $str }}</div>
+    <a href="{{$firstPage.RelPermalink}}" rel="next">{{$firstPage.Title}}</a>
+  </div>
+  {{ end }}
+  {{end}}
+  {{if .PrevInSection}}
+  {{ if or (eq .Type "docs") (eq .Type "book") }}{{ $str = "next" }}{{else}}{{ $str = "previous" }}{{end}}
+  <div class="post-nav-item">
+    <div class="meta-nav">{{ i18n $str }}</div>
+    <a href="{{.PrevInSection.RelPermalink}}" rel="prev">{{.PrevInSection.Title}}</a>
+  </div>
+  {{end}}
+</div>
