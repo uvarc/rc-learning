@@ -10,8 +10,7 @@ menu:
         parent: Compound Types
 ---
 
-Lists are one of the most important data types in Python.  They are flexible and easy to use. Lists are [sequences](/courses/python-introduction/sequences) of objects.  Each element of the list can be of any type, including another list.  
-Lists have all the common properties of sequences: they are _ordered_ which means that each element can be referenced by an integer _index_.  As for all ordered types in Python, the indices start at 0.  
+Lists are one of the most important data types in Python.  They are flexible and easy to use. Lists are [sequences](/courses/python-introduction/sequences) of objects.  Each element of the list can be of any type, including another list. Lists have all the common properties of sequences: they are _ordered_ which means that each element can be referenced by an integer _index_.  As for all ordered types in Python, the indices start at 0.  
 
 Lists are dynamically sized and they are __mutable__.  They must be declared in some manner before they can be used.
 

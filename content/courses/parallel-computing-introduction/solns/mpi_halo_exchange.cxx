@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include <mpi.h>
 
 using namespace std;
@@ -7,10 +8,6 @@ int main (int argc, char *argv[]) {
 
     int i, j;
     int N;
-
-    double topBC=100;
-    double bottomBC=0.;
-    double edgeBC=100.;
 
     // Added for MPI
     int nr, nrl, nc, ncl;
@@ -26,17 +23,13 @@ int main (int argc, char *argv[]) {
 
    //Usually we would read in nr and nc; they represent the global grid RxC;
    //For this case they are both N.
-    N=500;
+    N=12;
     nr=N;
     nc=N;
 
     //Use ncl for clarity
     ncl=nc;
 
-    //Weak scaling
-    //nrl=nr;
-
-    //Strong scaling
     if (nr%nprocs!=0) {
         MPI_Finalize();
         cout<<"Not an even division of the arrays.\n";
@@ -60,50 +53,142 @@ int main (int argc, char *argv[]) {
     else {
         down=rank+1;
     }
-    //Two extra rows and columns for boundary conditions
-    int nrows=nrl+2;
-    int ncols=ncl+2;
+
+    cout<<"Topology "<<rank<<" "<<up<<" "<<down<<endl;
+
+    int nrows=nrl+2; int ncols=ncl+2; 
     double **w=new double*[nrows];
     double *wptr=new double[(nrows)*(ncols)];
 
-    for (i=0;i<(nrl+2);++i,wptr+=ncols)
+    for (int i=0;i<nrl+2;++i,wptr+=ncl+2) {
        w[i] = wptr;
-
-    if (rank==0) {
-       for (int i=0;i<=ncl+1;++i){
-          w[0][i]=bottomBC;
-       }
-    }
-    if (rank==nprocs-1) {
-        for (int i=0;i<ncl+1;++i){
-            w[nrl+1][i]=topBC;
-       }
     }
 
-    for (int i=0;i<=nrl+1;++i){
-        w[i][0]=edgeBC;
+    //Initialize 
+
+    for (int i=0; i<=nrl+1; ++i) {
+        for (int j=0; j<=ncl+1; ++j) {
+            w[i][j]=50.;
+        }
+    }
+
+
+    double topBC=0.;
+    double bottomBC=200.;
+    double leftBC=100.;
+    double rightBC=100.;
+
+    for ( int j=0; j<=ncl+1; ++j ) {
+        w[1][j]=(double)(rank+1)*2.;
+        w[nrl][j]=(double)(rank+1)*2.5;
+    }
+
+    for (int i=1;i<=nrl;++i){
+        w[i][0]leftBC;
         w[i][ncl+1]=edgeBC;
     }
 
-    //Initialize interior only
-    for ( i = 1; i <= nrl; i++ ) {
-         for (j = 1; j <= ncl; j++ ) {
-             w[i][j] = 50.;
-         }
+    if (rank==0) {
+       for (int i=0;i<=ncl+1;++i){
+          w[0][i]=topBC;
+       }
+    }
+    if (rank==nprocs-1) {
+        for (int i=0;i<+ncl+1;++i){
+            w[nrl+1][i]=bottomBC;
+       }
     }
 
+    //starting
+    //This forces the output to show one rank at a time. It's not efficient.
+    int uwsize=(nrl+2)*(ncl+2);
+    double *u =  new double[uwsize];
+    memset(u,0.,uwsize);
+    int position;
+
+    MPI_Barrier(MPI_COMM_WORLD);
+    if ( rank == 0 ) {
+        cout<<"---W Before for rank 0---"<<endl;
+        for (int i=0;i<nrl+2;i++) {
+            for (int j=0;j<ncl+2;j++) {
+                cout<<w[i][j]<<" ";
+            }
+            cout<<endl;
+        }
+        for (int n=1;n<nprocs;++n) {
+
+            memset(u,0.,uwsize);
+            MPI_Recv(u,uwsize,MPI_DOUBLE,MPI_ANY_SOURCE,MPI_ANY_TAG,MPI_COMM_WORLD,&status);
+            cout<<"--Before for rank "<<status.MPI_SOURCE<<endl;
+            position=0;
+            for (int i=0;i<=nrl+1;i++) {
+                for (int j=0;j<=ncl+1;j++) {
+                    w[i][j]=u[position];
+                    cout<<w[i][j]<<" ";
+                    position++;
+                }
+                cout<<endl;
+            }
+        }
+    }
+    else {
+        // Pack the 2D array into the buffer
+        position=0;
+        for (int i=0; i<=nrl+1; i++)
+            for (int j=0;j<=ncl+1; j++)
+                u[position++]=w[i][j];
+
+        MPI_Send(u,uwsize, MPI_DOUBLE, 0, rank, MPI_COMM_WORLD);
+    }
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+
     MPI_Sendrecv(&w[1][1],ncl, MPI_DOUBLE,up,tag,&w[nrl+1][1],
-                           ncl, MPI_DOUBLE,down,tag,MPI_COMM_WORLD,&status);
+                          ncl, MPI_DOUBLE,down,tag,MPI_COMM_WORLD,&status);
 
     MPI_Sendrecv(&w[nrl][1],ncl,MPI_DOUBLE,down,tag,&w[0][1],
                              ncl,MPI_DOUBLE,up,tag,MPI_COMM_WORLD,&status);
 
-    //Spot-check results
-    for (i=0;i<nprocs;++i) {
-        if (i==rank) {
-	    cout<<i<<" "<<w[0][ncl/2]<<" "<<w[nrl+1][ncl/2]<<endl;
+    //Print results
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    if ( rank == 0 ) {
+        cout<<"---After for rank 0---"<<endl;
+        for (int i=0;i<nrl+2;i++) {
+            for (int j=0;j<ncl+2;j++) {
+                cout<<w[i][j]<<" ";
+            }
+            cout<<endl;
         }
-    }	
+        for (int n=1;n<nprocs;++n) {
+
+            memset(u,0.,uwsize);
+            MPI_Recv(u,uwsize,MPI_DOUBLE,MPI_ANY_SOURCE,MPI_ANY_TAG,MPI_COMM_WORLD,&status);
+            cout<<"--After for rank "<<status.MPI_SOURCE<<endl;
+            position=0;
+            for (int i=0;i<=nrl+1;i++) {
+                for (int j=0;j<=ncl+1;j++) {
+                    w[i][j]=u[position];
+                    cout<<w[i][j]<<" ";
+                    position++;
+                }
+                cout<<endl;
+            }
+        }
+    }
+    else {
+
+        // Pack the 2D array into the buffer
+        position=0;
+        for (int i=0; i<=nrl+1; i++)
+            for (int j=0;j<=ncl+1; j++)
+                u[position++]=w[i][j];
+
+        MPI_Send(u,uwsize, MPI_DOUBLE, 0, rank, MPI_COMM_WORLD);
+
+    }
+    MPI_Barrier(MPI_COMM_WORLD);
 
     MPI_Finalize();
 

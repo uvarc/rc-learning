@@ -176,7 +176,8 @@ void set_bcs(double **u, int nr, int nc) {
 
   double topBC=0;
   double bottomBC=100.;
-  double edgeBC=100.;
+  double leftBC=100.;
+  double rightBC=100.;
 
   for (int i=0;i<=nc+1;++i){
         u[0][i]=topBC;
@@ -185,9 +186,9 @@ void set_bcs(double **u, int nr, int nc) {
         u[nr+1][i]=bottomBC;
   }
 
-  for (int i=0;i<=nr+1;++i){
-      u[i][0]=edgeBC;
-      u[i][nc+1]=edgeBC;
+  for (int i=1;i<=nr;++i){
+      u[i][0]=leftBC;
+      u[i][nc+1]=rightBC;
   }
 }
 

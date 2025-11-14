@@ -17,7 +17,7 @@ The job composer tab allows you to create and submit a job to run on the cluster
 
 Selecting the default template will automatically create a submission script called ```demo_hello_world.slurm``` located in ```/home/computingID/Rivanna/data/sys/myjobs/projects/default/1``` on the file system:
 
-{{< figure src="/notes/hpc-intro/img/featues_template_job.png" caption="Default Template Job" alt="A page with two sections: 'Job Details' and 'Submit Script'. The 'Job Details' section lists details like the job name, cluster to submit to, and a link to folder contents. The 'Submit Script' section displays the contents of the script and includes buttons labeled: Open Editor, Open Terminal, and Open Dir." >}}
+{{< figure src="/notes/hpc-intro/img/featues_template_job.png" caption="Default Template Job" alt="A page with two sections: 'Job Details' and 'Submit Script'. The 'Job Details' section lists details including the job name, the cluster to which the job is to be submitted, and a link to folder contents. The 'Submit Script' section displays the contents of the script and includes buttons labeled: Open Editor, Open Terminal, and Open Dir." >}}
 
 Before submitting the job, ```your_allocation``` on the ```#SBATCH --account=your_allocation``` line must be replaced with the name of the allocation you're a member of. We will review editing files later. Once the correct allocation name is edited in, you can click "Submit" to queue your job. It will be given a corresponding Job ID, and once it's completed, the Folder contents will now contain a corresponding output file that contains the instructions from the submission script:
 

@@ -34,6 +34,8 @@ Use whatever plotting package you know to make a contour plot of the result. If 
 
 When plotting, the top of an array (row 0) is the bottom of the plot.
 
+It is not necessary for this project to print any "verification" output.  You may do so while debugging, but remove it once you are satisfied that your program is working. The plot will reveal most errors.
+
 {{< spoiler text="Python script to contour output">}}
 {{< code-download file="/courses/parallel-computing-introduction/scripts/contour.py" lang="python" >}}
 {{< /spoiler >}}
@@ -83,13 +85,13 @@ _Hints_
 ### Example solutions
 
 {{< spoiler text="C++" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/mpiheatedplate.cxx" lang="c++" >}}
+{{< code-download file="/courses/parallel-computing-introduction/solns/mpi_heatedplate.cxx" lang="c++" >}}
 {{< /spoiler >}}
 {{< spoiler text="Fortran" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/mpiheatedplate.f90" lang="fortran" >}}
+{{< code-download file="/courses/parallel-computing-introduction/solns/mpi_heatedplate.f90" lang="fortran" >}}
 {{< /spoiler >}}
 {{< spoiler text="Python" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/mpiheatedplate.py" lang="python" >}}
+{{< code-download file="/courses/parallel-computing-introduction/solns/mpi_heatedplate.py" lang="python" >}}
 {{< /spoiler >}}
 
 ## Project 9

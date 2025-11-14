@@ -12,9 +12,13 @@ int main(int argc, char *argv[]) {
     MPI_Comm_size(MPI_COMM_WORLD,&nprocs);
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
-    char message[]="I have a secret";
+    //extra spece for null terminator
+    double message;
+    if (rank==0) {
+        message=42.;
+    }
 
-    MPI_Bcast(message,1,MPI_CHAR,0,MPI_COMM_WORLD);
+    MPI_Bcast(&message,1,MPI_DOUBLE,0,MPI_COMM_WORLD);
 
     cout<<rank<<" "<<message<<endl;
 

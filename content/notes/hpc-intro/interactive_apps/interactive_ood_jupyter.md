@@ -19,7 +19,7 @@ The Jupyter Web Form gathers information about the computing resources that you 
 After you fill in the form, it will remember settings the next time that you connect to it, so watch out if you wish to change something.
 {{< /info >}}
 
-{{< figure src="/notes/hpc-intro/img/Interactive-Jupyter-form-2024.png" caption="Setting up a job in JupyterLab through OOD" alt="A form with various parameters for launching a JupyterLab interactive session." >}}
+{{< figure src="/notes/hpc-intro/img/Interactive-Jupyter-form-2024.png" caption="Setting up a job in JupyterLab through OOD" alt="A form with various parameters for launching a JupyterLab interactive session through OOD." >}}
 
 You must choose a partition from the dropdown list. The partition limitations are explained below the dropdown box. Most of the time, you will select the __Standard__ partition.  If you are running a deep learning model, you will want to choose a __GPU__ Partition. If you do not specify a GPU model, your job will be assigned to the first available.
 
