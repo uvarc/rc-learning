@@ -13,7 +13,6 @@
   max-width: 90%;
 }
 
-pre,
 code {
   // font-family: serif;
   color: #a41e3f;
@@ -196,4 +195,8 @@ html {
 .alert-info {
   background-color: #fafafa;
   border-color: #209cee; // the same color as the info icon
+}
+
+.hljs {
+  background-color: #f9f9f9;
 }
