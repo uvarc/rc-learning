@@ -187,3 +187,13 @@ html {
   background-color: rgba(0, 0, 0, .2);
   transform: scale(1);
 }
+
+.alert-warning {
+  background-color: #fafafa;
+  color: #ab0728;
+}
+
+.alert-info {
+  background-color: #fafafa;
+  border-color: #209cee; // the same color as the info icon
+}
