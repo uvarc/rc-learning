@@ -23,7 +23,7 @@ When you log in, you will be in your home directory, e.g. /home/mst3k.  Each hom
 
 ### Scratch Directory
 
-You have access to 10 TB of  <span style="color:#0070C0"> __temporary__ </span> storage. It is located in a subdirectory under `/scratch`, followed by your userID,  e.g.,  `/scratch/mst3k`
+You have access to 10 TB of  __temporary__ storage. It is located in a subdirectory under `/scratch`, followed by your userID,  e.g.,  `/scratch/mst3k`
 
 The `/scratch` directory is for individual use and is not shareable with other users.
 
@@ -33,7 +33,7 @@ The `/scratch` directory is for individual use and is not shareable with other u
 
 ## Leased Storage
 
-We offer two tiers of leased storage. For rates and offerings see [our website](https://www.rc.virginia.edu/userinfo/storage/ "The RC website's Research Data Storage page").
+We offer two tiers of leased storage. For rates and offerings see [the Research Computing website](https://www.rc.virginia.edu/userinfo/storage/ "The RC website's Research Data Storage page").
 
 ### Research Standard Storage
 
