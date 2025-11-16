@@ -12,6 +12,16 @@ menu:
 ---
 {{< youtube-reduced-width id="BpaFQG4JOEU" maxwidth="600px" title="Connecting to HPC video" >}}
 
+There are three ways to connect to the HPC System:
+* Open OnDemand, a graphical user interface through a web browser
+  * you can examine and manipulate files and submit jobs.
+  * you can access applications such as Matlab, Jupyterlab, and R Studio Server.
+* FastX Web, direct access to a desktop 
+* _ssh_ (Secure Shell) client, which provides direct access to the command line.
+   * For Windows we recommend [MobaXterm](https://mobaxterm.mobatek.net/)
+
+<!--more-->
+
 {{< spoiler text="Connecting to HPC Video Transcript" >}}
 **Narrator:** Hello and welcome back to the University of Virginia's high-performance computing tutorial series. In this module, we will cover three different ways to connect to the HPC system at UVA.
 
@@ -40,13 +50,3 @@ Similar to FastX, you must be on the UVA network to use SSH, either by being on 
 One final note, some of the methods discussed in this video require using the UVA VPN if you are connecting from off-Grounds. For details on installing and using the UVA VPN, see this link. Finally, if you need help with UVA's HPC system, there are multiple ways to get assistance. You can visit our Zoom-based office hours sessions on Tuesdays from 3-5pm and Thursdays from 10am to noon. If you can't make it to these office hours or have a more specific request, you can submit a support ticket and we'll get back to you. Links to both are on the RC Learning website. The main Research Computing website is also a valuable resource. We add a lot of documentation here and keep it updated. If you have a basic question or think it might be covered already, we have an FAQ section. We also have a list of how tos on various topics. If you can't find what you're looking for, we have a search feature where you can search our site for different information.
 This concludes the Connecting to HPC tutorial at the University of Virginia. Thank you.
 {{< /spoiler >}}
-
-There are three ways to connect to the HPC System:
-* Open OnDemand, a graphical user interface through a web browser
-  * you can examine and manipulate files and submit jobs.
-  * you can access applications such as Matlab, Jupyterlab, and R Studio Server.
-* FastX Web, direct access to a desktop 
-* _ssh_ (Secure Shell) client, which provides direct access to the command line.
-   * For Windows we recommend [MobaXterm](https://mobaxterm.mobatek.net/)
-
-
