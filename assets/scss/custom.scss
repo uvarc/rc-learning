@@ -218,6 +218,10 @@ html {
   background-color: #f9f9f9;
 }
 
-#TableOfContents li a, .toc-top li a {
+:not(.dark) #TableOfContents li a, :not(.dark) .toc-top li a {
   color: rgb(89, 89, 89);
+}
+
+.dark #TableOfContents li a, .dark .toc-top li a {
+  color: rgb(153, 151, 156);
 }
