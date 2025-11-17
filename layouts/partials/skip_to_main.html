@@ -1,0 +1,10 @@
+<a class="skip-to-main-content" href="#main-content-fallback">Skip to main content</a>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mainElement = document.querySelector('main');
+        if (mainElement) {
+            mainElement.setAttribute('id', 'main-content');
+            document.querySelector('.skip-to-main-content').href = '#main-content';
+        }
+    });
+</script>

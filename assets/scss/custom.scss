@@ -187,6 +187,23 @@ html {
   transform: scale(1);
 }
 
+.skip-to-main-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 1000;
+  padding: 1em;
+  opacity: 0;
+  background: white;
+  border: 2px solid #000;
+  border-radius: 0px 0px 4px 4px;
+}
+
+.skip-to-main-content:focus {
+  left: 10%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
 .alert-warning {
   background-color: #fafafa;
   color: #ab0728;
