@@ -3,29 +3,24 @@ import time
 import numpy as np
 from mpi4py import MPI
 
-def set_bcs(u,nrl,ncl,rank):
+def set_bcs(u,nrl,ncl,nrows,ncols,coords):
     # Set physical boundary values and compute mean boundary value. 
     # Due to Python pass-by-assignment, mutable parameters will be
     #changed outside (so this is a subroutine)
 
     topBC=0.
     bottomBC=100.
-    edgeBC = 100.
+    leftBC = 100.
+    rightBC = 100.
 
-    bc1=topBC
-    bc2=bottomBC
-    bc3=edgeBC
-    bc4=edgeBC
-
-    if rank==0:
-        u[0,:] = topBC
-    if rank==nprocs-1:
+    if coords[0]==0:
+        u[0,:]=topBC
+    if coords[0]==nrows-1:
         u[nrl+1,:]=bottomBC
-
-    u[:,0]=edgeBC
-    u[:,ncl+1]=edgeBC
-
-    return bc1,bc2,bc3,bc4
+    if coords[1]==0:
+        u[:,0]=leftBC
+    if coords[1]==ncols-1:
+        u[:,ncl+1]=rightBC
 
 # check number of parameters and read in parameters
 
@@ -60,6 +55,7 @@ else:
    print('USAGE: epsilon output-file <N> <M>')
    sys.exit(1)
 
+
 # Initializing MPI
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
@@ -70,36 +66,60 @@ tag = 0
 #Set max iterations. 10 million should do it.
 max_iterations=10000000
 
-#Set nprocs of local arrays
+#Set number of rows and columns
+#For simplicity, require a perfect square number of processes
+nrows=np.sqrt(nprocs)
+if nrows != int(nrows):
+    print("This code requires a perfect square number of processes")
+    sys.exit()
+else:
+    nrows=int(nrows)
+    ncols=nrows
 
 #Strong scaling
-if M%nprocs!=0:
+if M%nrows!=0:
     print("Number of rows must be evenly divisible by number of processes")
     sys.exit(0)
 else:
-    nrl = N//nprocs
+    nrl = N//nrows
+    ncl = N//ncols
 
-#Weak scaling
-#nrl=N
+#Set up topology
+ndims=2
+dims=[nrows, ncols]
+periods=[False, False]
+grid_comm=comm.Create_cart(dims, periods)
 
-#Both
-ncl=M
+grid_rank=grid_comm.Get_rank()
+grid_coords=grid_comm.coords
+
+direction=0
+displ=1
+(up,down)=grid_comm.Shift(direction, displ)
+direction=1
+(left,right)=grid_comm.Shift(direction,displ)
 
 u=np.zeros((nrl+2,ncl+2))
 w=np.zeros((nrl+2,ncl+2))
 
-bc1,bc2,bc3,bc4=set_bcs(u,nrl,ncl,rank)
+u=np.zeros((nrl+2,ncl+2))
+w=np.zeros((nrl+2,ncl+2))
 
-#Set up the up and down rank for each process
-if rank == 0 :
-    up = MPI.PROC_NULL
-else :
-    up = rank - 1
+set_bcs(u,nrl,ncl,nrows,ncols,grid_coords)
 
-if rank == nprocs - 1 :
-    down = MPI.PROC_NULL
-else :
-    down = rank + 1
+#Set up types
+column_zero=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl,1],[1,0])
+column_zero.Commit()
+
+column_one=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl,1],[1,1])
+column_one.Commit()
+
+column_end=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl,1],[1,ncl])
+column_end.Commit()
+
+column_endbc=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl,1],[1,ncl+1])
+column_endbc.Commit()
+
 
 # Compute steady-state solution
 iterations=0
@@ -115,11 +135,23 @@ if rank==root:
 while iterations<=max_iterations:
 
    # Send up and receive down
-    comm.Sendrecv([u[1,1:ncl+1], MPI.DOUBLE], up, tag, [u[nrl+1,1:ncl+1], MPI.DOUBLE], down, tag)
+    grid_comm.Sendrecv([u[1,1:ncl+1], MPI.DOUBLE], up, tag, [u[nrl+1,1:ncl+1], MPI.DOUBLE], down, tag)
     # Send down and receive up
-    comm.Sendrecv([u[nrl, 1:ncl+1], MPI.DOUBLE], down, tag, [u[0,1:ncl+1], MPI.DOUBLE], up, tag)
+    grid_comm.Sendrecv([u[nrl, 1:ncl+1], MPI.DOUBLE], down, tag, [u[0,1:ncl+1], MPI.DOUBLE], up, tag)
+
+    #Send and receive left and right
+    grid_comm.Sendrecv([u,1,column_one], left, tag, [u,1,column_endbc], right, tag)
+    grid_comm.Sendrecv([u,1,column_end], right, tag, [u,1,column_zero], left, tag)
 
     w[1:-1,1:-1]=0.25*(u[:-2,1:-1]+u[2:,1:-1]+u[1:-1,:-2]+u[1:-1,2:])
+
+
+    #set halo values
+    w[0,:]=u[0,:]
+    w[nrl+1,:]=u[nrl+1,:]
+    w[:,0]=u[:,0]
+    w[:,ncl+1]=u[:,ncl+1]
+
 
     if iterations%diff_interval==0:
         my_diff[0]=np.max(np.abs(w[1:-1,1:-1]-u[1:-1,1:-1]))
@@ -130,23 +162,23 @@ while iterations<=max_iterations:
 
     u[:,:]=w[:,:]
     #Reapply physical boundary conditions
-    set_bcs(u,nrl,ncl,rank)
+    set_bcs(u,nrl,ncl,nrows,ncols,grid_coords)
 
     iterations+=1
 #This is what the weird "else" clause in Python for/while loops is used to do.
 #Our stopping criterion is now on exceeding max_iterations so don't need
 # to break, but we need to warn that it happened.
 else:
-     if rank==0:
+     if grid_rank==0:
          print("Warning: maximum iterations exceeded")
 
 total_time=MPI.Wtime()-start_time
 
-if rank==0:
+if grid_rank==0:
     print(f'completed in {iterations:} iterations with time {total_time:.2f}')
 
 # Write solution to output file
-filename = filename + str(rank)
+filename = filename + str(grid_coords[0]) + str(grid_coords[1])
 fout = open (filename,'w')
 for i in range(1,nrl+1):
     line=" ".join(map(str,list(u[i,1:ncl+1])))

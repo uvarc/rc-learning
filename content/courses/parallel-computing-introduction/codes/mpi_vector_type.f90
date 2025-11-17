@@ -11,9 +11,8 @@ program sendrows
    integer            :: nrequests
    type(MPI_Status),  dimension(:), allocatable  :: mpi_status_arr
    type(MPI_Request), dimension(:), allocatable  :: mpi_requests
-   type(MPI_Datatype) :: rows
+   type(MPI_Datatype) :: row
 
-   integer, parameter :: root=0
    integer            :: src, dest
 
    !Initialize MPI, get the local number of columns
@@ -56,24 +55,24 @@ program sendrows
    ! The length of the column is the number of rows
    stride=nr
 
-   call MPI_Type_vector(ncount,blocklength,stride,MPI_DOUBLE_PRECISION,rows)
+   call MPI_Type_vector(ncount,blocklength,stride,MPI_DOUBLE_PRECISION,row)
 
-   call MPI_TYPE_COMMIT(rows)
+   call MPI_TYPE_COMMIT(row)
 
    if (rank==0) then
-       call MPI_Irecv(w(1,1),1,rows,src,tag,MPI_COMM_WORLD,mpi_requests(1))
-       call MPI_Isend(u(1,1),1,rows,dest,tag,MPI_COMM_WORLD,mpi_requests(2))
+       call MPI_Irecv(w(1,1),1,row,src,tag,MPI_COMM_WORLD,mpi_requests(1))
+       call MPI_Isend(u(1,1),1,row,dest,tag,MPI_COMM_WORLD,mpi_requests(2))
    else if (rank==nprocs-1) then
-       call MPI_Irecv(w(nprocs,1),1,rows,src,tag,MPI_COMM_WORLD,mpi_requests(1))
-       call MPI_Isend(u(nprocs,1),1,rows,dest,tag,MPI_COMM_WORLD,mpi_requests(2))
+       call MPI_Irecv(w(nprocs,1),1,row,src,tag,MPI_COMM_WORLD,mpi_requests(1))
+       call MPI_Isend(u(nprocs,1),1,row,dest,tag,MPI_COMM_WORLD,mpi_requests(2))
    else
-       call MPI_Irecv(w(rank+1,1),1,rows,src,tag,MPI_COMM_WORLD,mpi_requests(1))
-       call MPI_Isend(u(rank+1,1),1,rows,dest,tag,MPI_COMM_WORLD,mpi_requests(2))
+       call MPI_Irecv(w(rank+1,1),1,row,src,tag,MPI_COMM_WORLD,mpi_requests(1))
+       call MPI_Isend(u(rank+1,1),1,row,dest,tag,MPI_COMM_WORLD,mpi_requests(2))
    endif
 
    call MPI_Waitall(size(mpi_requests),mpi_requests,mpi_status_arr)
 
-   call MPI_TYPE_FREE(rows)
+   call MPI_TYPE_FREE(row)
 
    !Print neatly
 
@@ -95,6 +94,8 @@ program sendrows
          enddo
       endif
    enddo
+
+   call MPI_Type_free(row)
 
    call MPI_Finalize()
 

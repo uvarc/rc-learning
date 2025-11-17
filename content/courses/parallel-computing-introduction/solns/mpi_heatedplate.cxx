@@ -8,7 +8,7 @@
 
 #define MAX_ITER 10000000
 
-void set_bcs(double **u, int nr, int nc, int rank, int nprocs, double &bc1, double &bc2, double &bc3, double &bc4);
+void set_bcs(double **u, int nr, int nc, int rank, int nprocs);
 
 using namespace std; 
 
@@ -19,7 +19,6 @@ int main (int argc, char *argv[]) {
   int iterations = 0;
   int diffInterval;
   double epsilon;
-  double bc1, bc2, bc3, bc4;
 
   // Added for MPI
   int nrl, ncl;
@@ -52,35 +51,35 @@ int main (int argc, char *argv[]) {
 
      if (argc==3) {
         N=500;
-	M=500;
+	    M=500;
      }
      if (argc==4) {
         stringstream ssnr;
-	ssnr<<argv[3];
+        ssnr<<argv[3];
         if (ssnr.fail()) {
             printf ("Error converting row dimension \n");
             MPI_Finalize();
             return 2;
-	}
+	    }
         ssnr>>N;
-	M=N;
+	    M=N;
      }
      if (argc==5) {
         stringstream ssnr;
-	ssnr<<argv[3];
+	    ssnr<<argv[3];
         if (ssnr.fail()) {
             printf ("Error converting row dimension \n");
             MPI_Finalize();
             return 2;
-	}
+	    }
         ssnr>>N;
-	stringstream ssnc;
-	ssnc<<argv[4];
+        stringstream ssnc;
+        ssnc<<argv[4];
         if (ssnc.fail()) {
             printf ("Error converting row dimension \n");
             MPI_Finalize();
             return 2;
-	}
+	    }
         ssnc>>M;
      }
   }
@@ -134,11 +133,11 @@ int main (int argc, char *argv[]) {
      diffs[i] = dptr;
 
   // Set physical boundary conditions (overwrites estimate on physical edges)
-  set_bcs(u, nrl, ncl, rank, nprocs, bc1, bc2, bc3, bc4);
+  set_bcs(u, nrl, ncl, rank, nprocs);
 
   diffInterval=1;
 
-  float time0=MPI_Wtime();
+  double time0=MPI_Wtime();
 
   // Compute steady-state solution 
   // The diffs array is mostly to make it simpler to extend the testing interval
@@ -166,6 +165,16 @@ int main (int argc, char *argv[]) {
          }
      }
 
+     //Set halo values
+     for (int j=0; j<=ncl+1; j++) {
+         w[0][j]=u[0][j];
+         w[nrl+1][j]=u[nrl+1][j];
+     }
+     for (int i=0;i<=nrl+1; i++) {
+         w[i][0]=u[i][0];
+         w[i][ncl+1]=u[i][ncl+1];
+     }
+
      if (iterations%diffInterval==0) {
         for (i=1; i<=nrl;i++) {
            for (j=1;j<=ncl;j++) {
@@ -186,7 +195,7 @@ int main (int argc, char *argv[]) {
         }
      }
 
-     set_bcs(u, nrl, ncl, rank, nprocs, bc1, bc2, bc3, bc4);
+     set_bcs(u, nrl, ncl, rank, nprocs);
 
      iterations++;
   } //end of computation 
@@ -197,7 +206,7 @@ int main (int argc, char *argv[]) {
      }
   }
 
-  float totalTime=(MPI_Wtime()-time0);
+  double totalTime=(MPI_Wtime()-time0);
   if (rank==0) {
       cout << "Completed "<<iterations<<" iterations; time "<<totalTime<<endl;
   }
@@ -219,7 +228,7 @@ int main (int argc, char *argv[]) {
   return 0;
 }
 
-void set_bcs(double **u, int nr, int nc, int rank, int nprocs, double &bc1, double &bc2, double &bc3, double &bc4) {
+void set_bcs(double **u, int nr, int nc, int rank, int nprocs) {
 
   /* Set boundary values.
    * This has an ice bath on the top edge.
@@ -228,12 +237,8 @@ void set_bcs(double **u, int nr, int nc, int rank, int nprocs, double &bc1, doub
 
   double topBC=0;
   double bottomBC=100.;
-  double edgeBC=100.;
-
-  bc1=topBC;
-  bc2=bottomBC;
-  bc3=edgeBC;
-  bc4=edgeBC;
+  double leftBC=100.;
+  double rightBC=100.;
 
   if (rank==0) {
      for (int i=0;i<=nc+1;++i){
@@ -241,14 +246,14 @@ void set_bcs(double **u, int nr, int nc, int rank, int nprocs, double &bc1, doub
      }
   }
   if (rank==nprocs-1) {
-      for (int i=0;i<nc+1;++i){
+      for (int i=0;i<=nc+1;++i){
         u[nr+1][i]=bottomBC;
       }
   }
 
-  for (int i=0;i<=nr+1;++i){
-      u[i][0]=edgeBC;
-      u[i][nc+1]=edgeBC;
+  for (int i=1;i<=nr;++i){
+      u[i][0]=leftBC;
+      u[i][nc+1]=rightBC;
   }
 
 }

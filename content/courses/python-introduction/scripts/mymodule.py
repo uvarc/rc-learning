@@ -12,4 +12,3 @@ class MyClass:
 
     def addit(self,z):
         return MyClass.i+self.y-z
-

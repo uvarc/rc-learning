@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
     ncount=10;
+
     float *allvals=new float[ncount*nprocs];
 
     cout<<setprecision(1)<<fixed;

@@ -21,7 +21,7 @@ running ```allocations -a <allocation_name>``` provides even more detail on when
 
 One way to check your storage utilization is with the ```hdquota``` command. This command will show you how much of your home, scratch, and project (if applicable) storage are being utilized. Below is the sample output for ```hdquota```:
 
-{{< figure src="/notes/hpc-intro/img/features_hdquota.png" caption="Disk Usage" alt="A table with storage types, locations, and space usage info." >}}
+{{< figure src="/notes/hpc-intro/img/features_hdquota.png" caption="Disk Usage" alt="A table with storage types, locations, and space usage information." >}}
 
 This is a useful command to check whether you're running out of storage space or to see where files need to be cleaned up. For more detailed information on disk utilization you may also use the ```du``` command to investigate specific directories.
 
