@@ -22,35 +22,4 @@
     {{ end }}
 </p>
 </footer>
-<style>
-  footer {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .back-to-top-container {
-    margin-left: auto;
-  }
-  .back-to-top-container-mobile {
-    display: none;
-  }
-  @media (max-width: 767px) {
-    footer {
-      display: block;
-    }
-    .site-footer-text-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .back-to-top-container {
-      display: none;
-    }
-    .back-to-top-container-mobile {
-      display: block;
-      margin-left: -2rem;
-    }
-  }
-</style>
 <script src="{{ "scripts/fancybox-alt-text.js" | relURL }}"></script>

@@ -225,6 +225,36 @@ html {
   color: rgb(89, 89, 89);
 }
 
+footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.back-to-top-container {
+  margin-left: auto;
+}
+.back-to-top-container-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  footer {
+    display: block;
+  }
+  .site-footer-text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .back-to-top-container {
+    display: none;
+  }
+  .back-to-top-container-mobile {
+    display: block;
+    margin-left: -2rem;
+  }
+}
+
 .site-footer-logo-dark {
   display: none;
 }
