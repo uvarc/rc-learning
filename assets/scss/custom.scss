@@ -1,4 +1,6 @@
 // Override this file to add your own SCSS styling.
+@use "sass:color";
+
 .container {
   max-width: 90%;
 }
@@ -218,10 +220,79 @@ html {
   background-color: #f9f9f9;
 }
 
-:not(.dark) #TableOfContents li a, :not(.dark) .toc-top li a {
+#TableOfContents li a,
+.toc-top li a {
   color: rgb(89, 89, 89);
 }
 
-.dark #TableOfContents li a, .dark .toc-top li a {
-  color: rgb(153, 151, 156);
+.site-footer-logo-dark {
+  display: none;
+}
+
+.dark {
+
+  .site-footer-logo-dark {
+    display: block;
+  }
+
+  .site-footer-logo-light {
+    font: unset;
+    display: none;
+  }
+
+  #TableOfContents li a,
+  .toc-top li a {
+    color: rgb(153, 151, 156);
+  }
+
+  a,
+  .docs-sidebar .docs-toc-item.active a,
+  .docs-sidebar .nav>.active:hover>a,
+  .docs-sidebar .nav>.active>a {
+    color: mix(white, $sta-primary-light, 50%);
+  }
+
+  .post-nav-item .meta-nav,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: rgb(188, 188, 188);
+  }
+
+  .alert div:first-child::before {
+    color: white;
+  }
+
+  .alert-warning {
+    background-color: #550000;
+    color: white;
+  }
+
+  .alert-info {
+    background-color: #12537e;
+    color: white;
+  }
+
+  .skip-to-main-content {
+    background-color: #212529;
+  }
+
+  pre,
+  code,
+  .alert pre,
+  .alert code {
+    color: rgb(165, 237, 253);
+    background-color: rgb(68, 71, 90);
+  }
+
+  blockquote {
+    color: #d7d7d7;
+  }
+
+  .form-control[type=search]::placeholder {
+    color: rgb(220, 220, 220);
+  }
 }
