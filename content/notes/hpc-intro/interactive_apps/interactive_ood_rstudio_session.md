@@ -13,7 +13,7 @@ menu:
 
 Once you launch/submit your request, your job will wait in the queue until resources are available. You'll then be able to connect to your session:
 
-{{< figure src="/notes/hpc-intro/img/OOD_Rstudio_session.png" >}}
-{{< figure src="/notes/hpc-intro/img/OOD_Rstudio_session2.png" caption="Starting an Rstudio session." >}}
+{{< figure src="/notes/hpc-intro/img/OOD_Rstudio_session.png" alt="The RStudio Server request, which changes from Queued to Running." >}}
+{{< figure src="/notes/hpc-intro/img/OOD_Rstudio_session2.png" caption="Starting an Rstudio session." alt="The RStudio Server interface, with 3 panes: console, environment, and files." >}}
 
 Rstudio Server can continue running any active processes if your network is disconnected.  Simply log back in to Open OnDemand, go to the "My Interactive Sessions tab", and click `Launch`  again.  It will reconnect, not launch another session.  

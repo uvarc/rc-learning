@@ -44,6 +44,25 @@ w=np.zeros(nelems)
 comm.Sendrecv([u,MPI.DOUBLE],neighbor,0,[w,MPI.DOUBLE],neighbor,0,MPI.Status())
 ```
 
+### Handling Characters
+
+Characters or strings must be treated as arrays with a fixed length.  That length is the buffer size.  For C++ that means we must either use C character arrays or we must use the `cstrings` header functions to convert C++ strings to C strings.  
+
+The codes below illustrate character handling by rewriting the Bcast examples to send a string message rather than a number.
+
+{{< spoiler text="C++" >}}
+{{< code-download file="/courses/parallel-computing-introduction/codes/bcast_ch_cxx" lang="c++" >}}
+{{< /spoiler >}}
+
+{{< spoiler text="Fortran" >}}
+{{< code-download file="/courses/parallel-computing-introduction/codes/bcast_ch.f90" lang="fortran" >}}
+{{< /spoiler >}}
+
+{{< spoiler text="Python" >}}
+{{< code-download file="/courses/parallel-computing-introduction/codes/bcast_ch.py" lang="python" >}}
+{{< /spoiler >}}
+
+
 **Exercise**
 
 Use the above syntax for your language to write a complete program to implement the sending and receiving as specified above.  For `u` you should fill it with 

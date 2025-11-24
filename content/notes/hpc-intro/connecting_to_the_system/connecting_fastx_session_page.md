@@ -8,10 +8,10 @@ weight: 140
 
 menu:
   hpc-intro:
-    parent: Connecting to Afton and Rivanna
+    parent: Connecting and Logging On To HPC
 ---
 
 FastX starts a _session_ on a frontend. A new session is started by selecting either the _MATE_ or _Terminal_ icon under Applications on the right side of the page.
 
-{{< figure src="/notes/hpc-intro/img/FastX_session_page.png" caption="Starting a new session" >}}
+{{< figure src="/notes/hpc-intro/img/FastX_session_page.png" caption="Starting a new session" alt="FastX dashboard with buttons for available applications: MATE and Terminal." >}}
 

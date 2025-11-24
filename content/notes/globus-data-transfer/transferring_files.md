@@ -10,8 +10,8 @@ menu:
 
 Files are transferred with the Globus File Manager Web App. There are three ways to access the app:
 
-1. Go straight to https://app.globus.org/file-manager
-2. Go to https://www.globus.org/ -> Log In (top right corner)
+1. Go straight to [the File Manager page](https://app.globus.org/file-manager)
+2. Go to [the Globus homepage](https://www.globus.org/) -> Log In (top right corner)
 3. Click Globus icon in Toolbar -> Web: Transfer Files
 
 These **instructions** summarize the steps to set up and start a transfer.

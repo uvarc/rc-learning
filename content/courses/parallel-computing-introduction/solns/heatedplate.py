@@ -1,6 +1,24 @@
 import sys
 import time
 import numpy as np
+
+def set_bcs(u,nr,nc):
+    # Set physical boundary values and compute mean boundary value.
+    # Due to Python pass-by-assignment, mutable parameters will be
+    #changed outside (so this is a subroutine)
+
+    topBC=0.
+    bottomBC=100.
+    leftBC = 100.
+    rightBC = 100.
+
+    u[0,:] = topBC
+    u[nr+1,:]=bottomBC
+
+    u[1:nr,0]=leftBC
+    u[1:nr,nc+1]=rightBC
+
+
 # check number of parameters and read in parameters
 
 #Better to use argparse but this is closer to compiled language code and simpler
@@ -49,11 +67,7 @@ nc=M
 u=np.zeros((nr+2,nc+2))
 w=np.zeros((nr+2,nc+2))
 
-# Set boundary values and compute mean boundary value. 
-#This has the ice bath on the top edge, not the bottom edge.
-u[:,0]=100.
-u[:,nc+1]=100.
-u[nr+1,:]=100.
+set_bcs(u,nr,nc)
 
 #Initialize interior values to the boundary mean.  This value really
 #doesn't matter much, it just affects the convergence rate somewhat.

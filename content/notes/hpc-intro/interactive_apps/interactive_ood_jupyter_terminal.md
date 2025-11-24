@@ -13,7 +13,7 @@ menu:
 
 You are also able to access the terminal through a JupyterLab session.
 
-{{< figure src="/notes/hpc-intro/img/OOD_JupyterLab_Terminal.png" caption="JupyterLab Terminal" >}}
+{{< figure src="/notes/hpc-intro/img/OOD_JupyterLab_Terminal.png" caption="JupyterLab Terminal" alt="The Terminal button on the JupyterLab landing page, which opens a Bash command prompt." >}}
 
 Here, you can execute Linux commands to create custom conda environments and JupyterLab kernels. Additionally, you can access and run singularity containers through this functionality.
 

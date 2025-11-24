@@ -3,6 +3,7 @@
 authors: [jmh,kah,pbo]
 
 # Page metadata.
+title: Introduction to High Performance Computing
 date: "2021-04-13T00:00:00"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
@@ -17,4 +18,4 @@ menu:
 
 UVA's primary resource for high\-performance computing provides a platform for computationally-intensive research across a variety of disciplines. 
 
-{{< figure src="/notes/hpc-intro/img/rivanna_racks.png" caption="UVA's HPC cluster" >}}
+{{< figure src="/notes/hpc-intro/img/rivanna_racks.png" alt="A data center with racks of servers." caption="Some servers in UVA's HPC cluster" >}}

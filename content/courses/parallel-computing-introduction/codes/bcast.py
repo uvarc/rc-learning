@@ -6,8 +6,12 @@ comm=MPI.COMM_WORLD
 nprocs=comm.Get_size()
 rank=comm.Get_rank()
 
-message=np.array(["I have a secret"],dtype='str')
+# Make sure the types match
+if rank==0:
+    message=np.array([42.])
+else:
+    message=np.array([0.])
 
-comm.Bcast([message,MPI.CHAR])
+comm.Bcast([message,MPI.DOUBLE])
 
-print(rank,message)
+print(rank,message[0])

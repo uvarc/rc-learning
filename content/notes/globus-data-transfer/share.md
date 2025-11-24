@@ -13,7 +13,7 @@ Globus users are able to share data with anyone with a Globus account. All UVA R
 
 External collaborators don’t need to be affiliated with an institution using Globus in order for you to share data with them. Anyone can create a personal Globus account using @globusid.org
 
-{{< figure src="/notes/globus-data-transfer/imgs/globus_collab.png" width=50% >}}
+{{< figure src="/notes/globus-data-transfer/imgs/globus_collab.png" width=50% alt="The three-step process of sharing files using Globus. Step 1: User A selects files to share and sets access permissions. Step 2: Globus tracks shared files without requiring cloud storage transfer. Step 3: User B logs into Globus to access the shared files." >}}
 
 The instructions below show how to create a **shared endpoint**, a folder in which collaborators can upload and download data. Shared endpoints may be public (visible to the world!) or accessible only to users with permission.
 
@@ -30,5 +30,5 @@ The instructions below show how to create a **shared endpoint**, a folder in whi
 
 Optional: Add write permissions so the user can upload data. Enter an email message to the recipient if you wish.
 
-{{< figure src="/notes/globus-data-transfer/imgs/globus_setup_guest_collection.png" width=50% >}}
+{{< figure src="/notes/globus-data-transfer/imgs/globus_setup_guest_collection.png" width=50% alt="The Globus 'Create new Guest Collection' page, with options for display name, description, and keywords.">}}
 

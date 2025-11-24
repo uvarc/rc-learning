@@ -42,4 +42,37 @@ Fortran
         buff(i)=u(0,mod(i,nrows))
     enddo
 ```
+This creates the required buffers but involves copying, which can be slow. SOften it is better to use a special MPI feature to pull the buffer directly from memory usin and _MPI type_.
 
+In addition to creating a buffer for the non-contiguous data, we must generate the topology of the rank organization.  For a two-dimensional Cartesian grid, each rank will be assigned a subset of the full grid and we must determine the nearest neighbors by row and column.  We will show an example for Python; C++ and Fortran computations are similar. (Fortran programmers: the percent sign in Python usually corresponds to the `mod` function in Fortran.  C++ and Fortran: integer division returns an integer, whereas in Python it now returns a double so we must explicitly use the integer operator.)
+
+```python
+nproc_rows=2
+nproc_cols=3
+
+#Set up the topology assuming processes numbered left to right by row
+my_row=rank//nproc_cols
+my_col=rank%nproc_cols
+
+# setting up the up and down rank for each process
+if my_row == 0 :
+    up = MPI.PROC_NULL
+else :
+    up = rank - nproc_cols
+
+if my_row == nproc_rows-1 :
+    down = MPI.PROC_NULL
+else :
+    down = rank + nproc_cols
+
+# left and right
+if my_col == 0 :
+    left = MPI.PROC_NULL
+else:
+    left = rank-1
+
+if my_col == nproc_cols-1:
+    right = MPI.PROC_NULL
+else:
+    right = rank+1
+```

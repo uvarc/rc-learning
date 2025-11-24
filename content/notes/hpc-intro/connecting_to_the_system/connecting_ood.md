@@ -8,12 +8,12 @@ weight: 110
 
 menu:
   hpc-intro:
-    parent: Connecting to Afton and Rivanna
+    parent: Connecting and Logging On To HPC
 ---
 
 To connect to Open OnDemand, open your web browser and type
 
-[https://ood.hpc.virginia.edu](https://ood.hpc.virginia.edu/)
+[ood.hpc.virginia.edu](https://ood.hpc.virginia.edu/)
 
 You will need to authenticate with Netbadge (“Netbadge in")
 

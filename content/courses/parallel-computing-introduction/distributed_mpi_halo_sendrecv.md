@@ -53,26 +53,30 @@ Rank $0$ has no neighbor to the top or left, and rank $nprocs$ has no neighbor t
 
 The special value MPI_PROC_NULL can be used in place of a source or destination and results in a "no op," i.e. the send or receive is not attempted and the function returns immediately.
 
-**Exercise**
+**Examples**
 
-Use the language of your choice.  Write a program that fills an array w with the uniform value of `50` in the inner grid (1 to nr, 1 to nc) where nr=nc=500.  Set the values of row 0 to 0 and the values of row nrl+1 and columns 0 and ncl+1 to 100.  Do not worry about whether values at corners match. 
+These example codes set up and execute one halo exchange. First we 
+find the neighbors for each rank ("up" and "down" or "left" and "right") before doing any transfers. Boundary conditions are set, though in these examples they do not represent anything physical.
 
-Set up the transfer and run one exchange from u to w. Print some values to check your result.
+In order to verify our results, we print the beginning values of the local arrays for each rank.  In order to keep the values organized, all non-root processes will send values to the root process, which will then print them.  This is repeated after the exchange, so we can check that the exchanges are correct. This is not efficient and is not normally done in a production code, but it allows us to understand what happens.  Remember that "real" boundary values are sent into halos (also called ghost zones).
 
-Review [strong and weak scaling](performance_analysis.md).  Try both with different runs in your code. For strong scaling, make sure that the number of processes equally divides the number of rows or columns. 
+Fortran and NumPy arrays are contiguous in memory, but C/C++ currently lacks true multidimensional, dynamically-sized arrays. Our example C++ code sets up the arrays as an array of pointers, each pointing to a one-dimensional array.  These are not generally consecutive in memory.  For MPI the "buffere is passed as the pointer to the first locations.  If the array is not contiguous, as is usually the case, sending `ncount*size_of_type` will not pull in all the values.  Therefore we pack the two-dimensional array into a one-dimensional array for printing.
 
-_Hint_
-Set up the neighbors for each rank ("up" and "down" or "left" and "right") before doing any transfers.
+In order to receive the buffer from each of the other processes for printing,root will loop through all other ranks, receiving, while the send involves a test to sthat each rank sends once to the root.  We use `MPI_ANY_SOURCE` and `MPI_ANY_TAG` (`MPI.ANY_SOURCE` and `MPI.ANY_TAG` for mpi4py) to match whatever message srrives, since we cannot guarantee ordering.  We can then use the `MPI _Status` variable to extract information about the sender.
 
 {{< spoiler text="C++" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/mpi_halo_exchange.cxx" lang="c++" >}}
+{{< code-download file="/courses/parallel-computing-introduction/code/mpi_halo_exchange.cxx" lang="c++" >}}
 {{< /spoiler >}}
 
 {{< spoiler text="Fortran" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/mpi_halo_exchange.f90" lang="fortran" >}}
+{{< code-download file="/courses/parallel-computing-introduction/code/mpi_halo_exchange.f90" lang="fortran" >}}
 {{< /spoiler >}}
 
 {{< spoiler text="Python" >}}
-{{< code-download file="/courses/parallel-computing-introduction/solns/mpi_halo_exchange.py" lang="python" >}}
+{{< code-download file="/courses/parallel-computing-introduction/code/mpi_halo_exchange.py" lang="python" >}}
 {{< /spoiler >}}
 
+**Exercise**
+Review [strong and weak scaling](performance_analysis.md). The example programs are set up for strong scaling.  Modify them by using constants for the local row and column sizes.
+
+Simplify the validation step by taking two or three appropriate ranks and comparing the before and after values of the exchanged rows or columns. 

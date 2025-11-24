@@ -14,7 +14,8 @@
 theme = "rc-theme"
 
 # Enable users to switch between day and night mode?
-day_night = false
+#day_night = false
+day_night = true
 
 # Override the theme's font set (optional).
 #   Latest font sets (may require updating): https://sourcethemes.com/academic/themes/
@@ -58,7 +59,8 @@ description = ""
 # Documentation: https://sourcethemes.com/academic/docs/writing-markdown-latex/#highlighting-options
 highlight = true
 highlight_languages = ["awk","bash","cmake","c","c++","fortran","dockerfile","java","julia","makefile","matlab","mathematica","maxima","perl","python","r","sas","scala","tex"]  # Add support for highlighting additional languages
- highlight_style = "github"  # For supported styles, see https://cdnjs.com/libraries/highlight.js/
+ highlight_style_light = "a11y-light"  # For supported styles, see https://cdnjs.com/libraries/highlight.js/
+ highlight_style_dark = "a11y-dark"
 
 # Enable LaTeX math rendering? true/false
 #   If false, you can enable math on a per page basis as needed.

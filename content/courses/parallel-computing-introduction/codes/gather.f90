@@ -13,6 +13,7 @@ program gatherthem
 
     ncount=10
 
+    ! Only root needs to allocate the global array
     if (rank==0) then
         allocate(allvals(nprocs*ncount))
     endif

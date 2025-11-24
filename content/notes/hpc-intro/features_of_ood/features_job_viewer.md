@@ -13,12 +13,12 @@ menu:
 
 Open OnDemand allows you to check the status of your jobs easily.  Open the Jobs tab and go to Active Jobs.  The default view is All Jobs.
 
-{{< figure src="/notes/hpc-intro/img/OOD_squeue_viewer.png" caption="Job status viewer in OOD." >}}
+{{< figure src="/notes/hpc-intro/img/OOD_squeue_viewer.png" caption="Job status viewer in OOD." alt="The Open OnDemand Active Jobs list, with details like job name, user, account, time used, and status." >}}
 
 You can filter to select subsets of the jobs, for example you can view only jobs in the `gpu` partition.
 
-{{< figure src="/notes/hpc-intro/img/OOD_squeue_filter.png" caption="Viewing only the GPU partition." >}}
+{{< figure src="/notes/hpc-intro/img/OOD_squeue_filter.png" caption="Viewing only the GPU partition." alt="The Open OnDemand job viewer with 'gpu' typed into the filter box.">}}
 
 You can also look at the status of only your own jobs by switching from All Jobs to My Jobs.
 
-{{< figure src="/notes/hpc-intro/img/OOD_squeue_myjobs.png" caption="Viewing only my jobs." >}}
+{{< figure src="/notes/hpc-intro/img/OOD_squeue_myjobs.png" caption="Viewing only my jobs." alt="The Open OnDemand job viewer with 'Your Jobs' selected in the dropdown.">}}

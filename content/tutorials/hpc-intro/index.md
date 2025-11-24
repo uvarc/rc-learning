@@ -16,8 +16,7 @@ categories: ["HPC"]
 #   Otherwise, set `slides = ""`.
 
 notes: hpc-intro
+url_video: https://www.youtube.com/playlist?list=PLT4bryHgBcRP7N-hB9u6EWs6tq_2nMoRO
 
 weight: 10
 ---
-
-See our [YouTube playlist](https://www.youtube.com/playlist?list=PLT4bryHgBcRP7N-hB9u6EWs6tq_2nMoRO) for a full video series covering this tutorial.

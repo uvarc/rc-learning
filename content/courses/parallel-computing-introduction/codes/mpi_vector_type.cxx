@@ -76,31 +76,29 @@ int main (int argc, char *argv[]) {
     //The length of the row is the number of columns
     int stride=nc;
 
-    MPI_Datatype cols;
-    MPI_Type_vector(ncount,blocklength,stride,MPI_DOUBLE,&cols);
-    MPI_Type_commit(&cols);
+    MPI_Datatype col;
+    MPI_Type_vector(ncount,blocklength,stride,MPI_DOUBLE,&col);
+    MPI_Type_commit(&col);
 
     int nrequests=2;
     MPI_Request requests[nrequests];
 
     if (rank==0) {
-        MPI_Irecv(&w[0][0], 1, cols, src, tag, MPI_COMM_WORLD, &requests[0]);
-        MPI_Isend(&u[0][0], 1, cols, dest, tag, MPI_COMM_WORLD, &requests[1]);
+        MPI_Irecv(&w[0][0], 1, col, src, tag, MPI_COMM_WORLD, &requests[0]);
+        MPI_Isend(&u[0][0], 1, col, dest, tag, MPI_COMM_WORLD, &requests[1]);
     }
     else if (rank==nprocs-1) {
-        MPI_Irecv(&w[0][nprocs-1], 1, cols, src, tag, MPI_COMM_WORLD, &requests[0]);
-        MPI_Isend(&u[0][nprocs-1], 1, cols, dest, tag, MPI_COMM_WORLD, &requests[1]);
+        MPI_Irecv(&w[0][nprocs-1], 1, col, src, tag, MPI_COMM_WORLD, &requests[0]);
+        MPI_Isend(&u[0][nprocs-1], 1, col, dest, tag, MPI_COMM_WORLD, &requests[1]);
     }
     else {
-        MPI_Irecv(&w[0][rank], 1, cols, src, tag, MPI_COMM_WORLD, &requests[0]);
-        MPI_Isend(&u[0][rank], 1, cols, dest, tag, MPI_COMM_WORLD, &requests[1]);
+        MPI_Irecv(&w[0][rank], 1, col, src, tag, MPI_COMM_WORLD, &requests[0]);
+        MPI_Isend(&u[0][rank], 1, col, dest, tag, MPI_COMM_WORLD, &requests[1]);
     }
 
     MPI_Status status_arr[nrequests];
     MPI_Waitall(nrequests,requests,status_arr);
 
-
-    MPI_Type_free(&cols);
 
     //Try to print neatly
 
@@ -127,6 +125,9 @@ int main (int argc, char *argv[]) {
         cout<<endl;
     }
     cout<<endl;
+
+    //Type_free not really necessary but good practice
+    MPI_Type_free(&col);
 
     MPI_Finalize();
 

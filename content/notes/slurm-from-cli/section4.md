@@ -98,13 +98,22 @@ GPU job scripts are similar to CPU scripts, but do require the addition of the -
 
 {{< code-download file="/notes/slurm-from-cli/scripts/gpu.slurm" lang="bash" >}}
 
-The script uses the command nvidia-smi which detects GPU activity.
+The script uses the command nvidia-smi which detects the GPU.
 
 We have several different GPU types equipped on our nodes each offering varying amounts of memory. See our website for [Hardware Specifications](https://www.rc.virginia.edu/userinfo/hpc/#system-details). In the example above, Slurm will choose whatever GPU is available. If you are working with larger models you may find that you need a GPU with more memory. To request a specific GPU, you add it to the gres Slurm option. If a GPU type has multiple options (for instance, we offer 40GB and 80GB A100 GPUs), there will be a constraint you can use to specify even further. Example Slurm script requesting 1 80GB A100 GPU node:
 
 {{< code-download file="/notes/slurm-from-cli/scripts/gpua100.slurm" lang="bash" >}}
 
 Note that the more specific your request is, the longer you will likely have to wait for the resource to be available.
+
+There is also a gpu-mig partition, that has sliced GPUs. MIG (Multi-Instance GPU) allows a single GPU device to be subdivided into 7 smaller, isolated “slices” splitting the GPU memory so that multiple jobs can run concurrently on one physical card, each with guaranteed memory and compute. This is allows for more jobs to run on a single GPU that require less memory than the full card.
+
+Use the following SLURM directives in your Slurm job script
+
+```
+#SBATCH --partition=gpu-mig
+#SBATCH --gres=gpu:1 or #SBATCH --gres=gpu:1g.10gb:1 (only single MIG slices allowed per job)
+```
 
 ## Job Arrays
 
