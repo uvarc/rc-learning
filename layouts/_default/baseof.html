@@ -6,11 +6,15 @@
 
 <body id="top" data-spy="scroll" data-offset="70" data-target="{{ if or .IsHome (eq .Type " widget_page")}}#navbar-main{{else}}#TableOfContents{{end}}" {{ if not (.Scratch.Get "light" ) }}class="dark" {{end}}>
 
+  {{ partial "skip_to_main" . }}
+
   {{ partial "search" . }}
 
   {{ partial "navbar" . }}
 
-  {{ block "main" . }}{{ end }}
+  <div id="main-content-fallback">
+    {{ block "main" . }}{{ end }}
+  </div>
 
   {{ partial "site_js" . }}
 

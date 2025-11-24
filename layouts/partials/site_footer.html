@@ -1,6 +1,7 @@
 <footer class="site-footer">
   <span class="site-footer-text-container">
-    <img height=auto width=400px src="/img/RC_logo.svg" alt="RC Logo" />
+    <img class="site-footer-logo-light" height=auto width=400px src="/img/RC_logo.svg" alt="RC Logo" />
+    <img class="site-footer-logo-dark" height=auto width=400px src="/img/RC_logo_white_text.svg" alt="RC Logo" />
     <span class="back-to-top-container-mobile" aria-hidden="true">
       <a href="#" class="back-to-top">
         <span class="button_icon">
@@ -21,34 +22,4 @@
     {{ end }}
 </p>
 </footer>
-<style>
-  footer {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .back-to-top-container {
-    margin-left: auto;
-  }
-  .back-to-top-container-mobile {
-    display: none;
-  }
-  @media (max-width: 767px) {
-    footer {
-      display: block;
-    }
-    .site-footer-text-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .back-to-top-container {
-      display: none;
-    }
-    .back-to-top-container-mobile {
-      display: block;
-      margin-left: -2rem;
-    }
-  }
-</style>
+<script src="{{ "scripts/fancybox-alt-text.js" | relURL }}"></script>

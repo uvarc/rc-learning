@@ -1,4 +1,6 @@
 // Override this file to add your own SCSS styling.
+@use "sass:color";
+
 .container {
   max-width: 90%;
 }
@@ -11,6 +13,16 @@
 
 .docs-article-container {
   max-width: 90%;
+}
+
+code {
+  // font-family: serif;
+  color: #a41e3f;
+  background-color: #fafafa;
+}
+
+blockquote {
+  color: #595959;
 }
 
 /* Headings */
@@ -108,48 +120,6 @@ html {
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
 }
 
-//Changes tutorial buttons to cyan color
-.btn-info {
-  color: #fff;
-  background-color: #009FDF;
-  border-color: #009FDF;
-}
-
-.btn-info:hover {
-  color: #fff;
-  background-color: #04709b;
-  border-color: #04709b;
-}
-
-.btn-info:focus,
-.btn-info.focus {
-  color: #fff;
-  background-color: #04709b;
-  border-color: #04709b;
-  box-shadow: 0 0 0 0.2rem rgba(0, 168, 194, 0.5);
-}
-
-.btn-info.disabled,
-.btn-info:disabled {
-  color: #fff;
-  background-color: #009FDF;
-  border-color: #009FDF;
-}
-
-.btn-info:not(:disabled):not(.disabled):active,
-.btn-info:not(:disabled):not(.disabled).active,
-.show>.btn-info.dropdown-toggle {
-  color: #fff;
-  background-color: #007bac;
-  border-color: #009FDF;
-}
-
-.btn-info:not(:disabled):not(.disabled):active:focus,
-.btn-info:not(:disabled):not(.disabled).active:focus,
-.show>.btn-info.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 168, 194, 0.5);
-}
-
 .hero-title {
   font-size: 2.5rem;
 }
@@ -175,4 +145,168 @@ html {
 .tag-cloud a:focus {
   background-color: rgba(0, 0, 0, .2);
   transform: scale(1);
+}
+
+.tag-count {
+  color: black;
+}
+
+.skip-to-main-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 1000;
+  padding: 1em;
+  opacity: 0;
+  background: white;
+  border: 2px solid #000;
+  border-radius: 0px 0px 4px 4px;
+}
+
+.skip-to-main-content:focus {
+  left: 10%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+.alert-warning {
+  background-color: #fafafa;
+  color: #ab0728;
+}
+
+.alert-info {
+  background-color: #fafafa;
+  border-color: #209cee; // the same color as the info icon
+}
+
+.hljs {
+  background-color: #f9f9f9;
+}
+
+#TableOfContents li a,
+.toc-top li a {
+  color: rgb(89, 89, 89);
+}
+
+footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.back-to-top-container {
+  margin-left: auto;
+}
+.back-to-top-container-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  footer {
+    display: block;
+  }
+  .site-footer-text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .back-to-top-container {
+    display: none;
+  }
+  .back-to-top-container-mobile {
+    display: block;
+    margin-left: -2rem;
+  }
+}
+
+.wg-hero.dark .btn {
+  color: black;
+}
+
+.tag-cloud-container {
+  background-color: HoneyDew;
+  padding: 5px
+}
+
+.site-footer-logo-dark {
+  display: none;
+}
+
+.dark {
+
+  .site-footer-logo-dark {
+    display: block;
+  }
+
+  .site-footer-logo-light {
+    font: unset;
+    display: none;
+  }
+
+  .btn-primary, .btn.btn-primary.active, .btn-light {
+    color: white;
+  }
+
+  .tag-cloud-container {
+    background-color: rgb(25, 40, 27);
+  }
+
+  .tag-count {
+    color: rgb(248, 248, 242);
+  }
+
+  #TableOfContents li a,
+  .toc-top li a {
+    color: rgb(191, 190, 193);
+  }
+
+  a,
+  .docs-sidebar .docs-toc-item.active a,
+  .docs-sidebar .nav>.active:hover>a,
+  .docs-sidebar .nav>.active>a {
+    color: mix(white, $sta-primary-light, 50%);
+  }
+
+  .post-nav-item .meta-nav,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: rgb(188, 188, 188);
+  }
+
+  .alert div:first-child::before {
+    color: white;
+  }
+
+  .alert-warning {
+    background-color: #550000;
+    color: white;
+  }
+
+  .alert-info {
+    background-color: #12537e;
+    color: white;
+  }
+
+  .skip-to-main-content {
+    background-color: #212529;
+  }
+
+  code.hljs {
+    color: rgb(248, 248, 242);
+    background-color: rgb(68, 71, 90);
+  }
+
+  blockquote {
+    color: #d7d7d7;
+  }
+
+  .form-control[type=search]::placeholder {
+    color: rgb(220, 220, 220);
+  }
+
+  .badge-light {
+    color: white;
+  }
 }
