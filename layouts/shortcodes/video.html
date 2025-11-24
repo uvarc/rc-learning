@@ -25,6 +25,7 @@
 <video {{if (.Get "controls")}}controls{{else}}autoplay loop{{end}} {{with $poster}}poster="{{.}}"{{end}}>
   <source src="{{ $video }}" type="video/{{$video_type}}">
   {{ if .Get "subtitle_file" }}
+    {{/*  Subtitle files must be in the .vtt format  */}}
     <track src="{{ .Get "subtitle_file" }}" kind="captions" srclang="en" label="English" default>
   {{ end }}
 </video>
