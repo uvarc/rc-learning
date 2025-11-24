@@ -41,7 +41,7 @@ hence the order of performing $max/$min matters.
 {{ $delta := sub $max $min }}
 {{ $fontStep := div $fontDelta $delta }}
 
-<div class="row" style="background-color:HoneyDew;padding:5px">
+<div class="row tag-cloud-container">
 	<div class="heading text-center" style="margin-top: 5px;">
 
 		<!-- unused for the moment:
@@ -64,7 +64,7 @@ hence the order of performing $max/$min matters.
 				{{ if ne (upper .Page.Title) "ARCHIVED" }}
 				<a href="{{ .Page.RelPermalink }}" class="px-2 rounded mx-1" style="font-size:{{ $fontSize }}rem;">
 					{{ replaceRE `([^\\])_` "$1 " .Page.Title | upper }}
-					<span style="color: LightGrey; font-size:{{ $fontSmall }}rem"> ({{ $tagCount }}) </span>
+					<span class="tag-count"> ({{ $tagCount }}) </span>
 				</a>
 				{{ end }}
 
