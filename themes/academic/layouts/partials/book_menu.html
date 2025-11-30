@@ -34,8 +34,8 @@
     {{ end }}
 
     {{ if $first }}
-      <ul class="nav docs-sidenav">
-        <li class="{{ if and .File $current_node.File | and (eq .File.UniqueID $current_node.File.UniqueID) }}active{{ end }}"><a href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a></li>
+      <div class="nav docs-sidenav">
+        <span class="{{ if and .File $current_node.File | and (eq .File.UniqueID $current_node.File.UniqueID) }}active{{ end }}"><a href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a></span>
     {{else}}
       <div class="docs-toc-item">
         <a class="docs-toc-link {{ if and .File $current_node.File | and (eq .File.UniqueID $current_node.File.UniqueID) }} active{{ end }}" href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a>
@@ -44,7 +44,7 @@
     {{- $page_count := (add (len .Pages) (len .Sections)) -}}
     {{ if ne $page_count 0 }}
       {{ if not $first }}
-        <ul class="nav docs-sidenav">
+        <div class="nav docs-sidenav">
       {{end}}
       {{- .Scratch.Set "pages" .Pages -}}
       {{- if .Sections -}}
@@ -65,19 +65,19 @@
         {{- end -}}
       {{- end}}
       {{ if not $first }}
-        </ul>
+        </div>
       {{end}}
     {{end}}
 
     {{ if not $first }}
       </div>
     {{else}}
-      </ul>
+      </div>
     {{end}}
 
   {{- else -}}
     {{- if not .Params.Hidden -}}
-      <li class="{{ if and .File $current_node.File | and (eq .File.UniqueID $current_node.File.UniqueID) }}active{{ end }}"><a href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a></li>
+      <span class="{{ if and .File $current_node.File | and (eq .File.UniqueID $current_node.File.UniqueID) }}active{{ end }}"><a href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a></span>
     {{- end -}}
   {{ end -}}
 {{- end -}}
