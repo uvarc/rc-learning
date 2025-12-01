@@ -183,8 +183,37 @@ html {
 }
 
 #TableOfContents li a,
-.toc-top li a {
+.toc-top li a,
+.toc-top span a
+{
   color: rgb(89, 89, 89);
+}
+
+.toc-top {
+  padding-left: 0;
+}
+
+// TOC indentation for each level.
+#TableOfContents div div {
+  padding-left: 0.8rem;
+}
+
+#TableOfContents span {
+  display: block;
+}
+
+#TableOfContents span a,
+.toc-top span a {
+  display: block;
+  padding: .125rem 1.5rem;
+  font-size: 0.7rem;
+}
+
+#TableOfContents span a:hover,
+.toc-top span a:hover
+{
+  color: $sta-primary;
+  text-decoration: none;
 }
 
 footer {
@@ -277,8 +306,20 @@ footer {
   }
 
   #TableOfContents li a,
-  .toc-top li a {
+  .toc-top li a,
+  .toc-top span a
+  {
     color: rgb(191, 190, 193);
+  }
+
+  #TableOfContents li a:hover,
+  .toc-top li a:hover,
+  .toc-top span a:hover,
+  .docs-sidebar .docs-toc-item a:hover,
+  .docs-sidenav a:hover,
+  .docs-sidebar .nav > span:not(.active) > a:hover
+  {
+    color: mix(white, $sta-primary-light, 50%);
   }
 
   a,
