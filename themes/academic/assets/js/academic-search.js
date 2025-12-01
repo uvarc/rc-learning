@@ -74,7 +74,7 @@ function searchAcademic(query, fuse) {
   // console.log({"results": results});
 
   if (results.length > 0) {
-    $('#search-hits').append('<h3 class="mt-0">' + results.length + ' ' + i18n.results + '</h3>');
+    $('#search-hits').append('<h2 class="mt-0">' + results.length + ' ' + i18n.results + '</h2>');
     parseResults(query, results);
   } else {
     $('#search-hits').append('<div class="search-no-results">' + i18n.no_results + '</div>');
