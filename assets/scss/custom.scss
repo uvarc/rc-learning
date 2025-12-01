@@ -325,7 +325,8 @@ footer {
   a,
   .docs-sidebar .docs-toc-item.active a,
   .docs-sidebar .nav>.active:hover>a,
-  .docs-sidebar .nav>.active>a {
+  .docs-sidebar .nav>.active>a,
+  .docs-sidebar .docs-toc-item.active span a {
     color: mix(white, $sta-primary-light, 50%);
   }
 
