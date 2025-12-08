@@ -1,4 +1,4 @@
-{{ $ga := site.Params.marketing.google_analytics | default site.GoogleAnalytics | default "" }}
+{{ $ga := site.Params.marketing.google_analytics | default site.Config.Services.GoogleAnalytics.ID | default "" }}
 {{ $gtm := site.Params.marketing.google_tag_manager | default "" }}
 
 {{ if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") | and $ga | and (not $gtm) }}
@@ -9,19 +9,19 @@
   window.dataLayer = window.dataLayer || [];
 
   function gtag() {
-      dataLayer.push(arguments);
+    dataLayer.push(arguments);
   }
 
   function trackOutboundLink(url, target) {
     gtag('event', 'click', {
-         'event_category': 'outbound',
-         'event_label': url,
-         'transport_type': 'beacon',
-         'event_callback': function () {
-           if (target !== '_blank') {
-             document.location = url;
-           }
-         }
+      'event_category': 'outbound',
+      'event_label': url,
+      'transport_type': 'beacon',
+      'event_callback': function () {
+        if (target !== '_blank') {
+          document.location = url;
+        }
+      }
     });
     console.debug("Outbound link clicked: " + url);
   }
@@ -34,7 +34,7 @@
   }
 
   gtag('js', new Date());
-  gtag('config', '{{$ga}}', {{$gtag_config|safeJS}});
+  gtag('config', '{{$ga}}', {{ $gtag_config| safeJS}});
 
   // Outbound link tracking.
   document.addEventListener('click', onClickCallback, false);
