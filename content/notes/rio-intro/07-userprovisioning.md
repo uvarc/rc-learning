@@ -15,6 +15,4 @@ Once a project is approved, a PI and her/his researchers must sign a RUDA (one f
 Each researcher must also complete the  _[High Security Awareness Training (HSAT)](http://in.virginia.edu/hsat-training)_. This must be completed to permit each researcher access to the HSVPN filter.
 
 
-> <small>More information on security training and HSVPN access can be found [here](https://www.rc.virginia.edu/userinfo/ivy/) on the RC website.</small>
-
 

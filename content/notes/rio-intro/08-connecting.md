@@ -7,11 +7,11 @@ menu:
     rio-intro:
 ---
 
-Before connecting to your VM, you must install the following on your personal machine/device.
-  * Install the Cisco AnyConnect Secure Mobility Client.
-  * Install Opswat.
-  * Install Duo MFA on personal smartphone.
-  * See  [here on the RC website](https://www.rc.virginia.edu/userinfo/ivy/) for details.
+Before connecting to your VM, you must install the following on your workstation.
+  * Cisco AnyConnect Secure Mobility Client.
+  * Opswat.
+  * Duo MFA on personal smartphone.
+  * See [here on the RC website](https://www.rc.virginia.edu/userinfo/ivy/) for details.
 
 There are two ways to connect to your Linux VM:
 
