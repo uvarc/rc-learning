@@ -10,7 +10,7 @@ menu:
 
 ## Resources and Partitions
 
-An HPC **job** is a description of the resources required, any preparatory steps such as loading [modules](https://www.rc.virginia.edu/userinfo/rivanna/software/modules/) or otherwise setting up an environment, and the commands to run the software, along with any postprocessing that may be appropriate.
+An HPC **job** is a description of the resources required, any preparatory steps such as loading [modules](https://www.rc.virginia.edu/userinfo/rivanna/software/modules/ "The Research Computing website's modules page") or otherwise setting up an environment, and the commands to run the software, along with any postprocessing that may be appropriate.
 
 The job is specified through a special form of script often called a _batch script_.  Usually it is written in `bash`.
 
@@ -34,7 +34,7 @@ Slurm began when cpus had only one core each. Beginning around 2005, cpus began 
 
 **Memory** refers to _random-access memory_.  It is not the same thing as storage.  If a process reports running out of memory, it means RAM memory. Running out of disk space will result in a different error.
 
-For more details about the structure of a computational cluster, see our [introduction](https://learning.rc.virginia.edu/notes/hpc-intro/).
+For more details about the structure of a computational cluster, see our [introduction](/notes/hpc-intro/ "Intro to High Performance Computing notes").
 ## Processes and Tasks
 
 A **process** can be envisioned an instance of an executable that is running on a particular computer.  Most executables run only a single process.  Some executables run _threads_ within the _root_ process.
@@ -44,7 +44,7 @@ Slurm refers to the root process as a **task**. By default, each task is assigne
 
 ## Slurm Resource Requests
 
-SLURM refers to queues as  __partitions__ .  We do not have a default partition; each job must request one explicitly.
+SLURM refers to queues as  __partitions__.  We do not have a default partition; each job must request one explicitly.
 
 {{< table >}}
 | Queue Name | Purpose | Job Time Limit | Max Memory / Node / Job | Max Cores / Node |

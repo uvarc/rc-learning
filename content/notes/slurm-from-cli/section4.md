@@ -42,7 +42,7 @@ Most HPC sites, including UVa's, restrict the memory and time allowed to process
 2. Short development jobs,
 3. "Computational steering" in which a program runs for an interval, then the output is examined and parameters may be adjusted.
 
-For most of these cases, we strongly recommend the use of the Open OnDemand [Interactive Applications](/notes/hpc-intro/interactive_apps/interactive/).  Jupyterlab is available to run notebooks.  Rstudio and Matlab Desktop are also available to run through this interface.  For more general work, including command-line options, the Desktop is usually the best option. It provides a basic terminal, but also access to other applications should they be needed.
+For most of these cases, we strongly recommend the use of the Open OnDemand [Interactive Applications](/notes/hpc-intro/interactive_apps/interactive/ "The Interactive Applications section in the Intro to High Performance Computing notes").  Jupyterlab is available to run notebooks.  Rstudio and Matlab Desktop are also available to run through this interface.  For more general work, including command-line options, the Desktop is usually the best option. It provides a basic terminal, but also access to other applications should they be needed.
 
 For general-purpose interactive work with graphics, please use the Open OnDemand Desktop.  The X11 service that Linux uses for graphics is very slow over a network.  Even with a fast connection between two systems, the Desktop will perform better since the X11 server process and the programs that use it are running on the same computer.
 
@@ -64,13 +64,13 @@ Never issue an sbatch command from within an interactive job (including OOD jobs
 
 One of the advantages of using a high-performance cluster is the ability to use many cores and/or nodes at once.  This is called _parallelism_.  There are three main types of parallelism.
 
-You should understand whether your program can make use of more than one core or node before you request multiple cores and/or nodes. Special programming is required to enable these capabilities.  Asking for multiple cores or nodes that your program cannot use will result in idle cores and wasted SUs, since you are charged for each core-hour. The [`seff`](/notes/slurm-from-cli/section3/#seff) command can help with this.
+You should understand whether your program can make use of more than one core or node before you request multiple cores and/or nodes. Special programming is required to enable these capabilities.  Asking for multiple cores or nodes that your program cannot use will result in idle cores and wasted SUs, since you are charged for each core-hour. The [`seff`](/notes/slurm-from-cli/section3/#seff "The Jobs on the Cluster page") command can help with this.
 
 ### High Throughput Serial Parallelism
 
-High throughput parallelism is when many identical jobs are run at once, each on a single core.  Examples can include Monte-Carlo methods, parameter searches, image processing on many related images, some areas of bioinformatics, and many others.  For most cases of this type of parallelism, the best Slurm option is a [job array](/notes/slurm-from-cli/section4/#job-arrays).
+High throughput parallelism is when many identical jobs are run at once, each on a single core.  Examples can include Monte-Carlo methods, parameter searches, image processing on many related images, some areas of bioinformatics, and many others.  For most cases of this type of parallelism, the best Slurm option is a [job array](/notes/slurm-from-cli/section4/#job-arrays "The Job Arrays section").
 
-When planning a high-throughput project, it is important to keep in mind that if the individual jobs are very short, less than roughly 15-30 minutes each, it is very inefficient to run each one separately, whether you do this manually or through an array.  In this case you should group your jobs and run multiple instances within the same job script.  Please [contact us](https://www.rc.virginia.edu/form/support-request/) if you would like assistance setting this up.
+When planning a high-throughput project, it is important to keep in mind that if the individual jobs are very short, less than roughly 15-30 minutes each, it is very inefficient to run each one separately, whether you do this manually or through an array.  In this case you should group your jobs and run multiple instances within the same job script.  Please [contact us](https://www.rc.virginia.edu/form/support-request/ "Research Computing's support request form") if you would like assistance setting this up.
 
 ### Multicore (Threaded)
 
@@ -100,7 +100,7 @@ GPU job scripts are similar to CPU scripts, but do require the addition of the -
 
 The script uses the command nvidia-smi which detects the GPU.
 
-We have several different GPU types equipped on our nodes each offering varying amounts of memory. See our website for [Hardware Specifications](https://www.rc.virginia.edu/userinfo/hpc/#system-details). In the example above, Slurm will choose whatever GPU is available. If you are working with larger models you may find that you need a GPU with more memory. To request a specific GPU, you add it to the gres Slurm option. If a GPU type has multiple options (for instance, we offer 40GB and 80GB A100 GPUs), there will be a constraint you can use to specify even further. Example Slurm script requesting 1 80GB A100 GPU node:
+We have several different GPU types equipped on our nodes each offering varying amounts of memory. See our website for [Hardware Specifications](https://www.rc.virginia.edu/userinfo/hpc/#system-details "Research Computing's overview page"). In the example above, Slurm will choose whatever GPU is available. If you are working with larger models you may find that you need a GPU with more memory. To request a specific GPU, you add it to the gres Slurm option. If a GPU type has multiple options (for instance, we offer 40GB and 80GB A100 GPUs), there will be a constraint you can use to specify even further. Example Slurm script requesting 1 80GB A100 GPU node:
 
 {{< code-download file="/notes/slurm-from-cli/scripts/gpua100.slurm" lang="bash" >}}
 
@@ -220,8 +220,8 @@ This is a useful command to check whether you’re running out of storage space 
 
 To gain information on the different queues you can use the `qlist` command. This will show the list of partitions, their usage, and the SU charge rate. You can use `qlimits` for information on each queue’s limits.
 
-The `sinfo` command will provide some more detailed information on the health of each queue and the number of active nodes available. These commands can be useful in diagnosing why a job may not be running, or to better understand the queue usage for more efficient job throughput. More information on hardware specifications and queue information can be found [here](https://rc.virginia.edu/userinfo/rivanna/overview/#hardware-configuration) on our website.
+The `sinfo` command will provide some more detailed information on the health of each queue and the number of active nodes available. These commands can be useful in diagnosing why a job may not be running, or to better understand the queue usage for more efficient job throughput. More information on hardware specifications and queue information can be found [here](https://rc.virginia.edu/userinfo/rivanna/overview/#hardware-configuration "Research Computing's overview page") on our website.
 
 ## Need Help
 
-Research Computing is ready to help you learn to use our systems efficiently.  You can [submit a ticket](https://www.rc.virginia.edu/form/support-request/).  For in-person help, please attend one of our weekly sessions of [office hours](https://www.rc.virginia.edu/support/#office-hours).
+Research Computing is ready to help you learn to use our systems efficiently.  You can [submit a ticket](https://www.rc.virginia.edu/form/support-request/ "Research Computing's support request form").  For in-person help, please attend one of our weekly sessions of [office hours](https://www.rc.virginia.edu/support/#office-hours "Research Computing's Support Options page").

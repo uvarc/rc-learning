@@ -5,12 +5,13 @@ type: docs
 weight: 1
 menu: 
     slurm-from-cli:
+        name: The Slurm Resource Manager
 ---
 
-{{< figure src="/notes/slurm-from-cli/img/slurm_logo.png" width=30% >}}
+{{< figure src="/notes/slurm-from-cli/img/slurm_logo.png" width=30% alt="Slurm resource manager logo" >}}
 
 
-[Slurm](https://slurm.schedmd.com/) is a  __resource manager__ (RM), also known as a  _queueing system_.
+[Slurm](https://slurm.schedmd.com/ "The official Slurm website") is a  __resource manager__ (RM), also known as a  _queueing system_.
 
 Resource managers are used to submit _jobs_ on a computing cluster to compute nodes from an access point generally called a  login node.
 
