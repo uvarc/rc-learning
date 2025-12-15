@@ -1,6 +1,6 @@
 {{ $file := .Get "file" }}
 {{ $text := .Get "text" }}
-{{ ( print $text | markdownify ) }}
 <a href="{{ $file }}" download title="Download file">
+{{ ( print $text | markdownify ) }}
 <i class="fa fa-download" aria-hidden="true"></i>
 </a>
