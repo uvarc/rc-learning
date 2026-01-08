@@ -99,8 +99,8 @@ program heatedplate
   ! This has the ice bath on the top edge.
 
   ! Allocate arrays)
-  lb1=lbound(u,1)
-  lb2=ubound(u,2)
+  lb1=0
+  lb2=0
   allocate(u(lb1:nrl+1,lb2:ncl+1),w(lb1:nrl+1,lb2:ncl+1))
 
   u=0.d0
