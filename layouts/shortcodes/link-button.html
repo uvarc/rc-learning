@@ -1,4 +1,4 @@
-<a {{ with .Get "href"}} href="{{.}}" target="_blank" {{ end }} class="btn btn-outline-primary">
+<a {{ with .Get "href"}} href="{{.}}" target="_blank" {{ end }} {{ with .Get "aria-label"}} aria-label="{{.}}" {{ end }} {{ with .Get "title"}} title="{{.}}" {{ end }} class="btn btn-outline-primary">
   {{ $icon := .Get "icon" }}
   {{ $iconposition := .Get "icon-position" }}
   {{ if ($icon) }}

@@ -183,8 +183,37 @@ html {
 }
 
 #TableOfContents li a,
-.toc-top li a {
+.toc-top li a,
+.toc-top span a
+{
   color: rgb(89, 89, 89);
+}
+
+.toc-top {
+  padding-left: 0;
+}
+
+// TOC indentation for each level.
+#TableOfContents div div {
+  padding-left: 0.8rem;
+}
+
+#TableOfContents span {
+  display: block;
+}
+
+#TableOfContents span a,
+.toc-top span a {
+  display: block;
+  padding: .125rem 1.5rem;
+  font-size: 0.7rem;
+}
+
+#TableOfContents span a:hover,
+.toc-top span a:hover
+{
+  color: $sta-primary;
+  text-decoration: none;
 }
 
 footer {
@@ -230,6 +259,25 @@ footer {
   display: none;
 }
 
+.docs-sidebar .nav>span>a {
+  display: block;
+  padding: .25rem 1.5rem;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, .65);
+}
+
+.docs-sidebar .nav>span>a:hover {
+  color: rgba(0, 0, 0, .85);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.docs-sidebar .nav>span>a:hover {
+  color: rgba(0, 0, 0, .85);
+  text-decoration: none;
+  background-color: transparent;
+}
+
 .dark {
 
   .site-footer-logo-dark {
@@ -239,6 +287,10 @@ footer {
   .site-footer-logo-light {
     font: unset;
     display: none;
+  }
+
+  .docs-sidebar .nav > span:not(.active) > a {
+    color: rgb(248, 248, 242);
   }
 
   .btn-primary, .btn.btn-primary.active, .btn-light {
@@ -254,14 +306,27 @@ footer {
   }
 
   #TableOfContents li a,
-  .toc-top li a {
+  .toc-top li a,
+  .toc-top span a
+  {
     color: rgb(191, 190, 193);
+  }
+
+  #TableOfContents li a:hover,
+  .toc-top li a:hover,
+  .toc-top span a:hover,
+  .docs-sidebar .docs-toc-item a:hover,
+  .docs-sidenav a:hover,
+  .docs-sidebar .nav > span:not(.active) > a:hover
+  {
+    color: mix(white, $sta-primary-light, 50%);
   }
 
   a,
   .docs-sidebar .docs-toc-item.active a,
   .docs-sidebar .nav>.active:hover>a,
-  .docs-sidebar .nav>.active>a {
+  .docs-sidebar .nav>.active>a,
+  .docs-sidebar .docs-toc-item.active span a {
     color: mix(white, $sta-primary-light, 50%);
   }
 
