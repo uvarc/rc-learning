@@ -7,7 +7,7 @@ menu:
     rio-intro:
 ---
 
-Principal Investigators (PIs) can request access by submitting an Ivy Linux VM request through the   [services app](https://services.rc.virginia.edu/).
+Principal Investigators (PIs) can request access by submitting an Ivy Linux VM request through the [services app](https://services.rc.virginia.edu/).
 
 Research staff may apply for an exception.
   

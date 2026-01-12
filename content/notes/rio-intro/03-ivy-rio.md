@@ -22,5 +22,5 @@ Ivy Linux VMs can serve as a frontend for accessing the Rio HPC system (availabl
 
 **Rio**
 
-Rio is used for large-scale analysis of HIPAA, FERPA, and dbGaP  data.
+Rio is used for large-scale analysis of HIPAA, FERPA, and CAD.
 
