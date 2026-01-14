@@ -159,7 +159,7 @@ $sacct -o jobname,jobid,ncpus,nnodes,maxrss,state,elapsed -j 56221192
 mpiheated+ 56221192.0           10        1    108800K  COMPLETED   00:00:33 
 ```
 
-The output from `sacct` can be heavily customized. For more information see the [documentation](https://slurm.schedmd.com/sacct.html).
+The output from `sacct` can be heavily customized. For more information see the [documentation](https://slurm.schedmd.com/sacct.html "Official Slurm sacct command documentation").
 
 Running `sacct` puts a load on the system and can be very slow, so please use it judiciously.
 
@@ -214,7 +214,7 @@ Jobstats reports are only kept in the database for so long, so older jobs will g
 
 ## Stream Output in Slurm
 
-When running a program interactively, any output to the Unix [standard streams](https://learning.rc.virginia.edu/notes/unix-tutorial/unix_tutorial_3/) will be printed directly to the user's console window.  However, programs running under the control of Slurm will not have a console attached. 
+When running a program interactively, any output to the Unix [standard streams](/notes/unix-tutorial/unix_tutorial_3/ "The Unix tutorial's More About Files page") will be printed directly to the user's console window.  However, programs running under the control of Slurm will not have a console attached. 
 
 By default, SLURM redirects both standard output and standard error to a file called `slurm-<jobid>.out`.
 

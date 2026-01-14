@@ -38,13 +38,13 @@
     <a class="docs-toc-link" {{ if .URL }}href="{{ .URL }}"{{else if .HasChildren }}href="{{ (index .Children 0).URL }}"{{end}}>{{ .Name }}</a>
 
     {{- if .HasChildren }}
-    <ul class="nav docs-sidenav">
+    <div class="nav docs-sidenav">
       {{ range .Children.ByWeight }}
-      <li {{ if $current_page.IsMenuCurrent $menu_name . }}class="active"{{ end }}>
+      <span {{ if $current_page.IsMenuCurrent $menu_name . }}class="active"{{ end }}>
         <a href="{{ .URL }}">{{ .Name }}</a>
-      </li>
+      </span>
       {{ end }}
-    </ul>
+    </div>
     {{ end }}
 
   </div>

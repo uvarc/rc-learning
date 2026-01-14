@@ -11,7 +11,7 @@ menu:
 
 **UVA IVY-DTN** is the the official collection for moving files into High-Security Research Standard Storage.
 
-To transfer data to High-Security Research Standard Storage, please see the special instructions [here on the RC website](https://www.rc.virginia.edu/userinfo/ivy/).
+To transfer data to High-Security Research Standard Storage, please see the special Globus instructions [here on the RC website](https://www.rc.virginia.edu/userinfo/ivy/).
 
 > Ensure that you are  __NOT__ connected to the HSVPN. Data transfer will not work if you are connected to the HSVPN.
 

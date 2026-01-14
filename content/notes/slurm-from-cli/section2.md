@@ -16,13 +16,13 @@ Several options are available to prepare batch scripts.
 
 ### Graphical Editors
 
-You can log in to a [FastX](https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/), which provides a [MATE](https://mate-desktop.org/) desktop environment. One of the tools is a graphical editor very similar to Notepad.  It is called `pluma` by MATE, but we have made it available as `gedit` if started from a terminal.  If you wish to start it from a menu, it is available from Applications&rarr;Accessories.
+You can log in to a [FastX](https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/ "Research Computing's FastX info page"), which provides a [MATE](https://mate-desktop.org/ "The official MATE website") desktop environment. One of the tools is a graphical editor very similar to Notepad.  It is called `pluma` by MATE, but we have made it available as `gedit` if started from a terminal.  If you wish to start it from a menu, it is available from Applications&rarr;Accessories.
 
-You can also use [Open OnDemand's](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/) built-in file manager and editor.  Create a new file from the Files menu.  Select the file and choose `Edit` from the three-dot dropdown menu to the right of the file name.  This will open a very basic text editor.
+You can also use [Open OnDemand's](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/ "Research Computing's Open OnDemand info page") built-in file manager and editor.  Create a new file from the Files menu.  Select the file and choose `Edit` from the three-dot dropdown menu to the right of the file name.  This will open a very basic text editor.
 
 ### Command-Line Editors
 
-Editors available at the command line are [nano](https://www.nano-editor.org/), [vim](https://www.vim.org/), and [emacs](https://www.gnu.org/software/emacs/).  Nano is a simple text-only editor.  Vim is also available text-only from a command line, but a graphical version called `gvim` can be invoked from a MATE Desktop through the Applications&rarr;Accessories menu. Emacs can also be started from the Accessories menu but, if a graphical environment, will start a graphical user interface.  If invoked within a text-only environment, it will fall back to a text interface.
+Editors available at the command line are [nano](https://www.nano-editor.org/ "The official nano website"), [vim](https://www.vim.org/ "The official vim website"), and [emacs](https://www.gnu.org/software/emacs/ "The official emacs website").  Nano is a simple text-only editor.  Vim is also available text-only from a command line, but a graphical version called `gvim` can be invoked from a MATE Desktop through the Applications&rarr;Accessories menu. Emacs can also be started from the Accessories menu but, if a graphical environment, will start a graphical user interface.  If invoked within a text-only environment, it will fall back to a text interface.
 
 ### Open OnDemand Tool
 
@@ -60,7 +60,7 @@ The lines starting with `#SBATCH` are the resource requests.  They are called "p
 ```
 Here we are requesting
   * 1 node, 1 task, 1 core
-  * 32GB of memory (measured in MB). Strictly speaking this will be "Gibibyes."
+  * 32GB of memory (measured in MB). Strictly speaking this will be "Gibibytes."
   * 2 hours of running time.
   * The interactive partition (queue).  A partition must be specified.
   * The account (allocation) group `hpc_training`
@@ -120,7 +120,7 @@ Angle brackets `< >` indicate a value to be specified, and are not typed.
 | -t \<time\> | -\-time=\<time\> | Set the upper limit of the runtime. Format can be `M` (a number of minutes), `MM:SS` (minutes:seconds), `HH:MM:SS` (hours:minutes:seconds), `D-H` (days-hours), `D-HH:MM` (days-hours:minutes), or `D-HH:MM:SS` (days-hours:minutes:seconds). |
 {{< /table >}}
 
-See also our [documentation](https://www.rc.virginia.edu/userinfo/rivanna/slurm/) for many more examples.
+See also our [documentation](https://www.rc.virginia.edu/userinfo/rivanna/slurm/ "Research Computing's Slurm documentation") for many more examples.
 
 
 
@@ -170,7 +170,7 @@ To find bioinformatics software packages, try this:
 $ module key bio
 ```
 
-The available software is also listed on our [website](https://www.rc.virginia.edu/userinfo/rivanna/software/complete-list/)
+The available software is also listed on our [website](https://www.rc.virginia.edu/userinfo/rivanna/software/complete-list/ "Research Computing's complete software list").
 
 **Exercise 2**
 

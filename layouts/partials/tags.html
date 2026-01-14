@@ -1,6 +1,7 @@
 {{ $taxonomy := "tags" }}
 {{ if .Param $taxonomy }}
 <div class="article-tags">
+  <span class="sr-only">Tags: </span>
   {{ range $index, $value := (.GetTerms $taxonomy) }}
   <a class="badge badge-light" href="{{ .RelPermalink }}">{{  replaceRE `([^\\])_` "$1 " .LinkTitle }}</a>
   {{ end }}
