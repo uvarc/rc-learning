@@ -173,7 +173,7 @@ html {
   color: #ab0728;
 }
 
-.alert-info {
+.alert-info, .alert-note {
   background-color: #fafafa;
   border-color: #209cee; // the same color as the info icon
 }
@@ -347,9 +347,12 @@ footer {
   .alert-warning {
     background-color: #550000;
     color: white;
+    code {
+      color: #8be9fd;
+    }
   }
 
-  .alert-info {
+  .alert-info, .alert-note {
     background-color: #12537e;
     color: white;
   }
