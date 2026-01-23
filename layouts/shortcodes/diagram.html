@@ -1,0 +1,3 @@
+<div class="mermaid"{{ with .Get "alt" }} role="img" aria-label="{{ . | html }}"{{ end }}>
+  {{- safeHTML .Inner -}}
+</div>
