@@ -141,7 +141,7 @@ $find . -name "people*"
 ```
 The period `.` tells find to start at the current working directory.
 
-Find has many options to locate files by name, type, date, and others.  See [here](https://www.tecmint.com/35-practical-examples-of-linux-find-command/) for examples.
+Find has many options to locate files by name, type, date, and others.  See [here](https://www.tecmint.com/35-practical-examples-of-linux-find-command/ "35 Practical Examples of Linux Find Command (opens in new tab)") for examples.
 
 ## Running Executables
 
@@ -218,7 +218,7 @@ The `pid` is the _process id_.
 
 You have accidentally started a production job on a loginnode node.  What to do?
 
-You can kill your foreground process with `Crtl c`. 
+You can kill your foreground process with `Ctrl c`. 
 ```bash
 #oops, I was supposed to run this through Slurm
 $./myexe  

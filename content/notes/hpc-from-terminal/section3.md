@@ -65,7 +65,7 @@ The hyphen as Type indicates an ordinary file.
 
 ## Changing Permissions
 
-The owner of a file or directory may change the permissions with the `chmod` command.  Two formats are supported: a three- or four-digit code (in octal, i.e. base 8) indicating permissions, or the add/remove symbolic format.  The digit format is advanced so we will not discuss it; a reference is available [here](https://www.adminschoice.com/chmod-quick-referance-with-examples).  The symbolic format is more intuitive and mnemonic.  
+The owner of a file or directory may change the permissions with the `chmod` command.  Two formats are supported: a three- or four-digit code (in octal, i.e. base 8) indicating permissions, or the add/remove symbolic format.  The digit format is advanced so we will not discuss it; a reference is available [here](https://www.adminschoice.com/chmod-quick-referance-with-examples "chmod Quick Reference with Examples (opens in new tab)").  The symbolic format is more intuitive and mnemonic.  
 
 **Examples** 
 
@@ -93,7 +93,7 @@ To create files we use a _text editor_.  Do not use a word processor such as Lib
 
 ### Graphical Options
 
-Graphical editors must be used from within a graphical environment.  On Linux the standard graphical windowing system is called **X11**.  Newer Linux versions provide some form of "desktop" environment similar to Windows or macOS on top of X11.  On our system we provide the [MATE](https://mate-desktop.org/) Desktop Environment.  It can be accessed from [FastX](https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/) on a loginnode.  It can also be started on a compute node from the [Open OnDemand](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/) Desktop Interactive Application.
+Graphical editors must be used from within a graphical environment.  On Linux the standard graphical windowing system is called **X11**.  Newer Linux versions provide some form of "desktop" environment similar to Windows or macOS on top of X11.  On our system we provide the [MATE](https://mate-desktop.org/ "The official MATE website (opens in new tab)") Desktop Environment.  It can be accessed from [FastX](https://www.rc.virginia.edu/userinfo/rivanna/logintools/fastx/ "The Research Computing website's FastX info page (opens in new tab)") on a loginnode.  It can also be started on a compute node from the [Open OnDemand](https://www.rc.virginia.edu/userinfo/rivanna/ood/overview/ "The Research Computing website's Open OnDemand info page (opens in new tab)") Desktop Interactive Application.
 
 #### 1. gedit/pluma
 
@@ -103,7 +103,7 @@ Gedit/pluma is very similar to Notepad on Windows.
 
 #### 2. VS Code
 
-This is accessed by a [module](/notes/rivanna-command-line/modules).
+This is accessed by a [module](https://www.rc.virginia.edu/userinfo/hpc/software/modules/ "The Research Computing website's Software Modules page (opens in new tab)").
 ```bash
 $module load code-server
 ```
@@ -116,9 +116,9 @@ Regular Linux users are advised to learn at least one text-based editor, in case
 
 #### 1. vi (vim)
 
-The oldest and most widely available text-based editor on Unix is _vi_ for "visual." Modern versions are nearly all based on [vim](https://vim.org) ("vi improved).  On our system we generally _alias_ the `vi` command to `vim`.
+The oldest and most widely available text-based editor on Unix is _vi_ for "visual." Modern versions are nearly all based on [vim](https://vim.org "The official Vim website (opens in new tab)") ("vi improved").  On our system we generally _alias_ the `vi` command to `vim`.
 
-Vim/vi is used entirely through keyboard commands which must be memorized.  The mouse is not utilized.  Only a few commands are needed to be able to do basic editing and they are not difficult to learn.  A beginner tutorial is [here](https://www.tutorialspoint.com/vim/index.htm). One stumbling block for new users is that vim has _command mode_ and _insert mode_ and it must be toggled between the two.
+Vim/vi is used entirely through keyboard commands which must be memorized.  The mouse is not utilized.  Only a few commands are needed to be able to do basic editing and they are not difficult to learn.  A beginner tutorial is [here](https://www.tutorialspoint.com/vim/index.htm "Vim tutorial (opens in new tab)"). One stumbling block for new users is that vim has _command mode_ and _insert mode_ and it must be toggled between the two.
 
 Basics:
   * To enter the insert mode press  `i`
@@ -131,7 +131,7 @@ MATE also provides a graphical interface called `gvim`. It can be accessed throu
 
 #### 2. nano
 
-Nano is simple text editor that is fairly self-explanatory and simple to learn. It is always in insert mode. A tutorial similar to that for vim above is [here](https://www.tutorialspoint.com/how-to-use-nano-text-editor).
+Nano is simple text editor that is fairly self-explanatory and simple to learn. It is always in insert mode. A tutorial similar to that for vim above is [here](https://www.tutorialspoint.com/how-to-use-nano-text-editor "How To Use Nano Text Editor (opens in new tab)").
 
 Basics:
   * Immediately start typing
@@ -140,7 +140,7 @@ Basics:
 
 #### 3. Emacs
 
-The Emacs editor is another long-time editor on Unix. Similar to gvim, it combines a graphical interface, when available, with a keyboard-based command system.  If the graphical interface is not available, such as from an Open OnDemand terminal, it will fall back to a text-only interface. Emacs is powerful and complex.  The documentation is [here](https://www.gnu.org/software/emacs/tour/).
+The Emacs editor is another long-time editor on Unix. Similar to gvim, it combines a graphical interface, when available, with a keyboard-based command system.  If the graphical interface is not available, such as from an Open OnDemand terminal, it will fall back to a text-only interface. Emacs is powerful and complex.  The documentation is [here](https://www.gnu.org/software/emacs/tour/ "Emacs guided tour (opens in new tab)").
 
 ## Viewing Files
 
@@ -159,9 +159,9 @@ $more ~/rivanna-cl/shakespeare/Lear.txt
 
 To page upward within the text, press `b` (back).
 
-#### Searching.
+#### Searching
 
-You can search in the forward direction with `/`<pattern>, where pattern is a combination of characters you wish to find.
+You can search in the forward direction with `/<pattern>`, where pattern is a combination of characters you wish to find.
 
 ```bash
 $more ~/rivanna-cl/shakespeare/Lear.text
@@ -269,7 +269,7 @@ THE END
 
 ## Transferring Files Using the Command Line
 
-Files can be transferred by [graphical clients](https://www.rc.virginia.edu/userinfo/rivanna/logintools/graphical-sftp) such as MobaXterm and Filezilla, or through [Globus](/tutorials/globus-data-transfer).  If you are using a terminal from your local computer, you can also use some command-line tools.
+Files can be transferred by [graphical clients](https://www.rc.virginia.edu/userinfo/rivanna/logintools/graphical-sftp "The Research Computing website's Graphical Transfer Tools page (opens in new tab)") such as MobaXterm and Filezilla, or through [Globus](/tutorials/globus-data-transfer "Globus tutorial").  If you are using a terminal from your local computer, you can also use some command-line tools.
 
 ### scp and sftp
 
@@ -316,11 +316,11 @@ $rsync my_file mst3k@login.hpc.virginia.edu:/scratch/$USER
 ```
 By default `rsync` does not transfer files that are older than the equivalent on the target. This can increase the transfer speed significantly. Rsync also resumes a transfer that was interrupted.  Scp always starts again from the beginning.
 
-Rsync is very powerful but has many options and can be confusing. For more details see our [documentation](https://www.rc.virginia.edu/userinfo/rivanna/logintools/cl-data-transfer). Several online resources with examples are also available, such as [this](https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories).
+Rsync is very powerful but has many options and can be confusing. For more details see our [documentation](https://www.rc.virginia.edu/userinfo/rivanna/logintools/cl-data-transfer "The Research Computing website's Command Line Data Transfer page (opens in new tab)"). Several online resources with examples are also available, such as [this](https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories "How To Use Rsync to Sync Local and Remote Directories (opens in new tab)").
 
 ### Setting up Passwordless ssh
 
-If you will frequently use ssh, scp, sftp, or rsync to a remote system, it becomes inconvenient to repeatedly enter your password.  Follow the instructions given [here](https://www.rc.virginia.edu/userinfo/howtos/general/sshkeys/) to generate a _key_ to log in without a password.
+If you will frequently use ssh, scp, sftp, or rsync to a remote system, it becomes inconvenient to repeatedly enter your password.  Follow the instructions given [here](https://www.rc.virginia.edu/userinfo/howtos/general/sshkeys/ "The Research Computing website's SSH Keys page (opens in new tab)") to generate a _key_ to log in without a password.
 
 ## Finding Information About a Command
 
