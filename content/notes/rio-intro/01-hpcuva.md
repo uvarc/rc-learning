@@ -17,7 +17,7 @@ These systems are used to process and store public data, internal use data, or s
 
 **Rio (High Security)**
 
-Rio is designed for processing and storing HSD such as HIPAA, FERPA, dbGAP, etc. 
+Rio is designed for processing and storing HSD such as HIPAA, FERPA, Controlled Access Data (CAD), etc. 
 
 Rio is not CUI certified yet; use the Ivy VM instead. 
 
