@@ -27,9 +27,9 @@ To transfer data to and from your computer, you will first need to install Globu
 
 | Platform | Installation instructions |
 | --- | --- |
-| Mac | [Instructions for Mac](https://docs.globus.org/how-to/globus-connect-personal-mac "Globus Connect Personal installation instructions for Mac (opens in new tab)") |
-| Linux | [Instructions for Linux](https://docs.globus.org/how-to/globus-connect-personal-linux "Globus Connect Personal installation instructions for Linux (opens in new tab)") |
-| Windows | [Instructions for Windows](https://docs.globus.org/how-to/globus-connect-personal-windows "Globus Connect Personal installation instructions for Windows (opens in new tab)") |
+| Mac | [Instructions for Mac](https://docs.globus.org/how-to/globus-connect-personal-mac "Globus Connect Personal installation instructions for Mac") |
+| Linux | [Instructions for Linux](https://docs.globus.org/how-to/globus-connect-personal-linux "Globus Connect Personal installation instructions for Linux") |
+| Windows | [Instructions for Windows](https://docs.globus.org/how-to/globus-connect-personal-windows "Globus Connect Personal installation instructions for Windows") |
 
 
 ## Transferring Files

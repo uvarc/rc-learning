@@ -93,4 +93,4 @@ In the Introduction we discussed using the OOD [job composer](/notes/hpc-intro/f
 
 ## Need Help?
 
-Research Computing is ready to help you learn to use our systems efficiently.  You can [submit a ticket](https://www.rc.virginia.edu/form/support-request/ "The Research Computing website's Support Request page (opens in new tab)").  For in-person help, please attend one of our weekly sessions of [office hours](https://www.rc.virginia.edu/support/#office-hours "The Research Computing website's Support Options page (opens in new tab)").
+Research Computing is ready to help you learn to use our systems efficiently.  You can [submit a ticket](https://www.rc.virginia.edu/form/support-request/ "The Research Computing website's Support Request page").  For in-person help, please attend one of our weekly sessions of [office hours](https://www.rc.virginia.edu/support/#office-hours "The Research Computing website's Support Options page").

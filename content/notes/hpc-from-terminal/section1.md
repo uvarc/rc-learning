@@ -53,7 +53,7 @@ If your computer is a macOS or Linux system, you log in with
 ```bash
 ssh -Y mst3k@login.hpc.virginia.edu
 ```
-Throughout this tutorial we will use `mst3k` as our example user ID. You should substitute your own.  The option `-Y` allows access to graphical applications and requires that an _X11 server_ application must be installed on your computer.  This should be the default for Linux, but macOS users must install [XQuartz](https://xquartz.org "The official XQuartz website (opens in new tab)") before this command-line option will be useful.
+Throughout this tutorial we will use `mst3k` as our example user ID. You should substitute your own.  The option `-Y` allows access to graphical applications and requires that an _X11 server_ application must be installed on your computer.  This should be the default for Linux, but macOS users must install [XQuartz](https://xquartz.org "The official XQuartz website") before this command-line option will be useful.
 
 ### Graphical Applications
 
@@ -70,7 +70,7 @@ FastX is a Web-based graphical interface to a loginnode. It is also covered in t
 
 #### MobaXterm (Windows)
 
-MobaXterm combines an ssh client, a _sftp_ client for file transfers, and an X11 server into a single bundle. More details are available at our [website](https://www.rc.virginia.edu/userinfo/rivanna/logintools/mobaxterm/ "The Research Computing website's MobaXterm page (opens in new tab)") or in the [introduction](/notes/hpc-intro/files/file_moba/ "The Intro to High Performance Computing tutorial's MobaXterm page").
+MobaXterm combines an ssh client, a _sftp_ client for file transfers, and an X11 server into a single bundle. More details are available at our [website](https://www.rc.virginia.edu/userinfo/rivanna/logintools/mobaxterm/ "The Research Computing website's MobaXterm page") or in the [introduction](/notes/hpc-intro/files/file_moba/ "The Intro to High Performance Computing tutorial's MobaXterm page").
 
 ## Running Shell Commands
 
