@@ -12,7 +12,7 @@ menu:
 ---
 
 ## Allocations and Groups
-An allocation is associated with a _group_.  Currently this is a [Grouper](https://groups.identity.virginia.edu/) group.
+An allocation is associated with a _group_.  Currently this is a [Grouper group](https://groups.identity.virginia.edu/).
 
 Members (but not administrators) of the allocation group automatically receive an account on the system.
 
