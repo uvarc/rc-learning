@@ -355,6 +355,11 @@ footer {
   .alert-info, .alert-note {
     background-color: #12537e;
     color: white;
+    pre,
+    code {
+      color: white;
+      background-color: #44475aab;
+    }
   }
 
   .skip-to-main-content {
