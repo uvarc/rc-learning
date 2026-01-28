@@ -15,7 +15,7 @@ Sometimes it's useful to check how many SUs are still available on your allocati
 
 {{< figure src="/notes/hpc-intro/img/features_allocations.png" caption="Allocations" alt="A table with accounts, balance, reserved and available SUs." >}}
 
-running ```allocations -a <allocation_name>``` provides even more detail on when the allocation was last renewed and its members.
+Running ```allocations -a <allocation_name>``` provides even more detail on when the allocation was last renewed and its members.
 
 
 

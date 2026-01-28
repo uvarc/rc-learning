@@ -11,5 +11,6 @@ menu:
     parent: Overview of UVA HPC
 ---
 
-{{< figure src="/notes/hpc-intro/img/allocation_schematic.png" caption="Requesting an Allocation" alt="Diagram showing the process of accessing Research Computing resources: A Principal Investigator (PI) requests an allocation from Research Computing, receives an allocation and account(s), and then allows access for researchers." >}}
-
+{{< figure src="/notes/hpc-intro/img/allocation_schematic.png" caption="Requesting an Allocation" alt="Diagram showing the process of accessing Research Computing resources; description of image is under the heading 'The Process'." >}}
+## The Process
+A Principal Investigator (PI) requests an allocation from Research Computing. RC then gives them an allocation and account(s). The PI can then allow researchers access to the allocation.
