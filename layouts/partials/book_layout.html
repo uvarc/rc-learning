@@ -9,29 +9,13 @@
     <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
       {{ partial "book_sidebar" . }}
     </div>
-
-    {{/* Show ToC by default. */}}
-    {{ if ne .Params.toc false }}
-    <div class="d-none d-xl-block col-xl-2 docs-toc">
-      {{ partial "hooks/page_toc_start" . }}
-
-      <div class="nav toc-top">
-        <span><a href="#" id="back_to_top" class="docs-toc-title">{{ i18n "on_this_page" }}</a></span>
-      </div>
-
-      {{ .TableOfContents }}
-
-      {{ partial "hooks/page_toc_end" . }}
-    </div>
-    {{ end }}
-
-    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main" tabindex="-1">
 
       <article class="article">
 
         <div class="docs-article-container">
           {{ if $show_breadcrumb }}
-            {{ partial "breadcrumb" $current_page }}
+          {{ partial "breadcrumb" $current_page }}
           {{ end }}
 
           <h1>{{ .Title }}</h1>
@@ -65,5 +49,21 @@
       {{ partial "site_footer" . }}
 
     </main>
+
+    {{/* Show ToC by default. */}}
+    {{ if ne .Params.toc false }}
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      {{ partial "hooks/page_toc_start" . }}
+
+      <div class="nav toc-top">
+        <span><a href="#" id="back_to_top" class="docs-toc-title">{{ i18n "on_this_page" }}</a></span>
+      </div>
+
+      {{ .TableOfContents }}
+
+      {{ partial "hooks/page_toc_end" . }}
+    </div>
+    {{ end }}
+
   </div>
 </div>
