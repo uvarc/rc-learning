@@ -487,7 +487,7 @@ Hints:
 
 {{< info >}}While PyTorch runs on a GPU, you do not need to build the container on a GPU.{{< /info >}}
 
-{{< info >}}You will likely run out of memory when building large containers (over a few GBs). Request an [interactive job](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#submitting-an-interactive-job) to build on a compute node in the `largemem` partition.{{< /info >}}
+{{< info >}}You will likely run out of memory when building large containers (over a few GBs). Request an [interactive job](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#submitting-an-interactive-job) with say `--mem=50G` to build on a compute node with 50 GB memory.{{< /info >}}
 
 ### R
 
