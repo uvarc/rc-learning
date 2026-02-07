@@ -14,7 +14,7 @@ Steps:
 
 2. Open your SSH client and type: 
 ```bash
-ssh [mst3k@10.xxx.xxx.xxx](mailto:mst3k@10.xxx.xxx.xxx)
+ssh mst3k@10.xxx.xxx.xxx
 ```
 `mst3k` is replaced with your user ID and the `x`'s are replaced with your VM's IP address (given in the Services app).
 
