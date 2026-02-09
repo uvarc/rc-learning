@@ -10,7 +10,7 @@ menu:
 
 To request an interactive session, select one of the applications from the dropdown. This will prompt you to fill in the desired resources for your interactive job. 
 
-{{< figure src=/notes/rio-intro/img/jupyterlab.png alt="Open OnDemand JupyterLab launch form showing fields: Partition set to Standard, 1 hour, 1 core, 6 GB memory, allocation hpc_build, and a Launch button." width=45% height=45% >}}
+{{< figure src=/notes/rio-intro/img/jupyterlab.png alt="Open OnDemand JupyterLab launch form showing 6 fields: Partition set to Standard, 1 hour, 1 core, 6 GB memory, allocation hpc_build, Show Additional Options set to No, and a Launch button." width=45% height=45% >}}
 
 The above example is for starting a JupyterLab session.
 

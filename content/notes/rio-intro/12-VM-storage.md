@@ -17,7 +17,7 @@ The personal directory for individual data storage is mounted under `/home/$USER
 
 Shared storage space is mounted under `/standard/ivy-hip-name` where `ivy-hip-name` is replaced by the name of your Ivy project's Grouper group name. 
 
-The default of Research Standard Storage is 1TB. PIs can get more when first requesting the Ivy project. Storage can be resized using our [Storage Request Form](https://www.rc.virginia.edu/form/storage/).
+The default of Research Standard Storage is 1TB. PIs can get more when first requesting the Ivy project. Storage can be resized using our [Storage Request Form](https://www.rc.virginia.edu/form/storage/ "The RC website's Storage Request form").
 
 ### Rio Caveat 
 
