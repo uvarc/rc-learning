@@ -33,4 +33,4 @@ $ rm file_1
 $ cd ..
 ```
 
-See [learning.rc.virginia.edu/tutorials/unix-tutorial/](http://learning.rc.virginia.edu/tutorials/unix-tutorial/) to learn more.
+See [RC Learning's Unix Tutorial](/tutorials/unix-tutorial/) to learn more.

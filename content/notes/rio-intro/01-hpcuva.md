@@ -9,17 +9,17 @@ menu:
 
 High Performance Computing (HPC) systems are tailored to data sensitivity. 
 
-**Rivanna/Afton (Standard Security)**
+## Rivanna/Afton (Standard Security)
 
 These systems are used to process and store public data, internal use data, or sensitive data. Highly Sensitive Data (HSD) is not permissible. 
 
-> <small>More information on the SSZ HPC can be found in our [Intro to HPC slides](https://learning.rc.virginia.edu/notes/hpc-intro/). </small>
+> More information on the SSZ HPC can be found in our [Intro to HPC slides](https://learning.rc.virginia.edu/notes/hpc-intro/).
 
-**Rio (High Security)**
+## Rio (High Security)
 
 Rio is designed for processing and storing HSD such as HIPAA, FERPA, Controlled Access Data (CAD), etc. 
 
 Rio is not CUI certified yet; use the Ivy VM instead. 
 
-> <small> For more information, please see [RC Systems Data Sensitivity](https://www.rc.virginia.edu/userinfo/storage/data-sensitivity/). </small>
+> For more information, please see [RC Systems Data Sensitivity](https://www.rc.virginia.edu/userinfo/storage/data-sensitivity/).
 

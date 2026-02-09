@@ -19,6 +19,6 @@ VMs comes in different sizes. Request a VM sized appropriately for your workflow
 
 VMs exist in a private, secure network and cannot reach outside resources on the Internet. Most inbound and outbound data transfer is managed through the Data Transfer Node (DTN).
 
-More information on requesting a VM can be found [here on the RC website](https://www.rc.virginia.edu/userinfo/ivy/).
+More information on requesting a VM can be found [here on the RC website](https://www.rc.virginia.edu/userinfo/ivy/ "The Research Computing website's Ivy page").
 
 

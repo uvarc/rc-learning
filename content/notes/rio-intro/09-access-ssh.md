@@ -18,7 +18,7 @@ ssh mst3k@10.xxx.xxx.xxx
 ```
 `mst3k` is replaced with your user ID and the `x`'s are replaced with your VM's IP address (given in the Services app).
 
-{{< figure src=/notes/rio-intro/img/rio-intro_5.png alt="Screenshot showing a terminal window in MobaXterm with the command ssh mst3k@10.xxx.xxx.xxx entered, demonstrating how a user connects to their Rio VM over SSH using their user ID and VM IP address. The command line interface displays a green and yellow bar with the date, time, and file path /home/mobaxterm." width=90% height=90% >}}
+{{< figure src=/notes/rio-intro/img/rio-intro_5.png alt="Screenshot showing a terminal window in MobaXterm with the command `ssh mst3k@10.xxx.xxx.xxx` entered. The command line interface displays a green and yellow bar with the date, time, and file path /home/mobaxterm." width=90% height=90% >}}
 
 When prompted for a password, use your EServices password.
 

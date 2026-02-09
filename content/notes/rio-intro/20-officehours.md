@@ -15,9 +15,9 @@ __Research Computing Zoom Office Hours__
 
 * Thursdays: 10am – noon
 
-> To connect to the Zoom sessions, go to [https://www.rc.virginia.edu/support/#office-hours](https://www.rc.virginia.edu/support/#office-hours) and click the "Join us via Zoom" button. 
+> To connect to the Zoom sessions, go to [the Support Options page](https://www.rc.virginia.edu/support/#office-hours "The RC website's Office Hours section") and click the "Join us via Zoom" button. 
 
-Alternatively, contact us through the forms at: [https://www.rc.virginia.edu/support/](https://www.rc.virginia.edu/support/)
+Alternatively, contact us through the forms on [the Support Options Page](https://www.rc.virginia.edu/support/ "The RC website's Support Options page").
 
 
 
