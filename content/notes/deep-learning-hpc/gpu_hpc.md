@@ -1,6 +1,6 @@
 ---
 title: GPUs on HPC
-date: 2024-06-28-01:51:43Z
+date: 2024-06-28T01:51:43Z
 type: docs 
 weight: 350
 toc: true
