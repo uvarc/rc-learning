@@ -1,5 +1,6 @@
 ---
 title: Running Bowtie2 - Slurm Script
+date: 2025-08-23T03:19:53Z
 date: 2025-08-23-03:19:53Z
 type: docs 
 weight: 1250
