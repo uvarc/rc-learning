@@ -1,6 +1,6 @@
 ---
 title: Accelerating Discovery with AI
-date: 2025-03-11-13:24:11Z
+date: 2025-03-11T13:24:11Z
 type: docs 
 weight: 180
 menu: 
