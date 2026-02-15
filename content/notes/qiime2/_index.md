@@ -1,10 +1,9 @@
 ---
 title: Introduction to QIIME 2
-date: 2025-6-10T00:00:00-05:00
+date: 2025-06-10T00:00:00-05:00
 authors: []
 type: docs 
 weight: 1 
-date: 2025-6-10T00:00:00-05:00
 
 menu: 
     qiime2:
