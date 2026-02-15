@@ -1,7 +1,6 @@
 ---
 title: "Characters and Strings"
 date : "2021-04-05T00:00:00"
-date : "2021-04-5T00:00:00"
 toc: true
 type: book
 weight: 43

@@ -1,7 +1,6 @@
 ---
 title: "Managing Projects with Make"
 date : "2021-04-05T00:00:00-05:00"
-date : "2021-04-5T00:00:00-05:00"
 toc: true
 type: book
 weight: 14
