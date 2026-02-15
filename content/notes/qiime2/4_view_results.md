@@ -1,6 +1,6 @@
 ---
 title: View QIIME 2 Results
-date: 2025-06-13-14:45:04Z
+date: 2025-06-13T14:45:04Z
 type: docs 
 weight: 250
 menu: 
