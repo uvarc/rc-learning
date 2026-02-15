@@ -1,6 +1,6 @@
 ---
 title: Interactive Apps
-date: 2025-11-12-03:53:56Z
+date: 2025-11-12T03:53:56Z
 type: docs 
 weight: 865
 menu: 
