@@ -1,6 +1,6 @@
 ---
 title: Summary and resources
-date: 2024-11-16-20:28:40Z
+date: 2024-11-16T20:28:40Z
 type: docs 
 weight: 350
 menu: 

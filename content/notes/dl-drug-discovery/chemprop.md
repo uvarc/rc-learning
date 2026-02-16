@@ -1,6 +1,6 @@
 ---
 title: Chemprop
-date: 2025-03-11-13:24:11Z
+date: 2025-03-11T13:24:11Z
 type: docs 
 weight: 350
 menu: 

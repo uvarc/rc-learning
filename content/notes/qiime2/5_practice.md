@@ -1,6 +1,6 @@
 ---
 title: Hands-On Practice
-date: 2025-06-13-14:45:04Z
+date: 2025-06-13T14:45:04Z
 type: docs 
 weight: 300
 menu: 

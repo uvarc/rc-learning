@@ -1,11 +1,10 @@
 ---
 title: Updating our Image
-date: "2023-05-01:00:00Z"
+date: "2023-05-01T00:00:00Z"
 draft: true  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
 weight: 330
-date: "2023-05-01T00:00:00Z"
 menu:
   containers:
       parent: Version Control
