@@ -19,7 +19,8 @@ menu:
 
 ### Getting Data into Matlab
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=3&section=2"target="_blank">Video: Import Tool</a>**
+**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=3&section=2" target="_blank">Video: Import Tool</a>**
+
 
 **<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=3&section=4" target="_blank">Exercise: Using the Variable Editor</a>**
 
@@ -27,7 +28,7 @@ menu:
 
 ### Obtaining Help
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=4&section=2"target="_blank">Video: Using MATLAB's Documentation</a>**
+**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=4&section=2" target="_blank">Video: Using MATLAB's Documentation</a>**
 
 **<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=4&section=3" target="_blank">Exercise: Open and Use Function Documentation</a>**
 
