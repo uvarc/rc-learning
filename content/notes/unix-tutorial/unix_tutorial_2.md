@@ -1,7 +1,6 @@
 ---
 title: "Working with Files"
 linktitle: "Tutorial 2: Working with Files"
-date: 2019-04-29T11:06:47-04:00
 draft: false
 highlight_style: "github"
 toc: true
