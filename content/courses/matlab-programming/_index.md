@@ -21,9 +21,9 @@ Participants must have a Mathworks account in order to access the links to the o
 
 **<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot" target="_blank">Matlab Academy:Fundamentals of Matlab</a>**
 
+**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=1&section=1" target="_blank">Video of Fundamentals of Matlab</a>**
 
-**<a href="https://matlabacademy.mathworks.com/R2019b/portal.html?course=mlbe&s_tid=sched_leaf_spot#chapter=1&lesson=1&section=1"target="_blank">Video: Fundamentals of  Matlab</a>**
 
-**<a href="https://matlabacademy.mathworks.com/artifacts/quick-reference.html?course=mlbe&release=R2019a&language=en"target="_blank">Quick Reference Guide (used for presentation)</a>**
+**<a href="https://matlabacademy.mathworks.com/artifacts/quick-reference.html?course=mlbe&release=R2019a&language=en" target="_blank">Quick Reference Guide</a>**
 
 
