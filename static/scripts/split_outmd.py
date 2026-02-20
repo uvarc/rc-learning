@@ -35,7 +35,7 @@ for line in lines:
 
 #Now set up the files
 
-date=datetime.now(timezone.utc).strftime('%Y-%m-%d-%H:%M:%SZ')
+date=datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
 #Index
 with open('_index.md','w') as nfile:
@@ -47,7 +47,6 @@ with open('_index.md','w') as nfile:
     nfile.write('tags: '+"[fill]\n")
     nfile.write('type: docs '+"\n")
     nfile.write('weight: 1 '+"\n")
-    nfile.write('date: '+date+"\n")
     nfile.write("\n")
     nfile.write("menu: \n")
     nfile.write("    "+base+":\n")    
