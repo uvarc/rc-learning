@@ -6,6 +6,8 @@ By Ed Hall
 
 # Why parallel computing?
 
+**Parallel computing** can:
+
 * Save time and tackle increasingly complex problems
 * Reduce computation time by using available compute cores and GPUs
 * Why parallel computing with MATLAB and Simulink?
@@ -17,12 +19,13 @@ By Ed Hall
 
 ---
 
-What's the need for Parallel Computing you might ask or what's the motivation for it? 
+**What's the need for Parallel Computing you might ask or what's the motivation for it?** 
 The size of the problems we need to solve is increasing and there's a growing need to gain faster helping bring products to market quickly. And this need exists for engineers and researchers across multiple industries and applications!  
 Another motivation is simply the fact that hardware is becoming powerful - modern computers, even laptops, are parallel in architecture with multiple processors/cores. Access to GPUs, cluster of computers or even cloud computing infrastructure is becoming common.
-However the challenge lies in the fact that you need software to utilize the power of this hardware and hence parallel computing expertise is a requirement
 
-How do MathWorks Parallel Computing Tools help ?
+However, the challenge lies in the fact that you need software to utilize the power of this hardware and hence parallel computing expertise is a requirement
+
+**How do MathWorks Parallel Computing Tools help ?**
 Enables Engineers, scientists and researchers like yourself leverage the computational power of available hardware without the need to be a parallel computing expert
 Accelerate your workflows with minimal changes to your existing code 
 Allow you to seamlessly scale your applications and models from your Desktop to clusters in your organization or on the cloud if you need access to more computational power/memory. 
@@ -45,24 +48,25 @@ Our parallel computing tools are all about enabling you to scale to more hardwar
 * 3-4 months of development time saved
 * Validation time sped up 2X
 
-![](img/Matlab-Parallel-ProgrammingFall23_new2.png)
+![Automotive Test Analysis](../img/automotive-test-analysis.png)
+
 
 **Heart Transplant Studies**
 * 4 weeks reduced to 5 days
 * Process time sped up 6X
 
-![](img/Matlab-Parallel-ProgrammingFall23_new3.png)
+![Heart Transplant Studies](../img/heart-transplant-studies.png)
 
 **Discrete-Event Model of Fleet Performance**
 * Simulation time reduced from months to hours
 * Simulation time sped up 20X
 
-![](img/Matlab-Parallel-ProgrammingFall23_new4.jpg)
+![Discrete-Event Model of Fleet Performance](../img/discrete-model-fleet-performance.png)
 
 **Calculating Derived Market Data**
 * Implementation time reduced by months
 * Updates sped up 8X
-
+![Derived Market Data](../img/derived-market-data.jpg)
 # Accelerating and Parallelizing MATLAB Code
 
 * Optimize your serial code for performance
@@ -130,7 +134,7 @@ In general you should not run more MATLAB computational engines than the number 
 
 Note that Parallel Computing Toolbox provides licensing for enough workers to cover all of the physical cores in a single machine.
 
-See also:  https://www.mathworks.com/discovery/matlab-multicore.html 
+See also:  [MATLAB Multithreading](https://www.mathworks.com/discovery/matlab-multicore.html)
 
 ## Accelerating MATLAB and Simulink Applications
 
@@ -146,8 +150,9 @@ Let's focus first on built in support that can be enabled simply in MATLAB toolb
 
 
 ## Demo: Classification Learner AppAnalyze sensor data for human activity classification
+![Classification Demo](../img/classification-demo.png)
+![Cellphone Optimization Demo](../img/cellphone-optimization-demo.png)
 
-![](img/Matlab-Parallel-ProgrammingFall23_new7.png)
 
 * Objective: visualize and classify cellphone sensor data of human activity
 * Approach:
@@ -156,13 +161,14 @@ Let's focus first on built in support that can be enabled simply in MATLAB toolb
 
 ---
 
-https://insidelabs-git.mathworks.com/ltc-ae/demos/HumanActivityRecognition
+Open this [link.](https://github.com/sushant1827/Human-Activity-Recognition-with-Smartphones)
+
 Let's open MATLAB and try out a demonstration of using built in parallel functionality invoked by setting a toggle to invoke parallel. 
 In this demo, we are loading IOT sensor data from a mobile phone and then using this sensor data to classify the data into activity-standing, sitting, running, etc. 
 The demo will utilize the multiple cores in my parallel pool to train multiple classifiers simultaneously. 
 
 
-## Demo: Cell Phone Tower OptimizationUsing Parallel-Enabled Functions
+## Demo: Cell Phone Tower Optimization Using Parallel-Enabled Functions
 
 * Parallel-enabled functions in Optimization Toolbox
 * Set flags to run optimization in parallel
@@ -198,7 +204,7 @@ Deep Learning, Neural Network training and simulation
 
 ---
 
-**Signal Processing and Communications **
+**Signal Processing and Communications**
 
 GPU-enabled FFT filtering, cross correlation, BER simulations
 
@@ -238,7 +244,7 @@ Examples: parameter sweeps, Monte Carlo simulations
 
 No dependencies or communications between tasks
 
-![](img/Matlab-Parallel-ProgrammingFall23_new16.png)
+![Explicit Parallelism Diagram](../img/explicit-parallelism-diagram.png)
 
 ---
 
@@ -273,7 +279,7 @@ parfor i = 1:5
 end
 ```
 
-![](img/Matlab-Parallel-ProgrammingFall23_new17.png)
+![Explicit Parallelism](../img/explicit-parallelism.png)
 
 ---
 
@@ -308,7 +314,7 @@ Spmd, arrayfun, CUDAKernel,labsend,
 
 ## Take Advantage of Cluster Hardware
 
-![](img/Matlab-Parallel-ProgrammingFall23_new19.png)
+![Cluster Scaling Example](../img/cluster-scaling-example.png)
 
 * Offload computation:
   * Free up desktop
@@ -360,7 +366,7 @@ Just submit your jobs and they will run in the background, you can then access r
 
 ![](img/Matlab-Parallel-ProgrammingFall23_new22.png)
 
-## Why parallel computing mattersScaling with a compute cluster
+## Why parallel computing matters Scaling with a compute cluster
 
 ![](img/Matlab-Parallel-ProgrammingFall23_new23.png)
 
@@ -369,7 +375,9 @@ Just submit your jobs and they will run in the background, you can then access r
 ---
 
 In this example, you see a parameter sweep in which we run up to 160,000 different configurations
-Doc example https://www.mathworks.com/help/distcomp/examples/plot-progress-during-parallel-computations-using-parfor-and-dataqueue.html?searchHighlight=dataqueue&s_tid=doc_srchtitle
+
+[Click on this Example](https://www.mathworks.com/help/parallel-computing/plot-progress-during-parallel-computations-using-parfor-and-dataqueue.html)
+
 If my problem is well-sized, I can get more than a 90x speed-up with 100 workers.
 
 Just adding more workers is not a guarantee of more speed-up, though.  Every application has its limits, and eventually overhead will dominate.
@@ -433,6 +441,8 @@ Change hardware without changing algorithm
 
 ## Broad Range of Needs and Cloud Environments Supported
 
+Parallel MATLAB workflows can run on desktops, on-premise clusters, or cloud environments with GPU support. Users can choose between pre-configured cloud templates, custom installations, or MathWorks Cloud services depending on resource needs and accessibility requirements.
+
 ![](img/Matlab-Parallel-ProgrammingFall23_new28.png)
 
 | Access requirements | Desktop in the cloud | Cluster in the cloud<br />(Client can be any cloud on on-premise desktop) |
@@ -460,7 +470,7 @@ Again, there are a range of environments and ways you can access MATLAB Parallel
 
 Note: NVIDIA GPU Cloud is actually a container, and can be run in the cloud or on-premise.
 
-For MATLAB Parallel Server, see: https://www.mathworks.com/products/matlab-parallel-server/get-started.html
+For MATLAB Parallel Server, see this [page.](https://www.mathworks.com/products/matlab-parallel-server/get-started.html)
 
 
 # Tackling data-intensive problems on desktops and clusters
@@ -499,7 +509,7 @@ Parallel Computing Toolbox extends the tall array and MapReduce capabilities bui
   * Linear Algebra and Signal Processing
 * A large number of standard MATLAB functions work with distributed arrays just as they do for normal variables
 
-![](img/Matlab-Parallel-ProgrammingFall23_new30.png)
+![Distributed Arrays](../img/distributed-arrays.png)
 
 ---
 
@@ -512,7 +522,7 @@ Just like we do for the GPU, we have overloaded functions that work transparentl
 
 ## Tall Arrays
 
-![](img/Matlab-Parallel-ProgrammingFall23_new31.png)
+![Tall Arrays](../img/tall-arrays-diagram.png)
 
 * Applicable when:
   * Data is  **columnar**  - with  **many**  rows
@@ -521,8 +531,7 @@ Just like we do for the GPU, we have overloaded functions that work transparentl
 * Statistical and machine learning applications
   * Hundreds of functions supported in MATLAB andStatistics and Machine Learning Toolbox
 
-![](img/Matlab-Parallel-ProgrammingFall23_new32.png)
-
+![Tall Data](../img/tall-data.png)
 Automatically breaks data up into small “chunks” that fit in memory
 
 Tall arrays scan through the dataset one “chunk” at a time
@@ -547,7 +556,7 @@ In this example we started with CSV files, which contain tabular data. The resul
   * Fit linear model
   * Predict fare and validate model
 
-![](img/Matlab-Parallel-ProgrammingFall23_new33.png)
+![Taxi Example](../img/taxi-example.png)
 
 # Accelerating applications with NVIDIA GPUs
 
@@ -573,7 +582,7 @@ Dedicated high speed memory
 
 Parallel Computing Toolbox requires NVIDIA GPUs
 
-[nvidia.com/object/cuda_gpus.html](http://www.nvidia.com/object/cuda_gpus.html)
+[CUDA GPU Compute Capability](http://www.nvidia.com/object/cuda_gpus.html)
 
 | MATLAB Release | Required Compute Capability |
 | :-: | :-: |
@@ -581,7 +590,8 @@ Parallel Computing Toolbox requires NVIDIA GPUs
 | MATLAB R2014b - MATLAB R2017b | 2.0 or greater |
 | MATLAB R2014a and earlier releases | 1.3 or greater |
 
-## GPU Computing ParadigmNVIDIA CUDA-enabled GPUs
+## GPU Computing Paradigm NVIDIA CUDA-enabled GPUs
+NVIDIA CUDA-enabled GPUs allow MATLAB to execute thousands of computations simultaneously, providing massive parallelism. MATLAB uses GPU arrays and built-in GPU-enabled functions to offload computationally intensive tasks from the CPU to the GPU for faster performance.
 
 ![](img/Matlab-Parallel-ProgrammingFall23_new35.png)
 
@@ -600,7 +610,7 @@ Expected speed-up varies with problem specifics as well as the avaialable hardwa
 |  | Moderate ease of use and moderate control: Common programming constructs(gpuArray, gather)<br /> |  |
 |  | Greatest control: Advanced programming constructs |  |
 
-## Demo: Wave EquationAccelerating scientific computing in MATLAB with GPUs
+## Demo: Wave Equation Accelerating scientific computing in MATLAB with GPUs
 
 * Objective: Solve 2nd order wave equation with spectral methods
 * Approach:
@@ -608,13 +618,13 @@ Expected speed-up varies with problem specifics as well as the avaialable hardwa
   * Modify the code to use GPUcomputing using gpuArray
   * Compare performance ofthe code using CPU and GPU
 
-![](img/Matlab-Parallel-ProgrammingFall23_new36.png)
+![Second Order Wave Equation Example](../img/second-order-wave-equation-example.png)
 
 ---
 
 ## Speed-up using NVIDIA GPUs
 
-![](img/Matlab-Parallel-ProgrammingFall23_new37.png)
+![Speed-up GPU](../img/speed-up-gpu.png)
 
 * Ideal Problems
   * Massively Parallel and/or Vectorized operations
@@ -637,6 +647,8 @@ Our developers have written CUDA versions of key MATLAB and toolbox functions an
 The diagram pretty much sums up the easiest way to do GPU computing in MATLAB - Transfer/create data on the GPU using the “gpuArray”, run your function as you would normally - if the inputs are available on the GPU, we do the right thing and run on the GPU and then “gather” the data back to the CPU. This seamless support allows you to run the same code on both the CPU and the GPU.
 
 ## GPU Computing with Matlab
+
+MATLAB provides seamless integration with NVIDIA GPUs, enabling users to accelerate computations without needing to write CUDA code. Users can transfer data to the GPU with gpuArray, perform computations, and gather results back to the CPU with minimal changes to their existing code.
 
 **Useful Links**
 
@@ -679,13 +691,14 @@ I've also shown you the specific steps needed.   MathWorks provides tools and in
   * [MATLAB  Advanced Software Development  Performance and  Memory](http://www.mathworks.com/help/matlab/performance-and-memory.html)
   * [Parallel Computing Toolbox](http://www.mathworks.com/help/distcomp/index.html)
 * Parallel and GPU Computing Tutorials
-  * [https://www.mathworks.com/videos/series/parallel-and-gpu-computing-tutorials-97719.html](https://www.mathworks.com/videos/series/parallel-and-gpu-computing-tutorials-97719.html)
+  * [Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing.html)
+  * [GPU Computing](https://www.mathworks.com/help/parallel-computing/gpu-computing.html)
 * Parallel Computing on the Cloud with MATLAB
-  * [http://www.mathworks.com/products/parallel-computing/parallel-computing-on-the-cloud/](http://www.mathworks.com/products/parallel-computing/parallel-computing-on-the-cloud/)
+  * [Parallel Computing](http://www.mathworks.com/products/parallel-computing/parallel-computing-on-the-cloud/)
 
 ## MATLAB Central Community
 
-Every month, over  **2 million ** MATLAB & Simulink users visit MATLAB Central to get questions answered, download code and improve programming skills.
+Every month, over  **2 million** MATLAB & Simulink users visit MATLAB Central to get questions answered, download code and improve programming skills.
 
 ![](img/Matlab-Parallel-ProgrammingFall23_new38.png)
 
@@ -697,13 +710,13 @@ Every month, over  **2 million ** MATLAB & Simulink users visit MATLAB Central t
 
 **[Blogs](http://blogs.mathworks.com/)** : Get the inside view from Engineers who build and support MATLAB & Simulink
 
-**[ThingSpeak](https://thingspeak.com/)** : ** ** Explore IoT Data
+**[ThingSpeak](https://thingspeak.com/)** : **Explore** IoT Data
 
 And more for you to explore…
 
 ## Get Help
 
-![](img/Matlab-Parallel-ProgrammingFall23_new39.png)
+![Get Help Example](../img/get-help-example.png)
 
 Quick access to:
 
@@ -716,11 +729,11 @@ Support engineers
 ## Part II: Matlab Parallel Computing On Rivanna
 
 * Upload the file Rivanna.zip to your Rivanna account using any of the methods outlined in the following URL.
-* [https://www.rc.virginia.edu/userinfo/data-transfer/#data-transfer-methods](https://www.rc.virginia.edu/userinfo/data-transfer/#data-transfer-methods)
+* [Data Transfer Methods](https://www.rc.virginia.edu/userinfo/data-transfer/#data-transfer-methods)
 * Log into Rivanna using the FastX web interface and launch the Mate Desktop.
-* [http://rivanna-desktop.hpc.virginia.edu](http://rivanna-desktop.hpc.virginia.edu/)
+* [Rivanna Login](https://login5.hpc.virginia.edu:8000/auth/ssh/)
 * If you are off-grounds, you will have to run the UVA Anywhere VPN before logging in through FastX.
-* [https://](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[www.rc.virginia.edu](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[/](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[userinfo](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[/](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[linux](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[/](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[uva](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[-anywhere-](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[vpn](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[-](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[linux](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)[/](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)
+* [UVA Anywhere VPN on Linux](https://www.rc.virginia.edu/userinfo/linux/uva-anywhere-vpn-linux/)
 * In the Mate Desktop, open two terminal windows, one to start the Matlab Desktop and one to work from the Rivanna command line.
 * In the second terminal window, go to the location where you uploaded the Rivanna.zip file and unzip it with the command 'unzip Rivanna.zip' to create a folder Rivanna.
 
@@ -733,14 +746,14 @@ Support engineers
 * sbatch example1.slurm
 * Check that the job is in the queue with the command
 * squeue -u <your id>
-* [https://www.rc.virginia.edu/userinfo/rivanna/slurm/#displaying-job-status](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#displaying-job-status)
+* [Displaying Job Status](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#displaying-job-status)
 
 * Once the job is running, it should finish in a few minutes. The error file (.err) should not contain anything and the output file (.out) should contain what Matlab would normally send to the Matlab command window.
 * If for some reason you need to cancel your job, use the scancel command with the job id
-* [https://](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#canceling-a-job)[www.rc.virginia.edu](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#canceling-a-job)[/](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#canceling-a-job)[userinfo](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#canceling-a-job)[/](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#canceling-a-job)[rivanna](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#canceling-a-job)[/](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#canceling-a-job)[slurm](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#canceling-a-job)[/#canceling-a-job](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#canceling-a-job)
+* [Cancelling a Job](https://www.rc.virginia.edu/userinfo/hpc/slurm/#canceling-a-job)
 * For the examples of running Matlab using multiple compute nodes, those jobs are submitted from within Matlab rather than with an external slurm script. Matlab creates its own slurm script to submit the job.
 * The reference for this material is at the URL
-* [https://www.rc.virginia.edu/userinfo/rivanna/software/matlab/](https://www.rc.virginia.edu/userinfo/rivanna/software/matlab/)
+* [Matlab and UVA HPC](https://www.rc.virginia.edu/userinfo/rivanna/software/matlab/)
 
 Using multiple cores on one node:
 
@@ -779,7 +792,7 @@ matlab -nodisplay -r \
 
 ## SLURM Script end-of-job email
 
-![](img/Matlab-Parallel-ProgrammingFall23_new40.png)
+![Slurm Email Example](../img/slurm-email-example.png)
 
 * When the job finishes, the end-of-job email sent by SLURM will contain the output of the SLURM seff command.
 
@@ -819,7 +832,7 @@ As artificial intelligence (AI) and machine learning (ML) continue to change how
 * The job (can be single- or multi-GPU) is I/O intensive.
 * The job (can be single- or multi-GPU) requires more than 40 GB GPU memory. (The non-POD nodes with the highest GPU memory are the regular A100 nodes with 40 GB GPU memory.)
 
-[https://](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[www.rc.virginia.edu](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[/](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[userinfo](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[/](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[rivanna](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[/](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[basepod](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)[/](https://www.rc.virginia.edu/userinfo/rivanna/basepod/)
+[HGX 200 Nodes and the NVIDIA DGX BasePOD](https://www.rc.virginia.edu/userinfo/hpc/basepod/)
 
 
 Slurm script additional constraint
@@ -868,7 +881,7 @@ Shell script to monitor and record cpu/memory usage using top
 
 Shell script to monitor job resource usage output file
 
-![](img/Matlab-Parallel-ProgrammingFall23_new41.png)
+![Slurm Output File](../img/slurm-output-file.png)
 
 ## Parallel/GPU Computing
 
@@ -886,7 +899,7 @@ The only way to definitively answer this question is to perform a scaling study 
 
 Plotting the same data on log axes gives a lot more insight. Note the different scales for the left axes on the two plots. Including a line showing linear scaling and plotting the parallel efficiency on the right axis adds even more value
 
-![](img/Matlab-Parallel-ProgrammingFall23_new42.jpg)
+![Scaling Log Graphs](../img/scaling-logs-graphs.jpg)
 
 ## Where should I be on the scaling curve?
 
