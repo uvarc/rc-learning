@@ -1,4 +1,4 @@
-i[![Build Status](https://travis-ci.com/uvarc/rc-website.svg?branch=master)](https://travis-ci.com/uvarc/rc-website)
+[![Build Status](https://travis-ci.com/uvarc/rc-website.svg?branch=master)](https://travis-ci.com/uvarc/rc-website)
 
 # UVA Research Learning & Workshop Website
 
