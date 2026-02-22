@@ -46,7 +46,7 @@ class Mammal: public Animal {
 We could then derive Antelope from Mammal.  Further subdivisions would be possible (`class Ungulate` and so forth).
 Derived classes can continue like this in an _inheritance chain_ indefinitely, though it would be poor practice to set up more than a few links in the chain.   
 
-{{< diagram >}}
+{{< diagram alt="A diagram showing how classes are inherited. Animal is the parent of Reptile and Mammal, and Mammal is the parent of Antelope.">}}
 graph TD;
 A(Animal) --> B(Reptile)
 A(Animal) --> C(Mammal)
