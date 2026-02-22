@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/uvarc/rc-website.svg?branch=master)](https://travis-ci.com/uvarc/rc-website)
+<!-- [![Build Status](https://travis-ci.com/uvarc/rc-website.svg?branch=master)](https://travis-ci.com/uvarc/rc-website) -->
 
 # UVA Research Learning & Workshop Website
 
@@ -7,7 +7,6 @@
 | https://staging.learning.rc.virginia.edu | https://www.learning.rc.virginia.edu  |
 
   * [Developing](#developing)
-     * [Using Gitpod](#using-gitpod)
      * [Local Install](#local-install)
   * [Creating New Content](#creating-new-content)
      * [Methods for creating content](#two-methods-for-creating-content)
@@ -27,8 +26,8 @@
 
 ### Local Install
 
-* [Install](https://gohugo.io/overview/installing/) the HUGO binary on your local computer. This has been tested with version 0.74.x-extended. **You need the extended version.** Binaries for different operating systems can be downloaded from the Hugo GitHub repo: https://github.com/gohugoio/hugo/releases/tag/v0.74.3.
-* Clone this website repository: `git clone git@github.com:uvarc/rc-learning.git`.  The `master` branch is protected.  New content has to be pushed to the `staging` branch. Use this command to clone the staging branch only: `git clone --single-branch -b staging git@github.com:uvarc/rc-learning.git`.
+* [Install](https://gohugo.io/overview/installing/) the Hugo binary on your local computer. This has been tested with version 0.133.1-extended. **You need the extended version.** Binaries for different operating systems can be downloaded from the Hugo GitHub repo: https://github.com/gohugoio/hugo/releases/tag/v0.133.1
+* Clone this website repository: `git clone git@github.com:uvarc/rc-learning.git`.  The `main` branch is protected.  New content has to be pushed to the `staging` branch. Use this command to clone the staging branch only: `git clone --single-branch -b staging git@github.com:uvarc/rc-learning.git`.
 
 - - -
 
@@ -84,9 +83,9 @@ Using the `date` metadata smartly, you can forward date any post or article. [Au
 `hugo server` will bring up the local hugo server and give you a preview URL `http://localhost:1313/`. If making many changes, open another terminal to keep the `hugo server` running as you edit.
 
 ### Publish content
-Simply push `staging` back to GitHub. We're in the process of setting up the S3 buckets for hosting the content. 
+Simply push `staging` back to GitHub. 
 
-TravisCI will handle it from there and publish the content at the staging site, https://staging.learning.rc.virginia.edu. Pushing your content to the production website requires a PULL REQUEST.
+The CI will handle it from there and publish the content at the staging site, https://staging.learning.rc.virginia.edu. Pushing your content to the production website requires a PULL REQUEST.
 
 > Remember that after pushing your changes back to the `staging` branch, the https://staging.rc.virginia.edu/ website will be updated within 1-2 minutes. Hold down the SHIFT key when reloading your browser to refresh your local cache.
 
