@@ -15,4 +15,4 @@ You may be familiar with the virtual machines (VMs), which accomplish the same g
 
 The size of Docker images is usually on the order of tens of MBs, while VMs can be several tens of GBs large.
 
-<img src="/notes/containers/img/container-vs-vm.pbm" /> 
+<img src="/notes/containers/img/container-vs-vm.pbm" alt="Side-by-side comparison of containerized applications (Docker on a host OS) and virtual machines (apps running on guest OSs over a hypervisor)." /> 
