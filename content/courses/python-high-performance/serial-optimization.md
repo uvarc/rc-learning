@@ -11,7 +11,7 @@ menu:
 
 We can represent the optimization process with a flowchart:
 
-{{< diagram >}}
+{{< diagram alt="Flowchart of the optimization process: profile code, tune the slowest section, check for performance improvement, then repeat or try a different solution." >}}
 graph TD;
 A(Profile or time) --> B(Tune the slowest section);
 B --> C{Performance increase?};
@@ -20,7 +20,7 @@ C -- No --> E(Try a different solution);
 D --> A
 {{< /diagram >}}
 
-There are many approaches to speeding up sections, some specific to Python and some more generic.  In this section we will consider several possibilities.
+There are many many approaches to speeding up sections, some specific to Python and some more generic.  In this section we will consider several possibilities.
 
 ### Avoid for Loops
 

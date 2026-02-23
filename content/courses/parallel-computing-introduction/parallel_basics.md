@@ -79,7 +79,7 @@ The landscape service has several tasks to perform.   
 
 We can draw a graph to help us understand the sequence of events.
 
-{{< diagram >}}
+{{< diagram alt="Diagram showing landscaping workflow: turn off security system, perform mowing, edging, and weeding in parallel, set sprinklers, then turn security system back on." >}}
 graph TD;
 A(Turn off Security System) --> B(Edge Lawn)
 A(Turn off Security System) --> C(Mow Lawn)
