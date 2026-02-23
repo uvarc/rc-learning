@@ -18,7 +18,7 @@ In the language of your choice, write a heated-plate solution using two-dimensio
 Check your rsults by plotting.  If you wish, you can use the script contour2d.py
 
 {{< spoiler >}}
-{{< code-download file=/courses/parallel-computing-introduction/scripts/contour2d.py" lang="python" >}}
+{{< code-download file="courses/parallel-computing-introduction/scripts/contour2d.py" lang="python" >}}
 {{< /spoiler >}}
 
 The usage is

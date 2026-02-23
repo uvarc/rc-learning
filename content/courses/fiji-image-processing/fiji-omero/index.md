@@ -182,8 +182,8 @@ Before you begin, you need to know the dataset ID that the image should be linke
 
 3. Go to OMERO webclient (http://omero.hpc.virginia.edu) and look for the uploaded image in `Orphaned Images`.
 
-	<img src="./leaf.png" style="float:left;width:40%;height:auto">
-	<img src="./fiji-omero-new-export.png" style="width:40%;height:auto">
+	<img src="./leaf.png" alt="ariegated leaf specimen with ruler for scale" style="float:left;width:40%;height:auto">
+	<img src="./fiji-omero-new-export.png" alt="Export to OMERO dialog with server and dataset settings" style="width:40%;height:auto">
 
 
 <br>
@@ -210,16 +210,16 @@ Before you begin, you need to know the dataset ID that the image should be linke
 
 	a. Go to `Process` > `Filter` > `Median`.  In the popup dialog enter a `Radius` of  `3.0` and click `OK`.  This will smooth out some of the image's intrinsic noise without degrading the object outlines.
 
-	b. Go to `Image` > `Adjust Threshold`.  In the popup dialog choose the `Default` thresholding algorithm, uncheck the `Dark Background` box and click `Apply`. The image should have been converted to a binary mask with white objects ona black background.
-			<img src="./fiji-omero-setthreshold.png" style="float:left;width:47%;height:auto">
-			<img src="./fiji-omero-blobs-thresholded.png" style="width:40%;height:auto">
+	b. Go to `Image` > `Adjust Threshold`.  In the popup dialog choose the `Default` thresholding algorithm, uncheck the `Dark Background` box and click `Apply`. The image should have been converted to a binary mask with white objects on a black background.
+			<img src="./fiji-omero-setthreshold.png" alt="Fiji Threshold dialog with range 126-255 and Red overlay selected" style="float:left;width:47%;height:auto">
+			<img src="./fiji-omero-blobs-thresholded.png" alt="Blobs image with red threshold overlay highlighting segmented cells" style="width:40%;height:auto">
 	
 	
 	c. Go to `Analyze` > `Set Measurements...`. In the popup dialog specify the parameters as shown in this screenshot. Click `OK`.
 
 	d. Go to `Analyze` > `Analyze Particles` and set up the parameters as shown. Click `OK`.
-			<img src="./fiji-omero-setmeasurements.png" style="float:left;width:40%;height:auto">
-			<img src="./fiji-omero-analyzeparticles.png" style="width:50%;height:auto">
+			<img src="./fiji-omero-setmeasurements.png" alt="Set Measurements dialog settings" style="float:left;width:40%;height:auto">
+			<img src="./fiji-omero-analyzeparticles.png" alt=Analyze Particles dialog settings" style="width:50%;height:auto">
 
     e. These steps should create a `Results` and a `Summary` table.
 
