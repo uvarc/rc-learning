@@ -72,7 +72,7 @@ In Fortran the PRINT statement always writes an end-of-line marker after all var
 
 Input values can be read from the command line.  This is usually accomplished in an IDE through an option to `Run`.
 
-We can read strings only.  You must convert if necessary to a numerical type using internal read/write.  See the discussion [earlier](courses/fortran-introduction/operators).
+We can read strings only.  You must convert if necessary to a numerical type using internal read/write.  See the discussion [earlier](/courses/fortran-introduction/operators).
 
 The COMMAND_ARGUMENT_COUNT intrinsic returns the number of command-line options.  For each one, we must call GET_COMMAND_ARGUMENT with its number and a character buffer variable.
 ```fortran

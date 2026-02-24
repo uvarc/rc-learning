@@ -62,7 +62,7 @@ An allocatable string may be deallocated if necessary with the usual `DEALLOCATE
 DEALLOCATE(str)
 ```
 
-Prior to Fortran 2003, the standard defined a module `iso_varying_string`.  Most compilers available now support the 2003 standard so will offer the standard variable string, but the iso_varying_string module provides a number of functions so may still be worthwhile.  We will discuss standardized modules [later](courses/fortran-introduction/standard_modules).
+Prior to Fortran 2003, the standard defined a module `iso_varying_string`.  Most compilers available now support the 2003 standard so will offer the standard variable string, but the iso_varying_string module provides a number of functions so may still be worthwhile.  We will discuss standardized modules [later](/courses/fortran-introduction/standard_modules).
 
 ## Substrings
 
@@ -103,7 +103,7 @@ Hello world          today
 
 ### String Length
 A useful string function, especially for variable-length strings, is `LEN(S)`.
-A fixed-length string will always occupy the specified number of characters. The default is to left-justify non-blank characters in the field.  This can be modified with [intrinsics](courses/fortran-introduction/character_intrinsics).
+A fixed-length string will always occupy the specified number of characters. The default is to left-justify non-blank characters in the field.  This can be modified with [intrinsics](/courses/fortran-introduction/character_intrinsics).
 
 **Exercises**
 * Declare character variables large enough to hold the indicated strings.  Make full_title at least 5 characters longer than you think necessary.
