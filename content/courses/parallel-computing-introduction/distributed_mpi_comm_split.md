@@ -42,10 +42,10 @@ Rewrite the group-creation exercise to use `MPI_Comm_split`.
 {{< /spoiler >}}
 
 {{< spoiler text="Fortran" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/mpi_comm_split.f90" lang="fortran" >}}
+{{< code-download file="/courses/parallel-computing-introduction/solns/mpi_comm_split.f90" lang="fortran" >}}
 {{< /spoiler >}}
 
 {{< spoiler text="Python" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/mpi_comm_split.py" lang="python" >}}
+{{< code-download file="/courses/parallel-computing-introduction/solns/mpi_comm_split.py" lang="python" >}}
 {{< /spoiler >}}
 

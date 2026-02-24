@@ -61,5 +61,5 @@ If Geany is to run a multi-file executable then the main program file must be se
 
 {{< figure src="/courses/fortran-introduction/img/GeanyFiles.png" width=500px caption="Executing the example program" >}}
 
-This process becomes increasingly cumbersome as projects grow in number and complexity of files.  The most common way to manage projects is through the [make](courses/fortran-introduction/make.md) utility, which we will examine next.
+This process becomes increasingly cumbersome as projects grow in number and complexity of files.  The most common way to manage projects is through the [make](/courses/fortran-introduction/make.md) utility, which we will examine next.
 

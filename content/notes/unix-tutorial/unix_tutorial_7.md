@@ -1,7 +1,6 @@
 ---
 title: "Environment Variables"
 linktitle: "Tutorial 7: Environment Variables"
-date: 2019-04-29T11:06:47-04:00
 draft: false
 highlight_style: "github"
 toc: true

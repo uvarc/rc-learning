@@ -12,7 +12,7 @@ menu:
 
 Our first example of an Integrated Development Environment, or __IDE__, is Spyder.  Spyder is aimed specifically at Python.  It is well suited to developing longer, more modular programs.  
 
-The authors generally recommend the standalone version referenced [earlier](courses/python-introduction/setting_up_environment).  If using this application, always start it from your operating system's launcher.  Remember that each environment must include the `ipython` package for it to be recognized by this application.
+The authors generally recommend the standalone version referenced [earlier](/courses/python-introduction/setting_up_environment).  If using this application, always start it from your operating system's launcher.  Remember that each environment must include the `ipython` package for it to be recognized by this application.
 
 In an HPC system, or if not using the standalone version, you must activate the environment and spyder must be installed. Go to the Miniforge Prompt (Windows) or a terminal (Linux or MacOS) and type
 ```bash

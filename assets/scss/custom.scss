@@ -383,4 +383,9 @@ footer {
   .badge-light {
     color: white;
   }
+  
+  .tag-cloud a:hover,
+  .tag-cloud a:focus {
+    color: hsl(231, 48%, 90%);
+  }
 }

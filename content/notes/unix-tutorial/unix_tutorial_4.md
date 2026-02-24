@@ -1,7 +1,6 @@
 ---
 title: "Wildcards and File Access"
 linktitle: "Tutorial 4: Wildcards and File Access"
-date: 2019-04-29T11:06:47-04:00
 draft: false
 highlight_style: "github"
 toc: true

@@ -13,16 +13,16 @@ We have already [discussed](/courses/parallel-computing/distributed_mpi_higher_d
 
 We have learned how to create new communicators.  MPI provides a specialized set of routines to generate a communicator with the row and column coordinates computed for us.  As usual, it also can provide the rank relative to the new communicator.
 
-Communication at the ends of the Certesian block can be periodic or nonperiodic.  So far we've only considered nonperiodic boundaries, where for example the "left" of rank - is `MPI_PROC_NULL1, as is the "right" of the rank at the end of the row.  We could also wrap the domain, so that data from rank 0 goes to rank nrows-1 and vice versa. 
+Communication at the ends of the Cartesian block can be periodic or nonperiodic.  So far we've only considered nonperiodic boundaries, where for example the "left" of rank - is `MPI_PROC_NULL1, as is the "right" of the rank at the end of the row.  We could also wrap the domain, so that data from rank 0 goes to rank nrows-1 and vice versa. 
 
-{{< figure src="/courses/parallel-computing-introduction/img/mpi_2d_periodic_bcspng" alt="Ranks laid out 3x2 with arrows between 0 and 2 and 1 and 5." caption="Periodic boundary conditions for a Cartesian layout." >}}
+{{< figure src="/courses/parallel-computing-introduction/img/mpi_2d_periodic_bcs.png" alt="Ranks laid out 3x2 with arrows between 0 and 2 and 1 and 5." caption="Periodic boundary conditions for a Cartesian layout." >}}
 
 We will just summarize the types for the subprograms related to Cartesian communciator sytnax.
 
-C++
-
+## C++
+```c++
 int ndims;
-
+```
 dims is a 2-d int array with elements nrows, ncols
 
 periods is a 2-d int array with elements 0 for nonperiodic boundary along the zeroth dimension (rows in our example) and 1 for a periodic boundary along the first dimension (columns in our example).  A periodic boundary wraps the identity of the neighbor to the "empty" side of a rank.  
@@ -41,7 +41,7 @@ grid_coords: two-dimensional int array whose values are the coordinates of the l
 
 ```
 
-Fortran 2008
+## Fortran 2008
 
 Other than `periods` and `reorder`, the types are similar to the C++ arguments. If using the optional last `ierror` argument, it is integer as usual.
 
@@ -57,7 +57,7 @@ reorder: logical .true. or .false.
 
 ```
 
-Python
+## Python
 
 dimes: two-dimensional list, arguments nrows, ncols as for other languages.
 periods: two-dimensional Boolean with arguments True (periodic) or False (nonperiodic) similar to Fortran.
@@ -72,7 +72,7 @@ grid_coords=grid_comm.coords
 ```
 ## Example
 
-{{< spoiler text="Fortran" >}}
+{{< spoiler text="C++" >}}
 {{< code-download file="/courses/parallel-computing-introduction/codes/mpi_cart_topo.cxx" lang="c++" >}}
 {{< /spoiler >}}
 
