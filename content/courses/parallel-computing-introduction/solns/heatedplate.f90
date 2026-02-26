@@ -55,6 +55,7 @@ program heatedplate
   u=0.d0
   w=0.d0
 
+  lb=lbound(u,1)
   call set_bcs(lb,nr,nc,u)
 
   ! Initialize interior values to the boundary mean, more or les
@@ -121,9 +122,9 @@ end program heatedplate
 
 subroutine set_bcs(lb,nr,nc,u)
 implicit none
-integer, intent(in)                                 :: lb, nr, nc
+integer, intent(in)                       :: lb, nr, nc
 double precision, dimension(lb:,lb:), intent(inout) :: u
-double precision                                    :: topBC, bottomBC, edgeBC
+double precision                          :: topBC, bottomBC, leftBC, rightBC
 
   ! Set boundary values 
   ! This has the ice bath on the bottom edge.
@@ -131,11 +132,13 @@ double precision                                    :: topBC, bottomBC, edgeBC
 
   topBC=100.d0
   bottomBC=0.d0
-  edgeBC=100.d0
+  leftBC=100.d0
+  rightBC=100.d0
 
   !Set boundary conditions
-  u(1:nr,0)=edgeBC
-  u(1:nr,nc+1)=edgeBC
-  u(nr+1,1:nc)=topBC
+  u(1:nr,lb)=leftBC
+  u(1:nr,nc+1)=rightBC
+  u(lb,:)=topBC
+  u(nr+1,:)=bottomBC
 
 end subroutine set_bcs

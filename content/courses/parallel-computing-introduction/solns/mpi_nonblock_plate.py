@@ -129,6 +129,12 @@ while iterations<=max_iterations:
 
     w[1:-1,1:-1]=0.25*(u[:-2,1:-1]+u[2:,1:-1]+u[1:-1,:-2]+u[1:-1,2:])
 
+    #set halo values
+    w[0,:]=u[0,:]
+    w[nrl+1,:]=u[nrl+1,:]
+    w[:,0]=u[:,0]
+    w[:,ncl+1]=u[:,ncl+1]
+
     if iterations%diff_interval==0:
         my_diff[0]=np.max(np.abs(w[1:-1,1:-1]-u[1:-1,1:-1]))
         comm.Allreduce(my_diff,global_diff,op=MPI.MAX)

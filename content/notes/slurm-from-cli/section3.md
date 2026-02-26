@@ -1,6 +1,6 @@
 ---
 title:  III - Jobs on the Cluster
-date: 2023-12-11-14T00:11:14Z
+date: 2023-12-11T00:00:00Z
 type: docs
 toc : true 
 weight: 30
@@ -8,12 +8,15 @@ menu:
     slurm-from-cli:
 ---
 
-## Running Jobs from Scratch
+## Directories for Jobs
 
-We recommend that you run your jobs out of your /scratch directory.
- * Your personal /scratch/mst3k folder has much more storage space than your home directory. 
- * /scratch is on a Weka filesystem, a storage system designed specifically for fast access.
- * /scratch is connected to the compute nodes with Infiniband, a very fast network connection.
+By default, Slurm will start your job from the folder in which it was launched. You can change that with the -D option (directory) but many users simply navigate to the folder and type commands. 
+
+What folder you are submitting your job from matters. Not all filesystems are equal in performance and purpose, so it’s crucial to understand their differences to know what’s best for your jobs. In summary:
+ * Home - Good for jobs requiring small amounts of data. Best location to store software, so good to manage job scripts, code, and software all in one place.
+ * Scratch - Best place for running jobs using large numbers of files or large file sizes. High temporary storage capacity on a Weka filesystem which is designed for fast access. Scratch is regularly purged (see policy below). Ensure to backup irreplacable data and scripts once job completes.
+ * Standard - Leased storage great for sharing data within a research group. Filesystem is lowest in performance. Jobs with large file I/O will impact the system greatly. You should not run jobs here.
+ * Project - Versatile leased storage. Filesystem is higher performing and great for jobs. Its quota is adjustable, and is a space to share data within a research group. More expensive than Standard storage.
 
 {{< alert >}}
 The scratch system is not permanent storage, and files older than 90 days will be marked for deleting (purging). You should keep copies of your programs and data in more permanent locations such as your home directory, leased storage such as /project or /standard, or on your lab workstation. After your jobs finish, copy the results to permanent storage.
@@ -38,7 +41,7 @@ Always remember that you submit your **job script** and not your executable or i
 
 **Exercise**
 
-From your working directory where  hello.slurm is, submit the job.
+Navigate to your Newproject directory and submit the job.
 
 ## Monitoring a Job
 
@@ -114,7 +117,7 @@ as the command.  You won't need to request a specific amount of memory. Submit t
 
 ## Examining Your Utilization
 
-When your jobs have finished, you may wish to find out how much of the resource you utilized.  Two commands can be used for this purpose, `sacct` and `seff`.
+When your jobs have finished, you may wish to find out how much of the resource you utilized. `sacct` and `seff` are two commands and a software module called Jobstats can be used for this purpose. 
 
 ### sacct
 
@@ -159,7 +162,7 @@ $sacct -o jobname,jobid,ncpus,nnodes,maxrss,state,elapsed -j 56221192
 mpiheated+ 56221192.0           10        1    108800K  COMPLETED   00:00:33 
 ```
 
-The output from `sacct` can be heavily customized. For more information see the [documentation](https://slurm.schedmd.com/sacct.html).
+The output from `sacct` can be heavily customized. For more information see the [documentation](https://slurm.schedmd.com/sacct.html "Official Slurm sacct command documentation").
 
 Running `sacct` puts a load on the system and can be very slow, so please use it judiciously.
 
@@ -188,9 +191,33 @@ Core efficiency is more problematic for GPU jobs, since the key to efficient GPU
 
 If your memory utilization is low and you have requested a specified amount, use `sacct -o` with at least the MaxRSS field to double-check. If you do not need as much memory as you thought, you may be able to save SUs and have a shorter queue wait time if you decrease it. 
 
+### jobstats
+
+Jobstats is an open-source job monitoring software that can be used to gain more utilization statistics about completed jobs. It is designed for CPU and GPU clusters that use the Slurm workload manager. It is not built in to Slurm like seff or sacct, so it needs to be loaded as a module first:
+
+```
+module load jobstats
+```
+
+Once a job has finished, you can run the command `jobstats <JobID>` to receive a utilization report. Here is an example of what a report looks like:
+
+{{< spoiler text="Example Report" >}}
+{{< code-download file="/notes/slurm-from-cli/scripts/jobstatsexample.txt" lang="bash" >}}
+{{< /spoiler >}}
+
+To highlight some of the information jobstats reports on:
+ - Both CPU and GPU utilization efficiency
+ - CPU utilization across multiple nodes
+ - Utilization across multiple GPUs
+ - Notes on areas of job improvement
+
+Note that the suggestions provided at the end of the report may or may not be applicable to your jobs. The provided example was a job run on a GPU, where CPU memory is utilized less. A low utilization report on CPU memory usage would not be of concern versus a report on low GPU memory utilization. Please contact us if you have any questions or concerns about your utilization report.
+
+Jobstats reports are only kept in the database for so long, so older jobs will give an error. Jobstats will also not be able to collect useful information for short jobs and will provide the same error. The output will recommend instead to use seff for utilization details. Because of the soft time limit, it may be useful to immediately run a report on a completed job and save the report in a file for later use. 
+
 ## Stream Output in Slurm
 
-When running a program interactively, any output to the Unix [standard streams](https://learning.rc.virginia.edu/notes/unix-tutorial/unix_tutorial_3/) will be printed directly to the user's console window.  However, programs running under the control of Slurm will not have a console attached. 
+When running a program interactively, any output to the Unix [standard streams](/notes/unix-tutorial/unix_tutorial_3/ "The Unix tutorial's More About Files page") will be printed directly to the user's console window.  However, programs running under the control of Slurm will not have a console attached. 
 
 By default, SLURM redirects both standard output and standard error to a file called `slurm-<jobid>.out`.
 

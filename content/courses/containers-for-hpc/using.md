@@ -1,8 +1,8 @@
 ---
-date : "2024-6-03T00:00:00-05:00"
 title: Using Containers on HPC [Apptainer]
 toc: true
 type: book
+date: "2025-05-13T00:00:00"
 weight: 3
 
 ---
@@ -14,6 +14,9 @@ Log on to our HPC cluster
     - Make sure you have a few GBs of free space
 - Run `allocations`
     - Check if you have `hpc_training`
+- Request an interative job
+    {{< code-snippet >}}ijob -A hpc_training -p interactive -c 1 -t 2:0:0{{< /code-snippet >}}
+- Run `module load apptainer`
 
 ---
 
@@ -49,9 +52,9 @@ Inspect an image before running it via `inspect`.
 ```bash
 $ apptainer inspect lolcow_latest.sif 
 org.label-schema.build-arch: amd64
-org.label-schema.build-date: Monday_8_January_2024_10:21:0_EST
+org.label-schema.build-date: Wednesday_14_May_2025_10:20:6_EDT
 org.label-schema.schema-version: 1.0
-org.label-schema.usage.apptainer.version: 1.2.2
+org.label-schema.usage.apptainer.version: 1.3.4
 org.label-schema.usage.singularity.deffile.bootstrap: docker
 org.label-schema.usage.singularity.deffile.from: rsdmse/lolcow
 ```
@@ -170,11 +173,17 @@ The corresponding `run` command is displayed upon loading a module.
 ```bash
 $ module load tensorflow
 To execute the default application inside the container, run:
-apptainer run --nv $CONTAINERDIR/tensorflow-2.13.0.sif
+apptainer run --nv $CONTAINERDIR/tensorflow-2.17.0.sif
+
+This container is based on NGC 24.11
+https://docs.nvidia.com/deeplearning/frameworks/tensorflow-release-notes/rel-24-11.html#rel-24-11
 
 $ module list
 Currently Loaded Modules:
-  1) apptainer/1.2.2   2) tensorflow/2.13.0
+  1) apptainer/1.3.4   2) tensorflow/2.17.0 (g)
+
+  Where:
+   g:  built for GPU
 ```
 
 - `$CONTAINERDIR` is an environment variable. It is the directory where containers are stored.
@@ -204,7 +213,7 @@ Currently Loaded Modules:
 Copy these files:
 
 ```bash
-cp /share/resources/tutorials/apptainer_ws/tensorflow-2.13.0.slurm .
+cp /share/resources/tutorials/apptainer_ws/tensorflow-2.17.0.slurm .
 cp /share/resources/tutorials/apptainer_ws/mnist_example.{ipynb,py} .
 ```
 
@@ -221,7 +230,7 @@ Examine Slurm script:
 #SBATCH -o tftest-%A.out     # output file
 #SBATCH -e tftest-%A.err     # error file
 
-VERSION=2.13.0
+VERSION=2.17.0
 # start with clean environment
 module purge
 module load apptainer tensorflow/$VERSION
@@ -232,7 +241,7 @@ apptainer run --nv $CONTAINERDIR/tensorflow-$VERSION.sif mnist_example.py
 Submit job:
 
 ```bash
-sbatch tensorflow-2.13.0.slurm
+sbatch tensorflow-2.17.0.slurm
 ```
 
 #### What does `--nv` do?
@@ -240,10 +249,10 @@ sbatch tensorflow-2.13.0.slurm
 See [Apptainer GPU user guide](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
 
 ```bash
-$ apptainer shell $CONTAINERDIR/tensorflow-2.13.0.sif
+$ apptainer shell $CONTAINERDIR/tensorflow-2.17.0.sif
 Apptainer> ls /.singularity.d/libs
 
-$ apptainer shell --nv $CONTAINERDIR/tensorflow-2.13.0.sif
+$ apptainer shell --nv $CONTAINERDIR/tensorflow-2.17.0.sif
 Apptainer> ls /.singularity.d/libs
 libEGL.so		  libGLX.so.0		       libnvidia-cfg.so			  libnvidia-ifr.so
 libEGL.so.1		  libGLX_nvidia.so.0	       libnvidia-cfg.so.1		  libnvidia-ifr.so.1
@@ -256,7 +265,7 @@ libEGL.so.1		  libGLX_nvidia.so.0	       libnvidia-cfg.so.1		  libnvidia-ifr.so.
 
 ### "Can I use my own container on JupyterLab?"
 
-Suppose you need to use TensorFlow 2.17.0 on JupyterLab. First, note we do not have `tensorflow/2.17.0` as a module:
+Suppose you need to use TensorFlow 2.19.0 on JupyterLab. First, note we do not have `tensorflow/2.19.0` as a module:
 
 ```bash
 module spider tensorflow
@@ -270,7 +279,7 @@ Go to [TensorFlow's Docker Hub page](https://hub.docker.com/r/tensorflow/tensorf
 1. Create kernel directory
 
 ```bash
-DIR=~/.local/share/jupyter/kernels/tensorflow-2.17.0
+DIR=~/.local/share/jupyter/kernels/tensorflow-2.19.0
 mkdir -p $DIR
 cd $DIR
 ```
@@ -280,11 +289,11 @@ cd $DIR
 ```
 {
  "argv": [
-  "/home/<user>/.local/share/jupyter/kernels/tensorflow-2.17.0/init.sh",
+  "/home/<user>/.local/share/jupyter/kernels/tensorflow-2.19.0/init.sh",
   "-f",
   "{connection_file}"
  ],
- "display_name": "Tensorflow 2.17",
+ "display_name": "Tensorflow 2.19",
  "language": "python"
 }
 ```
@@ -316,7 +325,7 @@ Usage: jkrollout sif display_name [gpu]
 ```
 
 ```bash
-jkrollout /path/to/sif "Tensorflow 2.17" gpu
+jkrollout /path/to/sif "Tensorflow 2.19" gpu
 ```
 
 ### Test your new kernel
@@ -326,13 +335,13 @@ jkrollout /path/to/sif "Tensorflow 2.17" gpu
     - Partition: GPU
     - Work Directory: (location of your `mnist_example.ipynb`)
     - Allocation: `hpc_training`
-- Select the new "TensorFlow 2.17" kernel
+- Select the new "TensorFlow 2.19" kernel
 - Run `mnist_example.ipynb`
 
 ### Remove a custom kernel
 
 ```bash
-rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.17.0
+rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.19.0
 ```
 
 ---

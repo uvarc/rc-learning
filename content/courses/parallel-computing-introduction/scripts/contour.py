@@ -3,7 +3,7 @@ import os
 import argparse
 import re
 import numpy as np
-import pylab as plt
+import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-f", "--fortran", help="Fortran ordering", action="store_true")
@@ -11,7 +11,7 @@ parser.add_argument("filename", help="Base name for data files")
 args = parser.parse_args()
 base = args.filename
 
-files = [f for f in os.listdir('.') if re.match(base+"\d*",f)]
+files = [f for f in os.listdir('.') if re.match(base+r"\d*",f)]
 files.sort()
 
 subdomains=[]

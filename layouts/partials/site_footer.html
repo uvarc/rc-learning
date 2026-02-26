@@ -1,15 +1,25 @@
 <footer class="site-footer">
-  <span style="float:left"><img height=auto width=300px src="/img/RC_logo.svg" alt="RC Logo" /></span>
-  <span style="text-align:center">
-  {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}} {{ end }}
-  </span>
-    {{ if not (in (slice "updates") .Type) }}
-    <span class="float-right" aria-hidden="true">
-      <a href="#" class="back-to-top">
+  <span class="site-footer-text-container">
+    <img class="site-footer-logo-light" height=auto width=400px src="/img/RC_logo.svg" alt="RC Logo" />
+    <img class="site-footer-logo-dark" height=auto width=400px src="/img/RC_logo_white_text.svg" alt="RC Logo" />
+    <span class="back-to-top-container-mobile" aria-hidden="true">
+      <a href="#" class="back-to-top" title="Scroll to top of page">
         <span class="button_icon">
           <i class="fas fa-chevron-up fa-2x"></i>
       </a>
-     </span>
+    </span>
+  </span>
+  <span>
+  {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}} {{ end }}
+  </span>
+    {{ if not (in (slice "updates") .Type) }}
+    <span class="back-to-top-container" aria-hidden="true">
+      <a href="#" class="back-to-top" title="Scroll to top of page">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+      </a>
+    </span>
     {{ end }}
 </p>
 </footer>
+<script src="{{ "scripts/fancybox-alt-text.js" | relURL }}"></script>

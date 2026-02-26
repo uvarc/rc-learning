@@ -1,6 +1,6 @@
 ---
 title: "Advanced File IO"
-date : "2021-04-5T00:00:00"
+date : "2021-04-05T00:00:00"
 toc: true
 type: book
 weight: 55
@@ -40,6 +40,7 @@ The permitted values for `fmt` are 'FORMATTED' (the default, for a text file) or
 ACCESS=acc
 ```
 The access `acc` can be 'SEQUENTIAL' (the default), 'DIRECT', or 'STREAM'. Direct files must be unformatted.
+
 Unless access is 'STREAM', an unformatted file will have a header and footer that is specific to a compiler and platform and may not be portable.  This is a relic of magnetic tape drives and allowed them to backspace and skip forward in the tape.  For a binary-format file similar to that produced by C/C++ programs and interchangeable with them, use
 ```fortran
 OPEN(UNIT=iunit,FILE=fname,ACCESS=stream,FORM=unformatted)

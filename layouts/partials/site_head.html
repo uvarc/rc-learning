@@ -75,9 +75,19 @@
     {{ end }}
     {{ if ($scr.Get "highlight_enabled") }}
       {{ $v := $css.highlight.version }}
-      {{ with site.Params.highlight_style }}
-        {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-light\">" (printf $css.highlight.url $css.highlight.version .) | safeHTML }}
-        {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-dark\" disabled>" (printf $css.highlight.url $css.highlight.version .) | safeHTML }}
+      {{ if and (isset site.Params "highlight_style_light") (isset site.Params "highlight_style_dark") }}
+        {{/* Both light and dark styles are specified - use them based on theme mode */}}
+        {{ if eq ($scr.Get "light") true }}
+          {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-light\">" (printf $css.highlight.url $css.highlight.version site.Params.highlight_style_light) | safeHTML }}
+          {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-dark\" disabled>" (printf $css.highlight.url $css.highlight.version site.Params.highlight_style_dark) | safeHTML }}
+        {{ else }}
+          {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-light\" disabled>" (printf $css.highlight.url $css.highlight.version site.Params.highlight_style_light) | safeHTML }}
+          {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-dark\">" (printf $css.highlight.url $css.highlight.version site.Params.highlight_style_dark) | safeHTML }}
+        {{ end }}
+      {{ else if isset site.Params "highlight_style" }}
+        {{/* Single highlight style specified - use for both light and dark */}}
+        {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-light\">" (printf $css.highlight.url $css.highlight.version site.Params.highlight_style) | safeHTML }}
+        {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-dark\" disabled>" (printf $css.highlight.url $css.highlight.version site.Params.highlight_style) | safeHTML }}
       {{ else }}
         {{ if eq ($scr.Get "light") true }}
           {{ printf "<link rel=\"stylesheet\" href=\"%s\" crossorigin=\"anonymous\" title=\"hl-light\">" (printf $css.highlight.url $css.highlight.version "github") | safeHTML }}

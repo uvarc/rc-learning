@@ -109,4 +109,4 @@ Submit the job via `sbatch job.slurm`.
 # References and further reading
 
 - [Official documentation](https://docs.rapids.ai/)
-- [Workshop: High Performance Programming in Python](/workshops/python_high_perf/)
+- [Workshop: High Performance Programming in Python](/courses/python-high-performance/)

@@ -16,6 +16,7 @@ categories: ["HPC"]
 #   Otherwise, set slides = "".
 
 url_slides: notes/rio-intro
+notes: rio-intro
 
 weight: 12
 

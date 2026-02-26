@@ -13,7 +13,11 @@ if 100%nprocs!=0:
 else:
     sendcount=100//nprocs
 
-values=np.linspace(1.,100.,100)
+values=np.zeros(100)
+#Only root needs to know the global values
+if (rank==0):
+    values=np.linspace(1.,100.,100)
+
 myvals=np.empty(sendcount)
 
 comm.Scatter([values,sendcount,MPI.DOUBLE],myvals)

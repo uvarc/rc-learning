@@ -6,9 +6,6 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 nprocs = comm.Get_size()
 
-N = 8
-M = 12
-
 #This example exchanges data among four rectangular domains with halos.
 #Most real codes use squares, but we want to illustrate how to use different
 #dimensions.
@@ -18,6 +15,9 @@ M = 12
 #the process distribution (either the total, for a perfect square, or
 #the rows/columns) would be read in and we would need to check that the number
 #of processes requested is consistent with the decomposition.
+
+N = 8
+M = 12
 
 nproc_rows=2
 nproc_cols=3
@@ -40,7 +40,8 @@ my_row=rank//nproc_cols
 my_col=rank%nproc_cols
 
 #Arbitrary values.
-w[:,:] = 50.*np.random.rand(1)
+w[:,:] = np.reshape(np.arange(1,(nrl+2)*(ncl+2)+1),(nrl+2,ncl+2))
+w=w*(rank+1)
 
 # setting up the up and down rank for each process
 if my_row == 0 :
@@ -62,39 +63,70 @@ if my_col == nproc_cols-1:
     right = MPI.PROC_NULL
 else:
     right = rank+1
-    
+
+#Boundary conditions
+topBC=0.0
+bottomBC=200.00
+rightBC=100.0
+leftBC=100.0
+if right == MPI.PROC_NULL:
+    w[:,ncl+1]=rightBC
+if left == MPI.PROC_NULL:
+    w[:,0]=leftBC
+if up == MPI.PROC_NULL:
+    w[0,:]=topBC
+if down == MPI.PROC_NULL:
+    w[nrl+1,:]=bottomBC
 
 # set up MPI type for left column
-column_zero=MPI.DOUBLE.Create_vector(nrl+2,1,ncl+2)
+column_zero=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl,1],[1,0])
 column_zero.Commit()
 
-column_one=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl+2,1],[0,1])
+column_one=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl,1],[1,1])
 column_one.Commit()
 
-column_end=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl+2,1],[0,ncl])
+column_end=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl,1],[1,ncl])
 column_end.Commit()
 
-column_endbc=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl+2,1],[0,ncl+1])
+column_endbc=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl,1],[1,ncl+1])
 column_endbc.Commit()
 
+
+#This forces the output to show one one rank at a time. It is not efficient.
+status=MPI.Status()
+print("topology", rank, up, down, left, right)
+if rank==0:
+    u=np.zeros_like(w)
+    print("Initial for rank 0")
+    print(w)
+    for i in range(1,nprocs):
+        comm.Recv([u,MPI.DOUBLE],source=MPI.ANY_SOURCE,tag=MPI.ANY_TAG,status=status)
+        print("Initial for rank",status.Get_source())
+        print(u)
+else:
+    comm.Send([w,MPI.DOUBLE],dest=0,tag=rank)
+
+comm.Barrier()
+
 tag=0
-print('Before')
-for n in range(nprocs):
-   if n==rank:
-       print(n,w)
-
 # sending up and receiving down
-comm.Sendrecv([w[1,1:ncl+1],MPI.DOUBLE], up, tag, [w[nrl+1,1:ncl+1],MPI.DOUBLE], down, tag)
+comm.Sendrecv([w[1,0:ncl+2],MPI.DOUBLE], up, tag, [w[nrl+1,0:ncl+2],MPI.DOUBLE], down, tag)
 # sending down and receiving up
-comm.Sendrecv([w[nrl,1:ncl+1],MPI.DOUBLE], down, tag, [w[0,1:ncl+1],MPI.DOUBLE], up, tag)
+comm.Sendrecv([w[nrl,0:ncl+2],MPI.DOUBLE], down, tag, [w[0,0:ncl+2],MPI.DOUBLE], up, tag)
 
-# sending right and left.
-comm.Sendrecv([w,1,column_endbc], right, tag, [w,1,column_one], left, tag)
-comm.Sendrecv([w,1,column_zero], left, tag, [w,1,column_end], right, tag)
+# sending left and right
+comm.Sendrecv([w,1,column_one], left, tag, [w,1,column_endbc], right, tag)
+comm.Sendrecv([w,1,column_end], right, tag, [w,1,column_zero], left, tag)
 
-# Spot-check result
-print('After')
-for n in range(nprocs):
-    if n==rank:
-    #    print(n,w[0,ncl//2],w[nrl+1,ncl//2])
-        print(n,w)
+# check result
+if rank==0:
+    u=np.zeros_like(w)
+    print("Final for rank 0")
+    print(w)
+    for i in range(1,nprocs):
+        comm.Recv([u,MPI.DOUBLE],source=MPI.ANY_SOURCE,tag=MPI.ANY_TAG,status=status)
+        print("Final for rank",status.Get_source())
+        print(u)
+else:
+    comm.Send([w,MPI.DOUBLE],dest=0,tag=rank)
+

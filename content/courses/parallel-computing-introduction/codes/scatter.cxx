@@ -25,8 +25,11 @@ int main(int argc, char *argv[]) {
         sendcount=100/nprocs;
     }
 
-    for(int i=0;i<100;++i) {
-        values[i]=i+1;
+    // Only root has to know the global values
+    if (rank==0) {
+        for(int i=0;i<100;++i) {
+            values[i]=i+1;
+        }
     }
 
     cout<<setprecision(1)<<fixed;

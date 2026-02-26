@@ -7,8 +7,8 @@ program twod
   nrl=4;
   ncl=4;
 
-  nrows=nrl+2;
-  ncols=ncl+2;
+  nrows=nrl+2
+  ncols=ncl+2
   allocate(u(0:nrows-1,0:ncols-1))
   allocate(buf(0:ncols-1))
 

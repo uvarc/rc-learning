@@ -89,8 +89,8 @@ In an HPC environment, the tasks that users want to perform are generically call
 
 HPC jobs are run on _compute nodes_, not on the interactive loginnodes.
 
-In the Introduction we discussed using the OOD [job composer](/notes/rivanna-intro/features_of_ood/features_jobs_tab) to submit and monitor jobs. When working at the command line, we must use more detailed features of Slurm.  Please go through our [tutorial](/notes/slurm-from-cli) to learn how to write and submit Slurm scripts from the command line.
+In the Introduction we discussed using the OOD [job composer](/notes/hpc-intro/features_of_ood/features_jobs_tab "The Intro to High-Performance Computing tutorial's Jobs on Open OnDemand page") to submit and monitor jobs. When working at the command line, we must use more detailed features of Slurm.  Please go through our [tutorial](/notes/slurm-from-cli "Using Slurm from a Terminal tutorial") to learn how to write and submit Slurm scripts from the command line.
 
 ## Need Help?
 
-Research Computing is ready to help you learn to use our systems efficiently.  You can [submit a ticket](https://www.rc.virginia.edu/form/support-request/).  For in-person help, please attend one of our weekly sessions of [office hours](https://www.rc.virginia.edu/support/#office-hours).
+Research Computing is ready to help you learn to use our systems efficiently.  You can [submit a ticket](https://www.rc.virginia.edu/form/support-request/ "The Research Computing website's Support Request page").  For in-person help, please attend one of our weekly sessions of [office hours](https://www.rc.virginia.edu/support/#office-hours "The Research Computing website's Support Options page").

@@ -14,16 +14,16 @@ To transfer data to and from your computer, you will first need to install Globu
 {{< table >}}
 | Platform | Installation instructions |
 | --- | --- |
-| Mac | https://docs.globus.org/how-to/globus-connect-personal-mac |
-| Linux | https://docs.globus.org/how-to/globus-connect-personal-linux |
-| Windows | https://docs.globus.org/how-to/globus-connect-personal-windows |
+| Mac | [Install Globus for Mac](https://docs.globus.org/how-to/globus-connect-personal-mac) |
+| Linux | [Install Globus for Linux](https://docs.globus.org/how-to/globus-connect-personal-linux) |
+| Windows | [Install Globus for Windows](https://docs.globus.org/how-to/globus-connect-personal-windows) |
 {{< /table >}}
 
 The screenshots and set of instructions below show how to navigate to the installation links from the Globus homepage.
 
-**Instructions**
+## Instructions
 
-1. Go to https://www.globus.org/
+1. Go to [the Globus homepage](https://www.globus.org/)
 2. Click **“I Want To…”** > **“Enable Globus on my system”**
 3. Scroll down to “Globus Connect Personal” (light blue box) and click the **“Get Globus Connect Personal”** link
 4. Scroll down to “Install Globus Connect Personal” (light blue box)
@@ -31,8 +31,8 @@ The screenshots and set of instructions below show how to navigate to the instal
 
 Download the software for your operating system:
 
-{{< figure src="/notes/globus-data-transfer/imgs/globus_download_personal_connector.png" caption="Find the link to download for your operating system" width=700px >}}
+{{< figure src="/notes/globus-data-transfer/imgs/globus_download_personal_connector.png" caption="Find the link to download for your operating system" width=700px alt="A screenshot of a Globus docs page with a download link and instructions for installing Globus Connect Personal." >}}
 
 Install the software:
 
-{{< figure src="/notes/globus-data-transfer/imgs/globus_install_personal_connector.png" caption="Download the application" width=700px >}}
+{{< figure src="/notes/globus-data-transfer/imgs/globus_install_personal_connector.png" caption="Download the application" width=700px alt="A Globus page, for granting permissions to Globus Connect Personal Setup. There is a text box to 'Provide a label for future reference.'" >}}

@@ -63,7 +63,7 @@ It should be clear that the trapezoid rule is very easy to parallelize.  The int
 
 Starting from the serial code in your language of choice, parallelize the trapezoid rule.  Only rank 0 should read the input data; then it should broadcast appropriately to the other processes.   Test for four processes.  Note that the integral of the sine from 0 to $\pi$ has an exact value of 2, making it a good test case.
 
-C++ and Fortran programmers: if you are not familiar with passing subprogram names as dummy variables, refer to our courses for [Fortran](/courses/fortran_introduction/subprogram_args) or [C++](/courses/cpp_introduction/subprogram_args).
+C++ and Fortran programmers: if you are not familiar with passing subprogram names as dummy variables, refer to our courses for [Fortran](/courses/fortran-introduction/subprogram_args) or [C++](/courses/cpp-introduction/subprogram_args).
 
 #### Serial Codes
 {{< spoiler text="C++" >}}

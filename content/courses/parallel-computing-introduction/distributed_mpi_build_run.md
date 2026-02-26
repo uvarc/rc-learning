@@ -27,7 +27,7 @@ Each MPI program must include the `mpi.h` header file. If the MPI distribution w
 
 All new Fortran programs should use the `mpi` module provided by the MPI software. if the MPI distribution was installed correctly, the `mpif90` or equivalent will find the module and link to the correct library.
 
-Any recent MPI will also provide an `mpi_f08` module.  Its use is recommended, but we will wait till [later](courses/paralll-incomputing-introduction/distributed_mpi_nonblocking_exchange) to introduce it. This new module takes better advance of modern Fortran features such as types. In addition, the ubuiquitous "ierror" parameter at the end of most argument lists becomes an _optional_ argument in the mpi_f08 subroutine definitions.  The compiler used must support at least the Fortran 2008 standard.
+Any recent MPI will also provide an `mpi_f08` module.  Its use is recommended, but we will wait till [later](/courses/parallel-computing-introduction/distributed_mpi_nonblocking_exchange/) to introduce it. This new module takes better advance of modern Fortran features such as types. In addition, the ubuiquitous "ierror" parameter at the end of most argument lists becomes an _optional_ argument in the mpi_f08 subroutine definitions.  The compiler used must support at least the Fortran 2008 standard.
 
 {{< spoiler text="Fortran" >}}
 {{< code-download file="/courses/parallel-computing-introduction/codes/mpi1.f90" lang="fortran" >}}

@@ -1,6 +1,8 @@
 // Override this file to add your own SCSS styling.
+@use "sass:color";
+
 .container {
-    max-width: 90%;
+  max-width: 90%;
 }
 
 .article-container {
@@ -13,8 +15,23 @@
   max-width: 90%;
 }
 
+code {
+  // font-family: serif;
+  color: #a41e3f;
+  background-color: #fafafa;
+}
+
+blockquote {
+  color: #595959;
+}
+
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $sta-font-heading, sans-serif;
   font-weight: 700;
   margin-top: 1rem;
@@ -33,25 +50,32 @@ h1, h2, h3, h4, h5, h6 {
   -ms-hyphens: manual;
   hyphens: manual;
 }
+
 h1 {
   font-size: 2.25rem;
 }
+
 h2 {
   margin-top: 1rem;
   font-size: 1.5rem;
 }
+
 h3 {
   margin-top: 1.5rem;
   font-size: 1.25rem;
 }
-h4, h5, h6 {
+
+h4,
+h5,
+h6 {
   margin-top: 1rem;
   font-size: 1rem;
 }
 
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 /* Change the colors for the "light" button */
@@ -59,48 +83,309 @@ html {
 .btn-light {
   color: #212529;
   background-color: #6699ff;
-  border-color: #6699ff; }
-  .btn-light:hover {
-    color: #212529;
-    background-color: #e2e6ea;
-    border-color: #dae0e5; }
-  .btn-light:focus, .btn-light.focus {
-    color: #212529;
-    background-color: #e2e6ea;
-    border-color: #dae0e5;
-    box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5); }
-  .btn-light.disabled, .btn-light:disabled {
-    color: #212529;
-    background-color: #f8f9fa;
-    border-color: #f8f9fa; }
-  .btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active, .show > .btn-light.dropdown-toggle {
-    color: #212529;
-    background-color: #dae0e5;
-    border-color: #d3d9df; }
-    .btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus, .show > .btn-light.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5); }
+  border-color: #6699ff;
+}
 
-//Changes tutorial buttons to cyan color
-.btn-info {
-  color: #fff;
-  background-color: #009FDF;
-  border-color: #009FDF; }
-  .btn-info:hover {
-    color: #fff;
-    background-color: #04709b;
-    border-color: #04709b; }
-  .btn-info:focus, .btn-info.focus {
-    color: #fff;
-    background-color: #04709b;
-    border-color: #04709b;
-    box-shadow: 0 0 0 0.2rem rgba(0, 168, 194, 0.5); }
-  .btn-info.disabled, .btn-info:disabled {
-    color: #fff;
-    background-color: #009FDF;
-    border-color: #009FDF; }
-  .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
-    color: #fff;
-    background-color: #007bac;
-    border-color: #009FDF; }
-        .btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus, .show > .btn-info.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(0, 168, 194, 0.5); }
+.btn-light:hover {
+  color: #212529;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+.btn-light:focus,
+.btn-light.focus {
+  color: #212529;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
+
+.btn-light.disabled,
+.btn-light:disabled {
+  color: #212529;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.btn-light:not(:disabled):not(.disabled):active,
+.btn-light:not(:disabled):not(.disabled).active,
+.show>.btn-light.dropdown-toggle {
+  color: #212529;
+  background-color: #dae0e5;
+  border-color: #d3d9df;
+}
+
+.btn-light:not(:disabled):not(.disabled):active:focus,
+.btn-light:not(:disabled):not(.disabled).active:focus,
+.show>.btn-light.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+}
+
+.hero-lead {
+  font-size: 1.1rem;
+}
+
+.wg-hero {
+  padding: 2em 0;
+}
+
+.tag-cloud {
+  text-align: center;
+}
+
+.tag-cloud a {
+  text-decoration: none;
+  transition-property: background-color;
+}
+
+.tag-cloud a:hover,
+.tag-cloud a:focus {
+  background-color: rgba(0, 0, 0, .2);
+  transform: scale(1);
+}
+
+.tag-count {
+  color: black;
+}
+
+.skip-to-main-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 1000;
+  padding: 1em;
+  opacity: 0;
+  background: white;
+  border: 2px solid #000;
+  border-radius: 0px 0px 4px 4px;
+}
+
+.skip-to-main-content:focus {
+  left: 10%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+.alert-warning {
+  background-color: #fafafa;
+  color: #ab0728;
+}
+
+.alert-info, .alert-note {
+  background-color: #fafafa;
+  border-color: #209cee; // the same color as the info icon
+}
+
+.hljs {
+  background-color: #f9f9f9;
+}
+
+#TableOfContents li a,
+.toc-top li a,
+.toc-top span a
+{
+  color: rgb(89, 89, 89);
+}
+
+.toc-top {
+  padding-left: 0;
+}
+
+// TOC indentation for each level.
+#TableOfContents div div {
+  padding-left: 0.8rem;
+}
+
+#TableOfContents span {
+  display: block;
+}
+
+#TableOfContents span a,
+.toc-top span a {
+  display: block;
+  padding: .125rem 1.5rem;
+  font-size: 0.7rem;
+}
+
+#TableOfContents span a:hover,
+.toc-top span a:hover
+{
+  color: $sta-primary;
+  text-decoration: none;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.back-to-top-container {
+  margin-left: auto;
+}
+.back-to-top-container-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  footer {
+    display: block;
+  }
+  .site-footer-text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .back-to-top-container {
+    display: none;
+  }
+  .back-to-top-container-mobile {
+    display: block;
+    margin-left: -2rem;
+  }
+}
+
+.wg-hero.dark .btn {
+  color: black;
+}
+
+.tag-cloud-container {
+  background-color: HoneyDew;
+  padding: 5px
+}
+
+.site-footer-logo-dark {
+  display: none;
+}
+
+.docs-sidebar .nav>span>a {
+  display: block;
+  padding: .25rem 1.5rem;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, .65);
+}
+
+.docs-sidebar .nav>span>a:hover {
+  color: rgba(0, 0, 0, .85);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.docs-sidebar .nav>span>a:hover {
+  color: rgba(0, 0, 0, .85);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.dark {
+
+  .site-footer-logo-dark {
+    display: block;
+  }
+
+  .site-footer-logo-light {
+    font: unset;
+    display: none;
+  }
+
+  .docs-sidebar .nav > span:not(.active) > a {
+    color: rgb(248, 248, 242);
+  }
+
+  .btn-primary, .btn.btn-primary.active, .btn-light {
+    color: white;
+  }
+
+  .tag-cloud-container {
+    background-color: rgb(25, 40, 27);
+  }
+
+  .tag-count {
+    color: rgb(248, 248, 242);
+  }
+
+  #TableOfContents li a,
+  .toc-top li a,
+  .toc-top span a
+  {
+    color: rgb(191, 190, 193);
+  }
+
+  #TableOfContents li a:hover,
+  .toc-top li a:hover,
+  .toc-top span a:hover,
+  .docs-sidebar .docs-toc-item a:hover,
+  .docs-sidenav a:hover,
+  .docs-sidebar .nav > span:not(.active) > a:hover
+  {
+    color: mix(white, $sta-primary-light, 50%);
+  }
+
+  a,
+  .docs-sidebar .docs-toc-item.active a,
+  .docs-sidebar .nav>.active:hover>a,
+  .docs-sidebar .nav>.active>a,
+  .docs-sidebar .docs-toc-item.active span a {
+    color: mix(white, $sta-primary-light, 50%);
+  }
+
+  .post-nav-item .meta-nav,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: rgb(188, 188, 188);
+  }
+
+  .alert div:first-child::before {
+    color: white;
+  }
+
+  .alert-warning {
+    background-color: #550000;
+    color: white;
+    code {
+      color: #8be9fd;
+    }
+  }
+
+  .alert-info, .alert-note {
+    background-color: #12537e;
+    color: white;
+    pre,
+    code {
+      color: white;
+      background-color: #44475aab;
+    }
+  }
+
+  .skip-to-main-content {
+    background-color: #212529;
+  }
+
+  code.hljs {
+    color: rgb(248, 248, 242);
+    background-color: rgb(68, 71, 90);
+  }
+
+  blockquote {
+    color: #d7d7d7;
+  }
+
+  .form-control[type=search]::placeholder {
+    color: rgb(220, 220, 220);
+  }
+
+  .badge-light {
+    color: white;
+  }
+  
+  .tag-cloud a:hover,
+  .tag-cloud a:focus {
+    color: hsl(231, 48%, 90%);
+  }
+}

@@ -3,33 +3,32 @@ program heatedplate
   implicit none
 
   integer, parameter:: maxiter=10000000
-  integer           :: N, M, lb
+  integer           :: N, M, lb1, lb2
   integer           :: numargs, i, j, diff_interval, iterations = 0
   double precision  :: eps, mean, diff = 1.0
   character(len=80) :: arg, filename
   double precision, allocatable, dimension(:,:) :: u, w
   double precision  :: bc1, bc2, bc3, bc4
-  real              :: time0, time1
+  double precision  :: time0, time1
   logical           :: strong_scaling
 
   !Add for MPI
   integer            :: nrl, ncl
-  integer            :: rank, nprocs
+  integer            :: rank, nprocs, tag=0
   integer            :: errcode, ierr
+  integer            :: nrequests
   type(MPI_Status),  dimension(:), allocatable :: mpi_status_arr
   type(MPI_Request), dimension(:), allocatable :: mpi_requests
-  integer            :: nrequests
-  integer, parameter :: root=0, tag=0
+  integer, parameter :: root=0
   integer            :: left, right
   double precision   :: gdiff
   character(len=24)  :: fname
 
   interface
-    subroutine set_bcs(lb,nr,nc,rank,nprocs,bc1,bc2,bc3,bc4,u)
+    subroutine set_bcs(lb1,lb2,nr,nc,rank,nprocs,u)
        implicit none
-       integer, intent(in)  :: lb, nr, nc, rank, nprocs
-       double precision, intent(out) :: bc1,bc2,bc3,bc4
-       double precision, dimension(lb:,lb:), intent(inout) :: u
+       integer, intent(in)  :: lb1, lb2, nr, nc, rank, nprocs
+       double precision, dimension(lb1:,lb2:), intent(inout) :: u
     end subroutine
   end interface
 
@@ -42,6 +41,7 @@ program heatedplate
   ! all ranks do this
   numargs=command_argument_count()
   if (numargs .lt. 2) then
+     call MPI_Finalize(ierr)
      stop 'USAGE: epsilon output-file <N> <M>'
   else
      call get_command_argument(1,arg)
@@ -97,54 +97,65 @@ program heatedplate
       right = rank + 1
   endif
 
+  ! Set boundary values and compute mean boundary value. 
+  ! This has the ice bath on the top edge.
+
   ! Allocate arrays)
-  lb=0
-  allocate(u(lb:nrl+1,lb:ncl+1),w(lb:nrl+1,lb:ncl+1))
+  lb1=0
+  lb2=0
+  allocate(u(lb1:nrl+1,lb2:ncl+1),w(lb1:nrl+1,lb2:ncl+1))
 
   u=0.d0
   w=0.d0
 
-  call set_bcs(lb,nrl,ncl,rank,nprocs,bc1,bc2,bc3,bc4,u)
+  nrequests=4
+  allocate(mpi_requests(nrequests),mpi_status_arr(nrequests))
+
+  ! Set physical boundaries
+  call set_bcs(lb1,lb2,nrl,ncl,rank,nprocs,u)
+
+  diff_interval=1
 
   ! Walltime from process 0 is good enough for me
   if (rank .eq. 0) then
     time0=MPI_WTIME()
   endif
 
-  diff_interval=1
-
   if (rank==0) then
       write (*,'(a,es15.8,a,i6,a,i6)') 'Running until the difference is <= ',  &
                                               eps,' for global size ',N,'x',M
   endif
 
-  nrequests=4
-  allocate(mpi_requests(nrequests),mpi_status_arr(nrequests))
-
   ! Compute steady-state solution
   do while ( iterations<=maxiter )
 
-     ! Initiate communications 
+     ! Exchange halo values
      call MPI_Irecv(u(1:nrl,ncl+1),nrl,MPI_DOUBLE_PRECISION,right,tag,         &
-                                       MPI_COMM_WORLD,mpi_requests(1),ierr)
+                                     MPI_COMM_WORLD,mpi_requests(1))
 
      call MPI_Irecv(u(1:nrl,0)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,          &
-                                       MPI_COMM_WORLD,mpi_requests(2),ierr)
+                                     MPI_COMM_WORLD,mpi_requests(2))
 
 
      call MPI_Isend(u(1:nrl,1)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,          &
-                                       MPI_COMM_WORLD,mpi_requests(3),ierr)
+                                     MPI_COMM_WORLD,mpi_requests(3))
 
      call MPI_Isend(u(1:nrl,ncl)  ,nrl,MPI_DOUBLE_PRECISION,right,tag,         &
-                                       MPI_COMM_WORLD,mpi_requests(4),ierr)
+                                     MPI_COMM_WORLD,mpi_requests(4))
 
-     ! Complete communications
-     call MPI_Waitall(nrequests,mpi_requests,mpi_status_arr)                   
+     call MPI_Waitall(nrequests,mpi_requests,mpi_status_arr)
+
      do j=1,ncl
         do i=1,nrl
            w(i,j) = 0.25*(u(i-1,j) + u(i+1,j) + u(i,j-1) + u(i,j+1))
         enddo
      enddo
+
+     !Set halo values
+     w(0,:)=u(0,:)
+     w(nrl+1,:)=u(nrl+1,:)
+     w(:,0)=u(:,0)
+     w(:,ncl+1)=u(:,ncl+1)
 
      if (mod(iterations,diff_interval)==0) then
            if (diff_interval==-1) continue  !disable convergence test
@@ -160,7 +171,9 @@ program heatedplate
      u = w
 
      ! Reset physical boundaries (they get overwritten in the halo exchange)
-     call set_bcs(lb,nrl,ncl,rank,nprocs,bc1,bc2,bc3,bc4,u)
+     call set_bcs(lb1,lb2,nrl,ncl,rank,nprocs,u)
+
+     iterations = iterations + 1
 
      !If this happens we will exit at next conditional test.
      !Avoids explicit break here
@@ -169,9 +182,6 @@ program heatedplate
                write(*,*) "Warning: maximum iterations exceeded"
            endif
      endif
-
-     iterations = iterations + 1
-
   enddo
 
   if (rank==root) then
@@ -200,12 +210,11 @@ program heatedplate
 
 end program heatedplate
 
-subroutine set_bcs(lb,nr,nc,rank,nprocs,bc1,bc2,bc3,bc4,u)
+subroutine set_bcs(lb1,lb2,nr,nc,rank,nprocs,u)
 implicit none
-integer, intent(in)                                 :: lb, nr, nc, rank, nprocs
-double precision, intent(out)                       :: bc1,bc2,bc3,bc4
-double precision, dimension(lb:,lb:), intent(inout) :: u
-double precision                                    :: topBC, bottomBC, edgeBC
+integer, intent(in)                     :: lb1, lb2, nr, nc, rank, nprocs
+double precision, dimension(lb1:,lb2:), intent(inout) :: u
+double precision                        :: topBC, bottomBC, leftBC, rightBC
 
   ! Set boundary values 
   ! This has the ice bath on the bottom edge.
@@ -213,21 +222,17 @@ double precision                                    :: topBC, bottomBC, edgeBC
 
   topBC=100.d0
   bottomBC=0.d0
-  edgeBC=100.d0
-  bc1=topBC
-  bc2=bottomBC
-  bc3=edgeBC
-  bc4=edgeBC
+  leftBC=100.d0
+  rightBC=100.d0
 
   !Set boundary conditions
-  if (rank==0) then
-     u(:,0)=edgeBC
-  endif
-  if (rank==nprocs-1) then
-     u(:,nc+1)=edgeBC
-  endif
-  u(nr+1,:)=topBC
-  u(0,:)=bottomBC
-
+  !Fortran stitches by column
+   u(lb1,:)=topBC
+   u(nr+1,:)=bottomBC
+   if (rank==0) then
+      u(1:nr,lb2)=leftBC
+   else if (rank==nprocs-1) then
+      u(1:nr,nc+1)=rightBC
+   endif
 
 end subroutine set_bcs

@@ -53,24 +53,24 @@ If your computer is a macOS or Linux system, you log in with
 ```bash
 ssh -Y mst3k@login.hpc.virginia.edu
 ```
-Throughout this tutorial we will use `mst3k` as our example user ID. You should substitute your own.  The option `-Y` allows access to graphical applications and requires that an _X11 server_ application must be installed on your computer.  This should be the default for Linux, but macOS users must install [XQuartz](https://xquartz.org) before this command-line option will be useful.
+Throughout this tutorial we will use `mst3k` as our example user ID. You should substitute your own.  The option `-Y` allows access to graphical applications and requires that an _X11 server_ application must be installed on your computer.  This should be the default for Linux, but macOS users must install [XQuartz](https://xquartz.org "The official XQuartz website") before this command-line option will be useful.
 
 ### Graphical Applications
 
 The command-line secure shell is not the only option for accessing the HPC system. Windows users in particular may wish to use other methods, since although ssh is available for it, Windows is not particularly friendly to command lines.
 
-**Open OnDemand** (OOD)
+#### Open OnDemand (OOD)
 
 Open OnDemand is a Web-based interface to the system. It provides a graphical file-management interface and access to several popular applications running on the compute nodes. A simple terminal that opens on a loginnode is also provided.
-See the introduction in our basic [tutorial](/notes/rivanna-intro/connecting_to_rivanna/connecting_ood).
+See the introduction in our basic [tutorial](/notes/hpc-intro/connecting_to_the_system/connecting_ood/ "The Intro to High Performance Computing tutorial's Open OnDemand page").
 
-**FastX**
+#### FastX
 
-FastX is a Web-based graphical interface to a loginnode. It is also covered in the [introduction](/notes/rivanna-intro/connecting_to_rivanna/connecting_fastx).
+FastX is a Web-based graphical interface to a loginnode. It is also covered in the [introduction](/notes/hpc-intro/connecting_to_the_system/connecting_fastx/ "The Intro to High Performance Computing tutorial's FastX page").
 
-**MobaXterm** (Windows)
+#### MobaXterm (Windows)
 
-MobaXterm combines an ssh client, a _sftp_ client for file transfers, and an X11 server into a single bundle. More details are available at our [Website](https://www.rc.virginia.edu/userinfo/rivanna/logintools/mobaxterm/) or in the [introduction](/notes/rivanna-intro/files/file_moba).
+MobaXterm combines an ssh client, a _sftp_ client for file transfers, and an X11 server into a single bundle. More details are available at our [website](https://www.rc.virginia.edu/userinfo/rivanna/logintools/mobaxterm/ "The Research Computing website's MobaXterm page") or in the [introduction](/notes/hpc-intro/files/file_moba/ "The Intro to High Performance Computing tutorial's MobaXterm page").
 
 ## Running Shell Commands
 
