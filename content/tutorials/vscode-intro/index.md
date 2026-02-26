@@ -15,6 +15,9 @@ categories: ["HPC"]
 #   E.g. 'slides = "example-slides"' references 'content/slides/example-slides.md'.
 #   Otherwise, set slides = "".
 
+
+pdf: vscode-intro
+
 weight: 12
 
 ---
