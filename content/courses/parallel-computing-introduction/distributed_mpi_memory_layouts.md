@@ -15,7 +15,7 @@ As we learned, MPI does not construct buffers from variables; it reads a specifi
 
 In a given programming language, an array can be _row major oriented_ or _column major oriented_.  In a row-major oriented language (most of them, including C/C++ and Python) a two-dimensional array is represented in memory in terms of its indices as
 
-{{< diagram >}}
+{{< diagram alt="Diagram showing a 4×4 two-dimensional array stored in row-major order, where elements are laid out row by row and the second index changes fastest in memory." >}}
 flowchart LR
    A[0,0] --- B[0,1]
    B --- C[0,2]
@@ -40,7 +40,7 @@ In C/C++ the rows may or may not be contiguous in memory, but the elements of ea
 
 In a column-major oriented language (Fortran and some others such as Matlab, Julia, and R) the layout is by column. These languages also count from 1, at least by default, as represented below.
 
-{{< diagram >}}
+{{< diagram alt="Diagram showing a 4×4 two-dimensional array stored in column-major order, where elements are laid out column by column and the first index changes fastest in memory." >}}
 flowchart LR
    A[1,1] --- B[2,1]
    B --- C[3,1]
