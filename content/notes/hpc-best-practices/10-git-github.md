@@ -1,6 +1,6 @@
 ---
 title: Git and GitHub
-date: 2025-06-14-14:16:03Z
+date: 2025-06-14T14:16:03Z
 type: docs 
 weight: 500
 toc: true

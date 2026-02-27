@@ -1,6 +1,6 @@
 ---
 title: Batch Processing with SLURM Commands
-date: 2025-06-14-14:47:30Z
+date: 2025-06-14T14:47:30Z
 type: docs 
 weight: 300
 toc: true

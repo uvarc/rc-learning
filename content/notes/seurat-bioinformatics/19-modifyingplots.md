@@ -1,6 +1,6 @@
 ---
 title: Modifying Plots
-date: 2025-07-16-17:52:00Z
+date: 2025-07-16T17:52:00Z
 type: docs 
 weight: 1050
 menu: 

@@ -1,5 +1,5 @@
 ---
-date : "2024-6-03T00:00:00"
+date : "2024-06-03T00:00:00"
 title: Appendix 1 - Building Containers [Docker]
 toc: true
 type: book

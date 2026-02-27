@@ -1,6 +1,6 @@
 ---
 title: Accelerate
-date: "2025-07-08T20:40:54"
+date: "2025-07-08T20:40:54Z"
 type: docs 
 weight: 1400
 menu: 

@@ -27,18 +27,18 @@ To transfer data to and from your computer, you will first need to install Globu
 
 | Platform | Installation instructions |
 | --- | --- |
-| Mac | https://docs.globus.org/how-to/globus-connect-personal-mac |
-| Linux | https://docs.globus.org/how-to/globus-connect-personal-linux |
-| Windows | https://docs.globus.org/how-to/globus-connect-personal-windows |
+| Mac | [Instructions for Mac](https://docs.globus.org/how-to/globus-connect-personal-mac "Globus Connect Personal installation instructions for Mac") |
+| Linux | [Instructions for Linux](https://docs.globus.org/how-to/globus-connect-personal-linux "Globus Connect Personal installation instructions for Linux") |
+| Windows | [Instructions for Windows](https://docs.globus.org/how-to/globus-connect-personal-windows "Globus Connect Personal installation instructions for Windows") |
 
 
 ## Transferring Files
 
 Files are transferred with the Globus File Manager Web App. There are three ways to get to the app:
 
-1. Go straight to https://app.globus.org/file-manager
-2. Go to https://www.globus.org/ > Log In (top right corner)
-3. Click Globus icon in Toolbar > Web: Transfer Files
+1. Go straight to [the Globus File Manager page](https://app.globus.org/file-manager "The Globus File Manager page")
+2. Go to [Globus.org](https://www.globus.org/ "The Globus website") → Log In (top right corner)
+3. Click Globus icon in Toolbar → Web: Transfer Files
 
 Once the app is open you can choose collections to transfer data between.
 
@@ -48,4 +48,4 @@ Globus users are able to share data with anyone with a Globus account. All UVA H
 
 External collaborators don’t need to be affiliated with an institution using Globus in order to share data with them. Anyone can create a Globus account using @globusid.org
 
-More information on using Globus can be found on [our learning website](https://learning.rc.virginia.edu/tutorials/globus-data-transfer/) and from [our documentation](https://www.rc.virginia.edu/userinfo/globus/).
+More information on using Globus can be found on [our learning website](https://learning.rc.virginia.edu/tutorials/globus-data-transfer/ "Globus data transfer tutorial") and from [our documentation](https://www.rc.virginia.edu/userinfo/globus/ "Research Computing's Globus documentation").

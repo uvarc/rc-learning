@@ -1,6 +1,6 @@
 ---
 title: Input - FASTA File
-date: 2025-05-20-00:23:54Z
+date: 2025-05-20T00:23:54Z
 type: docs 
 weight: 1100
 menu: 

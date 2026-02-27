@@ -60,8 +60,10 @@ Inspect the runscript before running an image!
     The default cache directory is `~/.apptainer`. If you are an active container user it can quickly fill up your home. You can change it to scratch:
     {{< code-snippet >}}export APPTAINER_CACHEDIR=/scratch/$USER/.apptainer{{< /code-snippet >}}
     Otherwise, remember to clean up periodically.
-1. We have suppressed certain output from the `apptainer` command. To see the complete output, type `\apptainer`.
+1. Request an ijob
+    {{< code-snippet >}}ijob -A hpc_training -p interactive -c 1 -t 2:0:0{{< /code-snippet >}}
 1. Load the Apptainer module: `module load apptainer`
+1. We have suppressed certain output from the `apptainer` command. To see the complete output, type `\apptainer`.
 
 ## Definition File
 
@@ -487,7 +489,7 @@ Hints:
 
 {{< info >}}While PyTorch runs on a GPU, you do not need to build the container on a GPU.{{< /info >}}
 
-{{< info >}}You will likely run out of memory when building large containers (over a few GBs). Request an [interactive job](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#submitting-an-interactive-job) to build on a compute node in the `largemem` partition.{{< /info >}}
+{{< info >}}You will likely run out of memory when building large containers (over a few GBs). Request an [interactive job](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#submitting-an-interactive-job) with say `--mem=50G` to build on a compute node with 50 GB memory.{{< /info >}}
 
 ### R
 

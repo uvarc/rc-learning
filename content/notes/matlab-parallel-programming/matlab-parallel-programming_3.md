@@ -1,6 +1,6 @@
 ---
 title: Accelerating and Parallelizing MATLAB Code
-date: 2024-11-16-20:28:40Z
+date: 2024-11-16T20:28:40Z
 type: docs 
 weight: 150
 menu: 

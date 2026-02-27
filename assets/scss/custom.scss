@@ -75,6 +75,7 @@ h6 {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 /* Change the colors for the "light" button */
@@ -173,7 +174,7 @@ html {
   color: #ab0728;
 }
 
-.alert-info {
+.alert-info, .alert-note {
   background-color: #fafafa;
   border-color: #209cee; // the same color as the info icon
 }
@@ -347,11 +348,19 @@ footer {
   .alert-warning {
     background-color: #550000;
     color: white;
+    code {
+      color: #8be9fd;
+    }
   }
 
-  .alert-info {
+  .alert-info, .alert-note {
     background-color: #12537e;
     color: white;
+    pre,
+    code {
+      color: white;
+      background-color: #44475aab;
+    }
   }
 
   .skip-to-main-content {
@@ -373,5 +382,10 @@ footer {
 
   .badge-light {
     color: white;
+  }
+  
+  .tag-cloud a:hover,
+  .tag-cloud a:focus {
+    color: hsl(231, 48%, 90%);
   }
 }

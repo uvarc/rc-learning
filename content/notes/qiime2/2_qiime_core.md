@@ -1,6 +1,6 @@
 ---
 title: QIIME 2 Core 2022.8 Distribution
-date: 2025-06-13-14:45:04Z
+date: 2025-06-13T14:45:04Z
 type: docs 
 weight: 100
 menu: 

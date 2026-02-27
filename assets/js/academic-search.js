@@ -85,6 +85,7 @@ function searchAcademic(query, fuse) {
 function parseResults(query, results) {
   $.each( results, function(key, value) {
     let content_key = value.item.section;
+    let path = value.item.relpermalink;
     let content = "";
     let snippet = "";
     let snippetHighlights = [];
@@ -124,8 +125,11 @@ function parseResults(query, results) {
     // Parse template.
     let templateData = {
       key: key,
-      title: value.item.title,
+      title: value.item.title || "(no title)",
       type: content_key,
+      // turn relative path to breadcrumbs ("page1 > page2") format, removing the last part of the path (the result's page name)
+      // screen readers see a comma instead of "greater than sign", to allow for a pause in speech between each segment
+      pagepath: path.split('/').filter(item => item !== '').slice(0, -1).join('<span class="sr-only">,</span> <span aria-hidden=\"true\">&gt;</span> '),
       relpermalink: value.item.relpermalink,
       snippet: snippet
     };

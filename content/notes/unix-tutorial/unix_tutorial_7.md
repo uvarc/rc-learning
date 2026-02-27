@@ -1,13 +1,12 @@
 ---
 title: "Environment Variables"
 linktitle: "Tutorial 7: Environment Variables"
-date: 2019-04-29T11:06:47-04:00
 draft: false
 highlight_style: "github"
 toc: true
 type: docs
 weight: 80
-date: 2023-12-11-14T00:11:14Z
+date: 2023-12-11T00:00:00Z
 menu:
     unix-tutorials:
 ---

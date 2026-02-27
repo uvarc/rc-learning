@@ -3,7 +3,7 @@ title: "UNIX Tutorials for Beginners"
 type: docs
 toc: true
 weight: 1
-date: "2023-12-11-14T00:00:00"
+date: 2023-12-11T00:00:00Z
 
 menu:
     unix-tutorials:

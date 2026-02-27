@@ -37,9 +37,9 @@ The quotes indicate that a space is part of the file name.  While most modern Un
 
 In most operating systems, all files and directories are located with a **path**.  The “path” is the "full name" of every file & directory.
 
-In a Unix-based operating system, the files are organized into a _tree_ structure (the method to store and organize the files is called **filesystem**, e.g. ext3,ext4, NTFS, etc).  The tree is "upside down" because the **root directory** is at the top, and directories branch off from there.  The root directory is indicated with a forward slash `/`.
+In a Unix-based operating system, the files are organized into a _tree_ structure (the method to store and organize the files is called **filesystem**, e.g. ext3, ext4, NTFS, etc).  The tree is "upside down" because the **root directory** is at the top, and directories branch off from there.  The root directory is indicated with a forward slash `/`.
 
-{{< diagram >}}
+{{< diagram alt="A tree diagram illustrating a Unix-like file system hierarchy beginning at the root directory (/). The major branches shown include etc, usr, and home. The home directory contains user directories named after computing IDs. The diagram further illustrates nesting, such as system commands ls, pwd, and cd located within the /usr/bin path." >}}
 graph TD
     C["/"] --> etc["etc"]
     C["/"] --> opt["opt"]
@@ -66,7 +66,7 @@ graph TD
     bin--> cd["cd"]
 {{< /diagram >}}
 
-The **home** directory is the usual name on Linux and similar Unix-based operating systems for the folder that holds user directories and files.  On macOS it is called User.  On both, the _separator_ between branches of the tree is the forward slash.
+The **home** directory is the usual name on Linux and similar Unix-based operating systems for the folder that holds user directories and files.  On macOS it is called Users.  On both, the _separator_ between branches of the tree is the forward slash.
 
 {{< hl >}}
 /home/mst3k/myfile

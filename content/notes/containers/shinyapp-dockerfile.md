@@ -1,11 +1,10 @@
 ---
 title: Writing the Dockerfile
-date: "2023-05-01:00:00Z"
+date: "2023-05-01T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
 weight: 210
-date: "2023-05-01T00:00:00Z"
 menu:
   containers:
       parent: Serving a ShinyApp
@@ -27,7 +26,7 @@ In this section we are specifying that we are starting with the r-base Docker im
 The following packages and libraries will allow us to install Shiny server and various R packages that we need for our app. This list will cover most of your bases for most Shiny apps. If you find you need additional libraries, you can just add them to this list.
 
 How do you know if you're missing a library? You'll get an error message, and we will cover how to debug in a later section.
-```
+```dockerfile
 # Install Ubuntu packages
 RUN apt-get update && apt-get install -y \
     sudo \
@@ -53,7 +52,7 @@ RUN apt-get update && apt-get install -y \
 
 This just installs Shiny server in your image. If you're not developing a Shiny app, no need to include it. If you *are* developing a Shiny app, no need to change it!
 
-```
+```dockerfile
 # Install Shiny server
 RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/VERSION -O "version.txt" && \
     VERSION=$(cat version.txt) && \
@@ -66,7 +65,7 @@ RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubu
 
 Here we are installing all the packages that we need for our Shiny app. Again, if you're not developing a Shiny app, you can skip this part. 
 
-```
+```dockerfile
 ##### Install R packages that are required ######
 ## CRAN packages
 RUN R -e "install.packages(c('shiny','shinydashboard','dplyr','ggplot2','fresh'))"
@@ -75,7 +74,7 @@ RUN R -e "install.packages(c('shiny','shinydashboard','dplyr','ggplot2','fresh')
 ## 5. Copy configuration files to the Docker image
 
 These are just some files that make our Shiny app run. These will be in the directory that your app is in. These will be the same for all Shiny apps.
-```
+```dockerfile
 # Copy configuration files into the Docker image
 COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
 COPY shiny-server.sh /usr/bin/shiny-server.sh
@@ -85,7 +84,7 @@ RUN rm -rf /srv/shiny-server/*
 ## 6. Copy your code to your app
 
 Ideally your code will be maintained within a GitHub repository (we will cover how to do this in a later section). Here we are cloning the GitHub repo and copying the contents to the shiny-server folder.
-```
+```dockerfile
 # Get the app code
 RUN git clone https://github.com/uvarc/chickweight.git
 COPY chickweight/* /srv/shiny-server/
@@ -95,7 +94,7 @@ RUN rm -rf chickweight
 ## 7. Some R and Shiny Stuff
 
 This is just some stuff for setting R paths, etc.
-```
+```dockerfile
 # Make the ShinyApp available at port 80
 ENV R_HOME=/usr/lib/R
 ENV PATH=/usr/lib/R:/usr/lib/R/bin:$PATH
@@ -107,10 +106,9 @@ RUN chown shiny.shiny /usr/bin/shiny-server.sh && chmod 755 /usr/bin/shiny-serve
 ## 8. Run the Shiny app!
 
 The CMD just tells the container what to run once it starts. This line starts up the Shiny server and app.
-```
+```dockerfile
 # Run the server setup script
 CMD ["/usr/bin/shiny-server.sh"]
 ```
 
 Once we're done writing the Dockerfile, we save it as "Dockerfile" (no file extension).
-```

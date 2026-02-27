@@ -10,7 +10,7 @@ menu:
   hpc-intro:
     name: Connecting and Logging On To HPC
 ---
-{{< youtube-reduced-width id="BpaFQG4JOEU" maxwidth="600px" title="Connecting to HPC video" >}}
+{{< youtube-reduced-width id="BpaFQG4JOEU" maxwidth="600px" title="Connecting to HPC video" transcriptid="connecting-transcript" >}}
 
 There are three ways to connect to the HPC System:
 * Open OnDemand, a graphical user interface through a web browser
@@ -22,7 +22,7 @@ There are three ways to connect to the HPC System:
 
 <!--more-->
 
-{{< spoiler text="Connecting to HPC Video Transcript" >}}
+{{< spoiler text="Connecting to HPC Video Transcript" id="connecting-transcript" >}}
 **Narrator:** Hello and welcome back to the University of Virginia's high-performance computing tutorial series. In this module, we will cover three different ways to connect to the HPC system at UVA.
 
 The first method is Open OnDemand, which is a web application accessed through a web browser. From there, you can manipulate files, work with jobs, and use a host of different GUI applications. The second method is FastX, which is another web application that gives you direct access to a Linux desktop, where you can access your files, run GUI applications, and use a browser within the HPC system. Lastly, there is SSH, the Secure Shell Client, which gives you a command line-only view of the cluster.
