@@ -20,7 +20,10 @@ If expression, statements, end evaluates an expression, and executes a group of 
 
 The elseif and else blocks are optional. The statements execute only if previous expressions in the if...end block are false. An if block can include multiple elseif blocks.
 
+This information is derived from the documentation linked below.
+
 <br/>
+**[Documentation: if,elseif,else](https://www.mathworks.com/help/matlab/ref/if.html)**
 
 **[Exercise: Logical Operations](https://matlabacademy.mathworks.com/R2019a/portal.html?course=mlbe#chapter=8&lesson=2&section=2)**
 
@@ -396,7 +399,7 @@ To use a for loop, you need to know in advance how many iterations are required.
 
 **[Video: Different Kinds of Errors](https://matlabacademy.mathworks.com/R2019a/portal.html?course=mlpr#chapter=8&lesson=3&section=1)**
 
-### #Code Analyzer
+### Code Analyzer
 
 {{< figure src="/courses/matlab-programming/codeAnalyzer1.png"  >}}
 
