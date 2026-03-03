@@ -14,7 +14,7 @@ Log on to our HPC cluster
     - Make sure you have a few GBs of free space
 - Run `allocations`
     - Check if you have `hpc_training`
-- Request an interative job
+- Request an interactive job
     {{< code-snippet >}}ijob -A hpc_training -p interactive -c 1 -t 2:0:0{{< /code-snippet >}}
 - Run `module load apptainer`
 
