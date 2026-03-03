@@ -14,7 +14,7 @@ menu:
         weight: 1
 ---
 
-# Overview
+## Overview
 
 This short course focuses on data analytics and machine learning techniques in MATLAB® using functionality within Statistics and Machine Learning Toolbox™ and Neural Network Toolbox™. The course demonstrates the use of unsupervised learning to discover features in large data sets and supervised learning to build predictive models. Examples and exercises highlight techniques for visualization and evaluation of results. Topics include:
 
