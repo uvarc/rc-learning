@@ -3,7 +3,7 @@ title: Working with Genomic Data on HPC
 authors: [dat, mab]
 type: docs 
 weight: 1 
-date: "2025-7-10T00:00:00"
+date: "2025-07-10T00:00:00"
 menu: 
     genomics:
 ---

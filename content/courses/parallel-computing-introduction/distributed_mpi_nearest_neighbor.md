@@ -49,7 +49,7 @@ Perhaps we can swap the MPI_Send and MPI_Recv. The Send will pack up the message
 {{< code-download file="/courses/parallel-computing-introduction/codes/exchange_unsafe.py" lang=python >}}
 {{< /spoiler >}}
 
-This pattern is _unsafe_ because the buffer may not be able to contain all the messages to be sent. On most modern systems, however, it will very often work, especially with short messages. For that reason it is a good idea to use built-in MPI tools as much as possible, such as [MPI_Sendrecv](courses/parallel-computing-introduction/distributed_mpi_sendrecv).
+This pattern is _unsafe_ because the buffer may not be able to contain all the messages to be sent. On most modern systems, however, it will very often work, especially with short messages. For that reason it is a good idea to use built-in MPI tools as much as possible, such as [MPI_Sendrecv](/courses/parallel-computing-introduction/distributed_mpi_sendrecv).
 
 ### Safe
 

@@ -1,6 +1,6 @@
 ---
 title: More Research Computing Resources
-date: 2025-7-10T00:00:00
+date: 2025-07-10T00:00:00Z
 type: docs 
 weight: 650
 menu: 

@@ -138,7 +138,7 @@ Let's create a new project and dataset through the OMERO web client.
 3. Click on the blue folder icon of your new project and take note of the `Project ID`. We will need this to direct Fiji where to load data from or save data to.  No right click on your blue project folder icon and create a new dataset.  Right-click on the dataset icon and take note of the `Dataset ID`.
 
 After the project is generated, your user interface should look like this:
-    ![](/courses/fiji-omero/fiji-omero-datasetid.png)
+    ![](/courses/fiji-image-processing/fiji-omero/fiji-omero-datasetid.png)
 
 ---
 
@@ -225,7 +225,7 @@ Before you begin, you need to know the dataset ID that the image should be linke
 
 3. Go to `File` > `Export` > `OMERO...`.  Enter the dataset ID you chose under step 1 and click `OK`.
 
-{{< figure src="/courses/fiji-omero/fiji-omero-blobs-export.png" >}}
+{{< figure src="/courses/fiji-image-processing/fiji-omero/fiji-omero-blobs-export.png" >}}
 	
 4. Click on the `Results` table window and go to `File` > `Save As`.  Save the file as `Results.csv` on your computer.  Repeat the same for the `Summary` table.  
 
@@ -255,7 +255,7 @@ To follow along, you can download the Jython scripts presented in this tutorial 
 
 We'll be using the built-in **Script Editor** in Fiji to run our scripts.  To start the script editor in Fiji go to menu `File` > `New` > `Script…`.
 
-{{< figure src="/courses/fiji-omero/fiji-script-editor.png" >}}
+{{< figure src="/courses/fiji-image-processing/fiji-omero/fiji-script-editor.png" >}}
 
 * The top pane provides the editor. Multiple scripts can be open at the same time and will show up as separate tabs.
 * The bottom pane shows output (e.g. produced by print statements) and any errors encountered during script execution.
@@ -589,7 +589,7 @@ Let's try to upload an image from Fiji to OMERO.
 
 ### Creating Key:Value Annotations
 
-{{< figure src="/courses/fiji-omero/fiji-omero-keyvalue.png" >}}
+{{< figure src="/courses/fiji-image-processing/fiji-omero/fiji-omero-keyvalue.png" >}}
 OMERO allows you to link other pieces of information to your Project, Dataset, Screen, Plate or Image objects. This additional information is displayed on the right side in the OMERO web client, labeled under the `General` tab as `Image Details`, `Tags`, `Key-Value Pairs`, `Tables`, `Attachments`, `Comments`, and `Ratings`. In addition, there is the `Acquisition` tab that provides metadata information that was automatically extracted from the image file headers during import.  
 
 For the remainder of this workshop, we will focus on `Key-Value` pairs and `Attachments`.  The key-value pairs are implemented as a dictionary (or HashMaps) that can be used to annotate individual images or whole datasets/project or plates/screens with additional information. Such information may include experimental conditions etc.. 
@@ -717,7 +717,7 @@ The example script, `Omero_Batch_Processing.py`, consists of five key functions:
 
 **Remember that the gateway connection needs to be closed at the end of the script**.
 
-{{< figure src="/courses/fiji-omero/fiji-omero-batchprocessing.png" >}}
+{{< figure src="/courses/fiji-image-processing/fiji-omero/fiji-omero-batchprocessing.png" >}}
 
 To test this and see the process in action we will process a set of four images that has been deposited in the OMERO database. The setup is as follows:
 

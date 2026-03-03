@@ -1,6 +1,6 @@
 ---
 title: Parallel/GPU Computing
-date: 2025-06-14-14:47:30Z
+date: 2025-06-14T14:47:30Z
 type: docs 
 weight: 400
 toc: true

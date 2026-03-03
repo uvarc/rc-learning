@@ -9,7 +9,7 @@ menu:
         parent: Distributed-Memory Programming
 ---
 
-Our first application of nonblocking point-to=point communications is to the famiamilar halo exchange problem.  We can modify the solutions to the [Exercise](courses/parallel_computing_intro/distributed_mpi_sendrecv.md), 
+Our first application of nonblocking point-to=point communications is to the famiamilar halo exchange problem.  We can modify the solutions to the [Exercise](/courses/parallel_computing_intro/distributed_mpi_sendrecv.md), 
 
 We can easily convert the `Sendrecv` invocations to two `Irecv` and two `Isend` calls.  With nonblocking sends and receives, we do not have to carefully manage the "sweeps" up and down or right to left; the MPI libary will handle that.  This avoids the serialization of the blocking exchanges; this was the main purpose for the introduction of nonblocking communications.  
 

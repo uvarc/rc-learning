@@ -1,6 +1,6 @@
 ---
 title: Modify Visualization in VMD
-date: 2025-05-20-00:23:54Z
+date: 2025-05-20T00:23:54Z
 type: docs 
 weight: 2150
 menu: 

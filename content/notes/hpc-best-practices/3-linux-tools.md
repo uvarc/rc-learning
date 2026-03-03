@@ -1,6 +1,6 @@
 ---
 title: Linux Tools For Text Processing
-date: 2025-06-14-14:47:30Z
+date: 2025-06-14T14:47:30Z
 type: docs 
 weight: 150
 toc: true

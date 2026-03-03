@@ -1,6 +1,6 @@
 ---
 title: Command Line Interface to Rivanna
-date: 2025-06-14-14:47:30Z
+date: 2025-06-14T14:47:30Z
 type: docs 
 weight: 50
 toc: true
