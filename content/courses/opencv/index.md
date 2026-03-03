@@ -22,7 +22,7 @@ From the [OpenCV project documentation](https://docs.opencv.org/master/d1/dfb/in
 
 This workshop assumes a working knowledge of the Python programming language and basic understanding of image processing concepts.
 
-Introductions to Python can be found [here](/courses/programming_python_scientists_engineers/python-interpreter/) and [here](/courses/python_introduction/).
+Introductions to Python can be found [here](/courses/programming_python_scientists_engineers/python-interpreter/) and [here](/courses/python-introduction/).
 
 ---
 
@@ -140,7 +140,7 @@ cp -R /share/resources/tutorials/opencv-examples ~/
 
 ## Loading Images
 
-The `imread` function is used to read images from files. Images are represented as a multidimensional [NumPy](https://numpy.org) arrays. Learn more about NumPy arrays [here](/courses/python_introduction/numpy_ndarrays/). The multidimensional properties are stored in an image's `shape` attribute, e.g. number of rows (height) x number of columns (width) x number of channels (depth).
+The `imread` function is used to read images from files. Images are represented as a multidimensional [NumPy](https://numpy.org) arrays. Learn more about NumPy arrays [here](/courses/python-introduction/numpy_ndarrays/). The multidimensional properties are stored in an image's `shape` attribute, e.g. number of rows (height) x number of columns (width) x number of channels (depth).
 
 
 ```python:

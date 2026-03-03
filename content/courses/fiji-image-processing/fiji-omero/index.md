@@ -1071,5 +1071,5 @@ print "Done.\n"
 
 **General Python Programming**
 
-* [Introduction to Programming in Python](/courses/python_introduction/)
+* [Introduction to Programming in Python](/courses/python-introduction/)
 * [Programming in Python for Scientists and Engineers](/courses/programming_python_scientists_engineers/)
