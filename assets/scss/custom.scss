@@ -121,6 +121,11 @@ html {
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
 }
 
+#hero {
+  background-color: rgba(0, 0, 0, 0.45);
+  background-blend-mode: multiply; // darken background (blend the above color with background image) to improve legibility of white text
+}
+
 .hero-title {
   font-size: 2.5rem;
 }
