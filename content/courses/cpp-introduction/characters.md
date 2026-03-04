@@ -19,7 +19,7 @@ Byte types or their equivalents offer direct access to memory, which is organize
 
 ### C-Style Strings
 
-C-style strings are actually [arrays](/courses/cpp-introduction/arrays_vecs) of individual characters.  They must be declared with a fixed size, or allocated.
+C-style strings are actually [arrays](/courses/cpp-introduction/c_arrays/) of individual characters.  They must be declared with a fixed size, or allocated.
 ```c++
    char cstr[8];
 

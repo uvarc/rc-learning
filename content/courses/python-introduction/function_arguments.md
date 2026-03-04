@@ -67,7 +67,7 @@ def myvarfunc(arg1, arg2, *args, **kwargs):
 
 In this context, the asterisk (`*`) is called the _unpacking operator_. Python reads the `args` into a tuple and any `kwargs` into a dictionary.
 
-Variable-length arguments and keyword arguments are particularly common in packages.  Even if you never write a code that uses them, you will almost certainly _use_ them in code. For example, we started our Python adventure with the `plot` function from [Matplotlib](/courses/python-programming-introduction/matplotlib).  We specified two positional arguments
+Variable-length arguments and keyword arguments are particularly common in packages.  Even if you never write a code that uses them, you will almost certainly _use_ them in code. For example, we started our Python adventure with the `plot` function from [Matplotlib](/courses/python-introduction/matplotlib/).  We specified two positional arguments
 ```python
 plt.plot(x,y)
 ```
