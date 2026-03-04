@@ -347,7 +347,7 @@ Hints:
 - If you encounter a Docker statement that you have not used before, first check the official documentation for best practices.
 - A comprehensive list of dependencies may be lacking. Some developers may not specify any at all. You will have to rely on a combination of experience, error message, and web search. (Most likely all of the above.)
 - Especially for Python packages, versions may be too permissive or too restrictive such that, in either case, future installation of the application will fail. (I have encountered both.) Tweak the versions until it works.
-- The next step is "multi-stage build" which is covered in the [Minimal Containers](/workshops/minimal-containers) workshop. There you will learn how to distinguish between buildtime versus runtime dependencies and separate them out.
+- The next step is "multi-stage build" which is covered in the [Minimal Containers](../minimal) workshop. There you will learn how to distinguish between buildtime versus runtime dependencies and separate them out.
 
 ## Clean Up
 

@@ -26,4 +26,4 @@ In this tutorial we will be covering the following topics:
 
 As mentioned above, example codes will be provided for respective topics. Prior experience with the Python programming language and some familiarity with machine learning concepts are helpful for this tutorial. Please download and unzip the following file to follow along on code activities. 
 
-{{< file-download file="notes/python-machine-learning/code/ML_with_Python.zip" text="ML_with_Python.zip" >}}
+{{< file-download file="/notes/python-machine-learning/code/ML_with_Python.zip" text="ML_with_Python.zip" >}}
