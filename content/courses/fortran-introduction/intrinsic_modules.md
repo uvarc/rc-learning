@@ -79,7 +79,7 @@ CALL IEEE_SET_HALTING_MODE(flag,halt)
 ```
 `Flag` is a variable of TYPE(IEEE_FLAG_TYPE), also defined in the module.  It can be IEEE_DIVIDE_BY_ZERO, IEEE_INEXACT, IEEE_INVALID, IEEE_OVERFLOW, or IEEE_UNDERFLOW.  The `HALTING` argument is LOGICAL.  If HALTING is set to `.true.` the program will stop on occurrence of the specified MODE. Since this is often desired for INVALID (NaN), DIVIDE_BY_ZERO, and OVERFLOW, a predefined array is available.
 
-{{< code-download file="courses/fortran-introduction/codes/ieee_exc.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran-introduction/codes/ieee_exc.f90" lang="fortran" >}}
 
 ### IEEE Arithmetic
 
@@ -88,7 +88,7 @@ Several useful procedures and included. IEEE_SELECTED_REAL_KIND chooses only KIN
 
 For more elegant handling of errors, the IEEE_IS_NAN, IEEE_IS_FINITE, and some others can be used to test a result and handle it in some manner other than halting the execution.
 
-{{< code-download file="courses/fortran-introduction/codes/ieee_arith.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran-introduction/codes/ieee_arith.f90" lang="fortran" >}}
 
 ## ISO_C_BINDING
 

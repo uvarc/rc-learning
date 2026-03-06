@@ -97,7 +97,7 @@ In this example we have included the line
 using namespace std;
 ```
 for convenience.  We will discuss namespaces in when we talk about 
-[scope](/course/cpp-introduction/scope).  In short, it makes the _standard_ namespace the default, so that we may omit in before keywords such as `cout` and `string`.
+[scope](/courses/cpp-introduction/scope/).  In short, it makes the _standard_ namespace the default, so that we may omit in before keywords such as `cout` and `string`.
 
 ```c++
 #include <iostream>

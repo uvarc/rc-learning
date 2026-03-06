@@ -66,7 +66,7 @@ real, dimension(:) :: A   ! in sub
 Though the dimensions need not be known for assumed-shape arrays, the rank must match.
 
 **Example**
-{{< code-download file="courses/fortran-introduction/codes/pass_arrays.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran-introduction/codes/pass_arrays.f90" lang="fortran" >}}
 
 ### Allocating Arrays in a Subprogram
 

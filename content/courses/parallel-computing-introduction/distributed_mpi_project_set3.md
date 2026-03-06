@@ -98,7 +98,7 @@ _Hints_
 
 ### Scaling Studies
 
-We have discussed weak and strong [scaling](performance_analysis.md). If you have not already done so, add timing to your heated plate solution in the language of your choice. Use `MPI_Wtime()` since it will generate uniform timings regardless of your programming language.  It is sufficient to instrument the `while` loop since nearly all the time will be spent there.
+We have discussed weak and strong [scaling](../performance_analysis/). If you have not already done so, add timing to your heated plate solution in the language of your choice. Use `MPI_Wtime()` since it will generate uniform timings regardless of your programming language.  It is sufficient to instrument the `while` loop since nearly all the time will be spent there.
 
 1. The example solutions show how to do strong or weak scaling. You can do only one at a time.  Weak scaling will increase the size of the global domain in a way that will make it rectangular rather than square, but that doesn't matter for our study.
 

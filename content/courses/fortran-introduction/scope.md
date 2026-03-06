@@ -102,6 +102,6 @@ where `file.h` can be any name; Fortran does not have a rule about file extensio
 COMMON is a frequent source of memory errors.
 COMMON makes interface control difficult to impossible.
 
-The recommended first step in updating [old code](/courses/fortran-introduction/updating_old_code) is to replace all COMMON with modules and then gradually to move the variables into the appropriate parameter lists. 
+The recommended first step in updating [old code](/courses/fortran-introduction/update_old_code) is to replace all COMMON with modules and then gradually to move the variables into the appropriate parameter lists. 
 
 COMMON is a vestige of the early computer era, when main memory was measuring in megabytes or even kilobytes, and every byte was precious.  With COMMON the global variables would occupy a single spot in memory, would not be copied, and could be reused.  In particularly old code it is not unusual for arrays in COMMON to be reshaped implicitly, since COMMON inherently represents a large linear block of memory.  Sometimes the EQUIVALENCE statement is still seen, by which types could be converted implicitly as long as they occupied the same number of bytes.
