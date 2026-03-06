@@ -314,6 +314,9 @@
 
       // Prevent fixed positioned elements (e.g. navbar) moving due to scrollbars.
       $('#fancybox-style-noscroll').remove();
+
+      // Restore background content.
+      $('body > *:not(#search):not(script)').removeAttr('inert');
     } else {
       // Prevent fixed positioned elements (e.g. navbar) moving due to scrollbars.
       if (!$('#fancybox-style-noscroll').length && document.body.scrollHeight > window.innerHeight) {
@@ -329,6 +332,10 @@
       $('body').addClass('searching');
       $('.search-results').css({opacity: 0, visibility: 'visible'}).animate({opacity: 1}, 200);
       $('#search-query').focus();
+
+      // Block background content from screen readers and keyboard navigation.
+      // We set 'inert' on all direct children of body EXCEPT the search modal and any scripts.
+      $('body > *:not(#search):not(script)').attr('inert', '');
     }
   }
 

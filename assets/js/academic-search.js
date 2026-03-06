@@ -54,6 +54,7 @@ function initSearch(force, fuse) {
 
   // If query deleted, clear results.
   if ( query.length < 1) {
+    $('#search-result-count').empty();
     $('#search-hits').empty();
   }
 
@@ -62,6 +63,7 @@ function initSearch(force, fuse) {
     return;
 
   // Do search.
+  $('#search-result-count').empty();
   $('#search-hits').empty();
   searchAcademic(query, fuse);
   let newURL = window.location.protocol + "//" + window.location.host + window.location.pathname + '?q=' + encodeURIComponent(query) + window.location.hash;
@@ -74,11 +76,12 @@ function searchAcademic(query, fuse) {
   // console.log({"results": results});
 
   if (results.length > 0) {
-    $('#search-hits').append('<h2 class="mt-0">' + results.length + ' ' + i18n.results + '</h2>');
+    $('#search-result-count').html('<h2 class="mt-0">' + results.length + ' ' + i18n.results + '</h2>');
     parseResults(query, results);
   } else {
-    $('#search-hits').append('<div class="search-no-results">' + i18n.no_results + '</div>');
+    $('#search-result-count').html('<div class="search-no-results">' + i18n.no_results + '</div>');
   }
+  // document.querySelector(".search-results").showModal()
 }
 
 // Parse search results.
