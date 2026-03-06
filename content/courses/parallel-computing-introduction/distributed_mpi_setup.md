@@ -53,7 +53,7 @@ conda install -c conda-forge mpi4py
 
 If you have access to a multicore computer, you can run MPI programs on it.
 
-If using a compiled language, before you can build MPI codes you must install a compiler, and possibly some kind of IDE.  See our guides for [C++](/courses/cpp-introduction/setting_up) or [Fortran](/courses/fortran-introduction/setting_up).
+If using a compiled language, before you can build MPI codes you must install a compiler, and possibly some kind of IDE.  See our guides for [C++](/courses/cpp_introduction/setting_up) or [Fortran](/courses/fortran_introduction/setting_up).
 
 For Python, on all operating systems install [mpi4py](https://mpi4py.readthedocs.io/en/stable/index.html). To install mpi4py you must have a working `mpicc` compiler.  If you use `conda` or `mamaba` from a distribution like [miniforge](https://github.com/conda-forge/miniforge), the required compiler will be installed as a dependency.  For `pip` installations you must provide your own compiler setup. 
 
