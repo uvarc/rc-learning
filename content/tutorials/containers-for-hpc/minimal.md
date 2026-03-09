@@ -1,5 +1,5 @@
 ---
-date : "2024-06-03T00:00:00-05:00"
+date : "2026-03-09T00:00:00-05:00"
 title: Appendix 2 - Minimal Containers [Docker]
 toc: true
 type: book
