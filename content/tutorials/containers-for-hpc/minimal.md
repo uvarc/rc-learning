@@ -270,7 +270,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
     </details>
     <br>
 
-4. Challenge: Verify that the two containers have the same performance on Rivanna's GPU node. Follow the [tutorial example](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation). Run the same job without using GPU. How much faster is it with GPU?
+4. Challenge: Verify that the two containers have the same performance on a GPU node. Follow the [tutorial example](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation). Run the same job without using GPU. How much faster is it with GPU?
 
 ---
 
@@ -440,18 +440,6 @@ The image size is merely **10.7 MB**, 99.5% smaller than what we started with. T
 </details>
 
 We submitted a [pull request](https://github.com/microsoft/LightGBM/pull/3408) that has been [merged](https://github.com/microsoft/LightGBM/tree/master/docker/gpu).
-
----
-
-## Example: TensorFlow distroless
-
-TensorFlow is a popular platform for machine learning. It is an open source project by Google.
-
-The TF 2.3 container that you used in the previous workshop is actually based on distroless, which is why you were not able to run `ls` inside the container.
-
-- [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/tensorflow/2.3.0/Dockerfile.distroless)
-- 18% image size reduction
-- [PR](https://github.com/tensorflow/build/pull/13) approved and [merged](https://github.com/tensorflow/build)
 
 ---
 
@@ -687,12 +675,10 @@ LibTorch is the C++ frontend of PyTorch. This exercise is based on the ["Writing
 
 1. Challenge: The above image cannot make use of GPU. Build an image for GPU. Hints:
     - You do not need a physical GPU to build an image for GPU.
-    - Pick a `nvidia/cuda` base image. Read their overview page on Docker Hub to decide which flavor to use.
+    - Use `nvidia/cuda` as the base image. Read their overview page on Docker Hub to decide which flavor to use.
     - Choose a CUDA version to get the download link for LibTorch on the PyTorch webpage.
 
     <br>
-
-1. Challenge: Can you build `dcgan` on Rivanna without using a container? Why (not)?
 
 1. Challenge: Can you build a static binary of `dcgan`? Why (not)?
 
