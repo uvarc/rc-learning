@@ -4,7 +4,7 @@ date: 2020-02-28T00:00:00-05:00
 authors: [kah,rs]
 categories: ["HPC Intro", "Unix","Open OnDemand"]
 tags: [HPC_Intro,Unix,Open_OnDemand]
-summary: This tutorial will explain how to access the shell on UVA HPC, as well as several useful shell commands for working with HPC.
+summary: This tutorial will explain how to access the shell on UVA HPC, and will demonstrate several useful shell commands for working with HPC.
 
 
 notes: hpc-intro/features_of_ood/features_shell_access

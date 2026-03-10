@@ -13,7 +13,7 @@ superuser: false
 role: Computational Scientist
 
 user_groups:
-- DAC
+- RC
 
 # Organizations/Affiliations
 organizations:

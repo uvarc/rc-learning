@@ -1,6 +1,6 @@
 ---
 title: Introduction to VS Code for HPC
-summary: "This tutorial is an introduction to using VS Code for HPC"
+summary: "Using VS Code on a remote HPC system may be different from local use. This tutorial introduces best practices for VS Code on HPC."
 
 # Schedule page publish date (NOT talk date).
 publishDate: "2025-01-30T00:00:00"
@@ -19,7 +19,5 @@ weight: 120
 
 
 pdf: vscode-intro
-
-weight: 120
 
 ---
