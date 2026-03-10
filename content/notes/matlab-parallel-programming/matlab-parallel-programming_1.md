@@ -1,6 +1,6 @@
 ---
 title: Parallel Matlab on Rivanna
-date: 2024-11-16-20:28:40Z
+date: 2024-11-16T20:28:40Z
 type: docs 
 weight: 100
 menu: 
@@ -27,7 +27,7 @@ However, the challenge lies in effectively utilizing this powerful hardware, whi
 - **Accelerate workflows** with minimal changes to existing code  
 - **Scale applications** seamlessly from desktop to clusters or cloud for more computational power and memory  
 
-{{< figure src=/notes/matlab-parallel-programming/img/matlab-gpu-multicore-cpu.png >}}
+{{< figure src="/notes/matlab-parallel-programming/img/matlab-gpu-multicore-cpu.png"  >}}
 
 
 Let's look at some examples of customer across multiple industries who have been using MathWorks parallel computing tools and why they chose parallel computing 
@@ -36,13 +36,13 @@ Let's look at some examples of customer across multiple industries who have been
 
 ---
 
-| {{< figure src=/notes/matlab-parallel-programming/img/automotive-test-analysis.png width="300px" >}} | {{< figure src=/notes/matlab-parallel-programming/img/discrete-model-fleet-performance.png width="300px" >}} |
+| {{< figure src="/notes/matlab-parallel-programming/img/automotive-test-analysis.png" width="300px" >}} | {{< figure src="/notes/matlab-parallel-programming/img/discrete-model-fleet-performance.png" width="300px" >}} |
 |:-----------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------:|
 | **Automotive Test Analysis and Visualization**                                                                   | **Discrete-Event Model of Fleet Performance**                                                                    |
 | - 3–4 months of development time saved                                                                           | - Simulation time reduced from months to hours                                                                   |
 | - Validation time sped up 2X                                                                                     | - Simulation time sped up 20X                                                                                    |
 
-| {{< figure src=/notes/matlab-parallel-programming/img/heart-transplant-studies.png width="300px" >}} | {{< figure src=/notes/matlab-parallel-programming/img/derived-market-data.jpg width="300px" >}} |
+| {{< figure src="/notes/matlab-parallel-programming/img/heart-transplant-studies.png" width="300px" >}} | {{< figure src="/notes/matlab-parallel-programming/img/derived-market-data.jpg" width="300px" >}} |
 |:-----------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------:|
 | **Heart Transplant Studies**                                                                                     | **Calculating Derived Market Data**                                                                              |
 | - 4 weeks reduced to 5 days                                                                                      | - Implementation time reduced by months                                                                          |

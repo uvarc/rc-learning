@@ -9,19 +9,19 @@ menu:
         parent: Distributed-Memory Programming
 ---
 
-MPI stands for  _M_ essage  _P_ assing  _I_ nterface.  It is a standard established by a committee of users and vendors.  
+MPI stands for  *M*essage  *P*assing  *I*nterface.  It is a standard established by a committee of users and vendors.  
 
 ## Programming Languages
 
 MPI is written in C and ships with bindings for Fortran.  Bindings have been written for many other languages, including Python and R. C\+\+ programmers should use the C functions.  All of the C functions work the same for Fortran, with a slightly different syntax.  They are mostly the same for Python but the most widely used set of Python bindings, `mpi4py`, was modeled on the deprecated C\+\+ bindings, as they are more "Pythonic."
 
-Guides to the most-commonly used MPI routines for the three languages this course supports can be downloaded.
+PDF guides to the most-commonly used MPI routines for the three languages this course supports can be downloaded.
 
-[C/C++](/courses/parallel-computing-introduction/MPI_Guide_C.pdf) 
+[C/C++](/courses/parallel-computing-introduction/MPI_Guide_C.pdf "PDF of MPI Summary for C/C++") 
 
-[Fortran](/courses/parallel-computing-introduction/MPI_Guide_Fortran.pdf) 
+[Fortran](/courses/parallel-computing-introduction/MPI_Guide_Fortran.pdf "PDF of MPI Summary for Fortran") 
 
-[Python](/courses/parallel-computing-introduction/MPI_Guide_mpi4py.pdf)
+[Python](/courses/parallel-computing-introduction/MPI_Guide_mpi4py.pdf "PDF of MPI Summary for Python with mpi4py")
 
 ## Processes and Messages
 

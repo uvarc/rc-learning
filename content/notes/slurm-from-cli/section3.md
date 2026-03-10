@@ -1,6 +1,6 @@
 ---
 title:  III - Jobs on the Cluster
-date: 2023-12-11-14T00:11:14Z
+date: 2023-12-11T00:00:00Z
 type: docs
 toc : true 
 weight: 30
@@ -8,12 +8,15 @@ menu:
     slurm-from-cli:
 ---
 
-## Running Jobs from Scratch
+## Directories for Jobs
 
-We recommend that you run your jobs out of your /scratch directory.
- * Your personal /scratch/mst3k folder has much more storage space than your home directory. 
- * /scratch is on a Weka filesystem, a storage system designed specifically for fast access.
- * /scratch is connected to the compute nodes with Infiniband, a very fast network connection.
+By default, Slurm will start your job from the folder in which it was launched. You can change that with the -D option (directory) but many users simply navigate to the folder and type commands. 
+
+What folder you are submitting your job from matters. Not all filesystems are equal in performance and purpose, so it’s crucial to understand their differences to know what’s best for your jobs. In summary:
+ * Home - Good for jobs requiring small amounts of data. Best location to store software, so good to manage job scripts, code, and software all in one place.
+ * Scratch - Best place for running jobs using large numbers of files or large file sizes. High temporary storage capacity on a Weka filesystem which is designed for fast access. Scratch is regularly purged (see policy below). Ensure to backup irreplacable data and scripts once job completes.
+ * Standard - Leased storage great for sharing data within a research group. Filesystem is lowest in performance. Jobs with large file I/O will impact the system greatly. You should not run jobs here.
+ * Project - Versatile leased storage. Filesystem is higher performing and great for jobs. Its quota is adjustable, and is a space to share data within a research group. More expensive than Standard storage.
 
 {{< alert >}}
 The scratch system is not permanent storage, and files older than 90 days will be marked for deleting (purging). You should keep copies of your programs and data in more permanent locations such as your home directory, leased storage such as /project or /standard, or on your lab workstation. After your jobs finish, copy the results to permanent storage.
@@ -38,7 +41,7 @@ Always remember that you submit your **job script** and not your executable or i
 
 **Exercise**
 
-From your working directory where  hello.slurm is, submit the job.
+Navigate to your Newproject directory and submit the job.
 
 ## Monitoring a Job
 

@@ -17,21 +17,21 @@ MPI must be initialized before we can invoke any other routines.  This does not 
 
 In the current MPI standard, all C/C\+\+ routines return an integer, the _error code_.  The Fortran bindings are mostly subroutines and include this return value as the last parameter.
 
-C/C++
+### C/C++
 ```c
 MPI_Init(&argc, &argv);
 //more correct but rarely used
 //int ierr=MPI_Init(&argc, &argv);
 ```
 
-Fortran
+### Fortran
 ```fortran
 integer ierr
 !code
 call MPI_Init(ierr)
 ```
 
-Python
+### Python
 
 This tutorial applies only to the `mpi4py` package, which is the most popular MPI implementation for Python at this time.  This package consists of multiple subpackages, of which the most important is `MPI`.  Within the `MPI` subpackage are several _classes_.  Most of the basic functionality of MPI is implemented as methods in the _Communicator_ class.
 
@@ -51,20 +51,20 @@ C/C\+\+ programmers should notice that parameters to the MPI routines must be ca
 
 The first argument is the communicator; the number of processes in that communicator group is returned as an integer in the second argument.
 
-C
+### C
 ```c
 int nprocs;
 MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
 ```
 
-Fortran
+### Fortran
 ```fortran
 integer ::  ierr, nprocs
 !other statements
 call MPI_Comm_size(MPI_COMM_WORLD, nprocs, ierr)
 ```
 
-Python
+### Python
 ```python
 nprocs=comm.Get_size()
 ```
@@ -74,37 +74,37 @@ nprocs=comm.Get_size()
 The rank is always relative to the communicator.  We are only considering the default MPI_COMM_WORLD in these examples.  Process rank is an integer in the range
 0, 1, …,  (_nprocs_-1) returned through the second argument.
 
-C
+### C
 ```c
 int rank;
 MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 ```
 
-Fortran
+### Fortran
 ```fortran
 integer :: rank
 !other statements
 call MPI_Comm_rank(MPI_COMM_WORLD,rank,ierr)
 ```
 
-Python
+### Python
 ```python
 rank=comm.Get_rank()
 ```
 
 ## Shut Down MPI
 
-C
+### C
 ```c
 MPI_Finalize();
 ```
 
-Fortran
+### Fortran
 ```fortran
 call MPI_Finalize(ierr)
 ```
 
-Python
+### Python
 ```python
 MPI.Finalize()
 ```

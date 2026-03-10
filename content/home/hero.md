@@ -46,4 +46,8 @@ title = "UVA Research Computing Learning Portal"
   
 +++
 
+<<<<<<< HEAD
 Research Computing provides computational, scientific programming, and data analysis tutorials, many of which are offered as live sessions in partnership with the UVA Library [Research Data Services](https://data.library.virginia.edu/training) and UVA [Health Sciences Library](https://cal.hsl.virginia.edu/calendar/data) websites. This site compiles RC the tutorial materials, many of which contain interactive exercises for students to review or study at their own pace. 
+=======
+Research Computing provides computational, scientific programming, and data analysis workshops, many of which are offered in partnership with the UVA Library [Research Data Services](https://data.library.virginia.edu/training "UVA Library's Research Data Services Workshops page") and UVA [Health Sciences Library](https://cal.hsl.virginia.edu/calendar/data "UVA Health Sciences Library's Research & Data Workshops page") websites. This site compiles RC workshop and tutorial materials as well as interactive exercises for students to review or study at their own pace. 
+>>>>>>> ffbe55446d042a3036de9f96649df788cb0b73c9

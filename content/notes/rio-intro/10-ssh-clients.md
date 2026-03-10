@@ -1,6 +1,6 @@
 ---
 title: SSH Clients
-date: 2025-11-12-03:53:56Z
+date: 2025-11-12T03:53:56Z
 type: docs 
 weight: 600
 menu: 
@@ -33,4 +33,4 @@ $ rm file_1
 $ cd ..
 ```
 
-See [learning.rc.virginia.edu/tutorials/unix-tutorial/](http://learning.rc.virginia.edu/tutorials/unix-tutorial/) to learn more.
+See [RC Learning's Unix Tutorial](/tutorials/unix-tutorial/) to learn more.

@@ -101,4 +101,4 @@ If Geany is to run a multi-file executable then the main program file must be se
 
 The file ending in `.h` is called a _header file_. The best practice in C++ is to separate the _interface_ into a header file and the _implementation_ into the source file. We will discuss this, as well as the preprocessor commands, when we cover functions.
 
-This process becomes increasingly cumbersome as projects grow in number and complexity of files.  The most common way to manage projects is through the [make](courses/cpp-introduction/make.md) utility, which we will examine next.
+This process becomes increasingly cumbersome as projects grow in number and complexity of files.  The most common way to manage projects is through the [make](/courses/cpp-introduction/make.md) utility, which we will examine next.

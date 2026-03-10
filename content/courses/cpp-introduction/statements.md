@@ -66,4 +66,4 @@ The second option is to place the opening curly brace on the line below
 ```
 The first style saves space and the closing curly brace aligns visually with the code construct to which it belongs.  In the second style, the opening and closing curly braces are aligned.  Unless one style or the other is imposed by a particular coding project or employer, programmers should choose one and be consistent.
 
-Blocks also have important implications for [scope](/courses/cpp-introduction/scope.md).
+Blocks also have important implications for [scope](/courses/cpp-introduction/scope/).

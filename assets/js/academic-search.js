@@ -54,6 +54,7 @@ function initSearch(force, fuse) {
 
   // If query deleted, clear results.
   if ( query.length < 1) {
+    $('#search-result-count').empty();
     $('#search-hits').empty();
   }
 
@@ -62,6 +63,7 @@ function initSearch(force, fuse) {
     return;
 
   // Do search.
+  $('#search-result-count').empty();
   $('#search-hits').empty();
   searchAcademic(query, fuse);
   let newURL = window.location.protocol + "//" + window.location.host + window.location.pathname + '?q=' + encodeURIComponent(query) + window.location.hash;
@@ -74,17 +76,19 @@ function searchAcademic(query, fuse) {
   // console.log({"results": results});
 
   if (results.length > 0) {
-    $('#search-hits').append('<h2 class="mt-0">' + results.length + ' ' + i18n.results + '</h2>');
+    $('#search-result-count').html('<h2 class="mt-0">' + results.length + ' ' + i18n.results + '</h2>');
     parseResults(query, results);
   } else {
-    $('#search-hits').append('<div class="search-no-results">' + i18n.no_results + '</div>');
+    $('#search-result-count').html('<div class="search-no-results">' + i18n.no_results + '</div>');
   }
+  // document.querySelector(".search-results").showModal()
 }
 
 // Parse search results.
 function parseResults(query, results) {
   $.each( results, function(key, value) {
     let content_key = value.item.section;
+    let path = value.item.relpermalink;
     let content = "";
     let snippet = "";
     let snippetHighlights = [];
@@ -124,8 +128,11 @@ function parseResults(query, results) {
     // Parse template.
     let templateData = {
       key: key,
-      title: value.item.title,
+      title: value.item.title || "(no title)",
       type: content_key,
+      // turn relative path to breadcrumbs ("page1 > page2") format, removing the last part of the path (the result's page name)
+      // screen readers see a comma instead of "greater than sign", to allow for a pause in speech between each segment
+      pagepath: path.split('/').filter(item => item !== '').slice(0, -1).join('<span class="sr-only">,</span> <span aria-hidden=\"true\">&gt;</span> '),
       relpermalink: value.item.relpermalink,
       snippet: snippet
     };

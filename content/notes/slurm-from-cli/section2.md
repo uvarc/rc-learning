@@ -1,6 +1,6 @@
 ---
 title:  II - Working with Slurm Scripts
-date: 2023-12-11-14T00:11:14Z
+date: 2023-12-11T00:00:00Z
 type: docs
 toc : true 
 weight: 20
@@ -185,7 +185,7 @@ Open hello.slurm using any text editor you prefer and add the lines needed to pu
 
 When using Slurm in terminal mode, you will probably want to create your own folders to organize your Slurm scripts, any input files, and the output.  You will need to be able to move around from one folder to another at the terminal.
 
-By default, Slurm will start your job from the folder in which it was launched. You can change that with the `-D` option (directory) but many users simply navigate to the folder and type commands.
+Having good directory organization can be key when running many different jobs on multiple datasets.
 
 ### Creating Files and Folders
 
@@ -205,11 +205,11 @@ If you are familiar with the command line, you can use that. If you wish to lear
 
 #### Changing into a Directory
 
-If you do not wish to learn the full command-line navigation, you will need to learn the `cd` command to get to your folder for launching your job.
+If you do not wish to learn the full command-line navigation and have not viewed our tutorial, here are some command line basics that are needed for this tutorial.
 
 Log into a terminal in FastX, or open a terminal through the Clusters tab in Open OnDemand.
 
-The `cd` command stands for "change directory." It is followed by a **path** to that directory. In the examples below, `mst3k` is a generic user ID. Substitute your own.
+You will need to learn the `cd` command to get to your folder for launching your job. The `cd` command stands for "change directory." It is followed by a **path** to that directory. In the examples below, `mst3k` is a generic user ID. Substitute your own.
 
 ```bash
 $cd myworkdir
@@ -225,9 +225,21 @@ $cd shakespeare
 $pwd
 /home/mst3k/shakespeare
 ```
+You will also need to move files around for better organization. To move single files, you can use either `cp` for "copy" or `mv` for "move".
+
+```bash
+$cp newfile newfile2
+$cp newfile /home/mstk3/myprojectdir/newfile2
+$mv newfile newfile2
+```
+The first argument is the file you wish to copy/move, and the second is the destination. Copying a file retains the original, and move does not. Copying or moving entire folders requires the `-r` "recursive" option.
+
+```bash
+$cp -r myprojectdir newprojectdir
+```
 
 **Exercise 3**
 
-Use FastX or Open OnDemand or the command line to create a new folder under your scratch directory. Practice changing into and out of it. Move hello.slurm and hello.py into the newly created folder.
+Use FastX, Open OnDemand, or the command line to create a new folder named Newproject under your home directory. Practice changing into and out of it. Copy or move hello.slurm and hello.py into the newly created folder.
 
-Use FastX and Caja to navigate to your /scratch directory. To get there, click Go in the Caja menu. A textbox will open. Be sure that “search for files” is unchecked. Erase whatever is in the textbox and type /scratch/mst3k (substituting your own user ID). Still in FastX, open a terminal (the black box, or in the System Tools menu) and navigate to your new scratch folder.
+

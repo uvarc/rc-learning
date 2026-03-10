@@ -85,7 +85,7 @@ call MPI_Scatter(vals,ncount,MPI_TYPE,rvals,ncount,MPI_TYPE,root,MPI_COMM_WORLD,
 {{< code-download file="/courses/parallel-computing-introduction/codes/scatter.f90" lang="fortran" >}}
 {{< /spoiler >}}
 
-#### Python 
+### Python 
 
 Both buffers should be Numpy arrays. The datatype is usually not required, and the root process is 0 by default, so that is an optional argument.
 ```python

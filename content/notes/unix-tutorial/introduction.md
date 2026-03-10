@@ -3,7 +3,7 @@ title: "Introduction to Unix"
 type: docs
 toc: true
 weight: 10
-date: 2023-12-11-14T00:11:14Z
+date: 2023-12-11T00:00:00Z
 menu:
     unix-tutorials:
 

@@ -1,5 +1,5 @@
 ---
-title: "MPI Two Diemnsional Halo Exercise"
+title: "MPI Two Dimensional Halo Exercise"
 toc: true
 type: docs
 weight: 375
@@ -11,18 +11,18 @@ menu:
 
 We can now pull all of our new knowledge together to let MPI do more of the work for us in the heated-plate problem.
 
-**Exeercise**
+**Exercise**
 
 In the language of your choice, write a heated-plate solution using two-dimensional data decomposition. Use MPI types and the MPI Cartesian communicator. Stay with blocking `sendrecv` for this exercise.  Boundary conditions should be nonperiodic in both directions.
 
-Check your rsults by plotting.  If you wish, you can use the script contour2d.py
+Check your rsults by plotting.  If you wish, you can use the script contour2d.py:
 
-{{< spoiler >}}
-{{< code-download file=/courses/parallel-computing-introduction/scripts/contour2d.py" lang="python" >}}
+{{< spoiler text="contour2d.py source code" >}}
+{{< code-download file="/courses/parallel-computing-introduction/scripts/contour2d.py" lang="python" >}}
 {{< /spoiler >}}
-
+<br>
 The usage is
-```no-highlight
+```sh
 python contour2d.py -r numrows -c numcols basefilename
 ```
 The files should be written by row with the name fitting the pattern
@@ -37,15 +37,15 @@ out00 out01 out11 ...
 
 ## Example Solutions
 
-{{< spoiler text="Fortran" >}}
+{{< spoiler text="C++" >}}
 {{< code-download file="/courses/parallel-computing-introduction/solns/mpi_cartplate.cxx" lang="c++" >}}
 {{< /spoiler >}}
 
 {{< spoiler text="Fortran" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/mpi_cartplate.f90" lang="fortran" >}}
+{{< code-download file="/courses/parallel-computing-introduction/solns/mpi_cartplate.f90" lang="fortran" >}}
 {{< /spoiler >}}
 
 {{< spoiler text="Python" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/mpi_cartplate.py" lang="python" >}}
+{{< code-download file="/courses/parallel-computing-introduction/solns/mpi_cartplate.py" lang="python" >}}
 {{< /spoiler >}}
 

@@ -1,6 +1,6 @@
 ---
 title: "Linkers and Libraries"
-date : "2021-04-5T00:00:00-05:00"
+date : "2021-04-05T00:00:00-05:00"
 toc: true
 type: book
 weight: 13
@@ -61,5 +61,5 @@ If Geany is to run a multi-file executable then the main program file must be se
 
 {{< figure src="/courses/fortran-introduction/img/GeanyFiles.png" width=500px caption="Executing the example program" >}}
 
-This process becomes increasingly cumbersome as projects grow in number and complexity of files.  The most common way to manage projects is through the [make](courses/fortran-introduction/make.md) utility, which we will examine next.
+This process becomes increasingly cumbersome as projects grow in number and complexity of files.  The most common way to manage projects is through the [make](/courses/fortran-introduction/make.md) utility, which we will examine next.
 

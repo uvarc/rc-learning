@@ -39,7 +39,7 @@ int   j=2;
 Start Geany or your preferred editor or IDE.  Type
 {{< code file="/courses/cpp-introduction/codes/variables.cxx" lang="c++" >}}
 
-Variables can be declared and initialized anywhere in the body of the code as long as they are declared before they are used.  There are some implications for variable _scope_, which we will discuss [later](/courses/cpp-introduction/scope.md).  
+Variables can be declared and initialized anywhere in the body of the code as long as they are declared before they are used.  There are some implications for variable _scope_, which we will discuss [later](/courses/cpp-introduction/scope/).  
 
 {{< code file="/courses/cpp-introduction/codes/vardecls.cxx" lang="c++" >}}
 

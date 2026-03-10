@@ -65,18 +65,18 @@ Fortran and NumPy arrays are contiguous in memory, but C/C++ currently lacks tru
 In order to receive the buffer from each of the other processes for printing,root will loop through all other ranks, receiving, while the send involves a test to sthat each rank sends once to the root.  We use `MPI_ANY_SOURCE` and `MPI_ANY_TAG` (`MPI.ANY_SOURCE` and `MPI.ANY_TAG` for mpi4py) to match whatever message srrives, since we cannot guarantee ordering.  We can then use the `MPI _Status` variable to extract information about the sender.
 
 {{< spoiler text="C++" >}}
-{{< code-download file="/courses/parallel-computing-introduction/code/mpi_halo_exchange.cxx" lang="c++" >}}
+{{< code-download file="/courses/parallel-computing-introduction/codes/mpi_halo_exchange.cxx" lang="c++" >}}
 {{< /spoiler >}}
 
 {{< spoiler text="Fortran" >}}
-{{< code-download file="/courses/parallel-computing-introduction/code/mpi_halo_exchange.f90" lang="fortran" >}}
+{{< code-download file="/courses/parallel-computing-introduction/codes/mpi_halo_exchange.f90" lang="fortran" >}}
 {{< /spoiler >}}
 
 {{< spoiler text="Python" >}}
-{{< code-download file="/courses/parallel-computing-introduction/code/mpi_halo_exchange.py" lang="python" >}}
+{{< code-download file="/courses/parallel-computing-introduction/codes/mpi_halo_exchange.py" lang="python" >}}
 {{< /spoiler >}}
 
 **Exercise**
-Review [strong and weak scaling](performance_analysis.md). The example programs are set up for strong scaling.  Modify them by using constants for the local row and column sizes.
+Review [strong and weak scaling](../performance_analysis). The example programs are set up for strong scaling.  Modify them by using constants for the local row and column sizes.
 
 Simplify the validation step by taking two or three appropriate ranks and comparing the before and after values of the exchanged rows or columns. 

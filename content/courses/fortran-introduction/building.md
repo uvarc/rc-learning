@@ -1,6 +1,6 @@
 ---
 title: "Compilers and IDEs"
-date : "2021-04-5T00:00:00"
+date : "2021-04-05T00:00:00"
 toc: true
 type: book
 weight: 11
@@ -37,9 +37,9 @@ An Integrated Development Environment (IDE) combines an editor and a way to comp
 A well-known IDE for Microsoft Windows is Visual Studio. This is available through the Microsoft Store; it is not free for individuals.
 macOS uses Xcode as its native IDE. Xcode includes some compilers, particularly for Swift, but it can manage several other languages.  Available at the App Store and free.
 
-A full-featured cross-platform IDE is [Eclipse] (http://www.eclipse.org/).  Free.
+A full-featured cross-platform IDE is [Eclipse](http://www.eclipse.org/).  Free.
 
-A lighter-weight IDE for Windows and Linux is [Code::Blocks] (http://www.codeblocks.org/).  Free.
+A lighter-weight IDE for Windows and Linux is [Code::Blocks](http://www.codeblocks.org/).  Free.
 
 Windows programmers using Intel's oneAPI distribution must also install [Visual Studio](https://visualstudio.microsoft.com/).
 

@@ -3,7 +3,7 @@ title: Deep Learning in Drug Discovery
 authors: [ppr]
 type: docs 
 weight: 1 
-date: "2025-03-11-13:24:11Z"
+date: "2025-03-11T13:24:11Z"
 menu: 
     dl-drug-discovery:
 ---

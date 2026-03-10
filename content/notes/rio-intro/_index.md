@@ -1,12 +1,12 @@
 ---
 title: Intro to High Security HPC (Rio)
-date: 2025-11-12-03:53:56Z
 authors: [as, pbo, cmd]
-categories: [HPC]
-tags: [HPC]
+date: 2025-11-12T03:53:56Z
+authors: [as, pbo, cmd]
+categories: [HPC Intro]
+tags: [HPC_Intro]
 type: docs 
 weight: 1 
-date: 2025-11-12-03:53:56Z
 
 menu: 
     rio-intro:

@@ -1,6 +1,6 @@
 ---
 title: "Subprograms"
-date : "2021-04-5T00:00:00-05:00"
+date : "2021-04-05T00:00:00-05:00"
 toc: true
 type: book
 weight: 61
@@ -84,7 +84,7 @@ z=4.*myfunc(var1,var2,var3)
 ```
 As for subroutines, the names of the actual arguments need not be the same as those of the dummies, but the number and type must match.
 
-Because functions have a type, they must be _declared_ like a variable in any program unit that invokes them.  Better yet, use an [interface](courses/fortran-introduction/subprogram_args).
+Because functions have a type, they must be _declared_ like a variable in any program unit that invokes them.  Better yet, use an [interface](/courses/fortran-introduction/subprogram_args).
 
 Subroutines have no return type and cannot be declared.
 

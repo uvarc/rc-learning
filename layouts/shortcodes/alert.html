@@ -1,0 +1,11 @@
+<div class="alert alert-{{ .Get 0 }}">
+  
+  <div>
+    {{ with .Get 0 }}
+      <span class="sr-only">{{ .Get 0 }}: </span>
+    {{ else }}
+      <span class="sr-only">Note: </span>
+    {{ end }}
+    {{ .Inner | markdownify | emojify }}
+  </div>
+</div>

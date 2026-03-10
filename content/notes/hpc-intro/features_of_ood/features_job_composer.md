@@ -13,7 +13,7 @@ menu:
 
 The job composer tab allows you to create and submit a job to run on the cluster.
 
-{{< figure src="/notes/hpc-intro/img/Features_job_composer.png" caption="OOD Job Composer" alt="UVA Open OnDemand Job Composer interface showing a 'New Job' dropdown with a 'From Default Template' option. A job table lists one entry: 'demo_hello_world' on the Rivanna cluster, not yet submitted. Submit, Stop, and Delete buttons, and a search bar appear above the table, with pagination controls at the bottom.">}}
+{{< figure src="/notes/hpc-intro/img/Features_job_composer.png" caption="OOD Job Composer" alt="UVA Open OnDemand Job Composer interface showing a 'New Job' dropdown with a 'From Default Template' option. A job table lists one entry: 'demo_hello_world' on the Rivanna cluster, not yet submitted. Submit, Stop, and Delete buttons, and a search bar, appear above the table, with pagination controls at the bottom.">}}
 
 Selecting the default template will automatically create a submission script called ```demo_hello_world.slurm``` located in ```/home/computingID/Rivanna/data/sys/myjobs/projects/default/1``` on the file system:
 

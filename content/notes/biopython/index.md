@@ -16,7 +16,7 @@ From the [official Biopython project website](https://biopython.org):
 
 This workshop assumes a working knowledge of the Python programming language and basic understanding of the concepts of online DNA and Protein sequence repositories.
 
-Introductions to Python can be found [here](/courses/programming_python_scientists_engineers/python-interpreter/) and [here](/courses/python_introduction/).
+Introductions to Python can be found [here](/courses/programming_python_scientists_engineers/python-interpreter/) and [here](/courses/python-introduction/).
 
 ---
 

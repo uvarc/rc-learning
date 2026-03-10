@@ -1,6 +1,6 @@
 ---
 title: GPU Resource Usage
-date: 2024-06-28-01:51:43Z
+date: 2024-06-28T01:51:43Z
 type: docs 
 weight: 650
 toc: true

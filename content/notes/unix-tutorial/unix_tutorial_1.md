@@ -6,7 +6,7 @@ highlight_style: "github"
 toc: true
 type: docs
 weight: 20
-date: 2023-12-11-14T00:11:14Z
+date: 2023-12-11T00:00:00Z
 menu:
     unix-tutorials:
 ---
@@ -161,7 +161,7 @@ In newer Linux systems, most commands have a `--help` option
 ```bash
 % wc --help
 ```
-However, `man` sends output through a [pager](/notes/unix-tutorials/unix_tutorial_2), whereas --help prints directly to the console.
+However, `man` sends output through a [pager](/notes/unix-tutorial/unix_tutorial_2/), whereas --help prints directly to the console.
 
 Another useful command,
 ```

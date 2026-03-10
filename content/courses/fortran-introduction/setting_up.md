@@ -1,6 +1,6 @@
 ---
 title: "Setting Up Your Environment"
-date : "2021-04-5T00:00:00-05:00"
+date : "2021-04-05T00:00:00-05:00"
 toc: true
 type: book
 weight: 12
@@ -40,7 +40,7 @@ Download the Mac version from Intel.
 
 The NVIDIA HPC SDK is not available for Macs.
 
-Geany can be installed from its [homepage](www.geany.org).  Other options, such as VSCode, can be installed similarly.
+Geany can be installed from its [homepage](https://www.geany.org).  Other options, such as VSCode, can be installed similarly.
 
 ### Windows
 

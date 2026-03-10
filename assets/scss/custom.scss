@@ -72,9 +72,21 @@ h6 {
   font-size: 1rem;
 }
 
+.search-header {
+  z-index: 1032;
+}
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+.close-search-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
 }
 
 /* Change the colors for the "light" button */
@@ -118,6 +130,11 @@ html {
 .btn-light:not(:disabled):not(.disabled).active:focus,
 .show>.btn-light.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
+
+#hero {
+  background-color: rgba(0, 0, 0, 0.45);
+  background-blend-mode: multiply; // darken background (blend the above color with background image) to improve legibility of white text
 }
 
 .hero-title {
@@ -173,7 +190,7 @@ html {
   color: #ab0728;
 }
 
-.alert-info {
+.alert-info, .alert-note {
   background-color: #fafafa;
   border-color: #209cee; // the same color as the info icon
 }
@@ -347,11 +364,19 @@ footer {
   .alert-warning {
     background-color: #550000;
     color: white;
+    code {
+      color: #8be9fd;
+    }
   }
 
-  .alert-info {
+  .alert-info, .alert-note {
     background-color: #12537e;
     color: white;
+    pre,
+    code {
+      color: white;
+      background-color: #44475aab;
+    }
   }
 
   .skip-to-main-content {
@@ -373,5 +398,10 @@ footer {
 
   .badge-light {
     color: white;
+  }
+  
+  .tag-cloud a:hover,
+  .tag-cloud a:focus {
+    color: hsl(231, 48%, 90%);
   }
 }

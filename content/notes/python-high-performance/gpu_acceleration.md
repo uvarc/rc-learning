@@ -126,4 +126,4 @@ This example of a matrix-multiplication kernel is taken from the Numba CUDA [doc
 ## RAPIDS
 
 RAPIDS is a set of libraries released by NVIDIA for its GPU architectures (Pascal or later).  It builds upon CuPY and introduces a GPU DataFrame `cuDF`, and a package `cuML` that mostly replicates `scikit-learn`.
-See our [RAPIDS workshop](/workshops/rapids) to learn more about using RAPIDS.
+See our [RAPIDS workshop](/notes/rapids) to learn more about using RAPIDS.

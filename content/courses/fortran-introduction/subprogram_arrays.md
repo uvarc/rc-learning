@@ -1,6 +1,6 @@
 ---
 title: "Array Arguments"
-date : "2021-04-5T00:00:00-05:00"
+date : "2021-04-05T00:00:00-05:00"
 toc: true
 type: book
 weight: 64
@@ -66,7 +66,7 @@ real, dimension(:) :: A   ! in sub
 Though the dimensions need not be known for assumed-shape arrays, the rank must match.
 
 **Example**
-{{< code-download file="courses/fortran-introduction/codes/pass_arrays.f90" lang="fortran" >}}
+{{< code-download file="/courses/fortran-introduction/codes/pass_arrays.f90" lang="fortran" >}}
 
 ### Allocating Arrays in a Subprogram
 
