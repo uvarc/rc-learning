@@ -5,7 +5,6 @@ date: 2020-02-02T00:06:47-04:00
 categories: ["Python", "Programming", "Parallel Programming", "HPC"]
 tags: ["Python","Programming", "Parallel_Programming","HPC"]
 authors: ["khs","kah"]
-draft: true
 
 notes: python-high-performance
 

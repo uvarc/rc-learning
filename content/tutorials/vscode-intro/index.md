@@ -5,9 +5,11 @@ summary: "This tutorial is an introduction to using VS Code for HPC"
 # Schedule page publish date (NOT talk date).
 publishDate: "2025-01-30T00:00:00"
 
-authors: [Hana Parece]
-tags: [HPC]
-categories: ["HPC"]
+authors: [hp]
+tags: [HPC, Programming]
+categories: ["HPC", "Programming"]
+
+weight: 120
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
@@ -18,6 +20,6 @@ categories: ["HPC"]
 
 pdf: vscode-intro
 
-weight: 12
+weight: 120
 
 ---
