@@ -1,10 +1,11 @@
 program halo
    use mpi_f08
+   implicit none
 
    double precision, allocatable, dimension(:,:)  :: w,u
    integer            :: N=12
-   double precision   :: topBC, bottomBC, edgeBC
-   integer            :: i
+   double precision   :: topBC, bottomBC, leftBC, rightBC
+   integer            :: i,j
 
    integer            :: nr, nc, nrl, ncl
    integer            :: rank, nprocs, tag=0

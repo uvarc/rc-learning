@@ -88,8 +88,8 @@ program twod_exchange
 
    topBC=0.d0
    bottomBC=200.d0
-   leftBC=100.d0
-   rightBC=100.d0
+   leftBC=300.d0
+   rightBC=300.d0
 
    if (my_row==0) then
       w(0,:)=topBC

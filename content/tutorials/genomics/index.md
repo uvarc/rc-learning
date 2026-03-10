@@ -5,8 +5,8 @@ summary: "This tutorial introduces tools and resources for performing genome ass
 Date: "2025-7-10T00:00:00"
 
 authors: [dat, mab]
-tags: ["Bioinformatics", "Data_Analytics", "HPC"]
-categories: ["Bioinformatics","Data Analytics", "HPC"]
+tags: ["Bioinformatics", "Data_Analytics"]
+categories: ["Bioinformatics","Data Analytics"]
 
 notes: genomics
 

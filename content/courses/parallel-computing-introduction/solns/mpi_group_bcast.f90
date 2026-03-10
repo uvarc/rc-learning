@@ -1,7 +1,8 @@
 program mpi_groups
 use mpi_f08
+implicit none
 
-  integer :: nprocs, rank, new_comm_rank
+  integer :: nprocs, rank, new_comm_rank, ierr
   integer, allocatable, dimension(:) :: evens, flag
   integer :: nevens
   integer :: ne, r

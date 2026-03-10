@@ -12,6 +12,9 @@ superuser: false
 # Role/position
 role: Senior Computational Scientist
 
+user_groups:
+- RC
+
 # Organizations/Affiliations
 organizations:
 - name: University of Virginia Research Computing

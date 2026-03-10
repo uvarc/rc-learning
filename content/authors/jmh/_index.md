@@ -10,7 +10,10 @@ authors:
 superuser: false
 
 # Role/position
-role: Research Computing Consultant
+role: Assistant Director, Data Analytics Center
+
+user_groups:
+- DAC
 
 # Organizations/Affiliations
 organizations:

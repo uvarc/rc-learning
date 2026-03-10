@@ -9,6 +9,9 @@ authors:
 # Is this the primary user of the site?
 superuser: true
 
+user_group:
+- Admin
+
 # Organizations/Affiliations
 organizations:
 - name: University of Virginia Research Computing

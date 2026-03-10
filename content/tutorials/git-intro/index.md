@@ -4,7 +4,7 @@ summary: "Learn to use the git version-control system to manage your software pr
 
 Date: "2015-07-23T21:13:14-05:00"
 
-authors: [uvarc]
+authors: [kah]
 tags: [Programming,Git]
 categories: ["Programming","Git"]
 

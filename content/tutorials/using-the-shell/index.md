@@ -2,8 +2,8 @@
 title: "Using the Shell on Open OnDemand"
 date: 2020-02-28T00:00:00-05:00
 authors: [kah,rs]
-categories: ["Programming","HPC", "Unix","Open OnDemand"]
-tags: [Programming,HPC,Unix,Open_OnDemand]
+categories: ["HPC Intro", "Unix","Open OnDemand"]
+tags: [HPC_Intro,Unix,Open_OnDemand]
 summary: This tutorial will explain how to access the shell on UVA HPC, as well as several useful shell commands for working with HPC.
 
 

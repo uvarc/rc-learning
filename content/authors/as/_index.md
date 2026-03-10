@@ -10,7 +10,10 @@ authors:
 superuser: false
 
 # Role/position
-role: Research Computing Consultant
+role: Technical Support Manager
+
+user_groups:
+- RC
 
 # Organizations/Affiliations
 organizations:

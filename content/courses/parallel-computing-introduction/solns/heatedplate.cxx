@@ -16,7 +16,7 @@ int main (int argc, char *argv[]) {
   double diff;            // Change in value 
   double mean;            //Average boundary value 
   int N, M;
-  int iterations = 0;
+  int iteration = 0;
   int diffInterval;
   double epsilon;
 
@@ -75,18 +75,18 @@ int main (int argc, char *argv[]) {
   int ncols=nc+2;
   double **u=new double*[nrows];  // Old values
   double **w=new double*[nrows];  // New values
-  double **diffs=new double*[nrows+1];  // Diffs
 
   double *uptr=new double[(nrows)*(ncols)];
   double *wptr=new double[(nrows)*(ncols)];
-  double *dptr=new double[(nrows)*(ncols)];
 
   for (i=0;i<nrows;++i,uptr+=ncols)
      u[i] = uptr;
   for (i=0;i<nrows;++i,wptr+=ncols)
      w[i] = wptr;
-  for (i=0;i<nrows;++i,dptr+=ncols)
-     diffs[i] = dptr;
+
+  //Declare one-d diff array for faster access.
+  int dsize = nr*nc;
+  double *diffs = new double[dsize];
 
   mean = 0.0;
 
@@ -106,9 +106,6 @@ int main (int argc, char *argv[]) {
       }
   }
 
-  //Arbitrary, just to make sure we enter loop
-   diff = 10.*epsilon;
-
   diffInterval=1;
 
   time_t time=clock();
@@ -117,41 +114,42 @@ int main (int argc, char *argv[]) {
   // We are making a tradeoff between memory and speed here by creating a diffs
   // array. Especially for parallel, this should be reasonable.
 
-  while ( diff >= epsilon) {
-     diff=.8*epsilon;  // reset each time through to get max abs diff
+  while ( iteration <= MAX_ITER ) {
+
      for (i=1; i<=nr;i++) {
         for (j=1;j<=nc;j++) {
             w[i][j] = (u[i-1][j] + u[i+1][j] + u[i][j-1] + u[i][j+1])/4.0;
-     	    diffs[i][j] = abs(w[i][j] - u[i][j]);
+     	    diffs[(i-1)*nc+j-1] = abs(w[i][j] - u[i][j]);
          }
      }
 
-     if (iterations%diffInterval==0) {
-        for (i=1; i<=nr;i++) {
-           for (j=1;j<=nc;j++) {
-	       if (diff<diffs[i][j]) {
-		   diff=diffs[i][j];
+     if (iteration%diffInterval==0) {
+        diff=diffs[0];
+        for (i=1; i<=dsize;i++) {
+	       if (diff<diffs[i]) {
+               diff=diffs[i];
 	       }
 	   }
 	 }
          if (diff <= epsilon) 
              break;
-     }
 
+     //Update u.  Don't overwrite boundaries.
      for (i=1; i<=nr;i++) {
         for (j=1;j<=nc;j++) {
             u[i][j] = w[i][j];
         }
      }
 
-     if (iterations >= MAX_ITER) 
-        break;
-
-     iterations++;
+     iteration++;
   } 
 
+  if (iteration > MAX_ITER) {
+     cout<<"Warning: Maximum iterations exceeded.\n"; 
+  }
+
   time_t totalTime=(clock()-time)/CLOCKS_PER_SEC;
-  cout << "Completed "<<iterations<<" iterations; time "<<totalTime<<endl;
+  cout << "Completed "<<iteration<<" iterations; time "<<totalTime<<endl;
   // Write solution to output file
   ofstream fp;
   fp.open(argv[2],ios::out);

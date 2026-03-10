@@ -1,18 +1,12 @@
 ---
 title: "High Performance Programming in Python"
-summary: Tips and tricks for improving the performance of your Python code.
-authors: [kah,khs]
+summary: "Like most interpreted languages, Python can be slow. This tutorial will describe tips and tricks to help speed it up."
 date: 2020-02-02T00:06:47-04:00
 draft: false
-categories: ["Python", "Programming", "HPC"]
-tags: ["Python","Programming","HPC"]
-authors: ["kah"]
-draft: true
+categories: ["Python", "Programming", "Parallel Programming", "HPC"]
+tags: ["Python","Programming", "Parallel_Programming","HPC"]
+authors: ["khs","kah"]
 
-url_notes: courses/python-high-performance
+notes: python-high-performance
 
 ---
-
-My program takes forever!  Can I do something about it? Like most interpreted languages, Python can be slow.  Loops are a particular problem, but there are other pitfalls that may affect the performance of your code.  This workshop will show you tips and tricks to speed up your code.
-
-Participants should have experience programming in Python.

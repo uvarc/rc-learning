@@ -1,4 +1,4 @@
-
+#include <cstring>
 #include <iostream> 
 #include <iomanip> 
 #include <mpi.h> 
@@ -53,8 +53,8 @@ int main (int argc, char *argv[]) {
     }
 
     double counter=1.;
-    for ( int i = 0; i <= nrl+1; i++ ) {
-         for (int j = 0; j <= ncl+2; j++ ) {
+    for ( int i = 0; i < nrl+2; i++ ) {
+         for (int j = 0; j < ncl+2; j++ ) {
              w[i][j] = (rank+1)*counter;
              counter++;
          }
@@ -130,8 +130,10 @@ int main (int argc, char *argv[]) {
     //Simplified from earlier examples, we'll just spot-check
     //Same original values
     //
-    double *u=new double[(nrl+2)*(ncl+2)];
-    int uwsize=(nrl+2)*(ncl+2);
+    int nrl_total=nrl+2;
+    int ncl_total=ncl+2;
+    double *u=new double[(nrl_total)*(ncl_total)];
+    int uwsize=(nrl_total)*(ncl_total);
     memset(u,0.,uwsize);
     int position;
 
@@ -140,12 +142,12 @@ int main (int argc, char *argv[]) {
         MPI_Recv(u,uwsize,MPI_DOUBLE,1,1,grid_comm,&status);
         cout<<"Ranks 0 and 1  Check columns"<<endl;
         position=0;
-        for (int i=0;i<nrl+2;i++) {
-            for (int j=0;j<ncl+2;j++) {
+        for (int i=0;i<nrl_total;i++) {
+            for (int j=0;j<ncl_total;j++) {
                 cout<<w[i][j]<<" ";
             }
             cout<<" | ";
-            for (int j=0;j<ncl+2;j++) {
+            for (int j=0;j<ncl_total;j++) {
                 cout<<u[position++]<<" ";
             }
             cout<<endl;
@@ -155,8 +157,8 @@ int main (int argc, char *argv[]) {
 
     if ( grid_rank == 1 ) {
         position=0;
-        for (int i=0; i<=nrl+1; i++)
-            for (int j=0;j<=ncl+1; j++)
+        for (int i=0; i<nrl_total; i++)
+            for (int j=0;j<ncl_total; j++)
                 u[position++]=w[i][j];
 
         MPI_Send(u,uwsize,MPI_DOUBLE,0,1,grid_comm);
@@ -171,12 +173,12 @@ int main (int argc, char *argv[]) {
         MPI_Recv(u,uwsize,MPI_DOUBLE,2,2,grid_comm,&status);
         cout<<"Ranks 1 and 2 Check columns"<<endl;
         position=0;
-        for (int i=0;i<nrl+2;i++) {
-            for (int j=0;j<ncl+2;j++) {
+        for (int i=0;i<nrl_total;i++) {
+            for (int j=0;j<ncl_total;j++) {
                 cout<<w[i][j]<<" ";
             }
             cout<<" | ";
-            for (int j=0;j<ncl+2;j++) {
+            for (int j=0;j<ncl_total;j++) {
                 cout<<u[position++]<<" ";
             }
             cout<<endl;
@@ -186,8 +188,8 @@ int main (int argc, char *argv[]) {
 
     if ( grid_rank == 2 ) {
         position=0;
-        for (int i=0; i<=nrl+1; i++)
-            for (int j=0;j<=ncl+1; j++)
+        for (int i=0; i<nrl_total; i++)
+            for (int j=0;j<ncl_total; j++)
                 u[position++]=w[i][j];
 
         MPI_Send(u,uwsize,MPI_DOUBLE,1,2,grid_comm);
@@ -201,8 +203,8 @@ int main (int argc, char *argv[]) {
     if ( grid_rank == 0 ) {
         MPI_Recv(u,uwsize,MPI_DOUBLE,3,3,grid_comm,&status);
         cout<<"Ranks 0 and 3  Check rows including periodic exchange"<<endl;
-        for (int i=0;i<nrl+2;i++) {
-            for (int j=0;j<ncl+2;j++) {
+        for (int i=0;i<nrl_total;i++) {
+            for (int j=0;j<ncl_total;j++) {
                 cout<<w[i][j]<<" ";
             }
             cout<<endl;
@@ -211,8 +213,8 @@ int main (int argc, char *argv[]) {
         cout<<"-=---------------------------------------------------"<<endl;
 
         position=0;
-        for (int i=0;i<nrl+2;i++) {
-            for (int j=0;j<ncl+2;j++) {
+        for (int i=0;i<nrl_total;i++) {
+            for (int j=0;j<ncl_total;j++) {
                 cout<<u[position++]<<" ";
             }
             cout<<endl;
@@ -222,8 +224,8 @@ int main (int argc, char *argv[]) {
 
     if ( grid_rank == 3 ) {
         position=0;
-        for (int i=0; i<=nrl+1; i++)
-            for (int j=0;j<=ncl+1; j++)
+        for (int i=0; i<nrl_total; i++)
+            for (int j=0;j<ncl_total; j++)
                 u[position++]=w[i][j];
 
         MPI_Send(u,uwsize,MPI_DOUBLE,0,3,grid_comm);

@@ -54,7 +54,7 @@ w = np.zeros((nrl+2, ncl+2), dtype=np.double)
 
 #Arbitrary values.
 w[:,:] = np.reshape(np.arange(1,(nrl+2)*(ncl+2)+1),(nrl+2,ncl+2))
-w=w*(rank+1)
+w=w*(grid_rank+1)
 
 #Bouncary conditions
 topBC=0.
@@ -69,7 +69,7 @@ if grid_coords[1]==0:
 if grid_coords[1]==ncols-1:
     w[:,ncl+1]=edgeBC
 
-# set up MPI type for left column
+# set up MPI types for columns
 column_zero=MPI.DOUBLE.Create_subarray([nrl+2,ncl+2],[nrl,1],[1,0])
 column_zero.Commit()
 
@@ -100,7 +100,7 @@ u=np.zeros_like(w)
 uwsize=(nrl+2)*(ncl+2)
 
 grid_comm.Barrier()
-if rank==0:
+if grid_rank==0:
     grid_comm.Recv([u,MPI.DOUBLE],source=1,tag=1,status=status)
     print("Ranks 0 and 1 check columns")
 
@@ -111,12 +111,12 @@ if rank==0:
     
     print()
 
-if rank==1:
+if grid_rank==1:
     grid_comm.Send([w,MPI.DOUBLE],dest=0,tag=1)
 
 grid_comm.Barrier()
 u[:,:]=0.0
-if rank==1:
+if grid_rank==1:
     grid_comm.Recv([u,MPI.DOUBLE],source=2,tag=2,status=status)
     print("Ranks 1 and 2 check columns")
 
@@ -127,13 +127,13 @@ if rank==1:
     
     print()
 
-if rank==2:
+if grid_rank==2:
     grid_comm.Send([w,MPI.DOUBLE],dest=1,tag=2)
 
 #Checkrows including periodic
 grid_comm.Barrier()
 u[:,:]=0.0
-if rank==0:
+if grid_rank==0:
     grid_comm.Recv([u,MPI.DOUBLE],source=3,tag=3,status=status)
     print("Ranks 0 and 3 check rows including periodic exchange")
 

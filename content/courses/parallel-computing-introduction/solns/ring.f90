@@ -1,10 +1,8 @@
 program ring
 use mpi
-
 implicit none
 
 integer           :: baton
-
 integer           :: my_rank,  npes
 integer, parameter:: tag = 0
 integer           :: err, errcode
