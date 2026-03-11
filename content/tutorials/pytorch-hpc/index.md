@@ -7,5 +7,7 @@ authors: [abd, bmr]
 categories: ["GPU","Machine Learning","Deep Learning"]
 tags: ["GPU","Machine_Learning","Deep_Learning"]
 
+weight: 330
+
 notes: pytorch-hpc
 ---

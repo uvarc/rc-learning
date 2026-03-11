@@ -6,6 +6,8 @@ categories: ["Bioinformatics"]
 tags: ["Bioinformatics"]
 summary: "An introduction to bioinformatics concepts, sequencing technologies, common analysis tools, and their use on high-performance computing systems."
 
+weight: 505
+
 notes: bioinfo-intro
 
 ---

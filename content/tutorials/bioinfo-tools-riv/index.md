@@ -9,6 +9,8 @@ authors: [gka]
 tags: [Bioinformatics]
 categories: ["Bioinformatics"]
 
+weight: 520
+
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
 #   Simply enter your slide deck's filename without extension.
@@ -17,7 +19,7 @@ categories: ["Bioinformatics"]
 
 url_slides: notes/bioinfo-tools-riv
 
-weight: 500
+weight: 400
 
 ---
 

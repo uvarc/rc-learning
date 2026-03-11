@@ -6,7 +6,8 @@ date: 2020-03-03T21:13:14-05:00
 categories: ["Image Processing","MATLAB"]
 tags: ["Image_Processing","MATLAB"]
 draft: false
-weight: 220
+
+weight: 610
 
 notes: matlab-image-processing
 

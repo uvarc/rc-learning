@@ -6,6 +6,8 @@ categories: ["Python", "Programming", "Parallel Programming", "HPC"]
 tags: ["Python","Programming", "Parallel_Programming","HPC"]
 authors: ["khs","kah"]
 
+weight: 840
+
 notes: python-high-performance
 
 ---

@@ -6,6 +6,8 @@ authors: [teh]
 tags: ["HPC","Unix"]
 summary: "This tutorial introduces various techniques and strategies to help users more efficiently use UVA's HPC System."
 
+weight: 250
+
 notes: hpc-best-practices
 
 ---

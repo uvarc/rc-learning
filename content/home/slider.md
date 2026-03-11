@@ -21,7 +21,7 @@ height = ""
   # Overlay a color or image (optional).
   #   Deactivate an option by commenting out the line, prefixing it with `#`.
   overlay_color = "#232D4B"  # An HTML color value.
-  #overlay_img = "bubbles-wide.jpg"  # Image path relative to your `static/img/` folder.
+  overlay_img = "grounds_early_fall.jpg"  # Image path relative to your `static/img/` folder.
   overlay_filter = 0.5  # Darken the image. Value in range 0-1.
 
   # Call to action button (optional).
@@ -37,8 +37,8 @@ height = ""
   align = "center"
 
   overlay_color = "#232D4B"  # An HTML color value.
-  #overlay_img = ""  # Image path relative to your `static/img/` folder.
-  #overlay_filter = 0.5  # Darken the image. Value in range 0-1.
+  overlay_img = "learning-bg.jpg"  # Image path relative to your `static/img/` folder.
+  overlay_filter = 0.5  # Darken the image. Value in range 0-1.
 
   cta_label = "Next Events"
   cta_url = "https://rc.virginia.edu/education/workshops/"
@@ -49,8 +49,9 @@ height = ""
   align = "center"
 
   overlay_color = "#232D4B"  # An HTML color value.
-  #overlay_img = "learning-bg.jpg"  # Image path relative to your `static/img/` folder.
-  #overlay_filter = 0.5  # Darken the image. Value in range 0-1.
+  overlay_img = "brooks_hall_spring_ss_02.jpg" 
+  overlay_filter = 0.5  # Darken the image. Value in range 0-1.
+
   cta_label = "Office Hours"
   cta_url = "https://rc.virginia.edu/support/#office-hours"
   cta_icon_pack = "fas"

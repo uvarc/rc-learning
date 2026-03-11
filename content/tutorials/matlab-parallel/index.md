@@ -5,7 +5,8 @@ authors: [teh]
 date: "2019-06-23T08:37:46-05:00"
 categories: [ "HPC", "Parallel Programming", "MATLAB" ]
 tags: [ "HPC", "Parallel_Programming", "MATLAB" ]
-weight: 280
+
+weight: 680
 
 url_slides: slides/matlab-parallel/Parallel_Computing_with_MATLAB.pptx
 url_code: scripts/matlab-parallel/Parallel-Computing-Workshop.zip 

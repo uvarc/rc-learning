@@ -15,7 +15,7 @@ tags: ["Unix"]
 #   Otherwise, set `slides = ""`.
 notes: unix-tutorial
 
-weight: 40
+weight: 190
 
 ---
 

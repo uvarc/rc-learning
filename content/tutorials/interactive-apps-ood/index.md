@@ -8,7 +8,7 @@ summary: This tutorial will introduce several interactive apps built in to Open 
 
 notes: hpc-intro/interactive_apps/interactive
 
-weight: 110
+weight: 120
 
 ---
 

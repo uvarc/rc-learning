@@ -8,6 +8,8 @@ authors: [kah]
 tags: [Programming,Git]
 categories: ["Programming","Git"]
 
+weight: 810
+
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
 #   Simply enter your slide deck's filename without extension.
@@ -15,8 +17,6 @@ categories: ["Programming","Git"]
 #   Otherwise, set `slides = ""`.
 #url_slides: slides/git-intro/git-slides.html
 notes: git-intro
-
-weight: 100
 
 ---
 

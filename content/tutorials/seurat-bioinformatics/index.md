@@ -6,6 +6,8 @@ categories: ["Bioinformatics"]
 tags: ["Bioinformatics"]
 summary: "This tutorial is a step-by-step walkthrough of the Seurat workflow for single-cell RNA-seq analysis."
 
+weight: 560
+
 notes: seurat-bioinformatics
 ---
 

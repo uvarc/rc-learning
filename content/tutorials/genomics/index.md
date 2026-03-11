@@ -8,9 +8,9 @@ authors: [dat, mab]
 tags: ["Bioinformatics", "Data_Analytics"]
 categories: ["Bioinformatics","Data Analytics"]
 
-notes: genomics
+weight: 530
 
-weight: 100
+notes: genomics
 
 ---
 

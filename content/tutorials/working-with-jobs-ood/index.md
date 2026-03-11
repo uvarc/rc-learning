@@ -9,7 +9,7 @@ summary: This tutorial will explain how to view and create Slurm jobs on UVA HPC
 
 notes: hpc-intro/features_of_ood/features_jobs_tab
 
-weight: 110
+weight: 140
 
 ---
 

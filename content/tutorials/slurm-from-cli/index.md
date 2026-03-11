@@ -11,6 +11,6 @@ categories: ["HPC Intro","Slurm"]
 
 notes: slurm-from-cli
 
-weight: 30
+weight: 230
 
 ---

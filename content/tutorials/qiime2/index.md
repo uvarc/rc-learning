@@ -6,6 +6,8 @@ categories: ["Bioinformatics", "Data Analytics"]
 tags: ["Bioinformatics", "Data_Analytics"]
 summary: "This tutorial is an introduction to using QIIME 2 for micribiome analysis."
 
+weight: 580
+
 notes: qiime2
 
 ---

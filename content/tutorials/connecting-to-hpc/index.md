@@ -9,7 +9,7 @@ summary: This tutorial will teach you multiple methods for connecting UVA's HPC 
 
 notes: hpc-intro/connecting_to_the_system/connecting_logging_on
 
-weight: 110
+weight: 100
 
 ---
 

@@ -6,6 +6,8 @@ categories: [Deep learning"]
 tags: ["Deep_learning"]
 summary: "This tutorial introduces the deep learning approach to computational drug discovery."
 
+weight: 590
+
 notes: dl-drug-discovery
 
 ---

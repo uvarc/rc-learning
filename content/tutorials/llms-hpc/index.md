@@ -6,6 +6,8 @@ categories: ["HPC", "Machine learning"]
 tags: ["HPC"]
 summary: "This tutorial is an introduction to running large language models on UVA's HPC system."
 
+weight: 350
+
 notes: llms-hpc
 ---
 
