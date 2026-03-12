@@ -151,12 +151,6 @@ program heatedplate
         enddo
      enddo
 
-     !Set halo values
-     w(0,:)=u(0,:)
-     w(nrl+1,:)=u(nrl+1,:)
-     w(:,0)=u(:,0)
-     w(:,ncl+1)=u(:,ncl+1)
-
      if (mod(iterations,diff_interval)==0) then
            if (diff_interval==-1) continue  !disable convergence test
            diff=maxval(abs(w(1:nrl,1:ncl)-u(1:nrl,1:ncl)))
@@ -168,7 +162,8 @@ program heatedplate
            endif
      endif
 
-     u = w
+     !Update u.  Don't overwrite boundaries.
+     u(1:nrl,1:ncl) = w(1:nrl,1:ncl)
 
      ! Reset physical boundaries (they get overwritten in the halo exchange)
      call set_bcs(lb1,lb2,nrl,ncl,rank,nprocs,u)
@@ -208,7 +203,7 @@ program heatedplate
   ! All done!
   call MPI_Finalize(ierr)
 
-end program heatedplate
+end program
 
 subroutine set_bcs(lb1,lb2,nr,nc,rank,nprocs,u)
 implicit none

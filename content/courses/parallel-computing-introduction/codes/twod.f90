@@ -1,4 +1,6 @@
 program twod
+  implicit none 
+
   integer :: i, j;
   integer :: nrl, ncl, nrows, ncols
   double precision, allocatable, dimension(:,:) :: u

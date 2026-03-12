@@ -9,7 +9,7 @@
   weight = 10
 
 [[main]]
-  name = "Short Courses"
+  name = "Programming Courses"
   url = "courses/"
   weight = 20
 
@@ -20,10 +20,10 @@
 
 [[main]]
   name = "People"
-  url = "authors/"
+  url = "#people"
   weight = 50
 
 [[main]]
   name = "Contact"
-  url = "https://www.rc.virginia.edu/support/"
+  url = "#slider"
   weight = 60

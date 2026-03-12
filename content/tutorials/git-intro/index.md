@@ -4,9 +4,11 @@ summary: "Learn to use the git version-control system to manage your software pr
 
 Date: "2015-07-23T21:13:14-05:00"
 
-authors: [uvarc]
+authors: [kah]
 tags: [Programming,Git]
 categories: ["Programming","Git"]
+
+weight: 810
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
@@ -15,8 +17,6 @@ categories: ["Programming","Git"]
 #   Otherwise, set `slides = ""`.
 #url_slides: slides/git-intro/git-slides.html
 notes: git-intro
-
-weight: 100
 
 ---
 

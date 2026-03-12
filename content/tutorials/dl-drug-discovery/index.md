@@ -2,9 +2,11 @@
 title: "Deep Learning in Drug Discovery" 
 date: "2025-05-14T00:00:00"
 authors: [ppr]
-categories: ["HPC","Deep learning"]
-tags: ["HPC","Deep learning"]
+categories: [Deep learning"]
+tags: ["Deep_learning"]
 summary: "This tutorial introduces the deep learning approach to computational drug discovery."
+
+weight: 590
 
 notes: dl-drug-discovery
 

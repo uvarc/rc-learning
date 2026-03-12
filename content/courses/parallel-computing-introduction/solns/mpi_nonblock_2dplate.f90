@@ -1,7 +1,9 @@
-program sendrows
+program heatedplate
    use mpi_f08
+   implicit none
 
    integer, parameter :: maxiter=10000000
+   integer            :: iterations=0
    integer            :: N, M
    integer            :: i,j
    integer            :: numargs, diff_interval, interations=0
@@ -144,61 +146,56 @@ program sendrows
 
      ! Exchange halo values
 
-   call MPI_Irecv(u(1:nrl,ncl+1),nrl,MPI_DOUBLE_PRECISION,right,tag,          &
-                                     grid_comm,mpi_requests(1))
-   call MPI_Irecv(u(1:nrl,0)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,           &
-                                     grid_comm,mpi_requests(2))
-   call MPI_Irecv(u(0,0)     ,1,row,up,tag, grid_comm,mpi_requests(3))
-   call MPI_Irecv(u(nrl+1,0) ,1,row,down,tag, grid_comm,mpi_requests(4))
+      call MPI_Irecv(u(1:nrl,ncl+1),nrl,MPI_DOUBLE_PRECISION,right,tag,        &
+                                            grid_comm,mpi_requests(1))
+      call MPI_Irecv(u(1:nrl,0)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,         &
+                                           grid_comm,mpi_requests(2))
+      call MPI_Irecv(u(0,0)     ,1,row,up,tag, grid_comm,mpi_requests(3))
+      call MPI_Irecv(u(nrl+1,0) ,1,row,down,tag, grid_comm,mpi_requests(4))
 
 
-   call MPI_Isend(u(1:nrl,1)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,           &
-                                     grid_comm,mpi_requests(5))
-   call MPI_Isend(u(1:nrl,ncl)  ,nrl,MPI_DOUBLE_PRECISION,right,tag,          &
-                                     grid_comm,mpi_requests(6))
-   call MPI_Isend(u(nrl,0)  ,1,row,down,tag, grid_comm,mpi_requests(8))
-   call MPI_Isend(u(1,0),    1,row,up,tag, grid_comm,mpi_requests(7))
+      call MPI_Isend(u(1:nrl,1)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,         &
+                                           grid_comm,mpi_requests(5))
+      call MPI_Isend(u(1:nrl,ncl)  ,nrl,MPI_DOUBLE_PRECISION,right,tag,        &
+                                           grid_comm,mpi_requests(6))
+      call MPI_Isend(u(nrl,0)  ,1,row,down,tag, grid_comm,mpi_requests(8))
+      call MPI_Isend(u(1,0),    1,row,up,tag, grid_comm,mpi_requests(7))
 
-       do j=1,ncl
-           do i=1,nrl
-               w(i,j) = 0.25*(u(i-1,j) + u(i+1,j) + u(i,j-1) + u(i,j+1))
-           enddo
-       enddo
+      do j=1,ncl
+          do i=1,nrl
+              w(i,j) = 0.25*(u(i-1,j) + u(i+1,j) + u(i,j-1) + u(i,j+1))
+          enddo
+      enddo
 
    ! complete communications
-   call MPI_Waitall(nrequests,mpi_requests,MPI_STATUSES_IGNORE)
+      call MPI_Waitall(nrequests,mpi_requests,MPI_STATUSES_IGNORE)
 
-       if (mod(iterations,diff_interval)==0) then
-           if (diff_interval==-1) continue  !disable convergence test
-               diff=maxval(abs(w(1:nrl,1:ncl)-u(1:nrl,1:ncl)))
-               call MPI_ALLREDUCE(diff,gdiff,1,MPI_DOUBLE_PRECISION,MPI_MAX,  &
-                                                             MPI_COMM_WORLD)
+      if (mod(iterations,diff_interval)==0) then
+          if (diff_interval==-1) continue  !disable convergence test
+              diff=maxval(abs(w(1:nrl,1:ncl)-u(1:nrl,1:ncl)))
+              call MPI_ALLREDUCE(diff,gdiff,1,MPI_DOUBLE_PRECISION,MPI_MAX,  &
+                                                                  grid_comm)
 
-               if (gdiff <= eps) then
-                   exit
-               endif
-       endif
+              if (gdiff <= eps) then
+                  exit
+              endif
+      endif
 
-      !Set halo values
-       w(0,:)=u(0,:)
-       w(nrl+1,:)=u(nrl+1,:)
-       w(:,0)=u(:,0)
-       w(:,ncl+1)=u(:,ncl+1)
-
-       u = w
+      !Update u. Don't overwrite boundaries.
+      u(1:nrl,1:ncl) = w(1:nrl,1:ncl)
 
      ! Reset physical boundaries (they get overwritten in the halo exchange)
-       call set_bcs(nrl,ncl,nrows,ncols,grid_coords,u)
+      call set_bcs(nrl,ncl,nrows,ncols,grid_coords,u)
 
       !If this happens we will exit at next conditional test.
       !Avoids explicit break here
-       if (iterations>maxiter) then
-          if (grid_rank==0) then
-              write(*,*) "Warning: maximum iterations exceeded"
-          endif
-       endif
+      if (iterations>maxiter) then
+         if (grid_rank==0) then
+             write(*,*) "Warning: maximum iterations exceeded"
+         endif
+      endif
 
-       iterations = iterations + 1
+      iterations = iterations + 1
 
    enddo
 
@@ -206,7 +203,6 @@ program sendrows
      time1 = MPI_WTIME()
      write(*,*) 'completed; iterations = ', iterations,"in ",time1-time0," sec"
    endif
-
 
   ! Write solution to output file by row. Must use correct stitching to get
   ! overall result, such as a numpy concatenate on axis=1.
@@ -225,7 +221,6 @@ program sendrows
   do i=1,nrl
      write (10,'(*(g0,1x))') u(i,1:ncl)
   enddo
-
 
    call MPI_Comm_free(grid_comm)
 

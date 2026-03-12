@@ -1,5 +1,6 @@
 program mpiwrite
    use mpi_f08
+   implicit none
 
    integer            :: N, M
    integer            :: i,j

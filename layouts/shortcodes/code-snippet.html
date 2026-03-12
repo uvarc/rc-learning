@@ -1,15 +1,37 @@
 {{ $id := delimit (shuffle (seq 1 9)) "" }}
-<div>
-<pre id={{ $id }}><code>{{ .Inner }}</code></pre>
-<button onclick="copyToClipboard({{ $id }})">Copy<i class="fa fa-clipboard"></i></button>
-</div>
+<pre class="mb-1" id={{ $id }}><code>{{ .Inner }}</code></pre>
+<button id="copy-btn-{{ $id }}" class="btn btn-primary mb-1" onclick="copyToClipboard('{{ $id }}', this)"
+  title="Copy code" aria-label="Copy code">
+  Copy <i class="fa fa-clipboard" aria-hidden="true"></i>
+</button>
 <script>
-function copyToClipboard(target) {
-  const copyText = document.getElementById(target).textContent;
-  const textArea = document.createElement('textarea');
-  textArea.textContent = copyText;
-  document.body.append(textArea);
-  textArea.select();
-  document.execCommand("copy");
-}
+  function copyToClipboard(id, btn) {
+    const copyText = document.getElementById(id).textContent;
+    const textArea = document.createElement('textarea');
+    textArea.value = copyText;
+
+    // Prevent scrolling to bottom by positioning it off-screen and fixed
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    textArea.style.top = '0';
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      document.execCommand('copy');
+      // Provide visual feedback
+      const originalText = btn.innerHTML;
+      btn.innerHTML = 'Copied! <i class="fa fa-check" aria-hidden="true"></i>';
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+      }, 2000);
+    } catch (err) {
+      console.error('Unable to copy', err);
+    }
+
+    document.body.removeChild(textArea);
+  }
 </script>

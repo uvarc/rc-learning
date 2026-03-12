@@ -12,6 +12,9 @@ superuser: false
 # Role/position
 role: Research Computing Scientist
 
+user_groups:
+- DAC
+
 # Organizations/Affiliations
 organizations:
 - name: University of Virginia Research Computing

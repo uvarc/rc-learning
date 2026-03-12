@@ -11,7 +11,7 @@ menu:
 ---
 
 The SciPy library is part of the "SciPy ecosystem" that also includes NumPy, Sympy, and Pandas.  We will not discuss Sympy but it is a well-developed computer algebra system (CAS) that is also incorporated into several other packages such as SageMath.
-Its homepage at [www.scipy.org](www.scipy.org) has details and documentation.  
+Its homepage at [www.scipy.org](https://www.scipy.org) has details and documentation.  
 
 ### Importing SciPy Packages
 

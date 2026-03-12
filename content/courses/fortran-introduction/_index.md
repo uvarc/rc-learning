@@ -2,7 +2,7 @@
 date : "2021-04-05T00:00:00-05:00"
 title : "Programming in Modern Fortran"
 summary: "This short course is an introduction to programming in modern Fortran.  Experience programming in some other language is helpful but not required."
-authors: [kah]
+authors: [ kah ]
 categories: ["Programming","Fortran"]
 tags: [Programming, Compilers, Fortran]
 toc: true

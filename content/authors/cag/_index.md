@@ -10,12 +10,12 @@ authors:
 superuser: false
 
 # Role/position
-role: Research Computing Consultant
+role: Former Employee
+
+user_groups:
+- Former
 
 # Organizations/Affiliations
-organizations:
-- name: University of Virginia Research Computing
-  url: "https://www.rc.virginia.edu"
 
 # Short bio (displayed in user profile at end of posts)
 #bio: 

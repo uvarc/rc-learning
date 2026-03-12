@@ -1,5 +1,6 @@
 program sendrows
    use mpi_f08
+   implicit none
 
    double precision, allocatable, dimension(:,:)  :: u,w
    integer            :: N

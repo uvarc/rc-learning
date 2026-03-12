@@ -9,7 +9,7 @@ menu:
         parent: Distributed-Memory Programming
 ---
 
-We have already [discussed](/courses/parallel-computing/distributed_mpi_higher_dims/) setting up two-dimensional grids of processors.  We set up our own mathematicsl to compute the _topology_, the layout of nearest neighbors as a funciton of row and column.  But we could save ourselves the trouble, and possible errors, by using a built-in feature of MPI called *Topology Communicators*.
+We have already [discussed](/courses/parallel-computing-introduction/distributed_mpi_higher_dims/) setting up two-dimensional grids of processors.  We set up our own mathematicsl to compute the _topology_, the layout of nearest neighbors as a funciton of row and column.  But we could save ourselves the trouble, and possible errors, by using a built-in feature of MPI called *Topology Communicators*.
 
 We have learned how to create new communicators.  MPI provides a specialized set of routines to generate a communicator with the row and column coordinates computed for us.  As usual, it also can provide the rank relative to the new communicator.
 

@@ -5,7 +5,8 @@ date: "2024-06-06T00:00:00"
 authors: [as,jmh]
 categories: ["GPU","Machine Learning","Python","Deep Learning"]
 tags: ["GPU","Machine_Learning","Python","Deep_Learning"]
-weight: 300
+
+weight: 320
 
 notes: deep-learning-distributed
 url_code: notes/deep-learning-distributed/code/distributed_dl.zip

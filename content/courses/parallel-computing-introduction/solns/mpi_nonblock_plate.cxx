@@ -119,7 +119,6 @@ int main (int argc, char *argv[]) {
   int ncols=ncl+2;
   double **u=new double*[nrows];  // Old values
   double **w=new double*[nrows];  // New values
-  double **diffs=new double*[nrows];  // Diffs
 
   double *uptr=new double[(nrows)*(ncols)];
   double *wptr=new double[(nrows)*(ncols)];
@@ -129,8 +128,11 @@ int main (int argc, char *argv[]) {
      u[i] = uptr;
   for (i=0;i<nrows;++i,wptr+=ncols)
      w[i] = wptr;
-  for (i=0;i<nrows;++i,dptr+=ncols)
-     diffs[i] = dptr;
+
+  //Declare one-d diff array for faster access.
+  int dsize = nrl*ncl;
+  double *diffs = new double[dsize];
+
 
   // Set physical boundary conditions (overwrites estimate on physical edges)
   set_bcs(u, nrl, ncl, rank, nprocs);
@@ -167,7 +169,7 @@ int main (int argc, char *argv[]) {
      for (i=1; i<=nrl;i++) {
         for (j=1;j<=ncl;j++) {
             w[i][j] = (u[i-1][j] + u[i+1][j] + u[i][j-1] + u[i][j+1])/4.0;
-     	    diffs[i][j] = abs(w[i][j] - u[i][j]);
+     	    diffs[(i-1)*ncl+j-1] = abs(w[i][j] - u[i][j]);
          }
      }
 
@@ -182,21 +184,21 @@ int main (int argc, char *argv[]) {
      }
 
      if (iterations%diffInterval==0) {
-        for (i=1; i<=nrl;i++) {
-           for (j=1;j<=ncl;j++) {
-	       if (diff<diffs[i][j]) {
-		   diff=diffs[i][j];
-	       }
-	   }
+         diff=diffs[0];
+         for (int i=1;i<dsize;i++) {
+             if (diff<diffs[i]) {
+                 diff=diffs[i];
+             }
+         }
 	 }
-         //Find max of diff in all the processors.
-         MPI_Allreduce(&diff,&gdiff,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
-         if (gdiff <= epsilon) 
-             break;
-     }
+     //Find max of diff in all the processors.
+     MPI_Allreduce(&diff,&gdiff,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
+     if (gdiff <= epsilon) 
+          break;
 
-     for (i=0; i<=nrl+1;i++) {
-        for (j=0;j<=ncl+1;j++) {
+     //Update u, reset boundaries
+     for (i=1; i<=nrl;i++) {
+        for (j=1;j<=ncl;j++) {
             u[i][j] = w[i][j];
         }
      }

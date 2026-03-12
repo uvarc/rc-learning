@@ -41,7 +41,7 @@ INTEGER, DIMENSION(20)    :: C
    C=N(:,i)  !ith column of N
 ```
 
-The upper bound of the range is always included. If the first bound is omitted, it starts from 1.  If the second bound is absent, the slice is extracted to the end of the range.  A single colon `:` represents the full range along a dimension.
+The value of the upper bound of the range is always included in the range. If the first bound is omitted, it starts from 1.  If the second bound is absent, the slice is extracted to the end of the range.  A single colon `:` represents the full range along a dimension.
 
 ## Allocatable Arrays
 

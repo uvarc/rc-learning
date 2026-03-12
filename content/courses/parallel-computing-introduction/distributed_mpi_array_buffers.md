@@ -51,7 +51,7 @@ Characters or strings must be treated as arrays with a fixed length.  That lengt
 The codes below illustrate character handling by rewriting the Bcast examples to send a string message rather than a number.
 
 {{< spoiler text="C++" >}}
-{{< code-download file="/courses/parallel-computing-introduction/codes/bcast_ch_cxx" lang="c++" >}}
+{{< code-download file="/courses/parallel-computing-introduction/codes/bcast_ch.cxx" lang="c++" >}}
 {{< /spoiler >}}
 
 {{< spoiler text="Fortran" >}}

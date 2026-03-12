@@ -122,17 +122,17 @@ column_endbc.Commit()
 
 
 # Compute steady-state solution
-iterations=0
+iteration=0
 diff_interval=1
 
 start_time=MPI.Wtime()
 my_diff = np.zeros(1)
 global_diff=np.zeros(1)
 
-if rank==root:
+if grid_rank==root:
     print(f'Running until the difference is < {epsilon:}, global size {N:}x{M:}')
 
-while iterations<=max_iterations:
+while iteration<=max_iterations:
 
    # Send up and receive down
     grid_comm.Sendrecv([u[1,1:ncl+1], MPI.DOUBLE], up, tag, [u[nrl+1,1:ncl+1], MPI.DOUBLE], down, tag)
@@ -145,26 +145,21 @@ while iterations<=max_iterations:
 
     w[1:-1,1:-1]=0.25*(u[:-2,1:-1]+u[2:,1:-1]+u[1:-1,:-2]+u[1:-1,2:])
 
-
-    #set halo values
-    w[0,:]=u[0,:]
-    w[nrl+1,:]=u[nrl+1,:]
-    w[:,0]=u[:,0]
-    w[:,ncl+1]=u[:,ncl+1]
-
-
-    if iterations%diff_interval==0:
+    if iteration%diff_interval==0:
         my_diff[0]=np.max(np.abs(w[1:-1,1:-1]-u[1:-1,1:-1]))
         comm.Allreduce(my_diff,global_diff,op=MPI.MAX)
 
         if global_diff[0]<=epsilon:
             break
 
-    u[:,:]=w[:,:]
+    #Update u
+    u[1:-1,1:-1]=w[1:-1,1:-1]
+
     #Reapply physical boundary conditions
     set_bcs(u,nrl,ncl,nrows,ncols,grid_coords)
 
-    iterations+=1
+    iteration+=1
+
 #This is what the weird "else" clause in Python for/while loops is used to do.
 #Our stopping criterion is now on exceeding max_iterations so don't need
 # to break, but we need to warn that it happened.
@@ -175,7 +170,7 @@ else:
 total_time=MPI.Wtime()-start_time
 
 if grid_rank==0:
-    print(f'completed in {iterations:} iterations with time {total_time:.2f}')
+    print(f'completed in {iteration:} iterations with time {total_time:.2f}')
 
 # Write solution to output file
 filename = filename + str(grid_coords[0]) + str(grid_coords[1])

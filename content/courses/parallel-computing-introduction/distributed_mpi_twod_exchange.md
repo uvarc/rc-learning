@@ -13,7 +13,7 @@ We can now use types to illustrate a two-dimensional halo exchange.  For these e
 
 ## Special Note for Python
 
-As we have [mentioned](/courses/parallel-computing-introduction/distributed_mpi_higher_dims.md), the internal values of a NumPy array are not directly accessibly by MPI.  We can use the Vector type for column 0, but anything else rquires a different approach.  One of the simpler methods is to use another built-in MPI type, the _subarray_.
+As we have [mentioned](/courses/parallel-computing-introduction/distributed_mpi_higher_dims/), the internal values of a NumPy array are not directly accessibly by MPI.  We can use the Vector type for column 0, but anything else rquires a different approach.  One of the simpler methods is to use another built-in MPI type, the _subarray_.
 
 ```python
 subarr=MPI.DOUBLE.Create_subarray(sizes,subsizes,starts,order=ORDER_C)

@@ -5,7 +5,8 @@ authors: [rs]
 date: 2020-10-13T00:00:00-05:00
 categories: ["Python","GPU","HPC"]
 tags: ["Python","GPU","HPC"]
-weight: 180
+
+weight: 770
 
 notes: rapids
 

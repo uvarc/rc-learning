@@ -97,7 +97,7 @@ A module must be compiled _before_ any other file that uses it.  This can create
 Fortran allows the module and the file to have either the same or a different name, but the name of the module is the name that must appear in the use statement.
 2. Fill out the subroutine `mysub` to set b to 11., then set x to the sum of corresponding elements of a and b.  Hint: you can use x=a(:)+b(:size(a)) to avoid a loop.
 3. Write a main program `main.f90` that uses `mymod`, initializes `A` allocatable, allocates it to 1000, sets its values to `i+3` in a loop, then passes it to `mysub`.   Print the value of `x` that is returned.
-4. Create a Makefile.  If you wish you may copy the example Makefile from the earlier [chapter](/courses/fortran_introdution/make).  Make the appropriate changes to the program name, the names of the source files, and the names of the object files.  Make the dependency line at the end
+4. Create a Makefile.  If you wish you may copy the example Makefile from the earlier [chapter](/courses/fortran-introduction/make/).  Make the appropriate changes to the program name, the names of the source files, and the names of the object files.  Make the dependency line at the end
 ```make
 main.o:main.o mymod.o
 ```

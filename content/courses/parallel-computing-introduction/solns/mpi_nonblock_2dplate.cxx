@@ -110,11 +110,9 @@ int main (int argc, char *argv[]) {
 
     double **u=new double*[nrl+2];
     double **w=new double*[nrl+2];
-    double **diffs=new double*[nrl+2];
 
     double *uptr=new double[(nrl+2)*(ncl+2)];
     double *wptr=new double[(nrl+2)*(ncl+2)];
-    double *dptr=new double[(nrl+2)*(ncl+2)];
 
     for (int i=0;i<nrl+2;++i,uptr+=ncl+2) {
        u[i] = uptr;
@@ -122,9 +120,11 @@ int main (int argc, char *argv[]) {
     for (int i=0;i<nrl+2;++i,wptr+=ncl+2) {
        w[i] = wptr;
     }
-    for (int i=0;i<nrl+2;++i,dptr+=ncl+2) {
-       diffs[i] = dptr;
-    }
+
+
+    //Declare one-d diff array for faster access.
+    int dsize = nrl*ncl;
+    double *diffs = new double[dsize];
 
     //create Cartesian topology
     int ndims=2;
@@ -175,46 +175,42 @@ int main (int argc, char *argv[]) {
   }
 
   while ( iterations<=MAX_ITER ) {
-     // reset diff each time through to get max abs diff
-     // max_element doesn't work great for twod arrays and is often slow
-     diff=.8*epsilon;
 
-     MPI_Irecv(&u[0][1], ncl, MPI_DOUBLE, up, tag, MPI_COMM_WORLD, &requests[0]);
-     MPI_Irecv(&u[nrl+1][1], ncl, MPI_DOUBLE, down, tag, MPI_COMM_WORLD, &requests[1]);
-     MPI_Irecv(&u[0][0], 1, col, left, tag, MPI_COMM_WORLD, &requests[2]);
-     MPI_Irecv(&u[0][ncl+1], 1, col, right, tag, MPI_COMM_WORLD, &requests[3]);
+     MPI_Irecv(&u[0][1], ncl, MPI_DOUBLE, up, tag, grid_comm, &requests[0]);
+     MPI_Irecv(&u[nrl+1][1], ncl, MPI_DOUBLE, down, tag, grid_comm, &requests[1]);
+     MPI_Irecv(&u[0][0], 1, col, left, tag, grid_comm, &requests[2]);
+     MPI_Irecv(&u[0][ncl+1], 1, col, right, tag, grid_comm, &requests[3]);
 
-     MPI_Isend(&u[1][1], ncl, MPI_DOUBLE, up, tag, MPI_COMM_WORLD, &requests[4]);
+     MPI_Isend(&u[1][1], ncl, MPI_DOUBLE, up, tag, grid_comm, &requests[4]);
 
-     MPI_Isend(&u[nrl][1],ncl, MPI_DOUBLE, down, tag, MPI_COMM_WORLD, &requests[5]);
-     MPI_Isend(&u[0][ncl], 1, col, right, tag, MPI_COMM_WORLD, &requests[6]);
-     MPI_Isend(&u[0][1], 1, col, left, tag, MPI_COMM_WORLD, &requests[7]);
+     MPI_Isend(&u[nrl][1],ncl, MPI_DOUBLE, down, tag, grid_comm, &requests[5]);
+     MPI_Isend(&u[0][ncl], 1, col, right, tag, grid_comm, &requests[6]);
+     MPI_Isend(&u[0][1], 1, col, left, tag, grid_comm, &requests[7]);
 
      MPI_Waitall(nrequests,requests,MPI_STATUS_IGNORE);
 
      for (int i=1; i<=nrl;i++) {
         for (int j=1;j<=ncl;j++) {
             w[i][j] = (u[i-1][j] + u[i+1][j] + u[i][j-1] + u[i][j+1])/4.0;
-            diffs[i][j] = abs(w[i][j] - u[i][j]);
+            diffs[i*ncl+j-1] = abs(w[i][j] - u[i][j]);
          }
      }
      if (iterations%diffInterval==0) {
-        for (int i=1; i<=nrl;i++) {
-           for (int j=1;j<=ncl;j++) {
-           if (diff<diffs[i][j]) {
-           diff=diffs[i][j];
-           }
-       }
-     }
-         //Find max of diff in all the processors.
-         MPI_Allreduce(&diff,&gdiff,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
-         if (gdiff <= epsilon)
-             break;
+         diff=diffs[0];
+         for (int i=1;i<dsize;i++) {
+             if (diff<diffs[i]) {
+                 diff=diffs[i];
+             }
+         }
      }
 
-     //Set halo values
-     /*
-     */
+     //Find max of diff in all the processors.
+     MPI_Allreduce(&diff,&gdiff,1,MPI_DOUBLE,MPI_MAX,grid_comm);
+     if (gdiff <= epsilon)
+         break;
+
+     //Reset halo values
+
      for (int j=0; j<=ncl+1; j++) {
          w[0][j]=u[0][j];
          w[nrl+1][j]=u[nrl+1][j];
@@ -224,6 +220,7 @@ int main (int argc, char *argv[]) {
          w[i][ncl+1]=u[i][ncl+1];
      }
 
+     //Update u
      for (int i=0; i<=nrl+1;i++) {
         for (int j=0;j<=ncl+1;j++) {
             u[i][j] = w[i][j];

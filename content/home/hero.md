@@ -25,9 +25,9 @@ title = "UVA Research Computing Learning Portal"
   
   # Background image.
 #   image = "learning-bg.jpg"  # Name of image in `static/img/`.
-#   image = "scott_stadium_afc_aerial_ss_01.png"
-    image = "rotunda_lawn_aerial_old_cabell_fall_ss_01.jpg"
-   image_darken = 0.1  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
+   image = "scott_stadium_afc_aerial_ss_01.png"
+#    image = "rotunda_lawn_aerial_old_cabell_fall_ss_01.jpg"
+   image_darken = 0  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
   # image_size = "cover"  #  Options are `cover` (default), `contain`, or `actual` size.
   # image_position = "center"  # Options include `left`, `center` (default), or `right`.
   # image_parallax = true  # Use a fun parallax-like fixed background effect? true/false
@@ -46,4 +46,4 @@ title = "UVA Research Computing Learning Portal"
   
 +++
 
-Research Computing provides computational, scientific programming, and data analysis workshops, many of which are offered in partnership with the UVA Library [Research Data Services](https://data.library.virginia.edu/training) and UVA [Health Sciences Library](https://cal.hsl.virginia.edu/calendar/data) websites. This site compiles RC workshop and tutorial materials as well as interactive exercises for students to review or study at their own pace. 
+Research Computing provides computational, scientific programming, and data analysis tutorials, many of which are offered as live sessions in partnership with the UVA Library [Research Data Services](https://data.library.virginia.edu/training) and UVA [Health Sciences Library](https://cal.hsl.virginia.edu/calendar/data) websites. This site compiles RC's tutorial materials, many of which contain interactive exercises for students to review or study at their own pace. 

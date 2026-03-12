@@ -77,16 +77,16 @@
     {{ if eq site.Params.search.engine 1 }}
     {{/* Fuse search result template. */}}
     <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{"{{key}}"}}">
+      <article class="search-hit" id="summary-{{"{{key}}"}}">
       <div class="search-hit-content">
         <div class="search-hit-name">
           {{ printf "<a href=\"%s\">%s</a>" "{{relpermalink}}" "{{title}}" | safeHTML }}
           {{/*  <div class="article-metadata search-hit-type">{{"{{type}}"}}</div>  */}}
-          <div class="article-metadata search-hit-type">{{"{{pagepath}}"}}</div>
+          <div class="article-metadata search-hit-type"><span class="sr-only">Location: </span>{{"{{pagepath}}"}}</div>
           <p class="search-hit-description">{{"{{snippet}}"}}</p>
         </div>
       </div>
-      </div>
+      </article>
     </script>
     {{ else if eq site.Params.search.engine 2 }}
     {{/* Algolia search result template. */}}
