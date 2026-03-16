@@ -5,9 +5,9 @@ summary: "This tutorial is an introduction to using the High Security HPC platfo
 # Schedule page publish date (NOT talk date).
 publishDate: "2025-01-30T00:00:00"
 
-authors: [as, pbo, Camden Duy]
-tags: [HPC]
-categories: ["HPC"]
+authors: [as, pbo, cmd ]
+tags: [HPC_Intro]
+categories: ["HPC Intro"]
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.

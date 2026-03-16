@@ -8,5 +8,5 @@ summary: Learn how to benchmark your program for parallel SLURM jobs.
 
 notes: benchmark-parallel-programs
 
-weight: 130
+weight: 830
 ---

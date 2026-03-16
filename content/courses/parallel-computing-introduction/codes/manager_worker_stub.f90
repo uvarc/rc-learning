@@ -96,6 +96,7 @@ end module random
 program manager_worker
 use random
 use mpi
+implicit none
 
    integer :: i, n
 

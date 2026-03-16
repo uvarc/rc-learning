@@ -4,7 +4,7 @@ program heatedplate
 
   integer, parameter:: maxiter=10000000
   integer           :: N, M, lb1, lb2
-  integer           :: numargs, i, j, diff_interval, iterations = 0
+  integer           :: numargs, i, j, diff_interval, iteration = 0
   double precision  :: eps, mean, diff = 1.0
   character(len=80) :: arg, filename
   double precision, allocatable, dimension(:,:) :: u, w
@@ -122,7 +122,7 @@ program heatedplate
   endif
 
   ! Compute steady-state solution
-  do while ( iterations<=maxiter )
+  do while ( iteration<=maxiter )
 
      ! Exchange halo values
      call MPI_SENDRECV(u(1:nrl,1)    ,nrl,MPI_DOUBLE_PRECISION,left,tag,       &
@@ -139,13 +139,8 @@ program heatedplate
         enddo
      enddo
 
-     !Set halo values
-     w(0,:)=u(0,:)
-     w(nrl+1,:)=u(nrl+1,:)
-     w(:,0)=u(:,0)
-     w(:,ncl+1)=u(:,ncl+1)
-
-     if (mod(iterations,diff_interval)==0) then
+     !Check for convergence
+     if (mod(iteration,diff_interval)==0) then
            if (diff_interval==-1) continue  !disable convergence test
            diff=maxval(abs(w(1:nrl,1:ncl)-u(1:nrl,1:ncl)))
            call MPI_ALLREDUCE(diff,gdiff,1,MPI_DOUBLE_PRECISION,MPI_MAX,       &
@@ -156,16 +151,18 @@ program heatedplate
            endif
      endif
 
-     u = w
+     !Update u. Don't overwrite boundary conditions
+     u(lb1:nrl,lb2:ncl) = w(lb1:nrl,lb2:ncl)
 
      ! Reset physical boundaries (they get overwritten in the halo exchange)
      call set_bcs(lb1,lb2,nrl,ncl,rank,nprocs,u)
 
-     iterations = iterations + 1
+
+     iteration = iteration + 1
 
      !If this happens we will exit at next conditional test.
      !Avoids explicit break here
-     if (iterations>maxiter) then
+     if (iteration>maxiter) then
            if (rank==0) then
                write(*,*) "Warning: maximum iterations exceeded"
            endif

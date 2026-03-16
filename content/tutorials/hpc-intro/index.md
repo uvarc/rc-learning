@@ -6,8 +6,8 @@ summary: "This tutorial is an introduction to using UVA's high-performance compu
 publishDate: "2021-04-13T00:00:00"
 
 authors: [jmh,kah,pbo]
-tags: [HPC]
-categories: ["HPC"]
+tags: [HPC_Intro]
+categories: ["HPC Intro"]
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.

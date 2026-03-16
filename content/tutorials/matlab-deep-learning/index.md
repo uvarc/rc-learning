@@ -5,7 +5,8 @@ date: 2019-10-16T21:13:14-05:00
 authors: [cag]
 categories: ["MATLAB","Machine Learning","Deep Learning"]
 tags: ["MATLAB","Machine_Learning","Deep_Learning"]
-weight: 350
+
+weight: 660
 
 notes: matlab-deep-learning
 

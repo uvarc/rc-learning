@@ -1,9 +1,10 @@
-program sendrows
+program cart_topo
    use mpi_f08
+   implicit none
 
    double precision, allocatable, dimension(:,:)  :: w
    double precision, allocatable, dimension(:,:)  :: u
-   integer            :: N
+   integer            :: N, M
    integer            :: i,j
 
    integer            :: nrows, ncols, nrl, ncl
@@ -19,6 +20,7 @@ program sendrows
 
    integer            :: left, right, up, down
    integer            :: uwsize
+   double precision   :: topBC, bottomBC, edgeBC
 
    !Initialize MPI, get the local number of columns
    call MPI_INIT()
@@ -74,7 +76,7 @@ program sendrows
    ! Boundary conditions
    topBC=0.d0
    bottomBC=200.d0
-   edgeBC=100.d0
+   edgeBC=300.d0
    if (coords(1)==0) then
       w(0,:)=topBC
    else if (coords(1)==nrows-1) then
@@ -87,7 +89,7 @@ program sendrows
    endif
 
    call MPI_Type_vector(ncl+2,1,nrl+2,MPI_DOUBLE_PRECISION,row)
-   call MPI_TYPE_COMMIT(row)
+   call MPI_Type_commit(row)
 
   ! Exchange halo values
 
@@ -104,7 +106,7 @@ program sendrows
 
    call MPI_SENDRECV(w(1,0)  ,1, row, up,tag, w(nrl+1,0),1, row,down,tag,    &
                                                         grid_comm,mpi_stat)
-   call MPI_SENDRECV(w(nrl,0)  ,1,row, down,tag, w(0,0)   ,1,row, up,tag,    &
+   call MPI_SENDRECV(w(nrl,0) ,1, row, down,tag, w(0,0)   ,1,row, up,tag,    &
                                                         grid_comm,mpi_stat)
 
 
@@ -113,7 +115,7 @@ program sendrows
    uwsize=(nrl+2)*(ncl+2)
    !Check columns
    u=0.d0
-   if (rank==0) then
+   if (grid_rank==0) then
        call MPI_Recv(u,uwsize,MPI_DOUBLE_PRECISION,1,1,grid_comm,mpi_stat)
        write(*,*) "Ranks 0 and 1 check columns "
 
@@ -124,14 +126,14 @@ program sendrows
        enddo
        write(*,*)
    endif
-   if (rank==1) then
+   if (grid_rank==1) then
        call MPI_Send(w,uwsize,MPI_DOUBLE_PRECISION,0,1,grid_comm)
    endif
 
    call MPI_Barrier(grid_comm)
 
    u=0.d0
-   if (rank==1) then
+   if (grid_rank==1) then
        call MPI_Recv(u,uwsize,MPI_DOUBLE_PRECISION,2,2,grid_comm,mpi_stat)
        write(*,*) "Ranks 1 and 2 check columns "
 
@@ -143,7 +145,7 @@ program sendrows
        write(*,*)
    endif
 
-   if (rank==2) then
+   if (grid_rank==2) then
        call MPI_Send(w,uwsize,MPI_DOUBLE_PRECISION,1,2,grid_comm)
    endif
 
@@ -152,7 +154,7 @@ program sendrows
 
    ! Check rows including periodic exchange
    u=0.d0
-   if (rank==0) then
+   if (grid_rank==0) then
        call MPI_Recv(u,uwsize,MPI_DOUBLE_PRECISION,3,3,grid_comm,mpi_stat)
        write(*,*) "Ranks 0 and 3 check rows including periodic exchange "
 
@@ -167,7 +169,7 @@ program sendrows
        enddo
 
    endif
-   if (rank==3) then
+   if (grid_rank==3) then
        call MPI_Send(w,uwsize,MPI_DOUBLE_PRECISION,0,3,grid_comm)
    endif
 

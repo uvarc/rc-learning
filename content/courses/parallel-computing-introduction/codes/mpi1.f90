@@ -1,5 +1,6 @@
 program hello
 use mpi
+implicit none
 
     integer :: myrank, nprocs
     integer :: err

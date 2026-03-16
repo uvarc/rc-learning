@@ -1,7 +1,7 @@
 ---
 title : "Programming in MATLAB"
 summary : "An introduction to programming in MATLAB"
-authors : [uvarc]
+authors : [teh]
 date : "2019-06-23T08:37:46-05:00"
 categories : ["MATLAB","Programming"]
 tags : ["MATLAB","Programming"]

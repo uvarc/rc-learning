@@ -3,9 +3,10 @@ title: "Parallel Computing with MATLAB"
 summary: "In this hands-on workshop, you will be introduced to parallel and distributed computing in MATLAB&trade; for speeding up your application and offloading work."
 authors: [teh]
 date: "2019-06-23T08:37:46-05:00"
-categories: [ "HPC", "Parallel Computing", "MATLAB" ]
+categories: [ "HPC", "Parallel Programming", "MATLAB" ]
 tags: [ "HPC", "Parallel_Programming", "MATLAB" ]
-weight: 280
+
+weight: 680
 
 url_slides: slides/matlab-parallel/Parallel_Computing_with_MATLAB.pptx
 url_code: scripts/matlab-parallel/Parallel-Computing-Workshop.zip 

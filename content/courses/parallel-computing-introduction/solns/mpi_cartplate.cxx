@@ -17,7 +17,7 @@ int main (int argc, char *argv[]) {
 
     double diff;            // Change in value
     int N, M;
-    int iterations = 0;
+    int iteration = 0;
     int diffInterval;
     double epsilon;
 
@@ -110,11 +110,9 @@ int main (int argc, char *argv[]) {
 
     double **u=new double*[nrl+2];
     double **w=new double*[nrl+2];
-    double **diffs=new double*[nrl+2];
 
     double *uptr=new double[(nrl+2)*(ncl+2)];
     double *wptr=new double[(nrl+2)*(ncl+2)];
-    double *dptr=new double[(nrl+2)*(ncl+2)];
 
     for (int i=0;i<nrl+2;++i,uptr+=ncl+2) {
        u[i] = uptr;
@@ -122,9 +120,10 @@ int main (int argc, char *argv[]) {
     for (int i=0;i<nrl+2;++i,wptr+=ncl+2) {
        w[i] = wptr;
     }
-    for (int i=0;i<nrl+2;++i,dptr+=ncl+2) {
-       diffs[i] = dptr;
-    }
+
+    //Declare one-d diff array for faster access.
+    int dsize = nrl*ncl;
+    double *diffs = new double[dsize];
 
     //create Cartesian topology
     int ndims=2;
@@ -174,10 +173,9 @@ int main (int argc, char *argv[]) {
       cout<<"Running until the difference is <="<<epsilon<<" with size "<<N<<"x"<<M<<"\n";
   }
 
-  while ( iterations<=MAX_ITER ) {
+  while ( iteration<=MAX_ITER ) {
      // reset diff each time through to get max abs diff
      // max_element doesn't work great for twod arrays and is often slow
-     diff=.8*epsilon;
 
      MPI_Sendrecv(&u[1][1],ncl, MPI_DOUBLE,up,tag,&u[nrl+1][1],
                            ncl, MPI_DOUBLE,down,tag,grid_comm,&status);
@@ -192,22 +190,22 @@ int main (int argc, char *argv[]) {
      for (int i=1; i<=nrl;i++) {
         for (int j=1;j<=ncl;j++) {
             w[i][j] = (u[i-1][j] + u[i+1][j] + u[i][j-1] + u[i][j+1])/4.0;
-            diffs[i][j] = abs(w[i][j] - u[i][j]);
+            diffs[(i-1)*ncl+j-1] = abs(w[i][j] - u[i][j]);
          }
      }
-     if (iterations%diffInterval==0) {
-        for (int i=1; i<=nrl;i++) {
-           for (int j=1;j<=ncl;j++) {
-           if (diff<diffs[i][j]) {
-           diff=diffs[i][j];
-           }
-       }
+     if (iteration%diffInterval==0) {
+         diff=diffs[0];
+         for (int i=1;i<dsize;i++) {
+             if (diff<diffs[i]) {
+                 diff=diffs[i];
+             }
+         }
      }
-         //Find max of diff in all the processors.
-         MPI_Allreduce(&diff,&gdiff,1,MPI_DOUBLE,MPI_MAX,MPI_COMM_WORLD);
+
+     //Find max of diff in all the processors.
+     MPI_Allreduce(&diff,&gdiff,1,MPI_DOUBLE,MPI_MAX,grid_comm);
          if (gdiff <= epsilon)
              break;
-     }
 
      //Set halo values
      /*
@@ -229,10 +227,10 @@ int main (int argc, char *argv[]) {
 
      set_bcs(nrl, ncl, nrows, ncols, grid_coords, u);
 
-     iterations++;
+     iteration++;
   } //end of computation 
 
-  if (iterations>MAX_ITER) {
+  if (iteration>MAX_ITER) {
      if (rank==0) {
         cout<<"Warning: maximum iterations exceeded\n";
      }
@@ -240,7 +238,7 @@ int main (int argc, char *argv[]) {
 
   double totalTime=(MPI_Wtime()-time0);
   if (rank==0) {
-      cout << "Completed "<<iterations<<" iterations; time "<<totalTime<<endl;
+      cout << "Completed "<<iteration<<" iterations; time "<<totalTime<<endl;
   }
 
   // Write solution to output file

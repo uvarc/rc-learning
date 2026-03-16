@@ -54,8 +54,8 @@ int main (int argc, char *argv[]) {
     }
 
     double counter=1.;
-    for ( int i = 0; i <= nrl+1; i++ ) {
-         for (int j = 0; j <= ncl+2; j++ ) {
+    for ( int i = 0; i < nrl+2; i++ ) {
+         for (int j = 0; j < ncl+2; j++ ) {
              w[i][j] = (rank+1)*counter;
              counter++;
          }

@@ -6,11 +6,13 @@ date : "2022-06-09T00:00:00"
 categories : ["Machine Learning", "Python"]
 tags : ["Machine_Learning","Python"]
 
+weight: 320
+
 notes: python-machine-learning
 url_code: notes/python-machine-learning/code/ML_with_Python.zip 
 ---
 
-This tutorial wil go over Machine Learning concepts using Python discussing the following topics: 
+This tutorial wil go over Machine Learning concepts using Python. It discusses the following topics: 
 * Overview of Machine Learning
 * Decision Trees
     * Coding Decision Trees

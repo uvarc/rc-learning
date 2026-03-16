@@ -79,32 +79,37 @@ mean = mean / (4.0 * (N+2))
 u[1:nr+1,1:nc+1]=mean
 
 # Compute steady-state solution
-iterations=0
+iteration=0
 diff_interval=1
-
-#Arbitrary, just to make sure we enter loop
-diff=10*epsilon
 
 start_time=time.time()
 
-while ( diff >= epsilon ):
+while iteration <= maxiter:
+
+#  Explicit loop
 #   for i in range(1,nr+1):
 #       for j in range(1,nc+1):
 #           w[i,j] = 0.25*(u[i-1,j] + u[i+1,j] + u[i,j-1] + u[i,j+1])
+
 #  It is approximately a factor of 100 faster to use numpy array operations.
    w[1:-1,1:-1]=0.25*(u[:-2,1:-1]+u[2:,1:-1]+u[1:-1,:-2]+u[1:-1,2:])
 
-   if iterations%diff_interval==0:
+   if iteration%diff_interval==0:
        diff=np.max(np.abs(w[1:-1,1:-1]-u[1:-1,1:-1]))
        if diff<=epsilon:
            break
-   if iterations>maxiter:
-           print("Warning: maximum iterations exceeded")
-           break
-   u[1:nr+1,1:nc+1]=w[1:nr+1,1:nc+1].copy()
-   iterations+=1
 
-print(f'completed in {iterations:} iterations with time {time.time()-start_time:.2f}')
+   u[1:nr+1,1:nc+1]=w[1:nr+1,1:nc+1].copy()
+   iteration+=1
+
+#This is what the weird "else" clause in Python for/while loops is used to do.
+#Our stopping criterion is on exceeding max_iterations so don't need
+# to break, but we need to warn that it happened.
+else:
+     if rank==0:
+         print("Warning: maximum iterations exceeded")
+
+print(f'completed in {iteration:} iterations with time {time.time()-start_time:.2f}')
 
 # Write solution to output file
 fout = open (filename,'w')

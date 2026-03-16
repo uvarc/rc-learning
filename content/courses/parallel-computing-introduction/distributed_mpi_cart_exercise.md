@@ -20,7 +20,7 @@ Check your rsults by plotting.  If you wish, you can use the script contour2d.py
 {{< spoiler text="contour2d.py source code" >}}
 {{< code-download file="/courses/parallel-computing-introduction/scripts/contour2d.py" lang="python" >}}
 {{< /spoiler >}}
-<br>
+
 The usage is
 ```sh
 python contour2d.py -r numrows -c numcols basefilename

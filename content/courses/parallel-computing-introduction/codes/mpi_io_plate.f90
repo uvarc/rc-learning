@@ -1,5 +1,6 @@
-program sendrows
+program mpi_io_plate
    use mpi_f08
+   implicit none
 
    integer, parameter :: maxiter=10000000
    integer            :: N, M

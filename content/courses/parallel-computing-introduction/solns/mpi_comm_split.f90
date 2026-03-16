@@ -1,7 +1,8 @@
 program mpi_split
 use mpi_f08
+implicit none
 
-  integer :: nprocs, rank, new_comm_rank
+  integer :: nprocs, rank, new_comm_rank, ierr
   integer ::  color, key
   character(len=15) :: message
   type(MPI_Comm)  :: new_comm

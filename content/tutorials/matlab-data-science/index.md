@@ -6,7 +6,8 @@ date: 2020-09-08T21:13:14-05:00
 authors: [teh]
 categories: ["MATLAB","Machine Learning","Data Analytics","Deep Learning"]
 tags: ["MATLAB","Machine_Learning","Data_Analytics","Deep_Learning"]
-weight: 240
+
+weight: 650
 
 notes: matlab-data-science
 

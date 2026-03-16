@@ -7,9 +7,9 @@ subtitle = ""
 
 Some tutorials are offered as in-person and/or Zoom workshops regularly.  Find the notes or slides and download materials [on the Tutorials page](/tutorials).
 
-For a list of upcoming workshops, please see [the Workshops page](https://www.rc.virginia.edu/education/workshops/) at the UVARC Website.
+For a list of upcoming tutorials, please see [the Workshops page](https://www.rc.virginia.edu/education/workshops/) at the UVARC Website.
 
-## [Short courses](/courses) are longer and more in-depth than tutorials or workshops.
+## [Programming courses](/courses) are longer and more in-depth than tutorials or workshops and teach more fundamental programming topics.
 
 <br>
 

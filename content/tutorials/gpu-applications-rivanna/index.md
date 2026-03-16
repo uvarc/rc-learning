@@ -8,7 +8,7 @@ tags: ["GPU", "HPC"]
 
 notes: gpu-applications-rivanna
 
-weight: 160
+weight: 810
 
 ---
 

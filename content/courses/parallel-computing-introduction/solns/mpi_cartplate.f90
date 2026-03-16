@@ -1,7 +1,9 @@
-program sendrows
+program mpi_cart_plate
    use mpi_f08
+   implicit none
 
    integer, parameter :: maxiter=10000000
+   integer            :: iterations=0
    integer            :: N, M
    integer            :: i,j
    integer            :: numargs, diff_interval, interations=0
@@ -177,13 +179,8 @@ program sendrows
                endif
        endif
 
-      !Set halo values
-       w(0,:)=u(0,:)
-       w(nrl+1,:)=u(nrl+1,:)
-       w(:,0)=u(:,0)
-       w(:,ncl+1)=u(:,ncl+1)
-
-       u = w
+       !Update u.  Don't overwrite boundaries.
+       u(1:nrl,1:ncl) = w(1:nrl,1:ncl)
 
      ! Reset physical boundaries (they get overwritten in the halo exchange)
        call set_bcs(nrl,ncl,nrows,ncols,grid_coords,u)
