@@ -56,9 +56,9 @@ Inspect an image before running it via `inspect`.
 ```bash
 $ apptainer inspect lolcow_latest.sif 
 org.label-schema.build-arch: amd64
-org.label-schema.build-date: Wednesday_14_May_2025_10:20:6_EDT
+org.label-schema.build-date: Monday_16_March_2026_12:35:7_EDT
 org.label-schema.schema-version: 1.0
-org.label-schema.usage.apptainer.version: 1.3.4
+org.label-schema.usage.apptainer.version: 1.4.5
 org.label-schema.usage.singularity.deffile.bootstrap: docker
 org.label-schema.usage.singularity.deffile.from: rsdmse/lolcow
 ```
