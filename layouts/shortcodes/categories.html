@@ -42,8 +42,8 @@ hence the order of performing $max/$min matters.
 {{ $fontStep := div $fontDelta $delta }}
 
 <div class="row tag-cloud-container">
-	<div class="heading text-center" style="margin-top: 5px;">
-
+	<div class="text-center" style="margin-top: 5px;">
+		<span class="sr-only">Categories: </span>
 		<!-- unused for the moment:
 	<div class="heading text-center" style="margin-top: 5px;">
 		<h4><i class="icon-line-flag"></i> Categories: & <i class="icon-tag2"></i> Tags: </h4>
@@ -62,10 +62,11 @@ hence the order of performing $max/$min matters.
 				<!-- class="button button-border button-mini button-border-thin button-blue button-circle" -->
 
 				{{ if ne (upper .Page.Title) "ARCHIVED" }}
-				<a href="{{ .Page.RelPermalink }}" class="px-2 rounded mx-1" style="font-size:{{ $fontSize }}rem;">
-					{{ replaceRE `([^\\])_` "$1 " .Page.Title | upper }}
-					<span class="tag-count"> ({{ $tagCount }}) </span>
-				</a>
+					{{- $processedTitle := replaceRE `([^\\])_` "$1 " .Page.Title -}}
+					<a href="{{ .Page.RelPermalink }}" class="px-2 rounded mx-1" style="font-size:{{ $fontSize }}rem;" title="Pages with category '{{ $processedTitle }}'">
+						{{ $processedTitle | upper }}
+						<span class="tag-count" aria-label="({{ $tagCount }} pages)"> ({{ $tagCount }}) </span>
+					</a>
 				{{ end }}
 
 				{{ end }}
