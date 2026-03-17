@@ -5,6 +5,9 @@ body {
   line-height: 1.6;
 }
 
+.sidebar, .sidebar a { color: #333333; }
+.dark .sidebar, .dark .sidebar a { color: #e0e0e0; }
+
 .container {
   max-width: 90%;
 }
