@@ -1,4 +1,4 @@
-<form class="docs-search d-flex align-items-center">
+<form class="docs-search d-flex align-items-center" role="search">
   <button class="btn docs-toggle d-md-none p-0 mr-md-3 w-100" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     <div class="d-flex">
       <span class="d-md-none pl-1 flex-grow-1 text-left overflow-hidden">
@@ -21,6 +21,7 @@
     <span class="sidebar-search-shortcut">/</span>
   </button>
   {{ end }}
+  <button type="submit" class="sr-only" aria-label="Submit search">Search</button>
 </form>
 
 <nav class="collapse docs-links" id="docs-nav">
