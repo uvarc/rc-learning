@@ -13,7 +13,7 @@ menu:
 ### **Neural Network Construction**
 A neural network consists of multiple layers, each performing specific transformations on the input data.
 
-{{< figure src="/courses/pytorch-hpc/img/nn.png" caption="An Artificial Neural Network" width="500px" >}}
+{{< figure src="/courses/pytorch-hpc/img/nn.png" caption="An Artificial Neural Network" alt="Diagram of an artificial neural network showing 4 input layer nodes in blue, 5 hidden layer nodes in orange, and 3 output layer nodes in green, with lines connecting each layer" width="500px" >}}
 
 Frequently used Layers in PyTorch:
 ```python
