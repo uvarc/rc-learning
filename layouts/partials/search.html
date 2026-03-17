@@ -18,8 +18,8 @@
 
       <div id="search-box">
         {{ if eq site.Params.search.engine 1 }}
-        <!-- <label for="search-query" class="sr-only">{{ i18n "search" }}</label> -->
-        <input name="q" id="search-query" placeholder="{{i18n "search_placeholder"}}" autocapitalize="off"
+        <label for="search-query" class="sr-only">{{ i18n "search" }}</label> 
+        <input name="q" id="search-query" aria-label="Search" placeholder="{{i18n "search_placeholder"}}" autocapitalize="off"
         autocomplete="off" autocorrect="off" spellcheck="false" type="search">
         {{ else }}
         <!-- Search box will appear here -->
