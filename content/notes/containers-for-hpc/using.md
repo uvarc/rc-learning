@@ -1,13 +1,9 @@
 ---
 title: Using Containers on HPC [Apptainer]
 toc: true
-type: docs
-date: "2026-03-16T00:00:00"
+type: book
+date: "2025-05-13T00:00:00"
 weight: 3
-
-menu:
-    containers-for-hpc:
-        parent: Software Containers for HPC
 
 ---
 
@@ -18,7 +14,7 @@ Log on to our HPC cluster
     - Make sure you have a few GBs of free space
 - Run `allocations`
     - Check if you have `hpc_training`
-- Request an interactive job
+- Request an interative job
     {{< code-snippet >}}ijob -A hpc_training -p interactive -c 1 -t 2:0:0{{< /code-snippet >}}
 - Run `module load apptainer`
 
@@ -34,7 +30,7 @@ To download a container hosted on a registry, use the `pull` command. Docker ima
 
 - `<URI>` (Unified resource identifiers)
     - `[library|docker|shub]://[<user>/]<repo>[:<tag>] `
-    - Default prefix: `library` ([Singularity Library](https://cloud.sylabs.io/library))
+    - Default prefix: `library` ([Singularity Library (opens in new tab)](https://cloud.sylabs.io/library))
     - `user`: optional; may be empty (e.g. `apptainer pull ubuntu`)
     - `tag`: optional; default: `latest`
 - `<SIF>` (Singularity image format)
@@ -56,9 +52,9 @@ Inspect an image before running it via `inspect`.
 ```bash
 $ apptainer inspect lolcow_latest.sif 
 org.label-schema.build-arch: amd64
-org.label-schema.build-date: Monday_16_March_2026_12:35:7_EDT
+org.label-schema.build-date: Wednesday_14_May_2025_10:20:6_EDT
 org.label-schema.schema-version: 1.0
-org.label-schema.usage.apptainer.version: 1.4.5
+org.label-schema.usage.apptainer.version: 1.3.4
 org.label-schema.usage.singularity.deffile.bootstrap: docker
 org.label-schema.usage.singularity.deffile.from: rsdmse/lolcow
 ```
@@ -67,28 +63,14 @@ org.label-schema.usage.singularity.deffile.from: rsdmse/lolcow
 
 This is the default command of the container. (Docker `ENTRYPOINT` is preserved.)
 
-`apptainer inspect -r/--runscript <SIF>`
+`apptainer inspect --runscript <SIF>`
 
 ```bash
-$ apptainer inspect -r lolcow_latest.sif 
+$ apptainer inspect --runscript lolcow_latest.sif 
 #!/bin/sh
 OCI_ENTRYPOINT='"/bin/sh" "-c" "fortune | cowsay | lolcat"'
 ...
 ```
-
-#### Inspect definition file
-
-The definition file is a recipe that defines how the container is built. We will learn more about it in the next workshop.
-
-`apptainer inspect -d/--deffile <SIF>`
-
-```bash
-$ apptainer inspect -d lolcow_latest.sif
-bootstrap: docker
-from: rsdmse/lolcow
-```
-
-(Not very interesting for containers converted from Docker. It cannot show how the _base image_ was built.)
 
 ### Run
 
@@ -264,7 +246,7 @@ sbatch tensorflow-2.17.0.slurm
 
 #### What does `--nv` do?
 
-See [Apptainer GPU user guide](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
+See [Apptainer GPU user guide (opens in new tab)](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
 
 ```bash
 $ apptainer shell $CONTAINERDIR/tensorflow-2.17.0.sif
@@ -289,7 +271,7 @@ Suppose you need to use TensorFlow 2.19.0 on JupyterLab. First, note we do not h
 module spider tensorflow
 ```
 
-Go to [TensorFlow's Docker Hub page](https://hub.docker.com/r/tensorflow/tensorflow) and search for the tag (i.e. version). You'll want to use one that has the `-gpu-jupyter` suffix. Pull the container in your account.
+Go to [TensorFlow's Docker Hub page (opens in new tab)](https://hub.docker.com/r/tensorflow/tensorflow) and search for the tag (i.e. version). You'll want to use one that has the `-gpu-jupyter` suffix. Pull the container in your account.
 
 ### Installation
 
@@ -348,7 +330,7 @@ jkrollout /path/to/sif "Tensorflow 2.19" gpu
 
 ### Test your new kernel
 
-- Go to https://ood.hpc.virginia.edu
+- Go to [Open OnDemand at UVA (opens in new tab)](https://ood.hpc.virginia.edu)
 - Select JupyterLab
     - Partition: GPU
     - Work Directory: (location of your `mnist_example.ipynb`)
@@ -366,6 +348,6 @@ rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.19.0
 
 ## References
 
-- [Apptainer User Guide](https://apptainer.org/docs/user/latest/)
-    - [Overview](https://apptainer.org/docs/user/latest/quick_start.html)
-    - [Bind Path and Mounts](https://apptainer.org/docs/user/latest/bind_paths_and_mounts.html)
+- [Apptainer User Guide (opens in new tab)](https://apptainer.org/docs/user/latest/)
+    - [Apptainer quick start overview (opens in new tab)](https://apptainer.org/docs/user/latest/quick_start.html)
+    - [Bind Path and Mounts (opens in new tab)](https://apptainer.org/docs/user/latest/bind_paths_and_mounts.html)

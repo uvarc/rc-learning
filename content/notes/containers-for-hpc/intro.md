@@ -1,17 +1,13 @@
 ---
 title: Introduction to Software Containers
 toc: true
-type: docs
+type: book
 date: "2025-05-15T00:00:00"
 weight: 2
 
-menu:
-    containers-for-hpc:
-        parent: Software Containers for HPC
-
 ---
 
-"A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another." (<https://www.docker.com/resources/what-container>)
+"A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another." ([Docker definition of a container (opens in new tab)](https://www.docker.com/resources/what-container))
 
 ## Why use software containers?
 
