@@ -196,7 +196,12 @@ html {
 }
 
 .hljs {
-  background-color: #f9f9f9;
+  .hljs-title,
+  .hljs-title.class_,
+  .hljs-title.class_.inherited__,
+  .hljs-title.function_ {
+  color: #7a3e9d;
+}
 }
 
 #TableOfContents li a,
