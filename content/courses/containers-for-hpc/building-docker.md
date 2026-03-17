@@ -17,7 +17,7 @@ Starting from a simple Dockerfile, we will adopt best practices sequentially and
 
 2. Install Docker
 
-    To follow along on your own computer, please install Docker Desktop and register for a free account on Docker Hub. Both can be found [here](https://www.docker.com/get-started).
+    To follow along on your own computer, please install Docker Desktop and register for a free account on Docker Hub. Both are available from [Docker Get Started (opens in new tab)](https://www.docker.com/get-started).
 
     After the installation, open a terminal ("cmd" on Windows) and make sure you can execute the command `docker run hello-world` successfully.
 
@@ -34,7 +34,7 @@ Starting from a simple Dockerfile, we will adopt best practices sequentially and
 - Singularity
     - Users cannot build on Rivanna (needs `sudo` privilege)
     - Singularity Library/Hub (more limitations)
-    - Refer to [workshop](https://learning.rc.virginia.edu/workshops/singularity/) in Spring 2020
+    - Refer to [workshop (opens in new tab)](https://learning.rc.virginia.edu/workshops/singularity/) in Spring 2020
 
 ## Intro to Dockerfile: lolcow
 
@@ -61,7 +61,7 @@ FROM ubuntu:22.04
 - Doesn't have to be a bare OS
     - `python`, `continuumio/miniconda3`, `node`, `nvidia/cuda`, etc.
 
-[Dockerfile reference](https://docs.docker.com/engine/reference/builder/#format)
+[Dockerfile reference (opens in new tab)](https://docs.docker.com/engine/reference/builder/#format)
 
 ### Steps 2 & 3: Install software
 
@@ -233,14 +233,14 @@ ENTRYPOINT fortune | cowsay | lolcat
 - You may need to specify extra packages
     - `fortune` itself provides the executable without the message database
     - `fortunes-min` contains the message database
-- See [how Ubuntu reduced image size by 60%](https://ubuntu.com/blog/we-reduced-our-docker-images-by-60-with-no-install-recommends)
+- See [how Ubuntu reduced image size by 60% (opens in new tab)](https://ubuntu.com/blog/we-reduced-our-docker-images-by-60-with-no-install-recommends)
 
 ### 3. Use a smaller base image
 
 For installation of common packages, you may consider Alpine.
 
 - BusyBox + package manager + musl libc (beware of compatibility issues)
-- [Presentation](https://youtu.be/sIG2P9k6EjA) on Alpine Linux from DockerCon EU 17 
+- [Presentation (opens in new tab)](https://youtu.be/sIG2P9k6EjA) on Alpine Linux from DockerCon EU 17 
 
 Look for `slim` variants (e.g. `debian:buster-slim`) of a base image, if any.
 
@@ -277,7 +277,7 @@ $ docker images | grep lolcow | sort -nk 2 | awk '{print $1, $2, $NF}'
 |2  |Combination of previous two |53 | 26 |
 |3  |Alpine base image           |161| 78 |
 
-Reference: [_Best practices for writing Dockerfiles_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+Reference: [_Best practices for writing Dockerfiles_ (opens in new tab)](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 ### Summary
 
@@ -309,7 +309,7 @@ In your browser, go to `https://hub.docker.com/r/<user>/lolcow`.
 
 - Overview: 
     - Sync with GitHub to update `README.md`; or
-    - Use [docker-pushrm](https://github.com/christian-korneck/docker-pushrm)
+    - Use [docker-pushrm (opens in new tab)](https://github.com/christian-korneck/docker-pushrm)
 - Tags:
     - List all versions
     - View image history if Dockerfile not provided
@@ -337,9 +337,9 @@ https://docs.qiime2.org/2022.8/install/native/#install-qiime-2-within-a-conda-en
 Hints:
 - Click on "Linux" to get the URL for the yaml file. Download the yaml file in the same directory as your Dockerfile.
 - You do not have to start from a bare OS in your Dockerfile. Search for `miniconda3` on Docker Hub.
-- (Recommended) There is a much faster dependency solver than conda - micromamba. See [here](https://micromamba-docker.readthedocs.io/en/latest/quick_start.html) for instructions.
+- (Recommended) There is a much faster dependency solver than conda - micromamba. See the [Micromamba Docker quick start guide (opens in new tab)](https://micromamba-docker.readthedocs.io/en/latest/quick_start.html) for instructions.
 - Use the suggested `COPY` and `ENTRYPOINT` statements.
-- After you're done, compare with the [official Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile) and image size. What is the biggest reason for the difference?
+- After you're done, compare with the [official Dockerfile (opens in new tab)](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile) and image size. What is the biggest reason for the difference?
 
 ### General Remarks
 
@@ -371,8 +371,8 @@ If you build containers often, you can run out of disk space quickly. To clean u
 
 ## References
 
-- [UVA Rivanna-Docker GitHub](https://github.com/uvarc/rivanna-docker)
+- [UVA Rivanna-Docker GitHub (opens in new tab)](https://github.com/uvarc/rivanna-docker)
     - Dockerfiles by UVA Research Computing
-    - [Tips](https://github.com/uvarc/rivanna-docker/wiki/Tips)
-- [_Best practices for writing Dockerfiles_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
-- [Natanael Copa, _Small, Simple, and Secure: Alpine Linux under the Microscope_, DockerCon EU (2017)](https://youtu.be/sIG2P9k6EjA)
+    - [Tips (opens in new tab)](https://github.com/uvarc/rivanna-docker/wiki/Tips)
+- [_Best practices for writing Dockerfiles_ (opens in new tab)](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+- [Natanael Copa, _Small, Simple, and Secure: Alpine Linux under the Microscope_, DockerCon EU (2017) (opens in new tab)](https://youtu.be/sIG2P9k6EjA)

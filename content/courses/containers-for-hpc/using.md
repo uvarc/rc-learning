@@ -30,7 +30,7 @@ To download a container hosted on a registry, use the `pull` command. Docker ima
 
 - `<URI>` (Unified resource identifiers)
     - `[library|docker|shub]://[<user>/]<repo>[:<tag>] `
-    - Default prefix: `library` ([Singularity Library](https://cloud.sylabs.io/library))
+    - Default prefix: `library` ([Singularity Library (opens in new tab)](https://cloud.sylabs.io/library))
     - `user`: optional; may be empty (e.g. `apptainer pull ubuntu`)
     - `tag`: optional; default: `latest`
 - `<SIF>` (Singularity image format)
@@ -246,7 +246,7 @@ sbatch tensorflow-2.17.0.slurm
 
 #### What does `--nv` do?
 
-See [Apptainer GPU user guide](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
+See [Apptainer GPU user guide (opens in new tab)](https://apptainer.org/user-docs/master/gpu.html#nvidia-gpus-cuda-standard)
 
 ```bash
 $ apptainer shell $CONTAINERDIR/tensorflow-2.17.0.sif
@@ -271,7 +271,7 @@ Suppose you need to use TensorFlow 2.19.0 on JupyterLab. First, note we do not h
 module spider tensorflow
 ```
 
-Go to [TensorFlow's Docker Hub page](https://hub.docker.com/r/tensorflow/tensorflow) and search for the tag (i.e. version). You'll want to use one that has the `-gpu-jupyter` suffix. Pull the container in your account.
+Go to [TensorFlow's Docker Hub page (opens in new tab)](https://hub.docker.com/r/tensorflow/tensorflow) and search for the tag (i.e. version). You'll want to use one that has the `-gpu-jupyter` suffix. Pull the container in your account.
 
 ### Installation
 
@@ -348,6 +348,6 @@ rm -rf ~/.local/share/jupyter/kernels/tensorflow-2.19.0
 
 ## References
 
-- [Apptainer User Guide](https://apptainer.org/docs/user/latest/)
-    - [Overview](https://apptainer.org/docs/user/latest/quick_start.html)
-    - [Bind Path and Mounts](https://apptainer.org/docs/user/latest/bind_paths_and_mounts.html)
+- [Apptainer User Guide (opens in new tab)](https://apptainer.org/docs/user/latest/)
+    - [Apptainer quick start overview (opens in new tab)](https://apptainer.org/docs/user/latest/quick_start.html)
+    - [Bind Path and Mounts (opens in new tab)](https://apptainer.org/docs/user/latest/bind_paths_and_mounts.html)
