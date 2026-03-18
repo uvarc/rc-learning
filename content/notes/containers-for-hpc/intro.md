@@ -1,7 +1,7 @@
 ---
 title: Introduction to Software Containers
 toc: true
-type: book
+type: docs
 date: "2025-05-15T00:00:00"
 weight: 2
 

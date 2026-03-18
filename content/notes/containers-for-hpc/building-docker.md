@@ -2,7 +2,7 @@
 date : "2024-6-03T00:00:00"
 title: Appendix 1 - Building Containers [Docker]
 toc: true
-type: book
+type: docs
 weight: 10
 
 ---
