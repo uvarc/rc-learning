@@ -5,14 +5,17 @@ authors: [rs]
 categories: ["Containers","HPC"]
 tags: [Containers, HPC]
 toc: true
-type: book
+type: docs
 date: "2025-05-15T00:00:00"
 weight: 1
+menu:
+    containers-for-hpc:
+        name: Software Containers for HPC
 
 ---
 
 ## Overview
-This short course is an introduction to using and building software containers, structured as follows:
+This tutorial is an introduction to using and building software containers, structured as follows:
 
 - Introduction to Software Containers
 - Using Containers on HPC [Apptainer]
