@@ -1,13 +1,9 @@
 ---
-date : "2026-03-09T00:00:00-05:00"
+date : "2024-6-03T00:00:00-05:00"
 title: Appendix 2 - Minimal Containers [Docker]
 toc: true
 type: docs
 weight: 11
-
-menu:
-    containers-for-hpc:
-        parent: Software Containers for HPC
 
 ---
 
@@ -48,17 +44,17 @@ pip install --no-cache-dir ...
 ```
 
 ### 3. Base image
-- For OS and common tools (e.g. python/conda, GCC) start from [official image](https://docs.docker.com/docker-hub/official_images/)
+- For OS and common tools (e.g. python/conda, GCC) start from [official image (opens in new tab)](https://docs.docker.com/docker-hub/official_images/)
     - Do not reinvent the wheel
 - Know which variant to use (e.g. `devel` vs `runtime`, `slim`)
     - Read their overview
 
 ## Exercise: QIIME 2
-QIIME 2 is a popular bioinformatics software. Can you suggest any potential improvement to the [Dockerfile](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile)? 
+QIIME 2 is a popular bioinformatics software. Can you suggest any potential improvement to the [Dockerfile (opens in new tab)](https://github.com/qiime2/vm-playbooks/blob/0fda9dce42802596756986e2f80c38437872c66e/docker/Dockerfile)? 
 
 <details><summary>Answer</summary>
 
-With our [Dockerfile](https://github.com/uvarc/rivanna-docker/blob/master/qiime2/2020.8/Dockerfile), we managed to reduce the image size by half.
+With our [Dockerfile (opens in new tab)](https://github.com/uvarc/rivanna-docker/blob/master/qiime2/2020.8/Dockerfile), we managed to reduce the image size by half.
 
 </details>
 
@@ -84,7 +80,7 @@ The objective is to minimize image size without loss of functionality. What's ne
     - only install runtime dependencies (e.g. `cmake`, `go` not needed)
     - copy software from build stage
 
-Reference: [_Use multi-stage builds_](https://docs.docker.com/develop/develop-images/multistage-build/)
+Reference: [_Use multi-stage builds_ (opens in new tab)](https://docs.docker.com/develop/develop-images/multistage-build/)
 
 ### Multi-stage Dockerfile template
 
@@ -109,11 +105,11 @@ ENTRYPOINT ["binary"]
 ## Exercise: LightGBM
 LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is an open source project by Microsoft.
 
-1. Examine the [official Dockerfile](https://github.com/microsoft/LightGBM/blob/master/docker/gpu/dockerfile.gpu). Can you identify any problems?
+1. Examine the [official Dockerfile (opens in new tab)](https://github.com/microsoft/LightGBM/blob/master/docker/gpu/dockerfile.gpu). Can you identify any problems?
 
     <details><summary>Answer</summary>
 
-    - `nvidia/cuda:cudnn-devel` as [base image](https://hub.docker.com/r/nvidia/cuda/tags)  (>1 GB)
+    - `nvidia/cuda:cudnn-devel` as [base image (opens in new tab)](https://hub.docker.com/r/nvidia/cuda/tags)  (>1 GB)
     - Clean up in separate `RUN` statements
 
     </details>
@@ -205,7 +201,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
     </details>
     <br>
 
-3. Rewrite the Dockerfile using a multi-stage build based on [OpenCL](https://hub.docker.com/r/nvidia/cuda/tags).
+3. Rewrite the Dockerfile using a multi-stage build based on [OpenCL (opens in new tab)](https://hub.docker.com/r/nvidia/cuda/tags).
     - Use `nvidia/opencl:devel` as the build stage
         - Remove everything related to CUDA since it is not relevant
         - Redefine the OpenCL environment variables as:
@@ -216,7 +212,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
         - Keep the same dependencies
         - Remember to clean up at the right place
         - Ignore the command under `# Add OpenCL ICD files for LightGBM`
-        - Instead of `mkdir foo && cd foo` use `WORKDIR foo` (see [documentation](https://docs.docker.com/engine/reference/builder/#workdir))
+        - Instead of `mkdir foo && cd foo` use `WORKDIR foo` (see [documentation (opens in new tab)](https://docs.docker.com/engine/reference/builder/#workdir))
         - Use the same command to install LightGBM, but replace the paths with the corresponding OpenCL environment variables
         - Add an `ENTRYPOINT`
     - Use `nvidia/opencl:runtime` as the production stage
@@ -274,7 +270,7 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
     </details>
     <br>
 
-4. Challenge: Verify that the two containers have the same performance on a GPU node. Follow the [tutorial example](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation). Run the same job without using GPU. How much faster is it with GPU?
+4. Challenge: Verify that the two containers have the same performance on Rivanna's GPU node. Follow the [tutorial example (opens in new tab)](https://lightgbm.readthedocs.io/en/latest/GPU-Tutorial.html#dataset-preparation). Run the same job without using GPU. How much faster is it with GPU?
 
 ---
 
@@ -294,12 +290,12 @@ LightGBM is a gradient boosting framework that uses tree based learning algorith
     - Build production
 
 ### Example base images 
-- [Scratch](https://hub.docker.com/_/scratch)
+- [Scratch (opens in new tab)](https://hub.docker.com/_/scratch)
     - Literally start from scratch!
     - A "no-op" in the Dockerfile, meaning no extra layer in image
     - Build other base images (beyond scope of this workshop)
     - Minimal image with a single application
-- [Distroless](https://github.com/GoogleContainerTools/distroless)
+- [Distroless (opens in new tab)](https://github.com/GoogleContainerTools/distroless)
     - Derived from Debian
     - Support for C/C++, Go, Rust, Java, Node.js, Python
 
@@ -330,8 +326,8 @@ This exercise illustrates how we can cherry-pick files from the package manager 
     <br>
 
     For your reference, the content of the packages can be found here:
-    - fortune-mod [package list](https://packages.ubuntu.com/xenial/all/fortune-mod/filelist)
-    - fortunes-min [package list](https://packages.ubuntu.com/xenial/all/fortunes-min/filelist)
+    - fortune-mod [package list (opens in new tab)](https://packages.ubuntu.com/xenial/all/fortune-mod/filelist)
+    - fortunes-min [package list (opens in new tab)](https://packages.ubuntu.com/xenial/all/fortunes-min/filelist)
 
     <br>
 
@@ -443,21 +439,33 @@ The image size is merely **10.7 MB**, 99.5% smaller than what we started with. T
 
 </details>
 
-We submitted a [pull request](https://github.com/microsoft/LightGBM/pull/3408) that has been [merged](https://github.com/microsoft/LightGBM/tree/master/docker/gpu).
+We submitted a [LightGBM GPU Docker pull request (opens in new tab)](https://github.com/microsoft/LightGBM/pull/3408) that has been [merged into the LightGBM Docker GPU directory (opens in new tab)](https://github.com/microsoft/LightGBM/tree/master/docker/gpu).
+
+---
+
+## Example: TensorFlow distroless
+
+TensorFlow is a popular platform for machine learning. It is an open source project by Google.
+
+The TF 2.3 container that you used in the previous workshop is actually based on distroless, which is why you were not able to run `ls` inside the container.
+
+- [Dockerfile (opens in new tab)](https://github.com/uvarc/rivanna-docker/blob/master/tensorflow/2.3.0/Dockerfile.distroless)
+- 18% image size reduction
+- [TensorFlow build pull request (opens in new tab)](https://github.com/tensorflow/build/pull/13) approved and [merged into the tensorflow/build repository (opens in new tab)](https://github.com/tensorflow/build)
 
 ---
 
 ## Dynamic vs Static Linking
 
-The above procedure, while impressive, may be tedious for the average user. All the examples so far are based on [dynamic linking](https://en.wikipedia.org/wiki/Dynamic_linker), where the shared libraries of an executable are stored separately. If you are compiling code from source, you may choose to build a static binary (e.g. `-static` in GCC) so that all the necessary libraries are built into the binary.
+The above procedure, while impressive, may be tedious for the average user. All the examples so far are based on [dynamic linking (opens in new tab)](https://en.wikipedia.org/wiki/Dynamic_linker), where the shared libraries of an executable are stored separately. If you are compiling code from source, you may choose to build a static binary (e.g. `-static` in GCC) so that all the necessary libraries are built into the binary.
 
 ## Exercise: Linking against OpenBLAS
 
-OpenBLAS is a linear algebra library. The code in this exercise is taken from its [user manual](https://github.com/xianyi/OpenBLAS/wiki/User-Manual#code-examples). It is based on `dgemm` which performs the matrix operation:
+OpenBLAS is a linear algebra library. The code in this exercise is taken from its [user manual (opens in new tab)](https://github.com/xianyi/OpenBLAS/wiki/User-Manual#code-examples). It is based on `dgemm` which performs the matrix operation:
 
 $$ \alpha A B + \beta C, $$
 
-where $A_{mk}, B_{kn}, C_{mn}$ are matrices and $\alpha, \beta$ are constants. For details please visit the [Intel tutorial page](https://software.intel.com/content/www/us/en/develop/documentation/mkl-tutorial-c/top/multiplying-matrices-using-dgemm.html).
+where $A_{mk}, B_{kn}, C_{mn}$ are matrices and $\alpha, \beta$ are constants. For details please visit the [Intel tutorial page (opens in new tab)](https://software.intel.com/content/www/us/en/develop/documentation/mkl-tutorial-c/top/multiplying-matrices-using-dgemm.html).
 
 1. Select an appropriate base image. (Hint: You will be compiling C++ code.)
 
@@ -568,7 +576,7 @@ where $A_{mk}, B_{kn}, C_{mn}$ are matrices and $\alpha, \beta$ are constants. F
 This exercise illustrates that it is easier to build a minimal container of a static binary.
 
 ## Exercise: Linking against LibTorch
-LibTorch is the C++ frontend of PyTorch. This exercise is based on the ["Writing a Basic Application"](https://pytorch.org/tutorials/advanced/cpp_frontend.html#writing-a-basic-application) section of the PyTorch tutorial.
+LibTorch is the C++ frontend of PyTorch. This exercise is based on the ["Writing a Basic Application" (opens in new tab)](https://pytorch.org/tutorials/advanced/cpp_frontend.html#writing-a-basic-application) section of the PyTorch tutorial.
 
 1. Select an appropriate base image. (Hint: You will be compiling C++ code.)
 
@@ -576,7 +584,7 @@ LibTorch is the C++ frontend of PyTorch. This exercise is based on the ["Writing
     - Build tools: `build-essential cmake`
     - Download and decompress: `wget ca-certificates unzip`
 
-1. Find the download link for LibTorch under the "Install PyTorch" section at https://pytorch.org/. Select "None" for CUDA. Download the file to `/opt` in the image. Hints:
+1. Find the download link for LibTorch under the "Install PyTorch" section at [pytorch.org (opens in new tab)](https://pytorch.org/). Select "None" for CUDA. Download the file to `/opt` in the image. Hints:
     - In your `wget` command, you may want to rename the output file using `-O libtorch.zip`.
     - Remember to decompress.
 
@@ -679,10 +687,12 @@ LibTorch is the C++ frontend of PyTorch. This exercise is based on the ["Writing
 
 1. Challenge: The above image cannot make use of GPU. Build an image for GPU. Hints:
     - You do not need a physical GPU to build an image for GPU.
-    - Use `nvidia/cuda` as the base image. Read their overview page on Docker Hub to decide which flavor to use.
+    - Pick a `nvidia/cuda` base image. Read their overview page on Docker Hub to decide which flavor to use.
     - Choose a CUDA version to get the download link for LibTorch on the PyTorch webpage.
 
     <br>
+
+1. Challenge: Can you build `dcgan` on Rivanna without using a container? Why (not)?
 
 1. Challenge: Can you build a static binary of `dcgan`? Why (not)?
 
@@ -703,10 +713,10 @@ LibTorch is the C++ frontend of PyTorch. This exercise is based on the ["Writing
 
 ## References
 
-- [UVA Rivanna-Docker GitHub](https://github.com/uvarc/rivanna-docker)
+- [UVA Rivanna-Docker GitHub (opens in new tab)](https://github.com/uvarc/rivanna-docker)
     - Dockerfiles by UVA Research Computing
-    - [Tips](https://github.com/uvarc/rivanna-docker/wiki/Tips)
-- [_Best practices for writing Dockerfiles_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
-- [_Use multi-stage builds_](https://docs.docker.com/develop/develop-images/multistage-build/)
-- [Google Distroless GitHub](https://github.com/GoogleContainerTools/distroless)
-- [Matthew Moore, _Distroless Docker: Containerizing Apps, not VMs_, swampUP (2017)](https://youtu.be/lviLZFciDv4)
+    - [Tips (opens in new tab)](https://github.com/uvarc/rivanna-docker/wiki/Tips)
+- [_Best practices for writing Dockerfiles_ (opens in new tab)](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+- [_Use multi-stage builds_ (opens in new tab)](https://docs.docker.com/develop/develop-images/multistage-build/)
+- [Google Distroless GitHub (opens in new tab)](https://github.com/GoogleContainerTools/distroless)
+- [Matthew Moore, _Distroless Docker: Containerizing Apps, not VMs_, swampUP (2017) (opens in new tab)](https://youtu.be/lviLZFciDv4)

@@ -4,9 +4,6 @@ title: "Building Containers on HPC [Apptainer]"
 toc: true
 type: docs
 weight: 4
-menu:
-    containers-for-hpc:
-        parent: Software Containers for HPC
 
 ---
 
@@ -114,7 +111,7 @@ This is the very first entry. It defines the bootstrap agent:
 - `docker`
 - `library`
 - `shub`
-- and [many more](https://apptainer.org/docs/user/latest/definition_files.html#preferred-bootstrap-agents)
+- and [many more (opens in new tab)](https://apptainer.org/docs/user/latest/definition_files.html#preferred-bootstrap-agents)
 
 #### `From` (mandatory)
 Define the base container.
@@ -342,7 +339,7 @@ Save this as `lolcow_2.def`.
 - You may need to specify extra packages
     - `fortune` itself provides the executable without the message database
     - `fortunes-min` contains the message database
-- See [how Ubuntu reduced image size by 60%](https://ubuntu.com/blog/we-reduced-our-docker-images-by-60-with-no-install-recommends)
+- See [how Ubuntu reduced image size by 60% (opens in new tab)](https://ubuntu.com/blog/we-reduced-our-docker-images-by-60-with-no-install-recommends)
 
 ### Image size comparison
 
@@ -447,21 +444,21 @@ $ apptainer push lolcow_0.sif oras://myname/lolcow:0
 ```
 
 Check:
-`https://hub.docker.com/r/myname/lolcow/tags`
+[Docker Hub tags for `myname/lolcow` (opens in new tab)](https://hub.docker.com/r/myname/lolcow/tags)
 
-{{< info >}}Best practice: Sign your containers; see [here](https://apptainer.org/docs/user/latest/signNverify.html).{{< /info >}}
+{{< info >}}Best practice: Sign your containers; see [Apptainer signing and verification documentation (opens in new tab)](https://apptainer.org/docs/user/latest/signNverify.html).{{< /info >}}
 
 {{< warning >}}While Apptainer can convert a Docker image into SIF, you cannot run SIF with Docker. You are simply using Docker Hub to host your SIF - it is not converted into Docker.{{< /warning >}}
 
 #### UVA Research Computing container resources
 
-[Docker Hub account](https://hub.docker.com/u/uvarc)
+[Docker Hub account (opens in new tab)](https://hub.docker.com/u/uvarc)
 
-[Repository of Dockerfiles and definition files](https://github.com/uvarc/rivanna-docker)
+[Repository of Dockerfiles and definition files (opens in new tab)](https://github.com/uvarc/rivanna-docker)
 
 ### GitHub Packages
 
-1. [Create a personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-with-a-personal-access-token-classic)
+1. [Create a personal access token (opens in new tab)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-with-a-personal-access-token-classic)
 1. Login
     ```bash
     apptainer remote login --username myname docker://ghcr.io
@@ -471,7 +468,7 @@ Check:
     ```bash
     apptainer push lolcow_0.sif oras://ghcr.io/myname/lolcow
     ```
-1. Check `https://github.com/users/myname/packages/container/package/lolcow`
+1. Check [your GitHub package page (opens in new tab)](https://github.com/users/myname/packages/container/package/lolcow)
 
 ## Case Studies
 
@@ -487,16 +484,16 @@ While you can create a conda environment locally, you cannot directly migrate it
 Your project requires PyTorch, Numpy, Seaborn, and Pandas. Write the corresponding Apptainer definition file.
 
 Hints:
-- Find the appropriate base image from [here](https://hub.docker.com/r/pytorch/pytorch/tags).
+- Find the appropriate base image from [PyTorch Docker image tags on Docker Hub (opens in new tab)](https://hub.docker.com/r/pytorch/pytorch/tags).
 - Pull the base image and examine it first. Does it already provide some packages?
 
 {{< info >}}While PyTorch runs on a GPU, you do not need to build the container on a GPU.{{< /info >}}
 
-{{< info >}}You will likely run out of memory when building large containers (over a few GBs). Request an [interactive job](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#submitting-an-interactive-job) with say `--mem=50G` to build on a compute node with 50 GB memory.{{< /info >}}
+{{< info >}}You will likely run out of memory when building large containers (over a few GBs). Request an [interactive job (opens in new tab)](https://www.rc.virginia.edu/userinfo/rivanna/slurm/#submitting-an-interactive-job) with say `--mem=50G` to build on a compute node with 50 GB memory.{{< /info >}}
 
 ### R
 
-Rocker provides many base images for all R versions (see [here](https://rocker-project.org/images/)):
+Rocker provides many base images for all R versions (see [Rocker image catalog (opens in new tab)](https://rocker-project.org/images/)):
 - `rocker/r-ver`: basic R installation
 - `rocker/rstudio`: with RStudio Server
 - `rocker/tidyverse`: plus tidyverse and dependencies
@@ -515,14 +512,14 @@ Hints:
 
 ## Multistage Build
 
-By distinguishing between buildtime-dependencies vs runtime-dependencies, it is possible to reduce the image size drastically via a [multistage build](https://apptainer.org/docs/user/latest/definition_files.html#multi-stage-builds). (My experience with some extreme cases is that only 1% is needed at runtime.)
+By distinguishing between buildtime-dependencies vs runtime-dependencies, it is possible to reduce the image size drastically via a [multistage build (opens in new tab)](https://apptainer.org/docs/user/latest/definition_files.html#multi-stage-builds). (My experience with some extreme cases is that only 1% is needed at runtime.)
 
 This is beyond the scope of the workshop, but you are welcome to browse the Apptainer documentation and Appendix 2 on Minimal Containers.
 
 ---
 
 ## References
-- [Apptainer User Guide](https://apptainer.org/docs/user/latest)
-- [Definition File](https://apptainer.org/docs/user/latest/definition_files.html)
-- [Definition File vs Dockerfile](https://apptainer.org/docs/user/latest/docker_and_oci.html#apptainer-definition-file-vs-dockerfile)
-- [GitHub Packages](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+- [Apptainer User Guide (opens in new tab)](https://apptainer.org/docs/user/latest)
+- [Definition File (opens in new tab)](https://apptainer.org/docs/user/latest/definition_files.html)
+- [Definition File vs Dockerfile (opens in new tab)](https://apptainer.org/docs/user/latest/docker_and_oci.html#apptainer-definition-file-vs-dockerfile)
+- [GitHub Packages (opens in new tab)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
