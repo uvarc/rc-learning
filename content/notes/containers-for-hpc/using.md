@@ -2,7 +2,7 @@
 title: Using Containers on HPC [Apptainer]
 toc: true
 type: docs
-date: "2025-05-13T00:00:00"
+date: "2026-03-16T00:00:00"
 weight: 3
 
 menu:
@@ -18,7 +18,7 @@ Log on to our HPC cluster
     - Make sure you have a few GBs of free space
 - Run `allocations`
     - Check if you have `hpc_training`
-- Request an interative job
+- Request an interactive job
     {{< code-snippet >}}ijob -A hpc_training -p interactive -c 1 -t 2:0:0{{< /code-snippet >}}
 - Run `module load apptainer`
 
@@ -56,9 +56,9 @@ Inspect an image before running it via `inspect`.
 ```bash
 $ apptainer inspect lolcow_latest.sif 
 org.label-schema.build-arch: amd64
-org.label-schema.build-date: Wednesday_14_May_2025_10:20:6_EDT
+org.label-schema.build-date: Monday_16_March_2026_12:35:7_EDT
 org.label-schema.schema-version: 1.0
-org.label-schema.usage.apptainer.version: 1.3.4
+org.label-schema.usage.apptainer.version: 1.4.5
 org.label-schema.usage.singularity.deffile.bootstrap: docker
 org.label-schema.usage.singularity.deffile.from: rsdmse/lolcow
 ```
@@ -67,14 +67,28 @@ org.label-schema.usage.singularity.deffile.from: rsdmse/lolcow
 
 This is the default command of the container. (Docker `ENTRYPOINT` is preserved.)
 
-`apptainer inspect --runscript <SIF>`
+`apptainer inspect -r/--runscript <SIF>`
 
 ```bash
-$ apptainer inspect --runscript lolcow_latest.sif 
+$ apptainer inspect -r lolcow_latest.sif 
 #!/bin/sh
 OCI_ENTRYPOINT='"/bin/sh" "-c" "fortune | cowsay | lolcat"'
 ...
 ```
+
+#### Inspect definition file
+
+The definition file is a recipe that defines how the container is built. We will learn more about it in the next workshop.
+
+`apptainer inspect -d/--deffile <SIF>`
+
+```bash
+$ apptainer inspect -d lolcow_latest.sif
+bootstrap: docker
+from: rsdmse/lolcow
+```
+
+(Not very interesting for containers converted from Docker. It cannot show how the _base image_ was built.)
 
 ### Run
 
