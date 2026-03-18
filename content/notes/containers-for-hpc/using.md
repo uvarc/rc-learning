@@ -5,6 +5,10 @@ type: docs
 date: "2025-05-13T00:00:00"
 weight: 3
 
+menu:
+    containers-for-hpc:
+        parent: Software Containers for HPC
+
 ---
 
 Log on to our HPC cluster

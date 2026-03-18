@@ -5,6 +5,10 @@ toc: true
 type: docs
 weight: 10
 
+menu:
+    containers-for-hpc:
+        parent: Software Containers for HPC
+
 ---
 
 _Docker, Dockerfile, Docker Hub_

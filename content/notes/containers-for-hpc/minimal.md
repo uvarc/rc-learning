@@ -5,6 +5,10 @@ toc: true
 type: docs
 weight: 11
 
+menu:
+    containers-for-hpc:
+        parent: Software Containers for HPC
+
 ---
 
 The industry standard of restricting containers to just the application and its dependencies often results in better security and smaller size. See how the use of multi-stage builds and scratch/distroless base images can reduce the image size by as much as 99% in real applications.

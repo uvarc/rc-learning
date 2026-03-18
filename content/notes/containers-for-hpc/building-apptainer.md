@@ -5,6 +5,10 @@ toc: true
 type: docs
 weight: 4
 
+menu:
+    containers-for-hpc:
+       parent: Software Containers for HPC
+
 ---
 
 ## Introduction
