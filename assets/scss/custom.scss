@@ -1,6 +1,13 @@
 // Override this file to add your own SCSS styling.
 @use "sass:color";
 
+body {
+  line-height: 1.6;
+}
+
+.sidebar, .sidebar a { color: #333333; }
+.dark .sidebar, .dark .sidebar a { color: #e0e0e0; }
+
 .container {
   max-width: 90%;
 }
@@ -221,7 +228,12 @@ html {
 }
 
 .hljs {
-  background-color: #f9f9f9;
+  .hljs-title,
+  .hljs-title.class_,
+  .hljs-title.class_.inherited__,
+  .hljs-title.function_ {
+  color: #7a3e9d;
+}
 }
 
 #TableOfContents li a,

@@ -1,14 +1,10 @@
 ---
 title: "Software Containers for HPC"
-summary: "An Introduction to using and building software containers."
 authors: [rs]
-categories: ["Containers","HPC"]
-tags: [Containers, HPC]
 toc: true
 type: docs
 date: "2025-05-15T00:00:00"
 weight: 1
-
 menu:
     containers-for-hpc:
         name: Software Containers for HPC
