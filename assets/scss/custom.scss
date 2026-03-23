@@ -79,6 +79,30 @@ h6 {
   font-size: 1rem;
 }
 
+.h1 {
+  @extend h1;
+}
+
+.h2 {
+  @extend h2;
+}
+
+.h3 {
+  @extend h3;
+}
+
+.h4 {
+  @extend h4;
+} 
+
+.h5 {
+  @extend h5;
+}
+
+.h6 {
+  @extend h6;
+}
+
 .search-header {
   z-index: 1032;
 }
@@ -165,9 +189,10 @@ html {
   transition-property: background-color;
 }
 
+.tag-cloud a:active,
 .tag-cloud a:hover,
 .tag-cloud a:focus {
-  background-color: rgba(0, 0, 0, .2);
+  background-color: rgba(0, 0, 0, .1);
   transform: scale(1);
 }
 
