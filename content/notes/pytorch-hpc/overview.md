@@ -96,18 +96,18 @@ Activation functions introduce non-linearity into neural networks, enabling them
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      {{< figure src="/courses/pytorch-hpc/img/sigmoid.png" caption="Sigmoid" alt="Line graph of the Sigmoid activation function showing an S-shaped curve with output ranging from 0 to 1" width="400px" >}}
+      {{< figure src="/notes/pytorch-hpc/img/sigmoid.png" caption="Sigmoid" alt="Line graph of the Sigmoid activation function showing an S-shaped curve with output ranging from 0 to 1" width="400px" >}}
     </div>
     <div class="col-md-6">
-      {{< figure src="/courses/pytorch-hpc/img/tanh.png" caption="Tanh" alt="Line graph of the Tanh activation function showing an S-shaped curve with output ranging from -1 to 1" width="400px" >}}
+      {{< figure src="/notes/pytorch-hpc/img/tanh.png" caption="Tanh" alt="Line graph of the Tanh activation function showing an S-shaped curve with output ranging from -1 to 1" width="400px" >}}
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      {{< figure src="/courses/pytorch-hpc/img/relu.png" caption="ReLU" alt="Line graph of the ReLU activation function showing zero output for negative inputs and a linear increase for positive inputs" width="400px" >}}
+      {{< figure src="/notes/pytorch-hpc/img/relu.png" caption="ReLU" alt="Line graph of the ReLU activation function showing zero output for negative inputs and a linear increase for positive inputs" width="400px" >}}
     </div>
     <div class="col-md-6">
-      {{< figure src="/courses/pytorch-hpc/img/leakyrelu.png" caption="Leaky ReLU" alt="Line graph of the Leaky ReLU activation function showing a small negative slope for negative inputs and a linear increase for positive inputs" width="400px" >}}
+      {{< figure src="/notes/pytorch-hpc/img/leakyrelu.png" caption="Leaky ReLU" alt="Line graph of the Leaky ReLU activation function showing a small negative slope for negative inputs and a linear increase for positive inputs" width="400px" >}}
     </div>
   </div>
 </div>
