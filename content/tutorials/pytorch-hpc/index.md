@@ -4,8 +4,8 @@ summary: "This tutorial provides a practical introduction to building artificial
 
 date: 2024-06-27T21:13:14-05:00
 authors: [abd, bmr]
-categories: ["GPU","Machine Learning","Deep Learning"]
-tags: ["GPU","Machine_Learning","Deep_Learning"]
+categories: ["GPU","Machine Learning","Deep Learning", "HPC"]
+tags: ["GPU","Machine_Learning","Deep_Learning", "HPC"]
 
 weight: 330
 

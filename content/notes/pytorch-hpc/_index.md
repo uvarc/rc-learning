@@ -2,8 +2,6 @@
 date : "2025-02-26T00:00:00-05:00"
 title : "Introduction to PyTorch for HPC"
 #summary: "An introduction to using PyTorch on an HPC system."
-categories: ["Deep Learning","Python","HPC","Machine Learning"]
-tags: [Deep_learning,Machine_learning,Python,HPC]
 toc: true
 type: docs
 weight: 1
