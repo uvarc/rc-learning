@@ -5,7 +5,7 @@ summary: "This tutorial introduces strategies to improve reusability and transpa
 # Schedule page publish date (NOT talk date).
 publishDate: "2025-01-30T00:00:00"
 
-authors: [mab, dab]
+authors: [mab, dat]
 tags: [Bioinformatics]
 categories: ["Bioinformatics"]
 
