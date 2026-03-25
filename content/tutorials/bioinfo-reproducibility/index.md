@@ -11,6 +11,8 @@ categories: ["Bioinformatics"]
 
 weight: 540
 
+notes: bioinfo-reproducibility
+
 pdf: bioinfo-reproducibility
 
 ---

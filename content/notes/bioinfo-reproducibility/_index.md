@@ -1,14 +1,13 @@
 ---
-title: "Reproducibility in Bioinformatics"
-date: 2026-03-25:19:53Z
+title: Reproducibility in Bioinformatics
+date: 2026-03-25T19:08:46Z
 type: docs 
-weight: 540
-
+weight: 100
 menu: 
     bioinfo-reproducibility:
 ---
 
-**Workshop Outline**
+## Tutorial Outline
 
  * Difficulties in achieving reproducibility
 
