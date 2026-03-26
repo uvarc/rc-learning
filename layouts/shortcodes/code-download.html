@@ -1,5 +1,5 @@
 {{ $file := .Get "file" }}
-{{ $lang := .Get "language" }}
+{{ $lang := .Get "lang" }}
 {{ $code :=  readFile $file }}
 {{ (print "```" $lang "\n" $code "\n```") | markdownify }}
 <a href="{{ $file }}" download title="Download this code">
