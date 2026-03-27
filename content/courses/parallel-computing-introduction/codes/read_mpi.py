@@ -7,7 +7,6 @@ filename=sys.argv[1]
 comm=MPI.COMM_WORLD
 fh=MPI.File.Open(comm,filename,MPI.MODE_RDONLY)
 
-
 dims=np.empty((2,),dtype='int')
 fh.Read(dims)
 N=dims[0]; M=dims[1]

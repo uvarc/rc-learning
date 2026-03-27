@@ -3,7 +3,7 @@ import sys
 
 filename=sys.argv[1]
 
-fh=open(filename)
+fh=open(filename,'rb')
 x=np.fromfile(fh,dtype='int')
 
 print(type(x),x.shape,x.size)
