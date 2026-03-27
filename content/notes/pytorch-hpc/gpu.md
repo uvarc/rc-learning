@@ -22,7 +22,7 @@ Neural Networks can grow large and contain many million if not billions of param
 - **High memory bandwidth** for efficient data transfer
 - Optimized for **tensor operations** (e.g., matrix multiplications)
 
-If you’re working with a small model or smaller dataset, you may find using a GPU slows down your work.This is mainly due to the overhead cost of transfering data back and forward to the CPU. To find out if your task could benefit from using GPUs, it’s important to benchmark and profile your code. Learn more about Benchmarking and Profiling here: https://learning.rc.virginia.edu/notes/benchmark-parallel-programs/ https://learning.rc.virginia.edu/courses/python-high-performance/
+If you’re working with a small model or smaller dataset, you may find using a GPU slows down your work.This is mainly due to the overhead cost of transfering data back and forward to the CPU. To find out if your task could benefit from using GPUs, it’s important to benchmark and profile your code. Learn more about [Benchmarking and Profiling](https://learning.rc.virginia.edu/notes/benchmark-parallel-programs/) and [High-Performance Python](https://learning.rc.virginia.edu/courses/python-high-performance/).
 
 ---
 
@@ -95,6 +95,6 @@ sstat job_id
 Alternatively you can use the [SLURM Script Generator](https://www.rc.virginia.edu/userinfo/hpc/slurm-script-generator/) to create your script.
 
 
-For more information on SLURM visit: https://www.rc.virginia.edu/userinfo/hpc/software/pytorch/, https://www.rc.virginia.edu/userinfo/hpc/slurm/
+For more information on SLURM, visit [PyTorch on UVA HPC](https://www.rc.virginia.edu/userinfo/hpc/software/pytorch/) and [SLURM at UVA Research Computing](https://www.rc.virginia.edu/userinfo/hpc/slurm/).
 
-For information on multi-GPU use: https://pytorch.org/tutorials/beginner/ddp_series_multigpu.html
+For information on multi-GPU use, see the [PyTorch multi-GPU tutorial](https://pytorch.org/tutorials/beginner/ddp_series_multigpu.html).

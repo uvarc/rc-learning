@@ -35,7 +35,7 @@ pytorch_project/
 Tracking experiments is essential for understanding model performance.
 
 Using TensorBoard for Monitoring
-TensorBoard is Tensorflow's visualization toolkit. It is compatible with PyTorch and enbles you to keep track of your experiments' metrics like lossand accuracy and easily visualize them. For more information visit: https://www.tensorflow.org/tensorboard
+TensorBoard is Tensorflow's visualization toolkit. It is compatible with PyTorch and enbles you to keep track of your experiments' metrics like lossand accuracy and easily visualize them. For more information, visit the [TensorBoard documentation](https://www.tensorflow.org/tensorboard).
 ```python
 from torch.utils.tensorboard import SummaryWriter
 

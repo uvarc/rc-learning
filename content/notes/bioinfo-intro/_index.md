@@ -1,9 +1,6 @@
 ---
 title: Introduction to Bioinformatics Tools for HPC
 date: 2025-08-23T03:19:53Z
-authors: [mab]
-categories: ["Bioinformatics"]
-tags: ["Bioinformatics"]
 type: docs 
 weight: 30
 

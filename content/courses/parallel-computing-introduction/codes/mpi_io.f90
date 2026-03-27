@@ -5,20 +5,23 @@ program mpiwrite
    integer            :: N, M
    integer            :: i,j
    character(len=80)  :: arg
-   integer, allocatable, dimension(:,:)  :: loc_u
+   integer, allocatable, dimension(:,:)  :: u, gu
+   integer            :: numargs
 
    integer            :: rank, nprocs, nrows, ncols
-   integer            :: lrow, lcol, nrl, ncl
+   integer            :: lrow, lcol
+   integer            :: nrl, ncl, nr_total, nc_total, nghosts
    integer, parameter :: root=0
    type(MPI_Status)   :: mpi_stat
-   type(MPI_Datatype) :: locarr
+   type(MPI_Datatype) :: locarr, fullarr
    type(MPI_File)     :: fh
    integer            :: amode
    integer            :: mpi_err, gmpi_err
    integer(kind=MPI_OFFSET_KIND) :: disp=0
    character(len=24)  :: fname
    integer            :: ndims=2
-   integer, dimension(2) :: ldims, gdims, start_arr
+   integer, dimension(2) :: starts,sizes,subsizes
+   integer, dimension(2) :: gstarts,gsizes,gsubsizes
    character(len=36)  :: myfile
 
 
@@ -61,66 +64,98 @@ program mpiwrite
    !Grid coordinates
    lrow=rank/ncols
    lcol=mod(rank,ncols)
-
   
    !Hardcode each local array to be relatively small so we can see 
    !what we're doing
    nrl=4
    ncl=4
 
-   !Global array size
    N=nrl*nrows
    M=ncl*ncols
 
+   nghosts=2
+   nr_total=nrl+2*nghosts
+   nc_total=ncl+2*nghosts
+
    ! Set up values
-   allocate(loc_u(nrl,ncl))
-   do i=1,nrl
-      do j=1,ncl
-         loc_u(i,j)=(rank+1)*(i+j)
+   allocate(u(0:nr_total-1,0:nc_total-1))
+
+   u=-9
+   do i=nghosts,nrl+nghosts-1
+      do j=nghosts,ncl+nghosts-1
+         u(i,j)=rank
       enddo
    enddo
 
-   gdims=[N,M]
-   ldims=[nrl,ncl]
-   start_arr=[ncl*lrow,nrl*lcol]
-   print *, rank, lrow, lcol, start_arr
+   !array sizes
+   gsizes=[N,M]
+   sizes=[nr_total,nc_total]
 
    write(myfile,'(a,i2.2)') trim(fname),rank
    open(10,file=myfile)
    write(10,*) rank
    do i=1,nrl
-       write(10,*) loc_u(i,:)
+       write(10,*) u(i,:)
     enddo
 
-   !Define a subarray for each local array within the global array
-   call MPI_TYPE_CREATE_SUBARRAY(ndims, gdims, ldims, start_arr,               &
+   starts=[nghosts,nghosts]
+   subsizes=[nrl,ncl]
+   !Define a subarray for each local array
+   !Size includes ghost zones, starts picks out locations
+   call MPI_TYPE_CREATE_SUBARRAY(ndims, sizes, subsizes, starts,               &
                                  MPI_ORDER_FORTRAN, MPI_INTEGER, locarr)
    call MPI_TYPE_COMMIT(locarr)
+
+   !Create the subarray for the global file view
+   !Excludes ghost zones
+   !Remember that subarry starts assume 0 lower bound like C
+   gsizes=[N,M]
+   gstarts=[lrow*nrl,lcol*ncl]
+   gsubsizes=[nrl,ncl]
+   call MPI_TYPE_CREATE_SUBARRAY(ndims, gsizes, gsubsizes, gstarts,            &
+                                 MPI_ORDER_FORTRAN, MPI_INTEGER, fullarr)
+   call MPI_TYPE_COMMIT(fullarr)
 
    amode=ior(MPI_MODE_CREATE, MPI_MODE_WRONLY)
    call MPI_FILE_OPEN(MPI_COMM_WORLD,trim(fname),amode,MPI_INFO_NULL,fh,mpi_err)
 
-   call MPI_Allreduce(mpi_err, gmpi_err,1,MPI_INTEGER, MPI_LOR, MPI_COMM_WORLD)
+   call MPI_Allreduce(mpi_err,gmpi_err,1,MPI_INTEGER, MPI_BOR, MPI_COMM_WORLD)
 
    if ( gmpi_err /= MPI_SUCCESS ) then
       stop "Unable to open MPI file, terminating"
    endif
 
    !Need a header for the sizes, only root should write this
-   if ( rank==0 ) then
-       call MPI_File_write(fh, [N, M], 2, MPI_INTEGER, MPI_STATUS_IGNORE)
-   endif
+   !if ( rank==0 ) then
+   !    call MPI_File_write(fh, [N, M], 2, MPI_INTEGER, MPI_STATUS_IGNORE)
+   !endif
 
-   !Everybody write its section
-   disp=2*sizeof(N)
-
-   call MPI_FILE_SET_VIEW(fh,disp,MPI_INTEGER,locarr,"native", MPI_INFO_NULL)
-   call MPI_FILE_WRITE_ALL(fh, loc_u, size(loc_u), MPI_INTEGER, mpi_stat)
+   call MPI_FILE_SET_VIEW(fh,disp,MPI_INTEGER,fullarr,"native", MPI_INFO_NULL)
+   call MPI_FILE_WRITE_ALL(fh, u, 1, locarr, mpi_stat)
 
    call MPI_FILE_CLOSE(fh)
 
+   !Read it back in
+   if (rank==root) then
+      allocate(gu(0:N-1,0:M-1))
+      print *, 'allocated gu', size(gu)
+      amode=MPI_MODE_RDONLY
+      print *, 'Opening file'
+      call MPI_FILE_OPEN(MPI_COMM_WORLD,trim(fname),amode,MPI_INFO_NULL,fh,mpi_err)
+      print *, 'Opened file ',trim(fname)
+      if ( mpi_err /= MPI_SUCCESS) then
+          stop "Unable to open MPI file for reading"
+      endif
+      print *, "Starting to read"
+
+      call MPI_FILE_READ(fh, gu, size(gu), MPI_INTEGER, mpi_stat)
+
+   endif
+
 
    call MPI_Type_free(locarr)
+   call MPI_Type_free(fullarr)
+
    call MPI_Finalize()
 
 end program
