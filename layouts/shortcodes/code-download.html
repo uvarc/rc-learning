@@ -1,7 +1,12 @@
 {{ $file := .Get "file" }}
 {{ $lang := .Get "lang" }}
 {{ $code :=  readFile $file }}
+{{ $filename := path.Base $file }}
+{{ $id := printf "code-download-%d" .Ordinal }}
+<span id="{{ $id }}-filename" class="sr-only">Contents of {{ $filename }}</span>
 {{ (print "```" $lang "\n" $code "\n```") | markdownify }}
-<a href="{{ $file }}" download title="Download this code">
+<a href="{{ $file }}" download aria-labelledby="{{ $id }}-link {{ $id }}-filename" title="Download {{ $filename }} file">
 <i class="fa fa-download" aria-hidden="true"></i>
+<span id="{{ $id }}-link" class="sr-only">Download {{ $filename }} file</span>
 </a>
+<br><br>
