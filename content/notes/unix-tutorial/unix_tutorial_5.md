@@ -19,11 +19,11 @@ A _process_ is an executing program identified by a unique PID (process identifi
 A process may be in the foreground, in the background, or be suspended. In general the shell does not return the Unix prompt until the current process has finished executing. Some processes take a long time to run and hold up the terminal. Backgrounding a long process has the effect that the Unix prompt is returned immediately, and other tasks can be carried out while the original process continues executing.
 
 ## Running Background Processes
-To background a process, type an & at the end of the command line. For example, the command sleep waits a given number of seconds before continuing. Type
+To background a process, type an `&` at the end of the command line. For example, the command `sleep` waits a given number of seconds before continuing. Type
 ```bash
 % sleep 10
 ```
-This will wait 10 seconds before returning the command prompt %. Until the command prompt is returned, you can do nothing in that terminal except wait. To run sleep in the background, type
+This will wait 10 seconds before returning the command prompt `%`. Until the command prompt is returned, you can do nothing in that terminal except wait. To run sleep in the background, type
 ```bash
 % sleep 10 &
 
@@ -39,7 +39,7 @@ At the prompt, type
 ```bash
 % sleep 100
 ```
-You can suspend the process running in the foreground by holding down the `[CTRL]` key and typing [`z`] (written as `^Z`) Then to put it in the background, type
+You can suspend the process running in the foreground by holding down the [CTRL] key and typing [z] (written as `^Z`) Then to put it in the background, type
 ```bash
 % bg
 ```
@@ -52,9 +52,9 @@ When a process is running, backgrounded or suspended, it will be entered onto a 
 ```
 An example of a job list could be
 
-1. Suspended sleep 100
-2.  Running firefox
-3. Running vi
+1. Suspended `sleep 100`
+2.  Running `firefox`
+3. Running `vi`
 
 To restart (foreground) a suspended processes, type
 ```bash
