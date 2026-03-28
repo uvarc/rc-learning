@@ -8,7 +8,6 @@ menu:
 ---
 
 
-{{< figure src=/notes/bioinfo-reproducibility/img/Triant-Bobar_Reproducibility_11.png >}}
 
 GitHub: https://github.com
 

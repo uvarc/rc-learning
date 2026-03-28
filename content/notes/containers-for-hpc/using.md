@@ -215,10 +215,10 @@ Currently Loaded Modules:
     ```bash
     module purge
     module list
-    module load tensorflow
+    module load pytorch
     ```
-1. Check the versions of tensorflow via `module spider tensorflow`. How would you load a non-default version?
-1. What is the default command of the tensorflow container? Where was it pulled from?
+1. Check the versions of pytorch via `module spider pytorch`. How would you load a non-default version?
+1. What is the default command of the pytorch container? Where was it pulled from?
 
 ---
 
