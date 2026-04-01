@@ -18,7 +18,7 @@ menu:
 Apptainer is a continuation of the Singularity project. Since our migration to Apptainer on Dec 18, 2023, users can now build containers natively on HPC.
 
 Previous workflow:
-- build Docker container on personal computer
+- build Docker image on personal computer
 - upload (push) to a registry
 - download (pull) from registry
 
@@ -33,8 +33,10 @@ Containerization provides an isolated environment, which can be useful in these 
 
 ### Example: lolcow
 
+lolcow is made up of three utilities: fortune, cowsay, lolcat
+
 ```bash
-$ apptainer run lolcow.sif
+$ fortune | cowsay | lolcat
  ___________________________________
 < Beware of low-flying butterflies. >
  -----------------------------------
@@ -45,25 +47,18 @@ $ apptainer run lolcow.sif
                 ||     ||
 ```
 
-What command is actually being executed?
-```bash
-$ apptainer inspect --runscript lolcow.sif
-#!/bin/sh
+One can easily install them via the package manager with sudo privilege. As a regular HPC user, however, that is not allowed.
 
-    fortune | cowsay | lolcat
-```
-
-{{< warning >}}
-Inspect the runscript before running an image!
-{{< /warning >}}
+*Can we containerize it?*
 
 ## Setup
 
 1. (Optional) Cache
     
-    The default cache directory is `~/.apptainer`. If you are an active container user it can quickly fill up your home. You can change it to scratch:
+    The default cache directory is `~/.apptainer`. If you are a heavy container user, it can quickly fill up your home. You can change it to scratch:
     {{< code-snippet >}}export APPTAINER_CACHEDIR=/scratch/$USER/.apptainer{{< /code-snippet >}}
-    Otherwise, remember to clean up periodically.
+
+    Otherwise, remember to clean up periodically via `apptainer cache clean`.
 1. Request an ijob
     {{< code-snippet >}}ijob -A hpc_training -p interactive -c 1 -t 2:0:0{{< /code-snippet >}}
 1. Load the Apptainer module: `module load apptainer`
@@ -71,9 +66,9 @@ Inspect the runscript before running an image!
 
 ## Definition File
 
-The definition file is a set of instructions that is used to build an Apptainer container:
+The definition file is a set of instructions that is used to build an Apptainer image:
 
-- base OS or base container
+- base OS or base image
 - files to add from the host system
 - software to install
 - environment variables to set at runtime
@@ -107,7 +102,7 @@ From: ...        #
 ### Header
 
 - At the top of the def file
-- Sets the base OS or base container
+- Sets the base OS or base image
 
 #### `Bootstrap` (mandatory)
 This is the very first entry. It defines the bootstrap agent:
@@ -118,10 +113,10 @@ This is the very first entry. It defines the bootstrap agent:
 - and [many more (opens in new tab)](https://apptainer.org/docs/user/latest/definition_files.html#preferred-bootstrap-agents)
 
 #### `From` (mandatory)
-Define the base container.
+Define the base image.
 
 ```
-From: [<collection>/]<container>[:<tag>]
+From: [<collection>/]<name>[:<tag>]
 ```
 
 ### Section
