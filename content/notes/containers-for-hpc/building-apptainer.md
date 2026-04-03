@@ -193,7 +193,7 @@ Bootstrap: docker
 From: ubuntu:24.04
 ```
 
-- OS: `ubuntu`, `debian`, `centos`, ...
+- OS: `ubuntu`, `debian`, `rockylinux`, ...
 - Doesn't have to be a bare OS
     - `python`, `continuumio/miniconda3`, `node`, `nvidia/cuda`, etc.
 
@@ -344,19 +344,19 @@ Save this as `lolcow_2.def`.
 
 ```bash
 $ ll -h lolcow*.sif
-... 89M ... lolcow_0.sif
+... 97M ... lolcow_0.sif
 ... 56M ... lolcow_1.sif
 ... 49M ... lolcow_2.sif
 ```
 
 <style scoped>table { font-size: 65%; }</style>
 
-| Version | Description | Reduction (MB) | % |
+| Version | Description | Reduction (MB) | (%) |
 |---|---|---:|---:|
 |0  |(Basis of comparison) | - | - |
-|1  |Clean up              |33 | 37 |
-|-  |Install only what's needed  |7 | 8 |
-|2  |Combination of previous two |40 | 45 |
+|1  |Clean up              |41 | 42 |
+|-  |Install only what's needed  |7 | 7 |
+|2  |Combination of previous two |48 | 49 |
 
 ## Sandbox
 
@@ -389,7 +389,7 @@ FATAL:   While performing build: while running engine: exit status 1
 Let's try to build a lolcow container in Alpine via a sandbox.
 
 ```bash
-$ apptainer build --sandbox alpine docker://alpine:3.22
+$ apptainer build --sandbox alpine docker://alpine:3.23
 $ apptainer shell -w alpine
 Apptainer> echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 Apptainer> apk add fortune cowsay@testing lolcat@testing
@@ -411,7 +411,7 @@ $ apptainer exec lolcow_3.sif sh -c "fortune|cowsay|lolcat"
                 ||     ||
 ```
 
-Note the container size - only 15MB! This is 83% smaller than what we had before.
+Note the container size - only 15MB! This is 85% smaller than what we had before.
 
 {{< info >}}
 Why can't you run "apptainer exec lolcow_3.sif fortune|cowsay|lolcat"?
