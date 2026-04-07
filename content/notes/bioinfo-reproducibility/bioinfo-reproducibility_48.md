@@ -64,12 +64,15 @@ workflow {
 If we use one of those parameter methods, instead of our workflow having a hard-coded path for our inputs, we can dynamically provide our input file names and clean things up in our workflow even further.
 
 From:
+```bash
 workflow {
 CUTADAPT(Channel.fromPath(~/sample1.fastq', checkIfExists: true))
 }
+```
 
 To:
+```bash
 workflow {
 CUTADAPT(Channel.fromPath(params.reads, checkIfExists: true))
 }
-
+```
