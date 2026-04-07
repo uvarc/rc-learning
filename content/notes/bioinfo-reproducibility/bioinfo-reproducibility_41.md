@@ -15,16 +15,16 @@ First, create a process called HELLO with our shell command:
 
 ```bash
 process HELLO {
-script:
-"""
-echo "Hello World!"
-"""
+ script:
+ """
+ echo "Hello World!"
+ """
 }
 
 Then we execute this process in our workflow:
 
 workflow {
-HELLO()
+ HELLO()
 }
 ```
 
@@ -34,27 +34,27 @@ We can create a new file called main.nf with these lines.
 
 ```bash
 process HELLO {
-script:
-"""
-echo "Hello World!"
-"""
+ script:
+ """
+ echo "Hello World!"
+ """
 }
 
 workflow {
-HELLO()
+ HELLO()
 }
 ```
 
 ## Make some changes
 ```bash
-*process*  hello {
- *output:*
+process  hello {
+ output:
  path 'hello.txt'
  script:
  """
  echo 'Hello world!' > hello.txt
  """
- }
+}
 ```
  
 We want to send the text to a file called 'hello.txt.' Now we can update our shell command to send the text to a file, and we can add an output in our process to define our file name and since out output is a file, we'll specify the type of output as a path.
