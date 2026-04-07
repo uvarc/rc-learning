@@ -7,7 +7,20 @@ menu:
     bioinfo-reproducibility:
 ---
 
-<span style="color:#000000">Nextflow</span>  <span style="color:#000000"> is a workflow management system that helps automate and organize multi-step computational pipelines.</span>
 
-<span style="color:#000000">At a high level, it connects software steps together, manages how data moves between them, and handles execution across local machines, HPC schedulers like SLURM, or cloud platforms.</span>
+Nextflow is a workflow management system that helps automate and organize multi-step computational pipelines
+
+At a high level, it connects software steps together, manages how data moves between them,
+and handles execution across local machines, HPC schedulers like SLURM, or cloud platforms
+
+## Nextflow pipelines
+Key concepts:
+- Processes, workflows, and parameters
+In general, we are going to:
+- Create processes to execute desired commands
+- Specify parameters to represent workflow settings
+- Define a workflow to execute processes in a specific order
+Key files:
+- main.nf and nextflow.config
+
 
