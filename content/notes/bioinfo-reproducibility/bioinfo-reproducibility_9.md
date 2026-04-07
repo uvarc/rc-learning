@@ -18,11 +18,6 @@ menu:
 -  Tool/software maintenance
 
 
-{{< figure src=/notes/bioinfo-reproducibility/img/Triant-Bobar_Reproducibility_9.gif >}}
-
-{{< figure src=/notes/bioinfo-reproducibility/img/Triant-Bobar_Reproducibility_10.png >}}
-
-
 ## Version Control
 
 ### GitHub
@@ -42,7 +37,8 @@ https://github.com
 - Website for github, cutadapt repository
 
 
-## Envorinment Management
+
+## Envoronment Management
 
 ### Conda/Mamba environments
 
@@ -62,7 +58,6 @@ https://github.com
 - Always document and archive changes, especially if unpublished:
    - genome assembly versions
    - sequence data: SNPs, isoforms
-
 
 ## Containers
 
