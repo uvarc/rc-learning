@@ -33,25 +33,38 @@ A clean directory structure makes pipelines easier to maintain and reproduce.
 
 ## Example snakefile
 rule all:
+
      input:
-	variants/sample1.vcf - Snakemake taked first rule as target then constructs
-			       graph of dependencies
+     
+	variants/sample1.vcf
+
+**Snakemake take first rule as target then constructs graph of dependencies**
 
 rule trim:
+
      input:
+     
 	”reads/sample1.fastq”
 	output:
+	
 	 ”trimmed_reads/sample1-trimmed.fastq”
-	shell: 
+	shell:
+	
 	  cutadapt -A TCCGGGTS -o {output} {input} 
 
 rule align:
+
      input:
+     
 	"trimmed_reads/sample1-trimmed.fastq"
      output:
+     
         "bam/sample1.bam"
+	
      threads: 1
+     
      shell:
+     
         bwa mem -t {threads} ref.fa {input} | samtools view -Sb -> {output}"
 	
 

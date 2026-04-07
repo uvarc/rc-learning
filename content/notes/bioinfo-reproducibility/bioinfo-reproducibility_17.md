@@ -12,11 +12,8 @@ menu:
 https://snakemake.github.io/
 
 - Created by Johannes Köster, first released in 2012
-
 - Based on UNIX make -  originally created in 1976 but still standard use
-
 - Python based - “ _snake-make_ ”
-
 - Free and open source, available on Mac, Windows, Unix
 
 
@@ -32,13 +29,9 @@ https://github.com/snakemake
 ### Snakemake Format
 
 - Similar to writing shell scripts but snake files contains sets of rules
-
 - Format is based on Python structure
-
 - Snakemake reads from snakefile that defines the rules
-
 - Snakefile rules have a target output
-
 - Snakemake uses pattern matching to follow the inputs, outputs and commands contained in rules to reach final target output
 
 
@@ -51,11 +44,9 @@ input:
 	"reads.fastq"
 
 output:
-
 	"aligned.bam"
 
 shell:
-
 	"bwa mem ref.fa {input} > {output}"
 
 Snakemake builds a **directed acyclic graph (DAG)**  automatically.
