@@ -9,13 +9,13 @@ menu:
 
 Snakemake & Nextflow provide:
 
-reproducible pipelines
+- Reproducible pipelines
 
-automatic dependency tracking
+- Aautomatic dependency tracking
 
-scalable HPC execution
+- Sscalable HPC execution
 
-environment management
+- Eenvironment management
 
-workflow portability
+- Workflow portability
 
