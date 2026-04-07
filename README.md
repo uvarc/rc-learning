@@ -76,7 +76,7 @@ toc: true
 
 Using the `date` metadata smartly, you can forward date any post or article. [Automated builds](#automated-builds) happen each morning and your page will be published when that datetime has passed.
 
-### Shortcodes
+### Shortcode
 
 
 ### Preview content locally
