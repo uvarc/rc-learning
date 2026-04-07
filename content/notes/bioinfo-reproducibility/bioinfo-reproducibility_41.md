@@ -62,3 +62,21 @@ We want to send the text to a file called 'hello.txt.' Now we can update our she
 Run `main.nf` in terminal and show it still went to 'work' directory
 
 This was better, but we still have to dig around for the file, so let's add one more thing to our process.
+
+
+## Add a publishDir
+Now let's try sending our output to a directory called 'results' - we can add a publishDir to our process and specify the mode "copy" is safest, but you can do other things like move or even create links to the file.
+
+Re-run the main.nf in the terminal and show where the file goes to results but since we did copy, it still does go to work. 
+
+```bash
+process  hello {
+ publishDir "results/" , mode: "copy"
+
+ output:
+ path 'hello.txt'
+ script:
+ """
+ echo 'Hello world!' > hello.txt
+ """
+}
