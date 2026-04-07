@@ -15,23 +15,16 @@ First, create a process called HELLO with our shell command:
 
 ```bash
 process HELLO {
-
 script:
-
 """
-
 echo "Hello World!"
-
 """
-
 }
 
 Then we execute this process in our workflow:
 
 workflow {
-
 HELLO()
-
 }
 ```
 
@@ -41,30 +34,22 @@ We can create a new file called main.nf with these lines.
 
 ```bash
 process HELLO {
-
 script:
-
 """
-
 echo "Hello World!"
-
 """
-
 }
 
 workflow {
-
 HELLO()
-
 }
 ```
 
 ## Make some changes
 ```bash
-**process**  hello {
- **output:**
+*process*  hello {
+ *output:*
  path 'hello.txt'
-
  script:
  """
  echo 'Hello world!' > hello.txt
