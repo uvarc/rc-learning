@@ -7,13 +7,17 @@ menu:
     bioinfo-reproducibility:
 ---
 
-Version control
+-  Version control
 
-Environment management
+-  Environment management
 
-Data storage
+-  Data storage
 
-Containers
+-  Containers
 
-Tool/software maintenance
+-  Tool/software maintenance
 
+
+{{< figure src=/notes/bioinfo-reproducibility/img/Triant-Bobar_Reproducibility_9.gif >}}
+
+{{< figure src=/notes/bioinfo-reproducibility/img/Triant-Bobar_Reproducibility_10.png >}}

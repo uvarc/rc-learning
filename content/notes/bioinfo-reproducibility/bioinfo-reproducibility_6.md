@@ -14,7 +14,7 @@ PLoS Biology (2024) - Biomedical researchers - 72% reported “reproducibility c
 
 Genome Biol (2024) - Reproducibility in bioinformatics era
 
-{{< figure src=/notes/bioinfo-reproducibility/img/Triant-Bobar_Reproducibility_5.png >}}
 
-{{< figure src=/notes/bioinfo-reproducibility/img/Triant-Bobar_Reproducibility_6.png >}}
+
+
 

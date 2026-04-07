@@ -7,21 +7,21 @@ menu:
     bioinfo-reproducibility:
 ---
 
-{{< figure src=/notes/bioinfo-reproducibility/img/Triant-Bobar_Reproducibility_19.png >}}
+**Snakemake** is a workflow management system designed for scientific pipelines
 
 https://snakemake.github.io/
 
-__Snakemake__  is a workflow management system designed for scientific pipelines
+- Created by Johannes Köster, first released in 2012
 
-Created by Johannes Köster, first released in 2012
+-  Based on UNIX make -  originally created in 1976 but still standard use
 
-Based on UNIX make -  originally created in 1976 but still standard use
+- Python based - “ _snake-make_ ”
 
-Python based - “ _snake-make_ ”
+- Free and open source, available on Mac, Windows, Unix
 
-Free and open source, available on Mac, Windows, Unix
 
 https://snakemake.readthedocs.io/en/stable/
+
 
 https://github.com/snakemake
 

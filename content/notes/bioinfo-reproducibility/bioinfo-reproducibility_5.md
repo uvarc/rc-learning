@@ -14,5 +14,5 @@ Are you using the most recent version (scripts, datasets, analyses)
 
 We just used the default settings!
 
-{{< figure src=/notes/bioinfo-reproducibility/img/Triant-Bobar_Reproducibility_4.png >}}
+
 
