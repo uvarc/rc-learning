@@ -15,10 +15,10 @@ menu:
 
 
 ## Common practice:
-- config/ → parameters and sample tables
-- envs/ → reproducible environments
-- rules/ → modular workflow steps
-- results/ → generated outputs
+- config → parameters and sample tables
+- envs → reproducible environments
+- rules → modular workflow steps
+- results → generated outputs
 
 A clean directory structure makes pipelines easier to maintain and reproduce.
 

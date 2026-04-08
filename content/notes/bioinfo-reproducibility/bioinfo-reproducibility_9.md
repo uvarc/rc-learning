@@ -20,9 +20,7 @@ menu:
 
 ## Version Control
 
-### GitHub
-
-https://github.com
+### GitHub Click the following link to visit the GitHub site: https://github.com
 
 - Track and manage changes to your code & files
 
@@ -53,8 +51,8 @@ https://github.com
 ## Storing Results
 
 ### Public repositories for sequence data - required for most journals
-- NCBI: https://www.ncbi.nlm.nih.gov
-- Ensembl: https://www.ensembl.org/index.html
+- Click the following link for the NCBI database: https://www.ncbi.nlm.nih.gov
+- Click the following link for the Ensembl database: https://www.ensembl.org/index.html
 - Always document and archive changes, especially if unpublished:
    - genome assembly versions
    - sequence data: SNPs, isoforms

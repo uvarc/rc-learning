@@ -45,7 +45,7 @@ menu:
 
 ## Challenges of Bioinformatics
 
-###So many tools, often with:
+So many tools, often with:
   - Multiple versions & releases
   - Complex dependencies & hidden parameters, starting seeds
   - Running tools locally vs on HPC
