@@ -20,7 +20,9 @@ menu:
 
 ## Version Control
 
-### GitHub Click the following link to visit the GitHub site: https://github.com
+### GitHub
+
+Click the following link to visit the GitHub site: https://github.com
 
 - Track and manage changes to your code & files
 
