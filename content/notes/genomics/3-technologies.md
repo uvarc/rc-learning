@@ -18,37 +18,37 @@ There are many sequencing technologies in the field of DNA sequencing. Some of t
 
 PacBio produces long reads typically around 25kb, with a 99.9% read quality (Q30), which is better than some short-read contigs. PacBio HiFi reads also distinguish repeats rather than spanning full repeats. However, their reads are limited in length and have lower throughput than Nanopore.
 
-{{< figure src="/notes/genomics/img/pacbio.jpg" width=100% height=100% >}}
+{{< figure src="/notes/genomics/img/pacbio.jpg" alt="PacBio long-read sequencing overview illustration" caption="PacBio sequencing technology overview" width=100% height=100% >}}
 
 ### Phased Genome Assemblies
 
 Standard assemblies produce __unphased__ sequences, where the variation from two chromosomes is collapsed into a __pseudo-haplotype__ (a single, mixed sequence). PacBio assemblies allow for the production of __phased__ sequences, where the variation from two chromosomes is preserved in two separate sequences.
 
-{{< figure src="/notes/genomics/img/phased1.jpg" width=50% height=50% >}}
+{{< figure src="/notes/genomics/img/phased1.jpg" alt="Phased assembly concept illustration part one" caption="Phased assembly concept" width=50% height=50% >}}
 
-{{< figure src="/notes/genomics/img/phased2.png" width=70% height=70% >}}
+{{< figure src="/notes/genomics/img/phased2.png" alt="Phased assembly concept illustration part two" caption="Phased assembly example" width=70% height=70% >}}
 
 ## Nanopore Sequencing
 
-{{< figure src="/notes/genomics/img/nanopore.jpg" width=40% height=40% >}}
+{{< figure src="/notes/genomics/img/nanopore.jpg" alt="Oxford Nanopore sequencing workflow illustration" caption="Nanopore sequencing workflow" width=40% height=40% >}}
 
 Nanopore is able to produce “ultra-long” reads up to 4 Mb. Its accuracy is at about 95% read quality, and it is able to span repeat regions. The quality is limited compared to other technologies, and it has taken a while for Nanopore's technology to reach where it is today.
 
-{{< figure src="/notes/genomics/img/nanoporedevice.jpg" width=50% height=50% caption="A sample-to-sequence portable Nanopore device" >}}
+{{< figure src="/notes/genomics/img/nanoporedevice.jpg" alt="Portable sample-to-sequence Nanopore device" width=50% height=50% caption="A sample-to-sequence portable Nanopore device" >}}
 
-{{< figure src="/notes/genomics/img/katerubins.png" width=40% height=40% caption="Kate Rubins using Nanopore on the ISS" >}}
+{{< figure src="/notes/genomics/img/katerubins.png" alt="Astronaut Kate Rubins using Nanopore sequencing on the ISS" width=40% height=40% caption="Kate Rubins using Nanopore on the ISS" >}}
 
 Nanopore uses long reads and coverage to detect repeats.
 
-{{< figure src="/notes/genomics/img/nanoporerepeat.png" width=50% height=50% >}}
+{{< figure src="/notes/genomics/img/nanoporerepeat.png" alt="Nanopore reads spanning repetitive genomic regions" caption="Nanopore sequencing in repetitive regions" width=50% height=50% >}}
 
 ## Hi-C
 
 Hi-C is a genomic technique used to capture chromatin information. It involves detecting and analyzing the frequency of contacts between regions of DNA, in order to determine the correct order and orientation of the DNA segments. For example, segments with more contact are likely to be adjacent or closer to each other.
 
-{{< figure src="/notes/genomics/img/hic1.png" width=90% height=90% >}}
+{{< figure src="/notes/genomics/img/hic1.png" alt="Hi-C contact map example showing chromatin interactions" caption="Hi-C contact map example" width=90% height=90% >}}
 
-{{< figure src="/notes/genomics/img/hic2.png" width=100% height=100% >}}
+{{< figure src="/notes/genomics/img/hic2.png" alt="Hi-C based scaffolding and genome organization diagram" caption="Hi-C scaffolding overview" width=100% height=100% >}}
 
 ## References
 

@@ -20,7 +20,7 @@ $$
 
 `P` represents the probability of base call being wrong
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_21.png caption="Table source: https://www.illumina.com/Documents/products/technotes/technote_Q-Scores.pdf " width=90% height=90% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_21.png alt="Table showing Phred quality scores and corresponding base call error probabilities" caption="Table source: https://www.illumina.com/Documents/products/technotes/technote_Q-Scores.pdf " width=90% height=90% >}}
 
 While next-generation sequencing metrics vary from those of Sanger sequencing (e.g., no electropherogram peak heights), the process of generating a Phred quality scoring scheme is largely the same. 
 

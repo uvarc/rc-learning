@@ -10,7 +10,7 @@ menu:
 
 The below figure compares how the different sequencing technologies map reads to the STRC gene.
 
-{{< figure src=/notes/bioinfo-intro/img/pacbio.png width=90% height=90% >}}
+{{< figure src=/notes/bioinfo-intro/img/pacbio.png alt="Comparison of sequencing read mapping across technologies at the STRC gene" caption="Read mapping comparison for the STRC gene across sequencing technologies" width=90% height=90% >}}
 
 This shows how PacBio produces reads that are both long and accurate.
 

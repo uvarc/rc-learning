@@ -10,7 +10,7 @@ menu:
 
 **InterPro**
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_8.png width=45% height=45% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_8.png alt="InterPro and Pfam database page screenshot" caption="InterPro entry for Pfam" width=45% height=45% >}}
 
 
 [https://www.ebi.ac.uk/interpro/entry/pfam](https://www.ebi.ac.uk/interpro/entry/pfam)
@@ -19,7 +19,7 @@ menu:
 
 **National Library of Medicine** 
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_9.png width=45% height=45% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_9.png alt="National Library of Medicine and NCBI homepage screenshot" caption="NCBI homepage" width=45% height=45% >}}
 
 
 [https://www.ncbi.nlm.nih.gov](https://www.ncbi.nlm.nih.gov)
@@ -28,7 +28,7 @@ menu:
 
 **Ensembl** 
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_11.png width=45% height=45% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_11.png alt="Ensembl genome browser homepage screenshot" caption="Ensembl homepage" width=45% height=45% >}}
 
 
 [https://www.ensembl.org/index.html](https://www.ensembl.org/index.html)
@@ -37,7 +37,7 @@ menu:
 
 **Fang**
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_10.png width=45% height=45% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_10.png alt="FAANG data portal homepage screenshot" caption="FAANG data portal" width=45% height=45% >}}
 
 
 [https://data.faang.org/home](https://data.faang.org/home)
@@ -46,7 +46,7 @@ menu:
 
 **EMBL-EBI**
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_13.png width=65% height=65% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_13.png alt="EMBL-EBI homepage screenshot" caption="EMBL-EBI homepage" width=65% height=65% >}}
 
 
 [https://www.ebi.ac.uk](https://www.ebi.ac.uk)
@@ -55,7 +55,7 @@ menu:
 
 **RGD**
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_12.png width=75% height=75% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_12.png alt="Rat Genome Database website screenshot" caption="Rat Genome Database homepage" width=75% height=75% >}}
 
 
 [https://rgd.mcw.edu](https://rgd.mcw.edu)

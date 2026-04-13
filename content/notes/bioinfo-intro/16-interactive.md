@@ -50,8 +50,8 @@ Notes:
 
 The above command produces `.html` reports. 
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_34.png caption="Job output - Quality Scores" width=70% height=70% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_34.png alt="FASTQC HTML report output showing quality score results" caption="Job output - Quality Scores" width=70% height=70% >}}
 
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_36.png caption="Job output - Adapter Content. The red X indicates that adapter contamination is detected." width=80% height=80% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_36.png alt="FASTQC adapter content output with a failure flag indicating adapter contamination" caption="Job output - Adapter Content. The red X indicates that adapter contamination is detected." width=80% height=80% >}}
 
