@@ -10,7 +10,7 @@ menu:
 
 After trimming adapters and low-quality sequences with Cutadapt, the next step is to align the cleaned reads to a reference genome using Bowtie2.
 
-{{< figure src=/notes/bioinfo-intro/img/bowtie.png width=75% height=75% caption="After alignment with tools such as Bowtie2, the mapped reads can be visualized to assess coverage, variants, and alignment quality across sequencing platforms." >}}
+{{< figure src=/notes/bioinfo-intro/img/bowtie.png alt="Mapped sequencing reads displayed along a reference genome after Bowtie2 alignment" width=75% height=75% caption="After alignment with tools such as Bowtie2, the mapped reads can be visualized to assess coverage, variants, and alignment quality across sequencing platforms." >}}
 
 Alignment is often the time-limiting step. 
 
@@ -20,13 +20,13 @@ __End-to-end alignment example__
 
 The following is an "end-to-end" alignment because it involves all the characters in the read (default).
 
-{{< figure src=/notes/bioinfo-intro/img/bowtieexample.png width=60% height=60% >}}
+{{< figure src=/notes/bioinfo-intro/img/bowtieexample.png alt="Diagram illustrating end-to-end alignment where the full read aligns" caption="End-to-end alignment example" width=60% height=60% >}}
 
 __Local alignment example__
 
 The following is a "local" alignment because some of the characters at the ends of the read do not participate. In this case, 4 characters are omitted (or "soft trimmed" or "soft clipped") from the beginning and 3 characters are omitted from the end.
 
-{{< figure src=/notes/bioinfo-intro/img/read2bowtie.png width=60% height=60% >}}
+{{< figure src=/notes/bioinfo-intro/img/read2bowtie.png alt="Diagram illustrating local alignment with soft-clipped bases at read ends" caption="Local alignment example" width=60% height=60% >}}
 
 [Bowtie2 Documentation](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 

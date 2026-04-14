@@ -11,7 +11,7 @@ menu:
 
 Before aligning sequencing reads, it’s important to remove adapter sequences and low-quality bases.
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_44.png caption="Illumina documentation listing adapter and primer sequences commonly trimmed from raw reads." width=80% height=80% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_44.png alt="Table of Illumina adapter and primer sequences used for trimming" caption="Illumina documentation listing adapter and primer sequences commonly trimmed from raw reads." width=80% height=80% >}}
 
 [Read more about Illumina adapter sequences](https://support-docs.illumina.com/SHARE/AdapterSequences/Content/SHARE/AdapterSeq/Nextera/SequencesNextera_Illumina.htm)
 
@@ -24,7 +24,7 @@ Essentially, Cutadapt trims adapters from short read Illumina data.
 
 [Documentation](https://cutadapt.readthedocs.io/en/stable/)
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_42.png width=85% height=85% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_42.png alt="FASTQC adapter content output indicating adapter contamination in reads" caption="FASTQC report showing adapter content before trimming" width=85% height=85% >}}
 
 The above image shows a FASTQC `.html` report indicating that adapter sequences are still present in the reads. In this case, you would use **Cutadapt** to trim the adapters. 
 
@@ -95,10 +95,10 @@ $ fastqc -t 4 -o fastqc-out-trimmed  ecoli-fastq/SRR2584866-trimmed_1.fastq
 
 Before trimming: 
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_49.png width=70% height=70% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_49.png alt="FASTQC adapter content output before trimming showing contamination" caption="Before trimming" width=70% height=70% >}}
 
 After trimming:
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_51.png width=70% height=70% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_51.png alt="FASTQC adapter content output after trimming showing improved results" caption="After trimming" width=70% height=70% >}}
 
 As you can see, adapter sequences have been successfully removed.
