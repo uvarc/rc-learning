@@ -8,7 +8,7 @@ menu:
         parent: Bioinformatics
 ---
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_16.png caption="Source: https://xkcd.com/927/" width=80% height=80% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_16.png alt="xkcd comic about competing file format standards" caption="Source: https://xkcd.com/927/" width=80% height=80% >}}
 
 The format name usually denotes the file suffix. 
 
@@ -26,7 +26,7 @@ The format name usually denotes the file suffix.
   
 ### FASTA Format 
 
-A FASTA file begins with a header line, indicated by the `>` symbol, that contains an identifier and optional description The following lines contain the biological sequence itself.
+A FASTA file begins with a header line, indicated by the `>` symbol, that contains an identifier and optional description. The following lines contain the biological sequence itself.
 
 
 <span style="color:#ff0000"> __>__ </span> NP_000552.2 Human glutathione transferase M1 (GSTM1) ```

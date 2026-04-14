@@ -24,7 +24,7 @@ module load smrtlink/25.2.0
 
 The SMRT Link software suite includes *lots* of tools available for sequence analysis and manipulation, such as `bam2fasta`, `bam2fastq`, `blasr`, `pbmm`, `pbalign`, and `isoseq3`.
 
-{{< figure src="/notes/genomics/img/smrtlink.png" width=60% height=60% >}}
+{{< figure src="/notes/genomics/img/smrtlink.png" alt="SMRT Link interface used for PacBio sequence analysis" caption="SMRT Link interface" width=60% height=60% >}}
 
 For more info on SMRT Link:
 https://docslib.org/doc/175362/smrt%C2%AE-tools-reference-guide-v8-0

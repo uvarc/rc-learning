@@ -15,9 +15,9 @@ menu:
 
 ### `cp` (copy)
 
-`cp` file1 file2 is the command which makes a copy of file1 in the current working directory and calls it file2. 
+`cp file1 file2` is the command which makes a copy of `file1` in the current working directory and calls it `file2`. 
 
-For our example we will create a file _science.txt_.  Click the down-arrow icon to download the file.  Use whatever method you know to place this file into your home directory.  
+For our example we will create a file `science.txt`.  Click the down-arrow icon to download the file.  Use whatever method you know to place this file into your home directory.  
 
 {{< code-download file="/notes/unix-tutorial/snippets/science.txt" lang="no-highlight" >}}
 
@@ -33,14 +33,14 @@ Then at the Unix prompt, type,
 
 Note: Don't forget the dot (.) at the end. Remember, in UNIX, the dot means the current directory. 
 
-The above command means copy the file science.txt from the parent directory to the current directory, keeping the name the same.  To change the name, use
+The above command means copy the file `science.txt` from the parent directory to the current directory, keeping the name the same.  To change the name, use
 ```bash
 % cp ../science.txt ./newname
 ```
 
 ### Exercise 2A
 
-Create a backup of your science.txt file by copying it to a file called science.bak.
+Create a backup of your `science.txt` file by copying it to a file called `science.bak`.
 
 ## Moving Files
 
@@ -86,22 +86,22 @@ The above command will remove the directory without confirming anything!  Be ext
 
 You can request confirmation with
 ```bash
-% rm -if directory
+% rm -ir directory
 ```
-though this may be tedious.  The `-i` option (inquire) also works for `rm`
+though this may be tedious.  The `-i` option (inquire) also works for `rm`.
 ```bash
 % rm -i myfile
 ```
 
 ## Exercise 2B
 
-Create a directory called tempstuff using mkdir, then remove it using the rmdir command.
+Create a directory called `tempstuff` using `mkdir`, then remove it using the `rmdir` command.
 
 ## Displaying the Contents of a File on the Screen
 
 ### `cat` (concatenate)
 
-The `cat` command can show a text file's contents
+The `cat` command can show a text file's contents.
 ```bash
 % cat science.txt
 ```
@@ -154,7 +154,7 @@ Using `more`, you can search through a text file for a keyword (pattern). For ex
 ```bash
 % more science.txt
 ```
-then, still in `more` (i.e. don't press [q] to quit), type a forward slash [`/`] followed by the word to search
+then, still in `more` (i.e. don't press [q] to quit), type a forward slash [/] followed by the word to search
 ```no-highlight
 /science
 ```
@@ -172,7 +172,7 @@ As you can see, grep has printed out each line containing the word science... or
 ```bash
 % grep Science science.txt
 ```
-The `grep` command is case-sensitive; it distinguishes between Science and science. To ignore upper/lower case distinctions, use the -i option, i.e. type
+The `grep` command is case-sensitive; it distinguishes between Science and science. To ignore upper/lower case distinctions, use the `-i` option, i.e. type
 
 ```bash
 % grep -i science science.txt
@@ -184,7 +184,15 @@ To search for a phrase or pattern, you must enclose it in single quotes (the apo
 % grep -i 'spinning top' science.txt
 ```
 
-Some other options for `grep` are: `-v` (display those lines that do NOT match); `-n` (precede each matching line with the line number); and `-c` (print only the total count of matched lines). Try some of them and see the different results. Don't forget, you can use more than one option at a time, for example, the number of lines without the words `science` or `Science` is
+Some other options for `grep` are: 
+
+`-v` (display those lines that do NOT match); 
+
+`-n` (precede each matching line with the line number); 
+
+and `-c` (print only the total count of matched lines). 
+
+Try some of them and see the different results. Don't forget, you can use more than one option at a time, for example, the number of lines without the words `science` or `Science` is
 
 ```bash
 % grep -ivc science science.txt
@@ -205,13 +213,13 @@ To find out how many lines the file has, type
 
 | Command | Operation |
 |---|---|
-| cp file1 file2 | copy file1 and call it file2 |
-| mv file1 file2 | move or rename file1 to file2 |
-| rm file | remove file |
-| rmdir directory | remove directory |
-| cat file | display file |
-| more file | display file a page at a time |
-| head file | display the first few lines of a file |
-| tail file | display the last few lines of file |
-| grep 'keyword' file | search file for keywords |
-| wc file` | count number of lines/words/characters in file |
+| `cp file1 file2` | copy file1 and call it file2 |
+| `mv file1 file2` | move or rename file1 to file2 |
+| `rm file` | remove file |
+| `rmdir directory` | remove directory |
+| `cat file` | display file |
+| `more file` | display file a page at a time |
+| `head file` | display the first few lines of a file |
+| `tail file` | display the last few lines of file |
+| `grep 'keyword' file` | search file for keywords |
+| `wc file` | count number of lines/words/characters in file |

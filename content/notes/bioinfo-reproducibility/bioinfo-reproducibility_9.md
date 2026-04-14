@@ -22,7 +22,7 @@ menu:
 
 ### GitHub
 
-Click the following link to visit the GitHub site: https://github.com
+Click the following link to visit the GitHub site: https://github.com (opens in new tab)
 
 - Track and manage changes to your code & files
 
@@ -38,7 +38,7 @@ Click the following link to visit the GitHub site: https://github.com
 
 
 
-## Envoronment Management
+## Environment Management
 
 ### Conda/Mamba environments
 
