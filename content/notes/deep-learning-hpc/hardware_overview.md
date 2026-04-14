@@ -11,7 +11,7 @@ menu:
 
 ## HPC Overview
 
-{{< figure src=/notes/deep-learning-hpc/img/RC_HPC.png caption="Source: https://www.rc.virginia.edu/userinfo/hpc/#hardware-configuration" width=55% height=55% >}}
+{{< figure src=/notes/deep-learning-hpc/img/RC_HPC.png caption="Source: https://www.rc.virginia.edu/userinfo/hpc/#hardware-configuration" alt="Image showing an overview of hardware configuration at some point in time" width=55% height=55% >}}
 
 
 ### Partitions: 

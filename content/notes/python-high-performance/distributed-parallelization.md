@@ -11,13 +11,13 @@ menu:
 
 Nearly all recent computers, including personal laptops, are multicore systems.  The central-processing units (CPUs) of these machines are divided into multiple processor cores.  These cores share the main memory (RAM) of the computer and may share at least some of the faster memory (cache).  This type of system is called a **shared-memory processing** or **symmetric multiprocessing** (SMP) computer.  
 
-{{< figure src="/courses/python-high-performance/SMP.png" caption="Schematic of an SMP system" >}}
+{{< figure src="/notes/python-high-performance/SMP.png" caption="Schematic of an SMP system" alt="Schematic drawing of an SMP system showing shared memory layout" >}}
 
 A computing cluster consists of a group of computers connected by a network.  High-performance clusters nearly always have a network that is faster than the Ethernet used by consumer devices.  Many use a network called InfiniBand.  A cluster is thus a **distributed-memory processor** (DMP).  Each computer, usually called a **node**, is independent of the others and can exchange data only through the network.
 
 Multiprocessing works only on a single computer with multiple computing cores (SMP). If you have access to a computing cluster you can use distributed parallelization to run your program on multiple computers (DMP) as well as multiple cores per computer.  This requires a communications library.  
 
-{{< figure src="/courses/python-high-performance/DMP.png" caption="Schematic of a DMP system" >}}
+{{< figure src="/notes/python-high-performance/DMP.png" caption="Schematic of a DMP system" alt="Schematic drawing of a distributed-memory system showing nodes with an interconnection" >}}
 
 Before considering parallelizing your program, it is highly desirable to spend some time optimizing the _serial_ version.  Particularly if you can utilize NumPy and Pandas effectively, you may not need to try to parallelize the code.  If you still need to do so, a well-optimized, clearly-written script will make the work much easier.
 
@@ -83,11 +83,16 @@ Certain operations that require the full result, such as plotting, will automati
 To visualize the task graph for a given Dask object, be sure that _graphviz_ is installed (python-graphviz for conda).  The `visualize` method for a Dask object will then produce the graph.  If run at the command line, the result should be written to a file.  Within a Jupyter notebook, the image will be embedded.  
 
 **Example** 
-{{% code-download file="/courses/python-high-performance/codes/dask_viz.py" lang="python" %}}
+{{% code-download file="/notes/python-high-performance/codes/dask_viz.py" lang="python" %}}
 
-{{< spoiler text="Expected result" >}}
-{{< figure src="/courses/python-high-performance/codes/da_mean.png" height=720 >}}
-{{< /spoiler >}}
+{{< rawhtml >}}
+<details>
+<summary> Expected Result </summary>
+<figure>
+<img src="/notes/python-high-performance/codes/da_mean.png" alt="Graph of the expected result from running the dask example script" width=720 />
+</figure>
+</details>
+{{< /rawhtml >}}
 
 ### Dask Dataframes
 
@@ -150,7 +155,7 @@ When creating a Dataframe, Dask does attempt to assign a type to each column.  I
 
 **Example**
 
-{{% code-download file="/courses/python-high-performance/codes/dask_df_example.py" lang="python" %}}
+{{% code-download file="/notes/python-high-performance/codes/dask_df_example.py" lang="python" %}}
 
 ### Dask Delayed
 
@@ -158,7 +163,7 @@ Another example of _lazy evaluation_ by Dask is delayed evaluation. Sometimes fu
 
 **Example** 
 
-{{% code-download file="/courses/python-high-performance/codes/dask_delayed.py" lang="python" %}}
+{{% code-download file="/notes/python-high-performance/codes/dask_delayed.py" lang="python" %}}
 
 It is also possible to invoke delayed through a decorator.
 ```python
@@ -184,7 +189,7 @@ Dask Bags implement collective operations like mapping, filtering, and aggregati
 
 **Example**
 
-Download the [data](/courses/python-high-performance/data.zip).  Unzip it where the Python interpreter can find it.  If using Jupyter make sure to set the working folder and then provide the path to the `data` folder.
+Download the [data](/notes/python-high-performance/data.zip).  Unzip it where the Python interpreter can find it.  If using Jupyter make sure to set the working folder and then provide the path to the `data` folder.
 ```python
 import dask.bag as db
 b = db.read_text('data/*.json').map(json.loads)

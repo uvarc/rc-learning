@@ -21,7 +21,7 @@ Visit our [documentation](https://www.rc.virginia.edu/userinfo/rivanna/software/
 
 ## Access through Open OnDemand
 
-{{< figure src=/notes/deep-learning-hpc/img/OOD_jypnb.png width=70% height=70% >}}
+{{< figure src=/notes/deep-learning-hpc/img/OOD_jypnb.png alt="Screenshot of Jupyterlab start page in Open OnDemand" width=70% height=70% >}}
 
 * Click on the kernel to open a Jupyter Notebook.
 * Packages from the selected kernel will be available for use in the notebook.

@@ -23,9 +23,9 @@ The results will be shown in the `Profiler` pane.
 **Exercise:** 
 
 Open the `fibonacci.py` file and execute it with the Spyder Profiler.  The code deliberately uses an inefficient algorithm.  Let's look at the output in the `Profiler` pane.  What function was called most frequently and has the largest cumulative run time?
-{{% code-download file="/courses/python-high-performance/codes/fibonacci.py" lang="python" %}}
+{{% code-download file="/notes/python-high-performance/codes/fibonacci.py" lang="python" %}}
 
-{{< figure src="/courses/python-high-performance/fibonacci-profiler.png" caption="Profiler output for the Fibonacci example" >}}
+{{< figure src="/notes/python-high-performance/fibonacci-profiler.png" caption="Profiler output for the Fibonacci example" alt="Illustration of the output of the profiler for the Fibonacci example">}}
 
 A more detailed description of the Profiler option for Spyder can be found <a href="http://docs.spyder-ide.org/profiler.html" target="_blank">here</a>.
 

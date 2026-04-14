@@ -3,5 +3,5 @@
 {{ $code :=  readFile $file }}
 {{ (print "```" $lang "\n" $code "\n```") | markdownify }}
 <a href="{{ $file }}" download title="Download this code">
-<i class="fa fa-download" aria-hidden="true"></i>
+<i class="fa fa-download" aria-hidden="false"></i>
 </a>

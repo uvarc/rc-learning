@@ -15,7 +15,7 @@ menu:
 
 `watch -n 1 nvidia-smi` will update the display every second.
 
-{{< figure src=/notes/deep-learning-hpc/img/nvidia.png caption="Source: [https://medium.com/analytics-vidhya/explained-output-of-nvidia-smi-utility-fc4fbee3b124](https://medium.com/analytics-vidhya/explained-output-of-nvidia-smi-utility-fc4fbee3b124) and [https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf)" width=80% height=80% >}}
+{{< figure src=/notes/deep-learning-hpc/img/nvidia.png caption="Source: [https://medium.com/analytics-vidhya/explained-output-of-nvidia-smi-utility-fc4fbee3b124](https://medium.com/analytics-vidhya/explained-output-of-nvidia-smi-utility-fc4fbee3b124) and [https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf)" alt="Screenshot of output of NVIDI-SMI tool showing GPU parameters and instantaneous utilization statistics" width=80% height=80% >}}
 
 
 
@@ -27,7 +27,7 @@ menu:
 > gpustat
 ```
 
-{{< figure src=/notes/deep-learning-hpc/img/gpustat.png caption="Source: https://github.com/wookayin/gpustat" width=90% height=90% >}}
+{{< figure src=/notes/deep-learning-hpc/img/gpustat.png caption="Source: https://github.com/wookayin/gpustat" alt="Screenshot of output from the gpustat tool" width=90% height=90% >}}
 
 
 ### PyTorch

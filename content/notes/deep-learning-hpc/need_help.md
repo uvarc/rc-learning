@@ -19,4 +19,4 @@ __Office Hours via Zoom__
 Zoom Links are available at https://www.rc.virginia.edu/support/
 
 ## Visit the Research Computing Data Analytics Center
-{{< figure src=/notes/deep-learning-hpc/img/RCDA_Center.png caption="[https://www.rc.virginia.edu/service/dac/](https://www.rc.virginia.edu/service/dac/)">}}
+{{< figure src=/notes/deep-learning-hpc/img/RCDA_Center.png caption="[https://www.rc.virginia.edu/service/dac/](https://www.rc.virginia.edu/service/dac/)" alt="ogo of Data Analytics Center, caption provides link to their Web page.">}}

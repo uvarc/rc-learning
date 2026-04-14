@@ -10,10 +10,10 @@ authors:
 superuser: false
 
 # Role/position
-role: Research Computing Consultant
+role: Former Employee
 
 user_groups:
-- DAC
+- Former
 
 # Organizations/Affiliations
 organizations:
