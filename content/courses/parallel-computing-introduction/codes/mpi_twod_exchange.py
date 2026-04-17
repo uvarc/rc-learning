@@ -130,3 +130,8 @@ if rank==0:
 else:
     comm.Send([w,MPI.DOUBLE],dest=0,tag=rank)
 
+# Wrap up
+column_zero.Free()
+column_one.Free()
+column_end.Free()
+column_endbc.Free()
