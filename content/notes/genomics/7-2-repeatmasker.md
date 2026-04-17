@@ -12,7 +12,7 @@ Repetitive DNA sequences (biased nucleotide composition, tandem repeats, dispers
 
 RepeatMasker uses two types of masking: soft and hard. Soft masking indicates masked regions by using lower-case letters. Hard masking (indicated with the `-hardmask` option) overwrites masked regions with a wildcard letter, using `N` for nucleotides or X for proteins.
 
-{{< figure src="/notes/genomics/img/repeatmaskerex.png" width=50% height=50% caption="RepeatMasker masking example" >}}
+{{< figure src="/notes/genomics/img/repeatmaskerex.png" alt="Example showing how RepeatMasker masks repetitive sequence regions" width=50% height=50% caption="RepeatMasker masking example" >}}
 
 RepeatMasker is able to generate detailed annotations of the repeats in the DNA sequence, as well as a modified version of the DNA sequence in which all the annotated repeats have been masked (by default, replaced by `N`s). Masking tools play a huge part in genomics research; for example, currently over 56% of the human genomic sequence is identified and masked by these programs.
 
@@ -46,7 +46,7 @@ RepeatMasker genome_raw.fasta -lib Muco_library_EDTA.fasta -gff
 
 After running the Slurm job, your output files will include masked sequence files, repeat statistics tables and `.gff` files.
 
-{{< figure src="/notes/genomics/img/repeatmaskerstats.png" width=50% height=50% caption="RepeatMasker output example" >}}
+{{< figure src="/notes/genomics/img/repeatmaskerstats.png" alt="RepeatMasker output statistics summary" width=50% height=50% caption="RepeatMasker output example" >}}
 
 For more info on RepeatMasker:  
 https://www.repeatmasker.org/

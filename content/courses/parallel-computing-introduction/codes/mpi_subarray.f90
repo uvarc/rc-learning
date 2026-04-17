@@ -78,7 +78,7 @@ program mpi_subarray
         call MPI_Send(w, 1, sendtype, 1, 0, MPI_COMM_WORLD)
     else
         call MPI_Recv(w, 1 , recvtype, root, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE)
-        ! Print received subarray
+        ! Print received values
         print *, "Rank", rank, "received subarray:"
         do i = lb, ubr
             write(*,'(*(i6.3))') w(i,:)

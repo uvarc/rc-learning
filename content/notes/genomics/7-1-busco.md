@@ -10,9 +10,9 @@ menu:
 
 __BUSCO__ (Benchmarking Universal Single-Copy Orthologs) is a tool used to assess the completeness of genome assemblies and annotations. It does this by looking for single-copy orthologs in the DNA sequence.
 
-{{< figure src="/notes/genomics/img/busco1.png" width=70% height=70% caption="BUSCO assessment workflow and relative run-times" >}}
+{{< figure src="/notes/genomics/img/busco1.png" alt="BUSCO assessment workflow diagram with relative run times" width=70% height=70% caption="BUSCO assessment workflow and relative run-times" >}}
 
-{{< figure src="/notes/genomics/img/busco2.png" width=50% height=50% caption="Key properties of BUSCO's benchmark orthologs" >}}
+{{< figure src="/notes/genomics/img/busco2.png" alt="Summary of key properties of BUSCO benchmark ortholog sets" width=50% height=50% caption="Key properties of BUSCO's benchmark orthologs" >}}
 
 ## Running Busco Interactively
 
@@ -111,7 +111,7 @@ sbatch busco_slurm_submit.sh
 
 When you run a Slurm script with the `#SBATCH --mail-user=yourid@virginia.edu` line and `#SBATCH --mail-type=ALL` line, Slurm will send you email notifications when your job starts, stops, or fails.
 
-{{< figure src="/notes/genomics/img/email.png" width=70% height=70% caption="Slurm email examples" >}}
+{{< figure src="/notes/genomics/img/email.png" alt="Example Slurm job notification emails" width=70% height=70% caption="Slurm email examples" >}}
 
 To immediately monitor the status of your Slurm job, enter:
 
@@ -128,7 +128,7 @@ BUSCO is used to measure the completeness of a genome assembly. To measure the c
 
 To calculate the N50 value for a genome, we place our contigs from largest to smallest on the genome. We then start with the longest contig and add the lengths of the next configs until the cumulative length reaches at least 50% of the total genome size. The length of the shortest contig added is the N50 value.
 
-{{< figure src="/notes/genomics/img/n50.png" width=50% height=50% >}}
+{{< figure src="/notes/genomics/img/n50.png" alt="N50 metric diagram for evaluating assembly contiguity" caption="N50 assembly quality metric" width=50% height=50% >}}
 
 The N50 value is then compared with N50 values from genomes of similar size. A greater N50 is usually a sign of assembly improvement. Keep in mind that genome composition can bias comparisons. Another metric used alongside N50 is __L50__, which is the number of contigs that make up the N50. For example, a highly-contiguous assembly will have a high N50 value and a low L50 value.
 

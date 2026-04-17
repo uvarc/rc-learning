@@ -19,7 +19,7 @@ The `which` command indicates the path to the executable specified.
 ```bash
 % which myexec
 ```
-The which command returns the location of the executable according to the rules used to search paths. The shell always searches from left to right in the list contained in the PATH environment variable; the first executable of the specified name is the one that is used.
+The `which` command returns the location of the executable according to the rules used to search paths. The shell always searches from left to right in the list contained in the `PATH` environment variable; the first executable of the specified name is the one that is used.
 
 ### `wc`
 The `wc` command returns the number of lines, words, and characters in an ASCII file. A word is defined as a non-zero length string surrounded by whitespace.
@@ -29,7 +29,7 @@ The `wc` command returns the number of lines, words, and characters in an ASCII 
 
 To print only the number of lines, use
 ```bash
-% wc –l  myfile.txt 
+% wc –l myfile.txt 
 ```
 
 ### `diff`
@@ -43,7 +43,7 @@ To print only the number of lines, use
 ```bash
 % find . -name myscript.sh
 ```
-This starts from current directory (`.`) and searches for myscript.sh. The period is optional under Linux (but not under Mac OSX). To search for a name with a pattern it must typically be enclosed in quotes
+This starts from current directory (`.`) and searches for myscript.sh. The period is optional under Linux (but not under macOS). To search for a name with a pattern it must typically be enclosed in quotes
 ```bash
 % find . -name "*.sh"
 ```
@@ -51,7 +51,7 @@ This starts from current directory (`.`) and searches for myscript.sh. The perio
 See the manpage or examples online for more usage patterns of this command.
 
 ### `du`
-The `du` command outputs the number of kilobytes used by each subdirectory. Useful if you have gone over quota and you want to find out which directory has the most files. Some options make it more useful; in particular, -s summarizes directories and -h prints it in human-readable format. In your home directory, type
+The `du` command outputs the number of kilobytes used by each subdirectory. Useful if you have gone over quota and you want to find out which directory has the most files. Some options make it more useful; in particular, `-s` summarizes directories and `-h` prints it in human-readable format for the sizes. In your home directory, type
 ```bash
 % du -s -h *
 ```
@@ -67,7 +67,7 @@ and note the size of the file. Then to compress `science.txt`, type
 % gzip science.txt
 ```
 
-This will compress the file and place it in a file called science.txt.gz. To see the change in size, type ls -l again. To uncompress the file, use the gunzip command.
+This will compress the file and place it in a file called science.txt.gz. To see the change in size, type `ls -l` again. To uncompress the file, use the `gunzip` command.
 ```
 % gunzip science.txt.gz
 ```
@@ -102,13 +102,14 @@ Newer versions of `tar` can detect that the archive is zipped, so a `z` is not n
 ### `cut`
 
 The cut command extracts selected portions of a line, based on fields separated by a delimiter
+```bash
+% cut­ -d DELIM ­-f1,2,3 file.txt
 ```
-% cut­?d delim ­?fC1,C2,C3
-```
+This splits each input line of file.txt by `DELIM`, and prints fields 1, 2, and 3.
 
 Examples:
 ```bash
-% cut -d ' ' ?f1 /etc/resolve.conf
+% cut -d ' ' -f1 /etc/resolv.conf
 % cat myfile | cut -c 80
 ```
 
@@ -145,6 +146,6 @@ If you are using the `bash` or `tcsh` shell, you can use the exclamation charact
 % !grep (recall last command starting with grep)
 ```
 You can increase the size of the history buffer by typing
-```
+```bash
 % set history=100
 ```

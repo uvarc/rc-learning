@@ -29,7 +29,7 @@ menu:
 * Requesting an A100 may mean you wait in the queue for a much longer time than using another GPU,
 * This could give you a slower overall time (wait time + execution time) than if you had used another GPU.
 
-{{< figure src=/notes/deep-learning-hpc/img/queue_wait_graph.png caption="Photo Source: [https://researchcomputing.princeton.edu/support/knowledge-base/scaling-analysis](https://researchcomputing.princeton.edu/support/knowledge-base/scaling-analysis)" width=80% height=80% >}}
+{{< figure src=/notes/deep-learning-hpc/img/queue_wait_graph.png caption="Photo Source: [https://researchcomputing.princeton.edu/support/knowledge-base/scaling-analysis](https://researchcomputing.princeton.edu/support/knowledge-base/scaling-analysis)" alt="Figure showing balance between queue waiting time, which is longer for larger requsts, and time to solution, which is shorter for larger resource utilization. Shortest time to solution will be a function of both." width=80% height=80% >}}
 
 
 ## Memory Required to Train a DL Model

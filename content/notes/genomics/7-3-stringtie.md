@@ -58,7 +58,7 @@ To check if your permissions are set to run StringTie, use the `ls -lh` command:
 ls -lh stringtie
 ```
 
-{{< figure src="/notes/genomics/img/permissions.png" width=60% height=60% caption="How to read file permission settings from example output" >}}
+{{< figure src="/notes/genomics/img/permissions.png" alt="Example terminal output used to explain Unix file permission settings" width=60% height=60% caption="How to read file permission settings from example output" >}}
 
 ## Running StringTie
 

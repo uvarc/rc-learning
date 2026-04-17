@@ -45,7 +45,7 @@ Job started:
 
  Job ended:
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_38.png width=75% height=75% >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_38.png alt="Terminal output showing a Slurm FASTQC job completion message" caption="Slurm job completion output" width=75% height=75% >}}
 
 ### Operational Terminal Commands
 

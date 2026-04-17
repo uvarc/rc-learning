@@ -15,14 +15,14 @@ menu:
 For a  __running job__, the `sstat` command will report on CPU and memory usage.  
 
 In this example, the job has been running on **20 cores** for about **4 days**.
-{{< figure src=/notes/deep-learning-hpc/img/sstat.png caption="" width=70% height=70% >}}
+{{< figure src=/notes/deep-learning-hpc/img/sstat.png caption="" alt="Screenshot of output from Slurm sstat command, showing cpu utilization for a running job" width=70% height=70% >}}
 
 
 ## CPU Resource Usage For Completed Jobs
 
 For a  __completed job__ , the `seff` command will return an efficiency report.
 
-{{< figure src=/notes/deep-learning-hpc/img/CPU_Resource_Usage.png width=60% height=60% >}}
+{{< figure src=/notes/deep-learning-hpc/img/CPU_Resource_Usage.png alt="Screenshot of output from Slurm seff command, showing cpu and memory utilization for a completed job" width=60% height=60% >}}
 
 * CPU Efficiency: This is good usage for the number of cores.
 * Memory Efficiency: Only about 4 GB of (CPU) memory was needed.

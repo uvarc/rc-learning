@@ -25,7 +25,7 @@ Lots of tools are available for sequence analysis and data manipulation.
 For example, `bam2fasta` converts `BAM` to `FASTA`, and `bam2fastq` converts `BAM` to `FASTQ`.
 
 
-{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_67.png width=90% height=90% caption="PacBio Revio sequencing instrument interface" >}}
+{{< figure src=/notes/bioinfo-intro/img/Intro-Bioinformatics-for-posting_20250604_67.png alt="PacBio Revio sequencing instrument software interface screen" width=90% height=90% caption="PacBio Revio sequencing instrument interface" >}}
 
 [SMRT Tools Reference Guide](https://docslib.org/doc/175362/smrt%C2%AE-tools-reference-guide-v8-0)
 
