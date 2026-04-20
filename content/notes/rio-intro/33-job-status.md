@@ -5,6 +5,7 @@ type: docs
 weight: 1480
 menu: 
     rio-intro:
+        parent: Checking Queued Jobs
 ---
 
 `scontrol` returns information for a running job:

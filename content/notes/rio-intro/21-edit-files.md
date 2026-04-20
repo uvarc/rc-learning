@@ -5,7 +5,7 @@ type: docs
 weight: 1150
 menu: 
     rio-intro:
-        # parent: Working with Files
+        parent: Working with Files Using the Desktop
 ---
 
 When editing files in a Terminal Window, you can use `vi`, `emacs`, or `pluma`. The `vi`/`emacs` editors use keyboard shortcuts and may take a while to learn, while `pluma` is a very basic editor. To launch `pluma`, type:

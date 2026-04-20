@@ -5,6 +5,7 @@ type: docs
 weight: 1470
 menu: 
     rio-intro:
+        parent: Checking Queued Jobs
 ---
 
 To delete a job from the queue, use the `scancel` command with the job ID number at the command line prompt:
