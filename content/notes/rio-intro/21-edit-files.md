@@ -8,13 +8,12 @@ menu:
         # parent: Working with Files
 ---
 
+When editing files in a Terminal Window, you can use `vi`, `emacs`, or `pluma`. The `vi`/`emacs` editors use keyboard shortcuts and may take a while to learn, while `pluma` is a very basic editor. To launch `pluma`, type:
 
+```bash
+pluma myfile.txt
+```
 
-
-* Editors you can use:
-  * When in a Terminal Window, use vi/emacs/pluma.
-    * vi/emacs uses all keyboard shortcuts and may take a while to learn.
-    * pluma is a very basic editor.  To launch, type: pluma myfile.txt
-  * In Desktop, you can use Pluma Text Editor.
+In the Desktop environment, you can also use the Pluma Text Editor.
 
 

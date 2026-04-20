@@ -7,16 +7,16 @@ menu:
     rio-intro:
 ---
 
-
-
-
-* To display the status of only your  _active_  jobs, type:  __squeue__  __ –u <__  __your_user_id__  __>__
-* The squeue command will show pending jobs and running jobs, but not failed, canceled or completed job.
-* A job's status is indicated by:
-  * PD – pending, R – running, CG – exiting
+To display the status of only your active jobs, type:
 
 ```bash
--bash-4.2$ squeue –u mst3k
+squeue -u <your_user_id>
+```
+
+The `squeue` command will show pending jobs and running jobs, but not failed, canceled, or completed jobs. A job's status is indicated by: PD (pending), R (running), or CG (exiting).
+
+```bash
+-bash-4.2$ squeue -u mst3k
 
 JOBID   PARTITION   NAME     USER   ST   TIME   NODES  NODELIST(REASON)
 

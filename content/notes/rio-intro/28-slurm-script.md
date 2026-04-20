@@ -11,7 +11,7 @@ menu:
 
 
 
-* A Slurm script is a bash script with Slurm directives (#SBATCH) and command-line instructions for running your program.
+A Slurm script is a bash script with Slurm directives (#SBATCH) and command-line instructions for running your program.
 
 
 ```bash

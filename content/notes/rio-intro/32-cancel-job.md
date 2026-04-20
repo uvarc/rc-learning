@@ -7,13 +7,14 @@ menu:
     rio-intro:
 ---
 
+To delete a job from the queue, use the `scancel` command with the job ID number at the command line prompt:
 
-To delete a job from the queue, use the _ _  __scancel__  command with the job ID number at the command line prompt:
+```bash
+scancel 18316
+```
 
 To cancel all your jobs, run this command:
 
 ```bash
--bash-4.2$ scancel 18316
-
--bash-4.2$ scancel –u $USER
+scancel -u $USER
 ```
