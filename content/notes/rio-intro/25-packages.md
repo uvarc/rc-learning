@@ -12,8 +12,8 @@ Since `/home` is not mounted on compute nodes, locally installed Python and R pa
 
 Instructions for each are posted on our website:
 
-- [Conda environments](https://www.rc.virginia.edu/userinfo/hpc/software/miniforge/#using-conda-environments-on-rio)
-- [R libraries](https://www.rc.virginia.edu/userinfo/hpc/software/r/#submitting-jobs-to-rio)
+- [Conda environments](https://www.rc.virginia.edu/userinfo/hpc/software/miniforge/#using-conda-environments-on-rio "Using Conda Environments on Rio page from the RC Website")
+- [R libraries](https://www.rc.virginia.edu/userinfo/hpc/software/r/#submitting-jobs-to-rio "Submitting Jobs to Rio page from the RC Website")
 
 When using interactive JupyterLab or RStudio, extra setup is not necessary.
 

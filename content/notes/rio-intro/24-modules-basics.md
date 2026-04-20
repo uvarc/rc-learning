@@ -8,7 +8,7 @@ menu:
         parent: Preinstalled Software
 ---
 
-Some basic commands to use `lmod`:
+Some basic commands to use lmod:
 
 - `module avail` - lists every module available to load
 - `module key <keyword>` - searches for modules in a category specified (e.g., `module key bio`)
