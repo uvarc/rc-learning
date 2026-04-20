@@ -9,14 +9,14 @@ menu:
 ---
 
 
-To submit an interactive SLURM job to the queue, use the  __ijob__  command at the command line prompt.
+To submit an interactive SLURM job to the queue, use the `ijob` command at the command line prompt.
 
-For example, if you want to run an interactive application on a compute node in the standard queue using one cpu, we can submit it as follows:
+For example, if you want to run an interactive application on a compute node in the standard queue using one CPU, we can submit it as follows:
 
 ```bash
--bash-4.1$ ijob –c 1 –p standard –A ivy-hip-name -t 06:00:00
+-bash-4.1$ ijob -c 1 -p standard -A ivy-hip-name -t 06:00:00
 
-﻿salloc: Pending job allocation 21640112
+salloc: Pending job allocation 21640112
 
 salloc: job 21640112 queued and waiting for resources
 
