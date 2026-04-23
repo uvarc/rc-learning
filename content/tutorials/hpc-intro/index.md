@@ -20,3 +20,18 @@ url_video: https://www.youtube.com/playlist?list=PLT4bryHgBcRP7N-hB9u6EWs6tq_2nM
 
 weight: 10
 ---
+
+This tutorial contains the full content of the introduction to the high-performance computing system in the standard security zone. We offer a live presentation of the material on Wednesday afternoons.
+
+[Register to attend the Wednesday Zoom tutorial](https://www.rc.virginia.edu/userinfo/hpc/)
+
+For those who prefer shorter sessions with videos, we have broken the introduction into a series.
+
+[Connecting To HPC](/tutorials/connecting-to-hpc)
+
+[Interactive Apps with Open OnDemand](/tutorials/interactive-apps-ood)
+
+[Working with Files](/tutorials/working-with-files)
+
+[Working with Jobs in Open OnDemand](/tutorials/working-with-jobs-ood)
+
