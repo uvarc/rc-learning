@@ -25,7 +25,7 @@ This tutorial contains the full content of the introduction to the high-performa
 
 [Register to attend the Wednesday Zoom tutorial](https://www.rc.virginia.edu/userinfo/hpc/)
 
-For those who prefer shorter sessions with videos, we have broken the introduction into a series.
+For those who prefer shorter sessions with videos, we have broken the introduction into a series. The videos alone can be viewed starting from the "Video" button above. If you would rather watch the videos along with accessing the relevant sections of the notes, direct links are below.
 
 [Connecting To HPC](/tutorials/connecting-to-hpc)
 
