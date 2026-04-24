@@ -1,0 +1,37 @@
+---
+title: Guidelines for Using AI at UVA
+date: "2026-04-20T00:00:00Z"
+draft: false  # Is this a draft? true/false
+toc: false  # Show table of contents? true/false
+type: docs  # Do not modify.
+weight: 4
+
+menu:
+  uva-rc-genai:
+      menu: Policies and Limitations
+      weight: 1
+---
+## Using AI at UVA
+UVA RC GenAI aligns with the University’s GenAI Use Guidelines. These can be found at [Using AI at UVA: Guidelines & Terms of Use](https://in.virginia.edu/genai-useguidelines).
+
+### Data Protection Rules
+* **Use UVA-licensed AI tools only (Copilot, M365 Copilot, UVA RC GenAI)** – they keep data in UVA's tenant and don't use it for training
+* **Never use "Highly Sensitive" data** in any AI tool
+* **Personal AI accounts (ChatGPT, etc.)**: Only use with "Public" data. You're personally liable if University data is exposed
+
+### Prohibited Actions
+* **DeepSeek AI is banned** on all UVA devices and networks (Executive Order 46)
+* **Don't use AI for personnel decisions** without HR approval
+* **Never input licensed/third-party intellectual property** without checking rights
+
+### Best Practices
+* **Review all AI output** since hallucinations and bias are common
+* **Disclose AI-generated content** when publishing or distributing
+* **Don't blindly rely on AI** for important decisions
+* **Be mindful of records retentio** since not all tools store data long-term
+
+### Consequences
+* Violations can result in loss of IT access, disciplinary action up to termination or expulsion, and potential legal liability
+
+
+**Bottom line**: Use UVA's approved tools for University work, keep sensitive data out of personal AI accounts, and always verify what AI produces before using it.

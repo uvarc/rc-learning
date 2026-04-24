@@ -1,0 +1,31 @@
+---
+title: Connecting to UVA RC GenAI
+date: "2024-04-20T00:00:00"
+draft: false  # Is this a draft? true/false
+toc: false  # Show table of contents? true/false
+type: docs  # Do not modify.
+weight: 100
+
+menu:
+  uva-rc-genai:
+    parent: "Policies and Limitations"
+---
+
+Below are the first steps needed for all users regardless of access method:
+
+<div style="background-color: #dc3545; border-left: 4px solid
+  #2196F3; padding: 12px; margin: 16px 0;">
+  <strong>Note:</strong> Accessing UVA RC GenAI requires an active UVA computing
+  ID, research computing account and EServices password for Netbadge
+  authentication. Duo two-factor authentication is required for
+  browser access.
+</div>
+
+1. If you don’t have an RC user account please see [How to get access to HPC Services](https://www.rc.virginia.edu/userinfo/hpc/access/)
+
+2. Once you have an RC account, navigate to [UVA RC GenAI](https://open-webui.rc.virginia.edu/)
+   * Ensure VPN connection if off grounds
+3. Login with Computing ID and EServices password
+
+4. Complete Duo 2FA
+
