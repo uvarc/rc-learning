@@ -4,7 +4,7 @@ date: "2026-04-20T00:00:00"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 110
+weight: 40
 
 menu:
   uva-rc-genai:

@@ -4,7 +4,7 @@ date: "2026-04-20T00:00:00"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 130
+weight: 60
 
 menu:
   uva-rc-genai:
@@ -12,22 +12,27 @@ menu:
 ---
 
 ## Claude Code on HPC
-Claude Code is available to HPC users as a software module. It is installed inside of an Ollama container and can be launched with either locally installed Ollama models or via UVA RC GenAI's API.  To load the software, you can run the following on the command line:
-`module load apptainer claudecode`
+You can link UVA RC GenAI with Claude Code. 
 
-UVA RC GenAI can be accessed with the following command:
+### Installing Claude Code
+First, you'll need to install claude code into your home account on a login node with the following:
 
-```apptainer run $CONTAINERDIR/claudecode-2.1.80.sif -k $UVARC_GenAI_API```
+```curl -fsSL https://claude.ai/install.sh | bash```
 
-where `$UVARC_GenAI_API` is your exported API key.
+once the above command is finished running, run the following to add ~/.local/bin to your path:
 
-Local Ollama models can be run with the following command:
+```echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc```
 
-`apptainer run --nv --bind /path/to/models:/ollama_models \
-$CONTAINERDIR/claudecode-2.1.80.sif -m /ollama_models
-`
+### Claude Code with UVA RC GenAI
 
-<div style="background-color: #dc3545; border-left: 4px solid
-  #2196F3; padding: 12px; margin: 16px 0;">
-  <strong>Note:</strong> To run local Ollama models with Claude Code, you must first request a GPU node (e.g., OOD Desktop, ijob, etc.).
-</div>
+Set these environment variables:
+```
+export API_KEY="<your_api_key>"
+export ANTHROPIC_BASE_URL="https://open-webui.rc.virginia.edu/api"
+export ANTHROPIC_AUTH_TOKEN=$API_KEY
+export ANTHROPIC_API_KEY=""
+export CLAUDE_CODE_MAX_OUTPUT_TOKENS=4096
+```
+Then launch with:
+`claude --model 'Kimi K2.5'`
+

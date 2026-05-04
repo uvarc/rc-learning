@@ -1,14 +1,14 @@
 ---
-title: Connecting to UVA RC GenAI
-date: "2024-04-20T00:00:00"
+title: "Getting Started"
+date: "2026-04-20T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
-weight: 100
+type: docs
+weight: 30
 
 menu:
   uva-rc-genai:
-    menu: Getting Started
+    name: Getting Started
 ---
 
 Below are the first steps needed for all users regardless of access method:
