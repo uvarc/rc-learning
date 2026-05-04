@@ -23,7 +23,11 @@ weight: 10
 
 This tutorial contains the full content of the introduction to the high-performance computing system in the standard security zone. We offer a live presentation of the material on Wednesday afternoons.
 
-[Register to attend the Wednesday Zoom tutorial](https://www.rc.virginia.edu/userinfo/hpc/)
+Register to attend the Wednesday Zoom tutorial:
+<div>
+<a href={{% intro-sszhpc-request %}}><button  class="btn btn-primary btn-md">Sign up for an "Intro to HPC" session</button></a>
+</div>
+
 
 For those who prefer shorter sessions with videos, we have broken the introduction into a series. The videos alone can be viewed starting from the "Video" button above. If you would rather watch the videos along with accessing the relevant sections of the notes, direct links are below.
 
