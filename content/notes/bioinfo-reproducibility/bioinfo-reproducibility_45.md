@@ -11,13 +11,13 @@ menu:
 
 Here we specified our inputs/outputs and our shell command.
 
-```bash
+```python
 rule trim:
  input:
- ”reads/sample1.fastq”
+ "reads/sample1.fastq"
 
  output:
- ”trimmed_reads/sample1-trimmed.fastq”
+ "trimmed_reads/sample1-trimmed.fastq"
 
  shell:
  cutadapt -A TCCGGGTS -o {output} {input}
@@ -27,8 +27,8 @@ rule trim:
 
 In looking at our HELLO process, what do we need to add? We already have a publishDir, an output, and script, so let's update those for cutadapt.
 
-```bash
-process HELLO {
+```groovy
+process HELLO {
  publishDir "results/" , mode: "copy"
  output:
  path 'hello.txt'
@@ -41,7 +41,7 @@ process HELLO {
 ```
 
 ## Update for Running Cutadapt
-```bash
+```groovy
 process  CUTADAPT {
  publishDir "results/" , mode: "copy"
 

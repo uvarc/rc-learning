@@ -17,9 +17,9 @@ menu:
 Snakefile - file.smk, contains rules for snakemake
 
 ```bash
-snakemake -c 1 -s variant-yml.smk --configfile config_variant.yml
+snakemake -c 1 -s variant-yml.smk --configfile config_variant.yml
 ```
-- --configfile – directing snakemake to a config file
+- `--configfile` directs snakemake to a config file
 -c number of cores
 -s needed if using a named snakefile
 
@@ -31,12 +31,14 @@ snakemake -c 1 -s variant-yml.smk --configfile config_variant.yml
 
 Example with Conda:
 
+```python
 rule fastqc:
      input: "reads.fastq"
      output: "qc.html"
-     conda:        ”~/.conda/envs/fastqc_env” #path to conda environment
+     conda:        "~/.conda/envs/fastqc_env" # path to conda environment
 
      shell:        "fastqc {input}"
+```
 
 Benefits: Easy dependency management, portable workflows
 
@@ -58,8 +60,10 @@ Can create different conda environment for different rules
 
 
 ## Smakemake and containers
+```python
 rule align:
      container: "docker://biocontainers/bwa"
+```
 
 **Advantages:**
 - identical software environments

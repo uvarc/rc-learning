@@ -12,9 +12,9 @@
 
   {{ partial "navbar" . }}
 
-  <div id="main-content-fallback">
+  <main id="main-content" tabindex="-1">
     {{ block "main" . }}{{ end }}
-  </div>
+  </main>
 
   {{ partial "site_js" . }}
 

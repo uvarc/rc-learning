@@ -1,25 +1,26 @@
 <footer class="site-footer">
-  <span class="site-footer-text-container">
-    <img class="site-footer-logo-light" height=auto width=400px src="/img/RC_logo.svg" alt="RC Logo" />
-    <img class="site-footer-logo-dark" height=auto width=400px src="/img/RC_logo_white_text.svg" alt="RC Logo" />
-    <span class="back-to-top-container-mobile" aria-hidden="true">
+  <div class="site-footer-text-container">
+    <img class="site-footer-logo-light" height="auto" width="400" src="/img/RC_logo.svg" alt="RC Logo" />
+    <img class="site-footer-logo-dark" height="auto" width="400" src="/img/RC_logo_white_text.svg" alt="RC Logo" />
+    <span class="back-to-top-container-mobile">
       <a href="#" class="back-to-top" title="Scroll to top of page">
         <span class="button_icon">
-          <i class="fas fa-chevron-up fa-2x"></i>
+          <i class="fas fa-chevron-up fa-2x" aria-hidden="true"></i>
+        </span>
       </a>
     </span>
-  </span>
-  <span>
-  {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}} {{ end }}
-  </span>
+  </div>
+  <div>
+    {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}} {{ end }}
+  </div>
     {{ if not (in (slice "updates") .Type) }}
-    <span class="back-to-top-container" aria-hidden="true">
+    <span class="back-to-top-container">
       <a href="#" class="back-to-top" title="Scroll to top of page">
         <span class="button_icon">
-          <i class="fas fa-chevron-up fa-2x"></i>
+          <i class="fas fa-chevron-up fa-2x" aria-hidden="true"></i>
+        </span>
       </a>
     </span>
     {{ end }}
-</p>
 </footer>
 <script src="{{ "scripts/fancybox-alt-text.js" | relURL }}"></script>
