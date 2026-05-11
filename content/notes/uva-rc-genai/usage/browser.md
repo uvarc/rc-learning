@@ -8,7 +8,7 @@ weight: 40
 
 menu:
   uva-rc-genai:
-    parent: Getting Started
+    parent: Usage
 ---
 
 After signing in, you should have browser access to UVARC GenAI through the OpenWebUI interface.
@@ -22,5 +22,5 @@ Files can be loaded into the web interface – supported extensions include: pdf
 <div style="background-color: #dc3545; border-left: 4px solid
   #2196F3; padding: 12px; margin: 16px 0;">
   <strong>Note:</strong> Chats are not saved. Conversation history disappears
-  when you close the browser tab, sign out, or if the session expires.
+  when you close the browser tab, sign out, or if the session expires. More on data management will be discussed [later]().
 </div>

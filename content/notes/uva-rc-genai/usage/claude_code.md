@@ -8,11 +8,11 @@ weight: 60
 
 menu:
   uva-rc-genai:
-    parent: Getting Started
+    parent: Usage
 ---
 
 ## Claude Code on HPC
-You can link UVA RC GenAI with Claude Code. 
+Claude Code is an AI-assistant for software engineering tasks that runs directly in the terminal to write, edit and analyze code. You can link it to UVA RC GenAI. 
 
 ### Installing Claude Code
 First, you'll need to install claude code into your home account on a login node with the following:
