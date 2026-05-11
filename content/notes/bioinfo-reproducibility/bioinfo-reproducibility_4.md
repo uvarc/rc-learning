@@ -37,7 +37,7 @@ menu:
 - 50% of researchers failed to reproduce their own
 
 ### PLoS Biology (2024)
-- Biomedical researchers - 72% reported “reproducibility crisis”
+- Biomedical researchers - 72% reported "reproducibility crisis"
 
 ###  Genome Biol (2024)
 - Reproducibility in bioinformatics era

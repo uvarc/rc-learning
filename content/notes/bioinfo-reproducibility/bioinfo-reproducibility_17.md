@@ -9,11 +9,11 @@ menu:
 
 **Snakemake** is a workflow management system designed for scientific pipelines
 
-Click the following link to visit the snakemake site: https://snakemake.github.io/
+[Visit the Snakemake documentation site for installation guides and workflow references (opens in new tab)](https://snakemake.github.io/ "Snakemake documentation")
 
 - Created by Johannes Köster, first released in 2012
 - Based on UNIX make -  originally created in 1976 but still standard use
-- Python based - “ _snake-make_ ”
+- Python based - "snake-make"
 - Free and open source, available on Mac, Windows, Unix
 
 `Make` is a command-line interface software tool that performs actions ordered by configured dependencies as defined in a configuration file called a makefile. It is commonly used for build automation to build executable code from source code. 
@@ -31,6 +31,7 @@ Click the following link to visit the snakemake site: https://snakemake.github.i
 ### Snakemake Core Idea
 
 Instead of defining steps, you define **rules that produce files**
+```python
 rule align:
 
 input:
@@ -41,6 +42,7 @@ output:
 
 shell:
 	"bwa mem ref.fa {input} > {output}"
+```
 
 Snakemake builds a **directed acyclic graph (DAG)**  automatically.
 

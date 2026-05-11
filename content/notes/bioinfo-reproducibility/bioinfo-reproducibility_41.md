@@ -13,7 +13,7 @@ Let's start with a very simple toy example for echo'ing the text "Hello World!" 
 
 First, create a process called HELLO with our shell command:
 
-```bash
+```groovy
 process HELLO {
  script:
  """
@@ -32,7 +32,7 @@ workflow {
 ## Create a New File called main.nf
 We can create a new file called main.nf with these lines.
 
-```bash
+```groovy
 process HELLO {
  script:
  """
@@ -46,7 +46,7 @@ workflow {
 ```
 
 ## Make some changes
-```bash
+```groovy
 process  hello {
  output:
  path 'hello.txt'
@@ -69,7 +69,7 @@ Now let's try sending our output to a directory called 'results' - we can add a 
 
 Re-run the main.nf in the terminal and show where the file goes to results but since we did copy, it still does go to work. 
 
-```bash
+```groovy
 process  hello {
  publishDir "results/" , mode: "copy"
 
