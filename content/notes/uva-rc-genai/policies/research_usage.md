@@ -24,7 +24,7 @@ Unauthorized use of UVA RC GenAI may result in disciplinary action under the [Un
 ## What Data is Logged?
 * Prompts and responses are not logged
 
-* **Metadata may be retained** to better understand number of users, number of request, demand for service, tokens generated and other metrics that will aid in ensuring a quality deliver of service.
+* **Metadata may be retained** to better understand number of users, number of requests, demand for service, tokens generated and other metrics that will aid in ensuring a quality deliver of service.
 
 * Logs are accessible to admins only
 

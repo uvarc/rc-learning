@@ -11,7 +11,7 @@ menu:
     parent: Usage
 ---
 
-API lets you send requests to UVA RC GenAI programmatically from your code, instead of typing into a chat window. This enables automation and integration with existing workflows like bulk processing, large-scale data analysis, and connection to other tools. 
+API access lets you send requests to UVA RC GenAI programmatically from your code, instead of typing into a chat window. This enables automation and integration with existing workflows like bulk processing, large-scale data analysis, and connection to other tools. 
 
 ## Use Cases
 

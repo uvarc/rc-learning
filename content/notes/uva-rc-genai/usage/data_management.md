@@ -13,7 +13,7 @@ menu:
 
 
 ## Methods for Saving Chats
-Methods for saving chats via API were discussed [earlier](/notes/uva-rc-genai/usage/api.md), but you also have the option to export or save chats through the OpenWebUI interface. Clicking the three dots next to your icon in the upper-right section of the interface displays the options to either download or copy the chat session.
+Methods for saving chats via API were discussed [earlier](/notes/uva-rc-genai/usage/api/#saving-outputs), but you also have the option to export or save chats through the OpenWebUI interface. Clicking the three dots next to your icon in the upper-right section of the interface displays the options to either download or copy the chat session.
 
 {{< figure src="/notes/uva-rc-genai/img/browser_save.png" alt="Screenshot of OpenWebUI option to Download or Copy chat"  >}}
 
@@ -47,7 +47,7 @@ Downloaded browser chats will be saved to your local workstation but can be easi
 ## Reproducibility Considerations
 Reproducibility controls are important since LLM outputs can vary across different runs. This makes it impossible to verify results, replicate research, or trace back errors. The following are some important considerations regarding output reproducibility.
 
-* **Temperature and Seed** - Set `temperature=0` and a fixed `seed` when consistency matters. Higher temperature introduce randomness.
+* **Temperature and Seed** - Set `temperature=0` and a fixed `seed` when consistency matters. Higher temperature introduces randomness.
 
 * **Prompt Versioning** - Track prompts in versioned files since even small wording changes can affect outputs.
 
