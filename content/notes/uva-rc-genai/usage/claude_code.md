@@ -19,7 +19,7 @@ First, you'll need to install claude code into your home account on a login node
 
 ```curl -fsSL https://claude.ai/install.sh | bash```
 
-once the above command is finished running, run the following to add ~/.local/bin to your path:
+once the above command is finished running, run the following to add `~/.local/bin` to your path:
 
 ```echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc```
 
@@ -36,3 +36,4 @@ export CLAUDE_CODE_MAX_OUTPUT_TOKENS=4096
 Then launch with:
 `claude --model 'Kimi K2.5'`
 
+`claude` will run in whatever directory it's launched in. 

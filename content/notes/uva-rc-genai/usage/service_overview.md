@@ -11,10 +11,10 @@ menu:
     name: Usage
 ---
 
-UVA RC Gen AI is available exclusively to users with active Research Computing accounts. It's accessible via both a chat-like browser interface and API within standard security zone systems (Afton/Rivanna).  
+UVA RC Gen AI is available exclusively to users with active [Research Computing accounts](https://www.rc.virginia.edu/userinfo/hpc/access/). It's accessible via both a chat-like browser interface and API within standard security zone systems (Afton/Rivanna).  
 
 ## Where can I Access UVA RC GenAI from?
-* **On grounds**: Direct browser access is available. API access must run from a standard security zone HPC node.
+* **On grounds**: Direct browser access is available. API access must run from a standard security zone HPC node. See [here](https://www.rc.virginia.edu/userinfo/hpc/login/) for HPC access methods.
 
 * **Off grounds**: VPN is required for browser access and access to HPC nodes.
 

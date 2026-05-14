@@ -22,9 +22,9 @@ Below are the first steps needed for all users regardless of access method:
   browser access.
 </div>
 
-1. If you don’t have an RC user account please see [How to get access to HPC Services](https://www.rc.virginia.edu/userinfo/hpc/access/)
+1. If you don’t have an RC user account please see [how to get access to HPC Services](https://www.rc.virginia.edu/userinfo/hpc/access/)
 
-2. Once you have an RC account, navigate to [UVA RC GenAI](https://open-webui.rc.virginia.edu/)
+2. Once you have an RC account, you are ready to use [UVA RC GenAI](https://open-webui.rc.virginia.edu/)
    * Ensure [VPN connection](https://in.virginia.edu/vpn) if off grounds
 3. Login with Computing ID and EServices password
 

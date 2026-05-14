@@ -40,7 +40,7 @@ Overall, use the browser when you're interacting directly, and use the API when 
 You will have the option to view, copy or create a new API key.
 
 ## Securely Storing Your Key
-Use environment variables to safely store your key (e.g., `export UVARC_GenAI_API ="your-key-here"`). Make sure to never commit keys to code repositories, and regenerate keys in UVA RC GenAI browser if compromised.
+Use environment variables to safely store your key (e.g., `export UVARC_GenAI_API="your-key-here"`). Make sure to never commit keys to code repositories, and regenerate keys in UVA RC GenAI browser if compromised.
 
 
 <div style="background-color: #dc3545; border-left: 4px solid
@@ -48,7 +48,11 @@ Use environment variables to safely store your key (e.g., `export UVARC_GenAI_AP
   <strong>Note:</strong> You need to be on a compute node to run your code.
 </div>
 
+HPC compute nodes can be accessed either via [OpenOn Demand](https://www.rc.virginia.edu/userinfo/hpc/ood/) (JupyterLab, Desktop, etc) or through an [ijob](https://www.rc.virginia.edu/userinfo/hpc/slurm/#submitting-an-interactive-job) from the command line. 
+
 ## Code Examples
+
+Each of the following examples prompts "Hello" to UVA RC GenAI via API.
 
 {{< spoiler text="Curl Example" >}}
 {{< code-download file="/notes/uva-rc-genai/codes/uva-rc-genai-curl.sh" lang="bash" >}}
@@ -68,3 +72,14 @@ with open("output.txt", "w") as f:
     f.write(response_text)
 ```
 
+## Token Tracking
+
+It's important to monitor token usage to stay within limits and ensure requests don't exceed the context window. Token counts are included in every API response. For example, in the OpenAI library:
+
+```
+print(response.usage.prompt_tokens)      # Input tokens
+print(response.usage.completion_tokens)  # Output tokens
+print(response.usage.total_tokens)       # Combined
+```
+
+Similar fields exist in the Anthropic SDK and other tools.

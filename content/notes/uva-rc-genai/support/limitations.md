@@ -25,9 +25,8 @@ Long-running conversations or agentic workflows can exhaust the context window a
 
 ## Best Practices
 
-* **Chunk large documents** - Break text into sections that fit within context window.
 * **Track token usage** - Monitor prompts and responses to avoid silent truncation.
 * **Avoid large file uploads** - Split files into more maintainable chunks (if possible) to prevent filling context.
-* **Output Logging** - Save full API output or OpenWebUI chat data (`.json` format) for debugging and reproducibility.
+* **Saving Outputs** - Save full API output or OpenWebUI chat data (`.json` format) for debugging and reproducibility.
 * **Restart sessions when needed** - Restart session to clear context or use `/clear` command in Claude Code to clear context window. You can also use the `/compact` command in Claude Code to clear context while maintaining a summary of your chat.
 

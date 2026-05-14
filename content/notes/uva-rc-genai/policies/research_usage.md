@@ -15,17 +15,17 @@ menu:
 
 * **Approved**: Any data suitable for Standard Security Zone (SSZ) (Rivanna/Afton), including sensitive University research data.
 
-* **Prohibited**: No Highly Sensitive, PHI, or other controlled access data types.
+* **Prohibited**: Highly sensitive data, public health information (PHI), or other controlled access data types.
 
 Unauthorized use of UVA RC GenAI may result in disciplinary action under the [University's GenAI usage guidelines](https://in.virginia.edu/genai-useguidelines). 
 
 * **When in doubt**: Contact us for [support](https://www.rc.virginia.edu/support) before submitting
 
-## What Data is Logged?
-* Prompts and responses are not logged
+## What Data is Saved?
+* Prompts and responses are not saved
 
-* **Metadata may be retained** to better understand number of users, number of requests, demand for service, tokens generated and other metrics that will aid in ensuring a quality deliver of service.
+* **Metadata may be retained** to better understand number of users, number of requests, demand for service, tokens generated and other metrics that will aid in ensuring a quality delivery of the service.
 
-* Logs are accessible to admins only
+* Logs are accessible only to admins
 
 
