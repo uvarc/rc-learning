@@ -10,7 +10,7 @@ menu:
 
 ## Select a GPU for Inference
 
-Suppose you are going to run inference using the model [google-](https://huggingface.co/google-bert/bert-base-uncased)[bert](https://huggingface.co/google-bert/bert-base-uncased)[/](https://huggingface.co/google-bert/bert-base-uncased)[bert](https://huggingface.co/google-bert/bert-base-uncased)[-base-uncased](https://huggingface.co/google-bert/bert-base-uncased).  Which UVA GPU would you select and why?
+Suppose you are going to run inference using the model [google-bert/bert-base-uncased](https://huggingface.co/google-bert/bert-base-uncased). Which UVA GPU would you select and why?
 
 | UVA GPU | Full Name | Year Launched | Memory | # of Tensor Cores |
 | :-: | :-: | :-: | :-: | :-: |

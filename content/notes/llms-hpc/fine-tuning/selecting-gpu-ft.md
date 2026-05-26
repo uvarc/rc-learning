@@ -23,8 +23,8 @@ A training iteration requires a forward and backward pass of the model. In addit
 According to the [Hugging Face Model Memory Calculator](https://huggingface.co/spaces/hf-accelerate/model-memory-usage), for a batch size of 1,  $$ \text{GPU Memory Estimate for Fine-Tuning (B)} = 4 \times (\text{LLM Memory in B})$$ 
   * While this formula can help ballpark an estimate, I recommend tracking GPU memory using the GPU Dashboard to make a more informed GPU selection.
 
-For a more specific formula, see [https://blog.eleuther.ai/transformer-math/](https://blog.eleuther.ai/transformer-math/) (Note: this blog requires some understanding of transformers).
+For a more specific formula, see the [EleutherAI transformer math overview](https://blog.eleuther.ai/transformer-math/) (note: this blog requires some understanding of transformers).
 
 
-Determining LLM memory for fine-tuning is an active area of research.  The paper [LLMem](https://arxiv.org/abs/2404.10933)[: Estimating GPU Memory Usage for Fine-Tuning Pre-Trained LLMs](https://arxiv.org/abs/2404.10933) by Kim, et al. (April 2024) presents a method for doing so within 3% of the actual memory required.
+Determining LLM memory for fine-tuning is an active area of research. The paper [LLMem: Estimating GPU Memory Usage for Fine-Tuning Pre-Trained LLMs](https://arxiv.org/abs/2404.10933) by Kim et al. (April 2024) presents a method for doing so within 3% of the actual memory required.
 

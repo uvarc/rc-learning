@@ -24,6 +24,6 @@ The pipeline "hides" details from the programmer, which can be good and bad.
 
 The tokenizer runs on CPU, and the model runs on GPU.
 
-[Source and more information](https://huggingface.co/docs/transformers/pipeline_tutorial)
+[Hugging Face transformers pipeline tutorial](https://huggingface.co/docs/transformers/pipeline_tutorial)
 
 
