@@ -20,9 +20,9 @@ menu:
 
 ## Research Computing Data Analytics Center
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_13.png width=80% height=80% >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_13.png alt="Banner announcing UVA's Data Analytics Center as a new resource supporting researchers with large dataset management and analysis." width=80% height=80% >}}
 
-[https://www.rc.virginia.edu/service/dac/](https://www.rc.virginia.edu/service/dac/)
+[Research Computing Data Analytics Center service page](https://www.rc.virginia.edu/service/dac/)
 
 
 

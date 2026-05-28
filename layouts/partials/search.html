@@ -5,7 +5,7 @@
 
       <div class="row no-gutters justify-content-between mb-3">
         <div class="col-6">
-          <h1 id="search-title">{{ i18n "search" }}</h1>
+          <h2 id="search-title">{{ i18n "search" }}</h2>
         </div>
         <button type="button" class="js-search close-search-btn" aria-label="Close search">
           <i class="fas fa-times-circle text-muted" aria-hidden="true"></i>
@@ -30,12 +30,14 @@
 
     <div class="section-search-results">
 
-      <div id="search-result-count" aria-live="assertive" aria-atomic="true">
+      <div id="search-results" aria-live="polite" aria-atomic="true">
+        <div id="search-result-count">
         <!-- Result count heading will appear here and be announced by screen readers -->
-      </div>
+        </div>
 
-      <div id="search-hits">
-        <!-- Search results will appear here -->
+        <div id="search-hits">
+          <!-- Search results will appear here -->
+        </div>
       </div>
 
     </div>

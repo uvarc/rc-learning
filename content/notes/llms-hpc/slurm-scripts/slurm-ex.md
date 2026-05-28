@@ -44,6 +44,6 @@ The default command defined in each container is “python” so using “run”
 
 The load software and run code lines are what a user would use to run their script at the command line.
 
-[TensorFlow example](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/#tensorflow-slurm-jobs) 
+[TensorFlow Slurm job example](https://www.rc.virginia.edu/userinfo/rivanna/software/tensorflow/#tensorflow-slurm-jobs)
 
 

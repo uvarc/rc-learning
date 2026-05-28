@@ -14,7 +14,7 @@ menu:
 
 Units are given with a suffix (K, M, G, or T).  If no unit is given, megabytes is assumed.
 
-Other options are available at [https://slurm.schedmd.com/sbatch.html](https://slurm.schedmd.com/sbatch.html)
+Additional sbatch options are documented in the [Slurm sbatch reference](https://slurm.schedmd.com/sbatch.html).
 
 For more information, see the RC tutorial [Using SLURM from a Terminal](https://learning.rc.virginia.edu/tutorials/slurm-from-cli/).
 

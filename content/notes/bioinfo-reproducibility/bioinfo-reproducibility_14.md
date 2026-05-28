@@ -17,7 +17,7 @@ menu:
 - Freebayes - variant calling
 - VCFtools - manipulating files
 
-**Create pipeline to string software together for “final” output**
+**Create pipeline to string software together for "final" output**
 
 ## Bioinformatic Pipeline Challenges
 - Complex dependencies between steps

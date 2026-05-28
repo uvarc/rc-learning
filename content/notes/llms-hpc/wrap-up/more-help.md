@@ -15,8 +15,8 @@ Tuesdays:       	3 pm - 5 pm
 
 Thursdays:     	10 am - noon
 
-Zoom Links are available at https://www.rc.virginia.edu/support/#office-hours
+Zoom links are available on the [Research Computing office hours page](https://www.rc.virginia.edu/support/#office-hours).
 
-[RC Website](https://rc.virginia.edu)
+[UVA Research Computing website](https://rc.virginia.edu)
 
 

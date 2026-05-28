@@ -22,7 +22,7 @@ menu:
 
 ### GitHub
 
-Click the following link to visit the GitHub site: https://github.com (opens in new tab)
+[Visit GitHub for version control resources and repository hosting (opens in new tab)](https://github.com "GitHub")
 
 - Track and manage changes to your code & files
 
@@ -53,8 +53,8 @@ Click the following link to visit the GitHub site: https://github.com (opens in 
 ## Storing Results
 
 ### Public repositories for sequence data - required for most journals
-- Click the following link for the NCBI database: https://www.ncbi.nlm.nih.gov
-- Click the following link for the Ensembl database: https://www.ensembl.org/index.html
+- [Browse the NCBI database for public sequence data (opens in new tab)](https://www.ncbi.nlm.nih.gov "NCBI database")
+- [Browse the Ensembl database for genome and annotation resources (opens in new tab)](https://www.ensembl.org/index.html "Ensembl database")
 - Always document and archive changes, especially if unpublished:
    - genome assembly versions
    - sequence data: SNPs, isoforms

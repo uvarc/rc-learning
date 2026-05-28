@@ -25,12 +25,12 @@ os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 ```
 
-[More Info](https://www.tensorflow.org/guide/gpu#limiting_gpu_memory_growth)
+[TensorFlow guide to limiting GPU memory growth](https://www.tensorflow.org/guide/gpu#limiting_gpu_memory_growth)
 
 Homework for Keras users: try out GPU dashboard and see if it reports all of the GPU memory as used.
 
 
-### Resource Allocation for LLMs
+## Resource Allocation for LLMs
 
 
 Resource needs will vary based on LLM use (inference, fine-tuning, etc.)

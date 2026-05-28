@@ -9,7 +9,7 @@ menu:
 ---
 
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_5.png width=50% height=50% >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_5.png alt="GPU Dashboard menu listing Machine Resources, GPU Utilization, GPU Memory, GPU Resources, PCIe Throughput, NVLink Throughput, and NVLink Timeline." width=50% height=50% >}}
 
 The GPU Dashboard is included in OOD (Open On Demand). It checks CPU and GPU efficiency. This will be demoed during the exercises in this workshop.
 
