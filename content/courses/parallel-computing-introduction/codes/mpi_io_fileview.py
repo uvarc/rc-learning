@@ -3,7 +3,7 @@ import numpy as np
 from mpi4py import MPI
 
 if len(sys.argv)<2:
-    print("Usage: number of samples")
+    print("Usage: filename <opt> nrows <opt> ncols")
     exit()
 else:
     filename=sys.argv[1]
@@ -43,13 +43,15 @@ ldims=np.array([nrl,ncl],dtype='int')
 starts=np.array([ncl*lrow,nrl*lcol],dtype='int')
 print(rank,starts)
 
-#Arbitrary values.
+#Generate arbitrary values.
 loc_u=np.ones((nrl,ncl),dtype="int")*(rank+1)
 
+#Write each segment to conventional file (the "old way")
 myfile=f'{filename:}{rank:02}'
 myfh=open(myfile,'w')
 for i in range(nrl):
     print(loc_u[i,:],file=myfh)
+myfh.close()
 
 locarr=MPI.INT.Create_subarray(gdims,ldims, starts, order=MPI.ORDER_C)
 locarr.Commit()
@@ -57,14 +59,33 @@ locarr.Commit()
 amode=MPI.MODE_CREATE | MPI.MODE_WRONLY
 fh=MPI.File.Open(comm,filename,amode)
 
+#No header
 disp=0
-if rank==0:
-    fh.Write(gdims)
-
-disp=MPI.INT.Get_size()*gdims.size
-
 fh.Set_view(disp,MPI.INT,locarr,"native",MPI.INFO_NULL)
 fh.Write_all(loc_u)
 
 fh.Close()
+
+amode=MPI.MODE_RDONLY
+fh=MPI.File.Open(comm,filename,amode)
+
+buf=np.zeros_like(loc_u,dtype='int')
+fh.Set_view(disp,MPI.INT,locarr,"native",MPI.INFO_NULL)
+fh.Read_all([buf, MPI.INT])
+fh.Close()
+
+#Usual trick to show one rank at a time
+status=MPI.Status()
+if rank==0:
+    u=np.zeros_like(buf)
+    print("Read for rank 0")
+    print(buf)
+    for i in range(1,nprocs):
+        comm.Recv([u,MPI.INT],source=MPI.ANY_SOURCE,tag=MPI.ANY_TAG,status=status)
+        print("Read for rank ",status.Get_source())
+        print(u)
+else:
+    comm.Send([buf,MPI.INT],dest=0,tag=rank)
+
+comm.Barrier()
 
