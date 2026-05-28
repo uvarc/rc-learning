@@ -9,7 +9,7 @@ menu:
 ---
 
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_10.png width=70% height=70% >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_10.png alt="Workflow diagram showing raw text data used for pre-training, then fine-tuning with a custom knowledge base to produce a fine-tuned LLM." width=70% height=70% >}}
 
 LLMs are pre-trained on huge amounts of text data to learn general language patterns.
 

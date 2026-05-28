@@ -9,7 +9,7 @@ menu:
 ---
 
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_1.png height=75% width=75% >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_1.png alt="Diagram showing NLP tasks solved by LLMs: search, classify, cluster, summarize, generate, rewrite, and extract." height=75% width=75% >}}
 
 __Problems:__
 

@@ -16,7 +16,7 @@ There are many different types of LLMs that are suited to particular tasks.
 
 Hubs such as [Hugging Face](https://huggingface.co/) provide many LLMs for download.
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_0.png height=90% width=90% caption="Graphic Source: [https://attri.ai/blog/introduction-to-large-language-models](https://attri.ai/blog/introduction-to-large-language-models)" >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_0.png alt="Diagram showing text input entering a language model and producing either text output or a numeric representation." height=90% width=90% caption="Graphic source: [Introduction to large language models article on attri.ai](https://attri.ai/blog/introduction-to-large-language-models)" >}}
 
 
 You may hear people talk about LLMs for image classification, computer vision, etc.  These are also called VLMs (vision language models) and we are not covering those today.

@@ -9,7 +9,7 @@ menu:
 ---
 
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_7.png height=80% width=80% >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_7.png alt="Hugging Face model card for facebook slash bart-large-cnn showing task tags, downloads, and model size information." height=80% width=80% >}}
 
 Use the information on the model card.
 
@@ -17,7 +17,7 @@ $$ \text{Model Size (B)} = \text{(Number of parameters)} \times \text{(bytes/par
 
 ---
 
-{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_8.png height=60% width=60% >}}
+{{< figure src=/notes/llms-hpc/img/LLMS_on_HPC_8.png alt="Hugging Face Files and versions tab for facebook slash bart-large-cnn showing model files such as pytorch_model.bin and their sizes." height=60% width=60% >}}
 
 Use information on the Files and versions tab.
 

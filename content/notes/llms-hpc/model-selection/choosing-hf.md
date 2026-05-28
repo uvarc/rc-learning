@@ -19,7 +19,7 @@ If you need to fine-tune a model, do you have the computational resources to do 
   
 Larger models (i.e., models with more parameters) will need more resources.
 
-[Source and more information](https://medium.com/@harshapulletikurti/choosing-the-correct-llm-model-from-hugging-face-hub-183fc6198295)
+[Guide to choosing the correct Hugging Face Hub LLM model](https://medium.com/@harshapulletikurti/choosing-the-correct-llm-model-from-hugging-face-hub-183fc6198295)
 
 
 ## Choosing the Model
@@ -38,5 +38,5 @@ Read model card (documentation), including
   * Any benchmarking results.
 
 
-[Source and more information](https://medium.com/@harshapulletikurti/choosing-the-correct-llm-model-from-hugging-face-hub-183fc6198295)
+[Guide to choosing the correct Hugging Face Hub LLM model](https://medium.com/@harshapulletikurti/choosing-the-correct-llm-model-from-hugging-face-hub-183fc6198295)
 
