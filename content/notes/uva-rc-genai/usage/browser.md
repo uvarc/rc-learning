@@ -24,4 +24,4 @@ Files can be loaded into the web interface – supported extensions include: pdf
   when you close the browser tab, sign out, or if the session expires.
 </div>
 
-More on data management will be discussed in the [Data Management](/notes/uva-rc-genai/usage/data_management) section.
+More on data management will be discussed in [Data Management](/notes/uva-rc-genai/usage/data_management).
