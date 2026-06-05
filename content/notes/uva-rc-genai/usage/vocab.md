@@ -35,7 +35,7 @@ The following are common terms used when working with UVA RC GenAI and LLMs in g
 
 ### Usage and Operations
 
-* **Metadata** - Non-content information about an API exchange: timestamp, model version, token counts, request ID, cost.
+* **Metadata** - Non-content information (e.g., timestamp, model version, token counts, request ID, etc).
 
 * **Rate Limiting** - Restrictions on tokens or requests per time period to prevent overload and ensure fair access.
 
