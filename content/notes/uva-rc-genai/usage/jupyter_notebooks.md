@@ -4,7 +4,7 @@ date: "2026-04-20T00:00:00"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: docs  # Do not modify.
-weight: 70
+weight: 60
 
 menu:
   uva-rc-genai:
@@ -15,7 +15,7 @@ menu:
 UVA RC GenAI can be accessed from a Jupyter notebook using the python API client to integrate LLM capabilites for data analysis, code generation, and automating research workflows. 
 
 ## Basic Literature Review
-Download {{< file-download file="/notes/uva-rc-genai/codes/lit_review_assistant.ipynb " text="Literature Review Notebook" >}} for a simple example of a basic literature review in a Jupyter notebook. The notebook demonstrates how to test the API connection and uses manual prompt engineering for individual abstracts of research articles.
+Download {{< file-download file="/notes/uva-rc-genai/codes/lit_review_assistant.zip" text="lit_review_assistant.zip" >}} for a simple example of a basic literature review in a Jupyter notebook. The notebook demonstrates how to test the API connection and uses manual prompt engineering for individual abstracts of research articles.
 
 While the basic notebook demonstrates direct API interaction suitable for 5-10 papers, scaling to comprehensive literature reviews requires automation. Retrieval-Augmented Generation (RAG) moves beyond the 'single-document' approach of the example notebook.
 

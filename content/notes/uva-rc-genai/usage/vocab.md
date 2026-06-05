@@ -31,7 +31,7 @@ The following are common terms used when working with UVA RC GenAI and LLMs in g
 
 * **Temperature** - Controls output randomness. Lower values (0.1-0.3) produce more focused, deterministic responses; higher values (0.8-1.0) produce more varied and creative outputs.
 
-* **Seed** - An integer that initializes the random number generator. Using the same seed with identical prompts and settings produces reproducible outputs.
+* **Seed** - An integer that initializes the random number generator. Using the same seed with identical prompts and settings enhances reproducibility.
 
 ## Usage and Operations
 
