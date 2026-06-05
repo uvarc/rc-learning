@@ -43,8 +43,7 @@ You will have the option to view, copy or create a new API key.
 Use environment variables to safely store your key (e.g., `export UVARC_GenAI_API="your-key-here"`). Make sure to never commit keys to code repositories, and regenerate keys in UVA RC GenAI browser if compromised.
 
 
-<div style="background-color: #dc3545; border-left: 4px solid
-  #2196F3; padding: 12px; margin: 16px 0;">
+<div role="note" style="background-color: #dc3545; border-left: 4px solid #2196F3; padding: 12px; margin: 16px 0;">
   <strong>Note:</strong> You need to be on a compute node to run your code.
 </div>
 
