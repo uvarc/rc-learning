@@ -11,7 +11,7 @@ menu:
     parent: Usage
 ---
 
-After signing into [UVA RC GenAI](https://open-webui.rc.virginia.edu/), you should have browser access to UVARC GenAI through the OpenWebUI interface.
+After signing into [UVA RC GenAI](https://open-webui.rc.virginia.edu/), you should have browser access to the OpenWebUI interface.
 
 {{< figure src="/notes/uva-rc-genai/img/openwebui.png" alt="Screenshot of OpenWebUI interface in browser with UVA RC GenAI"  >}}
 
