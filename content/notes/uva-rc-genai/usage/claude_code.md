@@ -12,14 +12,14 @@ menu:
 ---
 
 ## Claude Code on HPC
-Claude Code is an AI-assistant for software engineering tasks that runs directly in the terminal to write, edit and analyze code. You can link it to UVA RC GenAI. 
+[Claude Code](https://code.claude.com/docs/en/overview) is an AI-assistant for software engineering tasks that runs directly in the terminal to write, edit and analyze code. You can link it to UVA RC GenAI. 
 
 ### Installing Claude Code
-First, you'll need to install claude code into your home account on a login node with the following:
+First, you'll need to install claude code into your home account with the following:
 
 ```curl -fsSL https://claude.ai/install.sh | bash```
 
-once the above command is finished running, run the following to add `~/.local/bin` to your path:
+once the command is finished running, run the following to add `~/.local/bin` to your path:
 
 ```echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc```
 
