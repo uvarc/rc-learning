@@ -18,8 +18,8 @@ An allocation refers to a block of CPU time that you can use to run your computa
 Only faculty may request an allocation. Research staff may apply for an exception.
 * Students must be sponsored by a faculty or research staff.
 * All individuals on a given allocation share the service units.
-Allocations may be requested at [the RC website's Allocations page](https://www.rc.virginia.edu/userinfo/rivanna/allocations/)
+Learn more about getting started with an allocation at the [Getting Started guide](https://www.rc.virginia.edu/getting-started/get-access-high-performance-computing-resources/standard-security-zone-ssz)
 
-Allocations are measured in service units (SUs), which represent the total usage of hardware resources over a period of time (i.e., CPU+Memory+GPU per core-hour). The SU charge rate can vary based on the [hardware](https://www.rc.virginia.edu/userinfo/hpc/#system-details "HPC system details") used. Newer hardware and GPUs will charge more SUs.
+Allocations are measured in service units (SUs), which represent the total usage of hardware resources over a period of time (i.e., CPU+Memory+GPU per core-hour). The SU charge rate can vary based on the [hardware](https://www.rc.virginia.edu/services/compute-and-storage/aftonrivanna#service-unit-charge-rate "HPC system details") used. Newer hardware and GPUs will charge more SUs.
 
 
