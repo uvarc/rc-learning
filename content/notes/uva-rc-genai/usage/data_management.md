@@ -24,7 +24,7 @@ The "Copy" option copies only prompts, responses and reasonings, similar to what
 
 ## Storage Options
 Downloaded browser chats will be saved to your local workstation but can be easily copied to HPC storage. If you're saving chats on HPC storage it's important to remember the limitations and use cases for each of RCs storage options.
-See [here](https://www.rc.virginia.edu/userinfo/hpc/storage/) for details on our complementary storage options and [here](https://www.rc.virginia.edu/userinfo/storage/) for leased options. 
+See our [complementary storage](https://www.rc.virginia.edu/userinfo/hpc/storage/) page and our [leased storage ](https://www.rc.virginia.edu/userinfo/storage/) page for additional details. 
 
 ## Reproducibility Considerations
 Reproducibility controls are important since LLM outputs can vary across different runs. This makes it impossible to verify results, replicate research, or trace back errors. The following are some important considerations regarding output reproducibility.

@@ -11,7 +11,7 @@ menu:
     parent: Usage
 ---
 
-After signing in, you should have browser access to UVARC GenAI through the OpenWebUI interface.
+After signing into [UVA RC GenAI](https://open-webui.rc.virginia.edu/), you should have browser access to the OpenWebUI interface.
 
 {{< figure src="/notes/uva-rc-genai/img/openwebui.png" alt="Screenshot of OpenWebUI interface in browser with UVA RC GenAI"  >}}
 
@@ -19,10 +19,9 @@ Here, you can chat through the conversational interface, adjust integrations (e.
 
 Files can be loaded into the web interface – supported extensions include: pdf, docx, txt, md, csv, png, jpeg, jpg, pptx, xls, xlsx, json, sh, html, htm, xhtml, js, and py.
 
-<div style="background-color: #dc3545; border-left: 4px solid
-  #2196F3; padding: 12px; margin: 16px 0;">
+<div role="note" style="background-color: #dc3545; border-left: 4px solid #2196F3; padding: 12px; margin: 16px 0;">
   <strong>Note:</strong> Chats are not saved. Conversation history disappears
   when you close the browser tab, sign out, or if the session expires.
 </div>
 
-More on data management will be discussed [later](/notes/uva-rc-genai/usage/data_management).
+More on data management will be discussed in [Data Management](/notes/uva-rc-genai/usage/data_management).

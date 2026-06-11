@@ -42,9 +42,10 @@ You will have the option to view, copy or create a new API key.
 ## Securely Storing Your Key
 Use environment variables to safely store your key (e.g., `export UVARC_GenAI_API="your-key-here"`). Make sure to never commit keys to code repositories, and regenerate keys in UVA RC GenAI browser if compromised.
 
+For repeated use or integration with interactive apps (e.g., JupyterLab), you'll want to export your API key in `~/.bashrc`.
 
-<div style="background-color: #dc3545; border-left: 4px solid
-  #2196F3; padding: 12px; margin: 16px 0;">
+
+<div role="note" style="background-color: #dc3545; border-left: 4px solid #2196F3; padding: 12px; margin: 16px 0;">
   <strong>Note:</strong> You need to be on a compute node to run your code.
 </div>
 
@@ -58,9 +59,16 @@ Each of the following examples prompts "Hello" to UVA RC GenAI via API.
 {{< code-download file="/notes/uva-rc-genai/codes/uva-rc-genai-curl.sh" lang="bash" >}}
 {{< /spoiler >}}
 
-{{< spoiler text="Python with OpenAI Library" >}}
+{{< spoiler text="Python with OpenAI Library*" >}}
 {{< code-download file="/notes/uva-rc-genai/codes/uva-rc-genai-oai.py" lang="python" >}}
 {{< /spoiler >}}
+
+{{< spoiler text="Python with Requests" >}}
+{{< code-download file="/notes/uva-rc-genai/codes/uva-rc-genai-requests.py" lang="python" >}}
+{{< /spoiler >}}
+
+
+*See [installing Python packages](https://www.rc.virginia.edu/userinfo/hpc/software/miniforge/#installing-packages) for instructions and methods to install Python packages. 
 
 ## Saving Outputs
 
@@ -74,12 +82,6 @@ with open("output.txt", "w") as f:
 
 ## Token Tracking
 
-It's important to monitor token usage to stay within limits and ensure requests don't exceed the context window. Token counts are included in every API response. For example, in the OpenAI library:
-
-```
-print(response.usage.prompt_tokens)      # Input tokens
-print(response.usage.completion_tokens)  # Output tokens
-print(response.usage.total_tokens)       # Combined
-```
+It's important to monitor token usage to stay within limits and ensure requests don't exceed the context window. Token counts are included in every API response. For example, `stream_options={"include_usage": True}` can be set in the OpenAI `client.chat.completions.create` call to collect token usage info (e.g., input and output tokens).
 
 Similar fields exist in the Anthropic SDK and other tools.

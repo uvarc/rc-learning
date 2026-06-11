@@ -10,7 +10,7 @@ menu:
 
 ## Resources and Partitions
 
-An HPC **job** is a description of the resources required, any preparatory steps such as loading [modules](https://www.rc.virginia.edu/userinfo/rivanna/software/modules/ "The Research Computing website's modules page") or otherwise setting up an environment, and the commands to run the software, along with any postprocessing that may be appropriate.
+An HPC **job** is a description of the resources required, any preparatory steps such as loading [modules](https://archive.rc.virginia.edu/userinfo/hpc/software/ "The Research Computing website's modules page") or otherwise setting up an environment, and the commands to run the software, along with any postprocessing that may be appropriate.
 
 The job is specified through a special form of script often called a _batch script_.  Usually it is written in `bash`.
 
