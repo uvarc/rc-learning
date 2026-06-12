@@ -11,7 +11,7 @@ Before connecting to your VM, you must install the following on your workstation
   * Cisco AnyConnect Secure Mobility Client.
   * Opswat.
   * Duo MFA on personal smartphone.
-  * See [here on the RC website](https://www.rc.virginia.edu/userinfo/ivy/ "The Research Computing website's Ivy page") for details.
+  * See [here on the RC website](https://www.rc.virginia.edu/getting-started/get-access-high-performance-computing-resources/high-security-zone-hsz#understand-access-requirements "The Research Computing website's Ivy page") for details.
 
 There are two ways to connect to your Linux VM:
 

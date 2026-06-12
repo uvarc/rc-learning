@@ -21,5 +21,5 @@ Rio is designed for processing and storing HSD such as HIPAA, FERPA, Controlled 
 
 Rio is not CUI certified yet; use the Ivy VM instead. 
 
-> For more information, please see [RC Systems Data Sensitivity](https://www.rc.virginia.edu/userinfo/storage/data-sensitivity/).
+> For more information, please see [RC Systems Data Sensitivity](https://www.rc.virginia.edu/getting-started/get-access-high-performance-computing-resources/rc-systems-data-sensitivity).
 
