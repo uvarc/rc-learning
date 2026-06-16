@@ -19,7 +19,7 @@ menu:
 
 Unauthorized use of UVA RC GenAI may result in disciplinary action under the [University's GenAI usage guidelines](https://in.virginia.edu/genai-useguidelines). 
 
-* **When in doubt**: Contact us through our [support request form](https://www.rc.virginia.edu/support) before submitting
+* **When in doubt**: Contact us through our [support request form](https://forms.rc.virginia.edu/form/support-request/) before submitting
 
 ## What Data is Saved?
 * Prompts and responses are not saved
