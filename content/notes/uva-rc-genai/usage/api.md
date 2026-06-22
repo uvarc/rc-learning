@@ -49,7 +49,7 @@ For repeated use or integration with interactive apps (e.g., JupyterLab), you'll
   <strong>Note:</strong> You need to be on a compute node to run your code.
 </div>
 
-HPC compute nodes can be accessed either via [OpenOn Demand](https://www.rc.virginia.edu/userinfo/hpc/ood/) (JupyterLab, Desktop, etc) or through an [ijob](https://www.rc.virginia.edu/userinfo/hpc/slurm/#submitting-an-interactive-job) from the command line. 
+HPC compute nodes can be accessed either via [OpenOn Demand](https://rc.virginia.edu/request-manage/ssz-login#web-based-access) (JupyterLab, Desktop, etc) or through an interactive job from the command line. 
 
 ## Code Examples
 
@@ -68,7 +68,7 @@ Each of the following examples prompts "Hello" to UVA RC GenAI via API.
 {{< /spoiler >}}
 
 
-*See [installing Python packages](https://www.rc.virginia.edu/userinfo/hpc/software/miniforge/#installing-packages) for instructions and methods to install Python packages. 
+*See [installing Python packages](https://archive.rc.virginia.edu/userinfo/hpc/software/miniforge/#installing-packages) for instructions and methods to install Python packages. 
 
 ## Saving Outputs
 
