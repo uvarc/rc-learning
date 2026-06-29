@@ -117,8 +117,12 @@ Duplicate underrepresented samples.
 from torch.utils.data import WeightedRandomSampler
 
 class_counts = [1000, 200]  # Example: Majority vs. Minority class
-weights = 1. / torch.tensor(class_counts, dtype=torch.float)
-sampler = WeightedRandomSampler(weights, len(weights))
+class_weights = 1. / torch.tensor(class_counts, dtype=torch.float)
+
+# WeightedRandomSampler needs one weight PER SAMPLE, not per class.
+# Map each sample's label to its class weight.
+sample_weights = class_weights[labels]   # labels is a tensor of class indices, one per sample
+sampler = WeightedRandomSampler(sample_weights, num_samples=len(sample_weights), replacement=True)
 
 train_loader = DataLoader(dataset, batch_size=32, sampler=sampler)
 ```

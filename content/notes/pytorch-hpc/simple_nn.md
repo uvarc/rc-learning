@@ -13,7 +13,7 @@ menu:
 ### **Neural Network Construction**
 A neural network consists of multiple layers, each performing specific transformations on the input data.
 
-{{< figure src="/courses/pytorch-hpc/img/nn.png" caption="An Artificial Neural Network" alt="Diagram of an artificial neural network showing 4 input layer nodes in blue, 5 hidden layer nodes in orange, and 3 output layer nodes in green, with lines connecting each layer" width="500px" >}}
+{{< figure src="/notes/pytorch-hpc/img/nn.png" caption="An Artificial Neural Network" alt="Diagram of an artificial neural network showing 4 input layer nodes in blue, 5 hidden layer nodes in orange, and 3 output layer nodes in green, with lines connecting each layer" width="500px" >}}
 
 Frequently used Layers in PyTorch:
 ```python
@@ -50,7 +50,7 @@ layer_norm = nn.LayerNorm(normalized_shape=128)
 
 ---
 
-#### Building a Model and Forward Proporgation
+#### Building a Model and Forward Propagation
 There are two ways to define a neural network, the Sequential Class and the Module Class. 
 
 ##### Defining a Model with the Sequential Class
@@ -80,14 +80,14 @@ class SimpleModel(nn.Module):
     def forward(self, x):
         # Define forward pass
         x = self.fc1(x)
-        x = nn.ReLU(x)
+        x = torch.relu(x)
         x = self.fc2(x)
         return x
 
 
 ```      
 ---
-#### Backpropogation
+#### Backpropagation
 Backpropagation updates the network’s weights based on the gradient of the loss function.
 
 ```python
@@ -112,7 +112,7 @@ from torch.utils.data import DataLoader, TensorDataset
 X_train = torch.rand(100, 10)
 y_train = torch.rand(100, 1)
 dataset = TensorDataset(X_train, y_train)
-dataloader = DataLoader(dataset, batch_size=10, shuffle=True)
+train_loader = DataLoader(dataset, batch_size=10, shuffle=True)
 ```
 We've also constructed our model, selected the best loss function and optimizer for our problem, and decided how long to train
 ```python
@@ -121,7 +121,7 @@ import torch.optim as optim
 
 model = SimpleModel()
 loss_fn = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)  # Pass model.paramters()
+optimizer = optim.Adam(model.parameters(), lr=0.001)  # Pass model.parameters()
 epochs = 20
 ```
 Now we define our training and testing loops.
@@ -131,7 +131,7 @@ In PyTorch, we explicitly define how we want to perform training with a training
 ```python
 model.train()
 for epoch in range(epochs):                             # loop over epochs
-    for x_train, y_train in trainloader:            # loop over batches
+    for x_train, y_train in train_loader:            # loop over batches
 
         # Send data to GPU (code is the same if no GPU available)
         x_train, y_train = x_train.to(device) , y_train.to(device)
@@ -142,7 +142,7 @@ for epoch in range(epochs):                             # loop over epochs
         # Backpropagation - tweak the weights/biases of the NN
         optimizer.zero_grad()                            # Clear previous gradients
         loss = loss_fn(predicted, y_train.reshape(-1,1)) # Compute the loss   
-        loss.backward()                                  # Backpropogate
+        loss.backward()                                  # Backpropagate
         optimizer.step()                                 # Update weights
 ```
 
@@ -150,23 +150,23 @@ for epoch in range(epochs):                             # loop over epochs
 After training, we test the model with unseen data to estimate its general performance. we use torch.no_grad() to tell PyTorch not to compute the gradient. We pass test data through the network once.
 ```python
 model.eval()
-num_batch = len(testloader)
+num_batch = len(test_loader)
 loss = 0
 
 with torch.no_grad():
-    for x_train, y_train in testloader: # loop over batches
+    for x_test, y_test in test_loader: # loop over batches
 
         # send data to GPU (code is the same if no GPU available)
-        x_train, y_train = x_train.to(device), y_train.to(device)
+        x_test, y_test = x_test.to(device), y_test.to(device)
 
         # predict NN output
-        predicted = model(x_train)
+        predicted = model(x_test)
 
         # calculate loss
-        loss +=loss_fn)predicted,y_train.reshape(-1,1).item()
+        loss += loss_fn(predicted, y_test.reshape(-1,1)).item()
         # calculate other metrics here
 # print result
-print('avg loss: {}\t avg accuracy:{}'.format(loss/num_batch, acc/num_batch))
+print('avg loss: {}'.format(loss/num_batch))
 ```
 
 #### Using a Validation Set
@@ -184,5 +184,85 @@ val_dataset = TensorDataset(X_val, y_val)
 train_loader = DataLoader(train_dataset, batch_size=10, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=10, shuffle=False)
 ```
+
+---
+
+### **Saving and Resuming with Checkpoints**
+
+On an HPC cluster, training jobs run under a walltime limit. If your job is cut off before it finishes, you lose all progress unless you have been saving checkpoints. A checkpoint stores everything needed to resume training: the model weights, the optimizer state, and the current epoch.
+
+#### Saving a Checkpoint
+Save the `state_dict()` of both the model and the optimizer. Saving the optimizer state matters because optimizers like Adam keep running statistics that affect later updates.
+```python
+checkpoint = {
+    'epoch': epoch,
+    'model_state_dict': model.state_dict(),
+    'optimizer_state_dict': optimizer.state_dict(),
+    'loss': loss,
+}
+torch.save(checkpoint, 'models/checkpoint.pth')
+```
+A common pattern is to save every few epochs and to keep a separate copy of the best model seen so far.
+
+#### Resuming from a Checkpoint
+Load the checkpoint and restore each piece of state. Move the model to the device before continuing.
+```python
+checkpoint = torch.load('models/checkpoint.pth')
+model.load_state_dict(checkpoint['model_state_dict'])
+optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+start_epoch = checkpoint['epoch'] + 1   # resume on the next epoch
+
+model.to(device)
+model.train()
+
+for epoch in range(start_epoch, epochs):
+    # continue the training loop as before
+    ...
+```
+For inference only, you can save just the model weights with `torch.save(model.state_dict(), 'models/model.pth')` and load them with `model.load_state_dict(torch.load('models/model.pth'))`.
+
+---
+
+### **Early Stopping**
+
+Early stopping halts training once validation performance stops improving, which prevents overfitting and avoids wasting compute on epochs that no longer help. The idea is to track the best validation loss and count how many epochs have passed without improvement. Once that count exceeds a set patience, stop.
+```python
+best_val_loss = float('inf')
+patience = 5          # epochs to wait after the last improvement
+patience_counter = 0
+
+for epoch in range(epochs):
+    # ---- training loop (as above) ----
+    model.train()
+    for x_train, y_train in train_loader:
+        x_train, y_train = x_train.to(device), y_train.to(device)
+        predicted = model(x_train)
+        optimizer.zero_grad()
+        loss = loss_fn(predicted, y_train.reshape(-1,1))
+        loss.backward()
+        optimizer.step()
+
+    # ---- validation loop ----
+    model.eval()
+    val_loss = 0
+    with torch.no_grad():
+        for x_val, y_val in val_loader:
+            x_val, y_val = x_val.to(device), y_val.to(device)
+            predicted = model(x_val)
+            val_loss += loss_fn(predicted, y_val.reshape(-1,1)).item()
+    val_loss /= len(val_loader)
+
+    # ---- early stopping check ----
+    if val_loss < best_val_loss:
+        best_val_loss = val_loss
+        patience_counter = 0
+        torch.save(model.state_dict(), 'models/best_model.pth')  # save the best model
+    else:
+        patience_counter += 1
+        if patience_counter >= patience:
+            print(f"Early stopping at epoch {epoch+1}")
+            break
+```
+Early stopping pairs naturally with checkpointing: save the model whenever validation loss improves, so that the saved copy is always your best model rather than the last one trained.
 
 

@@ -16,6 +16,8 @@ The above example is for starting a JupyterLab session.
 
 ### Choosing Resource Requests
 
+**Allocation** Use the VM/Group name as your allocation: ivy-cad-name
+
 **Partition:** Standard or GPU (only select GPU if you are using GPU-enabled code). 
 
 **Time:** Time limit for your session. Once reached, your session will terminate along with any running code. This cannot be adjusted once set. 

@@ -14,7 +14,7 @@ menu:
 
 ### **Why Use GPUs?**
 
-Neural Networks can grow large and contain many million if not billions of parameters. ChatGPT free version (based on GPT-3.5) has 175 billion parameters, and ChatGPT paid version (based on GPT-4) has over 1 trillion parameters. Because training often involves millions of operations, we need a form of parallelization to speed up the process. GPUs are optimized for **parallel computations**, making them ideal for training deep learning models. They accelerate matrix operations, which are the core of neural network computations. Training large models on CPUs can take **days or weeks**, whereas GPUs can **reduce training time** significantly. All the major deep learning Python libraries (Tensorflow, PyTorch, Keras, Caffe,…) support the use of GPUs and allow users to distribute their code over multiple GPUs. New processors have been developed and optimized specifically for deep learning, like Google's Tensor Processing Unit.
+Neural Networks can grow large and contain many million if not billions of parameters. GPT-3 has 175 billion parameters, and later models like GPT-4 are widely believed to be substantially larger, though the exact counts have not been publicly disclosed. Because training often involves millions of operations, we need a form of parallelization to speed up the process. GPUs are optimized for **parallel computations**, making them ideal for training deep learning models. They accelerate matrix operations, which are the core of neural network computations. Training large models on CPUs can take **days or weeks**, whereas GPUs can **reduce training time** significantly. All the major deep learning Python libraries (Tensorflow, PyTorch, Keras, Caffe,…) support the use of GPUs and allow users to distribute their code over multiple GPUs. New processors have been developed and optimized specifically for deep learning, like Google's Tensor Processing Unit.
 
 
 #### **Key Features**
@@ -22,7 +22,7 @@ Neural Networks can grow large and contain many million if not billions of param
 - **High memory bandwidth** for efficient data transfer
 - Optimized for **tensor operations** (e.g., matrix multiplications)
 
-If you’re working with a small model or smaller dataset, you may find using a GPU slows down your work.This is mainly due to the overhead cost of transfering data back and forward to the CPU. To find out if your task could benefit from using GPUs, it’s important to benchmark and profile your code. Learn more about [Benchmarking and Profiling](https://learning.rc.virginia.edu/notes/benchmark-parallel-programs/) and [High-Performance Python](https://learning.rc.virginia.edu/courses/python-high-performance/).
+If you’re working with a small model or smaller dataset, you may find using a GPU slows down your work.This is mainly due to the overhead cost of transferring data back and forth to the CPU. To find out if your task could benefit from using GPUs, it’s important to benchmark and profile your code. Learn more about [Benchmarking and Profiling](https://learning.rc.virginia.edu/notes/benchmark-parallel-programs/) and [High-Performance Python](https://learning.rc.virginia.edu/courses/python-high-performance/).
 
 ---
 
@@ -86,14 +86,49 @@ Then submit your job:
 ~~~sh
 sbatch train.slurm
 ~~~
-To show current jobs:
+To show the status of your current jobs:
 ~~~sh
-show job status squeue -u $computing_id
-# or
-sstat job_id
+# list your queued and running jobs
+squeue -u $computing_id
+
+# show resource usage for a running job
+sstat <job_id>
 ~~~
 Alternatively you can use the [SLURM Script Generator](https://www.rc.virginia.edu/userinfo/hpc/slurm-script-generator/) to create your script.
 
+---
+
+### **Requesting and Monitoring GPU Resources**
+
+#### Requesting GPUs in Your SLURM Script
+You request a GPU with the `--gres=gpu` directive. The number after the colon is how many GPUs you want on the node.
+~~~sh
+#SBATCH -p gpu          # submit to the GPU partition
+#SBATCH --gres=gpu:1    # request 1 GPU
+#SBATCH -c 4            # request 4 CPU cores (pair with DataLoader num_workers)
+~~~
+Request only what your job will actually use. A single-GPU training job should ask for one GPU; asking for more leaves expensive hardware idle and can make your job wait longer in the queue. The CPU cores you request with `-c` are a good reference point for setting `num_workers` in your `DataLoader`.
+
+#### Confirming the GPU Is Being Used
+Inside your script or an interactive session, a quick check confirms PyTorch can see the GPU.
+```python
+import torch
+print(torch.cuda.is_available())        # True if a GPU is visible
+print(torch.cuda.get_device_name(0))    # name of the GPU
+```
+If `torch.cuda.is_available()` returns `False`, your job is running on CPU. Check that you submitted to the GPU partition and included `--gres=gpu`.
+
+#### Monitoring GPU Utilization
+The `nvidia-smi` command reports GPU usage, memory consumption, and which processes are running. Run it from within an interactive GPU session, or on the compute node your job is using.
+~~~sh
+nvidia-smi
+
+# refresh every 2 seconds to watch utilization during training
+watch -n 2 nvidia-smi
+~~~
+Two numbers are worth watching. GPU-Util shows how busy the GPU is; if it sits near zero while your job runs, the GPU is starved, often because data loading is the bottleneck (raise `num_workers` or enable `pin_memory`). Memory-Usage shows how much GPU memory you are consuming; if you are far below the limit you may be able to increase your batch size, and if you hit the limit you will see out-of-memory errors and should reduce it. This ties back to the benchmarking point above: profile before assuming a GPU is helping.
+
+---
 
 For more information on SLURM, visit [PyTorch on UVA HPC](https://www.rc.virginia.edu/userinfo/hpc/software/pytorch/) and [SLURM at UVA Research Computing](https://www.rc.virginia.edu/userinfo/hpc/slurm/).
 
