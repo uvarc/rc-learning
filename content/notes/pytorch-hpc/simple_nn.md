@@ -13,7 +13,7 @@ menu:
 ### **Neural Network Construction**
 A neural network consists of multiple layers, each performing specific transformations on the input data.
 
-{{< figure src="/notes/pytorch-hpc/img/nn.png" caption="An Artificial Neural Network" alt="Diagram of an artificial neural network showing 4 input layer nodes in blue, 5 hidden layer nodes in orange, and 3 output layer nodes in green, with lines connecting each layer" width="500px" >}}
+{{< figure src="/courses/pytorch-hpc/img/nn.png" caption="An Artificial Neural Network" alt="Diagram of an artificial neural network showing 4 input layer nodes in blue, 5 hidden layer nodes in orange, and 3 output layer nodes in green, with lines connecting each layer" width="500px" >}}
 
 Frequently used Layers in PyTorch:
 ```python
@@ -127,7 +127,7 @@ epochs = 20
 Now we define our training and testing loops.
 
 #### Training 
-In PyTorch, we explicitly define how we want to perform training with a training loop. The loop represents one forward and backward pass of one batch. 
+In PyTorch, we explicitly define how we want to perform training with a training loop. The loop represents one forward and backward pass of one batch. We begin by calling `model.train()`, which puts the model into training mode. This matters because some layers behave differently during training than during evaluation. Dropout, for example, randomly drops neurons while training but passes everything through at evaluation time, and batch normalization tracks running statistics during training.
 ```python
 model.train()
 for epoch in range(epochs):                             # loop over epochs
@@ -147,7 +147,7 @@ for epoch in range(epochs):                             # loop over epochs
 ```
 
 #### Testing
-After training, we test the model with unseen data to estimate its general performance. we use torch.no_grad() to tell PyTorch not to compute the gradient. We pass test data through the network once.
+After training, we test the model with unseen data to estimate its general performance. We call `model.eval()` to switch those same layers, like dropout and batch normalization, into inference mode. This is an easy step to forget, and nothing will raise an error if you do; the model will simply give quietly worse, inconsistent results, so it is an important habit to call `model.eval()` before testing or validating. We also use torch.no_grad() to tell PyTorch not to compute the gradient. We pass test data through the network once.
 ```python
 model.eval()
 num_batch = len(test_loader)
