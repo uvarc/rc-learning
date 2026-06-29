@@ -12,8 +12,7 @@ menu:
 
 ### Overview
 
-This short course provides a practical introduction to building artificial neural networks using PyTorch, a powerful and flexible deep l
-earning framework. The course covers the fundamentals of PyTorch, including tensors, automatic differentiation, and model building. Participants will 
+This short course provides a practical introduction to building artificial neural networks using PyTorch, a powerful and flexible deep learning framework. The course covers the fundamentals of PyTorch, including tensors, automatic differentiation, and model building. Participants will
 learn how to construct, train, and optimize neural networks while exploring real-world applications. The course also includes best practices for experiment tracking and project setup. By the end of the course, participants will have a solid foundation in PyTorch and be able to develop deep learning models for a variety of tasks.
 
 ### Table of Contents
@@ -27,17 +26,20 @@ learn how to construct, train, and optimize neural networks while exploring real
  - Neural Network Construction
  - Training and Testing
  - Validation Sets
+ - Saving and resuming with checkpoints
+ - Early stopping
 
 ##### 3. GPU Acceleration for Deep Learning
  - Why use GPUs?
  - PyTorch and GPUs
- - Best practices for usig GPUs
+ - Best practices for using GPUs
  - Writing SLURM scripts for PyTorch jobs
+ - Requesting and monitoring GPU resources
 
 ##### 4.Transfer Learning
  - What is Transfer Learning?
  - Loading and Preprocessing Datasets
- - Leaveraging Pre-Trained Models for New Tasks
+ - Leveraging Pre-Trained Models for New Tasks
 
 ##### 5. Optimizing Neural Networks  
  - Optimizers and learning rate adjustments  
@@ -51,7 +53,6 @@ learn how to construct, train, and optimize neural networks while exploring real
  - Managing experiments with logging frameworks (`TensorBoard`, `Weights & Biases`)  
  - Creating reproducible experiments
  - Using `torch.utils.data.DataLoader` for efficient batch processing  
- - Debugging PyTorch models
 
 
 This course is not an introduction to deep learning. It will not cover deep learning theory or mathematical concepts. This course will cover how to develop ANNs and CNNs.

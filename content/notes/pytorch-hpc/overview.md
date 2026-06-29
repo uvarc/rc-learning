@@ -40,9 +40,9 @@ x = torch.tensor([1.0, 2.0, 3.0], dtype = torch.float)
 rand_tensor = torch.rand(3, 3) # 3x3 matrix 
 
 # Creating a tensor filled with zeros or ones 
-zero_tensor = torch.zeros(5, 5) # 5x5 matirx
+zero_tensor = torch.zeros(5, 5) # 5x5 matrix
 
-one_tensor = torch.ones(5,5) # 5x5 matirx
+one_tensor = torch.ones(5,5) # 5x5 matrix
 
 # Make a row tensor a column tensor
 column = torch.tensor([1,2,3,4,5]).view(-1,1)
@@ -81,7 +81,7 @@ If a tensor has requires_grad = True, PyTorch keeps track of all operations perf
 ###### **Computing Gradients**
 
 When .backward() is called on a scalar loss, PyTorch traverses the graph in reverse (backpropagation) and computes derivatives using the chain rule.
-The computed gradients are stored in the .grad attribute of each tensor. The gradients are then used to update model parameters (e.g., via gradient descent). We'll talk more about backpropogation on the next page.
+The computed gradients are stored in the .grad attribute of each tensor. The gradients are then used to update model parameters (e.g., via gradient descent). We'll talk more about backpropagation on the next page.
 
 ###### **Key Features of Autograd**
 - Dynamic Computation Graph: Built at runtime, allowing flexibility in model design.
@@ -240,6 +240,19 @@ for batch in dataloader:
 - **Pin Memory**: Optimizes memory transfer between CPU and GPU for better performance.
 
 Using `Dataset` and `DataLoader` correctly can significantly enhance the efficiency of deep learning pipelines, making it easier to work with large-scale datasets.
+
+#### **Tuning `num_workers` and `pin_memory`**
+Two `DataLoader` arguments matter most for performance on HPC. `num_workers` sets how many subprocesses load data in parallel, and `pin_memory=True` speeds up the transfer of batches to the GPU by placing them in page-locked memory.
+```python
+train_loader = DataLoader(
+    CustomDataset(data, labels),
+    batch_size=32,
+    shuffle=True,
+    num_workers=4,      # parallel data-loading subprocesses
+    pin_memory=True,    # faster host-to-GPU transfer; use when training on GPU
+)
+```
+On a cluster, match `num_workers` to the CPU cores you request from SLURM. If your job script asks for `-c 4` (four cpus-per-task), setting `num_workers=4` is a sensible starting point. Requesting more workers than you have cores will not help and can slow things down. `pin_memory` is only beneficial when you are moving data to a GPU, so leave it off for CPU-only runs.
 
 ---
 

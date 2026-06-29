@@ -60,7 +60,7 @@ Instead of training from scratch, we can use foundation models from `torchvision
 from torchvision import models
 
 # Load pre-trained ResNet model
-resnet = models.resnet50(pretrained=True)
+resnet = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
 
 # Print the model architecture
 print(resnet)
@@ -84,6 +84,8 @@ Fine-tuning involves unfreezing some layers of a pre-trained model and training 
 To avoid losing learned features, we freeze most layers and train only the last few.
 
 ```python
+import torch.optim as optim
+
 for param in resnet.parameters():
     param.requires_grad = False  # Freeze all layers
 
@@ -110,7 +112,7 @@ for epoch in range(epochs):
         loss.backward()
         optimizer.step()
 
-    print(f"Epoch {epoch+1}/{num_epochs}, Loss: {loss.item():.4f}")
+    print(f"Epoch {epoch+1}/{epochs}, Loss: {loss.item():.4f}")
 
 # Testing
 correct = 0
@@ -118,7 +120,7 @@ total = 0
 
 resnet.eval()  # Set to evaluation mode
 with torch.no_grad():
-    for images, labels in train_loader:
+    for images, labels in test_loader:
         images, labels = images.to(device), labels.to(device)
         outputs = resnet(images)
         _, predicted = torch.max(outputs, 1)  # Get highest probability class
@@ -127,4 +129,5 @@ with torch.no_grad():
 
 print(f"Accuracy: {100 * correct / total:.2f}%")
 ```
+NOTE: Always evaluate on a held-out test set (`test_loader`), not the training data. Measuring accuracy on the data the model was trained on gives an overly optimistic result. Load the test split the same way you loaded the training set, applying the same transforms.
 NOTE: For best model performance, it is important that your data is in the same format as the data used to train the model and that you perform the same transformations on your training data as the original model. For example, ResNet was originally trained on the ImageNet dataset which makes the standard input of Resnet a 224x224 pixel image in RGB.
