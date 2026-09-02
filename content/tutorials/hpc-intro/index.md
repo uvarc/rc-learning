@@ -29,6 +29,8 @@ Register to attend the Wednesday Zoom tutorial:
 </div>
 
 
+**Note**: September 9th's live session will be cancelled due to a conflict with Research Computing's [Open House](https://rc.virginia.edu/events/research-computing-open-house). Please stop by Michie North from 2–5 p.m to chat with our team! 
+
 For those who prefer shorter sessions with videos, we have broken the introduction into a series. The videos alone can be viewed starting from the "Video" button above. If you would rather watch the videos along with accessing the relevant sections of the notes, direct links are below.
 
 [Connecting To HPC](/tutorials/connecting-to-hpc)
