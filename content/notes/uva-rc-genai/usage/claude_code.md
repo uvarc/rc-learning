@@ -25,15 +25,28 @@ once the command is finished running, run the following to add `~/.local/bin` to
 
 ### Claude Code with UVA RC GenAI
 
-Set these environment variables:
+Edit your `~/.claude/settings.json` file to point towards UVA RC GenAI:
+
 ```
-export API_KEY="<your_api_key>"
-export ANTHROPIC_BASE_URL="https://open-webui.rc.virginia.edu/api"
-export ANTHROPIC_AUTH_TOKEN=$API_KEY
-export ANTHROPIC_API_KEY=""
-export CLAUDE_CODE_MAX_OUTPUT_TOKENS=4096
+{
+    "model": "Kimi K2.5",
+    "env": {
+    "ANTHROPIC_BASE_URL": "https://open-webui.rc.virginia.edu/api",
+    "ANTHROPIC_AUTH_TOKEN": "<your-api-key>",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "4096"
+  }
+}
 ```
+
 Then launch with:
-`claude --model 'Kimi K2.5'`
+`claude` on the command line
 
 `claude` will run in whatever directory it's launched in. 
+
+### VS Code's Claude Code Extension
+
+The VS Code Claude Code extension can also be integrated with the above configuration in `~/.claude/settings.json`.
+You'll want to ensure that the Claude Code extension is installed inside of your  [Open OnDemand VS Code session](https://learning.rc.virginia.edu/notes/vscode-intro/using-ood/#installing-extensions) prior to launching Claude Code.
+
+{{< figure src="/notes/uva-rc-genai/img/vscode-extension.png" alt="Screenshot of VS Code's Claude Code extension in action. As long as the configuration inside of ~/.claude/settings.json is correct, VS Code should be able to automaticall detect the correct model and API endpoint for UVA RC GenAI. In this example, Claude Code is asked which model is being run, and it responds correctly with RC's hosted model">}}
+
