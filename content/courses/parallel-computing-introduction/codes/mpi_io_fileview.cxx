@@ -19,28 +19,46 @@ int main (int argc, char *argv[]) {
     int root=0, tag=0;
     int mpi_err;
 
+    int nrows, ncols;
+
     // Check number of parameters and read in filename
     if (argc < 2) {
-       printf ("USAGE:  %s output-file\n", argv[0]);
+       printf ("USAGE:  %s output-file <nrows> <ncols>\n", argv[0]);
     exit(1);
     }
     const char *fname=argv[1];
+
+    if (argc == 2) {
+       nrows=4;
+       ncols=4;
+    }
+    else if (argc == 3) {
+       nrows=atoi(argv[2]);
+       ncols=nrows;
+    } 
+    else if (argc == 4) {
+       nrows=atoi(argv[2]);
+       ncols=atoi(argv[3]);
+    }
 
     //Initialize MPI
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD,&nprocs);
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
+    if (rows*cols != nprocs) {
+        cout<<"Number of rows times columns does not equal nprocs\n";
+        MPI_Finalize();
+    return 1;
+    }
+
     // Hard-code sizes so we can see what we're doing
-    // Row/column layout for ranks
-    int nrows=4;
-    int ncols=4;
 
     int nrl = 4;
     int ncl = 4;
 
     int N=nrl*nrows;
-    int M=nrl*ncols;
+    int M=ncl*ncols;
 
     //Set up the topology
     int lrow=rank/ncols;

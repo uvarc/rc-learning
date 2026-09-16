@@ -13,7 +13,7 @@ program mpiwrite
    type(MPI_File)     :: fh
    integer            :: amode
    integer            :: tsize
-   INTEGER(KIND=MPI_OFFSET_KIND) :: fsize, offset=0
+   INTEGER(KIND=MPI_OFFSET_KIND) :: fsize, offset
    character(len=24)  :: fname
    character(len=1)   :: my_char
    integer            :: nreps
@@ -47,7 +47,8 @@ program mpiwrite
 
    nreps=20
    do i=1,nreps
-      offset=rank+(i-1)*nprocs
+      ! Explcit cast for offset not really necessary
+      offset=int(rank+(i-1)*nprocs,kind=MPI_OFFSET_KIND)
       call MPI_FILE_WRITE_AT(fh, offset, my_char, 1, MPI_CHARACTER, mpi_stat)
    enddo
 

@@ -1,7 +1,7 @@
 ---
 title: "Building and Running MPI Programs"
 toc: true
-type: docs
+type: book
 weight: 29
 date: "2020-11-17T00:00:00"
 menu:

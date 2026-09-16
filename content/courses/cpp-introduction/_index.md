@@ -9,6 +9,10 @@ toc: true
 type: book
 weight: 1
 
+menu: 
+    cpp-introduction:
+        name: Programming in C++
+
 ---
 
 C++ is a versatile, widely-used compiled language.  This short course covers the basics, with some discussion of features of the C++11 standard.  Newer codes increasingly use C++14 constructs but not all compilers support those by default yet. 

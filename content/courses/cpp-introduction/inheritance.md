@@ -4,6 +4,10 @@ title: "Class Inheritance"
 toc: true
 type: book
 weight: 93
+
+menu:
+    cpp-introduction:
+        parent: Programming in C++
 ---
 
 One of the foundations of object-oriented programming is _inheritance_.  Often, two objects are related and we can save coding by reusing code from one object in another.  Rather than retyping or cutting and pasting, we can simply pass down the members of one object to another.  

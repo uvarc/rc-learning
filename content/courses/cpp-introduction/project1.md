@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 42
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 Write a program to compute the day of the week for any date of the Gregorian calendar. Here is the formula: 
 ```

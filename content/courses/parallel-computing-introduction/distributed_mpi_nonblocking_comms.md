@@ -1,7 +1,7 @@
 ---
 title: "Nonblocking Point-to-Point Communications"
 toc: true
-type: docs
+type: book
 weight: 210
 date: "2024-08-05T00:00:00"
 menu:

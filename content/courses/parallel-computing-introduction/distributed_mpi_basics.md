@@ -1,7 +1,7 @@
 ---
 title: "Basics of MPI Programming"
 toc: true
-type: docs
+type: book
 weight: 25
 date: "2020-11-17T00:00:00"
 menu:

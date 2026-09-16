@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 75
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 Download the file [bodyfat.csv](/data/bodyfat.csv).  This is a dataset of body fat, age, height, and weight for a set of participants in a study. BMI categories are as follows:

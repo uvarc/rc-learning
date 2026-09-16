@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 12
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 ### Linux

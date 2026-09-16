@@ -1,7 +1,7 @@
 ---
 title: "MPI Derived Types"
 toc: true
-type: docs
+type: book
 weight: 320
 date: "2020-11-17T00:00:00"
 menu:

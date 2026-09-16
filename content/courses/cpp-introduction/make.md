@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 14
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 `make` is a tool to manage builds, especially with multiple files.

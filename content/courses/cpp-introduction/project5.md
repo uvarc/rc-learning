@@ -4,6 +4,11 @@ title: "Project 5"
 toc: true
 type: book
 weight: 84
+
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 Download the file [vabirds.csv](/data/vabirds.csv).

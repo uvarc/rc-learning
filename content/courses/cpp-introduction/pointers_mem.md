@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 53
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 We have learned that variables are "nicknames" for the contents of a specific location in memory.  In many languages, including C++, we can also define variable that contain the actual address of a memory location.  These variables are called _pointers_ because they "point to" memory directly.

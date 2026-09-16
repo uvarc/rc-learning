@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 72
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 Passing scalar arguments to a function is straightforward.  It is a little more complicated when pointers or compound types are passed.

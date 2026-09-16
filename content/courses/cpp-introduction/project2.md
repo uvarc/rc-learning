@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 55
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 Some languages, such as Python, can split a string on a specified delimiter character and return a list of strings. The delimiter is dropped.  Write a program that can accomplish this.  

@@ -1,7 +1,7 @@
 ---
 title: "MPI Vector Type"
 toc: true
-type: docs
+type: book
 weight: 330
 date: "2020-11-17T00:00:00"
 menu:

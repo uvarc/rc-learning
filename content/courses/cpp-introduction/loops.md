@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 43
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 Much computing is repetitive work.  Evaluate an expression many times with different values.  Read lines of a file.  Update a large number of variables.  To accomplish this, we use _loops_.

@@ -1,7 +1,7 @@
 ---
 title: "Parallel Computing Fundamentals"
 toc: true
-type: docs
+type: book
 weight: 2
 date: "2020-11-17T00:00:00"
 menu:
@@ -50,7 +50,7 @@ Most programmers are taught only serial coding and are accustomed to laying out 
 
 ### Types of Parallelism
 
-For both shared and distributed memory programming, we must determine how we will spread the work among different processes.  There are two main ways to do this.
+The most fundemantal task is to determine how we will spread the work among different processes. There are two main ways to do this.
 
 - Data parallelism
 

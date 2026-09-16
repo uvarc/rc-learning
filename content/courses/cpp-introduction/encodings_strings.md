@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 24
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 Like everything else in the computer, characters must be represented by a sequence of 0s and 1s.  A catalogue of these representations is usually called an _encoding_.

@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 24
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 An _expression_ is a combination of variables, operators, and function invocations that can result in a unique evaluation.

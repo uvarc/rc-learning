@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 25
 
+menu: 
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 ## Type Conversions

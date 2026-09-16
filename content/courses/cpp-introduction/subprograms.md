@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 71
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 A _subprogram_ is a self-contained, but not standalone, program unit.  It performs a specific task, usually by accepting _parameters_ and returning a result to the unit that invokes (calls) it.

@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 52
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 One of the most common data structures, especially for scientific and numerical programming, is a group of variables all of the same type.  This is frequently called an _array_.

@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 23
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 A `char` variable is 1 byte (8 bits).  It represents a single character.

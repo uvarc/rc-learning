@@ -1,7 +1,7 @@
 ---
 title: "MPI Project Set 2"
 toc: true
-type: docs
+type: book
 weight: 89
 date: "2020-11-17T00:00:00"
 menu:
