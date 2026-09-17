@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 41
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 A _conditional_ is a programming construct that implements decisions. 

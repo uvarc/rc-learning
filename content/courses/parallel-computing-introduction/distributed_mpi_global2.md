@@ -1,7 +1,7 @@
 ---
 title: "Collective Communication in MPI: Many To One"
 toc: true
-type: docs
+type: book
 weight: 52
 date: "2020-11-17T00:00:00"
 menu:

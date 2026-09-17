@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 63
 
+menu: 
+     cpp-introduction:
+         parent: Programming in C++
+
 ---
 
 Simple stream input/output covers much of what we need for basic programs, but as we move to more sophisticated codes we may find that we need more control, especially for reading files.

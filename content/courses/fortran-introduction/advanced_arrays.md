@@ -8,7 +8,6 @@ weight: 42
 menu:
     fortran-introduction:
         parent: Arrays
-        weight: 42
 
 ---
 

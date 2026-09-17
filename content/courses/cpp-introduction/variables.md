@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 21
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 In programming, a _variable_ is similar, but not identical to, the variable familiar from mathematics.  In mathematics, a variable represents an unknown or abstract entity.  In programming, a variable represents a _location in memory_.

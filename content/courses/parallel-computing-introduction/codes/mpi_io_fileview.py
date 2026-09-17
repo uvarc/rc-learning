@@ -31,7 +31,7 @@ nrl = 4
 ncl = 4
 
 N=nrl*nrows
-M=nrl*ncols
+M=ncl*ncols
 
 #Set up the topology
 lrow=rank//ncols

@@ -5,6 +5,11 @@ toc: true
 type: book
 draft: false
 weight: 150
+
+menu:
+    cpp-introduction:
+         parent: Programming in C++
+
 ---
 
 1. Write a Fraction class that implements a representation of a fraction, where each instance consists of a numerator and a denominator. Overload addition, subtraction, and multiplication for this class.  Write a method to format each fraction in the form

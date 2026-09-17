@@ -33,6 +33,7 @@ int main (int argc, char *argv[]) {
 
     if (rows*cols != nprocs) {
         cout<<"Number of rows times columns does not equal nprocs\n";
+        MPI_Finalize();
         return 1;
     }
 

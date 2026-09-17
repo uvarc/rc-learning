@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 61
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 Most operating systems have some type of _console_.  Output written to the console appears as text on a terminal or equivalent.  Geany opens a window for console output when a program is executed.

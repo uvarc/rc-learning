@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 54
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 A _container_ is a data structure that can store a group of items, which typically are related and are individually accessed by standard methods.  By this definition a simple array can be considered a container, though some strict computer-science definitions disallow a data structure with a fixed size from the category.  C++ containers generally permit resizing of the data structure by inserting or deleting elements or even by clearing all elements.

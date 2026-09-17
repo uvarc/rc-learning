@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 83
 
+menu:
+    cpp-introduction:
+        parent: Programmming in C++
+
 ---
 
 The predefined types available in C++ are not sufficient for most non-trivial programming requirements.  

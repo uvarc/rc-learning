@@ -1,7 +1,7 @@
 ---
 title: "MPI Two-Dimensional Exchange"
 toc: true
-type: docs
+type: book
 weight: 325
 date: "2025-08-08T00:00:00"
 menu:

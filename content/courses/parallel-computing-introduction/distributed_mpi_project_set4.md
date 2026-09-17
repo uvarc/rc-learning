@@ -1,7 +1,7 @@
 ---
 title: "MPI Project Set 4"
 toc: true
-type: docs
+type: book
 weight: 450
 date: "2026-04-17T00:00:00"
 menu:

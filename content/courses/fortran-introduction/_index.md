@@ -12,7 +12,6 @@ weight: 1
 menu:
     fortran-introduction:
         name: Programming in Modern Fortran
-        weight: 1
 
 ---
 

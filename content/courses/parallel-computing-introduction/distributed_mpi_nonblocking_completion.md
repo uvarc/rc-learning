@@ -1,7 +1,7 @@
 ---
 title: "Completing Nonblocking Communications"
 toc: true
-type: docs
+type: book
 weight: 215
 date: "2024-08-05T00:00:00"
 menu:

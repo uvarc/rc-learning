@@ -6,6 +6,10 @@ type: book
 draft: false
 weight: 120
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 Errors in code can be the result of a programmer's mistake (i.e. a bug) or they can occur at runtime due to invalid input, system errors, and so forth.  For debugging, C++ uses the `assert` statement.  For runtime errors, we can `try` something and handle the result if a problem occurs.

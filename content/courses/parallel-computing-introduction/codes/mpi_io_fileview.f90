@@ -28,9 +28,21 @@ program mpiwrite
    ! all ranks do this, avoids broadcast
    numargs=command_argument_count()
    if (numargs .lt. 1) then
-      stop 'USAGE: output-file'
-   else
+      stop 'USAGE: output-file <nrows> <ncols>'
+  else 
       call get_command_argument(1,fname)
+      nrows=4
+      ncols=4
+   endif
+   if (numargs .eq. 2) then
+      call get_command_argument(2,arg)
+      read(arg,'(i4)') nrows
+      ncols=nrows
+   else if (numargs .eq. 3) then
+      call get_command_argument(2,arg)
+      read(arg,'(i4)') nrows
+      call get_command_argument(3,arg)
+      read(arg,'(i4)') ncols
    endif
 
    !Initialize MPI
@@ -38,16 +50,19 @@ program mpiwrite
    call MPI_COMM_SIZE(MPI_COMM_WORLD,nprocs)
    call MPI_COMM_RANK(MPI_COMM_WORLD,rank)
 
+   if (nrows*ncols /= nprocs) then
+       call MPI_Finalize()
+       stop "Number of rows times columns does not equal nprocs"
+   endif
+
+
    ! Hard-code sizes so we can see what we're doing
-   ! Row/column layout for ranks
-   nrows=4
-   ncols=4
 
    nrl = 4
    ncl = 4
 
    N=nrl*nrows
-   M=nrl*ncols
+   M=ncl*ncols
 
    !Set up the topology
    lrow=rank/ncols

@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 91
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 ## Object-Oriented Programming

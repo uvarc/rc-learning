@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 76
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 ## Variable Scope

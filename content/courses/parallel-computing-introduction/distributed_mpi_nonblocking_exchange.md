@@ -1,7 +1,7 @@
 ---
 title: "Nonblocking Halo Exchange Example"
 toc: true
-type: docs
+type: book
 weight: 230
 date: "2024-08-05T00:00:00"
 menu:

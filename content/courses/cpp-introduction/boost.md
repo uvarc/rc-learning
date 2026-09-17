@@ -5,6 +5,10 @@ toc: true
 type: book
 weight: 55
 
+menu:
+    cpp-introduction:
+        parent: Programming in C++
+
 ---
 
 One of the most popular add-on libraries for C++, especially numerical or scientific programming, is [Boost](https://www.boost.org/).  Boost is not included with any compilers, but is generally easy to obtain.  For Linux systems generally it is available through the package manager.  
