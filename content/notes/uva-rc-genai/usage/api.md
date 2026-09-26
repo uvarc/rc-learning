@@ -44,10 +44,9 @@ Use environment variables to safely store your key (e.g., `export UVARC_GenAI_AP
 
 For repeated use or integration with interactive apps (e.g., JupyterLab), you'll want to export your API key in `~/.bashrc`.
 
-
-<div role="note" style="background-color: #dc3545; border-left: 4px solid #2196F3; padding: 12px; margin: 16px 0;">
-  <strong>Note:</strong> You need to be on a compute node to run your code.
-</div>
+{{< info >}}
+  You need to be on a compute node to run your code.
+{{< /info >}}
 
 HPC compute nodes can be accessed either via [OpenOn Demand](https://rc.virginia.edu/request-manage/ssz-login#web-based-access) (JupyterLab, Desktop, etc) or through an interactive job from the command line. 
 
