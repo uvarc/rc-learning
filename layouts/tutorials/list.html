@@ -12,13 +12,13 @@
             <a href="#" data-filter="*" class="current"><button class="btn btn-warning active">All
                     Tutorials</button></a>
             {{ range $name, $taxonomy := where .Site.Taxonomies.tags ".Page.Section" "tutorials" }}
-            <a href="#" data-filter=".{{ lower $name }}"><button class="btn btn-info">{{ replaceRE `([^\\])_` "$1 " .Page.Title }}</button></a>
+            <a href="#" data-filter=".tag-{{ lower $name }}"><button class="btn btn-info">{{ replaceRE `([^\\])_` "$1 " .Page.Title }}</button></a>
             {{ end }}
         </p>
     </div>
     <div class="page-list">
         {{ range .Pages }}
-        <div class="{{ lower (delimit .Params.tags " ") }}">
+        <div class="tag-{{ lower (delimit .Params.tags " tag-") }}">
             <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
             <div class="article-style">
                 {{ if .Params.summary }}
