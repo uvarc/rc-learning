@@ -17,11 +17,13 @@ menu:
 ### Installing OpenCode
 First, you'll need to install OpenCode into your home account with the following command:
 
-```curl -fsSL https://opencode.ai/install | bash```
+```sh
+curl -fsSL https://opencode.ai/install | bash
+```
 
 once the command is finished running, add the following to `~/.config/opencode/opencode.json`:
 
-```
+```json
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "uva-rc-genai/Kimi K2.5",
