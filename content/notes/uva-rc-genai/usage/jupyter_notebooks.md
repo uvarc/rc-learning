@@ -11,7 +11,6 @@ menu:
     parent: Usage
 ---
 
-# Jupyter Notebook Workflow
 UVA RC GenAI can be accessed from a Jupyter notebook using the python API client to integrate LLM capabilites for data analysis, code generation, and automating research workflows. 
 
 ## Basic Literature Review

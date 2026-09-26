@@ -15,19 +15,23 @@ menu:
 [Claude Code](https://code.claude.com/docs/en/overview) is an AI-assistant for software engineering tasks that runs directly in the terminal to write, edit and analyze code. You can link it to UVA RC GenAI. 
 
 ### Installing Claude Code
-First, you'll need to install claude code into your home account with the following:
+First, you'll need to install Claude Code into your home account with the following:
 
-```curl -fsSL https://claude.ai/install.sh | bash```
+```sh
+curl -fsSL https://claude.ai/install.sh | bash
+```
 
-once the command is finished running, run the following to add `~/.local/bin` to your path:
+Once the command is finished running, run the following to add `~/.local/bin` to your path:
 
-```echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc```
+```sh
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
+```
 
 ### Claude Code with UVA RC GenAI
 
 Edit your `~/.claude/settings.json` file to point towards UVA RC GenAI:
 
-```
+```json
 {
     "model": "Kimi K2.5",
     "env": {
