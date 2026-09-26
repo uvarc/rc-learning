@@ -14,7 +14,9 @@ Globus CLI is a command line wrapper over the Globus SDK for Python, which provi
 
 Instructions for installing Globus CLI on your local compute can be found through the [official Globus documentation](https://docs.globus.org/cli/#installation). Globus CLI can be installed either with `pip` or `pipx`. Globus CLI is also available on Afton/Rivanna as an Lmod module and can be loaded with
 
-```module load gcc globus-cli``` 
+```sh
+module load gcc globus-cli
+``` 
 
 Ensure that [Globus Connect Personal](/notes/globus-data-transfer/installation) is installed on your local computer and a [personal collection](/notes/globus-data-transfer/setup) is created. This is reqired to serve as the source endpoint.
 
@@ -32,9 +34,9 @@ Run `globus endpoint local-id` on the command line to obtain your local endpoint
 
 The Destination endpoint for UVA Standard Security Storage is `af187d15-768f-4449-8670-d00e1eb1ce6a`
 
-<div role="note" style="background-color: #dc3545; border-left: 4px solid #2196F3; padding: 12px; margin: 16px 0;">
-  <strong>Note:</strong> Destination folders are user-specific and should not be hardcoded. Each researcher will have a unique destination path.
-</div>
+{{< info >}}
+  Destination folders are user-specific and should not be hardcoded. Each researcher will have a unique destination path.
+{{< /info >}}
 
 
 ## Sync Strategies
@@ -75,9 +77,9 @@ Download {{< file-download file="/notes/globus-data-transfer/scripts/matlab-glob
 
 The Matlab script sets source and destination endpoints and paths along with a filename and the full file path to the globus executible. The script then generates and saves a png plot. Finally, the `globus transfer` command is setup prior to calling the `system()` function to execute the transfer.
 
-<div role="note" style="background-color: #dc3545; border-left: 4px solid #2196F3; padding: 12px; margin: 16px 0;">
-  <strong>Note:</strong> Destination directories should not begin with a forward slash (/). The destination path needs to be relative since it's a Globus Connect Server v5 Mapped Collection endpoint.
-</div>
+{{< warning >}}
+  Destination directories should not begin with a forward slash (/). The destination path needs to be relative since it's a Globus Connect Server v5 Mapped Collection endpoint.
+{{< /warning >}}
 
 ## Considerations and Error Handling
 
