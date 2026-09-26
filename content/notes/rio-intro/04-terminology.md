@@ -8,7 +8,7 @@ menu:
         parent: HPC at UVA
 ---
 
-**Node**
+## Node
 
 Nodes are a type of computer called a server. They generally have more power than a typical computer. 
 
@@ -19,15 +19,15 @@ There are two types of Nodes:
 2.  _Compute node_ - a server that carries out the computational work.
 
 
-**Core**
+## Core
    
 A core is an individual processor on a computer. 
 
-**Memory**
+## Memory
 
 In HPC, memory refers to the random-access memory on a node. 
 
-**Storage**
+## Storage
 
 In HPC, storage refers to disk storage visible from a node.
 

@@ -7,8 +7,7 @@ menu:
     rio-intro:
         parent: HPC at UVA
 ---
-
-**Ivy**
+## Ivy
 
 Ivy is a secure computing environment, offering Virtual Machines (VM) with both Linux and Windows operating systems.
 
@@ -20,7 +19,7 @@ Project-specific storage volumes are mounted to the VM and available on the HPC 
 
 Ivy Linux VMs can serve as a frontend for accessing the Rio HPC system (available upon request).
 
-**Rio**
+## Rio
 
 Rio is used for large-scale analysis of HIPAA, FERPA, and CAD.
 

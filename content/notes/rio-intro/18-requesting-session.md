@@ -14,7 +14,7 @@ To request an interactive session, select one of the applications from the dropd
 
 The above example is for starting a JupyterLab session.
 
-### Choosing Resource Requests
+## Choosing Resource Requests
 
 **Allocation** Use the VM/Group name as your allocation: ivy-cad-name
 
@@ -28,13 +28,13 @@ The above example is for starting a JupyterLab session.
 
 **Optional Slurm Option:** This field is used to input one of the many other Slurm options. 
 
-### Queueing the Session
+## Queueing the Session
 
 Once you've filled out the resource request form, click the Launch button at the bottom to queue your job. While queued, the job will wait for the resources you've asked for to become available. Requests with higher resource requests (more cores, more memory, more time) may wait longer. 
 
 {{< figure src=/notes/rio-intro/img/queue.png alt="Open OnDemand interface showing a queued JupyterLab session with creation time, one-hour request, session ID link, and a Delete button." caption="Example of a JupyterLab session waiting in the queue on Open OnDemand." width=90% height=90% >}}
 
-### Launching the Session
+## Launching the Session
 
 When the job has started, the status will change from Queued to Running. A button will appear to open a browser, launching the interactive session.
 
