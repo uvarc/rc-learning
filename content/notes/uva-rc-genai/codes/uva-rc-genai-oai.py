@@ -7,15 +7,10 @@ client = openai.OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="Kimi K2.5",
+    model="<model>",
     messages=[{"role": "user", "content": "Hello"}],
-    stream=True
+    stream=False
 )
 
-# Handle streaming response
-full_text = ""
-for chunk in response:
-    if chunk.choices[0].delta.content:
-        full_text += chunk.choices[0].delta.content
 
-print(full_text)
+print(response.choices[0].message.content)

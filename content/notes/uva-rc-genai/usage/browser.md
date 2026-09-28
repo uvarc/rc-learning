@@ -25,3 +25,11 @@ Files can be loaded into the web interface – supported extensions include: pdf
 {{< /warning >}}
 
 More on data management will be discussed in [Data Management](/notes/uva-rc-genai/usage/data_management).
+
+## Custom Models and Workspaces
+
+Custom models can be created under the Workspace tab on the left side of the OpenWebUI interface. Custom models can be tuned with specific system prompts and additional capabilities outside of the base offering. The base model is configured with streaming enabled on default, so custom models with streaming disabled can be useful to de-clutter output prompts from programatic API calls. Additionally, if reproducibility is a concern, advanced parameters such as `seed` and `temperature` can be configured as desired.
+
+{{< warning >}}
+Reproducibility Note: While setting temperature=0 and a fixed seed minimizes variance, these parameters do not guarantee identical outputs across runs. Factors such as GPU floating-point precision, batching behavior, and inference engine optimizations (VLLM, CUDA drivers, etc.) can introduce non-determinism.
+{{< /warning >}}
