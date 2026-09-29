@@ -9,7 +9,7 @@ resp = requests.post(
         "Content-Type": "application/json"
     }, 
     json={ 
-        "model": "<model>", 
+        "model": "<model>", # Replace with custom model (streaming disabled)
         "messages": [{"role": "user", "content": "Hello"}],
         "stream": False 
     }

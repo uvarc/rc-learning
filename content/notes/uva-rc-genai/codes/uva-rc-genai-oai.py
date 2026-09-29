@@ -7,7 +7,7 @@ client = openai.OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="<model>",
+    model="<model>", # Replace with custom model (streaming disabled)
     messages=[{"role": "user", "content": "Hello"}],
     stream=False
 )
