@@ -8,9 +8,7 @@ menu:
     vscode-intro:
 ---
 
-### **Open on Demand**
-
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_7.png" alt="Screenshot of the Open OnDemand dashboard at ood.hpc.virginia.edu" width="600px" >}}
+## **Open OnDemand**
 
 - Interactive jobs on compute nodes
 - Access to your files in your HPC Account
@@ -20,7 +18,7 @@ menu:
 
 ---
 
-### **VS Code Server**
+## **VS Code Server**
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_8.png" alt="Screenshot of VS Code Server running in the Open OnDemand browser interface" width="600px" >}}
 
@@ -33,7 +31,7 @@ menu:
 
 ---
 
-### **Getting Started**
+## **Getting Started**
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_9.png" alt="Screenshot of the VS Code welcome page showing options to get started" width="600px" >}}
 
@@ -41,9 +39,9 @@ The welcome page upon launch provides you with a variety of options to get start
 
 ---
 
-### **Working with Files and Folders**
+## **Working with Files and Folders**
 
-#### **Open a Folder**
+### **Open a Folder**
 
 Select **File > Open Folder...**
 
@@ -55,7 +53,7 @@ Appears in the explorer for easy navigation
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_12.png" alt="Screenshot of the VS Code explorer panel after a folder has been opened" width="600px" >}}
 
-#### **Add a Folder**
+### **Add a Folder**
 
 Select **File > Add a Folder to Workspace...**
 
@@ -65,7 +63,7 @@ Appears in the explorer for easy navigation
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_14.png" alt="Screenshot of the VS Code explorer panel showing multiple folders in a workspace" width="600px" >}}
 
-#### **Workspaces**
+### **Workspaces**
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_15.png" alt="Screenshot of the VS Code File menu showing Save and Open Workspace options" width="600px" >}}
 
@@ -85,7 +83,7 @@ Workspaces are configurations of your files and folders, so it can easily let yo
 
 ---
 
-### **Installing Extensions**
+## **Installing Extensions**
 
 Access the marketplace in your web browser, or open the extensions tab in VS Code (`Ctrl+Shift+X`).
 
@@ -99,7 +97,7 @@ Install Python and Jupyter
 
 ---
 
-### **Creating a New File**
+## **Creating a New File**
 
 Select **File > New File...**
 

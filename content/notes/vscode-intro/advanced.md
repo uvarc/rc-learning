@@ -8,11 +8,11 @@ menu:
     vscode-intro:
 ---
 
-### **Transferring settings.json**
+## **Transferring settings.json**
 
 Open the Command Palette and select **Preferences: Open Profiles (UI)**
 
-Export your profile: **… -> export**
+Export your profile: **… -> Export...**
 
 On the target machine, select **Import Profile > Create**
 
@@ -22,7 +22,7 @@ On the target machine, select **Import Profile > Create**
 
 ---
 
-### **Creating an SSH Key**
+## **Creating an SSH Key**
 
 Open a new bash terminal (local) and run:
 
@@ -32,9 +32,7 @@ ssh-keygen
 
 Navigate to your `.ssh` directory
 
-```bash
-cat your .pub file and copy it
-```
+`cat` your .pub file and copy it
 
 Log in to remote server and paste your key in your `/home/id/.ssh/authorized_keys` file. If it does not exist, create it.
 
@@ -44,7 +42,7 @@ Passwordless login!
 
 ---
 
-### **Source Control with GitHub**
+## **Source Control with GitHub**
 
 - Open a Folder or Clone a Repository
 - Push/Pull/Commit
@@ -61,7 +59,7 @@ Passwordless login!
 
 ---
 
-### **Need Help?**
+## **Need Help?**
 
 [xve5kj@virginia.edu](mailto:Xve5kj@virginia.edu) | [hpc-support@virginia.edu](mailto:hpc-support@virginia.edu)
 

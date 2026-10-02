@@ -7,27 +7,9 @@ weight: 10
 menu: 
     vscode-intro:
 ---
+## **What is VS Code?**
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_0.png" alt="Introduction to Visual Studio Code for HPC workshop title slide" width="600px" >}}
-
-Before we begin, follow the QR code to take a quick survey about workshops you would like to see Research Computing run in the future:
-
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_1.png" alt="QR code linking to the Research Computing workshop survey" width="300px" >}}
-
----
-
-### **Agenda**
-
-- What is "VS Code?"
-- Using VS Code on OOD
-- Local VS Code with HPC
-- Advanced Features
-
----
-
-### **What is VS Code?**
-
-#### **Background**
+### **Background**
 
 - Exists between an **Integrated Development Environment (IDE)** and a **code editor**
 - **IDE:**
@@ -57,7 +39,7 @@ Before we begin, follow the QR code to take a quick survey about workshops you w
 
 ---
 
-### **Useful Features**
+## **Useful Features**
 
 - SSH to Remote Servers
 - Customization
@@ -73,7 +55,7 @@ Before we begin, follow the QR code to take a quick survey about workshops you w
 
 ---
 
-### **Extensions**
+## **Extensions**
 
 - Extensions are available in the "marketplace"
 - Common extensions are free and often updated
@@ -81,11 +63,11 @@ Before we begin, follow the QR code to take a quick survey about workshops you w
 - Extensions may require **software** to already be installed on your computer
   - Python, Java, etc.
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_5.png" alt="Screenshot of the VS Code Extension Marketplace showing available extensions" width="500px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_5.png" alt="Screenshot of the VS Code Extension sidebar showing available extensions" width="500px" >}}
 
 ---
 
-### **Useful Shortcuts**
+## **Useful Shortcuts**
 
 | Action | Shortcut | Description |
 | :-- | :-- | :-- |
@@ -94,4 +76,4 @@ Before we begin, follow the QR code to take a quick survey about workshops you w
 | **New Window** | `Ctrl+Shift+N` | Start a new VSCode Window. File > New Window |
 | **Command Palette** | `Ctrl+Shift+P` | VSCode/Extension Commands. View > Command Palette... |
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_6.png" alt="Screenshot of VS Code keyboard shortcut reference" width="500px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_6.png" alt="Screenshot of VS Code command palette with a search box and available commands" width="500px" >}}

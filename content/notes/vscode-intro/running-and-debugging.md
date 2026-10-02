@@ -8,13 +8,13 @@ menu:
     vscode-intro:
 ---
 
-### **Debugging**
+## **Debugging**
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_26.png" alt="Screenshot of the VS Code debugger interface overview" width="600px" >}}
 
-VSCode lets you debug without modifying your code
+VS Code lets you debug without modifying your code.
 
-Add breakpoints and view variables be updated as the code runs
+Add breakpoints and view variables be updated as the code runs.
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_27.png" alt="Screenshot showing breakpoints placed in a Python file in VS Code" width="600px" >}}
 
@@ -22,7 +22,7 @@ Add breakpoints and view variables be updated as the code runs
 
 | **Action** | **Shortcut** | **Explanation** |
 | :-- | :-- | :-- |
-| Continue / Pause | `F5` | **Continue** : Resume normal program/script execution (up to the next breakpoint). **Pause** : Inspect code executing at the current line and debug line-by-line. |
+| Continue / Pause | `F5` | **Continue**: Resume normal program/script execution (up to the next breakpoint).<br> **Pause**: Inspect code executing at the current line and debug line-by-line. |
 | Step Over | `F10` | Execute the next method as a single command without inspecting or following its component steps. |
 | Step Into | `F11` | Enter the next method to follow its execution line-by-line. |
 | Step Out | `Shift+F11` | When inside a method or subroutine, return to the earlier execution context by completing remaining lines of the current method as though it were a single command. |
@@ -31,7 +31,7 @@ Add breakpoints and view variables be updated as the code runs
 
 ---
 
-#### **Debug a File**
+### **Debug a File**
 
 Insert breakpoints by selecting a line to place a "red dot"
 
@@ -43,7 +43,7 @@ Variables visible on the left side
 
 Walk through the debug tools
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_29.png" alt="Screenshot of inserting a breakpoint by clicking the line gutter in VS Code" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_29.png" alt="Screenshot of inserting a breakpoint by clicking the line gutter in VS Code" width="200px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_30.png" alt="Screenshot of a VS Code debug session running with the integrated terminal open" width="600px" >}}
 
@@ -53,7 +53,7 @@ Walk through the debug tools
 
 ---
 
-### **Open a Terminal**
+## **Open a Terminal**
 
 **Terminal > New Terminal**
 
@@ -65,7 +65,7 @@ From here you can use regular terminal commands like `pwd` or even load modules!
 
 ---
 
-### **Create a Conda Environment**
+## **Create a Conda Environment**
 
 In a new terminal:
 
@@ -77,7 +77,7 @@ pip install matplotlib
 
 ---
 
-### **Set Your Interpreter**
+## **Set Your Interpreter**
 
 Select your environment from your list!
 
@@ -91,7 +91,7 @@ When you run your code it will run in your environment.
 
 ---
 
-### **Run a File**
+## **Run a File**
 
 Modify your file with some basic runnable python code
 
@@ -107,9 +107,9 @@ Opens a terminal automatically
 
 ---
 
-### **Jupyter Notebooks**
+## **Jupyter Notebooks**
 
-Select kernel from the list of available kernels- or make your own!
+Select kernel from the list of available kernels – or make your own!
 
 Recently used kernels are "starred"
 
@@ -121,7 +121,7 @@ Recently used kernels are "starred"
 
 ---
 
-### **Customization**
+## **Customization**
 
 **File > Preferences**
 

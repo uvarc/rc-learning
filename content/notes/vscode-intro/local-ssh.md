@@ -8,7 +8,7 @@ menu:
     vscode-intro:
 ---
 
-### **SSH vs OOD**
+## **SSH vs OOD**
 
 | | **SSH** | **OOD** |
 | :-- | :-- | :-- |
@@ -19,7 +19,7 @@ menu:
 
 ---
 
-### **Why Even SSH?**
+## **Why Even SSH?**
 
 - Extension Availability
   - But if one isn't available just reach out to us!
@@ -30,7 +30,7 @@ menu:
 
 ---
 
-### **In Most Cases, Use OOD**
+## **In Most Cases, Use OOD**
 
 **We strongly urge our users to use OOD.**
 
@@ -42,9 +42,9 @@ You will not need to worry about overwhelming with processes or fight with ijob 
 
 ---
 
-### **Setting Up SSH**
+## **Setting Up SSH**
 
-#### **Download SSH Extension**
+### **Download SSH Extension**
 
 Search for **"Remote – SSH"** in the Marketplace.
 
@@ -52,7 +52,7 @@ It is not **necessary** but it is a tool to make it **much** easier
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_44.png" alt="Screenshot of the Remote - SSH extension in the VS Code marketplace" width="600px" >}}
 
-#### **Create Connection**
+### **Create Connection**
 
 Connect to Host > **Add New SSH Host...**
 
@@ -72,7 +72,7 @@ You can later open and edit the config file as you need
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_48.png" alt="Screenshot of the SSH config file showing the newly added HPC host entry" width="600px" >}}
 
-#### **You Are Now Connected!**
+### **You Are Now Connected!**
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_49.png" alt="Screenshot of VS Code showing a successful connection to UVA HPC displayed in the status bar" width="600px" >}}
 
@@ -86,9 +86,9 @@ You still stay connected so long as you stay on the network
 
 ---
 
-### **Running Code with SSH**
+## **Running Code with SSH**
 
-#### **Run an IJob**
+### **Run an IJob**
 
 Open a new terminal
 
@@ -120,7 +120,7 @@ If you want to run python code you need to "Run Python File" first, then type in
 
 ---
 
-### **Logging Out**
+## **Logging Out**
 
 VSCode can create many processes on the front-ends.
 
