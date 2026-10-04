@@ -20,9 +20,9 @@ menu:
 
 ## **VS Code Server**
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_8.png" alt="Screenshot of VS Code Server running in the Open OnDemand browser interface" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_8.png" alt="Screenshot of Code Server interactive session request form" width="600px" >}}
 
-- Keyboard shortcuts don't work
+- Some keyboard shortcuts don't work
 - Navigate just as you would on your local
 - "New Window" opens a new tab
 - Any changes you make on VS Code Server are on the cluster
@@ -47,11 +47,11 @@ Select **File > Open Folder...**
 
 Appears in the explorer for easy navigation
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_10.png" alt="Screenshot of the VS Code File menu with Open Folder option highlighted" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_12.png" alt="Screenshot of the VS Code File menu with Open Folder option highlighted" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_11.png" alt="Screenshot of the folder selection dialog in VS Code" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_12.png" alt="Screenshot of the VS Code explorer panel after a folder has been opened" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_10.png" alt="Screenshot of the VS Code explorer panel after a folder has been opened" width="600px" >}}
 
 ### **Add a Folder**
 
@@ -65,7 +65,7 @@ Appears in the explorer for easy navigation
 
 ### **Workspaces**
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_15.png" alt="Screenshot of the VS Code File menu showing Save and Open Workspace options" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_15.png" alt="Screenshot of the VS Code Open Workspace From File dialog" width="600px" >}}
 
 **Save a Workspace:**
 
@@ -77,9 +77,9 @@ Select **File > Open Workspace from File...**
 
 Workspaces are configurations of your files and folders, so it can easily let you access your project configurations. You can even modify specific settings!
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_16.png" alt="Screenshot of the Save Workspace As dialog in VS Code" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_16.png" alt="Screenshot of the dropdown for an open workspace in VS Code" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_17.png" alt="Screenshot of a VS Code workspace configuration file opened in the editor" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_17.png" alt="Screenshot of the workspace settings page" width="600px" >}}
 
 ---
 
@@ -89,11 +89,11 @@ Access the marketplace in your web browser, or open the extensions tab in VS Cod
 
 Install Python and Jupyter
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_18.png" alt="Screenshot of the VS Code extensions marketplace sidebar" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_18.png" alt="Screenshot of the Extensions tab in the VS Code sidebar" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_19.png" alt="Screenshot of the Python extension listing in the VS Code marketplace" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_20.png" alt="Screenshot of the Jupyter extension listing in the VS Code marketplace" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_20.png" alt="Screenshot of the Installed and Recommended dropdowns in the VS Code Extensions sidebar" width="600px" >}}
 
 ---
 
@@ -105,12 +105,12 @@ Select your file type
 
 Make sure it is in the right folder, or move it to the correct folder in the file explorer on the left
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_21.png" alt="Screenshot of the VS Code File menu with New File option highlighted" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_21.png" alt="Screenshot of the New File and Open File buttons on VS Code's Start screen" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_22.png" alt="Screenshot of the VS Code file type selection prompt" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_22.png" alt="Screenshot of the VS Code File menu with New File option highlighted" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_23.png" alt="Screenshot of the VS Code new file type selection dialog" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_23.png" alt="Screenshot of the New File icon in the VS Code explorer planel" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_24.png" alt="Screenshot of a newly created file visible in the VS Code explorer panel" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_25.png" alt="Screenshot of a new empty file open in the VS Code editor" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_25.png" alt="Screenshot of the VS Code file type selection prompt" width="600px" >}}

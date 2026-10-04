@@ -16,9 +16,9 @@ Export your profile: **… -> Export...**
 
 On the target machine, select **Import Profile > Create**
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_53.png" alt="Screenshot of the VS Code Command Palette showing Preferences: Open Profiles option" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_53.png" alt="Screenshot of the VS Code profile list with a 3-dot menu showing the Export option for a specific profile" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_54.png" alt="Screenshot of the VS Code profile export dialog" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_54.png" alt="Screenshot of the Select Profile Template File dialog in VS Code" width="600px" >}}
 
 ---
 
@@ -51,7 +51,7 @@ Passwordless login!
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_56.png" alt="Screenshot of the VS Code Source Control panel showing Git integration" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_57.png" alt="Screenshot of VS Code showing GitHub source control operations including push, pull, and commit" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_57.png" alt="Screenshot of the VS Code Git clone dialog with a URL typed in" width="600px" >}}
 
 **Get started with Git and GitHub:**
 

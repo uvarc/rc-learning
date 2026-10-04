@@ -23,7 +23,7 @@ menu:
   - GUI, debugger
   - Extensions for extra functionality
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_3.png" alt="Diagram showing VS Code positioned between a full IDE and a lightweight code editor" width="500px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_3.png" alt="VS Code logo" width="200px" >}}
 
 - Developed by Microsoft in **2015**
 - Similar to **Visual Studio** which is a true **IDE**

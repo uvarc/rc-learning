@@ -10,13 +10,9 @@ menu:
 
 ## **Debugging**
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_26.png" alt="Screenshot of the VS Code debugger interface overview" width="600px" >}}
-
 VS Code lets you debug without modifying your code.
 
 Add breakpoints and view variables be updated as the code runs.
-
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_27.png" alt="Screenshot showing breakpoints placed in a Python file in VS Code" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_28.png" alt="Screenshot of the VS Code debug toolbar with step control buttons" width="600px" >}}
 
@@ -45,11 +41,11 @@ Walk through the debug tools
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_29.png" alt="Screenshot of inserting a breakpoint by clicking the line gutter in VS Code" width="200px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_30.png" alt="Screenshot of a VS Code debug session running with the integrated terminal open" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_30.png" alt="Screenshot of the Run menu with the Start Debugging option" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_31.png" alt="Screenshot of the VS Code variables panel showing variable values during a debug session" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_32.png" alt="Screenshot of VS Code debug controls during an active debug session" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_32.png" alt="Screenshot of the VS Code debug toolbar with step control buttons" width="600px" >}}
 
 ---
 
@@ -59,7 +55,7 @@ Walk through the debug tools
 
 From here you can use regular terminal commands like `pwd` or even load modules!
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_33.png" alt="Screenshot of the VS Code integrated terminal panel" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_33.png" alt="Screenshot of the terminal menu in VS Code" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_34.png" alt="Screenshot of the VS Code terminal with HPC module load commands" width="600px" >}}
 
@@ -83,25 +79,25 @@ Select your environment from your list!
 
 When you run your code it will run in your environment.
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_35.png" alt="Screenshot of the Python interpreter selection prompt in VS Code" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_35.png" alt="Screenshot of the Python interpreter selection button in VS Code's bottom status bar" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_36.png" alt="Screenshot of the list of available Python interpreters in VS Code including conda environments" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_37.png" alt="Screenshot of the selected Python interpreter displayed in the VS Code status bar" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_37.png" alt="Screenshot of the VS Code terminal running a Python script with the selected interpreter" width="600px" >}}
 
 ---
 
 ## **Run a File**
 
-Modify your file with some basic runnable python code
+Modify your file with some basic runnable Python code
 
 **Run > Run Without Debugging**
 
 Opens a terminal automatically
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_38.png" alt="Screenshot of the VS Code Run menu with Run Without Debugging option highlighted" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_38.png" alt="Screenshot of an example Python script in the VS Code editor" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_39.png" alt="Screenshot of a Python script executing in the VS Code integrated terminal" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_39.png" alt="Screenshot of the VS Code Run menu, including the Run Without Debugging option" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_40.png" alt="Screenshot of Python script output displayed in the VS Code terminal" width="600px" >}}
 
@@ -129,6 +125,6 @@ These changes stay even when you open a new interactive session
 
 You can even download extra extensions!
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_42.png" alt="Screenshot of the VS Code File menu with Preferences option" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_42.png" alt="Screenshot of the VS Code File menu with the Preferences, Keyboard Shortcuts option highlighted" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_43.png" alt="Screenshot of the VS Code settings panel" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_43.png" alt="Screenshot of the VS Code extension marketplace search" width="600px" >}}
