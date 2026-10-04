@@ -55,7 +55,7 @@ Walk through the debug tools
 
 From here you can use regular terminal commands like `pwd` or even load modules!
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_33.png" alt="Screenshot of the terminal menu in VS Code" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_33.png" alt="Screenshot of the terminal menu in VS Code with the New Terminal option circled" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_34.png" alt="Screenshot of the VS Code terminal with HPC module load commands" width="600px" >}}
 
@@ -95,7 +95,7 @@ Modify your file with some basic runnable Python code
 
 Opens a terminal automatically
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_38.png" alt="Screenshot of an example Python script in the VS Code editor" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_38.png" alt="Screenshot of the VS Code editor with the Run Python File button circled" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_39.png" alt="Screenshot of the VS Code Run menu, including the Run Without Debugging option" width="600px" >}}
 
@@ -125,6 +125,6 @@ These changes stay even when you open a new interactive session
 
 You can even download extra extensions!
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_42.png" alt="Screenshot of the VS Code File menu with the Preferences, Keyboard Shortcuts option highlighted" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_42.png" alt="Screenshot of the VS Code File menu with the Preferences submenu circled" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_43.png" alt="Screenshot of the VS Code extension marketplace search" width="600px" >}}

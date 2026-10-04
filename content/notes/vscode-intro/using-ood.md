@@ -49,7 +49,7 @@ Appears in the explorer for easy navigation
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_12.png" alt="Screenshot of the VS Code File menu with Open Folder option highlighted" width="600px" >}}
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_11.png" alt="Screenshot of the folder selection dialog in VS Code" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_11.png" alt="Screenshot of the Open Folder button in VS Code's welcome screen" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_10.png" alt="Screenshot of the VS Code explorer panel after a folder has been opened" width="600px" >}}
 
@@ -65,7 +65,7 @@ Appears in the explorer for easy navigation
 
 ### **Workspaces**
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_15.png" alt="Screenshot of the VS Code Open Workspace From File dialog" width="600px" >}}
+
 
 **Save a Workspace:**
 
@@ -74,6 +74,8 @@ Select **File > Save Workspace As**
 **Open a Workspace:**
 
 Select **File > Open Workspace from File...**
+
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_15.png" alt="Screenshot of the VS Code Open Workspace From File dialog" width="600px" >}}
 
 Workspaces are configurations of your files and folders, so it can easily let you access your project configurations. You can even modify specific settings!
 
@@ -105,7 +107,7 @@ Select your file type
 
 Make sure it is in the right folder, or move it to the correct folder in the file explorer on the left
 
-{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_21.png" alt="Screenshot of the New File and Open File buttons on VS Code's Start screen" width="600px" >}}
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_21.png" alt="Screenshot of the New File button on VS Code's Start screen" width="600px" >}}
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_22.png" alt="Screenshot of the VS Code File menu with New File option highlighted" width="600px" >}}
 

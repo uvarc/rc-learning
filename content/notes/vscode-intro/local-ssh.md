@@ -118,6 +118,25 @@ If you want to run Python code you need to "Run Python File" first, then type in
 
 {{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_52.png" alt="Screenshot of the Run Python File button in VS Code" width="600px" >}}
 
+## **Interactive JupyterLab**
+
+Start an ijob, then load JupyterLab and start a notebook server:
+
+```bash
+module load miniforge jupyterlab
+jupyter-notebook --no-browser --ip=0.0.0.0
+```
+
+Copy the URL that starts with `http://`.
+
+In VS Code, select **Existing Jupyter Server**, paste the URL, and press Enter.
+
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_58.png" alt="Screenshot of VS Code menu showing the Existing Jupyter Server option" width="600px" >}}
+
+Select your kernel from the kernels we offer or [create your own kernel from a conda environment](https://archive.rc.virginia.edu/userinfo/howtos/rivanna/custom-jupyter-kernels/ "Custom Jupyter Kernels page on UVA Research Computing website").
+
+{{< figure src="/notes/vscode-intro/img/Introduction%20to%20visual%20studio%20code%20for%20hpc%20%281%29_59.png" alt="Screenshot of VS Code Jupyter kernel selector showing a TensorFlow 2.17.0 kernel" width="600px" >}}
+
 ---
 
 ## **Logging Out**
