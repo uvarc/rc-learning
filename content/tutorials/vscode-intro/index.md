@@ -19,5 +19,6 @@ weight: 240
 
 
 pdf: vscode-intro
+notes: vscode-intro
 
 ---
