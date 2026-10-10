@@ -81,6 +81,12 @@ with open("output.txt", "w") as f:
 
 ## Token Tracking
 
-It's important to monitor token usage to stay within limits and ensure requests don't exceed the context window. Token counts are included in every API response. For example, `stream_options={"include_usage": True}` can be set in the OpenAI `client.chat.completions.create` call to collect token usage info (e.g., input and output tokens).
+It's important to monitor token usage to stay within limits and ensure requests don't exceed the context window. Token counts are included in every API response. Usage is included on default when `stream=False` in OpenAI `client.chat.completions.create` call. Input, output, and total token usage can be tracked in your script with
+
+```
+print(f"Input tokens: {response.usage.prompt_tokens}")
+print(f"Output tokens: {response.usage.completion_tokens}")
+print(f"Total tokens: {response.usage.total_tokens}")
+```
 
 Similar fields exist in the Anthropic SDK and other tools.
