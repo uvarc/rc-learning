@@ -16,7 +16,7 @@ Below are the first steps needed for all users regardless of access method:
 
 {{< info >}}
   Accessing UVA RC GenAI requires an active UVA computing
-  ID, research computing account and EServices password for Netbadge
+  ID, research computing account and EServices password for NetBadge
   authentication. Duo two-factor authentication is required for
   browser access.
 {{< /info >}}

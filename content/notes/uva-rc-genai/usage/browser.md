@@ -11,9 +11,9 @@ menu:
     parent: Usage
 ---
 
-After signing into [UVA RC GenAI](https://open-webui.rc.virginia.edu/), you should have browser access to the OpenWebUI interface.
+After signing into [UVA RC GenAI](https://open-webui.rc.virginia.edu/), you should have browser access to the Open WebUI interface.
 
-{{< figure src="/notes/uva-rc-genai/img/openwebui.png" alt="Screenshot of OpenWebUI interface in browser with UVA RC GenAI"  >}}
+{{< figure src="/notes/uva-rc-genai/img/openwebui.png" alt="Screenshot of Open WebUI interface in browser with UVA RC GenAI"  >}}
 
 Here, you can chat through the conversational interface, adjust integrations (e.g., web search), or even upload and attach content to the chat session.
 
@@ -28,7 +28,7 @@ More on data management will be discussed in [Data Management](/notes/uva-rc-gen
 
 ## Custom Models and Workspaces
 
-Custom models can be created under the Workspace tab on the left side of the OpenWebUI interface. Custom models can be tuned with specific system prompts and additional capabilities outside of the base offering.
+Custom models can be created under the Workspace tab on the left side of the Open WebUI interface. Custom models can be tuned with specific system prompts and additional capabilities outside of the base offering.
 
 The base model is configured with streaming enabled on default. Custom models with streaming disabled can be useful to de-clutter output prompts from programatic API calls. 
 

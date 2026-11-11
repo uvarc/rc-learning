@@ -13,9 +13,9 @@ menu:
 
 
 ## Methods for Saving Chats
-Methods for saving chats via API were discussed [earlier](/notes/uva-rc-genai/usage/api/#saving-outputs), but you also have the option to export or save chats through the OpenWebUI interface. Clicking the three dots next to your icon in the upper-right section of the interface displays the options to either download or copy the chat session.
+Methods for saving chats via API were discussed [earlier](/notes/uva-rc-genai/usage/api/#saving-outputs), but you also have the option to export or save chats through the Open WebUI interface. Clicking the three dots next to your icon in the upper-right section of the interface displays the options to either download or copy the chat session.
 
-{{< figure src="/notes/uva-rc-genai/img/browser_save.png" alt="Screenshot of OpenWebUI option to Download or Copy chat"  >}}
+{{< figure src="/notes/uva-rc-genai/img/browser_save.png" alt="Screenshot of Open WebUI option to Download or Copy chat"  >}}
 
 The chat can be downloaded in three formats (`.txt`, `.pdf`, `.json`). Saving as a `.txt` file stores only your prompts and the LLM's responses/reasonings; however, saving as a `.json` includes metadata (e.g., timestamps, model, version, message IDs, etc), which may be useful in certain cases. 
 
