@@ -5,7 +5,7 @@ summary: "This tutorial is an introduction to using UVA's high-performance compu
 # Schedule page publish date (NOT talk date).
 publishDate: "2021-04-13T00:00:00"
 
-authors: [jmh,kah,pbo]
+authors: [jmh,kah,pbo,gka]
 tags: [HPC_Intro]
 categories: ["HPC Intro"]
 
